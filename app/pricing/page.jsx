@@ -61,7 +61,7 @@ export default function PricingPage() {
       <section className="pb-20 px-6">
         <div className="max-w-container mx-auto grid md:grid-cols-3 gap-6">
           {tiers.map((t) => (
-            <div key={t.name} className={`bg-swoop-card border rounded-xl p-8 flex flex-col ${t.popular ? 'border-swoop-green ring-2 ring-swoop-green/20 scale-105' : 'border-swoop-border'}`}>
+            <div key={t.name} className={`bg-swoop-card border rounded-xl p-8 flex flex-col ${t.popular ? 'border-swoop-green ring-2 ring-swoop-green/20 md:scale-105' : 'border-swoop-border'}`}>
               {t.popular && (
                 <span className="inline-block self-start text-xs font-bold text-swoop-dark bg-swoop-green px-3 py-1 rounded-full mb-4">Most Popular</span>
               )}
