@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container footer-grid">
+      <nav className="container footer-grid" aria-label="Footer navigation">
         <div>
           <h4>Platform</h4>
           <a href="#platform">Five Lenses</a>
@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <h4>Features</h4>
           <a href="#">Operations</a>
-          <a href="#">Revenue & F&B</a>
+          <a href="#">Revenue &amp; F&amp;B</a>
           <a href="#">Retention</a>
         </div>
         <div id="who-we-serve">
@@ -30,16 +30,16 @@ export default function Footer() {
           <a href="#">About</a>
           <a href="mailto:demo@swoopgolf.com">demo@swoopgolf.com</a>
         </div>
-      </div>
+      </nav>
 
       <div className="container footer-bottom">
         <p>Copyright {new Date().getFullYear()} Swoop Golf Member Intelligence. All rights reserved.</p>
-        <div>
+        <nav aria-label="Legal and social links">
           <a href="#">LinkedIn</a>
           <a href="#">Twitter/X</a>
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
-        </div>
+        </nav>
       </div>
     </footer>
   )

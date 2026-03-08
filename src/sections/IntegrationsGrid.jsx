@@ -1,18 +1,21 @@
 const groups = [
-  { title: "Tee Sheet", tools: ["ForeTees", "Northstar"] },
-  { title: "POS", tools: ["Jonas", "Club Essential"] },
-  { title: "CRM", tools: ["Club Essential CRM", "Custom Club CRM"] },
-  { title: "Staffing", tools: ["7shifts", "Schedule Engine"] }
+  { title: "Tee Sheet", tools: ["ForeTees", "EZLinks"] },
+  { title: "POS", tools: ["Jonas", "Northstar"] },
+  { title: "CRM", tools: ["Club Essential", "Clubessential"] },
+  { title: "Communication", tools: ["Mailchimp", "Twilio"] },
+  { title: "Accounting", tools: ["QuickBooks"] }
 ]
 
 export default function IntegrationsGrid() {
   return (
-    <section className="section">
+    <section className="section" aria-label="Integrations">
       <div className="container">
         <h2>Works With Your Existing Systems</h2>
-        <p className="section-subhead">Swoop connects to the tools your club already uses with no rip and replace.</p>
+        <p className="section-subhead">Live in under 2 weeks. No rip-and-replace.</p>
 
-        <div className="integrations-grid">
+        <div className="integration-count data-number">28 integrations across 10 systems</div>
+
+        <div className="integrations-grid integration-categories">
           {groups.map((group) => (
             <article key={group.title} className="integration-group">
               <h3>{group.title}</h3>
@@ -24,8 +27,6 @@ export default function IntegrationsGrid() {
             </article>
           ))}
         </div>
-
-        <p className="integration-note">Don&apos;t see your system? We&apos;re adding new integrations every month.</p>
       </div>
     </section>
   )

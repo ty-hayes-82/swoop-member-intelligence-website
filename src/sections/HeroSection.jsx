@@ -1,10 +1,17 @@
 import { motion } from "framer-motion"
 
+const stats = [
+  "$1.4M avg dues at risk identified",
+  "6-8 wk early warning",
+  "28 integrations, live in 2 weeks"
+]
+
 export default function HeroSection() {
   return (
-    <section id="top" className="hero-section">
+    <section id="top" className="hero-section" aria-label="Hero">
       <div className="container hero-grid">
         <motion.div
+          className="hero-content"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -13,8 +20,8 @@ export default function HeroSection() {
           <p className="eyebrow">Member Intelligence Platform</p>
           <h1>Every resignation has a 90-day warning. Are you seeing it?</h1>
           <p className="hero-subhead">
-            Swoop connects your tee sheet, POS, and member data into a single intelligence layer so you know who&apos;s at risk,
-            what&apos;s leaking revenue, and what to do about it before Monday morning.
+            Swoop helps private club GMs predict member churn, optimize tee sheets, and prove revenue impact with one
+            operating layer across golf, F&amp;B, and member engagement.
           </p>
           <div className="hero-ctas">
             <a href="mailto:demo@swoopgolf.com?subject=Book%20a%20Swoop%20Demo" className="btn-primary">Book a Demo</a>
@@ -27,17 +34,18 @@ export default function HeroSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="hero-panel"
+          className="hero-dashboard-placeholder"
+          role="img"
+          aria-label="Five Lenses Dashboard placeholder"
         >
-          <h3>Monday GM Briefing</h3>
-          <ul>
-            <li><span>Retention Risk</span><strong>5 Members Flagged</strong></li>
-            <li><span>Revenue Leak</span><strong>$14,200 This Month</strong></li>
-            <li><span>Service Alert</span><strong>Dining SLA Trending Down</strong></li>
-            <li><span>Demand Shift</span><strong>Weekend PM Slots +18%</strong></li>
-          </ul>
-          <a href="#" className="hero-video-link">Watch 2-minute product tour</a>
+          <span>Five Lenses Dashboard</span>
         </motion.div>
+      </div>
+
+      <div className="container hero-stats" aria-label="Platform outcomes">
+        {stats.map((stat) => (
+          <p key={stat} className="hero-stat data-number">{stat}</p>
+        ))}
       </div>
     </section>
   )

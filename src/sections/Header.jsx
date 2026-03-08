@@ -10,14 +10,15 @@ export default function Header() {
 
         <button
           className="menu-toggle"
-          aria-label="Toggle menu"
+          aria-label="Toggle main menu"
           aria-expanded={open}
+          aria-controls="primary-nav"
           onClick={() => setOpen((prev) => !prev)}
         >
           Menu
         </button>
 
-        <nav className={`primary-nav ${open ? "open" : ""}`}>
+        <nav id="primary-nav" className={`primary-nav ${open ? "open" : ""}`} aria-label="Primary navigation">
           <a href="#platform">Platform</a>
           <a href="#who-we-serve">Who We Serve</a>
           <a href="#resources">Resources</a>
