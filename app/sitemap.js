@@ -8,7 +8,7 @@ export default function sitemap() {
     '/ai-agents',
     '/case-studies', '/case-studies/oakmont-hills',
     '/roi-calculator',
-    '/resources', '/resources/churn-prevention-guide', '/resources/cost-of-churn',
+    '/resources', '/resources/churn-prevention-guide', '/resources/cost-of-churn', '/resources/ai-agents-primer',
     '/for/private-clubs', '/for/country-clubs', '/for/multi-club-operators',
     '/for/general-managers', '/for/ownership-board', '/for/directors-of-golf',
     '/features/member-health', '/features/demand-optimization', '/features/ai-agents', '/features/cross-system-intelligence',
