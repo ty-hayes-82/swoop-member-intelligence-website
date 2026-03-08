@@ -23,8 +23,8 @@ export default function RoiCalculator() {
     <section className="section roi-section">
       <div className="container roi-wrap">
         <div>
-          <h2>Member Retention ROI Calculator</h2>
-          <p className="section-subhead">Estimate how much lifetime revenue is at risk and what targeted intervention can protect.</p>
+          <h2>What Is Preventable Attrition Costing Your Club?</h2>
+          <p className="section-subhead">Every resignation carries years of lost revenue. See the real cost — and what Swoop prevents.</p>
 
           <div className="roi-inputs">
             <label>
@@ -45,7 +45,7 @@ export default function RoiCalculator() {
         </div>
 
         <aside className="roi-output">
-          <p>Estimated lifetime revenue at risk</p>
+          <p>Lifetime Revenue at Risk</p>
           <h3>{formatCurrency(risk)}</h3>
           <p className="retained-line">If Swoop prevents just 3 resignations: {formatCurrency(retained)} retained</p>
           <a href="#demo" className="btn-primary">See How Swoop Protects Your Revenue</a>

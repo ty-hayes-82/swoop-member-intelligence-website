@@ -22,7 +22,7 @@ export default function FinalCta() {
   return (
     <section id="demo" className="final-cta">
       <div className="container final-cta-inner">
-        <h2>See What Your Data Already Knows</h2>
+        <h2>Every week you wait, another member quietly walks away.</h2>
         <p>Book a 15-minute demo. We&apos;ll show you insights from your own club data within 48 hours.</p>
 
         {submitted ? (
