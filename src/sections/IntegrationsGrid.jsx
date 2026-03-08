@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 const groups = [
   { title: "Tee Sheet & Golf", tools: ["ForeTees", "EZLinks", "ForeUp", "GolfNow"] },
   { title: "POS & Club Management", tools: ["Jonas", "Northstar", "Club Essential", "Clubessential", "Club Prophet"] },
@@ -9,7 +11,13 @@ const groups = [
 export default function IntegrationsGrid() {
   return (
     <section className="section" aria-label="Integrations">
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <h2>Works With Your Existing Systems</h2>
         <p className="section-subhead">Live in under 2 weeks. No rip-and-replace.</p>
 
@@ -27,7 +35,7 @@ export default function IntegrationsGrid() {
             </article>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

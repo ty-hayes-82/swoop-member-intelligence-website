@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 const features = [
   { name: "Cross-system intelligence", swoop: "yes", noteefy: "no", crm: "partial", spreadsheets: "no" },
   { name: "First-party member data", swoop: "yes", noteefy: "no", crm: "no", spreadsheets: "no" },
@@ -23,7 +25,13 @@ function Cell({ value }) {
 export default function ComparisonTable() {
   return (
     <section id="comparison" className="section comparison-section">
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <h2>Why Swoop?</h2>
         <p className="section-subhead comparison-subhead">
           Noteefy fills tee times. <strong>Swoop fills tee times with the right members.</strong>
@@ -57,7 +65,7 @@ export default function ComparisonTable() {
         <div className="comparison-cta">
           <a href="#demo" className="btn-primary">See the Difference — Book a Demo</a>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
