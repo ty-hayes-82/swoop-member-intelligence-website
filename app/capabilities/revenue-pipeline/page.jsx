@@ -9,7 +9,7 @@ const metrics = [
   { title: 'Per-Slot Revenue Optimization', desc: 'Not all tee times are equal. Saturday 8am generates $340/slot. Tuesday 2pm generates $95. Swoop helps you allocate inventory to maximize yield without alienating members.' },
   { title: 'Retention-Driven Yield', desc: 'Revenue isn\'t just about filling slots — it\'s about filling them with members who renew. A $312/slot with retained members beats $340/slot if the high-payer resigns next quarter.' },
   { title: 'Guest-to-Member Pipeline', desc: 'Track which guest rounds convert to membership inquiries, applications, and joins. $36K in membership revenue is hiding in your guest data — Swoop surfaces it.' },
-  { title: 'Revenue Attribution', desc: 'Which playbook actions actually recovered revenue? Swoop tracks from intervention to outcome: "Member Save sequence → James Whitfield retained → $22K/yr protected."' },
+  { title: 'Revenue Attribution', desc: 'Which playbook actions actually recovered revenue? Swoop tracks from intervention to outcome: "Member Pulse sequence → James Whitfield retained → $22K/yr protected."' },
   { title: 'Dues Yield Analysis', desc: 'Revenue per member varies 4x across your roster. Know which segments are over-indexed, under-served, or declining — and what it means for next year\'s budget.' },
   { title: 'Board-Ready Reporting', desc: 'Auto-generated monthly summaries: revenue trends, retention impact, pipeline health, and ROI on every AI-recommended action. No more manual board report assembly.' },
 ]

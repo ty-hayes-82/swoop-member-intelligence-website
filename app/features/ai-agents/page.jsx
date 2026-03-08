@@ -8,35 +8,7 @@ export const metadata = {
 
 const agents = [
   {
-    name: 'Demand Sentinel',
-    icon: '🔍',
-    color: 'bg-lens-operations',
-    role: 'Monitors tee sheet demand patterns and flags anomalies',
-    capabilities: [
-      'Detects booking velocity changes (up or down >20% vs. historical baseline)',
-      'Identifies demand shifts by day/time/weather correlation',
-      'Flags under-capacity risk 72 hours ahead',
-      'Recommends targeted member outreach for low-demand slots',
-    ],
-    exampleAlert: 'Saturday 9:00-11:00 AM slots trending 35% below baseline for next weekend. Recommend targeted push notification to 47 engaged members who historically book Saturday mornings.',
-    avgImpact: '+12 tee time bookings/week',
-  },
-  {
-    name: 'Waitlist Optimizer',
-    icon: '⟳',
-    color: 'bg-lens-operations',
-    role: 'Reorders waitlists by retention value + match-fit',
-    capabilities: [
-      'Ranks waitlist by: churn risk × lifetime value × acceptance probability',
-      'Factors in playing partner preferences and tee time history',
-      'Predicts acceptance rate per member per slot',
-      'Auto-fills canceled slots with retention-prioritized routing',
-    ],
-    exampleAlert: '7:40 AM Saturday slot canceled. Routing to Anne Jordan (health 52, LTV $14K, 92% accept rate) instead of FIFO member Tom Chen (health 94, LTV $8K).',
-    avgImpact: '+$138K annual dues protected via retention-first routing',
-  },
-  {
-    name: 'Member Save Agent',
+    name: 'Member Pulse',
     icon: '◉',
     color: 'bg-lens-members',
     role: 'Detects at-risk members and triggers save sequences',
@@ -50,24 +22,39 @@ const agents = [
     avgImpact: '6.4 week early warning before resignation',
   },
   {
-    name: 'F&B Flow Agent',
+    name: 'Demand Optimizer',
+    icon: '🔍',
+    color: 'bg-lens-operations',
+    role: 'Balances waitlist demand, cancellation prediction, and tee sheet fill optimization',
+    capabilities: [
+      'Ranks waitlist by: churn risk × lifetime value × acceptance probability',
+      'Predicts cancellation likelihood 24-72 hours ahead',
+      'Detects booking velocity changes vs. historical baseline',
+      'Auto-fills canceled slots with retention-prioritized routing',
+    ],
+    exampleAlert: '7:40 AM Saturday slot canceled. Routing to Anne Jordan (health 52, LTV $14K, 92% accept rate) instead of FIFO member Tom Chen (health 94, LTV $8K).',
+    avgImpact: '+$138K annual dues protected via retention-first routing',
+  },
+
+  {
+    name: 'Service Recovery',
     icon: '◆',
     color: 'bg-lens-fb',
-    role: 'Predicts rushes from tee sheet + weather signals',
+    role: 'Surfaces unresolved complaints and drafts recovery actions before resignation windows close',
     capabilities: [
-      'Analyzes tee sheet bookings + weather forecast + historical post-round conversion',
-      'Predicts Grill Room capacity needs 24-48 hours ahead',
-      'Flags prep signals for kitchen (rush incoming vs. slow day)',
-      'Identifies low-converting members for targeted post-round offers',
+      'Monitors complaint tickets across all systems (POS, CRM, email)',
+      'Flags unresolved issues by member value and resignation risk',
+      'Drafts apology messages and recovery offers for GM approval',
+      'Tracks service recovery success rates and refines recommendations',
     ],
-    exampleAlert: 'Saturday 11:00 AM-1:00 PM: 38 tee times booked, weather clear, 68% historical post-round conversion = ~26 diners expected. Current kitchen staffing: 2 cooks. Recommend: Add 1 line cook for lunch shift.',
-    avgImpact: '+18% post-round F&B conversion via targeted offers',
+    exampleAlert: 'James Whitfield complaint (pace of play) unresolved for 6 days. Member health score declined 14 points. Resignation risk: high. Recommend: Personal GM call + expedited resolution + complimentary round. Success rate for this playbook: 81%.',
+    avgImpact: '81% save rate on flagged service-risk members',
   },
   {
-    name: 'Labor Planner',
+    name: 'Labor Optimizer',
     icon: '⊞',
     color: 'bg-lens-staffing',
-    role: 'Forecasts coverage gaps and recommends shifts',
+    role: 'Forecasts staffing gaps and recommends coverage shifts to protect service quality and margin',
     capabilities: [
       'Predicts demand by outlet/shift based on tee sheet + events + weather',
       'Compares projected demand vs. scheduled labor coverage',
@@ -81,7 +68,7 @@ const agents = [
     name: 'Revenue Analyst',
     icon: '◎',
     color: 'bg-lens-pipeline',
-    role: 'Attribution insights and ROI tracking',
+    role: 'Flags preventable revenue leakage and recommends high-confidence margin actions',
     capabilities: [
       'Tracks revenue per tee time slot by member tier',
       'Attributes revenue to specific GM interventions',
@@ -90,6 +77,20 @@ const agents = [
     ],
     exampleAlert: 'Q1 retention initiatives (47 interventions approved): $338K in annual dues protected, $89K in incremental F&B spend. Total cost: $12K (GM time + offers). Net ROI: 35.6x.',
     avgImpact: 'Board-ready attribution for every operational decision',
+  },
+  {
+    name: 'Engagement Autopilot',
+    icon: '⟳',
+    color: 'bg-lens-members',
+    role: 'Monitors declining participation and proposes targeted outreach for member reactivation',
+    capabilities: [
+      'Tracks engagement decay across all touchpoints (golf, dining, events)',
+      'Identifies members shifting from active to passive participation',
+      'Recommends personalized re-engagement campaigns',
+      'Measures campaign effectiveness and adjusts messaging',
+    ],
+    exampleAlert: 'Sarah Mitchell: 6 weeks since last visit, declined 3 event invitations, email engagement dropped 80%. Recommend: Personal invitation to member-guest tournament + complimentary F&B voucher. Acceptance probability: 67%.',
+    avgImpact: '42% reactivation rate on declining members',
   },
 ]
 
