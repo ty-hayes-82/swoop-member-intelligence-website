@@ -36,6 +36,8 @@ const integrationCategories = [
   { label: 'Communications', vendors: ['Twilio', 'SendGrid', 'Mailchimp', 'Intercom'] },
   { label: 'Staffing & Payroll', vendors: ['ADP', 'Paychex', 'When I Work'] },
   { label: 'Finance & BI', vendors: ['QuickBooks', 'Sage', 'NetSuite', 'Power BI'] },
+  { label: 'Web & Lead Capture', vendors: ['HubSpot', 'Typeform'] },
+  { label: 'Access & Activity', vendors: ['Gatekeeper', 'BrivoAccess', 'Club Automation'] },
 ]
 
 function ComparisonCell({ value }) {
