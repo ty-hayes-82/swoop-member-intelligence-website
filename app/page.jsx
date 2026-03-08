@@ -141,10 +141,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Five Lenses */}
+      {/* Core Capabilities */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Five Lenses. One Platform.</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Your Complete Command Center</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">Every GM decision category — member health, tee sheet demand, F&B, staffing, and revenue — connected and actionable in one place.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {lenses.map((lens) => (

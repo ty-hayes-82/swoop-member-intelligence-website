@@ -134,7 +134,7 @@ export default function IntegrationsPage() {
               <div className="my-4 text-4xl text-swoop-green">→</div>
             </div>
 
-            {/* Right: Five Lenses */}
+            {/* Right: Swoop Delivers */}
             <div className="space-y-3">
               <h3 className="text-sm font-bold text-swoop-muted uppercase mb-4">Swoop Delivers</h3>
               {[
