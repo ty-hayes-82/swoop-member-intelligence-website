@@ -108,7 +108,7 @@ export default function GeneralManagersPage() {
       </section>
 
       <CTASection 
-        headline="See your club through a GM's lens." 
+        headline="See your club the way you have always wanted." 
         subtext="We'll walk you through a typical Monday morning in Swoop — from Daily Briefing to approved AI recommendations." 
       />
     </>
