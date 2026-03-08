@@ -28,6 +28,10 @@ module.exports = {
       maxWidth: {
         container: '1200px',
       },
+      screens: {
+        'xs': '375px',
+        'xxs': '390px',
+      },
     },
   },
   plugins: [],

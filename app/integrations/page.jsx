@@ -74,9 +74,16 @@ export default function IntegrationsPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Your tools manage operations.<br />Swoop connects them and tells you what they mean together.
           </h1>
-          <p className="text-lg text-swoop-muted max-w-3xl mx-auto">
+          <p className="text-lg text-swoop-muted max-w-3xl mx-auto mb-8">
             These systems collect data. Swoop is the intelligence layer that connects them, adds location-aware behavioral signals, and turns cross-system patterns into actionable recommendations.
           </p>
+          <div className="bg-swoop-green/10 border-2 border-swoop-green rounded-xl p-6 max-w-2xl mx-auto">
+            <p className="text-base font-semibold mb-2">No rip-and-replace required.</p>
+            <p className="text-sm text-swoop-muted">
+              Swoop connects to your existing club management system (Jonas, Northstar, Club Essential), tee sheet platform (ForeTees, Chelsea, EZLinks), POS, and payroll. 
+              We sit on top — adding intelligence without replacing the operational tools your staff already knows.
+            </p>
+          </div>
         </div>
       </section>
 

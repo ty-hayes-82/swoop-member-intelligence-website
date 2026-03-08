@@ -87,9 +87,9 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-3 gap-3 mb-4">
               {[
-                { label: 'Members at Risk', value: '5', color: 'border-lens-members' },
-                { label: 'Dues at Risk', value: '$778K', color: 'border-lens-operations' },
-                { label: 'Actions Pending', value: '3', color: 'border-lens-agents' },
+                { label: 'Members at Risk', value: '23', color: 'border-lens-members' },
+                { label: 'Annual Value at Risk', value: '$1.38M', color: 'border-lens-operations' },
+                { label: 'Actions Pending', value: '7', color: 'border-lens-agents' },
               ].map((s) => (
                 <div key={s.label} className={`bg-white/5 rounded-lg p-3 border-t-2 ${s.color}`}>
                   <p className="text-white/50 text-xs">{s.label}</p>
@@ -106,9 +106,9 @@ export default function HomePage() {
         </div>
         {/* Hero stats */}
         <div className="max-w-container mx-auto mt-12 flex flex-wrap justify-center gap-8 text-sm font-mono text-swoop-muted">
-          <span>$1.4M avg dues at risk identified</span>
-          <span>6–8 week early warning on churn</span>
-          <span>91% tee sheet fill rate</span>
+          <span>$1.38M annual value at risk identified</span>
+          <span>6.4 week average early warning</span>
+          <span>87% tee sheet fill rate</span>
         </div>
       </section>
 
