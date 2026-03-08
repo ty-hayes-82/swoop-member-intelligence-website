@@ -24,6 +24,7 @@ export default function StickyNav() {
         <nav className="hidden md:flex items-center gap-8">
           <Link href="/platform" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">Platform</Link>
           <Link href="/pricing" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">Pricing</Link>
+          <Link href="/resources" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">Resources</Link>
           <Link href="/why-swoop" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">Why Swoop</Link>
           <Link href="/how-it-works" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">How It Works</Link>
           <Link
@@ -55,6 +56,7 @@ export default function StickyNav() {
         <nav className="md:hidden border-t border-swoop-border bg-white px-6 py-4 space-y-2">
           <Link href="/platform" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Platform</Link>
           <Link href="/pricing" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Pricing</Link>
+          <Link href="/resources" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Resources</Link>
           <Link href="/why-swoop" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Why Swoop</Link>
           <Link href="/how-it-works" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">How It Works</Link>
           <Link href="/book-demo" onClick={() => setOpen(false)} className="block mt-2 text-center px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg">Book a Demo</Link>
