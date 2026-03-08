@@ -20,10 +20,10 @@ const tiers = [
   },
   {
     name: 'Pro',
-    price: '$99',
+    price: '$499',
     period: '/month',
-    desc: 'Complete platform analytics with cross-system intelligence and AI agent recommendations.',
-    features: ['Full platform access', 'Cross-system analytics', 'AI agent recommendations', 'Up to 10 integrations', 'Priority support', '14-day free trial'],
+    desc: 'Complete operational intelligence with cross-system analytics and AI agent recommendations.',
+    features: ['Complete platform access', 'Cross-system intelligence', 'AI agent recommendations', 'Up to 10 integrations', 'Priority support', '14-day free trial'],
     cta: 'Start 14-Day Trial',
     href: '/book-demo',
     popular: true,
