@@ -110,7 +110,7 @@ export default function HomePage() {
               "A member stops playing. Dining drops off. Email engagement goes silent. By the time you notice, they've already decided to leave.",
               'Average member replacement cost: 2.5x annual dues. Most GMs find out about churn problems when the resignation letter arrives.',
             ].map((text) => (
-              <div key={text} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
+              <div key={text} className="bg-white border-2 border-slate-200 rounded-2xl p-10 hover:border-swoop-green transition">
                 <p className="text-base leading-relaxed">{text}</p>
               </div>
             ))}
@@ -294,7 +294,7 @@ export default function HomePage() {
           <p className="text-swoop-muted text-center mb-12">Live in under 2 weeks. No rip-and-replace.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrationCategories.map((cat) => (
-              <div key={cat.label} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
+              <div key={cat.label} className="bg-white border-2 border-slate-200 rounded-2xl p-10 hover:border-swoop-green transition">
                 <h3 className="font-semibold mb-3">{cat.label}</h3>
                 <p className="text-sm text-swoop-muted">{cat.description}</p>
               </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
               { title: 'Shape the Roadmap', desc: 'Monthly calls with our product team. Your feature requests get priority. Your workflows drive development.' },
               { title: 'Locked-in Pricing', desc: 'Founding partners keep their launch rate for life, even as the platform grows and pricing increases.' },
             ].map((b) => (
-              <div key={b.title} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
+              <div key={b.title} className="bg-white border-2 border-slate-200 rounded-2xl p-10 hover:border-swoop-green transition">
                 <h3 className="font-semibold mb-2">{b.title}</h3>
                 <p className="text-sm text-swoop-muted">{b.desc}</p>
               </div>
