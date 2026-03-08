@@ -21,6 +21,16 @@ export default function CountryClubsPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold mb-12">The cross-domain advantage.</h2>
+          
+          {/* Product Screenshot */}
+          <div className="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border">
+            <img
+              src="/screenshots/daily-briefing.png"
+              alt="Daily Briefing showing cross-system intelligence"
+              className="w-full"
+            />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-swoop-card border border-swoop-border rounded-xl p-6">
               <h3 className="font-semibold mb-2">Golf → Dining Connection</h3>
