@@ -48,7 +48,7 @@ export default function RoiCalculator() {
           <p>Estimated lifetime revenue at risk</p>
           <h3>{formatCurrency(risk)}</h3>
           <p className="retained-line">If Swoop prevents just 3 resignations: {formatCurrency(retained)} retained</p>
-          <a href="mailto:demo@swoopgolf.com?subject=Protect%20Club%20Revenue" className="btn-primary">See How Swoop Protects Your Revenue</a>
+          <a href="#demo" className="btn-primary">See How Swoop Protects Your Revenue</a>
         </aside>
       </div>
     </section>

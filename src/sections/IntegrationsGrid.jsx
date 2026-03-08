@@ -1,9 +1,9 @@
 const groups = [
-  { title: "Tee Sheet", tools: ["ForeTees", "EZLinks"] },
-  { title: "POS", tools: ["Jonas", "Northstar"] },
-  { title: "CRM", tools: ["Club Essential", "Clubessential"] },
-  { title: "Communication", tools: ["Mailchimp", "Twilio"] },
-  { title: "Accounting", tools: ["QuickBooks"] }
+  { title: "Tee Sheet & Golf", tools: ["ForeTees", "EZLinks", "ForeUp", "GolfNow"] },
+  { title: "POS & Club Management", tools: ["Jonas", "Northstar", "Club Essential", "Clubessential", "Club Prophet"] },
+  { title: "Member & CRM", tools: ["ClubReady", "Mailchimp", "Twilio"] },
+  { title: "F&B & Staffing", tools: ["7shifts", "Toast", "Square"] },
+  { title: "Data & Analytics", tools: ["Weather API", "QuickBooks", "Stripe"] }
 ]
 
 export default function IntegrationsGrid() {
@@ -13,7 +13,7 @@ export default function IntegrationsGrid() {
         <h2>Works With Your Existing Systems</h2>
         <p className="section-subhead">Live in under 2 weeks. No rip-and-replace.</p>
 
-        <div className="integration-count data-number">28 integrations across 10 systems</div>
+        <div className="integration-count data-number">28+ integrations across 10 systems</div>
 
         <div className="integrations-grid integration-categories">
           {groups.map((group) => (

@@ -57,7 +57,7 @@ const agents = [
 
 export default function AiAgentsSection() {
   return (
-    <section className="section agents-section" aria-label="AI agents">
+    <section id="agents" className="section agents-section" aria-label="AI agents">
       <div className="container">
         <h2>Six AI Agents That Work While You Sleep</h2>
         <p className="section-subhead">Swoop&apos;s agents do not just report. They draft, recommend, and act.</p>

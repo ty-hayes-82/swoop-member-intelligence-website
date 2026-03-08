@@ -2,8 +2,8 @@ export default function SocialProofBar() {
   return (
     <section className="social-proof">
       <div className="container social-proof-inner">
-        <p>Trusted by <strong>[24]</strong> private clubs managing <strong>[68,000+]</strong> members.</p>
-        <div className="logo-row" aria-label="Integration and partner placeholders">
+        <p>Join 10+ clubs in our <strong>founding partner program</strong>. Onboarding our first cohort now.</p>
+        <div className="logo-row" aria-label="Integration and partner logos">
           <span>ForeTees</span>
           <span>Jonas</span>
           <span>Club Essential</span>

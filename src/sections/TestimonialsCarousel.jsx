@@ -7,7 +7,7 @@ const cards = [
   },
   {
     title: "No Synthetic Testimonials",
-    body: "Swoop will publish attributed GM quotes here once the first live deployments close their first full quarter."
+    body: "Real results from real clubs — coming soon. Become a founding partner and be first."
   }
 ]
 
@@ -35,7 +35,7 @@ export default function TestimonialsCarousel() {
               <article className="testimonial-card">
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
-                <a href="mailto:demo@swoopgolf.com?subject=Founding%20Partner%20Interest" className="btn-secondary">Become a Founding Partner</a>
+                <a href="#demo" className="btn-secondary">Become a Founding Partner</a>
               </article>
             </SplideSlide>
           ))}

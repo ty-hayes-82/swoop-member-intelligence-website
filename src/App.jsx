@@ -4,6 +4,7 @@ import SocialProofBar from "./sections/SocialProofBar"
 import FiveLensesCards from "./sections/FiveLensesCards"
 import CaseStudyCarousel from "./sections/CaseStudyCarousel"
 import RoiCalculator from "./sections/RoiCalculator"
+import ComparisonTable from "./sections/ComparisonTable"
 import TestimonialsCarousel from "./sections/TestimonialsCarousel"
 import AiAgentsSection from "./sections/AiAgentsSection"
 import IntegrationsGrid from "./sections/IntegrationsGrid"
@@ -20,6 +21,7 @@ export default function App() {
         <FiveLensesCards />
         <CaseStudyCarousel />
         <RoiCalculator />
+        <ComparisonTable />
         <TestimonialsCarousel />
         <AiAgentsSection />
         <IntegrationsGrid />

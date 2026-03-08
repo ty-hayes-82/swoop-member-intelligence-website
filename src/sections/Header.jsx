@@ -20,13 +20,12 @@ export default function Header() {
 
         <nav id="primary-nav" className={`primary-nav ${open ? "open" : ""}`} aria-label="Primary navigation">
           <a href="#platform">Platform</a>
-          <a href="#who-we-serve">Who We Serve</a>
-          <a href="#resources">Resources</a>
-          <a href="#about">About</a>
+          <a href="#platform">Who We Serve</a>
+          <a href="#case-studies">Resources</a>
         </nav>
 
         <div className="header-actions">
-          <a href="mailto:demo@swoopgolf.com?subject=Book%20a%20Swoop%20Demo" className="btn-primary">Book a Demo</a>
+          <a href="#demo" className="btn-primary">Book a Demo</a>
           <a href="#" className="login-link">Login</a>
         </div>
       </div>

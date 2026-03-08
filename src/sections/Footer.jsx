@@ -5,29 +5,29 @@ export default function Footer() {
         <div>
           <h4>Platform</h4>
           <a href="#platform">Five Lenses</a>
-          <a href="#">Daily Briefing</a>
-          <a href="#">AI Agents</a>
+          <a href="#agents">AI Agents</a>
+          <a href="#demo">Book a Demo</a>
         </div>
         <div>
           <h4>Features</h4>
-          <a href="#">Operations</a>
-          <a href="#">Revenue &amp; F&amp;B</a>
-          <a href="#">Retention</a>
+          <a href="#platform">Operations</a>
+          <a href="#platform">Revenue &amp; F&amp;B</a>
+          <a href="#platform">Retention</a>
         </div>
-        <div id="who-we-serve">
+        <div>
           <h4>Who We Serve</h4>
-          <a href="#">Private Clubs</a>
-          <a href="#">Semi-Private</a>
-          <a href="#">Resort Destinations</a>
+          <a href="#platform">Private Clubs</a>
+          <a href="#platform">Semi-Private</a>
+          <a href="#platform">Resort Destinations</a>
         </div>
-        <div id="resources">
+        <div>
           <h4>Resources</h4>
-          <a href="#">Blog</a>
-          <a href="#">Case Studies</a>
+          <a href="#case-studies">Case Studies</a>
+          <a href="#comparison">Competitive Comparison</a>
         </div>
-        <div id="about">
+        <div>
           <h4>Company</h4>
-          <a href="#">About</a>
+          <a href="#demo">Contact</a>
           <a href="mailto:demo@swoopgolf.com">demo@swoopgolf.com</a>
         </div>
       </nav>
