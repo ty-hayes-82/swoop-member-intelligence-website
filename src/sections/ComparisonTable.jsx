@@ -1,15 +1,24 @@
 const features = [
-  { name: "Cross-system intelligence", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "First-party member data", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "Retention-prioritized waitlist", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "AI-powered actions", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "Churn prediction", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "Closed-loop outreach", swoop: true, noteefy: false, jonas: false, spreadsheets: false },
-  { name: "Real-time GPS/behavior", swoop: true, noteefy: false, jonas: false, spreadsheets: false }
+  { name: "Cross-system intelligence", swoop: "yes", noteefy: "no", crm: "partial", spreadsheets: "no" },
+  { name: "First-party member data", swoop: "yes", noteefy: "no", crm: "no", spreadsheets: "no" },
+  { name: "Retention-prioritized waitlist", swoop: "yes", noteefy: "partial", crm: "no", spreadsheets: "no" },
+  { name: "AI-powered actions", swoop: "yes", noteefy: "no", crm: "no", spreadsheets: "no" },
+  { name: "Churn prediction", swoop: "yes", noteefy: "no", crm: "partial", spreadsheets: "no" },
+  { name: "Closed-loop outreach", swoop: "yes", noteefy: "no", crm: "no", spreadsheets: "no" },
+  { name: "Real-time GPS/behavior", swoop: "yes", noteefy: "partial", crm: "no", spreadsheets: "no" },
+  { name: "Tee time demand fill", swoop: "yes", noteefy: "yes", crm: "no", spreadsheets: "partial" },
+  { name: "Member database", swoop: "yes", noteefy: "no", crm: "yes", spreadsheets: "partial" },
 ]
 
 const Check = () => <span className="comparison-check" aria-label="Yes">✓</span>
 const Cross = () => <span className="comparison-cross" aria-label="No">✗</span>
+const Partial = () => <span className="comparison-partial" aria-label="Partial" style={{ color: '#F59E0B', fontWeight: 700, fontSize: '1.15rem' }}>◐</span>
+
+function Cell({ value }) {
+  if (value === "yes") return <Check />
+  if (value === "partial") return <Partial />
+  return <Cross />
+}
 
 export default function ComparisonTable() {
   return (
@@ -27,7 +36,7 @@ export default function ComparisonTable() {
                 <th>Feature</th>
                 <th className="col-swoop">Swoop</th>
                 <th>Noteefy</th>
-                <th>Jonas / Clubessential</th>
+                <th>Your CRM Alone</th>
                 <th>Spreadsheets</th>
               </tr>
             </thead>
@@ -35,10 +44,10 @@ export default function ComparisonTable() {
               {features.map((f) => (
                 <tr key={f.name}>
                   <td className="feature-name">{f.name}</td>
-                  <td className="col-swoop">{f.swoop ? <Check /> : <Cross />}</td>
-                  <td>{f.noteefy ? <Check /> : <Cross />}</td>
-                  <td>{f.jonas ? <Check /> : <Cross />}</td>
-                  <td>{f.spreadsheets ? <Check /> : <Cross />}</td>
+                  <td className="col-swoop"><Cell value={f.swoop} /></td>
+                  <td><Cell value={f.noteefy} /></td>
+                  <td><Cell value={f.crm} /></td>
+                  <td><Cell value={f.spreadsheets} /></td>
                 </tr>
               ))}
             </tbody>

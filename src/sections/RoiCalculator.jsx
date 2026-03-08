@@ -20,7 +20,7 @@ export default function RoiCalculator() {
     new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(value)
 
   return (
-    <section className="section">
+    <section className="section roi-section">
       <div className="container roi-wrap">
         <div>
           <h2>Member Retention ROI Calculator</h2>

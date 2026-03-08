@@ -2,22 +2,20 @@ import { useState } from "react"
 
 export default function FinalCta() {
   const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitting(true)
     const form = e.target
-    try {
-      await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
-      })
-    } catch (_) {
-      // still show success — Formspree endpoint is placeholder
-    }
-    setSubmitting(false)
+    const firstName = form.firstName.value.trim()
+    const clubName = form.clubName.value.trim()
+    const email = form.email.value.trim()
+
+    const subject = encodeURIComponent(`Demo Request from ${firstName} at ${clubName}`)
+    const body = encodeURIComponent(
+      `Name: ${firstName}\nClub: ${clubName}\nEmail: ${email}\n\nRequesting a demo of the Swoop platform.`
+    )
+
+    window.open(`mailto:demo@swoopgolf.com?subject=${subject}&body=${body}`, "_self")
     setSubmitted(true)
   }
 
@@ -30,16 +28,11 @@ export default function FinalCta() {
         {submitted ? (
           <div className="demo-success">
             <span className="demo-success-icon" aria-hidden="true">✓</span>
-            <h3>Thanks! We&apos;ll reach out within 24 hours.</h3>
-            <p>Check your inbox for a confirmation from the Swoop team.</p>
+            <h3>Your email client should open now.</h3>
+            <p>If it didn&apos;t, email us directly at <a href="mailto:demo@swoopgolf.com" className="email-link">demo@swoopgolf.com</a></p>
           </div>
         ) : (
-          <form
-            className="demo-form"
-            method="POST"
-            action="https://formspree.io/f/placeholder"
-            onSubmit={handleSubmit}
-          >
+          <form className="demo-form" onSubmit={handleSubmit}>
             <div className="demo-form-fields">
               <label>
                 <span>First Name</span>
@@ -54,13 +47,15 @@ export default function FinalCta() {
                 <input type="email" name="email" required placeholder="jane@oakmonthills.com" />
               </label>
             </div>
-            <button type="submit" className="btn-primary" disabled={submitting}>
-              {submitting ? "Sending…" : "Request a Demo"}
+            <button type="submit" className="btn-primary">
+              Request a Demo
             </button>
           </form>
         )}
 
-        <p className="email-fallback">Or email us directly: <a href="mailto:demo@swoopgolf.com" className="email-link">demo@swoopgolf.com</a></p>
+        <p className="email-fallback">
+          Or email us directly: <a href="mailto:demo@swoopgolf.com" className="email-link">demo@swoopgolf.com</a>
+        </p>
       </div>
     </section>
   )

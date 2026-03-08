@@ -5,9 +5,9 @@ import FiveLensesCards from "./sections/FiveLensesCards"
 import CaseStudyCarousel from "./sections/CaseStudyCarousel"
 import RoiCalculator from "./sections/RoiCalculator"
 import ComparisonTable from "./sections/ComparisonTable"
-import TestimonialsCarousel from "./sections/TestimonialsCarousel"
 import AiAgentsSection from "./sections/AiAgentsSection"
 import IntegrationsGrid from "./sections/IntegrationsGrid"
+import SecuritySection from "./sections/SecuritySection"
 import FinalCta from "./sections/FinalCta"
 import Footer from "./sections/Footer"
 
@@ -22,9 +22,9 @@ export default function App() {
         <CaseStudyCarousel />
         <RoiCalculator />
         <ComparisonTable />
-        <TestimonialsCarousel />
         <AiAgentsSection />
         <IntegrationsGrid />
+        <SecuritySection />
         <FinalCta />
       </main>
       <Footer />

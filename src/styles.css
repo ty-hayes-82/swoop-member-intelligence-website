@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap");
 
 :root {
   --color-briefing: #6bb8ef;
@@ -10,15 +10,15 @@
   --color-agents: #22d3ee;
 
   --dark-bg: #1f2f24;
-  --page-bg: #f7f5f2;
+  --page-bg: #F8F9FA;
   --card-bg: #ffffff;
   --text-primary: #1f2f24;
-  --text-muted: #5f6b66;
+  --text-muted: #6B7280;
 
-  --font-body: "DM Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
   --font-hero: "DM Serif Display", serif;
   --font-numbers: "JetBrains Mono", monospace;
-  --container-max: 1180px;
+  --container-max: 1200px;
 }
 
 * {
@@ -63,7 +63,7 @@ h2 {
 }
 
 .section {
-  padding: 3.75rem 0;
+  padding: 80px 0;
 }
 
 .section h2 {
@@ -91,9 +91,9 @@ h2 {
   border-radius: 8px;
   font-family: var(--font-body);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.25s ease, filter 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: background 0.2s ease, filter 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
   border: none;
 }
@@ -416,7 +416,7 @@ h2 {
 
 .cards-grid {
   display: grid;
-  gap: 1rem;
+  gap: 32px;
 }
 
 .lens-card,
@@ -512,9 +512,22 @@ h2 {
 
 /* ───── ROI Calculator ───── */
 
+.roi-section {
+  background: var(--dark-bg);
+  color: #e6efe9;
+}
+
+.roi-section h2 {
+  color: #ffffff;
+}
+
+.roi-section .section-subhead {
+  color: #c8d4cc;
+}
+
 .roi-wrap {
   display: grid;
-  gap: 1rem;
+  gap: 32px;
 }
 
 .roi-inputs {
@@ -526,36 +539,50 @@ h2 {
   display: grid;
   gap: 0.3rem;
   font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .roi-inputs input {
-  min-height: 42px;
+  min-height: 46px;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
-  padding: 0 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  padding: 0 0.85rem;
   font-size: 1rem;
   font-family: var(--font-body);
+  transition: border-color 0.2s;
+}
+
+.roi-inputs input:focus {
+  outline: none;
+  border-color: var(--color-operations);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.15);
 }
 
 .roi-output {
-  padding: 1.2rem;
+  padding: 1.5rem;
   align-self: start;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
 .roi-output p {
   margin: 0;
-  color: var(--text-muted);
+  color: #c8d4cc;
 }
 
 .roi-output h3 {
   margin: 0.4rem 0 1rem;
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-size: 48px;
   font-family: var(--font-numbers);
+  color: var(--color-operations);
 }
 
 .retained-line {
   margin-bottom: 1rem;
-  color: var(--text-primary) !important;
+  color: var(--color-operations) !important;
+  font-weight: 600;
 }
 
 /* ───── Comparison Table ───── */
@@ -859,7 +886,8 @@ h2 {
 
 .site-footer {
   padding: 2.2rem 0 1.4rem;
-  background: #ffffff;
+  background: var(--dark-bg);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .footer-grid {
@@ -869,25 +897,39 @@ h2 {
 
 .footer-grid h4 {
   margin: 0 0 0.5rem;
+  color: #ffffff;
 }
 
 .footer-grid a {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   display: block;
   margin-bottom: 0.35rem;
+  transition: color 0.2s;
+}
+
+.footer-grid a:hover {
+  color: #ffffff;
 }
 
 .footer-bottom {
   display: grid;
   gap: 0.6rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   margin-top: 1.5rem;
   padding-top: 1rem;
 }
 
 .footer-bottom p {
   margin: 0;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
 }
 
 .footer-bottom nav {
@@ -898,13 +940,17 @@ h2 {
 
 /* ───── Responsive ───── */
 
-@media (min-width: 375px) {
-  .section {
-    padding: 4rem 0;
-  }
+@media (max-width: 991px) {
+  .section { padding: 48px 0; }
+  .cards-grid { gap: 24px; }
 }
 
-@media (min-width: 480px) {
+@media (max-width: 479px) {
+  .section { padding: 32px 0; }
+  .cards-grid { gap: 16px; }
+}
+
+@media (min-width: 479px) {
   .demo-form-fields {
     grid-template-columns: 1fr 1fr;
   }
@@ -914,7 +960,7 @@ h2 {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .menu-toggle {
     display: none;
   }
@@ -976,7 +1022,7 @@ h2 {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 991px) {
   .cards-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -994,7 +1040,7 @@ h2 {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1240px) {
   :root {
     --container-max: 1280px;
   }
