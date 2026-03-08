@@ -1,23 +1,31 @@
-import Hero from "./sections/Hero"
-import Problem from "./sections/Problem"
-import FiveLenses from "./sections/FiveLenses"
-import CompetitiveWedge from "./sections/CompetitiveWedge"
-import AIAgents from "./sections/AIAgents"
-import Integrations from "./sections/Integrations"
-import SocialProof from "./sections/SocialProof"
-import DemoCTA from "./sections/DemoCTA"
+import Header from "./sections/Header"
+import HeroSection from "./sections/HeroSection"
+import SocialProofBar from "./sections/SocialProofBar"
+import FiveLensesCards from "./sections/FiveLensesCards"
+import CaseStudyCarousel from "./sections/CaseStudyCarousel"
+import RoiCalculator from "./sections/RoiCalculator"
+import TestimonialsCarousel from "./sections/TestimonialsCarousel"
+import AiAgentsSection from "./sections/AiAgentsSection"
+import IntegrationsGrid from "./sections/IntegrationsGrid"
+import FinalCta from "./sections/FinalCta"
+import Footer from "./sections/Footer"
 
 export default function App() {
   return (
-    <main>
-      <Hero />
-      <Problem />
-      <FiveLenses />
-      <CompetitiveWedge />
-      <AIAgents />
-      <Integrations />
-      <SocialProof />
-      <DemoCTA />
-    </main>
+    <>
+      <Header />
+      <main>
+        <HeroSection />
+        <SocialProofBar />
+        <FiveLensesCards />
+        <CaseStudyCarousel />
+        <RoiCalculator />
+        <TestimonialsCarousel />
+        <AiAgentsSection />
+        <IntegrationsGrid />
+        <FinalCta />
+      </main>
+      <Footer />
+    </>
   )
 }
