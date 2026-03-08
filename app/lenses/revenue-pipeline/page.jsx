@@ -21,7 +21,7 @@ export default function RevenuePipelinePage() {
         <div className="max-w-container mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1.5 h-10 rounded-full bg-lens-pipeline" />
-            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider">Lens 5</p>
+            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider">Revenue Intelligence</p>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Revenue & Pipeline</h1>
           <p className="text-lg text-swoop-muted max-w-2xl">
