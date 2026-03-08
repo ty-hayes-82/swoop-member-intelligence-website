@@ -48,8 +48,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-container mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-20 md:py-28 px-6 relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 z-0 opacity-5">
+          <img
+            src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&q=80"
+            alt="Golf course aerial"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For Private Club General Managers</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -138,6 +146,52 @@ export default function HomePage() {
                 <p className="text-sm text-swoop-muted leading-relaxed">{lens.description}</p>
                 <span className="inline-block mt-3 text-sm text-swoop-accent font-medium">Learn more →</span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Screenshots */}
+      <section className="py-20 px-6">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">See it in action.</h2>
+          <p className="text-swoop-muted text-center mb-12">Real intelligence. Real decisions. Real recovery.</p>
+          
+          {/* Main dashboard screenshot */}
+          <div className="mb-12">
+            <div className="bg-swoop-dark rounded-xl p-8 shadow-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-400" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <span className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <span className="text-white/60 text-sm font-mono ml-2">Morning Briefing — Today View</span>
+              </div>
+              {/* Screenshot placeholder */}
+              <div className="bg-white/5 rounded-lg aspect-[16/10] flex items-center justify-center border-2 border-dashed border-white/20">
+                <div className="text-center">
+                  <p className="text-white/40 text-sm mb-2">Dashboard Screenshot</p>
+                  <p className="text-white/30 text-xs max-w-md">Morning Briefing with Quick Wins, Risk Factors, and 5 at-risk members</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3-column feature screenshots */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: 'Member Intelligence', subtitle: 'Health scores & churn signals' },
+              { title: 'Waitlist Demand', subtitle: 'Retention-prioritized queue' },
+              { title: 'AI Agent Command', subtitle: 'Approve or dismiss recommendations' },
+            ].map((item) => (
+              <div key={item.title} className="bg-swoop-card border border-swoop-border rounded-xl p-4">
+                <div className="aspect-[4/3] bg-swoop-bg rounded-lg mb-3 flex items-center justify-center border border-dashed border-swoop-border">
+                  <span className="text-swoop-muted text-xs">Screenshot</span>
+                </div>
+                <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
+                <p className="text-xs text-swoop-muted">{item.subtitle}</p>
+              </div>
             ))}
           </div>
         </div>

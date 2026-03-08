@@ -9,8 +9,16 @@ export const metadata = {
 export default function OakmontHillsPage() {
   return (
     <>
-      <section className="py-20 md:py-28 px-6 bg-swoop-dark text-white">
-        <div className="max-w-container mx-auto max-w-3xl">
+      <section className="py-20 md:py-28 px-6 bg-swoop-dark text-white relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 z-0 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1592919505780-303950717480?w=1920&q=80"
+            alt="Country club"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-container mx-auto max-w-3xl relative z-10">
           <Link href="/case-studies" className="text-sm text-white/50 hover:text-white/80 transition mb-4 inline-block">← Back to Case Studies</Link>
           <p className="text-swoop-green font-mono text-sm mb-4">DEMO SCENARIO · OAKMONT HILLS CC · SCOTTSDALE, AZ</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">You had 6 days. Your tee sheet software never told you.</h1>

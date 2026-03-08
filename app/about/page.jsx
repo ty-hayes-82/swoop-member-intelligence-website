@@ -8,8 +8,16 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-container mx-auto max-w-3xl">
+      <section className="py-20 md:py-28 px-6 relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 z-0 opacity-5">
+          <img
+            src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&q=80"
+            alt="Clubhouse interior"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-container mx-auto max-w-3xl relative z-10">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">About</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-8">We believe every GM deserves to see what&apos;s coming.</h1>
           <div className="space-y-6 text-lg text-swoop-muted leading-relaxed">
