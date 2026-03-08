@@ -87,10 +87,13 @@ export default function HomePage() {
           </div>
         </div>
         {/* Hero stats */}
-        <div className="max-w-container mx-auto mt-12 flex flex-wrap justify-center gap-8 text-sm font-mono text-swoop-muted">
-          <span>$1.38M annual value at risk identified</span>
-          <span>6.4 week average early warning</span>
-          <span>87% tee sheet fill rate</span>
+        <div className="max-w-container mx-auto mt-12">
+          <div className="flex flex-wrap justify-center gap-8 text-sm font-mono text-swoop-muted">
+            <span>$1.38M annual value at risk identified</span>
+            <span>6.4 week average early warning</span>
+            <span>87% tee sheet fill rate</span>
+          </div>
+          <p className="text-center text-xs text-swoop-muted mt-2">Demo scenario: Oakmont Hills CC</p>
         </div>
       </section>
 
