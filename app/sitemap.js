@@ -10,6 +10,7 @@ export default function sitemap() {
     '/roi-calculator',
     '/resources', '/resources/churn-prevention-guide', '/resources/cost-of-churn',
     '/for/private-clubs', '/for/country-clubs', '/for/multi-club-operators',
+    '/for/general-managers', '/for/ownership-board', '/for/directors-of-golf',
   ]
   return pages.map((p) => ({
     url: baseUrl + p,
