@@ -13,7 +13,7 @@ export default function OakmontHillsPage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0 opacity-10">
           <img
-            src="https://images.unsplash.com/photo-1592919505780-303950717480?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
             alt="Country club"
             className="w-full h-full object-cover"
           />

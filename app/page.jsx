@@ -55,7 +55,7 @@ export default function HomePage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0 opacity-15">
           <img
-            src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
             alt="Golf course aerial"
             className="w-full h-full object-cover blur-sm"
           />
