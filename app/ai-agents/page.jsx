@@ -87,10 +87,20 @@ export default function AIAgentsPage() {
         </div>
       </section>
 
-      <section className="py-4 px-6 bg-swoop-dark text-white">
-        <div className="max-w-container mx-auto text-center py-12">
-          <h2 className="text-2xl font-bold mb-4">Human-in-the-loop. Always.</h2>
-          <p className="text-white/70 max-w-xl mx-auto">Swoop agents recommend. You decide. Every action shows the expected impact, the confidence level, and the reasoning. Approve, dismiss, or modify — the system learns from every decision.</p>
+      {/* Agent Command Screenshot */}
+      <section className="py-12 px-6 bg-swoop-dark">
+        <div className="max-w-container mx-auto">
+          <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10 mb-8">
+            <img
+              src="/screenshots/agent-command.png"
+              alt="Agent Command showing pending recommendations and approval workflow"
+              className="w-full"
+            />
+          </div>
+          <div className="text-center text-white">
+            <h2 className="text-2xl font-bold mb-4">Human-in-the-loop. Always.</h2>
+            <p className="text-white/70 max-w-xl mx-auto">Swoop agents recommend. You decide. Every action shows the expected impact, the confidence level, and the reasoning. Approve, dismiss, or modify — the system learns from every decision.</p>
+          </div>
         </div>
       </section>
 
