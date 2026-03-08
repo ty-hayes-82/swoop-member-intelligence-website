@@ -14,21 +14,21 @@ const whatAreAgents = [
 
 const howTheyWork = [
   {
-    agent: 'Member Save Agent',
+    agent: 'Member Pulse',
     monitors: 'Tee sheet booking patterns, F&B spend, email engagement, complaint history',
     triggers: 'Member health score drops 15+ points in 30 days',
     recommends: 'Personal GM call within 48 hours',
     outcome: '68% of flagged members saved when contacted within 2 days',
   },
   {
-    agent: 'Waitlist Optimizer',
+    agent: 'Demand Optimizer',
     monitors: 'Cancellation patterns, member health scores, lifetime value, acceptance rates',
     triggers: 'Tee time opens due to cancellation',
     recommends: 'Notify specific member (highest retention-value match)',
     outcome: '87% fill rate vs. 67% with FIFO waitlists',
   },
   {
-    agent: 'F&B Flow Agent',
+    agent: 'Service Recovery',
     monitors: 'Tee sheet pace, weather forecast, historical dining patterns',
     triggers: 'Predicted post-round dining rush 40% above typical',
     recommends: 'Add 1 server to Grill Room shift, increase appetizer prep',
@@ -188,15 +188,15 @@ export default function AiAgentsPrimerPage() {
             <ul className="space-y-3 ml-6">
               <li className="flex items-start gap-2">
                 <span className="text-swoop-green mt-1">→</span>
-                <span><strong className="text-white">Member Save Agent:</strong> &quot;James Whitfield health score dropped to 42. Recommend personal GM call within 48 hours. Success rate: 68%.&quot;</span>
+                <span><strong className="text-white">Member Pulse:</strong> &quot;James Whitfield health score dropped to 42. Recommend personal GM call within 48 hours. Success rate: 68%.&quot;</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-swoop-green mt-1">→</span>
-                <span><strong className="text-white">Waitlist Optimizer:</strong> &quot;3 cancellations predicted for Saturday. Notify Anne Jordan (at-risk member, $14K value) first.&quot;</span>
+                <span><strong className="text-white">Demand Optimizer:</strong> &quot;3 cancellations predicted for Saturday. Notify Anne Jordan (at-risk member, $14K value) first.&quot;</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-swoop-green mt-1">→</span>
-                <span><strong className="text-white">F&B Flow Agent:</strong> &quot;Post-round rush predicted Sunday 1-3 PM (40% above normal). Add 1 server, increase appetizer prep.&quot;</span>
+                <span><strong className="text-white">Service Recovery:</strong> &quot;Post-round rush predicted Sunday 1-3 PM (40% above normal). Add 1 server, increase appetizer prep.&quot;</span>
               </li>
             </ul>
             <p className="pt-4">

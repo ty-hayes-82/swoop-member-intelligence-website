@@ -51,7 +51,7 @@ export default function OakmontHillsPage() {
 
             <div className="bg-swoop-green/10 border border-swoop-green/30 rounded-xl p-6">
               <p className="text-sm font-bold text-swoop-green uppercase tracking-wider mb-3">⚡ Swoop flags James — January 16</p>
-              <p>Swoop connects three signals across three systems: declining F&B spend (POS), unresolved complaint (CRM), and consistent booking pattern about to break (tee sheet). Health score drops from 78 to 42. <strong>Member Save Agent recommends: GM personal call within 24 hours.</strong></p>
+              <p>Swoop connects three signals across three systems: declining F&B spend (POS), unresolved complaint (CRM), and consistent booking pattern about to break (tee sheet). Health score drops from 78 to 42. <strong>Member Pulse recommends: GM personal call within 24 hours.</strong></p>
             </div>
 
             <div className="border-l-4 border-red-400 pl-6">

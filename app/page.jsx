@@ -12,12 +12,12 @@ const lenses = [
 ]
 
 const agents = [
-  { name: 'Demand Sentinel', icon: '🎯', description: 'Flags demand swings by segment and recommends inventory moves before losses compound.' },
-  { name: 'Waitlist Optimizer', icon: '📋', description: 'Reorders waitlists by retention value and match-fit, then auto-notifies best-fit members.' },
-  { name: 'Member Save Agent', icon: '🛟', description: 'Detects service-risk members and triggers personalized save sequences for GM follow-up.' },
-  { name: 'F&B Flow Agent', icon: '🍴', description: 'Predicts rushes from tee sheet and weather signals to adjust outlet prep and staffing.' },
-  { name: 'Labor Planner', icon: '📊', description: 'Forecasts coverage gaps and recommends shifts to protect service level and margin.' },
-  { name: 'Revenue Analyst', icon: '💎', description: 'Attribution-ready insights connect actions to recovered revenue and retained annual value.' },
+  { name: 'Member Pulse', icon: '🛟', description: 'Detects early churn signals and proposes interventions before members disengage.' },
+  { name: 'Demand Optimizer', icon: '🎯', description: 'Balances waitlist demand, cancellation prediction, and tee sheet fill optimization.' },
+  { name: 'Service Recovery', icon: '🍴', description: 'Surfaces unresolved complaints and drafts recovery actions before resignation windows close.' },
+  { name: 'Labor Optimizer', icon: '📊', description: 'Forecasts staffing gaps and recommends coverage shifts to protect service quality and margin.' },
+  { name: 'Revenue Analyst', icon: '💎', description: 'Flags preventable revenue leakage and recommends high-confidence margin actions.' },
+  { name: 'Engagement Autopilot', icon: '📋', description: 'Monitors declining participation and proposes targeted outreach for member reactivation.' },
 ]
 
 const comparison = [
