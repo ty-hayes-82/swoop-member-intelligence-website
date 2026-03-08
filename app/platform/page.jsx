@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 const steps = [
-  { num: '01', title: 'See It', desc: 'Surface behavioral signals across all five operational lenses. Swoop connects your systems and shows you what no single tool can: the full picture of member engagement, demand patterns, and revenue risk.' },
+  { num: '01', title: 'See It', desc: 'Surface behavioral signals across all five operational categories. Swoop connects your systems and shows you what no single tool can: the full picture of member engagement, demand patterns, and revenue risk.' },
   { num: '02', title: 'Fix It', desc: 'Act on AI-recommended interventions before problems become crises. Six agents monitor your club 24/7, flagging at-risk members, staffing gaps, and demand opportunities — then recommending specific actions.' },
   { num: '03', title: 'Prove It', desc: 'Close the loop with attribution. Every intervention is tracked from trigger to outcome, so you can prove to your board exactly which decisions recovered revenue and retained members.' },
 ]
