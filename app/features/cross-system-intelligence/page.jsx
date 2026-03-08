@@ -9,31 +9,31 @@ export const metadata = {
 const systemConnections = [
   {
     system: 'Tee Sheet Software',
-    vendors: 'ForeTees, Chelsea, EZLinks',
+    vendors: 'Leading tee sheet + booking platforms',
     dataIn: ['Booking timestamps', 'Cancellation patterns', 'Playing partner groupings', 'Tee time preferences', 'No-show history'],
     intelligenceOut: 'Demand forecasting, retention-prioritized waitlist routing, pace of play prediction',
   },
   {
     system: 'Member CRM',
-    vendors: 'Northstar, Jonas Club Software, Club Essential',
+    vendors: 'Club management + CRM systems',
     dataIn: ['Member demographics', 'Tenure & join date', 'Membership tier', 'Communication preferences', 'Historical complaints'],
     intelligenceOut: 'Health score baselines, lifetime value calculations, churn risk segmentation',
   },
   {
     system: 'POS & F&B',
-    vendors: 'Jonas POS, Square, Toast, Lightspeed',
+    vendors: 'Restaurant + retail POS platforms',
     dataIn: ['Transaction timestamps', 'Spend per visit', 'Outlet preferences', 'Post-round conversion', 'Guest bring-along spend'],
     intelligenceOut: 'F&B rush prediction, low-converter targeting, ancillary revenue attribution',
   },
   {
     system: 'Payroll & Staffing',
-    vendors: 'ADP, Paychex, When I Work',
+    vendors: 'Payroll + scheduling platforms',
     dataIn: ['Scheduled shifts', 'Labor hours by outlet', 'Hourly wage rates', 'Coverage gaps', 'Overtime patterns'],
     intelligenceOut: 'Labor cost per revenue dollar, shift optimization, coverage gap alerts',
   },
   {
     system: 'Email & Communication',
-    vendors: 'Mailchimp, SendGrid, Intercom',
+    vendors: 'Email + member communication tools',
     dataIn: ['Email open rates', 'Event RSVP rates', 'Unsubscribe events', 'App push notification engagement'],
     intelligenceOut: 'Communication decay signals, engagement trend analysis, preferred channel detection',
   },

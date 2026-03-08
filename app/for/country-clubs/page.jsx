@@ -1,4 +1,5 @@
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'For Country Clubs',
@@ -23,13 +24,13 @@ export default function CountryClubsPage() {
           <h2 className="text-3xl font-bold mb-12">The cross-domain advantage.</h2>
           
           {/* Product Screenshot */}
-          <div className="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border">
-            <img
-              src="/screenshots/daily-briefing.png"
-              alt="Daily Briefing showing cross-system intelligence"
-              className="w-full"
-            />
-          </div>
+          <ScreenshotLightbox
+            src="/screenshots/daily-briefing.png"
+            alt="Daily Briefing showing cross-system intelligence"
+            frameClassName="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border"
+            imageClassName="w-full"
+            caption="Cross-domain Daily Briefing: golf, dining, events, and fitness signals in one view."
+          />
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-swoop-card border border-swoop-border rounded-xl p-6">

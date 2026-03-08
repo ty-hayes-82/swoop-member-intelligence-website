@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'For Private Clubs',
@@ -36,13 +37,13 @@ export default function PrivateClubsPage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
-              <img
-                src="/screenshots/member-intelligence.png"
-                alt="Member Intelligence showing at-risk members and health scores"
-                className="w-full"
-              />
-            </div>
+            <ScreenshotLightbox
+              src="/screenshots/member-intelligence.png"
+              alt="Member Intelligence showing at-risk members and health scores"
+              frameClassName="rounded-xl overflow-hidden shadow-xl border border-swoop-border"
+              imageClassName="w-full"
+              caption="Private club GMs see every at-risk member ranked by urgency and value."
+            />
           </div>
         </div>
       </section>

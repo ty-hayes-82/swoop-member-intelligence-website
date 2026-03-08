@@ -1,4 +1,5 @@
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'AI Agents',
@@ -7,70 +8,70 @@ export const metadata = {
 
 const agents = [
   {
-    name: 'Demand Sentinel',
-    color: 'border-lens-operations',
-    role: 'Monitors tee sheet demand and flags anomalies',
-    actions: [
-      'Flags demand swings by segment (weekday seniors dropping, weekend juniors spiking)',
-      'Recommends inventory moves before losses compound',
-      'Alerts on cancellation clusters that signal weather or event conflicts',
-    ],
-    example: '"Saturday morning demand is 23% below 4-week avg. Recommend opening 2 slots to waitlist priority members."',
-  },
-  {
-    name: 'Waitlist Optimizer',
-    color: 'border-lens-operations',
-    role: 'Reorders waitlists by retention value and match-fit',
-    actions: [
-      'Sorts waitlist by retention risk × lifetime value × schedule fit',
-      'Auto-notifies best-fit members when slots open',
-      'Tracks acceptance rates by member segment to improve future routing',
-    ],
-    example: '"Slot opened: Sat 7:40am. Routing to Anne Jordan (at-risk, $14K/yr, 92% acceptance rate) over 3 FIFO-earlier members."',
-  },
-  {
-    name: 'Member Save Agent',
+    name: 'Member Pulse',
     color: 'border-lens-members',
-    role: 'Detects service-risk members and triggers save sequences',
+    role: 'Detects health score decay and prescribes save sequences',
     actions: [
-      'Monitors health score declines across all connected systems',
-      'Triggers personalized save sequences (email → call → GM outreach)',
-      'Tracks intervention outcomes for attribution reporting',
+      'Monitors 40+ behavioral signals across tee sheet, POS, CRM, and events',
+      'Flags 10+ point drops with root-cause insights (complaints, pace, spend)',
+      'Recommends GM outreach sequences with expected save probability',
     ],
-    example: '"James Whitfield health score dropped 36 pts in 6 weeks. Unresolved complaint from Jan 16. Recommend GM personal call within 24h. $22K/yr at stake."',
+    example: '"James Whitfield health score dropped 36 pts in 6 weeks. Complaint unresolved. Call within 24h. $22K/yr at stake."',
   },
   {
-    name: 'F&B Flow Agent',
+    name: 'Demand Optimizer',
+    color: 'border-lens-operations',
+    role: 'Predicts cancellations and fills every slot with the right member',
+    actions: [
+      'Forecasts cancellation likelihood 24-72 hours in advance',
+      'Ranks waitlists by retention risk × lifetime value × acceptance probability',
+      'Routes open slots to members most at risk of resigning',
+    ],
+    example: '"Sat 7:40am cancellation 77% likely. Pre-alert Anne Jordan (health 52, $14K LTV, 92% acceptance) before FIFO list."',
+  },
+  {
+    name: 'Service Recovery',
     color: 'border-lens-fb',
-    role: 'Predicts F&B rushes from tee sheet and weather signals',
+    role: 'Surfaces unresolved complaints and drafts recovery plans',
     actions: [
-      'Forecasts outlet demand 24-48h ahead using tee time volume + weather + events',
-      'Recommends prep adjustments and staffing shifts',
-      'Flags post-round conversion opportunities for targeted nudges',
+      'Monitors ticket status across dining, golf, spa, and events',
+      'Escalates any complaint open >72h with value/risk scoring',
+      'Drafts apology messages + make-good offers for GM approval',
     ],
-    example: '"Tomorrow: 68 rounds booked, sunny 72°F, no events. Expect Grill Room peak 12:30-2pm. Current staffing: 2 servers. Recommend: 3 servers."',
+    example: '"Grill Room complaint unresolved 6 days. Member value $18K. Draft apology + comp dinner. Success rate: 81%."',
   },
   {
-    name: 'Labor Planner',
+    name: 'Labor Optimizer',
     color: 'border-lens-staffing',
-    role: 'Forecasts coverage gaps and recommends shifts',
+    role: 'Aligns staffing with forecasted demand, weather, and events',
     actions: [
-      'Maps predicted demand to staffing requirements per outlet and time slot',
-      'Flags overtime risk with enough lead time to redistribute',
-      'Tracks labor cost per revenue dollar across all touchpoints',
+      'Compares predicted covers vs. scheduled labor for every outlet',
+      'Flags coverage gaps/overtime risk 24-48 hours ahead',
+      'Recommends shift adjustments with projected revenue impact',
     ],
-    example: '"Friday Jan 17: Grill Room shows 2-server coverage for predicted 45-cover peak. Gap = 1 server. Recommend shift extension for Maria (no OT risk)."',
+    example: '"Sunday brunch: add 2 servers + 1 line cook. Labor cost $380, revenue protected $2,800."',
   },
   {
     name: 'Revenue Analyst',
     color: 'border-lens-pipeline',
-    role: 'Connects actions to recovered revenue and retained value',
+    role: 'Attributes revenue to interventions and proves ROI to the board',
     actions: [
-      'Attribution-ready insights on every intervention',
-      'Tracks per-slot revenue optimization over time',
-      'Generates board-ready ROI summaries monthly',
+      'Tracks dues, ancillary spend, and pipeline conversion by segment',
+      'Measures revenue impact of every approved intervention',
+      'Generates board-ready retention and yield reports automatically',
     ],
-    example: '"Q4 Member Save playbook: 4 runs, 3 of 4 at-risk members retained. $54K in annual dues protected. Cost: 6 hours of GM time."',
+    example: '"January retention saves: 11 interventions approved, $88K dues protected, $12K cost. ROI 7.3x."',
+  },
+  {
+    name: 'Engagement Autopilot',
+    color: 'border-lens-briefing',
+    role: 'Runs personalized re-engagement campaigns automatically',
+    actions: [
+      'Identifies declining members by channel (golf-only, F&B-only, social-only)',
+      'Triggers multi-step outreach (push → email → concierge text) when decay detected',
+      'Measures response and feeds results back into health scores',
+    ],
+    example: '"Sarah Mitchell skipped 3 events + no dining in 45 days. Send personal invite to member-guest dinner + comp dessert."',
   },
 ]
 
@@ -90,13 +91,13 @@ export default function AIAgentsPage() {
       {/* Agent Command Screenshot */}
       <section className="py-12 px-6 bg-swoop-dark">
         <div className="max-w-container mx-auto">
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10 mb-8">
-            <img
-              src="/screenshots/agent-command.png"
-              alt="Agent Command showing pending recommendations and approval workflow"
-              className="w-full"
-            />
-          </div>
+          <ScreenshotLightbox
+            src="/screenshots/agent-command.png"
+            alt="Agent Command showing pending recommendations and approval workflow"
+            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-white/10 mb-8"
+            imageClassName="w-full"
+            caption="Agent Command keeps humans in the loop: approve, dismiss, or modify every recommendation."
+          />
           <div className="text-center text-white">
             <h2 className="text-2xl font-bold mb-4">Human-in-the-loop. Always.</h2>
             <p className="text-white/70 max-w-xl mx-auto">Swoop agents recommend. You decide. Every action shows the expected impact, the confidence level, and the reasoning. Approve, dismiss, or modify — the system learns from every decision.</p>

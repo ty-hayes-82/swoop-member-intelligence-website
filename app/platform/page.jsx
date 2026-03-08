@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'Platform Overview',
@@ -39,13 +40,13 @@ export default function PlatformPage() {
           <h2 className="text-3xl font-bold text-center mb-12">See It → Fix It → Prove It</h2>
           
           {/* Daily Briefing Example */}
-          <div className="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border">
-            <img
-              src="/screenshots/daily-briefing.png"
-              alt="Daily Briefing showing morning priorities and Quick Wins"
-              className="w-full"
-            />
-          </div>
+          <ScreenshotLightbox
+            src="/screenshots/daily-briefing.png"
+            alt="Daily Briefing showing morning priorities and Quick Wins"
+            frameClassName="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border"
+            imageClassName="w-full"
+            caption="GM Daily Briefing summarizes Quick Wins, member risk, and pipeline in one view."
+          />
 
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((s) => (
@@ -77,13 +78,13 @@ export default function PlatformPage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
-              <img
-                src="/screenshots/member-intelligence.png"
-                alt="Member Intelligence showing health scores and at-risk members"
-                className="w-full"
-              />
-            </div>
+            <ScreenshotLightbox
+              src="/screenshots/member-intelligence.png"
+              alt="Member Intelligence showing health scores and at-risk members"
+              frameClassName="rounded-xl overflow-hidden shadow-xl border border-swoop-border"
+              imageClassName="w-full"
+              caption="Member Intelligence surfaces health decay signals and intervention status."
+            />
           </div>
 
           {/* Remaining Capabilities */}
