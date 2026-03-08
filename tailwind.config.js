@@ -13,6 +13,8 @@ module.exports = {
         'swoop-border': '#E4E4E7',
         'swoop-text': '#1F2F24',
         'swoop-muted': '#6B7280',
+        // §9: lens-* color tokens are INTERNAL ONLY — used for component styling/visual hierarchy.
+        // Never expose "lens" terminology to customers. Use outcome-based names in all customer-facing copy.
         'lens-briefing': '#6BB8EF',
         'lens-operations': '#4ADE80',
         'lens-fb': '#F97316',
