@@ -2,14 +2,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const navLinks = [
-  { href: '/platform', label: 'Platform' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/why-swoop', label: 'Why Swoop' },
-  { href: '/how-it-works', label: 'How It Works' },
-  { href: '/book-demo', label: 'Case Studies', href: '/case-studies' },
-]
-
 export default function StickyNav() {
   const [open, setOpen] = useState(false)
 
