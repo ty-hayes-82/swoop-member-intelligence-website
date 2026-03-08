@@ -9,7 +9,7 @@ const resources = [
   {
     category: 'Guides',
     items: [
-      { title: 'The GM's Guide to Member Churn Prevention', desc: 'Early warning signals, intervention playbooks, and attribution methods.', type: 'Guide', href: '#' },
+      { title: 'The GM's Guide to Member Churn Prevention', desc: 'Early warning signals, intervention playbooks, and attribution methods.', type: 'Guide', href: '/resources/churn-prevention-guide' },
       { title: 'How to Calculate True Cost of Member Churn', desc: 'Beyond dues: replacement cost, lost referrals, and operational drag.', type: 'Guide', href: '#' },
       { title: 'AI Agents for Private Clubs: A GM's Primer', desc: 'What AI agents do, how they work, and why human-in-the-loop matters.', type: 'Guide', href: '#' },
     ],
