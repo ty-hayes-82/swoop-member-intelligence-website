@@ -8,7 +8,7 @@ export const metadata = {
 const challenges = [
   {
     title: 'Disconnected Systems Across Properties',
-    problem: 'Club A runs ForeTees, Club B uses Chelsea, Club C is on EZLinks. You\'re managing three different tee sheet platforms, three different POS systems, and no unified view.',
+    problem: 'Each club runs different tee sheet platforms, different POS systems, different member CRMs. You\'re managing three different tech stacks with no unified view.',
     solution: 'Swoop connects to all of them. One dashboard, one intelligence layer, full portfolio visibility regardless of underlying tech stack.',
   },
   {

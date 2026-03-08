@@ -26,18 +26,18 @@ const comparison = [
   { feature: 'Cross-system analytics', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'partial' },
   { feature: 'AI agent automation', swoop: 'full', waitlistTools: 'none', crm: 'none', sheets: 'none' },
   { feature: 'Real-time behavioral data', swoop: 'full', waitlistTools: 'partial', crm: 'partial', sheets: 'none' },
-  { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
+  { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'full', crm: 'partial', sheets: 'none' },
 ]
 
 const integrationCategories = [
-  { label: 'Tee Sheet & Booking', vendors: ['ForeTees', 'Chelsea', 'EZLinks', 'GolfNow'] },
-  { label: 'Member CRM', vendors: ['Northstar', 'Jonas Club Software', 'Club Essential'] },
-  { label: 'POS & F&B', vendors: ['Jonas POS', 'Clubessential POS', 'Square', 'Toast', 'Lightspeed'] },
-  { label: 'Communications', vendors: ['Twilio', 'SendGrid', 'Mailchimp', 'Intercom'] },
-  { label: 'Staffing & Payroll', vendors: ['ADP', 'Paychex', 'When I Work'] },
-  { label: 'Finance & BI', vendors: ['QuickBooks', 'Sage', 'NetSuite', 'Power BI'] },
-  { label: 'Web & Lead Capture', vendors: ['HubSpot', 'Typeform'] },
-  { label: 'Access & Activity', vendors: ['Gatekeeper', 'BrivoAccess', 'Club Automation'] },
+  { label: 'Tee Sheet & Booking', description: 'Leading tee sheet platforms and booking systems' },
+  { label: 'Member CRM', description: 'Club management and member relationship systems' },
+  { label: 'POS & F&B', description: 'Point-of-sale and restaurant management platforms' },
+  { label: 'Communications', description: 'Email, SMS, and member communication tools' },
+  { label: 'Staffing & Payroll', description: 'Workforce management and payroll systems' },
+  { label: 'Finance & BI', description: 'Accounting, ERP, and business intelligence platforms' },
+  { label: 'Web & Lead Capture', description: 'Website forms and lead capture tools' },
+  { label: 'Access & Activity', description: 'Access control and activity tracking systems' },
 ]
 
 function ComparisonCell({ value }) {
@@ -135,7 +135,7 @@ export default function HomePage() {
             {lenses.map((lens) => (
               <Link
                 key={lens.slug}
-                href={`/lenses/${lens.slug}`}
+                href={`/capabilities/${lens.slug}`}
                 className={`block bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 ${lens.color} hover:shadow-lg transition group`}
               >
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-swoop-accent transition">{lens.title}</h3>
@@ -291,11 +291,7 @@ export default function HomePage() {
             {integrationCategories.map((cat) => (
               <div key={cat.label} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
                 <h3 className="font-semibold mb-3">{cat.label}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.vendors.map((v) => (
-                    <span key={v} className="text-xs bg-swoop-bg text-swoop-muted px-2 py-1 rounded">{v}</span>
-                  ))}
-                </div>
+                <p className="text-sm text-swoop-muted">{cat.description}</p>
               </div>
             ))}
           </div>

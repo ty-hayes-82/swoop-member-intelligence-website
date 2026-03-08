@@ -52,11 +52,46 @@ const categories = [
   ]},
 ]
 
-const swoopUnique = [
-  { title: 'Real-Time Location Intelligence', desc: 'GPS and behavioral data from the Swoop member app. On-property movement patterns, arrival times, service touchpoint flows. No other integration provides this.' },
-  { title: 'Cross-System Behavioral Correlation', desc: 'Swoop connects the dots your existing tools cannot see: how a member\'s dining patterns predict their tee sheet behavior, how staffing gaps correlate with revenue drops.' },
-  { title: 'AI-Powered Predictive Recommendations', desc: 'Your systems collect data. Swoop interprets it and recommends specific actions with measurable outcomes — before problems become resignations.' },
-  { title: 'Closed-Loop Engagement Tracking', desc: 'From signal detection to GM action to member response to outcome measurement. Your existing tools stop at the data layer. Swoop closes the loop.' },
+const crossSiloInsights = [
+  {
+    title: 'Tee Sheet + Member Health',
+    insight: 'Members who stop booking are 4x more likely to resign within 90 days',
+    systems: ['ForeTees', 'Jonas', 'Northstar'],
+    why: 'Your tee sheet platform tracks bookings. Your CRM tracks member status. Neither connects declining play patterns to churn risk. Swoop does.',
+  },
+  {
+    title: 'F&B + Tee Sheet',
+    insight: 'Post-round dining conversion drops 40% when pace exceeds 4:20',
+    systems: ['Square', 'Toast', 'ForeTees'],
+    why: 'Your POS knows who dined. Your tee sheet knows pace of play. Swoop connects them and shows how slow rounds kill F&B revenue.',
+  },
+  {
+    title: 'Staffing + F&B + Weather',
+    insight: 'Understaffed Saturdays with good weather cost clubs $1,200/day in missed F&B revenue',
+    systems: ['ADP', 'When I Work', 'Jonas POS'],
+    why: 'Payroll systems track hours. POS tracks revenue. Weather data is external. Swoop correlates all three to predict staffing gaps before they cost you.',
+  },
+  {
+    title: 'Member Health + Revenue',
+    insight: 'At-risk members represent $1.38M in annual dues — recovering just 10% pays for the platform',
+    systems: ['Northstar', 'Jonas', 'QuickBooks'],
+    why: 'CRM systems flag complaints. Accounting tracks dues. Swoop calculates total risk exposure and ROI of retention campaigns in real time.',
+  },
+  {
+    title: 'Waitlist + Demand + Weather',
+    insight: 'AI predicts 23 cancellations on rainy Thursdays — auto-fill from waitlist before the slot goes empty',
+    systems: ['ForeTees', 'Chelsea', 'Swoop App'],
+    why: 'Tee sheet platforms manage waitlists. Weather APIs exist. Swoop combines behavioral history, weather patterns, and retention priority to optimize backfill.',
+  },
+]
+
+const swoopAppBenefits = [
+  { icon: '📍', title: 'Locational Awareness', desc: 'Know where members are on-property, when they visit, which amenities they use. GPS tracking + beacon detection.' },
+  { icon: '🔗', title: 'System Connector', desc: 'Swoop is the only integration that ties tee sheet behavior to dining patterns to membership health to revenue attribution.' },
+  { icon: '🧠', title: 'Intelligence Layer', desc: 'Without Swoop, your systems are blind silos. With Swoop, they become a connected intelligence network.' },
+  { icon: '⚡', title: 'Real-Time Engagement', desc: 'Push notifications to members based on location, behavior, and predictive signals. Close the loop from insight to action to outcome.' },
+  { icon: '📊', title: 'Behavioral Data No Other System Has', desc: 'Arrival times. Service touchpoint flow. On-property movement patterns. Post-round behavior. This is data your tee sheet and POS cannot capture.' },
+  { icon: '🎯', title: 'Retention-First Routing', desc: 'When a tee time opens, Swoop routes it to at-risk members first. Your waitlist platform cannot do this because it does not know who is at risk.' },
 ]
 
 function StatusBadge({ status }) {
@@ -67,7 +102,7 @@ function StatusBadge({ status }) {
 export default function IntegrationsPage() {
   return (
     <>
-      {/* Hero — Position Swoop as Intelligence Layer */}
+      {/* Hero */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto text-center">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Integrations</p>
@@ -87,33 +122,90 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* What Swoop Adds (Unique Differentiators) */}
-      <section className="py-20 px-6 bg-white">
+      {/* PREMIER INTEGRATION: Swoop App */}
+      <section className="py-20 px-6 bg-gradient-to-br from-swoop-green/5 to-swoop-accent/5">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">What Swoop adds that no integration can provide</h2>
-          <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">
-            Your current stack collects transactional data. Swoop layers on behavioral intelligence and cross-system insight.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {swoopUnique.map((item) => (
-              <div key={item.title} className="bg-swoop-card border-2 border-swoop-green rounded-xl p-6">
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-swoop-muted leading-relaxed">{item.desc}</p>
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-swoop-green text-swoop-dark text-xs font-bold uppercase tracking-wider rounded-full mb-4">Premier Integration</span>
+            <h2 className="text-4xl font-bold mb-4">The Swoop App</h2>
+            <p className="text-xl text-swoop-muted max-w-2xl mx-auto">
+              The intelligence layer that makes every other system smarter. Without Swoop, your club tech stack is a collection of blind silos. With Swoop, it becomes a connected intelligence network.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {swoopAppBenefits.map((benefit) => (
+              <div key={benefit.title} className="bg-white border-2 border-swoop-green rounded-xl p-6">
+                <div className="text-4xl mb-3">{benefit.icon}</div>
+                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-sm text-swoop-muted leading-relaxed">{benefit.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="bg-swoop-dark text-white rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-bold mb-3">Why Swoop is the premier integration</h3>
+            <p className="text-white/80 max-w-3xl mx-auto text-base leading-relaxed">
+              Your tee sheet platform knows bookings. Your POS knows transactions. Your CRM knows member records. 
+              <strong className="text-swoop-green"> Only Swoop knows WHERE members are, WHEN they visit, and HOW their behavior across every touchpoint predicts churn, revenue, and retention outcomes.</strong> 
+              Every other integration plugs into Swoop. Swoop is the connective tissue that makes them all useful together.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Visual: Data Flow FROM Systems INTO Intelligence Layer */}
+      {/* Cross-Silo Intelligence Examples */}
       <section className="py-20 px-6">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Insights only possible when you combine systems</h2>
+          <p className="text-swoop-muted text-center mb-12 max-w-3xl mx-auto">
+            Your ForeTees, Jonas, Square, and ADP systems each see part of the picture. Swoop connects them and surfaces patterns no single system can detect alone.
+          </p>
+
+          <div className="space-y-6">
+            {crossSiloInsights.map((item, idx) => (
+              <div key={item.title} className="bg-white border-2 border-swoop-border rounded-xl p-6 hover:border-swoop-green transition">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-swoop-green text-swoop-dark font-bold text-lg rounded-full flex items-center justify-center">
+                    {idx + 1}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-lg text-swoop-green font-semibold mb-3">"{item.insight}"</p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {item.systems.map((sys) => (
+                        <span key={sys} className="text-xs bg-swoop-bg text-swoop-muted px-3 py-1 rounded-full font-medium">
+                          {sys}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-sm text-swoop-muted leading-relaxed">
+                      <strong>Why this matters:</strong> {item.why}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-swoop-green/10 border-2 border-swoop-green rounded-xl p-6 text-center">
+            <p className="text-base font-semibold mb-2">This is the intelligence gap your current stack cannot close.</p>
+            <p className="text-sm text-swoop-muted">
+              Without cross-system correlation, you're flying blind. With Swoop, you see the full picture — and act on it before problems compound.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual: Data Flow */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">From disconnected systems to unified intelligence</h2>
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Left: Systems */}
             <div className="space-y-3">
               <h3 className="text-sm font-bold text-swoop-muted uppercase mb-4">Your Systems Collect</h3>
-              {['Tee times', 'POS transactions', 'CRM records', 'Payroll hours', 'Email opens'].map((item) => (
+              {['Tee times (ForeTees)', 'POS transactions (Square)', 'CRM records (Jonas)', 'Payroll hours (ADP)', 'Email opens (Mailchimp)'].map((item) => (
                 <div key={item} className="bg-swoop-card border border-swoop-border rounded-lg p-3 text-sm">
                   {item}
                 </div>
@@ -125,10 +217,11 @@ export default function IntegrationsPage() {
               <div className="bg-swoop-dark text-white rounded-xl p-6">
                 <p className="text-xs font-bold text-swoop-green uppercase mb-2">Swoop Intelligence Layer</p>
                 <div className="space-y-1 text-sm">
-                  <p>Location data</p>
-                  <p>Behavioral patterns</p>
-                  <p>Cross-system correlation</p>
-                  <p>AI prediction</p>
+                  <p>📍 Location data</p>
+                  <p>🧠 Behavioral patterns</p>
+                  <p>🔗 Cross-system correlation</p>
+                  <p>🤖 AI prediction</p>
+                  <p>⚡ Real-time engagement</p>
                 </div>
               </div>
               <div className="my-4 text-4xl text-swoop-green">→</div>
@@ -150,11 +243,18 @@ export default function IntegrationsPage() {
               ))}
             </div>
           </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-swoop-muted text-sm">
+              <strong>Before Swoop:</strong> 8 disconnected systems, zero connected intelligence.<br />
+              <strong>After Swoop:</strong> One intelligence layer that makes all your existing tools smarter.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 28 Integrations Grid */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">28 integrations across 8 categories</h2>
           <p className="text-swoop-muted text-center mb-12">Connect the systems you already run. No rip-and-replace. Live in under 2 weeks.</p>
