@@ -23,7 +23,7 @@ const agents = [
 const comparison = [
   { feature: 'Member churn prediction', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
   { feature: 'Retention-prioritized waitlist', swoop: 'full', waitlistTools: 'partial', crm: 'none', sheets: 'none' },
-  { feature: 'Cross-lens analytics', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'partial' },
+  { feature: 'Cross-system analytics', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'partial' },
   { feature: 'AI agent automation', swoop: 'full', waitlistTools: 'none', crm: 'none', sheets: 'none' },
   { feature: 'Real-time behavioral data', swoop: 'full', waitlistTools: 'partial', crm: 'partial', sheets: 'none' },
   { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
@@ -120,9 +120,9 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">The problem isn&apos;t your team. It&apos;s your visibility.</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              'You have 5 disconnected systems. Zero connected intelligence.',
-              "You know something is wrong. You just can't see it until it's too late.",
-              'James Whitfield complained. No one followed up. He resigned. $22K gone in 4 days.',
+              'Your tee sheet, POS, CRM, email platform, and payroll system each see part of the picture. None of them talk to each other.',
+              "A member stops playing. Dining drops off. Email engagement goes silent. By the time you notice, they've already decided to leave.",
+              'Average member replacement cost: 2.5x annual dues. Most GMs find out about churn problems when the resignation letter arrives.',
             ].map((text) => (
               <div key={text} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
                 <p className="text-base leading-relaxed">{text}</p>
