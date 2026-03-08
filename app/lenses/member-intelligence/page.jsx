@@ -49,6 +49,19 @@ export default function MemberIntelligencePage() {
         </div>
       </section>
 
+      {/* Product Screenshot */}
+      <section className="py-12 px-6 bg-white">
+        <div className="max-w-container mx-auto">
+          <div className="rounded-xl overflow-hidden shadow-2xl border border-swoop-border">
+            <img
+              src="/screenshots/member-intelligence.png"
+              alt="Member Intelligence dashboard showing health scores and at-risk members"
+              className="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Behavioral signals */}
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
