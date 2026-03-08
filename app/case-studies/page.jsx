@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import CaseStudyCard from '@/components/CaseStudyCard'
 
 export const metadata = {
   title: 'Case Studies',
@@ -21,30 +22,17 @@ export default function CaseStudiesPage() {
 
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
-          <Link href="/case-studies/oakmont-hills" className="block bg-swoop-card border border-swoop-border rounded-xl p-8 hover:shadow-lg transition group">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-              <div>
-                <p className="text-xs font-bold text-swoop-accent uppercase tracking-wider mb-1">Featured Case Study</p>
-                <h2 className="text-2xl font-bold group-hover:text-swoop-accent transition">The James Whitfield Story</h2>
-                <p className="text-swoop-muted">Oakmont Hills CC · 300 members · Scottsdale, AZ</p>
-              </div>
-              <span className="text-sm text-swoop-accent font-medium">Read the full story →</span>
-            </div>
-            <div className="grid grid-cols-3 gap-4 mt-4">
-              <div className="bg-swoop-bg rounded-lg p-4 text-center">
-                <p className="font-mono text-2xl font-bold text-red-500">$22K</p>
-                <p className="text-xs text-swoop-muted mt-1">Annual dues lost</p>
-              </div>
-              <div className="bg-swoop-bg rounded-lg p-4 text-center">
-                <p className="font-mono text-2xl font-bold text-swoop-green">6 days</p>
-                <p className="text-xs text-swoop-muted mt-1">Early warning from Swoop</p>
-              </div>
-              <div className="bg-swoop-bg rounded-lg p-4 text-center">
-                <p className="font-mono text-2xl font-bold text-swoop-accent">3 systems</p>
-                <p className="text-xs text-swoop-muted mt-1">Connected to catch the signal</p>
-              </div>
-            </div>
-          </Link>
+          <CaseStudyCard
+            href="/case-studies/oakmont-hills"
+            eyebrow="Featured Case Study"
+            title="The James Whitfield Story"
+            subtitle="Oakmont Hills CC · 300 members · Scottsdale, AZ"
+            stats={[
+              { value: '$22K', label: 'Annual dues lost', color: 'text-red-500' },
+              { value: '6 days', label: 'Early warning from Swoop', color: 'text-swoop-green' },
+              { value: '3 systems', label: 'Connected to catch the signal', color: 'text-swoop-accent' },
+            ]}
+          />
         </div>
       </section>
 
