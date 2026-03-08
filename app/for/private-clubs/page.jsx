@@ -26,13 +26,24 @@ export default function PrivateClubsPage() {
       </section>
 
       <section className="py-20 px-6 bg-white">
-        <div className="max-w-container mx-auto space-y-8">
-          {pains.map((p) => (
-            <div key={p.problem} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
-              <h3 className="text-xl font-bold mb-3">{p.problem}</h3>
-              <p className="text-swoop-muted leading-relaxed">{p.detail}</p>
+        <div className="max-w-container mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+            <div className="space-y-8">
+              {pains.map((p) => (
+                <div key={p.problem} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
+                  <h3 className="text-xl font-bold mb-3">{p.problem}</h3>
+                  <p className="text-swoop-muted leading-relaxed">{p.detail}</p>
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
+              <img
+                src="/screenshots/member-intelligence.png"
+                alt="Member Intelligence showing at-risk members and health scores"
+                className="w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
