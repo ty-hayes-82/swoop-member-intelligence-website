@@ -26,7 +26,7 @@ const comparison = [
   { feature: 'Cross-system analytics', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'partial' },
   { feature: 'AI agent automation', swoop: 'full', waitlistTools: 'none', crm: 'none', sheets: 'none' },
   { feature: 'Real-time behavioral data', swoop: 'full', waitlistTools: 'partial', crm: 'partial', sheets: 'none' },
-  { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
+  { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'full', crm: 'partial', sheets: 'none' },
 ]
 
 const integrationCategories = [
