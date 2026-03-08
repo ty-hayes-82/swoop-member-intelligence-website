@@ -82,7 +82,7 @@ export default function HomePage() {
           <ScreenshotLightbox
             src="/screenshots/daily-briefing.png"
             alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
-            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border"
+            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border max-w-2xl mx-auto"
             imageClassName="w-full"
             caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
           />
