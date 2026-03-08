@@ -2,6 +2,7 @@ import Link from 'next/link'
 import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -78,13 +79,13 @@ export default function HomePage() {
             </div>
           </div>
           {/* Real Product Screenshot */}
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-swoop-border">
-            <img
-              src="/screenshots/daily-briefing.png"
-              alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
-              className="w-full"
-            />
-          </div>
+          <ScreenshotLightbox
+            src="/screenshots/daily-briefing.png"
+            alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
+            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border"
+            imageClassName="w-full"
+            caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
+          />
         </div>
         {/* Hero stats */}
         <div className="max-w-container mx-auto mt-12">
@@ -189,24 +190,24 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src="/screenshots/member-intelligence.png"
-                alt="Member Intelligence dashboard showing health scores and at-risk members"
-                className="w-full"
-              />
-            </div>
+            <ScreenshotLightbox
+              src="/screenshots/member-intelligence.png"
+              alt="Member Intelligence dashboard showing health scores and at-risk members"
+              frameClassName="rounded-xl overflow-hidden shadow-2xl border border-white/10"
+              imageClassName="w-full"
+              caption="Member Pulse ranks at-risk members by value, urgency, and recommended playbook."
+            />
           </div>
 
           {/* AI Agent Command */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 rounded-xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src="/screenshots/agent-command.png"
-                alt="AI Agent Command showing pending recommendations and actions"
-                className="w-full"
-              />
-            </div>
+            <ScreenshotLightbox
+              src="/screenshots/agent-command.png"
+              alt="AI Agent Command showing pending recommendations and actions"
+              frameClassName="order-2 md:order-1 rounded-xl overflow-hidden shadow-2xl border border-white/10"
+              imageClassName="w-full"
+              caption="Agent Command tracks every recommendation, approval, and measured outcome."
+            />
             <div className="order-1 md:order-2">
               <h3 className="text-2xl font-bold mb-4">Six agents monitoring 24/7.</h3>
               <p className="text-white/70 mb-6 leading-relaxed">

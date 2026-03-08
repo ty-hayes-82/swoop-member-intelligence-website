@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'Member Intelligence',
@@ -52,13 +53,13 @@ export default function MemberIntelligencePage() {
       {/* Product Screenshot */}
       <section className="py-12 px-6 bg-white">
         <div className="max-w-container mx-auto">
-          <div className="rounded-xl overflow-hidden shadow-2xl border border-swoop-border">
-            <img
-              src="/screenshots/member-intelligence.png"
-              alt="Member Intelligence dashboard showing health scores and at-risk members"
-              className="w-full"
-            />
-          </div>
+          <ScreenshotLightbox
+            src="/screenshots/member-intelligence.png"
+            alt="Member Intelligence dashboard showing health scores and at-risk members"
+            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border"
+            imageClassName="w-full"
+            caption="Member Intelligence ranks every member, shows decay signals, and surfaces the next action."
+          />
         </div>
       </section>
 

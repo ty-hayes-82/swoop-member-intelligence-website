@@ -178,7 +178,7 @@ export default function DemandOptimizationPage() {
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Works with your existing tee sheet software</h2>
           <p className="text-swoop-muted max-w-2xl mx-auto mb-8">
-            Swoop integrates with ForeTees, Chelsea, EZLinks, and GolfNow. We don't replace your tee sheet — we add retention-prioritized waitlist logic on top.
+            Swoop integrates with the tee sheet and booking platforms you already run. No rip-and-replace — we add retention-prioritized waitlist logic on top of your existing system.
           </p>
           <div className="flex justify-center gap-4">
             <Link href="/integrations" className="px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">

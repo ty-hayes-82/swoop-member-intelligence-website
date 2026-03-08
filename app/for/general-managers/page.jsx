@@ -15,7 +15,7 @@ const dailyChallenges = [
 const gmTools = [
   { tool: 'Daily Briefing', desc: 'Every morning at 6 AM: your top priorities, quick wins, and risk alerts. What needs your attention today, ranked by impact.' },
   { tool: 'Member Intelligence', desc: 'Health scores for every member. At-risk alerts 6-8 weeks before resignation. Intervention playbooks with predicted outcomes.' },
-  { tool: 'Tee Sheet & Demand', desc: 'Waitlist optimizer that fills canceled slots with the right members — retention-first, not FIFO. Demand forecasting so you never overbook or underutilize.' },
+  { tool: 'Tee Sheet & Demand', desc: 'Demand Optimizer fills canceled slots with the right members — retention-first, not FIFO. Demand forecasting so you never overbook or underutilize.' },
   { tool: 'F&B Operations', desc: 'Real-time outlet performance. Prep signals based on tee times + weather. Post-round conversion tracking so you know which golfers skip the Grill Room.' },
   { tool: 'Staffing & Labor', desc: 'Coverage gap alerts 24-48 hours ahead. Labor cost per revenue dollar. Shift recommendations that protect service level without blowing budget.' },
   { tool: 'Agent Command', desc: 'Six AI agents monitoring 24/7. They surface issues, recommend actions, show impact estimates. You approve or dismiss — never hunt for problems.' },

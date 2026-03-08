@@ -192,7 +192,7 @@ export default function AIAgentsPage() {
             <div className="bg-swoop-card border-l-4 border-lens-members rounded-xl p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="text-xs text-swoop-muted mb-1">MEMBER SAVE AGENT</p>
+                  <p className="text-xs text-swoop-muted mb-1">MEMBER PULSE</p>
                   <p className="font-semibold">3 at-risk members detected (health scores dropped 10+ points)</p>
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-red-100 text-red-700">High Priority</span>
@@ -207,7 +207,7 @@ export default function AIAgentsPage() {
             <div className="bg-swoop-card border-l-4 border-lens-fb rounded-xl p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="text-xs text-swoop-muted mb-1">F&B FLOW AGENT</p>
+                  <p className="text-xs text-swoop-muted mb-1">SERVICE RECOVERY</p>
                   <p className="font-semibold">Saturday lunch rush predicted (26 post-round diners expected)</p>
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700">Medium Priority</span>
@@ -222,7 +222,7 @@ export default function AIAgentsPage() {
             <div className="bg-swoop-card border-l-4 border-lens-operations rounded-xl p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <p className="text-xs text-swoop-muted mb-1">DEMAND SENTINEL</p>
+                  <p className="text-xs text-swoop-muted mb-1">DEMAND OPTIMIZER</p>
                   <p className="font-semibold">Tuesday morning slots 40% under capacity (8 open slots)</p>
                 </div>
                 <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-700">Low Priority</span>

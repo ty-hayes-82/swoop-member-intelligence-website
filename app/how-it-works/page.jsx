@@ -1,4 +1,5 @@
 import CTASection from '@/components/CTASection'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
 export const metadata = {
   title: 'How It Works',
@@ -15,7 +16,7 @@ const steps = [
   {
     phase: 'Week 2',
     title: 'Analyze',
-    desc: 'Swoop ingests your data and builds the complete intelligence view of your club. AI agents calibrate to your specific patterns — member behavior, demand cycles, staffing rhythms, F&B flow.',
+    desc: 'Swoop ingests your data and builds the complete intelligence view of your club. AI agents calibrate to your specific patterns — member behavior, demand cycles, staffing rhythms, F&B operations.',
     details: ['Historical data import (6-12 months)', 'AI model calibration', 'Risk scoring begins', 'Your first Daily Briefing arrives'],
   },
   {
@@ -58,13 +59,13 @@ export default function HowItWorksPage() {
               </div>
               <div className={`${i % 2 === 1 ? 'md:order-1' : ''}`}>
                 {i === 2 ? (
-                  <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
-                    <img
-                      src="/screenshots/daily-briefing.png"
-                      alt="Daily Briefing example showing morning priorities"
-                      className="w-full"
-                    />
-                  </div>
+                  <ScreenshotLightbox
+                    src="/screenshots/daily-briefing.png"
+                    alt="Daily Briefing example showing morning priorities"
+                    frameClassName="rounded-xl overflow-hidden shadow-xl border border-swoop-border"
+                    imageClassName="w-full"
+                    caption="Go-live Week 2: Daily Briefing delivers actionable intelligence with your member data."
+                  />
                 ) : (
                   <div className="bg-swoop-bg rounded-xl p-12 flex items-center justify-center">
                     <span className="text-8xl font-bold text-swoop-green/20">{String(i + 1).padStart(2, '0')}</span>
