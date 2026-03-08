@@ -33,10 +33,20 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* See It, Fix It, Prove It */}
+      {/* See It, Fix It, Prove It with Visual */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">See It → Fix It → Prove It</h2>
+          
+          {/* Daily Briefing Example */}
+          <div className="mb-12 rounded-xl overflow-hidden shadow-xl border border-swoop-border">
+            <img
+              src="/screenshots/daily-briefing.png"
+              alt="Daily Briefing showing morning priorities and Quick Wins"
+              className="w-full"
+            />
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((s) => (
               <div key={s.num} className="text-center">
@@ -49,12 +59,36 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* Core Capabilities */}
+      {/* Core Capabilities with Screenshot */}
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Five core capabilities. Every GM decision covered.</h2>
+          
+          {/* Member Intelligence with Screenshot */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+            <div className="space-y-6">
+              {lenses.slice(0, 3).map((l) => (
+                <div key={l.title} className="bg-swoop-card border border-swoop-border rounded-xl p-6 flex gap-4 items-start">
+                  <div className={`w-1.5 h-12 rounded-full ${l.color} flex-shrink-0 mt-1`} />
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1">{l.title}</h3>
+                    <p className="text-swoop-muted">{l.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
+              <img
+                src="/screenshots/member-intelligence.png"
+                alt="Member Intelligence showing health scores and at-risk members"
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          {/* Remaining Capabilities */}
           <div className="space-y-6">
-            {lenses.map((l) => (
+            {lenses.slice(3).map((l) => (
               <div key={l.title} className="bg-swoop-card border border-swoop-border rounded-xl p-6 flex gap-4 items-start">
                 <div className={`w-1.5 h-12 rounded-full ${l.color} flex-shrink-0 mt-1`} />
                 <div>
