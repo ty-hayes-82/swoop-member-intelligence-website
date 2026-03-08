@@ -39,7 +39,7 @@ const demoProcess = [
 const faqs = [
   { q: 'Do I need to bring data to the demo?', a: 'No. We use a realistic demo scenario based on a 300-member club. If you want to see your specific data, we can schedule a follow-up call after you export basic reports from your current systems.' },
   { q: 'How long does implementation take?', a: 'Most clubs are live in under 2 weeks. We connect to your existing systems via API — no rip-and-replace, no IT project.' },
-  { q: 'Will this replace my current club management software?', a: 'No. Swoop sits on top of your existing stack (ForeTees, Jonas, Northstar, etc.) and adds intelligence they can\'t provide. Your staff keeps using the tools they already know.' },
+  { q: 'Will this replace my current club management software?', a: 'No. Swoop sits on top of your existing stack (tee sheet platforms, club management systems, POS, etc.) and adds intelligence they can\'t provide. Your staff keeps using the tools they already know.' },
   { q: 'Is this just for large clubs?', a: 'Swoop works for any private club with 200+ members. The ROI scales with member count and annual dues, but the intelligence layer is valuable at any size.' },
 ]
 

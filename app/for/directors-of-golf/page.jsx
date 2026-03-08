@@ -112,7 +112,7 @@ export default function DirectorsOfGolfPage() {
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Works with your current tee sheet software</h2>
           <p className="text-swoop-muted max-w-2xl mx-auto mb-8">
-            Swoop integrates with ForeTees, Chelsea, EZLinks, and GolfNow. We don't replace your tee sheet — we add the intelligence layer on top.
+            Swoop integrates with leading tee sheet and booking platforms. We don't replace your tee sheet — we add the intelligence layer on top.
           </p>
           <Link href="/integrations" className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
             See All Integrations

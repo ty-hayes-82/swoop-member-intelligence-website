@@ -30,14 +30,14 @@ const comparison = [
 ]
 
 const integrationCategories = [
-  { label: 'Tee Sheet & Booking', vendors: ['ForeTees', 'Chelsea', 'EZLinks', 'GolfNow'] },
-  { label: 'Member CRM', vendors: ['Northstar', 'Jonas Club Software', 'Club Essential'] },
-  { label: 'POS & F&B', vendors: ['Jonas POS', 'Clubessential POS', 'Square', 'Toast', 'Lightspeed'] },
-  { label: 'Communications', vendors: ['Twilio', 'SendGrid', 'Mailchimp', 'Intercom'] },
-  { label: 'Staffing & Payroll', vendors: ['ADP', 'Paychex', 'When I Work'] },
-  { label: 'Finance & BI', vendors: ['QuickBooks', 'Sage', 'NetSuite', 'Power BI'] },
-  { label: 'Web & Lead Capture', vendors: ['HubSpot', 'Typeform'] },
-  { label: 'Access & Activity', vendors: ['Gatekeeper', 'BrivoAccess', 'Club Automation'] },
+  { label: 'Tee Sheet & Booking', description: 'Leading tee sheet platforms and booking systems' },
+  { label: 'Member CRM', description: 'Club management and member relationship systems' },
+  { label: 'POS & F&B', description: 'Point-of-sale and restaurant management platforms' },
+  { label: 'Communications', description: 'Email, SMS, and member communication tools' },
+  { label: 'Staffing & Payroll', description: 'Workforce management and payroll systems' },
+  { label: 'Finance & BI', description: 'Accounting, ERP, and business intelligence platforms' },
+  { label: 'Web & Lead Capture', description: 'Website forms and lead capture tools' },
+  { label: 'Access & Activity', description: 'Access control and activity tracking systems' },
 ]
 
 function ComparisonCell({ value }) {
@@ -291,11 +291,7 @@ export default function HomePage() {
             {integrationCategories.map((cat) => (
               <div key={cat.label} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
                 <h3 className="font-semibold mb-3">{cat.label}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.vendors.map((v) => (
-                    <span key={v} className="text-xs bg-swoop-bg text-swoop-muted px-2 py-1 rounded">{v}</span>
-                  ))}
-                </div>
+                <p className="text-sm text-swoop-muted">{cat.description}</p>
               </div>
             ))}
           </div>
