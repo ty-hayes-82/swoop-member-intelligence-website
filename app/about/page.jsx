@@ -12,7 +12,7 @@ export default function AboutPage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0 opacity-5">
           <img
-            src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
             alt="Clubhouse interior"
             className="w-full h-full object-cover"
           />
