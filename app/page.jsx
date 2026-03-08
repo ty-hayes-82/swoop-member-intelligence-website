@@ -77,31 +77,13 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          {/* Dashboard preview card */}
-          <div className="bg-swoop-dark rounded-xl p-6 shadow-xl">
-            <div className="flex gap-2 mb-4">
-              <span className="w-3 h-3 rounded-full bg-red-400" />
-              <span className="w-3 h-3 rounded-full bg-yellow-400" />
-              <span className="w-3 h-3 rounded-full bg-green-400" />
-              <span className="ml-3 text-white/50 text-xs">Club Intelligence — Today</span>
-            </div>
-            <div className="grid grid-cols-3 gap-3 mb-4">
-              {[
-                { label: 'Members at Risk', value: '23', color: 'border-lens-members' },
-                { label: 'Annual Value at Risk', value: '$1.38M', color: 'border-lens-operations' },
-                { label: 'Actions Pending', value: '7', color: 'border-lens-agents' },
-              ].map((s) => (
-                <div key={s.label} className={`bg-white/5 rounded-lg p-3 border-t-2 ${s.color}`}>
-                  <p className="text-white/50 text-xs">{s.label}</p>
-                  <p className="text-white font-mono text-xl font-bold">{s.value}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-2">
-              <div className="h-2 rounded-full bg-lens-operations" style={{ width: '82%' }} />
-              <div className="h-2 rounded-full bg-lens-briefing" style={{ width: '54%' }} />
-              <div className="h-2 rounded-full bg-lens-pipeline" style={{ width: '91%' }} />
-            </div>
+          {/* Real Product Screenshot */}
+          <div className="rounded-xl overflow-hidden shadow-2xl border border-swoop-border">
+            <img
+              src="/screenshots/daily-briefing.png"
+              alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
+              className="w-full"
+            />
           </div>
         </div>
         {/* Hero stats */}
@@ -171,10 +153,77 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* TODO: Platform Screenshots - Add real product screenshots here
-          Main: Morning Briefing with Quick Wins
-          Feature grid: Member Intelligence, Waitlist Demand, AI Agent Command
-          Capture with browser tool in non-cron session */}
+      {/* Product Screenshots */}
+      <section className="py-20 px-6 bg-swoop-dark text-white">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">See it in action.</h2>
+          <p className="text-white/70 text-center mb-16 max-w-2xl mx-auto">
+            Real intelligence. Real recommendations. Real impact.
+          </p>
+          
+          {/* Member Intelligence */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Know who's leaving before they do.</h3>
+              <p className="text-white/70 mb-6 leading-relaxed">
+                Member health scores aggregate engagement signals across golf, dining, email, and events. Decay shows up 6–8 weeks before resignation letters arrive.
+              </p>
+              <ul className="space-y-3 text-white/70">
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>At-risk members ranked by annual value and intervention urgency</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>Archetype-based segmentation (Die-Hard, Weekend Warrior, Declining, Ghost)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>Predicted resignations with timeline and confidence scores</span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10">
+              <img
+                src="/screenshots/member-intelligence.png"
+                alt="Member Intelligence dashboard showing health scores and at-risk members"
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          {/* AI Agent Command */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 rounded-xl overflow-hidden shadow-2xl border border-white/10">
+              <img
+                src="/screenshots/agent-command.png"
+                alt="AI Agent Command showing pending recommendations and actions"
+                className="w-full"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-2xl font-bold mb-4">Six agents monitoring 24/7.</h3>
+              <p className="text-white/70 mb-6 leading-relaxed">
+                AI agents flag issues before they escalate — service complaints, staffing gaps, demand shifts, at-risk members. You approve decisions instead of hunting for problems.
+              </p>
+              <ul className="space-y-3 text-white/70">
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>Recommended actions with impact estimates and approval paths</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>Bulk decisions by agent type (demand, staffing, retention, revenue)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-swoop-green mt-0.5">✓</span>
+                  <span>Closed-loop tracking from trigger → action → outcome</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Comparison */}
       <section className="py-20 px-6">
