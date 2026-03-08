@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
 
 :root {
   --color-briefing: #6bb8ef;
@@ -16,7 +16,7 @@
   --text-muted: #6B7280;
 
   --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-hero: "DM Serif Display", serif;
+  --font-hero: "Plus Jakarta Sans", sans-serif;
   --font-numbers: "JetBrains Mono", monospace;
   --container-max: 1200px;
 }
@@ -50,7 +50,7 @@ main {
 
 h1,
 h2 {
-  font-family: var(--font-hero);
+  font-family: var(--font-hero); font-weight: 700;
 }
 
 .data-number {
@@ -875,7 +875,7 @@ h2 {
 .demo-success h3 {
   margin: 0;
   color: #ffffff;
-  font-family: var(--font-hero);
+  font-family: var(--font-hero); font-weight: 700;
 }
 
 .demo-success p {

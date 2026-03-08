@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 const stats = [
   "$1.4M avg dues at risk identified",
   "6-8 wk early warning",
-  "28 integrations, live in 2 weeks"
+  ".4M avg dues at risk identified"
 ]
 
 const dashboardStats = [
@@ -23,15 +23,15 @@ export default function HeroSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="eyebrow">Member Intelligence Platform</p>
-          <h1>Every resignation has a 90-day warning. Are you seeing it?</h1>
+          <p className="eyebrow">For Private Club General Managers</p>
+          <h1>Know a member is leaving before they do.</h1>
           <p className="hero-subhead">
-            Swoop helps private club GMs predict member churn, optimize tee sheets, and prove revenue impact with one
-            operating layer across golf, F&amp;B, and member engagement.
+            Swoop connects your tee sheet, POS, CRM, and email into a single intelligence layer — surfacing decay
+            signals weeks before resignation letters arrive.
           </p>
           <div className="hero-ctas">
             <a href="#demo" className="btn-primary">Book a Demo</a>
-            <a href="#platform" className="btn-secondary">See the Platform</a>
+            <a href="#platform" className="btn-secondary">Watch the Demo</a>
           </div>
         </motion.div>
 
