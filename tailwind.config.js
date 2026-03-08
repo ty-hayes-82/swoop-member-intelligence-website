@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'swoop-green': '#4ADE80',
-        'swoop-green-hover': '#43C872',
+        'swoop-green': '#10B981',
+        'swoop-green-hover': '#059669',
         'swoop-dark': '#1F2F24',
         'swoop-accent': '#F3922D',
         'swoop-bg': '#F8F9FA',
@@ -16,7 +16,7 @@ module.exports = {
         // §9: lens-* color tokens are INTERNAL ONLY — used for component styling/visual hierarchy.
         // Never expose "lens" terminology to customers. Use outcome-based names in all customer-facing copy.
         'lens-briefing': '#6BB8EF',
-        'lens-operations': '#4ADE80',
+        'lens-operations': '#10B981',
         'lens-fb': '#F97316',
         'lens-members': '#A78BFA',
         'lens-staffing': '#F59E0B',
