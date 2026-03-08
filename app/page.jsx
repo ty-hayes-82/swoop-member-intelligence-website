@@ -4,20 +4,20 @@ import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
 
 const lenses = [
-  { slug: 'member-intelligence', title: 'Member Intelligence', color: 'border-lens-members', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
-  { slug: 'tee-sheet-demand', title: 'Tee Sheet & Demand', color: 'border-lens-operations', description: 'Predict cancellations and backfill each open slot with the right member. Optimize pace and demand signals without overbooking guesswork.' },
-  { slug: 'fb-operations', title: 'F&B Operations', color: 'border-lens-fb', description: 'Connect golf flow, weather, and reservations to outlet demand in real time. Shift prep and staffing before service degrades.' },
-  { slug: 'staffing-labor', title: 'Staffing & Labor', color: 'border-lens-staffing', description: 'Tie labor coverage to predicted demand across golf and clubhouse touchpoints. Catch understaffed windows early enough to avoid member friction.' },
-  { slug: 'revenue-pipeline', title: 'Revenue & Pipeline', color: 'border-lens-pipeline', description: 'Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.' },
+  { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
+  { slug: 'tee-sheet-demand', title: 'Tee Sheet & Demand', icon: '⛳', color: 'border-lens-operations', bgColor: 'bg-green-50', description: 'Predict cancellations and backfill each open slot with the right member. Optimize pace and demand signals without overbooking guesswork.' },
+  { slug: 'fb-operations', title: 'F&B Operations', icon: '🍽️', color: 'border-lens-fb', bgColor: 'bg-amber-50', description: 'Connect golf flow, weather, and reservations to outlet demand in real time. Shift prep and staffing before service degrades.' },
+  { slug: 'staffing-labor', title: 'Staffing & Labor', icon: '👔', color: 'border-lens-staffing', bgColor: 'bg-orange-50', description: 'Tie labor coverage to predicted demand across golf and clubhouse touchpoints. Catch understaffed windows early enough to avoid member friction.' },
+  { slug: 'revenue-pipeline', title: 'Revenue & Pipeline', icon: '💰', color: 'border-lens-pipeline', bgColor: 'bg-rose-50', description: 'Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.' },
 ]
 
 const agents = [
-  { name: 'Demand Sentinel', description: 'Flags demand swings by segment and recommends inventory moves before losses compound.' },
-  { name: 'Waitlist Optimizer', description: 'Reorders waitlists by retention value and match-fit, then auto-notifies best-fit members.' },
-  { name: 'Member Save Agent', description: 'Detects service-risk members and triggers personalized save sequences for GM follow-up.' },
-  { name: 'F&B Flow Agent', description: 'Predicts rushes from tee sheet and weather signals to adjust outlet prep and staffing.' },
-  { name: 'Labor Planner', description: 'Forecasts coverage gaps and recommends shifts to protect service level and margin.' },
-  { name: 'Revenue Analyst', description: 'Attribution-ready insights connect actions to recovered revenue and retained annual value.' },
+  { name: 'Demand Sentinel', icon: '🎯', description: 'Flags demand swings by segment and recommends inventory moves before losses compound.' },
+  { name: 'Waitlist Optimizer', icon: '📋', description: 'Reorders waitlists by retention value and match-fit, then auto-notifies best-fit members.' },
+  { name: 'Member Save Agent', icon: '🛟', description: 'Detects service-risk members and triggers personalized save sequences for GM follow-up.' },
+  { name: 'F&B Flow Agent', icon: '🍴', description: 'Predicts rushes from tee sheet and weather signals to adjust outlet prep and staffing.' },
+  { name: 'Labor Planner', icon: '📊', description: 'Forecasts coverage gaps and recommends shifts to protect service level and margin.' },
+  { name: 'Revenue Analyst', icon: '💎', description: 'Attribution-ready insights connect actions to recovered revenue and retained annual value.' },
 ]
 
 const comparison = [
@@ -138,6 +138,9 @@ export default function HomePage() {
                 href={`/capabilities/${lens.slug}`}
                 className={`block bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 ${lens.color} hover:shadow-lg transition group`}
               >
+                <div className={`w-12 h-12 ${lens.bgColor} rounded-lg flex items-center justify-center text-2xl mb-3`}>
+                  {lens.icon}
+                </div>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-swoop-accent transition">{lens.title}</h3>
                 <p className="text-sm text-swoop-muted leading-relaxed">{lens.description}</p>
                 <span className="inline-block mt-3 text-sm text-swoop-accent font-medium">Learn more →</span>
@@ -271,6 +274,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {agents.map((agent) => (
               <div key={agent.name} className="bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 border-lens-agents">
+                <div className="text-3xl mb-3">{agent.icon}</div>
                 <h3 className="font-semibold mb-2">{agent.name}</h3>
                 <p className="text-sm text-swoop-muted">{agent.description}</p>
               </div>
