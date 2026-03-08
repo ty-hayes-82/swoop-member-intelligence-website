@@ -56,8 +56,20 @@ export default function HowItWorksPage() {
                   ))}
                 </ul>
               </div>
-              <div className={`bg-swoop-bg rounded-xl p-12 flex items-center justify-center ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                <span className="text-8xl font-bold text-swoop-green/20">{String(i + 1).padStart(2, '0')}</span>
+              <div className={`${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                {i === 2 ? (
+                  <div className="rounded-xl overflow-hidden shadow-xl border border-swoop-border">
+                    <img
+                      src="/screenshots/daily-briefing.png"
+                      alt="Daily Briefing example showing morning priorities"
+                      className="w-full"
+                    />
+                  </div>
+                ) : (
+                  <div className="bg-swoop-bg rounded-xl p-12 flex items-center justify-center">
+                    <span className="text-8xl font-bold text-swoop-green/20">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
