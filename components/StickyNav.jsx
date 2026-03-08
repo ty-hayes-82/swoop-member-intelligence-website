@@ -28,7 +28,7 @@ export default function StickyNav() {
           <Link href="/how-it-works" className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition">How It Works</Link>
           <Link
             href="/book-demo"
-            className="ml-4 px-6 py-2.5 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg hover:bg-swoop-green-hover transition"
+            className="ml-4 px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg hover:bg-swoop-green-hover transition"
           >
             Book a Demo
           </Link>
@@ -37,7 +37,7 @@ export default function StickyNav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-swoop-dark"
+          className="md:hidden p-3 text-swoop-dark min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,12 +52,12 @@ export default function StickyNav() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="md:hidden border-t border-swoop-border bg-white px-6 py-4 space-y-3">
-          <Link href="/platform" onClick={() => setOpen(false)} className="block text-sm font-medium text-swoop-muted">Platform</Link>
-          <Link href="/pricing" onClick={() => setOpen(false)} className="block text-sm font-medium text-swoop-muted">Pricing</Link>
-          <Link href="/why-swoop" onClick={() => setOpen(false)} className="block text-sm font-medium text-swoop-muted">Why Swoop</Link>
-          <Link href="/how-it-works" onClick={() => setOpen(false)} className="block text-sm font-medium text-swoop-muted">How It Works</Link>
-          <Link href="/book-demo" onClick={() => setOpen(false)} className="block mt-2 text-center px-6 py-2.5 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg">Book a Demo</Link>
+        <nav className="md:hidden border-t border-swoop-border bg-white px-6 py-4 space-y-2">
+          <Link href="/platform" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Platform</Link>
+          <Link href="/pricing" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Pricing</Link>
+          <Link href="/why-swoop" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">Why Swoop</Link>
+          <Link href="/how-it-works" onClick={() => setOpen(false)} className="block py-3 text-sm font-medium text-swoop-muted">How It Works</Link>
+          <Link href="/book-demo" onClick={() => setOpen(false)} className="block mt-2 text-center px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg">Book a Demo</Link>
         </nav>
       )}
     </header>
