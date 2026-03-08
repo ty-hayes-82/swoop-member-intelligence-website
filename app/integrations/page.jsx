@@ -149,7 +149,7 @@ export default function IntegrationsPage() {
       {/* 28 Integrations Grid */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">28 integrations across 10 categories</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">28 integrations across 8 categories</h2>
           <p className="text-swoop-muted text-center mb-12">Connect the systems you already run. No rip-and-replace. Live in under 2 weeks.</p>
           <div className="grid md:grid-cols-2 gap-6">
             {categories.map((cat) => (

@@ -50,11 +50,11 @@ export default function HomePage() {
       {/* Hero */}
       <section className="py-20 md:py-28 px-6 relative overflow-hidden">
         {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-5">
+        <div className="absolute inset-0 z-0 opacity-15">
           <img
             src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&q=80"
             alt="Golf course aerial"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
         </div>
         <div className="max-w-container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -86,7 +86,7 @@ export default function HomePage() {
             <div className="grid grid-cols-3 gap-3 mb-4">
               {[
                 { label: 'Members at Risk', value: '5', color: 'border-lens-members' },
-                { label: 'Revenue Protected', value: '$1.4M', color: 'border-lens-operations' },
+                { label: 'Dues at Risk', value: '$778K', color: 'border-lens-operations' },
                 { label: 'Actions Pending', value: '3', color: 'border-lens-agents' },
               ].map((s) => (
                 <div key={s.label} className={`bg-white/5 rounded-lg p-3 border-t-2 ${s.color}`}>
@@ -130,6 +130,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Inline CTA - After Problem */}
+      <div className="py-8 px-6">
+        <div className="max-w-container mx-auto text-center">
+          <Link href="/book-demo" className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
+            See how it works →
+          </Link>
+        </div>
+      </div>
+
       {/* Five Lenses */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
@@ -151,51 +160,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Platform Screenshots */}
-      <section className="py-20 px-6">
-        <div className="max-w-container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">See it in action.</h2>
-          <p className="text-swoop-muted text-center mb-12">Real intelligence. Real decisions. Real recovery.</p>
-          
-          {/* Main dashboard screenshot */}
-          <div className="mb-12">
-            <div className="bg-swoop-dark rounded-xl p-8 shadow-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-white/60 text-sm font-mono ml-2">Morning Briefing — Today View</span>
-              </div>
-              {/* Screenshot placeholder */}
-              <div className="bg-white/5 rounded-lg aspect-[16/10] flex items-center justify-center border-2 border-dashed border-white/20">
-                <div className="text-center">
-                  <p className="text-white/40 text-sm mb-2">Dashboard Screenshot</p>
-                  <p className="text-white/30 text-xs max-w-md">Morning Briefing with Quick Wins, Risk Factors, and 5 at-risk members</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3-column feature screenshots */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: 'Member Intelligence', subtitle: 'Health scores & churn signals' },
-              { title: 'Waitlist Demand', subtitle: 'Retention-prioritized queue' },
-              { title: 'AI Agent Command', subtitle: 'Approve or dismiss recommendations' },
-            ].map((item) => (
-              <div key={item.title} className="bg-swoop-card border border-swoop-border rounded-xl p-4">
-                <div className="aspect-[4/3] bg-swoop-bg rounded-lg mb-3 flex items-center justify-center border border-dashed border-swoop-border">
-                  <span className="text-swoop-muted text-xs">Screenshot</span>
-                </div>
-                <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
-                <p className="text-xs text-swoop-muted">{item.subtitle}</p>
-              </div>
-            ))}
-          </div>
+      {/* Inline CTA - After Lenses */}
+      <div className="py-8 px-6">
+        <div className="max-w-container mx-auto text-center">
+          <Link href="/book-demo" className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
+            Book a demo →
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* TODO: Platform Screenshots - Add real product screenshots here
+          Main: Morning Briefing with Quick Wins
+          Feature grid: Member Intelligence, Waitlist Demand, AI Agent Command
+          Capture with browser tool in non-cron session */}
 
       {/* Comparison */}
       <section className="py-20 px-6">
@@ -225,6 +202,9 @@ export default function HomePage() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="text-center mt-4 text-xs text-swoop-muted">
+            Legend: ✓ Full support · ~ Partial/limited · ✕ Not available
           </div>
         </div>
       </section>
