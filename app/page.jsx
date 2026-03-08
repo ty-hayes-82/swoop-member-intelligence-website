@@ -3,6 +3,7 @@ import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import HeroBanner from '@/components/HeroBanner'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -50,53 +51,28 @@ function ComparisonCell({ value }) {
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="py-20 md:py-28 px-6 relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-15">
-          <img
-            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
-            alt="Golf course aerial"
-            className="w-full h-full object-cover blur-sm"
-          />
-        </div>
-        <div className="max-w-container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <div>
-            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For Private Club General Managers</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Know a member is leaving before they do.
-            </h1>
-            <p className="text-lg text-swoop-muted mb-8 max-w-xl">
-              Swoop connects your tee sheet, POS, CRM, and email into a single intelligence layer — surfacing decay signals weeks before resignation letters arrive.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/book-demo" className="px-7 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
-                Book a Demo
-              </Link>
-              <Link href="/platform" className="px-7 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition">
-                See the Platform
-              </Link>
-            </div>
-          </div>
-          {/* Real Product Screenshot */}
-          <ScreenshotLightbox
-            src="/screenshots/daily-briefing.png"
-            alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
-            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border max-w-2xl mx-auto"
-            imageClassName="w-full"
-            caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
-          />
-        </div>
-        {/* Hero stats */}
-        <div className="max-w-container mx-auto mt-12">
-          <div className="flex flex-wrap justify-center gap-8 text-sm font-mono text-swoop-muted">
-            <span>$1.38M annual value at risk identified</span>
-            <span>6.4 week average early warning</span>
-            <span>87% tee sheet fill rate</span>
-          </div>
-          <p className="text-center text-xs text-swoop-muted mt-2">Demo scenario: Oakmont Hills CC</p>
-        </div>
-      </section>
+      <HeroBanner
+        eyebrow="For Private Club General Managers"
+        title="Know a member is leaving before they do."
+        description="Swoop connects your tee sheet, POS, CRM, and email into a single intelligence layer — surfacing decay signals weeks before resignation letters arrive."
+        primaryAction={{ href: '/book-demo', label: 'Book a Demo' }}
+        secondaryAction={{ href: '/platform', label: 'See the Platform' }}
+        backgroundImage="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
+        stats={[
+          '$1.38M annual value at risk identified',
+          '6.4 week average early warning',
+          '87% tee sheet fill rate',
+        ]}
+      >
+        <ScreenshotLightbox
+          src="/screenshots/daily-briefing.png"
+          alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
+          frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border max-w-2xl mx-auto"
+          imageClassName="w-full"
+          caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
+        />
+      </HeroBanner>
+      <p className="text-center text-xs text-swoop-muted mt-2">Demo scenario: Oakmont Hills CC</p>
 
       <TrustStrip />
 
