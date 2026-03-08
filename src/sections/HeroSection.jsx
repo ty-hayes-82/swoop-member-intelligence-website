@@ -31,7 +31,7 @@ export default function HeroSection() {
           </p>
           <div className="hero-ctas">
             <a href="#demo" className="btn-primary">Book a Demo</a>
-            <a href="#platform" className="btn-secondary">Watch the Demo</a>
+            <a href="#platform" className="btn-secondary">See the Platform</a>
           </div>
         </motion.div>
 

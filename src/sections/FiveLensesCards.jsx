@@ -7,7 +7,7 @@ const lenses = [
     colorClass: "lens-members",
     description:
       "Detect churn signals 6–8 weeks early using attendance, spend, and participation changes rolled into one risk score. GMs get a prioritized save list with recommended next-best actions for each at-risk household, so no high-value member slips away unnoticed.",
-    link: "#"
+    link: "#demo"
   },
   {
     title: "Tee Sheet & Demand",
@@ -15,7 +15,7 @@ const lenses = [
     colorClass: "lens-briefing",
     description:
       "Spot tee-sheet compression, pace-of-play risk, and under-utilized inventory before they become member complaints. Daily rollups show where demand is shifting by daypart so your team can rebalance starter coverage and fill gaps with the right members.",
-    link: "#"
+    link: "#demo"
   },
   {
     title: "F&B Operations",
@@ -23,7 +23,7 @@ const lenses = [
     colorClass: "lens-fb",
     description:
       "Track spend by member cohort, time block, and outlet to identify avoidable revenue leakage. Swoop highlights which dining experiences increase on-property spend without discounting the premium moments that drive margin.",
-    link: "#"
+    link: "#demo"
   },
   {
     title: "Staffing & Labor",
@@ -31,7 +31,7 @@ const lenses = [
     colorClass: "lens-staffing",
     description:
       "Forecast coverage gaps before weekends and tournament days based on booking velocity and historical service load. Managers can proactively shift schedules to protect service-level targets across golf ops and dining.",
-    link: "#"
+    link: "#demo"
   },
   {
     title: "Revenue & Pipeline",
@@ -39,7 +39,7 @@ const lenses = [
     colorClass: "lens-pipeline",
     description:
       "Rank open inventory opportunities by retention impact, member fit, and downstream revenue potential. Instead of broad blasts, your team gets targeted fill recommendations that keep members engaged and coming back.",
-    link: "#"
+    link: "#demo"
   }
 ]
 

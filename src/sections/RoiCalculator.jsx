@@ -28,18 +28,27 @@ export default function RoiCalculator() {
 
           <div className="roi-inputs">
             <label>
-              Average annual dues per member
-              <input type="number" value={dues} min="0" onChange={(e) => setDues(Number(e.target.value) || 0)} />
+              <span className="roi-label-row">
+                <span>Average annual dues per member</span>
+                <span className="roi-value data-number">{formatCurrency(dues)}</span>
+              </span>
+              <input type="range" value={dues} min="5000" max="60000" step="1000" onChange={(e) => setDues(Number(e.target.value))} />
             </label>
 
             <label>
-              Members lost per year
-              <input type="number" value={lostMembers} min="0" onChange={(e) => setLostMembers(Number(e.target.value) || 0)} />
+              <span className="roi-label-row">
+                <span>Members lost per year</span>
+                <span className="roi-value data-number">{lostMembers}</span>
+              </span>
+              <input type="range" value={lostMembers} min="1" max="50" step="1" onChange={(e) => setLostMembers(Number(e.target.value))} />
             </label>
 
             <label>
-              Average member tenure remaining (years)
-              <input type="number" value={tenure} min="0" onChange={(e) => setTenure(Number(e.target.value) || 0)} />
+              <span className="roi-label-row">
+                <span>Average member tenure remaining (years)</span>
+                <span className="roi-value data-number">{tenure}</span>
+              </span>
+              <input type="range" value={tenure} min="1" max="20" step="1" onChange={(e) => setTenure(Number(e.target.value))} />
             </label>
           </div>
         </div>

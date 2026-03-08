@@ -550,22 +550,57 @@ h2 {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.roi-inputs input {
-  min-height: 46px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-  padding: 0 0.85rem;
-  font-size: 1rem;
-  font-family: var(--font-body);
-  transition: border-color 0.2s;
+.roi-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.roi-inputs input:focus {
+.roi-value {
+  color: var(--color-operations);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.roi-inputs input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
   outline: none;
-  border-color: var(--color-operations);
-  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.15);
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+
+.roi-inputs input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-operations);
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.roi-inputs input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-operations);
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.roi-inputs input[type="range"]:focus {
+  outline: none;
+}
+
+.roi-inputs input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
 }
 
 .roi-output {
@@ -687,6 +722,13 @@ h2 {
   padding: 1rem;
   border-left: 4px solid transparent;
 }
+
+.agent-card:has(.agent-accent-retention) { border-left-color: var(--color-members); }
+.agent-card:has(.agent-accent-ops) { border-left-color: var(--color-operations); }
+.agent-card:has(.agent-accent-agents) { border-left-color: var(--color-agents); }
+.agent-card:has(.agent-accent-fb) { border-left-color: var(--color-fb); }
+.agent-card:has(.agent-accent-members) { border-left-color: var(--color-members); }
+.agent-card:has(.agent-accent-pipeline) { border-left-color: var(--color-pipeline); }
 
 .agent-icon {
   width: 38px;
