@@ -37,7 +37,7 @@ export default function DirectorsOfGolfPage() {
             <Link href="/book-demo" className="px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
               Book a Demo
             </Link>
-            <Link href="/lenses/tee-sheet-demand" className="px-6 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition">
+            <Link href="/capabilities/tee-sheet-demand" className="px-6 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition">
               See Demand Intelligence
             </Link>
           </div>

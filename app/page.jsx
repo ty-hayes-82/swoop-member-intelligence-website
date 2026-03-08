@@ -135,7 +135,7 @@ export default function HomePage() {
             {lenses.map((lens) => (
               <Link
                 key={lens.slug}
-                href={`/lenses/${lens.slug}`}
+                href={`/capabilities/${lens.slug}`}
                 className={`block bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 ${lens.color} hover:shadow-lg transition group`}
               >
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-swoop-accent transition">{lens.title}</h3>

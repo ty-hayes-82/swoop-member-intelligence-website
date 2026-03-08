@@ -11,13 +11,13 @@ const columns = [
     ],
   },
   {
-    title: 'Lenses',
+    title: 'Capabilities',
     links: [
-      { href: '/lenses/member-intelligence', label: 'Member Intelligence' },
-      { href: '/lenses/tee-sheet-demand', label: 'Tee Sheet & Demand' },
-      { href: '/lenses/fb-operations', label: 'F&B Operations' },
-      { href: '/lenses/staffing-labor', label: 'Staffing & Labor' },
-      { href: '/lenses/revenue-pipeline', label: 'Revenue & Pipeline' },
+      { href: '/capabilities/member-intelligence', label: 'Member Intelligence' },
+      { href: '/capabilities/tee-sheet-demand', label: 'Tee Sheet & Demand' },
+      { href: '/capabilities/fb-operations', label: 'F&B Operations' },
+      { href: '/capabilities/staffing-labor', label: 'Staffing & Labor' },
+      { href: '/capabilities/revenue-pipeline', label: 'Revenue & Pipeline' },
     ],
   },
   {
