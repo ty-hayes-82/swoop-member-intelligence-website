@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: {
-    default: 'Swoop Golf — The Five Lenses GM Platform',
+    default: 'Swoop Golf — Club Intelligence for General Managers',
     template: '%s | Swoop Golf',
   },
   description: 'AI-powered intelligence for private club General Managers. See what your club misses today and recover it tomorrow.',
@@ -12,13 +12,13 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'Swoop Golf',
-    title: 'Swoop Golf — The Five Lenses GM Platform',
+    title: 'Swoop Golf — Club Intelligence for GMs',
     description: 'AI-powered intelligence for private club General Managers.',
     url: 'https://swoopgolf.com',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Swoop Golf — The Five Lenses GM Platform',
+    title: 'Swoop Golf — Club Intelligence for GMs',
     description: 'AI-powered intelligence for private club General Managers.',
   },
 }
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
               name: 'Swoop Golf',
               applicationCategory: 'BusinessApplication',
               operatingSystem: 'Web',
-              description: 'AI-powered Five Lenses intelligence platform for private club General Managers.',
+              description: 'AI-powered club intelligence platform for private club General Managers.',
               url: 'https://swoopgolf.com',
               offers: [
                 { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
