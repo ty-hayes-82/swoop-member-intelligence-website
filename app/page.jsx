@@ -21,12 +21,12 @@ const agents = [
 ]
 
 const comparison = [
-  { feature: 'Member churn prediction', swoop: 'full', noteefy: 'none', crm: 'partial', sheets: 'none' },
-  { feature: 'Retention-prioritized waitlist', swoop: 'full', noteefy: 'partial', crm: 'none', sheets: 'none' },
-  { feature: 'Cross-lens analytics', swoop: 'full', noteefy: 'none', crm: 'partial', sheets: 'partial' },
-  { feature: 'AI agent automation', swoop: 'full', noteefy: 'none', crm: 'none', sheets: 'none' },
-  { feature: 'Real-time behavioral data', swoop: 'full', noteefy: 'partial', crm: 'partial', sheets: 'none' },
-  { feature: 'Closed-loop engagement', swoop: 'full', noteefy: 'none', crm: 'partial', sheets: 'none' },
+  { feature: 'Member churn prediction', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
+  { feature: 'Retention-prioritized waitlist', swoop: 'full', waitlistTools: 'partial', crm: 'none', sheets: 'none' },
+  { feature: 'Cross-lens analytics', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'partial' },
+  { feature: 'AI agent automation', swoop: 'full', waitlistTools: 'none', crm: 'none', sheets: 'none' },
+  { feature: 'Real-time behavioral data', swoop: 'full', waitlistTools: 'partial', crm: 'partial', sheets: 'none' },
+  { feature: 'Closed-loop engagement', swoop: 'full', waitlistTools: 'none', crm: 'partial', sheets: 'none' },
 ]
 
 const integrationCategories = [
@@ -195,7 +195,7 @@ export default function HomePage() {
                   <tr key={row.feature} className="border-t border-swoop-border">
                     <td className="p-4 font-medium">{row.feature}</td>
                     <ComparisonCell value={row.swoop} />
-                    <ComparisonCell value={row.noteefy} />
+                    <ComparisonCell value={row.waitlistTools} />
                     <ComparisonCell value={row.crm} />
                     <ComparisonCell value={row.sheets} />
                   </tr>
