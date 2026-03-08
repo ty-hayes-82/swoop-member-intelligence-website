@@ -5,7 +5,7 @@ export default function sitemap() {
     '/book-demo', '/contact',
     '/lenses/member-intelligence', '/lenses/tee-sheet-demand',
     '/lenses/fb-operations', '/lenses/staffing-labor', '/lenses/revenue-pipeline',
-    '/ai-agents', '/case-studies', '/roi-calculator',
+    '/ai-agents', '/case-studies', '/roi-calculator', '/resources',
     '/for/private-clubs', '/for/country-clubs', '/for/multi-club-operators',
     '/about', '/integrations',
   ]
