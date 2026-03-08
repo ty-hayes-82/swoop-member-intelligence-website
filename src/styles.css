@@ -441,6 +441,14 @@ h2 {
   box-shadow: 0 16px 30px rgba(31, 47, 36, 0.14);
 }
 
+.lens-card { border-left: 4px solid transparent; }
+.lens-card:has(.lens-members) { border-left-color: var(--color-members); }
+.lens-card:has(.lens-briefing) { border-left-color: var(--color-briefing); }
+.lens-card:has(.lens-fb) { border-left-color: var(--color-fb); }
+.lens-card:has(.lens-staffing) { border-left-color: var(--color-staffing); }
+.lens-card:has(.lens-pipeline) { border-left-color: var(--color-pipeline); }
+.lens-card:has(.lens-ops) { border-left-color: var(--color-operations); }
+
 .card-icon {
   width: 42px;
   height: 42px;
@@ -1032,7 +1040,7 @@ h2 {
   }
 
   .integration-categories {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .footer-grid {
@@ -1042,7 +1050,7 @@ h2 {
 
 @media (min-width: 1240px) {
   :root {
-    --container-max: 1280px;
+    --container-max: 1200px;
   }
 
   .hero-section {

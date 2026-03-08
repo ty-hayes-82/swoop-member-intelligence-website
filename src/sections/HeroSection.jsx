@@ -2,8 +2,8 @@ import { motion } from "framer-motion"
 
 const stats = [
   "$1.4M avg dues at risk identified",
-  "6-8 wk early warning",
-  ".4M avg dues at risk identified"
+  "6–8 week early warning on churn",
+  "91% tee sheet fill rate"
 ]
 
 const dashboardStats = [

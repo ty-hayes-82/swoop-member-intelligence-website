@@ -9,6 +9,7 @@ export default function SocialProofBar() {
           <span>Club Essential</span>
           <span>Northstar</span>
           <span>7shifts</span>
+          <span>Chronogolf</span>
         </div>
       </div>
     </section>
