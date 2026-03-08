@@ -10,6 +10,9 @@ export default function RoiCalculator() {
   const annualLoss = atRisk * dues
   const swoopSaves = Math.round(atRisk * 0.65)
   const recovered = swoopSaves * dues
+  const swoopProCost = 1188 // $99/mo × 12
+  const netGain = recovered - swoopProCost
+  const roiMultiple = recovered > 0 ? Math.round(recovered / swoopProCost) : 0
 
   return (
     <section className="bg-swoop-dark py-20 px-6">
@@ -59,6 +62,13 @@ export default function RoiCalculator() {
             <div>
               <p className="text-white/50 text-sm">Revenue recovered with Swoop</p>
               <p className="font-mono text-5xl font-bold text-swoop-green">${recovered.toLocaleString()}</p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-swoop-green/30 bg-swoop-green/10 rounded-lg p-4 -mx-4">
+              <p className="text-white/50 text-sm">Swoop Pro annual cost</p>
+              <p className="font-mono text-2xl font-bold text-white/80">-${swoopProCost.toLocaleString()}</p>
+              <p className="text-white/50 text-sm mt-3">Net revenue gain</p>
+              <p className="font-mono text-5xl font-bold text-swoop-green">${netGain.toLocaleString()}</p>
+              <p className="text-swoop-green/80 text-sm mt-2 font-semibold">{roiMultiple}× return on investment</p>
             </div>
           </div>
         </div>
