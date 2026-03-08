@@ -4,6 +4,7 @@ import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import HeroBanner from '@/components/HeroBanner'
+import LensCard from '@/components/LensCard'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -110,18 +111,15 @@ export default function HomePage() {
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">Every GM decision category — member health, tee sheet demand, F&B, staffing, and revenue — connected and actionable in one place.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {lenses.map((lens) => (
-              <Link
+              <LensCard
                 key={lens.slug}
                 href={`/capabilities/${lens.slug}`}
-                className={`block bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 ${lens.color} hover:shadow-lg transition group`}
-              >
-                <div className={`w-12 h-12 ${lens.bgColor} rounded-lg flex items-center justify-center text-2xl mb-3`}>
-                  {lens.icon}
-                </div>
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-swoop-accent transition">{lens.title}</h3>
-                <p className="text-sm text-swoop-muted leading-relaxed">{lens.description}</p>
-                <span className="inline-block mt-3 text-sm text-swoop-accent font-medium">Learn more →</span>
-              </Link>
+                icon={lens.icon}
+                title={lens.title}
+                description={lens.description}
+                colorClass={lens.color}
+                bgClass={lens.bgColor}
+              />
             ))}
           </div>
         </div>
