@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HeroBanner({
   eyebrow,
@@ -8,16 +9,20 @@ export default function HeroBanner({
   secondaryAction,
   stats = [],
   backgroundImage,
+  backgroundPriority = false,
   children,
 }) {
   return (
     <section className="py-20 md:py-28 px-6 relative overflow-hidden">
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-15">
-          <img
+          <Image
             src={backgroundImage}
             alt="Hero background"
-            className="w-full h-full object-cover blur-sm"
+            fill
+            sizes="100vw"
+            priority={backgroundPriority}
+            className="object-cover blur-sm"
           />
         </div>
       )}
@@ -56,7 +61,7 @@ export default function HeroBanner({
           </div>
         </div>
         {children && (
-          <div>
+          <div className="max-w-4xl mx-auto w-full">
             {children}
           </div>
         )}

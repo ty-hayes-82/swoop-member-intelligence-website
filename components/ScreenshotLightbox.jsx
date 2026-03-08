@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function ScreenshotLightbox({
   src,
@@ -9,13 +10,15 @@ export default function ScreenshotLightbox({
   imageClassName = 'w-full h-auto',
   caption,
   badge = 'View full size',
+  width = 1280,
+  height = 800,
 }) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
-      <div className={`relative ${frameClassName}`}>
-        <img src={src} alt={alt} className={imageClassName} />
+      <div className={`relative max-w-4xl mx-auto ${frameClassName}`}>
+        <Image src={src} alt={alt} width={width} height={height} quality={85} className={imageClassName} />
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -39,7 +42,7 @@ export default function ScreenshotLightbox({
               ×
             </button>
             <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border">
-              <img src={src} alt={alt} className="w-full h-auto" />
+              <Image src={src} alt={alt} width={width} height={height} quality={85} className="w-full h-auto" />
             </div>
             {caption && (
               <p className="text-white/80 text-sm text-center mt-4 max-w-2xl mx-auto">{caption}</p>

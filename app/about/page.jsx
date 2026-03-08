@@ -1,4 +1,5 @@
 import CTASection from '@/components/CTASection'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About Swoop Golf',
@@ -10,11 +11,15 @@ export default function AboutPage() {
     <>
       <section className="py-20 md:py-28 px-6 relative overflow-hidden">
         {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-5">
-          <img
-            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
-            alt="Clubhouse interior"
-            className="w-full h-full object-cover"
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Image
+            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80"
+            alt="Club leadership meeting"
+            fill
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+            priority
           />
         </div>
         <div className="max-w-container mx-auto max-w-3xl relative z-10">

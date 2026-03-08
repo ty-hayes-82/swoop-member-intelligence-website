@@ -58,12 +58,13 @@ export default function HomePage() {
         description="Swoop connects your tee sheet, POS, CRM, and email into a single intelligence layer — surfacing decay signals weeks before resignation letters arrive."
         primaryAction={{ href: '/book-demo', label: 'Book a Demo' }}
         secondaryAction={{ href: '/platform', label: 'See the Platform' }}
-        backgroundImage="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
         stats={[
           '$1.38M annual value at risk identified',
           '6.4 week average early warning',
           '87% tee sheet fill rate',
         ]}
+        backgroundPriority
       >
         <ScreenshotLightbox
           src="/screenshots/daily-briefing.png"

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Oakmont Hills CC — The James Whitfield Story',
@@ -12,10 +13,13 @@ export default function OakmontHillsPage() {
       <section className="py-20 md:py-28 px-6 bg-swoop-dark text-white relative overflow-hidden">
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0 opacity-10">
-          <img
-            src="https://images.unsplash.com/photo-1519710162234-a39a20b5267e?w=1920&q=80"
-            alt="Country club"
-            className="w-full h-full object-cover"
+          <Image
+            src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1600&q=80"
+            alt="Country club exterior at dusk"
+            fill
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
           />
         </div>
         <div className="max-w-container mx-auto max-w-3xl relative z-10">
