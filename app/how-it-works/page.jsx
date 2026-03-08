@@ -15,7 +15,7 @@ const steps = [
   {
     phase: 'Week 2',
     title: 'Analyze',
-    desc: 'Swoop ingests your data and builds the Five Lenses view of your club. AI agents calibrate to your specific patterns — member behavior, demand cycles, staffing rhythms, F&B flow.',
+    desc: 'Swoop ingests your data and builds the complete intelligence view of your club. AI agents calibrate to your specific patterns — member behavior, demand cycles, staffing rhythms, F&B flow.',
     details: ['Historical data import (6-12 months)', 'AI model calibration', 'Risk scoring begins', 'Your first Daily Briefing arrives'],
   },
   {

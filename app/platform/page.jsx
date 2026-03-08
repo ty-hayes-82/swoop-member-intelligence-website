@@ -3,7 +3,7 @@ import CTASection from '@/components/CTASection'
 
 export const metadata = {
   title: 'Platform Overview',
-  description: 'The Five Lenses intelligence platform connects your tee sheet, POS, CRM, and staffing systems into one decision layer for private club GMs.',
+  description: 'Complete club intelligence platform connecting your tee sheet, POS, CRM, and staffing systems into one decision layer for private club GMs.',
 }
 
 const steps = [
@@ -26,7 +26,7 @@ export default function PlatformPage() {
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto text-center">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Platform</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">The Five Lenses Intelligence Platform</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Complete Command Center</h1>
           <p className="text-lg text-swoop-muted max-w-2xl mx-auto">
             One platform that connects every system your club runs on — and turns the gaps between them into actionable intelligence.
           </p>
@@ -49,10 +49,10 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* Five Lenses */}
+      {/* Core Capabilities */}
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Five lenses. Every GM decision covered.</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Five core capabilities. Every GM decision covered.</h2>
           <div className="space-y-6">
             {lenses.map((l) => (
               <div key={l.title} className="bg-swoop-card border border-swoop-border rounded-xl p-6 flex gap-4 items-start">

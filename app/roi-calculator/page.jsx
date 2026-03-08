@@ -33,7 +33,7 @@ export default function RoiCalculatorPage() {
         </div>
       </section>
 
-      <CTASection headline="See the math with your real data." subtext="Book a demo and we'll run your club's numbers through the full Five Lenses model." />
+      <CTASection headline="See the math with your real data." subtext="Book a demo and we'll run your club's numbers through the complete intelligence platform." />
     </>
   )
 }

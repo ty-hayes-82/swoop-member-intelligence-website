@@ -83,7 +83,7 @@ export default function HomePage() {
               <span className="w-3 h-3 rounded-full bg-red-400" />
               <span className="w-3 h-3 rounded-full bg-yellow-400" />
               <span className="w-3 h-3 rounded-full bg-green-400" />
-              <span className="ml-3 text-white/50 text-xs">Five Lenses — Today</span>
+              <span className="ml-3 text-white/50 text-xs">Club Intelligence — Today</span>
             </div>
             <div className="grid grid-cols-3 gap-3 mb-4">
               {[

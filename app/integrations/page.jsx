@@ -105,7 +105,7 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* Visual: Data Flow FROM Systems INTO Five Lenses */}
+      {/* Visual: Data Flow FROM Systems INTO Intelligence Layer */}
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">From disconnected systems to unified intelligence</h2>
@@ -188,7 +188,7 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      <CTASection headline="See how your systems connect." subtext="We'll map your tech stack to the Five Lenses during the demo." />
+      <CTASection headline="See how your systems connect." subtext="We'll map your tech stack to the complete platform during the demo." />
     </>
   )
 }
