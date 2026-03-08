@@ -2,13 +2,13 @@ import CTASection from '@/components/CTASection'
 
 export const metadata = {
   title: 'Why Swoop',
-  description: 'Noteefy fills tee times. Swoop fills tee times with the right members — and proves the revenue impact of every decision.',
+  description: 'Standalone waitlist tools fill tee times. Swoop fills tee times with the right members — and proves the revenue impact of every decision.',
 }
 
 const objections = [
   {
-    question: 'Why not just use Noteefy?',
-    answer: 'Noteefy fills cancelled slots — one function from one data source. Swoop gives you cross-lens intelligence: which members to prioritize, what their dining and engagement patterns predict, and how to close the loop with personalized outreach. Noteefy is a feature. Swoop is the operating layer.',
+    question: 'Why not just use a standalone waitlist tool?',
+    answer: 'Standalone waitlist tools fill cancelled slots — one function from one data source. Swoop gives you cross-lens intelligence: which members to prioritize, what their dining and engagement patterns predict, and how to close the loop with personalized outreach. Waitlist software is a feature. Swoop is the operating layer.',
   },
   {
     question: 'Why not just use my CRM reports?',
@@ -27,7 +27,7 @@ export default function WhySwoopPage() {
         <div className="max-w-container mx-auto text-center">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Why Swoop</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Noteefy fills tee times.<br />Swoop fills them with the right members.
+            Standalone waitlist tools fill tee times.<br />Swoop fills them with the right members.
           </h1>
           <p className="text-lg text-swoop-muted max-w-2xl mx-auto">
             And proves the revenue impact of every decision.

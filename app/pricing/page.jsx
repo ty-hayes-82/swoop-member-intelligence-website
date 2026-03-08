@@ -45,7 +45,7 @@ const faqs = [
   { q: 'Do I need to replace my current software?', a: 'No. Swoop sits on top of your existing systems and connects via API. We support 28 integrations across 10 categories.' },
   { q: 'Can I try it before committing?', a: 'Absolutely. Our Free tier gives you health scores with no credit card required. Pro includes a 14-day trial.' },
   { q: 'Is my members\' data secure?', a: 'Yes. All data is encrypted in transit and at rest. We never share member data with third parties. SOC 2 compliance is on our roadmap.' },
-  { q: 'What makes Swoop different from Noteefy?', a: 'Noteefy fills cancelled tee times — one function, one system. Swoop is a full intelligence platform across five operational lenses with AI agents, member behavioral data, and closed-loop engagement.' },
+  { q: 'What makes Swoop different from standalone waitlist tools?', a: 'Standalone waitlist tools fill cancelled tee times — one function, one system. Swoop is a full intelligence platform across five operational lenses with AI agents, member behavioral data, and closed-loop engagement.' },
 ]
 
 export default function PricingPage() {

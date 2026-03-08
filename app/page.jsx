@@ -154,7 +154,7 @@ export default function HomePage() {
                 <tr className="bg-swoop-bg">
                   <th className="text-left p-4 font-semibold">Feature</th>
                   <th className="text-center p-4 font-semibold">Swoop</th>
-                  <th className="text-center p-4 font-semibold">Noteefy</th>
+                  <th className="text-center p-4 font-semibold">Waitlist Tools</th>
                   <th className="text-center p-4 font-semibold">Your CRM</th>
                   <th className="text-center p-4 font-semibold">Spreadsheets</th>
                 </tr>

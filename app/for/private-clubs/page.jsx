@@ -9,7 +9,7 @@ export const metadata = {
 const pains = [
   { problem: 'You lost 14 members last year', detail: 'And you only found out when the resignation letters arrived. Every one of those members showed warning signs — declining visits, minimum F&B spend, unresolved complaints — across systems that don\'t talk to each other.' },
   { problem: 'Your board wants data, not anecdotes', detail: 'When you say "we\'re doing great on retention," the board asks for proof. When you say "we need more staff," they ask for ROI. Swoop gives you the numbers behind every operational decision.' },
-  { problem: 'Your tech stack is 5 systems deep', detail: 'ForeTees for tee times, Jonas for POS, Northstar for CRM, ADP for payroll, and a spreadsheet holding it all together. Swoop doesn\'t replace any of them — it connects them.' },
+  { problem: 'Your tech stack is 5 systems deep', detail: 'Tee sheet software, POS system, member CRM, payroll platform, and a spreadsheet holding it all together. Swoop doesn\'t replace any of them — it connects them.' },
 ]
 
 export default function PrivateClubsPage() {

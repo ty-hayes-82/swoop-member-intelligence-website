@@ -48,7 +48,7 @@ export default function TeeSheetDemandPage() {
 
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Noteefy fills tee times. Swoop fills them with the right members.</h2>
+          <h2 className="text-3xl font-bold mb-4">Standalone waitlist tools fill tee times. Swoop fills them with the right members.</h2>
           <p className="text-swoop-muted mb-12">Traditional waitlists are FIFO — first come, first served. Swoop sorts by retention risk, member value, and match-fit. The slot goes to the member who needs it most.</p>
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((f) => (

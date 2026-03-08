@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             {[
               { title: 'GM-first design', desc: 'Every screen answers the question a GM would actually ask. No data science dashboards. No vanity metrics. Actionable intelligence in GM language.' },
-              { title: 'Connect, don\'t replace', desc: 'We integrate with 28 systems across 10 categories. Your club already invested in ForeTees, Jonas, and Northstar. We make them work together.' },
+              { title: 'Connect, don\'t replace', desc: 'We integrate with 28 systems across 10 categories. Your club already invested in tee sheet software, POS systems, and member CRM. We make them work together.' },
               { title: 'Human-in-the-loop', desc: 'AI recommends. GMs decide. Every action shows expected impact and reasoning. We never automate away the relationship.' },
               { title: 'Honest metrics', desc: 'We give competitors credit where it\'s earned. We label demo data clearly. We don\'t inflate numbers to close deals. Trust is the product.' },
             ].map((p) => (
