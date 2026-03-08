@@ -104,13 +104,13 @@ export default function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">The problem isn&apos;t your team. It&apos;s your visibility.</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               'Your tee sheet, POS, CRM, email platform, and payroll system each see part of the picture. None of them talk to each other.',
               "A member stops playing. Dining drops off. Email engagement goes silent. By the time you notice, they've already decided to leave.",
               'Average member replacement cost: 2.5x annual dues. Most GMs find out about churn problems when the resignation letter arrives.',
             ].map((text) => (
-              <div key={text} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
+              <div key={text} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
                 <p className="text-base leading-relaxed">{text}</p>
               </div>
             ))}
@@ -132,7 +132,7 @@ export default function HomePage() {
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Your Complete Command Center</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">Every GM decision category — member health, tee sheet demand, F&B, staffing, and revenue — connected and actionable in one place.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {lenses.map((lens) => (
               <Link
                 key={lens.slug}
@@ -272,7 +272,7 @@ export default function HomePage() {
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Your GM platform now has a staff.</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">Six AI agents monitor your club 24/7, surface risks, and recommend actions — so you approve decisions instead of hunting for data.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {agents.map((agent) => (
               <div key={agent.name} className="bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 border-lens-agents">
                 <div className="text-3xl mb-3">{agent.icon}</div>
@@ -292,9 +292,9 @@ export default function HomePage() {
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">28 integrations. One intelligence layer.</h2>
           <p className="text-swoop-muted text-center mb-12">Live in under 2 weeks. No rip-and-replace.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {integrationCategories.map((cat) => (
-              <div key={cat.label} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
+              <div key={cat.label} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
                 <h3 className="font-semibold mb-3">{cat.label}</h3>
                 <p className="text-sm text-swoop-muted">{cat.description}</p>
               </div>
@@ -313,13 +313,13 @@ export default function HomePage() {
           <p className="text-swoop-muted mb-12 max-w-2xl mx-auto">
             We&apos;re onboarding our first 10 clubs with hands-on implementation, direct roadmap input, and locked-in pricing.
           </p>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
             {[
               { title: 'Hands-on Onboarding', desc: 'Our team configures your integrations, trains your staff, and validates your data in the first 2 weeks.' },
               { title: 'Shape the Roadmap', desc: 'Monthly calls with our product team. Your feature requests get priority. Your workflows drive development.' },
               { title: 'Locked-in Pricing', desc: 'Founding partners keep their launch rate for life, even as the platform grows and pricing increases.' },
             ].map((b) => (
-              <div key={b.title} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
+              <div key={b.title} className="bg-swoop-card border border-swoop-border rounded-xl p-8">
                 <h3 className="font-semibold mb-2">{b.title}</h3>
                 <p className="text-sm text-swoop-muted">{b.desc}</p>
               </div>
