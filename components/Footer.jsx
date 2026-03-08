@@ -23,9 +23,10 @@ const columns = [
   {
     title: 'Resources',
     links: [
+      { href: '/resources', label: 'All Resources' },
       { href: '/case-studies', label: 'Case Studies' },
       { href: '/roi-calculator', label: 'ROI Calculator' },
-      { href: '/blog', label: 'Blog' },
+      { href: '/resources/churn-prevention-guide', label: 'Churn Prevention Guide' },
     ],
   },
   {
