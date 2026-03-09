@@ -1,11 +1,8 @@
 import { buildMetadata } from '@/lib/metadata'
-import Link from 'next/link'
 import CTASection from '@/components/CTASection'
-import ScreenshotLightbox from '@/components/ScreenshotLightbox'
-import MetricCalloutStrip from '@/components/MetricCalloutStrip'
-import MemberTableDemo from '@/components/MemberTableDemo'
 import StickyCTA from '@/components/StickyCTA'
-import { MemberRiskRoster, DecayTimeline, GmActionScript } from '@/components/ProductMockups'
+import ProofStack from '@/components/ProofStack'
+import { AtRiskRosterMock, DecayTimelineMock, GmScriptCard } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Member Intelligence',
@@ -13,138 +10,67 @@ export const metadata = buildMetadata({
   path: '/capabilities/member-intelligence',
 })
 
-const metrics = [
-  { value: '6.4 wks', label: 'Average early warning', detail: 'Member Pulse lead time across demo data' },
-  { value: '$1.38M', label: 'Value at risk monitored', detail: 'Annual dues + F&B tracked for Oakmont Hills' },
-  { value: '92%', label: 'Prediction confidence', detail: 'Member Pulse accuracy vs. resignations' },
-]
-
-const signals = [
-  { label: 'Visit Frequency', desc: 'Track rounds, dining visits, and facility usage trends per member over rolling 90-day windows.' },
-  { label: 'F&B Spend Patterns', desc: 'Detect declining spend, minimum-only behavior, and outlet abandonment before it becomes a pattern.' },
-  { label: 'Email Engagement', desc: 'Open rates, click-through, and unsubscribe signals that indicate emotional withdrawal.' },
-  { label: 'Complaint History', desc: 'Unresolved complaints are the strongest churn predictor. Swoop tracks time-to-resolution and escalation status.' },
-  { label: 'Event Participation', desc: 'Members who stop attending social events are withdrawing from the community — often months before resigning.' },
-  { label: 'Family Usage', desc: 'When spouses and children stop using the club, the primary member is 3x more likely to resign within 6 months.' },
-]
-
-const archetypes = [
-  { name: 'Die-Hard', desc: 'High engagement across all touchpoints. Low risk. Focus on recognition and referral programs.', color: 'bg-lens-operations' },
-  { name: 'Weekend Warrior', desc: 'Plays every weekend but minimal weekday or social engagement. Stable but narrow.', color: 'bg-lens-briefing' },
-  { name: 'Balanced Active', desc: 'Uses golf, dining, and events regularly. The ideal member profile. Protect at all costs.', color: 'bg-lens-pipeline' },
-  { name: 'Declining', desc: 'Engagement dropping across 2+ domains over 2-3 months. High churn risk. Intervention window closing.', color: 'bg-lens-staffing' },
-  { name: 'Ghost', desc: 'Paying dues but zero activity. Already mentally resigned. Last chance for re-engagement.', color: 'bg-lens-fb' },
-  { name: 'Snowbird', desc: 'Seasonal usage pattern. Not declining — just away. Don\'t trigger false alarms.', color: 'bg-lens-members' },
+const workflow = [
+  { title: 'Signal', detail: 'Health score drops, spend softens, and complaint aging passes 72 hours.' },
+  { title: 'Action', detail: 'GM receives script + routing recommendation before the morning standup.' },
+  { title: 'Proof', detail: 'Save probability and protected ARR are written back to board reporting.' },
 ]
 
 export default function MemberIntelligencePage() {
   return (
-    <div className="space-y-16">
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-container mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-1.5 h-10 rounded-full bg-lens-members" />
-            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider">Member Health</p>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Member Intelligence</h1>
-          <p className="text-lg text-swoop-muted max-w-2xl">
-            Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-6 -mt-8">
-        <div className="max-w-container mx-auto">
-          <MetricCalloutStrip metrics={metrics} />
+    <div className="space-y-16 pb-16">
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-container">
+          <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Member Intelligence</p>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Know who is drifting before resignation language appears.</h1>
+          <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday workflow: Daily Briefing opens with the at-risk roster, the GM acts in minutes, and outcomes are attributed by Friday review.</p>
         </div>
       </section>
 
       <section className="px-6">
-        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
-          <h2 className="text-2xl font-bold mb-3">The GM opens Daily Briefing and sees three members entering critical decay.</h2>
-          <p className="text-swoop-muted">Member Pulse now includes household-level activity deltas and unresolved complaint weighting, so the GM can assign outreach in minutes and track save probability immediately.</p>
+        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
+          <AtRiskRosterMock />
+          <DecayTimelineMock />
+          <GmScriptCard />
         </div>
       </section>
 
       <section className="px-6">
-        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-3">
-          <MemberRiskRoster />
-          <DecayTimeline />
-          <GmActionScript />
-        </div>
-      </section>
-
-      {/* The James Whitfield hook */}
-      <section className="py-16 px-6 bg-swoop-dark text-white">
-        <div className="max-w-container mx-auto max-w-3xl text-center">
-          <p className="text-swoop-green font-mono text-sm mb-4">REAL SCENARIO FROM DEMO DATA</p>
-          <h2 className="text-3xl font-bold mb-6">James Whitfield&apos;s health score dropped from 78 to 42 in six weeks. Nobody noticed.</h2>
-          <p className="text-white/70 text-lg">His visit frequency fell 40%. His F&B spend hit minimum-only. He filed a complaint that sat unresolved for 6 days. Swoop flagged him on day one. Your CRM never mentioned it.</p>
-        </div>
-      </section>
-
-      {/* Product Screenshot */}
-      <section className="py-12 px-6 bg-white">
-        <div className="max-w-container mx-auto">
-          <ScreenshotLightbox
-            src="/screenshots/member-intelligence.png"
-            alt="Member Intelligence dashboard showing health scores and at-risk members"
-            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border"
-            imageClassName="w-full"
-            caption="Member Intelligence ranks every member, shows decay signals, and surfaces the next action."
-          />
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-swoop-bg">
-        <div className="max-w-container mx-auto">
-          <MemberTableDemo />
-        </div>
-      </section>
-
-      {/* Behavioral signals */}
-      <section className="py-20 px-6">
-        <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Six behavioral signals. One health score.</h2>
-          <p className="text-swoop-muted mb-12">Swoop&apos;s health score (0–100) combines signals from every connected system into a single, actionable number updated daily.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {signals.map((s) => (
-              <div key={s.label} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
-                <h3 className="font-semibold mb-2">{s.label}</h3>
-                <p className="text-sm text-swoop-muted">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Member archetypes */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Member archetypes — how GMs actually think.</h2>
-          <p className="text-swoop-muted mb-12">Swoop classifies members into behavioral archetypes that match how you already talk about them. Not data science jargon — GM language.</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {archetypes.map((a) => (
-              <div key={a.name} className={`bg-swoop-card border border-swoop-border rounded-xl p-6 border-l-4 ${a.color}`}>
-                <h3 className="font-semibold mb-2">{a.name}</h3>
-                <p className="text-sm text-swoop-muted">{a.desc}</p>
-              </div>
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday workflow</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {workflow.map((step) => (
+              <article key={step.title} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <h2 className="font-semibold">{step.title}</h2>
+                <p className="mt-2 text-sm text-swoop-muted">{step.detail}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <section className="px-6">
-        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
-          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">Copper Canyon CC recovery sprint</h3>
-          <p className="text-[#1F2F24] text-sm">In 14 days, the GM actioned 9 of 11 flagged members. Result: 7 saves, $154K dues exposure reduced, and complaint close-rate improved from 62% to 91%.</p>
-        </div>
+        <article className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Micro case study · Desert Sky GC</p>
+          <h2 className="mt-2 text-2xl font-bold">9 saves in 30 days with one-call playbooks.</h2>
+          <p className="mt-3 text-sm text-swoop-muted">Desert Sky moved from reactive outreach to a Monday-first save cadence: 9 members retained, $168K protected ARR, and average complaint follow-up time cut to 19 hours.</p>
+        </article>
       </section>
 
-      <CTASection headline="See which members need attention today." subtext="Book a demo and we'll show you the health scores from our 300-member simulation." />
-      <StickyCTA title="Run Member Pulse with your club profile" description="See Monday risk queues and intervention workflows in a guided demo." />
+      <CTASection headline="Run Member Pulse on your club profile." subtext="See the exact Monday save queue your GM would receive." />
+
+      <ProofStack
+        statLabel="Retention lift"
+        statValue="21%"
+        demoLabel="At-risk board"
+        quote="We stopped losing members in silence because Monday actions finally had owner-level proof."
+        ctaLabel="Book member demo"
+        ctaHref="/book-demo"
+      >
+        <AtRiskRosterMock />
+      </ProofStack>
+
+      <StickyCTA title="See member risk queues with your assumptions" description="Walk through signal, action, and proof in one demo." />
     </div>
   )
 }
