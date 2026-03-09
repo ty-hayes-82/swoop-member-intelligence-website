@@ -12,7 +12,7 @@ const steps = [
   {
     phase: 'Step 1',
     title: 'Signal',
-    description: 'We ingest tee sheet, POS, CRM, and labor signals into one event stream.',
+    description: 'We pull tee sheet, POS, CRM, and labor data into one shared view.',
     mock: <AtRiskRosterMock />,
   },
   {
@@ -31,11 +31,11 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">How it works</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Signal to action in one operating rhythm.</h1>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">From early warning to finished follow-up in one rhythm.</h1>
         </div>
       </section>
 

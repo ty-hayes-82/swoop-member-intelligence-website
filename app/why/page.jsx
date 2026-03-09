@@ -5,21 +5,21 @@ import { BoardReportPreview } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Why Swoop',
-  description: 'Compare Swoop with legacy BI and point tools on deployment speed, live signals, and actionability.',
+  description: 'Compare Swoop with legacy BI and point tools on deployment speed, live metrics, and actionability.',
   path: '/why',
 })
 
 const rows = [
   { metric: 'Deployment time', legacy: '8-16 weeks', swoop: '2-3 weeks' },
-  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live signal stream' },
-  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Guided playbooks + routing' },
+  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live metrics with hourly refresh' },
+  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Step-by-step routing with clear owners' },
   { metric: 'Attribution depth', legacy: 'Lagging summaries', swoop: 'Action-level proof' },
 ]
 
 export default function WhyPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Why Swoop</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Purpose-built for operators, not dashboard tourists.</h1>

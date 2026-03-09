@@ -11,8 +11,8 @@ export const metadata = buildMetadata({
 
 const recipes = [
   'At-risk member score drop > 12 points → GM script + call task',
-  'Cancellation risk > 70% at 24h → retention routing pre-alert',
-  'Staffing gap during post-round peak → role-level shift recommendation',
+  'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
+  'Staffing gap during post-round peak → suggest which position to backfill and when',
   'Unresolved complaint > 72h → comp offer draft + escalation',
 ]
 
@@ -30,8 +30,8 @@ function AgentActionDrawer() {
 
 export default function AIAgentsPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">AI Agents</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Automations your GM team can approve in context.</h1>

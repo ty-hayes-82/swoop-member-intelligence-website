@@ -24,7 +24,7 @@ export const metadata = buildMetadata({
 const weeks = [
   {
     title: 'Week 1 Intake',
-    detail: 'Connect feeds, normalize entities, validate baseline risk coverage.',
+    detail: 'Connect feeds, line up member records, and verify baseline risk coverage.',
     mock: <AtRiskRosterMock />,
   },
   {
@@ -34,7 +34,7 @@ const weeks = [
   },
   {
     title: 'Week 3 Automations',
-    detail: 'Enable automated board snapshots and agent-driven playbooks.',
+    detail: 'Enable automated board snapshots and ready-to-send workflows.',
     mock: <BoardReportPreview />,
   },
 ]
@@ -49,8 +49,8 @@ const screenshotDeck = [
 
 export default function PlatformPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Platform</p>
           <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">One operating layer for member, demand, staffing, and board outcomes.</h1>
