@@ -23,15 +23,15 @@ const boardTools = [
 
 export default function OwnershipBoardPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-container mx-auto">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For Ownership & Board</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Govern with data, not anecdotes.
+            See exactly what the GM fixed — and what still needs funding.
           </h1>
           <p className="text-lg text-swoop-muted max-w-2xl mb-8">
-            Swoop gives club ownership and board members real-time visibility into what's working, what's at risk, and whether GM initiatives are delivering measurable ROI.
+            Instead of quarterly surprises, you get a running scorecard: dues at risk, actions taken, dollars recovered, and staffing requests tied to payback.
           </p>
           <div className="flex gap-4">
             <Link href="/book-demo" className="px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
@@ -45,7 +45,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Board Challenges */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">The board's visibility problem</h2>
           <div className="space-y-6 max-w-3xl mx-auto">
@@ -60,11 +60,11 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* What Swoop Gives Boards */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-12">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Strategic oversight, not operational micromanagement</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">
-            Swoop is built for boards that want real-time intelligence without logging into five different systems.
+            Boards get the picture without chasing spreadsheets: live dues-at-risk, action timelines, and measurable ROI on every initiative.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {boardTools.map((t) => (
@@ -78,7 +78,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Before/After Comparison */}
-      <section className="py-20 px-6 bg-swoop-dark text-white">
+      <section className="px-6 py-12 bg-swoop-dark text-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Board meetings: Before vs. After</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -105,7 +105,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Multi-Property Operators */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Multi-property operators</h2>
           <p className="text-swoop-muted max-w-2xl mx-auto mb-8">
@@ -121,6 +121,6 @@ export default function OwnershipBoardPage() {
         headline="See portfolio intelligence in action." 
         subtext="We'll show you real-time benchmarks, cross-property rollups, and board-ready reporting." 
       />
-    </>
+    </div>
   )
 }

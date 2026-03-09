@@ -9,14 +9,14 @@ export const metadata = buildMetadata({
 })
 
 const dailyChallenges = [
-  { challenge: 'You manage operations by gut feeling, not data', detail: 'You know something is wrong when member complaints spike or dining revenue drops — but you find out too late. Swoop surfaces early warning signals across all your systems before issues escalate.' },
-  { challenge: 'Five disconnected systems, zero connected intelligence', detail: 'Your tee sheet, POS, CRM, payroll, and email platform each tell part of the story. Swoop connects them and shows you what no single system can: the full operational picture.' },
+  { challenge: 'You manage operations by gut feel, not proof', detail: 'You only learn something was off when a resignation letter or low cover count lands in your lap. Swoop raises the flag six weeks earlier so you can intervene while there is still time.' },
+  { challenge: 'Five disconnected systems, zero shared story', detail: 'Tee sheet, POS, CRM, payroll, email — each shows a sliver. Swoop stitches them into one daily brief so you know exactly which lever to pull next.' },
   { challenge: 'Proving impact to the board is guesswork', detail: 'When the board asks "What\'s our ROI on retention efforts?" or "Why do we need more F&B staff?", you have anecdotes. Swoop gives you attribution-ready metrics.' },
 ]
 
 const gmTools = [
-  { tool: 'Daily Briefing', desc: 'Every morning at 6 AM: your top priorities, quick wins, and risk alerts. What needs your attention today, ranked by impact.' },
-  { tool: 'Member Intelligence', desc: 'Health scores for every member. At-risk alerts 6-8 weeks before resignation. Intervention playbooks with predicted outcomes.' },
+  { tool: 'Daily Briefing', desc: 'Hit your desk at 6 AM with a ranked list of fires, saves, and revenue opportunities. No surfing dashboards. Just act.' },
+  { tool: 'Member Intelligence', desc: 'Every member gets a live health score, decay reasons, and a recommended outreach plan. Save the household before the letter hits.' },
   { tool: 'Tee Sheet & Demand', desc: 'Demand Optimizer fills canceled slots with the right members — retention-first, not FIFO. Demand forecasting so you never overbook or underutilize.' },
   { tool: 'F&B Operations', desc: 'Real-time outlet performance. Prep signals based on tee times + weather. Post-round conversion tracking so you know which golfers skip the Grill Room.' },
   { tool: 'Staffing & Labor', desc: 'Coverage gap alerts 24-48 hours ahead. Labor cost per revenue dollar. Shift recommendations that protect service level without blowing budget.' },
@@ -25,29 +25,29 @@ const gmTools = [
 
 export default function GeneralManagersPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-container mx-auto">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For General Managers</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            From reactive firefighting to proactive operations.
+            Trade gut checks for a Monday plan you can trust.
           </h1>
           <p className="text-lg text-swoop-muted max-w-2xl mb-8">
-            Swoop is built for private club GMs who are drowning in disconnected systems and need one platform that shows them what matters, what to do, and whether it worked.
+            You already know the stories. What you need is one place that calls out the problem, suggests the fix, and proves the result before the next board meeting. That is what Swoop delivers.
           </p>
           <div className="flex gap-4">
             <Link href="/book-demo" className="px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
               Book a Demo
             </Link>
             <Link href="/platform" className="px-6 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition">
-              Book a Demo
+              See platform tour
             </Link>
           </div>
         </div>
       </section>
 
       {/* Daily Challenges */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Sound familiar?</h2>
           <div className="space-y-6 max-w-3xl mx-auto">
@@ -62,7 +62,7 @@ export default function GeneralManagersPage() {
       </section>
 
       {/* What Swoop Gives You */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-12">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Your complete command center</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function GeneralManagersPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-6 bg-swoop-dark text-white">
+      <section className="px-6 py-12 bg-swoop-dark text-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">See It. Fix It. Prove It.</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -113,6 +113,6 @@ export default function GeneralManagersPage() {
         headline="See your club the way you have always wanted." 
         subtext="We'll walk you through a typical Monday morning in Swoop — from Daily Briefing to approved AI recommendations." 
       />
-    </>
+    </div>
   )
 }
