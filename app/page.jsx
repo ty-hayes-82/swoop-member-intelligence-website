@@ -9,6 +9,10 @@ import HealthScoreMeter from '@/components/HealthScoreMeter'
 import WaitlistSorterDemo from '@/components/WaitlistSorterDemo'
 import DemandHeatmapMini from '@/components/DemandHeatmapMini'
 import AgentRecommendationCard from '@/components/AgentRecommendationCard'
+import MemberTableDemo from '@/components/MemberTableDemo'
+import RevenueComparisonChart from '@/components/RevenueComparisonChart'
+import MorningBriefingPreview from '@/components/MorningBriefingPreview'
+import IntegrationStatusGrid from '@/components/IntegrationStatusGrid'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -97,7 +101,7 @@ export default function HomePage() {
               "A member stops playing. Dining drops off. Email engagement goes silent. By the time you notice, they've already decided to leave.",
               'Average member replacement cost: 2.5x annual dues. Most GMs find out about churn problems when the resignation letter arrives.',
             ].map((text) => (
-              <div key={text} className="bg-white border-2 border-slate-200 rounded-2xl p-10 hover:border-swoop-green transition">
+              <div key={text} className="bg-white border-2 border-slate-200 rounded-2xl p-6 sm:p-8 lg:p-10 hover:border-swoop-green transition">
                 <p className="text-base leading-relaxed">{text}</p>
               </div>
             ))}
@@ -108,7 +112,10 @@ export default function HomePage() {
       {/* Inline CTA - After Problem */}
       <div className="py-8 px-6">
         <div className="max-w-container mx-auto text-center">
-          <Link href="/book-demo" className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
+          <Link
+            href="/book-demo"
+            className="inline-flex w-full sm:w-auto justify-center px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition min-h-[48px]"
+          >
             See how it works →
           </Link>
         </div>
@@ -138,7 +145,10 @@ export default function HomePage() {
       {/* Inline CTA - After Lenses */}
       <div className="py-8 px-6">
         <div className="max-w-container mx-auto text-center">
-          <Link href="/book-demo" className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
+          <Link
+            href="/book-demo"
+            className="inline-flex w-full sm:w-auto justify-center px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition min-h-[48px]"
+          >
             Book a demo →
           </Link>
         </div>
@@ -224,6 +234,14 @@ export default function HomePage() {
             <DemandHeatmapMini />
           </div>
           <AgentRecommendationCard />
+          <div className="grid gap-8 lg:grid-cols-2">
+            <MemberTableDemo />
+            <RevenueComparisonChart />
+          </div>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <MorningBriefingPreview />
+            <IntegrationStatusGrid />
+          </div>
         </div>
       </section>
 
@@ -320,7 +338,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <Link href="/book-demo" className="inline-block px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
+          <Link
+            href="/book-demo"
+            className="inline-flex w-full sm:w-auto justify-center px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition min-h-[48px]"
+          >
             Apply for Founding Partner
           </Link>
           <p className="text-sm text-swoop-muted mt-3">3 of 10 spots remaining</p>

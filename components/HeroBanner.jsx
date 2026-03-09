@@ -13,7 +13,7 @@ export default function HeroBanner({
   children,
 }) {
   return (
-    <section className="py-20 md:py-28 px-6 relative overflow-hidden">
+    <section className="py-16 md:py-28 px-4 sm:px-6 relative overflow-hidden">
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-15">
           <Image
@@ -33,19 +33,19 @@ export default function HeroBanner({
               {eyebrow}
             </p>
           )}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-6">
             {title}
           </h1>
           {description && (
-            <p className="text-lg text-swoop-muted mb-8 max-w-xl">
+            <p className="text-base sm:text-lg text-swoop-muted mb-8 max-w-xl">
               {description}
             </p>
           )}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             {primaryAction && (
               <Link
                 href={primaryAction.href}
-                className="px-7 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition"
+                className="px-7 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition w-full sm:w-auto text-center flex items-center justify-center min-h-[48px]"
               >
                 {primaryAction.label}
               </Link>
@@ -53,7 +53,7 @@ export default function HeroBanner({
             {secondaryAction && (
               <Link
                 href={secondaryAction.href}
-                className="px-7 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition"
+                className="px-7 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition w-full sm:w-auto text-center flex items-center justify-center min-h-[48px]"
               >
                 {secondaryAction.label}
               </Link>
@@ -68,7 +68,7 @@ export default function HeroBanner({
       </div>
       {stats.length > 0 && (
         <div className="max-w-container mx-auto mt-12 relative z-10">
-          <div className="flex flex-wrap justify-center gap-8 text-sm font-mono text-swoop-muted">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm font-mono text-swoop-muted">
             {stats.map((stat) => (
               <span key={stat}>{stat}</span>
             ))}
