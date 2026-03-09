@@ -18,9 +18,10 @@ export default function ScreenshotLightbox({
   const resolvedMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
   const clampedMaxHeight = resolvedMaxHeight || '350px'
   const sharedStyles = clampedMaxHeight ? { maxHeight: clampedMaxHeight } : undefined
-  const previewFrameClasses = `relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white max-h-[350px] ${frameClassName}`.trim()
-  const previewImageClasses = `w-full h-full object-cover object-top rounded-2xl max-h-[350px] ${imageClassName}`.trim()
-  const lightboxImageClasses = `w-full h-full object-cover object-top rounded-2xl max-h-[350px] ${imageClassName}`.trim()
+  const clampClasses = 'max-h-[350px]'
+  const previewFrameClasses = `relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white ${clampClasses} ${frameClassName}`.trim()
+  const previewImageClasses = `w-full h-full object-cover object-top rounded-2xl ${clampClasses} ${imageClassName}`.trim()
+  const lightboxImageClasses = `w-full h-full object-cover object-top rounded-2xl ${clampClasses} ${imageClassName}`.trim()
 
   return (
     <>
