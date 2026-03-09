@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import { BoardReportPreviewMini, RevenueAttributionStrip, PipelineMemberDeepDive } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'Revenue & Pipeline',
@@ -121,6 +122,14 @@ export default function RevenuePipelinePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-3">
+          <BoardReportPreviewMini />
+          <RevenueAttributionStrip />
+          <PipelineMemberDeepDive />
         </div>
       </section>
 

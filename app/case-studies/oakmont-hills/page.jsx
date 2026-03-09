@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
-import Image from 'next/image'
+import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'Oakmont Hills CC — The James Whitfield Story',
@@ -17,22 +17,15 @@ export default function OakmontHillsPage() {
   return (
     <>
       <section className="py-20 md:py-28 px-6 bg-swoop-dark text-white relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-10">
-          <Image
-            src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1600&q=80"
-            alt="Country club exterior at dusk"
-            fill
-            sizes="100vw"
-            quality={85}
-            className="object-cover"
-          />
+        <div className="absolute inset-0 z-0 opacity-80" aria-hidden>
+          <div className="w-full h-full bg-[radial-gradient(circle_at_top,_rgba(21,35,70,0.4),_rgba(5,8,17,0.85))]" />
         </div>
         <div className="max-w-container mx-auto max-w-3xl relative z-10">
           <Link href="/case-studies" className="text-sm text-white/50 hover:text-white/80 transition mb-4 inline-block">← Back to Case Studies</Link>
           <p className="text-swoop-green font-mono text-sm mb-4">DEMO SCENARIO · OAKMONT HILLS CC · SCOTTSDALE, AZ</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">You had 6 days. Your tee sheet software never told you.</h1>
-          <p className="text-xl text-white/70">The story of James Whitfield — and the $22,000/year resignation that should never have happened.</p>
+          <p className="text-xl text-white/70 mb-8">The story of James Whitfield — and the $22,000/year resignation that should never have happened.</p>
+          <LiveOpsPreviewGrid />
         </div>
       </section>
 

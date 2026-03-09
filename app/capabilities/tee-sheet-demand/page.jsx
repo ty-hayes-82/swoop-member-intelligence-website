@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import { RoutingComparison, CancellationPredictionPanel } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'Tee Sheet & Demand',
@@ -146,6 +147,13 @@ export default function TeeSheetDemandPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <RoutingComparison />
+          <CancellationPredictionPanel />
         </div>
       </section>
 
