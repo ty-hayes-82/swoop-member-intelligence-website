@@ -1,14 +1,17 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 import MemberTableDemo from '@/components/MemberTableDemo'
+import StickyCTA from '@/components/StickyCTA'
 import { MemberRiskRoster, DecayTimeline, GmActionScript } from '@/components/ProductMockups'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Member Intelligence',
   description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.',
-}
+  path: '/capabilities/member-intelligence',
+})
 
 const metrics = [
   { value: '6.4 wks', label: 'Average early warning', detail: 'Member Pulse lead time across demo data' },
@@ -53,6 +56,14 @@ export default function MemberIntelligencePage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={metrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
+          <h2 className="text-2xl font-bold mb-3">The GM opens Daily Briefing and sees three members entering critical decay.</h2>
+          <p className="text-swoop-muted">Member Pulse now includes household-level activity deltas and unresolved complaint weighting, so the GM can assign outreach in minutes and track save probability immediately.</p>
         </div>
       </section>
 
@@ -124,7 +135,16 @@ export default function MemberIntelligencePage() {
         </div>
       </section>
 
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
+          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">Copper Canyon CC recovery sprint</h3>
+          <p className="text-[#1F2F24] text-sm">In 14 days, the GM actioned 9 of 11 flagged members. Result: 7 saves, $154K dues exposure reduced, and complaint close-rate improved from 62% to 91%.</p>
+        </div>
+      </section>
+
       <CTASection headline="See which members need attention today." subtext="Book a demo and we'll show you the health scores from our 300-member simulation." />
+      <StickyCTA title="Run Member Pulse with your club profile" description="See Monday risk queues and intervention workflows in a guided demo." />
     </div>
   )
 }

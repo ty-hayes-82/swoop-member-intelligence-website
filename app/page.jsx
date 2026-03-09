@@ -1,3 +1,4 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
@@ -8,6 +9,12 @@ import LensCard from '@/components/LensCard'
 import HealthScoreMeter from '@/components/HealthScoreMeter'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
+
+export const metadata = buildMetadata({
+  title: 'Swoop Golf — Club Intelligence for General Managers',
+  description: 'AI-powered intelligence for private club General Managers. See what your club misses today and recover it tomorrow.',
+  path: '/',
+})
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },

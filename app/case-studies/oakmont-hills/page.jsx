@@ -1,11 +1,13 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Oakmont Hills CC — The James Whitfield Story',
   description: 'How Swoop detected a $22K/yr resignation risk 6 days before it happened — by connecting signals across tee sheet, POS, and CRM.',
-}
+  path: '/case-studies/oakmont-hills',
+})
 
 const signalDrops = [
   { label: 'F&B spend per visit', beforeLabel: '$47 baseline check', afterLabel: '$28 after Jan 16', beforePct: 100, afterPct: 60, caption: '40% drop in two weeks as service declined.' },

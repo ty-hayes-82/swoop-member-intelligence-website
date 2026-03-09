@@ -1,11 +1,13 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Platform Overview',
   description: 'Complete club intelligence platform connecting your tee sheet, POS, CRM, and staffing systems into one decision layer for private club GMs.',
-}
+  path: '/platform',
+})
 
 const steps = [
   { num: '01', title: 'See It', desc: 'Surface behavioral signals across all five operational categories. Swoop connects your systems and shows you what no single tool can: the full picture of member engagement, demand patterns, and revenue risk.' },
@@ -19,6 +21,7 @@ const lenses = [
   { title: 'F&B Operations', desc: 'Outlet performance, dining patterns, weather correlation. Shift prep and staffing before service degrades.', color: 'bg-lens-fb' },
   { title: 'Staffing & Labor', desc: 'Coverage optimization, labor cost modeling. Catch understaffed windows before they create complaints.', color: 'bg-lens-staffing' },
   { title: 'Revenue & Pipeline', desc: 'Per-slot revenue, retention-driven yield, pipeline health. Prove which actions moved the numbers.', color: 'bg-lens-pipeline' },
+  { title: 'Location Intelligence', desc: 'Live member-flow heatmaps and service-alert badges across golf, dining, fitness, and pool zones.', color: 'bg-swoop-green' },
 ]
 
 export default function PlatformPage() {

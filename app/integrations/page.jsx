@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import IntegrationStatusGrid from '@/components/IntegrationStatusGrid'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Integrations',
   description: 'Connect your tee sheet, POS, CRM, staffing, and communication systems to Swoop. Unlock cross-system intelligence, predictive alerts, and location-aware data no vendor exposes on its own.',
-}
+  path: '/integrations',
+})
 
 const STATUS_STYLES = {
   partner: 'bg-emerald-100 text-emerald-700',
@@ -388,20 +390,36 @@ export default function IntegrationsPage() {
       ))}
 
       <section id="csv" className="py-20 px-6 bg-swoop-dark text-white">
-        <div className="max-w-container mx-auto space-y-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-wider text-swoop-green">CSV fallback</p>
-          <h2 className="text-3xl font-bold">Launch even if your vendor drags their feet.</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            Download pre-formatted templates for members, tee sheets, F&B, staffing, and pipeline data. Upload CSV/Excel, map fields, and start seeing intelligence before APIs go live.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {['Member roster template', 'Tee sheet template', 'F&B checks template', 'Staffing template', 'Pipeline template'].map((label) => (
-              <button key={label} type="button" className="px-5 py-3 rounded-lg bg-white/10 border border-white/30 text-sm font-semibold hover:bg-white/20 transition">
-                {label}
+        <div className="max-w-container mx-auto space-y-8">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-wider text-swoop-green">No API? No problem</p>
+            <h2 className="text-3xl font-bold mt-3">CSV Import Hub keeps onboarding moving.</h2>
+            <p className="text-white/70 max-w-3xl mx-auto mt-3">
+              Start with CSV/Excel while API access is pending. The Import Hub includes templates, field validation, and upload history so your team has clean data from day one.
+              Supported formats: CSV, XLSX, TSV.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="rounded-xl border border-white/20 bg-white/5 p-5">
+              <p className="font-semibold mb-2">Template library</p>
+              <p className="text-white/70">Pre-mapped columns for fast data prep by operational category.</p>
+            </div>
+            <div className="rounded-xl border border-white/20 bg-white/5 p-5">
+              <p className="font-semibold mb-2">Validation checks</p>
+              <p className="text-white/70">Required fields, date normalization, duplicate detection, and row-level errors before import.</p>
+            </div>
+            <div className="rounded-xl border border-white/20 bg-white/5 p-5">
+              <p className="font-semibold mb-2">Import history</p>
+              <p className="text-white/70">Track every upload, user, status, and correction cycle in one audit log.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['Members', 'Tee Sheet', 'F&B', 'Staffing', 'Events', 'Communications'].map((label) => (
+              <button key={label} type="button" disabled className="cursor-not-allowed rounded-lg border border-white/30 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white/70">
+                {label} template (Coming soon)
               </button>
             ))}
           </div>
-          <p className="text-xs text-white/60">Templates include required/optional columns, validation rules, and upload instructions.</p>
         </div>
       </section>
 

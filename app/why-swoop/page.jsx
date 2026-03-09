@@ -1,9 +1,11 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Why Swoop',
   description: 'Standalone waitlist tools fill tee times. Swoop fills tee times with the right members — and proves the revenue impact of every decision.',
-}
+  path: '/why-swoop',
+})
 
 const objections = [
   {

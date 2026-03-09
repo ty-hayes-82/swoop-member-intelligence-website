@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For General Managers',
   description: 'Built for private club GMs who need daily operational clarity, member retention intelligence, and board-ready proof of impact.',
-}
+  path: '/for/general-managers',
+})
 
 const dailyChallenges = [
   { challenge: 'You manage operations by gut feeling, not data', detail: 'You know something is wrong when member complaints spike or dining revenue drops — but you find out too late. Swoop surfaces early warning signals across all your systems before issues escalate.' },

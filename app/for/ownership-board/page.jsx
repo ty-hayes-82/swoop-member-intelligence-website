@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For Ownership & Board',
   description: 'Strategic oversight tools for club ownership and boards. Real-time benchmarks, portfolio intelligence, and ROI-driven decision support.',
-}
+  path: '/for/ownership-board',
+})
 
 const boardChallenges = [
   { challenge: 'You govern by quarterly snapshots, not real-time intelligence', detail: 'Your GM presents retention stats once a quarter — by then, resignations have already happened. Swoop gives board members real-time visibility into member health, revenue trends, and operational efficiency.' },

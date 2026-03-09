@@ -1,12 +1,15 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 import RevenueComparisonChart from '@/components/RevenueComparisonChart'
+import StickyCTA from '@/components/StickyCTA'
 import { BoardReportPreviewMini, RevenueAttributionStrip, PipelineMemberDeepDive } from '@/components/ProductMockups'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Revenue & Pipeline',
   description: 'Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.',
-}
+  path: '/capabilities/revenue-pipeline',
+})
 
 const revenueMetrics = [
   { value: '$251K', label: 'Annualized impact tracked', detail: 'Attribution from demo scenario' },
@@ -95,6 +98,14 @@ export default function RevenuePipelinePage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={revenueMetrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
+          <h2 className="text-2xl font-bold mb-3">The GM opens board mode and sees attributed revenue by intervention.</h2>
+          <p className="text-swoop-muted">Revenue Analyst now ties every retained member, recovered check, and staffing save directly to approved actions, giving instant board-ready proof instead of quarter-end guesswork.</p>
         </div>
       </section>
 
@@ -226,7 +237,16 @@ export default function RevenuePipelinePage() {
         </div>
       </section>
 
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
+          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">North Ridge attribution pilot</h3>
+          <p className="text-[#1F2F24] text-sm">In 30 days, Swoop connected 27 approved actions to $48K protected dues and $11K incremental F&B margin, reducing board-report prep from 7 hours to under 40 minutes.</p>
+        </div>
+      </section>
+
       <CTASection headline="See the revenue your club is leaving on the table." subtext="We'll walk through your tee sheet yield, pipeline health, and attribution model." />
+      <StickyCTA title="Build an attribution-ready board narrative" description="See revenue outcomes tied to actual GM decisions." />
     </div>
   )
 }

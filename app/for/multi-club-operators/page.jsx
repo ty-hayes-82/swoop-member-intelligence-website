@@ -1,9 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
+import LocationHeatmapDemo from '@/components/LocationHeatmapDemo'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For Multi-Club Operators — Portfolio Intelligence Platform',
   description: 'Manage 3-10 clubs from one intelligence platform. Cross-club benchmarks, rollup reporting, shared playbooks, and portfolio-level risk visibility.',
-}
+  path: '/for/multi-club-operators',
+})
 
 const challenges = [
   {
@@ -118,6 +121,38 @@ export default function MultiClubPage() {
                 <span>Shared playbooks across portfolio</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl font-bold mb-4">Portfolio Control Center</h2>
+          <p className="text-swoop-muted max-w-3xl mb-8">
+            Run every property from one rollup surface with cross-club benchmarking and centralized Agent Command.
+          </p>
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 items-start">
+            <div className="rounded-2xl border border-swoop-border bg-swoop-bg p-6">
+              <p className="text-xs uppercase tracking-wider text-swoop-muted mb-4">Multi-property rollup mock</p>
+              <div className="grid sm:grid-cols-3 gap-3 mb-4">
+                {[
+                  { club: 'North Ridge', churn: '4.2%', nps: '61', labor: '28%' },
+                  { club: 'Desert Ridge', churn: '3.6%', nps: '67', labor: '25%' },
+                  { club: 'Silver Mesa', churn: '5.1%', nps: '54', labor: '31%' },
+                ].map((club) => (
+                  <div key={club.club} className="rounded-lg border border-swoop-border bg-white p-3">
+                    <p className="font-semibold text-sm">{club.club}</p>
+                    <p className="text-xs text-swoop-muted mt-2">Churn risk: {club.churn}</p>
+                    <p className="text-xs text-swoop-muted">NPS trend: {club.nps}</p>
+                    <p className="text-xs text-swoop-muted">Labor ratio: {club.labor}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-lg border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-4 text-sm text-[#1F2F24]">
+                Benchmark insight: Desert Ridge and North Ridge run the same retention playbook with 1.5-point lower churn than Silver Mesa.
+              </div>
+            </div>
+            <LocationHeatmapDemo compact />
           </div>
         </div>
       </section>

@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Cross-System Intelligence',
   description: 'How Swoop connects your tee sheet, POS, CRM, payroll, and communication systems to surface insights no single platform can provide.',
-}
+  path: '/features/cross-system-intelligence',
+})
 
 const systemConnections = [
   {

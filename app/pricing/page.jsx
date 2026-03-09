@@ -1,11 +1,13 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import FaqAccordion from '@/components/FaqAccordion'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Pricing',
   description: 'Simple pricing. No long-term contracts. Start free with health scores, upgrade to Pro for full analytics, or go all-in with Club.',
-}
+  path: '/pricing',
+})
 
 const tiers = [
   {

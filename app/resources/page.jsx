@@ -1,9 +1,11 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Resources',
   description: 'Guides, calculators, and insights for private club General Managers.',
-}
+  path: '/resources',
+})
 
 const resources = [
   {

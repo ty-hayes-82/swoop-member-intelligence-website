@@ -1,11 +1,13 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import AgentRecommendationCard from '@/components/AgentRecommendationCard'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'AI Agents',
   description: 'Six AI agents monitor your club 24/7, surface risks, and recommend actions. You approve — they execute.',
-}
+  path: '/ai-agents',
+})
 
 const agents = [
   {
