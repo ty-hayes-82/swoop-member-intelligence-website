@@ -5,6 +5,7 @@ import RoiCalculator from '@/components/RoiCalculator'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import HeroBanner from '@/components/HeroBanner'
 import LensCard from '@/components/LensCard'
+import HealthScoreMeter from '@/components/HealthScoreMeter'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -75,6 +76,11 @@ export default function HomePage() {
         />
       </HeroBanner>
       <p className="text-center text-xs text-swoop-muted mt-2">Demo scenario: Oakmont Hills CC</p>
+      <div className="px-6 mt-8">
+        <div className="max-w-container mx-auto">
+          <HealthScoreMeter />
+        </div>
+      </div>
 
       <TrustStrip />
 
