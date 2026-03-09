@@ -4,6 +4,7 @@ import FaqAccordion from '@/components/FaqAccordion'
 import ProofStack from '@/components/ProofStack'
 import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
+import DemoDisclosure from '@/components/DemoDisclosure'
 import { BoardSnapshotCard } from '@/components/CapabilityMocks'
 import { PLAN_PRICING } from '@/lib/pricing'
 
@@ -20,7 +21,7 @@ const tiers = [
     desc: 'Health scores and basic risk watchlists.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
-    cta: 'Start',
+    cta: 'Book a Demo',
   },
   {
     name: PLAN_PRICING.pro.label,
@@ -28,7 +29,7 @@ const tiers = [
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
-    cta: 'Book Pro Demo',
+    cta: 'Book a Demo',
     boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
@@ -37,7 +38,7 @@ const tiers = [
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
-    cta: 'Talk Sales',
+    cta: 'Book a Demo',
     boardMath: ['ARR protected: $740K', 'Agent hours saved: 96/mo'],
   },
 ]
@@ -76,6 +77,7 @@ export default function PricingPage() {
                   {tier.boardMath.map((line) => (
                     <p key={line} className="mt-1 text-swoop-muted">{line}</p>
                   ))}
+                  <DemoDisclosure className="mt-3" />
                 </div>
               )}
               <Link href={tier.href} className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">

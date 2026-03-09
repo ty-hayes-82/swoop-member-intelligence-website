@@ -84,9 +84,9 @@ export default function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">For private-club GMs</p>
             <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Every member has a health score. You just cant see it yet.</h1>
             <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
-              <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">See Pricing</Link>
+              <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
           </div>
