@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
     url: 'https://swoopgolf.com',
     offers: [
       { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Pro', price: '499', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Pro', price: '99', priceCurrency: 'USD' },
       { '@type': 'Offer', name: 'Club', price: '1499', priceCurrency: 'USD' },
     ],
   }

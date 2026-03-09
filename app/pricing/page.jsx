@@ -23,7 +23,7 @@ const tiers = [
   },
   {
     name: 'Pro',
-    price: '$499/mo',
+    price: '$99/mo',
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
