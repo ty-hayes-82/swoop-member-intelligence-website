@@ -2,7 +2,7 @@ const items = [
   '28 System Integrations',
   'Live in Under 2 Weeks',
   'No Rip-and-Replace',
-  'SOC 2 on Roadmap',
+  'No Long-Term Contract',
 ]
 
 export default function TrustStrip() {
