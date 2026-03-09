@@ -23,8 +23,8 @@ const boardTools = [
 
 export default function OwnershipBoardPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-container mx-auto">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For Ownership & Board</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -45,7 +45,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Board Challenges */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">The board's visibility problem</h2>
           <div className="space-y-6 max-w-3xl mx-auto">
@@ -60,7 +60,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* What Swoop Gives Boards */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-12">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Strategic oversight, not operational micromanagement</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">
@@ -78,7 +78,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Before/After Comparison */}
-      <section className="py-20 px-6 bg-swoop-dark text-white">
+      <section className="px-6 py-12 bg-swoop-dark text-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Board meetings: Before vs. After</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -105,7 +105,7 @@ export default function OwnershipBoardPage() {
       </section>
 
       {/* Multi-Property Operators */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Multi-property operators</h2>
           <p className="text-swoop-muted max-w-2xl mx-auto mb-8">
@@ -121,6 +121,6 @@ export default function OwnershipBoardPage() {
         headline="See portfolio intelligence in action." 
         subtext="We'll show you real-time benchmarks, cross-property rollups, and board-ready reporting." 
       />
-    </>
+    </div>
   )
 }

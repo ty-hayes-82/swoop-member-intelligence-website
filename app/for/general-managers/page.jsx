@@ -25,8 +25,8 @@ const gmTools = [
 
 export default function GeneralManagersPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24">
         <div className="max-w-container mx-auto">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">For General Managers</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -47,7 +47,7 @@ export default function GeneralManagersPage() {
       </section>
 
       {/* Daily Challenges */}
-      <section className="py-20 px-6 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Sound familiar?</h2>
           <div className="space-y-6 max-w-3xl mx-auto">
@@ -62,7 +62,7 @@ export default function GeneralManagersPage() {
       </section>
 
       {/* What Swoop Gives You */}
-      <section className="py-20 px-6">
+      <section className="px-6 py-12">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Your complete command center</h2>
           <p className="text-swoop-muted text-center mb-12 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function GeneralManagersPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 px-6 bg-swoop-dark text-white">
+      <section className="px-6 py-12 bg-swoop-dark text-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">See It. Fix It. Prove It.</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -113,6 +113,6 @@ export default function GeneralManagersPage() {
         headline="See your club the way you have always wanted." 
         subtext="We'll walk you through a typical Monday morning in Swoop — from Daily Briefing to approved AI recommendations." 
       />
-    </>
+    </div>
   )
 }
