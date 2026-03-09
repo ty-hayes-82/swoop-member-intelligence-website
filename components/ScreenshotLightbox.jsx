@@ -19,27 +19,53 @@ export default function ScreenshotLightbox({
   const [open, setOpen] = useState(false)
 
   const previewCapPx = 350
-  const clampedPreviewMax = typeof maxHeight === 'number' ? Math.min(maxHeight, previewCapPx) : previewCapPx
-  const previewMaxHeight = typeof clampedPreviewMax === 'number' ? `${clampedPreviewMax}px` : clampedPreviewMax
-  const resolvedLightboxMaxHeight = typeof lightboxMaxHeight === 'number' ? `${lightboxMaxHeight}px` : lightboxMaxHeight || '85vh'
-  const previewStyle = previewMaxHeight ? { maxHeight: previewMaxHeight } : undefined
-  const lightboxStyle = resolvedLightboxMaxHeight ? { maxHeight: resolvedLightboxMaxHeight } : undefined
+  const parsedPreviewMax =
+    typeof maxHeight === 'number'
+      ? maxHeight
+      : Number.isNaN(Number.parseInt(maxHeight, 10))
+        ? previewCapPx
+        : Number.parseInt(maxHeight, 10)
+  const previewMaxHeightValue = `${Math.min(parsedPreviewMax, previewCapPx)}px`
+  const resolvedLightboxMaxHeight =
+    typeof lightboxMaxHeight === 'number'
+      ? `${lightboxMaxHeight}px`
+      : lightboxMaxHeight || '85vh'
+  const aspectRatio = width && height ? `${width} / ${height}` : '4 / 3'
 
-  const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white'
+  const previewStyle = {
+    maxHeight: previewMaxHeightValue,
+    width: '100%',
+    aspectRatio,
+  }
+  const lightboxStyle = {
+    maxHeight: resolvedLightboxMaxHeight,
+    width: '100%',
+    aspectRatio,
+  }
+
+  const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white rounded-3xl'
   const previewClampClasses = 'max-h-[350px]'
   const lightboxClampClasses = 'max-h-[85vh]'
   const previewFrameClasses = `${basePreviewClasses} ${previewClampClasses} ${frameClassName}`.trim()
-  const imageBaseClasses = 'w-full h-full rounded-2xl object-cover'
+  const imageBaseClasses = 'w-full h-full object-cover'
   const previewImageClasses = `${imageBaseClasses} ${imageClassName} ${previewClampClasses} object-cover`.trim()
   const lightboxImageClasses = `${imageBaseClasses} ${imageClassName} ${lightboxClampClasses} object-cover`.trim()
 
-  const imagePreviewStyle = previewMaxHeight
-    ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
-    : { width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
+  const imagePreviewStyle = {
+    maxHeight: previewMaxHeightValue,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition,
+  }
 
-  const imageLightboxStyle = resolvedLightboxMaxHeight
-    ? { maxHeight: resolvedLightboxMaxHeight, width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
-    : { width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
+  const imageLightboxStyle = {
+    maxHeight: resolvedLightboxMaxHeight,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition,
+  }
 
   return (
     <>
@@ -67,7 +93,7 @@ export default function ScreenshotLightbox({
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6">
+        <div className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6" role="dialog" aria-modal="true">
           <div className="relative max-w-5xl w-full">
             <button
               type="button"
