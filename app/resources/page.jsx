@@ -3,85 +3,118 @@ import Link from 'next/link'
 
 export const metadata = buildMetadata({
   title: 'Resources',
-  description: 'Guides, calculators, and insights for private club General Managers.',
+  description: 'Guides, primers, and playbooks for retention-focused club operators.',
   path: '/resources',
 })
 
-const resources = [
+const resourceCards = [
   {
-    category: 'Guides',
-    items: [
-      { title: "The GM's Guide to Member Churn Prevention", desc: 'Early warning signals, intervention playbooks, and attribution methods.', type: 'Guide', href: '/resources/churn-prevention-guide' },
-      { title: 'How to Calculate True Cost of Member Churn', desc: 'Beyond dues: replacement cost, lost referrals, and operational drag.', type: 'Guide', href: '/resources/cost-of-churn' },
-      { title: "AI Agents for Private Clubs: A GM's Primer", desc: 'What AI agents do, how they work, and why human-in-the-loop matters.', type: 'Guide', href: '/resources/ai-agents-primer' },
-    ],
+    title: 'The Hidden Cost of Member Churn',
+    category: 'Guide',
+    href: '/resources/cost-of-churn',
+    who: 'GMs and Finance Directors',
+    learn: 'How to calculate true churn cost including secondary revenue.',
+    time: '8 minutes',
   },
   {
-    category: 'Case Studies',
-    items: [
-      { title: 'The James Whitfield Story', desc: 'How Swoop detected a $22K/yr resignation 6 days before it happened.', type: 'Case Study', href: '/case-studies/oakmont-hills' },
-      { title: 'More case studies coming soon', desc: 'Real clubs. Real results. Real attribution.', type: 'Coming Soon', href: '#' },
-    ],
+    title: 'Member Retention Playbook',
+    category: 'Guide',
+    href: '/resources/churn-prevention-guide',
+    who: 'Membership Directors and ops teams',
+    learn: 'A 90-day framework for identifying and recovering at-risk members.',
+    time: '12 minutes',
   },
   {
-    category: 'Tools',
-    items: [
-      { title: 'Member Churn ROI Calculator', desc: 'Calculate what churn is costing your club — and what Swoop can recover.', type: 'Calculator', href: '/roi-calculator' },
-      { title: 'Waitlist Prioritization Simulator', desc: 'Coming soon: Model retention-driven waitlist strategies.', type: 'Coming Soon', href: '#' },
-    ],
+    title: 'AI Agents in Club Operations',
+    category: 'Primer',
+    href: '/resources/ai-agents-primer',
+    who: 'GMs evaluating AI tools',
+    learn: 'What AI agents actually do, how approvals work, and where to start.',
+    time: '6 minutes',
   },
 ]
 
+const faqs = [
+  { q: 'Are these resources free?', a: 'Yes, no signup required.' },
+  { q: 'Can I share these with my board?', a: 'Absolutely — they are designed to be board-ready.' },
+  { q: 'Do I need Swoop to use these frameworks?', a: 'No. The principles apply to any club. Swoop automates the execution.' },
+  { q: 'How often do you publish new resources?', a: 'Monthly. Subscribe to our newsletter for updates.' },
+  { q: 'Can I request a topic?', a: 'Yes — email us at hello@swoopgolf.com.' },
+]
+
+const tagStyles = {
+  Guide: 'text-swoop-accent bg-swoop-accent/10',
+  Primer: 'text-swoop-dark bg-swoop-dark/10',
+}
+
 export default function ResourcesPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-container mx-auto text-center">
+    <div className="page-stack">
+      <section className="py-20 md:py-28 px-6 text-center">
+        <div className="max-w-container mx-auto">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Resources</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Insights for private club GMs.</h1>
-          <p className="text-lg text-swoop-muted max-w-2xl mx-auto">
-            Guides, calculators, and real-world scenarios to help you protect member relationships and prove operational ROI.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Resources and Insights</h1>
+          <p className="text-lg text-swoop-muted max-w-2xl mx-auto">Practical guides for retention-focused club operators.</p>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-container mx-auto space-y-16">
-          {resources.map((section) => (
-            <div key={section.category}>
-              <h2 className="text-2xl font-bold mb-6">{section.category}</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {section.items.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    className={`block bg-swoop-card border border-swoop-border rounded-xl p-6 hover:shadow-lg transition ${item.type === 'Coming Soon' ? 'opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
-                  >
-                    <span className="inline-block text-xs font-semibold text-swoop-accent bg-swoop-accent/10 px-2 py-1 rounded-full mb-3">{item.type}</span>
-                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-swoop-muted">{item.desc}</p>
-                  </Link>
-                ))}
+      <section className="px-6 pb-16">
+        <div className="max-w-container mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {resourceCards.map((card) => (
+            <Link
+              key={card.title}
+              href={card.href}
+              className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              <span className={`inline-flex text-xs font-semibold uppercase tracking-widest px-2 py-1 rounded-full ${tagStyles[card.category] ?? 'text-swoop-accent bg-swoop-accent/10'}`}>
+                {card.category}
+              </span>
+              <h2 className="mt-4 text-xl font-semibold text-swoop-dark">{card.title}</h2>
+              <div className="mt-4 space-y-3 text-sm text-swoop-muted">
+                <div>
+                  <p className="font-semibold text-swoop-dark">Who it's for</p>
+                  <p>{card.who}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-swoop-dark">What you'll learn</p>
+                  <p>{card.learn}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-swoop-dark">Time to read</p>
+                  <p>{card.time}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-container mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-4">Looking for something specific?</h2>
-          <p className="text-swoop-muted mb-8 max-w-xl mx-auto">
-            We're building this resource library based on what GMs actually need. If you have questions or topic requests, let us know.
-          </p>
+      <section className="px-6 pb-16">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">FAQ</h2>
+          <div className="mt-6 space-y-6">
+            {faqs.map((item) => (
+              <div key={item.q}>
+                <p className="text-sm font-semibold text-swoop-dark">{item.q}</p>
+                <p className="text-sm text-swoop-muted mt-1">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-20 text-center">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-2xl font-bold mb-4">Ready to see it in action?</h2>
+          <p className="text-swoop-muted mb-6">Book a Demo — see how Swoop automates these frameworks.</p>
           <Link
-            href="/contact"
-            className="inline-block px-6 py-3 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition"
+            href="/book-demo"
+            className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white"
           >
-            Request a topic
+            Book a Demo
           </Link>
         </div>
       </section>
-    </>
+    </div>
   )
 }
