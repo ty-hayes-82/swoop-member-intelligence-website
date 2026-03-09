@@ -5,6 +5,7 @@ import ProofStack from '@/components/ProofStack'
 import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
 import { BoardSnapshotCard } from '@/components/CapabilityMocks'
+import { PLAN_PRICING } from '@/lib/pricing'
 
 export const metadata = buildMetadata({
   title: 'Pricing',
@@ -14,16 +15,16 @@ export const metadata = buildMetadata({
 
 const tiers = [
   {
-    name: 'Free',
-    price: '$0/mo',
+    name: PLAN_PRICING.free.label,
+    price: PLAN_PRICING.free.display,
     desc: 'Health scores and basic risk watchlists.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
     cta: 'Start',
   },
   {
-    name: 'Pro',
-    price: '$99/mo',
+    name: PLAN_PRICING.pro.label,
+    price: PLAN_PRICING.pro.display,
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
@@ -31,8 +32,8 @@ const tiers = [
     boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
-    name: 'Club',
-    price: '$1,499/mo',
+    name: PLAN_PRICING.club.label,
+    price: PLAN_PRICING.club.display,
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',

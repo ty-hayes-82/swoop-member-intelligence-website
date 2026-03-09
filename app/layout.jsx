@@ -2,6 +2,7 @@ import './globals.css'
 import StickyNav from '@/components/StickyNav'
 import Footer from '@/components/Footer'
 import { buildMetadata } from '@/lib/metadata'
+import { PLAN_PRICING, PRICING_PLAN_ORDER, PRICING_SUMMARY } from '@/lib/pricing'
 
 const defaultMetadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -41,6 +42,21 @@ export default function RootLayout({ children }) {
     },
   }
 
+  const aggregatePricingOffer = {
+    '@type': 'AggregateOffer',
+    priceCurrency: PRICING_SUMMARY.currency,
+    lowPrice: String(PLAN_PRICING.free.monthly),
+    highPrice: String(PLAN_PRICING.club.monthly),
+    offerCount: String(PRICING_SUMMARY.offerCount),
+  }
+
+  const structuredPricingOffers = PRICING_PLAN_ORDER.map((planKey) => ({
+    '@type': 'Offer',
+    name: PLAN_PRICING[planKey].label,
+    price: String(PLAN_PRICING[planKey].monthly),
+    priceCurrency: PRICING_SUMMARY.currency,
+  }))
+
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -52,13 +68,7 @@ export default function RootLayout({ children }) {
     description: 'AI-powered club intelligence platform for private club General Managers.',
     url: 'https://swoopgolf.com/platform',
     image: 'https://swoopgolf.com/screenshots/member-intelligence.png',
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '0',
-      highPrice: '1499',
-      offerCount: '3',
-    },
+    offers: aggregatePricingOffer,
   }
 
   const softwareApplicationJsonLd = {
@@ -69,11 +79,7 @@ export default function RootLayout({ children }) {
     operatingSystem: 'Web',
     description: 'AI-powered club intelligence platform for private club General Managers.',
     url: 'https://swoopgolf.com',
-    offers: [
-      { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Pro', price: '99', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Club', price: '1499', priceCurrency: 'USD' },
-    ],
+    offers: structuredPricingOffers,
   }
 
   return (
