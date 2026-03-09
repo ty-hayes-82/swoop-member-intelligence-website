@@ -14,6 +14,7 @@ export default function ScreenshotLightbox({
   height = 800,
   maxHeight = 350,
   lightboxMaxHeight = '85vh',
+  objectPosition = 'top',
 }) {
   const [open, setOpen] = useState(false)
 
@@ -24,11 +25,12 @@ export default function ScreenshotLightbox({
   const lightboxStyle = resolvedLightboxMaxHeight ? { maxHeight: resolvedLightboxMaxHeight } : undefined
 
   const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white'
-  const clampClasses = 'max-h-[350px]'
-  const previewFrameClasses = `${basePreviewClasses} ${clampClasses} ${frameClassName}`.trim()
-  const imageBaseClasses = 'w-full h-full rounded-2xl object-cover object-top'
-  const previewImageClasses = `${imageBaseClasses} ${clampClasses} ${imageClassName}`.trim()
-  const lightboxImageClasses = `${imageBaseClasses} ${imageClassName}`.trim()
+  const previewClampClasses = 'max-h-[350px]'
+  const lightboxClampClasses = 'max-h-[85vh]'
+  const previewFrameClasses = `${basePreviewClasses} ${previewClampClasses} ${frameClassName}`.trim()
+  const imageBaseClasses = 'w-full h-full rounded-2xl object-cover'
+  const previewImageClasses = `${imageBaseClasses} ${previewClampClasses} ${imageClassName}`.trim()
+  const lightboxImageClasses = `${imageBaseClasses} ${lightboxClampClasses} ${imageClassName}`.trim()
 
   const imagePreviewStyle = previewMaxHeight
     ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto' }
@@ -48,8 +50,9 @@ export default function ScreenshotLightbox({
           height={height}
           quality={85}
           className={previewImageClasses}
-          style={imagePreviewStyle}
+          style={{ ...imagePreviewStyle, objectFit: 'cover', objectPosition }}
           sizes="(max-width: 768px) 100vw, 1200px"
+          loading="lazy"
         />
         <button
           type="button"
@@ -81,7 +84,7 @@ export default function ScreenshotLightbox({
                 height={height}
                 quality={85}
                 className={lightboxImageClasses}
-                style={imageLightboxStyle}
+                style={{ ...imageLightboxStyle, objectFit: 'cover', objectPosition }}
                 sizes="(max-width: 768px) 100vw, 1200px"
               />
             </div>
