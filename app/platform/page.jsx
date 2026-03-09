@@ -53,7 +53,7 @@ export default function PlatformPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Platform</p>
-          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">One weekly rhythm across members, tee sheet, dining, staffing, and board math.</h1>
+          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">From Monday briefing to Friday board proof in one view.</h1>
         </div>
       </section>
 
