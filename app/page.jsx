@@ -13,6 +13,7 @@ import MemberTableDemo from '@/components/MemberTableDemo'
 import RevenueComparisonChart from '@/components/RevenueComparisonChart'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import IntegrationStatusGrid from '@/components/IntegrationStatusGrid'
+import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -66,21 +67,22 @@ export default function HomePage() {
         description="Swoop connects your tee sheet, POS, CRM, and email into a single intelligence layer — surfacing decay signals weeks before resignation letters arrive."
         primaryAction={{ href: '/book-demo', label: 'Book a Demo' }}
         secondaryAction={{ href: '/platform', label: 'See the Platform' }}
-        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
         stats={[
           '$1.38M annual value at risk identified',
           '6.4 week average early warning',
           '87% tee sheet fill rate',
         ]}
-        backgroundPriority
       >
-        <ScreenshotLightbox
-          src="/screenshots/daily-briefing.png"
-          alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
-          frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border max-w-2xl mx-auto"
-          imageClassName="w-full"
-          caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
-        />
+        <div className="space-y-4">
+          <ScreenshotLightbox
+            src="/screenshots/daily-briefing.png"
+            alt="Swoop Daily Briefing - Morning priorities with Quick Wins and at-risk member alerts"
+            frameClassName="rounded-xl overflow-hidden shadow-2xl border border-swoop-border max-w-2xl mx-auto"
+            imageClassName="w-full"
+            caption="Morning Briefing surfaces Quick Wins, at-risk members, and action items in one glance."
+          />
+          <LiveOpsPreviewGrid />
+        </div>
       </HeroBanner>
       <p className="text-center text-xs text-swoop-muted mt-2">Demo scenario: Oakmont Hills CC</p>
       <div className="px-6 mt-8">

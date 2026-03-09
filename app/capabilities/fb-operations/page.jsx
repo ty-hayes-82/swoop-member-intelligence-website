@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import { ConversionImpactGrid, ServiceRecoveryGuardrails } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'F&B Operations',
@@ -97,6 +98,13 @@ export default function FBOperationsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <ConversionImpactGrid />
+          <ServiceRecoveryGuardrails />
         </div>
       </section>
 

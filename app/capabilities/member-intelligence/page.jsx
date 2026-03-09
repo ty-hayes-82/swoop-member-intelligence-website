@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import { MemberRiskRoster, DecayTimeline, GmActionScript } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'Member Intelligence',
@@ -51,6 +52,14 @@ export default function MemberIntelligencePage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={metrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-3">
+          <MemberRiskRoster />
+          <DecayTimeline />
+          <GmActionScript />
         </div>
       </section>
 

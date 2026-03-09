@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import { StaffingForecastMatrix, CoverageDeltaCard } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'Staffing & Labor',
@@ -117,6 +118,13 @@ export default function StaffingLaborPage() {
             <p className="text-base font-semibold">Swoop's Labor Optimizer recommendation:</p>
             <p className="text-swoop-muted mt-2">Add 2 FOH servers + 1 line cook for Saturday lunch shift. Projected revenue: $8,400. Labor cost: $380. ROI: 22x.</p>
           </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <StaffingForecastMatrix />
+          <CoverageDeltaCard />
         </div>
       </section>
 

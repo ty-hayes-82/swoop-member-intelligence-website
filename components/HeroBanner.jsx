@@ -14,6 +14,9 @@ export default function HeroBanner({
 }) {
   return (
     <section className="py-16 md:py-28 px-4 sm:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-70" aria-hidden>
+        <div className="w-full h-full bg-[radial-gradient(circle_at_top,_rgba(16,35,73,0.12),_transparent_55%),linear-gradient(135deg,rgba(13,23,43,0.05),transparent)]" />
+      </div>
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-15">
           <Image

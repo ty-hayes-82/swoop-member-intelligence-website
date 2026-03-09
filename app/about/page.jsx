@@ -1,5 +1,5 @@
 import CTASection from '@/components/CTASection'
-import Image from 'next/image'
+import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
 
 export const metadata = {
   title: 'About Swoop Golf',
@@ -9,22 +9,16 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="py-20 md:py-28 px-6 relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-10">
-          <Image
-            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80"
-            alt="Club leadership meeting"
-            fill
-            sizes="100vw"
-            quality={85}
-            className="object-cover"
-            priority
-          />
+      <section className="py-20 md:py-28 px-6 relative overflow-hidden border-b border-swoop-border">
+        <div className="absolute inset-0 z-0 opacity-70" aria-hidden>
+          <div className="w-full h-full bg-[radial-gradient(circle_at_top,_rgba(243,146,45,0.18),_transparent_60%),linear-gradient(135deg,rgba(15,23,42,0.08),transparent)]" />
         </div>
         <div className="max-w-container mx-auto max-w-3xl relative z-10">
           <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">About</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">We believe every GM deserves to see what&apos;s coming.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">We believe every GM deserves to see what&apos;s coming.</h1>
+          <div className="mb-8">
+            <LiveOpsPreviewGrid />
+          </div>
           <div className="space-y-6 text-lg text-swoop-muted leading-relaxed">
             <p>Private clubs run on relationships. The GM knows every member by name, remembers their drink order, and notices when they haven&apos;t been in lately. That instinct is powerful — but it doesn&apos;t scale.</p>
             <p>When you&apos;re managing 300 members across 5 systems, the signals that matter most — the complaint that went unresolved, the declining visits that precede a resignation, the staffing gap that costs you a loyal member — get buried in data no single person can track.</p>
