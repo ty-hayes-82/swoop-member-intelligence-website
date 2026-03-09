@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Demand Optimization',
   description: 'How Swoop predicts tee sheet demand, optimizes waitlist routing by retention value, and forecasts cancellation clusters 48 hours ahead.',
-}
+  path: '/features/demand-optimization',
+})
 
 const demandSignals = [
   { signal: 'Historical booking patterns by day/time/season', impact: 'Baseline demand modeling' },

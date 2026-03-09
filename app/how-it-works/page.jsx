@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'How It Works',
   description: 'Connect your existing systems, get intelligence in days, and start acting on AI recommendations. Live in under 2 weeks.',
-}
+  path: '/how-it-works',
+})
 
 const steps = [
   {

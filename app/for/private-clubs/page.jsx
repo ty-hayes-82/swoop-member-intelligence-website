@@ -1,11 +1,13 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For Private Clubs',
   description: 'Swoop is built for private golf clubs with 150-500 members. Protect your most valuable asset: the member relationship.',
-}
+  path: '/for/private-clubs',
+})
 
 const pains = [
   { problem: 'You lost 14 members last year', detail: 'And you only found out when the resignation letters arrived. Every one of those members showed warning signs — declining visits, minimum F&B spend, unresolved complaints — across systems that don\'t talk to each other.' },
@@ -63,6 +65,38 @@ export default function PrivateClubsPage() {
             <div className="bg-swoop-card border border-swoop-border rounded-xl p-6">
               <h3 className="font-semibold mb-2">Proactive, Not Reactive</h3>
               <p className="text-sm text-swoop-muted">Six AI agents watching your club 24/7. You approve actions instead of discovering problems after the damage is done.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Proof from private-club workflows</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl border border-swoop-border p-6">
+              <h3 className="font-semibold mb-2">Retention saves</h3>
+              <p className="text-sm text-swoop-muted mb-4">Member Pulse flags high-value disengagement 4-8 weeks earlier, giving the GM time to recover the relationship.</p>
+              <div className="rounded-lg border border-swoop-border bg-swoop-bg p-3 text-xs">
+                <p className="font-semibold">UI mock: Risk Queue</p>
+                <p className="text-swoop-muted mt-1">14 members flagged · $338K dues at risk · 6 escalations due today</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-swoop-border p-6">
+              <h3 className="font-semibold mb-2">F&B minimum insights</h3>
+              <p className="text-sm text-swoop-muted mb-4">See who is trending minimum-only and where outlet behavior is eroding discretionary spend.</p>
+              <div className="rounded-lg border border-swoop-border bg-swoop-bg p-3 text-xs">
+                <p className="font-semibold">UI mock: Minimum Tracker</p>
+                <p className="text-swoop-muted mt-1">27 households below pace · projected shortfall $19.4K · top nudge campaign ready</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-swoop-border p-6">
+              <h3 className="font-semibold mb-2">Complaint rescues</h3>
+              <p className="text-sm text-swoop-muted mb-4">Service Recovery escalates unresolved issues with value context so no high-risk ticket sits stale.</p>
+              <div className="rounded-lg border border-swoop-border bg-swoop-bg p-3 text-xs">
+                <p className="font-semibold">UI mock: Recovery Console</p>
+                <p className="text-swoop-muted mt-1">4 complaints open &gt; 72h · $96K member value exposed · 3 drafted recovery actions</p>
+              </div>
             </div>
           </div>
         </div>

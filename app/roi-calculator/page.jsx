@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import RoiCalculator from '@/components/RoiCalculator'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'ROI Calculator',
   description: 'Calculate what member churn is costing your club — and what Swoop can recover.',
-}
+  path: '/roi-calculator',
+})
 
 export default function RoiCalculatorPage() {
   return (

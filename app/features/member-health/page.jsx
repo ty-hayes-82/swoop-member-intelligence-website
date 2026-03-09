@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Member Health Scoring',
   description: 'How Swoop calculates member health scores, identifies churn risk 6-8 weeks early, and recommends retention interventions with predicted success rates.',
-}
+  path: '/features/member-health',
+})
 
 const healthSignals = [
   { category: 'Engagement Decay', signals: ['Tee time frequency declining', 'Days since last visit trending up', 'Booking window shortening', 'Cancellation rate increasing'], weight: 'High' },

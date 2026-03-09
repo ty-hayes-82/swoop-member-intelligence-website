@@ -1,11 +1,14 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 import { ConversionImpactGrid, ServiceRecoveryGuardrails } from '@/components/ProductMockups'
+import StickyCTA from '@/components/StickyCTA'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'F&B Operations',
   description: 'Connect golf flow, weather, and reservations to outlet demand in real time. Shift prep and staffing before service degrades.',
-}
+  path: '/capabilities/fb-operations',
+})
 
 const fbMetrics = [
   { value: '$5.7K', label: 'Monthly F&B recovered', detail: 'When pace + staffing align' },
@@ -77,6 +80,14 @@ export default function FBOperationsPage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={fbMetrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
+          <h2 className="text-2xl font-bold mb-3">The GM reviews lunch-risk windows before lineup starts.</h2>
+          <p className="text-swoop-muted">F&B Operations now combines projected finish-time clusters, event spillover, and weather-driven outlet shifts to recommend prep and staffing moves by 15-minute interval.</p>
         </div>
       </section>
 
@@ -192,7 +203,16 @@ export default function FBOperationsPage() {
         </div>
       </section>
 
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
+          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">Silver Mesa Grill Room recovery</h3>
+          <p className="text-[#1F2F24] text-sm">After three weeks of forecast-based staffing changes, average ticket time dropped 16 minutes and post-round conversion rose from 31% to 43%, adding $6.2K monthly contribution margin.</p>
+        </div>
+      </section>
+
       <CTASection headline="See your F&B blind spots." subtext="We'll show you the connection between your tee sheet and your dining revenue." />
+      <StickyCTA title="Diagnose your F&B leakage in one walkthrough" description="Map tee-sheet flow to outlet demand and service outcomes." />
     </div>
   )
 }

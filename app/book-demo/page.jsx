@@ -1,9 +1,11 @@
+import { buildMetadata } from '@/lib/metadata'
 import DemoForm from '@/components/DemoForm'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Book a Demo — See Your Club in Swoop',
   description: 'Schedule a personalized 30-minute walkthrough. See tee sheet leakage, at-risk members, F&B pressure, and revenue blind spots using real club scenarios.',
-}
+  path: '/book-demo',
+})
 
 const stats = [
   { value: '91%', label: 'Waitlist fill rate' },

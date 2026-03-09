@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For Country Clubs',
   description: 'Country clubs with golf, dining, and events need cross-domain intelligence. Swoop connects every touchpoint into one operational view.',
-}
+  path: '/for/country-clubs',
+})
 
 export default function CountryClubsPage() {
   return (
@@ -48,6 +50,32 @@ export default function CountryClubsPage() {
             <div className="bg-swoop-card border border-swoop-border rounded-xl p-6">
               <h3 className="font-semibold mb-2">Staffing Across All Outlets</h3>
               <p className="text-sm text-swoop-muted">Tournament day means 3x F&B demand AND extra course marshals AND valet surge. Swoop coordinates staffing across every touchpoint from one view.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
+        <div className="max-w-container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Reality Cards</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl border border-swoop-border bg-white p-6">
+              <p className="text-xs uppercase tracking-wider text-swoop-muted mb-2">Events reality</p>
+              <h3 className="font-semibold mb-2">Tournament weekends don&apos;t stay in golf.</h3>
+              <p className="text-sm text-swoop-muted mb-4">Event load shifts dining cadence, valet queues, and staffing mix across multiple outlets.</p>
+              <div className="rounded-lg bg-swoop-bg border border-swoop-border p-3 text-xs text-swoop-muted">UI proof: Event-to-outlet demand graph with 3x lunch spike windows.</div>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-white p-6">
+              <p className="text-xs uppercase tracking-wider text-swoop-muted mb-2">Dining cadence reality</p>
+              <h3 className="font-semibold mb-2">Pace delays become table-turn losses.</h3>
+              <p className="text-sm text-swoop-muted mb-4">Slow rounds move diners later, causing missed covers and overflow complaints during peak windows.</p>
+              <div className="rounded-lg bg-swoop-bg border border-swoop-border p-3 text-xs text-swoop-muted">UI proof: Tee-time to dining conversion timeline with pacing overlay.</div>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-white p-6">
+              <p className="text-xs uppercase tracking-wider text-swoop-muted mb-2">Family usage reality</p>
+              <h3 className="font-semibold mb-2">Household pullback starts before resignations.</h3>
+              <p className="text-sm text-swoop-muted mb-4">Pool, fitness, and junior activity declines can expose household churn risk long before formal notice.</p>
+              <div className="rounded-lg bg-swoop-bg border border-swoop-border p-3 text-xs text-swoop-muted">UI proof: Household engagement heatmap by amenity and segment.</div>
             </div>
           </div>
         </div>

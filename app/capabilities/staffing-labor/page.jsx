@@ -1,11 +1,14 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import StickyCTA from '@/components/StickyCTA'
 import { StaffingForecastMatrix, CoverageDeltaCard } from '@/components/ProductMockups'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Staffing & Labor',
   description: 'Tie labor coverage to predicted demand across golf and clubhouse touchpoints. Catch understaffed windows early enough to avoid member friction.',
-}
+  path: '/capabilities/staffing-labor',
+})
 
 const staffingMetrics = [
   { value: '48 hrs', label: 'Average alert lead time', detail: 'Labor Optimizer coverage warnings' },
@@ -67,6 +70,14 @@ export default function StaffingLaborPage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={staffingMetrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
+          <h2 className="text-2xl font-bold mb-3">The GM gets coverage alerts for three high-risk service windows.</h2>
+          <p className="text-swoop-muted">Labor Optimizer now blends tee-sheet finish projections with event density and historical ticket-time thresholds, so staffing moves happen before complaints appear.</p>
         </div>
       </section>
 
@@ -172,7 +183,16 @@ export default function StaffingLaborPage() {
         </div>
       </section>
 
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
+          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">Desert Ridge coverage correction</h3>
+          <p className="text-[#1F2F24] text-sm">By adopting forecast-based shift changes over two weeks, complaint volume dropped 37% and overtime spend decreased 14%, while lunch revenue improved by $4.1K.</p>
+        </div>
+      </section>
+
       <CTASection headline="See where staffing gaps cost you members." subtext="We'll show you the connection between coverage and complaints." />
+      <StickyCTA title="Forecast staffing risk before service breaks" description="See Labor Optimizer recommendations for your busiest windows." />
     </div>
   )
 }

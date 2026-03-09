@@ -1,10 +1,12 @@
+import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'For Directors of Golf',
   description: 'Tee sheet optimization, pace of play intelligence, and retention-driven waitlist management for Directors of Golf at private clubs.',
-}
+  path: '/for/directors-of-golf',
+})
 
 const dogChallenges = [
   { challenge: 'You fill tee times, but lose your best members in the process', detail: 'FIFO waitlists fill canceled slots — but not with the right members. Swoop prioritizes at-risk, high-value members first so every filled slot protects retention, not just occupancy.' },

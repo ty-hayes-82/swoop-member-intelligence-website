@@ -1,13 +1,16 @@
+import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 import { RoutingComparison, CancellationPredictionPanel } from '@/components/ProductMockups'
 import WaitlistSorterDemo from '@/components/WaitlistSorterDemo'
 import DemandHeatmapMini from '@/components/DemandHeatmapMini'
+import StickyCTA from '@/components/StickyCTA'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Tee Sheet & Demand',
   description: 'Predict cancellations and backfill each open slot with the right member. Optimize pace and demand signals without overbooking guesswork.',
-}
+  path: '/capabilities/tee-sheet-demand',
+})
 
 const capabilityMetrics = [
   { value: '91%', label: 'Fill rate w/ retention routing', detail: 'vs. 78% FIFO baseline' },
@@ -116,6 +119,14 @@ export default function TeeSheetDemandPage() {
       <section className="px-6 -mt-8">
         <div className="max-w-container mx-auto">
           <MetricCalloutStrip metrics={capabilityMetrics} />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent mb-2">Monday 7:15 AM</p>
+          <h2 className="text-2xl font-bold mb-3">The GM sees a high-risk cancellation cluster before the front desk does.</h2>
+          <p className="text-swoop-muted">Demand Optimizer now scores cancellation windows with weather, acceptance probability, and member-value weighting, then preps targeted backfill alerts automatically.</p>
         </div>
       </section>
 
@@ -321,7 +332,16 @@ export default function TeeSheetDemandPage() {
         </div>
       </section>
 
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-[#4ADE80]/40 bg-[#4ADE80]/10 p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1F2F24] mb-2">Micro case study</p>
+          <h3 className="text-2xl font-bold mb-3 text-[#1F2F24]">Desert Canyon weekend routing test</h3>
+          <p className="text-[#1F2F24] text-sm">Over 4 Saturdays, Swoop raised prime-slot fill from 79% to 92% and prioritized 13 declining members into high-acceptance windows, protecting an estimated $118K in renewal value.</p>
+        </div>
+      </section>
+
       <CTASection headline="See retention-prioritized routing in action." subtext="We'll walk you through a live waitlist scenario with real member trade-offs." />
+      <StickyCTA title="See live waitlist routing logic" description="Compare FIFO vs retention-prioritized allocation on your scenarios." />
     </div>
   )
 }
