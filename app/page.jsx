@@ -8,6 +8,7 @@ import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
 import VideoPlaceholder from '@/components/VideoPlaceholder'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import TestimonialHighlight from '@/components/TestimonialHighlight'
+import RoiCalculator from '@/components/RoiCalculator'
 import {
   AtRiskRosterMock,
   RoutingComparisonMock,
@@ -168,6 +169,8 @@ export default function HomePage() {
       </section>
 
       <TrustStrip />
+
+      <RoiCalculator />
 
       <section className="px-6 py-8">
         <div className="mx-auto max-w-container">
