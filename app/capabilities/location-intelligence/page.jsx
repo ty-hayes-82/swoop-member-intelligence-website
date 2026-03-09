@@ -1,7 +1,5 @@
 import { buildMetadata } from '@/lib/metadata'
-import CTASection from '@/components/CTASection'
-import StickyCTA from '@/components/StickyCTA'
-import ProofStack from '@/components/ProofStack'
+import Link from 'next/link'
 import LocationHeatmapDemo from '@/components/LocationHeatmapDemo'
 import { SourceBadgeRow } from '@/components/CapabilityMocks'
 
@@ -10,6 +8,14 @@ export const metadata = buildMetadata({
   description: 'Track member movement across golf, dining, and amenities with live heatmaps and service alerts for faster operational response.',
   path: '/capabilities/location-intelligence',
 })
+
+const locationFaqs = [
+  { question: 'How does location tracking work?', answer: 'We use Wi-Fi/Bluetooth pings plus check-in data to infer zone movement.' },
+  { question: 'Is it opt-in?', answer: 'Yes. Members opt in via app or loyalty credentials; anonymous data stays aggregated.' },
+  { question: 'What about member privacy?', answer: 'Data is anonymized for reporting and never shared externally; operators only see required context.' },
+  { question: 'How accurate is the positioning?', answer: 'Zones resolve to 10–15 feet indoors, slightly wider outdoors depending on access points.' },
+  { question: 'Does it work outdoors?', answer: 'Yes. Range, cart paths, and pool decks are covered via outdoor beacons and tee-sheet timestamps.' },
+]
 
 export default function LocationIntelligencePage() {
   return (
@@ -46,26 +52,62 @@ export default function LocationIntelligencePage() {
         </article>
       </section>
 
-      <CTASection headline="See live location intelligence in your workflow." subtext="We’ll walk through heatmaps, service alerts, and response playbooks." />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — live monitoring</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Watch real-time heatmaps for congestion.</li>
+              <li>• Trigger staffing shifts or pop-up service.</li>
+              <li>• Alert outlet leads when zones spike.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board insight</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Peak wait changes tied to staffing actions.</li>
+              <li>• Zone engagement vs service recovery.</li>
+              <li>• Export-ready summary for GM + board.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      <ProofStack
-        statLabel="Peak wait reduction"
-        statValue="41.7%"
-        demoLabel="Heatmap board"
-        ctaLabel="Book a Demo"
-        ctaHref="/book-demo"
-      >
-        <div className="rounded-lg border border-swoop-border bg-white p-3">
-          <p className="text-xs text-swoop-muted">Zone alerts + staffing recommendations</p>
-          <div className="mt-2 grid grid-cols-6 gap-1">
-            {Array.from({ length: 18 }).map((_, i) => (
-              <span key={i} className="h-5 rounded" style={{ backgroundColor: `rgba(31,47,36,${((i % 6) + 2) / 10})` }} />
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">On-property movement heatmap — artifact</p>
+          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-sm text-swoop-muted">
+            <p>Morning: Pro shop and driving range peak.</p>
+            <p>Midday: Grill room and pool peak.</p>
+            <p>Afternoon: Bar and event spaces peak.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Location intelligence FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {locationFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>
-      </ProofStack>
+      </section>
 
-      <StickyCTA title="Add location intelligence to your stack" description="Watch member-flow and service alerts in real time." />
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See live movement before the next service crunch.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to plug location intelligence into your stack.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
+
     </div>
   )
 }
