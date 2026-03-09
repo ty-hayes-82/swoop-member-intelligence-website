@@ -3,6 +3,7 @@ import Link from 'next/link'
 import FaqAccordion from '@/components/FaqAccordion'
 import ProofStack from '@/components/ProofStack'
 import CTASection from '@/components/CTASection'
+import RoiCalculator from '@/components/RoiCalculator'
 import { BoardSnapshotCard } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -13,8 +14,8 @@ export const metadata = buildMetadata({
 
 const tiers = [
   {
-    name: 'Starter',
-    price: '$0',
+    name: 'Free',
+    price: '$0/mo',
     desc: 'Health scores and basic risk watchlists.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
@@ -23,15 +24,15 @@ const tiers = [
   {
     name: 'Pro',
     price: '$499/mo',
-    desc: 'Signal-to-action workflows for one club team.',
+    desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
     cta: 'Book Pro Demo',
     boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
-    name: 'Enterprise',
-    price: '$1,499+/mo',
+    name: 'Club',
+    price: '$1,499/mo',
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
@@ -49,8 +50,8 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <h1 className="text-4xl font-bold md:text-5xl">Pricing aligned to board outcomes.</h1>
         </div>
@@ -84,6 +85,8 @@ export default function PricingPage() {
         </div>
       </section>
 
+      <RoiCalculator />
+
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <h2 className="text-2xl font-bold">FAQ</h2>
@@ -104,7 +107,15 @@ export default function PricingPage() {
         <BoardSnapshotCard />
       </ProofStack>
 
-      <CTASection headline="Validate the pricing model with your club data." />
+      <CTASection
+        headline="Validate the pricing model with your club data."
+        subtext="Run the ROI math during the call and leave with a board-ready sheet."
+        buttonText="Book pricing walkthrough"
+        buttonHref="/book-demo"
+        secondaryText="Email hello@swoopgolf.com"
+        secondaryHref="mailto:hello@swoopgolf.com"
+        note="We reserve five pricing walkthroughs per week for private clubs."
+      />
     </div>
   )
 }
