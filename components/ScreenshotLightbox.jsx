@@ -12,19 +12,26 @@ export default function ScreenshotLightbox({
   badge = 'View full size',
   width = 1280,
   height = 800,
+  maxHeight = 350,
 }) {
   const [open, setOpen] = useState(false)
+  const resolvedMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
+  const previewStyles = resolvedMaxHeight ? { maxHeight: resolvedMaxHeight } : undefined
+  const previewFrameClasses = `relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white max-h-[350px] ${frameClassName}`.trim()
+  const previewImageClasses = `w-full h-auto object-cover object-top max-h-[350px] rounded-2xl ${imageClassName}`.trim()
+  const lightboxImageClasses = `w-full h-auto object-cover object-top rounded-2xl ${imageClassName}`.trim()
 
   return (
     <>
-      <div className={`relative max-w-4xl mx-auto ${frameClassName}`}>
+      <div className={previewFrameClasses} style={previewStyles}>
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
           quality={85}
-          className={`w-full h-auto object-cover object-top max-h-[350px] ${imageClassName}`}
+          className={previewImageClasses}
+          style={previewStyles}
         />
         <button
           type="button"
@@ -55,7 +62,7 @@ export default function ScreenshotLightbox({
                 width={width}
                 height={height}
                 quality={85}
-                className="w-full h-auto object-cover object-top max-h-[350px]"
+                className={lightboxImageClasses}
               />
             </div>
             {caption && (
