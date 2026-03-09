@@ -53,8 +53,8 @@ export default function StickyNav() {
                 )}
               </Link>
               {item.children && (
-                <div className="absolute left-0 top-full mt-3 hidden group-hover:block bg-white border border-swoop-border rounded-xl shadow-lg min-w-[220px]">
-                  <div className="py-3">
+                <div className="absolute left-0 top-full hidden pt-3 group-hover:block group-focus-within:block">
+                  <div className="bg-white border border-swoop-border rounded-xl shadow-lg min-w-[220px] py-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
