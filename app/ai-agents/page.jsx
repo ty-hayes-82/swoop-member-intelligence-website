@@ -10,6 +10,11 @@ export const metadata = buildMetadata({
 })
 
 const recipes = [
+  'At-risk member score drop > 12 points → GM script + call task',
+  'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
+  'Staffing gap during post-round peak → suggest which position to backfill and when',
+  'Unresolved complaint > 72h → comp offer draft + escalation',
+]
 
 const agentFaqs = [
   {
@@ -32,12 +37,6 @@ const agentFaqs = [
     question: 'How do agents access our data?',
     answer: 'Agents read from your connected systems through secure API integrations. They never modify source data.',
   },
-]
-
-  'At-risk member score drop > 12 points → GM script + call task',
-  'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
-  'Staffing gap during post-round peak → suggest which position to backfill and when',
-  'Unresolved complaint > 72h → comp offer draft + escalation',
 ]
 
 function AgentActionDrawer() {

@@ -72,7 +72,7 @@ const faqItems = [
   },
   {
     question: 'Can I try it before committing?',
-    answer: 'Yes — book a demo and we will walk through your club's data.',
+    answer: 'Yes — book a demo and we will walk through your club&apos;s data.',
   },
 ]
 

@@ -8,6 +8,11 @@ export const metadata = buildMetadata({
 })
 
 const rows = [
+  { metric: 'Deployment time', legacy: '8-16 weeks', swoop: '2-3 weeks' },
+  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live metrics with hourly refresh' },
+  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Step-by-step routing with clear owners' },
+  { metric: 'Attribution depth', legacy: 'Lagging summaries', swoop: 'Action-level proof' },
+]
 
 const whyFaqs = [
   { question: 'Why not just use our CRM?', answer: 'CRMs log interactions. Swoop watches behavior across systems and tells you who is at risk before you interact.' },
@@ -16,11 +21,7 @@ const whyFaqs = [
   { question: 'How is Swoop different from Noteefy-style tools?', answer: 'Waitlist tools focus on slots. Swoop prioritizes members by health, spend, and retention impact across every lens.' },
 ]
 
-  { metric: 'Deployment time', legacy: '8-16 weeks', swoop: '2-3 weeks' },
-  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live metrics with hourly refresh' },
-  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Step-by-step routing with clear owners' },
-  { metric: 'Attribution depth', legacy: 'Lagging summaries', swoop: 'Action-level proof' },
-]
+
 
 export default function WhyPage() {
   return (

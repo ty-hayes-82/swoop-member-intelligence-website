@@ -39,6 +39,12 @@ const weeks = [
 ]
 
 const screenshotDeck = [
+  { title: 'Daily Briefing', component: <DailyBriefingScreenshot /> },
+  { title: 'Agent Command', component: <AgentCommandScreenshot /> },
+  { title: 'Tee Sheet routing', component: <TeeSheetScreenshot /> },
+  { title: 'Member roster', component: <MemberRosterScreenshot /> },
+  { title: 'Board report', component: <BoardReportScreenshot /> },
+]
 
 const platformFaqs = [
   {
@@ -61,13 +67,6 @@ const platformFaqs = [
     question: 'Can I customize what appears in my briefing?',
     answer: 'Yes. Each lens and alert threshold is configurable.',
   },
-]
-
-  { title: 'Daily Briefing', component: <DailyBriefingScreenshot /> },
-  { title: 'Agent Command', component: <AgentCommandScreenshot /> },
-  { title: 'Tee Sheet routing', component: <TeeSheetScreenshot /> },
-  { title: 'Member roster', component: <MemberRosterScreenshot /> },
-  { title: 'Board report', component: <BoardReportScreenshot /> },
 ]
 
 export default function PlatformPage() {
