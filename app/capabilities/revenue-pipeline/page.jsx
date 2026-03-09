@@ -1,7 +1,5 @@
 import { buildMetadata } from '@/lib/metadata'
-import CTASection from '@/components/CTASection'
-import StickyCTA from '@/components/StickyCTA'
-import ProofStack from '@/components/ProofStack'
+import Link from 'next/link'
 import { BoardReportPreview, PipelineExampleCard, AttributionChordMock } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -9,6 +7,14 @@ export const metadata = buildMetadata({
   description: 'Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.',
   path: '/capabilities/revenue-pipeline',
 })
+
+const pipelineFaqs = [
+  { question: 'How is revenue per slot calculated?', answer: 'We combine dues, guest fees, and ancillary spend tied to each slot or member action.' },
+  { question: 'Can I see trends over time?', answer: 'Yes. Revenue per slot, saves, and conversions trend in the board snapshot.' },
+  { question: 'Does it include F&B ancillary revenue?', answer: 'Optional, but recommended — outlets can be tied to the same member or slot attribution.' },
+  { question: 'How does this help with pricing?', answer: 'You see what each slot type yields, so pricing and dues changes reference actual impact.' },
+  { question: 'Can I export for board reporting?', answer: 'One-click exports create PDF/CSV packets mapped to your narrative.' },
+]
 
 export default function RevenuePipelinePage() {
   return (
@@ -44,19 +50,65 @@ export default function RevenuePipelinePage() {
         </article>
       </section>
 
-      <CTASection headline="Move from backward-looking reports to action-level attribution." subtext="We will map your board narrative in one call." />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — operational use</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Review slots with slipping revenue expectations.</li>
+              <li>• Approve AI recommendations tied to ARR impact.</li>
+              <li>• Update pipeline stages with single-click notes.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board proof</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Revenue per slot and per intervention.</li>
+              <li>• Conversions and saves attributed to actions.</li>
+              <li>• Export-ready board packet with narrative.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      <ProofStack
-        statLabel="Attributed value"
-        statValue="$214.3K"
-        demoLabel="Board report"
-        ctaLabel="Book a Demo"
-        ctaHref="/book-demo"
-      >
-        <BoardReportPreview />
-      </ProofStack>
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Per-slot revenue report — artifact</p>
+          <div className="space-y-2 text-sm text-swoop-muted">
+            {[{ slot: 'Saturday 8:00 AM', value: '$27 / slot' }, { slot: 'Saturday 9:00 AM', value: '$18 / slot' }, { slot: 'Weekday average', value: '$4 / slot' }].map((row) => (
+              <div key={row.slot} className="rounded-xl border border-swoop-border bg-swoop-bg px-4 py-3 flex items-center justify-between">
+                <span className="font-semibold text-swoop-dark">{row.slot}</span>
+                <span>{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <StickyCTA title="Build your board-ready attribution model" description="Tie actions to revenue and retention in one workflow." />
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Revenue & pipeline FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {pipelineFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See the per-slot revenue view your board wants.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to tie every action to ARR impact.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
+
     </div>
   )
 }
