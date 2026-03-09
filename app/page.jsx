@@ -112,7 +112,6 @@ export default function HomePage() {
       <RoiCalculator />
 
       <HomeCapabilityTabs />
-
       <TrustedBetaStrip />
 
       <section className="px-6">
@@ -128,7 +127,7 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-relaxed text-white/90">“{entry.quote}”</p>
                 <p className="mt-3 text-xs text-white/70">{entry.person} — {entry.role}</p>
                 <p className="mt-3 text-base font-semibold text-white">{entry.metric}</p>
-                <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data</p>
+                <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data scenario — Oakmont Hills CC (Jan 2026)</p>
               </article>
             ))}
           </div>
