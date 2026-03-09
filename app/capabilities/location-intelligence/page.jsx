@@ -52,7 +52,6 @@ export default function LocationIntelligencePage() {
         statLabel="Peak wait reduction"
         statValue="41.7%"
         demoLabel="Heatmap board"
-        quote="We finally acted before the queue formed instead of after the complaint."
         ctaLabel="Book location demo"
         ctaHref="/book-demo"
       >

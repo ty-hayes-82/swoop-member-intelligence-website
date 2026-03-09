@@ -59,7 +59,6 @@ export default function AIAgentsPage() {
         statLabel="Recommended actions approved"
         statValue="83.2%"
         demoLabel="Agent drawer"
-        quote="The team stopped debating spreadsheets and started approving clear next actions."
         ctaLabel="Book agent demo"
         ctaHref="/book-demo"
       >

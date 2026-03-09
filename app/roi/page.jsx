@@ -31,7 +31,6 @@ export default function RoiPage() {
         statLabel="Average modeled impact"
         statValue="$168.4K"
         demoLabel="ROI preview"
-        quote="The toggle made downside protection and upside growth clear for ownership in one slide."
         ctaLabel="Book ROI review"
         ctaHref="/book-demo"
       >

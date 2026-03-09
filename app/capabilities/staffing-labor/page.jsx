@@ -62,7 +62,6 @@ export default function StaffingLaborPage() {
         statLabel="Service-level gain"
         statValue="+13.6 pts"
         demoLabel="Coverage board"
-        quote="We shifted labor earlier and prevented the complaint cluster entirely."
         ctaLabel="Book staffing walkthrough"
         ctaHref="/book-demo"
       >

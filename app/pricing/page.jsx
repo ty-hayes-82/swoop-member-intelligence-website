@@ -101,7 +101,6 @@ export default function PricingPage() {
         statLabel="Average payback"
         statValue="≈28 days"
         demoLabel="Board math preview"
-        quote="Finance and operations finally looked at the same outcome model."
         ctaLabel="Book pricing walkthrough"
         ctaHref="/book-demo"
       >

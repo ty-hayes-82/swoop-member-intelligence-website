@@ -50,7 +50,6 @@ export default function RevenuePipelinePage() {
         statLabel="Attributed value"
         statValue="$214.3K"
         demoLabel="Board report"
-        quote="Our board finally saw what the team prevented, not just month-end variance."
         ctaLabel="Book revenue demo"
         ctaHref="/book-demo"
       >

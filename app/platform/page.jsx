@@ -93,7 +93,6 @@ export default function PlatformPage() {
         statLabel="Time to first measurable outcome"
         statValue="21.3 days"
         demoLabel="Platform snapshot"
-        quote="By week three we had a complete intake-to-automation rhythm with clear ownership."
         ctaLabel="Book platform demo"
         ctaHref="/book-demo"
       >
