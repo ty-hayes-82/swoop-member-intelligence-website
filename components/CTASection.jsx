@@ -13,7 +13,7 @@ export default function CTASection({
         <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">{subtext}</p>
         <Link
           href={buttonHref}
-          className="inline-block px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition text-base"
+          className="inline-block px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition text-base touch-target"
         >
           {buttonText}
         </Link>

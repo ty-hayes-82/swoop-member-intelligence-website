@@ -97,7 +97,7 @@ export default function StickyNav() {
           ))}
           <Link
             href="/book-demo"
-            className="ml-2 px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg hover:bg-swoop-green-hover transition"
+            className="ml-2 px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg hover:bg-swoop-green-hover transition touch-target"
           >
             Book a Demo
           </Link>
@@ -151,7 +151,7 @@ export default function StickyNav() {
             <Link
               href="/book-demo"
               onClick={() => setOpen(false)}
-              className="block w-full text-center px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg"
+              className="block w-full text-center px-6 py-3 bg-swoop-green text-swoop-dark text-sm font-semibold rounded-lg touch-target"
             >
               Book a Demo
             </Link>
