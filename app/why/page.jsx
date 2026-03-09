@@ -22,7 +22,7 @@ export default function WhyPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Why Swoop</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Purpose-built for operators, not dashboard tourists.</h1>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Purpose-built for the operators who run the club every day.</h1>
         </div>
       </section>
 

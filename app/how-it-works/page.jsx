@@ -17,20 +17,20 @@ const painPoints = [
 const steps = [
   {
     phase: 'Step 1',
-    title: 'Signal',
-    description: 'We pull tee sheet, POS, CRM, and labor data into one shared view.',
+    title: 'See',
+    description: 'Monday 6 AM: Swoop pulls tee sheet, POS, CRM, and labor data into one shared briefing.',
     mock: <AtRiskRosterMock />,
   },
   {
     phase: 'Step 2',
-    title: 'Insight',
-    description: 'Swoop ranks what matters now, including routing and cancellation risk.',
+    title: 'Decide',
+    description: 'Tuesday–Wednesday: risks are ranked with suggested owners, so you approve exactly what gets done.',
     mock: <RoutingComparisonMock />,
   },
   {
     phase: 'Step 3',
-    title: 'Action',
-    description: 'Your team receives role-specific actions with expected impact and proof.',
+    title: 'Act',
+    description: 'By Friday: outcomes roll into the board pack, showing what was saved and what still needs attention.',
     mock: <StaffingForecastGrid />,
   },
 ]
@@ -136,7 +136,7 @@ export default function HowItWorksPage() {
               <li>$312 per slot average when retention routing is approved.</li>
               <li>6-day advance warning on at-risk waitlist demand.</li>
             </ul>
-            <p className="mt-5 text-xs uppercase tracking-wide text-swoop-muted">Demo data: Oakmont Hills CC — Jan 2026.</p>
+            <p className="mt-5 text-xs uppercase tracking-wide text-swoop-muted">Demo data scenario — Oakmont Hills CC (Jan 2026)</p>
           </article>
 
           <article className="rounded-2xl border border-dashed border-swoop-border bg-white p-6">
