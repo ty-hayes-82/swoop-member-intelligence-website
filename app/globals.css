@@ -4,6 +4,35 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1F2F24;
+  background-color: #F8F9FA;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+textarea {
+  min-height: 44px;
+}
+
+.touch-target,
+a[role="button"],
+a.button-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
 html {
   scroll-behavior: smooth;
 }
