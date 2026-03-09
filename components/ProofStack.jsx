@@ -6,12 +6,13 @@ export default function ProofStack({
   statContext = 'Demo data — Oakmont Hills CC (Jan 2026)',
   demoLabel,
   demoContext = 'Captured in current release',
-  quote,
+  quote = null,
   quoteSource = 'Ty Hayes',
   quoteRole = 'Founder, Swoop Golf',
   ctaLabel,
   ctaHref,
   children,
+  disclosure = 'Demo data scenario — Oakmont Hills CC (Jan 2026)',
 }) {
   return (
     <section className="px-6 py-16" aria-label="Proof stack">
@@ -28,13 +29,15 @@ export default function ProofStack({
           <p className="mt-3 text-[11px] uppercase tracking-widest text-swoop-muted/80">{demoContext}</p>
         </article>
 
-        <blockquote className="rounded-2xl border border-swoop-border bg-white p-6 text-sm leading-relaxed text-swoop-muted">
-          “{quote}”
-          <footer className="mt-4 text-[13px] font-semibold text-swoop-dark">
-            {quoteSource}
-            <span className="block text-xs font-normal text-swoop-muted">{quoteRole}</span>
-          </footer>
-        </blockquote>
+        {quote && (
+          <blockquote className="rounded-2xl border border-swoop-border bg-white p-6 text-sm leading-relaxed text-swoop-muted">
+            “{quote}”
+            <footer className="mt-4 text-[13px] font-semibold text-swoop-dark">
+              {quoteSource}
+              <span className="block text-xs font-normal text-swoop-muted">{quoteRole}</span>
+            </footer>
+          </blockquote>
+        )}
 
         <article className="flex rounded-2xl border border-swoop-border bg-swoop-dark p-6 text-white">
           <div className="mt-auto space-y-3">
@@ -45,6 +48,7 @@ export default function ProofStack({
             >
               {ctaLabel}
             </Link>
+            <p className="text-[11px] uppercase tracking-widest text-white/50">{disclosure}</p>
           </div>
         </article>
       </div>

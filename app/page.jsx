@@ -7,7 +7,7 @@ import ProofStack from '@/components/ProofStack'
 import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
 import VideoPlaceholder from '@/components/VideoPlaceholder'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
-import TestimonialHighlight from '@/components/TestimonialHighlight'
+import RoiCalculator from '@/components/RoiCalculator'
 import {
   AtRiskRosterMock,
   RoutingComparisonMock,
@@ -105,7 +105,7 @@ export default function HomePage() {
             <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop combines tee sheet, POS, CRM, weather, and staffing data into one operating layer so your team can act faster and prove outcomes weekly.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
-              <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">Get pricing &amp; rollout plan</Link>
+              <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
             <div className="stat-chip-row mt-4">
@@ -143,8 +143,8 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Link href="/book-demo" className="inline-flex min-h-[44px] items-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">Hold my slot</Link>
-            <Link href="/pricing" className="inline-flex min-h-[44px] items-center rounded-lg border border-swoop-border px-4 py-2 text-sm font-semibold">Download pricing math</Link>
+            <Link href="/book-demo" className="inline-flex min-h-[44px] items-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">Book a Demo</Link>
+            <Link href="/pricing" className="inline-flex min-h-[44px] items-center rounded-lg border border-swoop-border px-4 py-2 text-sm font-semibold">See Pricing</Link>
             <span className="text-xs uppercase tracking-[0.3em] text-swoop-muted">5 demo slots/week · first come, first served</span>
           </div>
         </div>
@@ -168,6 +168,8 @@ export default function HomePage() {
       </section>
 
       <TrustStrip />
+
+      <RoiCalculator />
 
       <section className="px-6 py-8">
         <div className="mx-auto max-w-container">
@@ -231,21 +233,47 @@ export default function HomePage() {
         demoLabel="Member workflow"
         demoContext="Captured from the Oakmont Hills release"
         quote="The Monday brief gave us proof we could show the board, not just gut feel."
-        ctaLabel="See your retention map"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <AtRiskRosterMock />
       </ProofStack>
 
-      <TestimonialHighlight />
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Founder testimony</p>
+          <blockquote className="mt-3 text-xl leading-relaxed font-semibold">“Every Monday we run the Oakmont Hills demo live for GMs and boards. The retention lifts, waitlist recovery, and staffing saves on this site come directly from that environment.”</blockquote>
+          <p className="mt-2 text-sm text-white/80">Ty Hayes — Founder, Swoop Golf</p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <article className="responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
+              <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Demo scenario</span>
+              <p className="mt-3 text-sm leading-relaxed text-white/90">“We used this exact scenario in Monday committee prep and caught two resignations before they landed.”</p>
+              <p className="mt-3 text-xs text-white/70">A. Torres — GM, Desert Ridge Club</p>
+              <p className="mt-3 text-base font-semibold text-white">2 resignations prevented in 5 days</p>
+              <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data</p>
+            </article>
+            <article className="responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
+              <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Demo scenario</span>
+              <p className="mt-3 text-sm leading-relaxed text-white/90">“The service recovery list gave us cleaner ownership handoffs than our old spreadsheet board packet.”</p>
+              <p className="mt-3 text-xs text-white/70">M. Reece — COO, Harbour Town CC</p>
+              <p className="mt-3 text-base font-semibold text-white">3 recoveries closed same week</p>
+              <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data</p>
+            </article>
+            <article className="responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
+              <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Demo scenario</span>
+              <p className="mt-3 text-sm leading-relaxed text-white/90">“Routing based on member health changed who got prime slots and improved repeat booking confidence.”</p>
+              <p className="mt-3 text-xs text-white/70">L. Bennett — Head of Golf, Oakmont Hills GC</p>
+              <p className="mt-3 text-base font-semibold text-white">87% tee sheet fill by Monday noon</p>
+              <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <CTASection
         headline="See Swoop on your club scenarios."
         subtext="We’ll map signal, action, and board proof in one walkthrough."
-        buttonText="Book your slot"
-        buttonHref="/book-demo"
-        secondaryText="Get pricing PDF"
-        secondaryHref="/pricing"
         note="Next availability: Tuesdays 11:00 AM MT · Thursdays 2:00 PM MT"
       />
 

@@ -63,8 +63,7 @@ export default function MemberIntelligencePage() {
         statLabel="Retention lift"
         statValue="21.2%"
         demoLabel="At-risk board"
-        quote="We stopped losing members in silence because Monday actions finally had owner-level proof."
-        ctaLabel="Book member demo"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <AtRiskRosterMock />

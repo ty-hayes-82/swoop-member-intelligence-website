@@ -51,8 +51,7 @@ export default function TeeSheetDemandPage() {
         statLabel="Fill quality improvement"
         statValue="+15.8 pts"
         demoLabel="Routing view"
-        quote="The same opening now solves retention instead of just clearing the waitlist."
-        ctaLabel="Book demand walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <RoutingComparisonMock />

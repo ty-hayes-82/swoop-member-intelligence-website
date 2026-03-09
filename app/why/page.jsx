@@ -53,8 +53,7 @@ export default function WhyPage() {
         statLabel="Operational ramp"
         statValue="2.4x faster"
         demoLabel="Leadership snapshot"
-        quote="We replaced passive dashboards with a weekly action system that our GM team actually used."
-        ctaLabel="Book a comparison walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardReportPreview />

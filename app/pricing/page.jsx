@@ -5,6 +5,7 @@ import ProofStack from '@/components/ProofStack'
 import CTASection from '@/components/CTASection'
 import RoiCalculator from '@/components/RoiCalculator'
 import { BoardSnapshotCard } from '@/components/CapabilityMocks'
+import { PLAN_PRICING } from '@/lib/pricing'
 
 export const metadata = buildMetadata({
   title: 'Pricing',
@@ -14,16 +15,16 @@ export const metadata = buildMetadata({
 
 const tiers = [
   {
-    name: 'Free',
-    price: '$0/mo',
+    name: PLAN_PRICING.free.label,
+    price: PLAN_PRICING.free.display,
     desc: 'Health scores and basic risk watchlists.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
     cta: 'Start',
   },
   {
-    name: 'Pro',
-    price: '$499/mo',
+    name: PLAN_PRICING.pro.label,
+    price: PLAN_PRICING.pro.display,
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
@@ -31,8 +32,8 @@ const tiers = [
     boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
-    name: 'Club',
-    price: '$1,499/mo',
+    name: PLAN_PRICING.club.label,
+    price: PLAN_PRICING.club.display,
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
@@ -100,8 +101,7 @@ export default function PricingPage() {
         statLabel="Average payback"
         statValue="≈28 days"
         demoLabel="Board math preview"
-        quote="Finance and operations finally looked at the same outcome model."
-        ctaLabel="Book pricing walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardSnapshotCard />
@@ -110,10 +110,6 @@ export default function PricingPage() {
       <CTASection
         headline="Validate the pricing model with your club data."
         subtext="Run the ROI math during the call and leave with a board-ready sheet."
-        buttonText="Book pricing walkthrough"
-        buttonHref="/book-demo"
-        secondaryText="Email hello@swoopgolf.com"
-        secondaryHref="mailto:hello@swoopgolf.com"
         note="We reserve five pricing walkthroughs per week for private clubs."
       />
     </div>
