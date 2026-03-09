@@ -13,19 +13,34 @@ export default function ScreenshotLightbox({
   width = 1280,
   height = 800,
   maxHeight = 350,
+  lightboxMaxHeight = '85vh',
 }) {
   const [open, setOpen] = useState(false)
-  const resolvedMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
-  const clampedMaxHeight = resolvedMaxHeight || '350px'
-  const sharedStyles = clampedMaxHeight ? { maxHeight: clampedMaxHeight } : undefined
+
+  const resolvedPreviewMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
+  const previewMaxHeight = resolvedPreviewMaxHeight || '350px'
+  const resolvedLightboxMaxHeight = typeof lightboxMaxHeight === 'number' ? `${lightboxMaxHeight}px` : lightboxMaxHeight
+  const previewStyle = previewMaxHeight ? { maxHeight: previewMaxHeight } : undefined
+  const lightboxStyle = resolvedLightboxMaxHeight ? { maxHeight: resolvedLightboxMaxHeight } : undefined
+
+  const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white'
   const clampClasses = 'max-h-[350px]'
-  const previewFrameClasses = `relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white ${clampClasses} ${frameClassName}`.trim()
-  const previewImageClasses = `w-full h-full object-cover object-top rounded-2xl ${clampClasses} ${imageClassName}`.trim()
-  const lightboxImageClasses = `w-full h-full object-cover object-top rounded-2xl ${clampClasses} ${imageClassName}`.trim()
+  const previewFrameClasses = `${basePreviewClasses} ${clampClasses} ${frameClassName}`.trim()
+  const imageBaseClasses = 'w-full h-full rounded-2xl object-cover object-top'
+  const previewImageClasses = `${imageBaseClasses} ${clampClasses} ${imageClassName}`.trim()
+  const lightboxImageClasses = `${imageBaseClasses} ${imageClassName}`.trim()
+
+  const imagePreviewStyle = previewMaxHeight
+    ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto' }
+    : { width: '100%', height: 'auto' }
+
+  const imageLightboxStyle = resolvedLightboxMaxHeight
+    ? { maxHeight: resolvedLightboxMaxHeight, width: '100%', height: 'auto' }
+    : { width: '100%', height: 'auto' }
 
   return (
     <>
-      <div className={previewFrameClasses} style={sharedStyles}>
+      <div className={previewFrameClasses} style={previewStyle}>
         <Image
           src={src}
           alt={alt}
@@ -33,7 +48,8 @@ export default function ScreenshotLightbox({
           height={height}
           quality={85}
           className={previewImageClasses}
-          style={sharedStyles}
+          style={imagePreviewStyle}
+          sizes="(max-width: 768px) 100vw, 1200px"
         />
         <button
           type="button"
@@ -57,7 +73,7 @@ export default function ScreenshotLightbox({
             >
               ×
             </button>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border" style={sharedStyles}>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border" style={lightboxStyle}>
               <Image
                 src={src}
                 alt={alt}
@@ -65,7 +81,8 @@ export default function ScreenshotLightbox({
                 height={height}
                 quality={85}
                 className={lightboxImageClasses}
-                style={sharedStyles}
+                style={imageLightboxStyle}
+                sizes="(max-width: 768px) 100vw, 1200px"
               />
             </div>
             {caption && (
