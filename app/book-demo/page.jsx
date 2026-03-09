@@ -53,7 +53,7 @@ export default function BookDemoPage() {
             <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Book a Demo</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">See your club&apos;s blind spots in 30 minutes.</h1>
             <p className="text-lg text-swoop-muted mb-8">
-              Schedule a personalized walkthrough. We&apos;ll show you tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots — using scenarios from a real 300-member club.
+              Book a personalized walkthrough. We&apos;ll show you tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots — using scenarios from a real 300-member club.
             </p>
             <div className="bg-swoop-green/10 border-2 border-swoop-green rounded-xl p-6 mb-8">
               <p className="font-semibold mb-2">What you&apos;ll see in the demo:</p>
@@ -152,7 +152,7 @@ export default function BookDemoPage() {
             href="#demo-form"
             className="inline-block px-8 py-4 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition text-lg"
           >
-            Schedule Your Demo
+            Book a Demo
           </a>
           <p className="text-white/50 text-sm mt-4">Available Mon-Fri, 9am-5pm EST</p>
         </div>

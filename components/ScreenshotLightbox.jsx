@@ -24,7 +24,7 @@ export default function ScreenshotLightbox({
           width={width}
           height={height}
           quality={85}
-          className={`w-full h-auto object-cover object-top max-h-[400px] ${imageClassName}`}
+          className={`w-full h-auto object-cover object-top max-h-[350px] ${imageClassName}`}
         />
         <button
           type="button"
@@ -55,7 +55,7 @@ export default function ScreenshotLightbox({
                 width={width}
                 height={height}
                 quality={85}
-                className="w-full h-auto object-cover object-top max-h-[400px]"
+                className="w-full h-auto object-cover object-top max-h-[350px]"
               />
             </div>
             {caption && (
