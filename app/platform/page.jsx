@@ -2,7 +2,7 @@ import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ProofStack from '@/components/ProofStack'
 import TrustedBetaStrip from '@/components/TrustedBetaStrip'
-import VideoPlaceholder from '@/components/VideoPlaceholder'
+
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import {
   BoardReportPreview,
@@ -73,7 +73,7 @@ export default function PlatformPage() {
 
       <section className="px-6">
         <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-2">
-          <VideoPlaceholder />
+
           <MorningBriefingPreview />
         </div>
       </section>
