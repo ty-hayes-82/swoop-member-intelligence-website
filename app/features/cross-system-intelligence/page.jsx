@@ -1,12 +1,19 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import CTASection from '@/components/CTASection'
 
 export const metadata = buildMetadata({
   title: 'Cross-System Intelligence',
   description: 'How Swoop connects your tee sheet, POS, CRM, payroll, and communication systems to surface insights no single platform can provide.',
   path: '/features/cross-system-intelligence',
 })
+
+const crossFeatureFaqs = [
+  { question: 'How does identity matching work?', answer: 'We normalize member IDs, emails, and transaction fingerprints to create one profile.' },
+  { question: 'What about duplicate records?', answer: 'Duplicates are flagged for review and resolved automatically where confidence is high.' },
+  { question: 'How often do systems sync?', answer: 'Tee sheet/POS hourly, CRM/email daily, with event-driven refreshes.' },
+  { question: 'What if a system goes offline?', answer: 'Swoop alerts you, queues data, and backfills once the system returns.' },
+  { question: 'Can I see the raw data?', answer: 'Yes. Drill from dashboards down to the raw records powering each insight.' },
+]
 
 const systemConnections = [
   {
@@ -259,10 +266,63 @@ export default function CrossSystemIntelligencePage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See cross-system intelligence in action." 
-        subtext="We'll show you how Swoop connects your existing systems and surfaces insights you've never seen before." 
-      />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — operational view</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Review unified member timelines.</li>
+              <li>• Investigate anomalies with raw data drilldowns.</li>
+              <li>• Trigger agent workflows using correlated signals.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — leadership view</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Show cross-system impact in board reports.</li>
+              <li>• Highlight insights that drove saves or revenue.</li>
+              <li>• Export narratives with supporting data.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Identity match & timeline — artifact</p>
+          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-sm text-swoop-muted">
+            <p className="font-semibold text-swoop-dark">Member: John D</p>
+            <p>Tee sheet: 12 rounds this quarter</p>
+            <p>POS: $340 dining</p>
+            <p>CRM: Renewal date March 2026</p>
+            <p>Email: 45% open rate declining</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Cross-system FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {crossFeatureFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See cross-system intelligence in action.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to connect your systems without ripping anything out.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </>
   )
 }
