@@ -30,8 +30,8 @@ export default function ScreenshotLightbox({
   const lightboxClampClasses = 'max-h-[85vh]'
   const previewFrameClasses = `${basePreviewClasses} ${previewClampClasses} ${frameClassName}`.trim()
   const imageBaseClasses = 'w-full h-full rounded-2xl object-cover'
-  const previewImageClasses = `${imageBaseClasses} ${previewClampClasses} ${imageClassName}`.trim()
-  const lightboxImageClasses = `${imageBaseClasses} ${lightboxClampClasses} ${imageClassName}`.trim()
+  const previewImageClasses = `${imageBaseClasses} ${imageClassName} ${previewClampClasses} object-cover`.trim()
+  const lightboxImageClasses = `${imageBaseClasses} ${imageClassName} ${lightboxClampClasses} object-cover`.trim()
 
   const imagePreviewStyle = previewMaxHeight
     ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto', objectFit: 'cover', objectPosition }

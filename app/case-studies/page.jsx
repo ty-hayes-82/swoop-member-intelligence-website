@@ -1,11 +1,19 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import CaseStudyCard from '@/components/CaseStudyCard'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'Case Studies',
   description: 'See how Swoop surfaces retention risks, optimizes tee sheet yield, and connects operations to revenue. Demo scenario walkthroughs.',
 }
+
+const proofMetrics = [
+  { value: '6-day', label: 'Average early warning lead time', detail: 'Across Oakmont Hills demo scenario' },
+  { value: '$22K', label: 'Dues protected per save', detail: 'Median for high-risk members' },
+  { value: '3 systems', label: 'Signals combined', detail: 'Tee sheet + POS + CRM per case' },
+  { value: '91%', label: 'Prediction confidence', detail: 'Member Pulse accuracy in demo' },
+]
 
 export default function CaseStudiesPage() {
   return (
@@ -17,6 +25,12 @@ export default function CaseStudiesPage() {
           <p className="text-lg text-swoop-muted max-w-2xl mx-auto">
             These walkthroughs use simulated data from Oakmont Hills CC — a 300-member private club in Scottsdale. Real club results coming as founding partners onboard.
           </p>
+        </div>
+      </section>
+
+      <section className="py-6 px-6">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={proofMetrics} />
         </div>
       </section>
 
