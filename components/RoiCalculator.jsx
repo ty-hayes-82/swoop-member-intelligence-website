@@ -14,6 +14,12 @@ export default function RoiCalculator() {
   const netGain = recovered - swoopProCost
   const roiMultiple = recovered > 0 ? Math.round(recovered / swoopProCost) : 0
 
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
+
+  const adjustMembers = (delta) => setMembers((prev) => clamp(prev + delta, 100, 800))
+  const adjustDues = (delta) => setDues((prev) => clamp(prev + delta, 2000, 25000))
+  const adjustChurn = (delta) => setChurn((prev) => clamp(prev + delta, 1, 15))
+
   return (
     <section className="bg-swoop-dark py-20 px-6">
       <div className="max-w-container mx-auto">
@@ -26,24 +32,36 @@ export default function RoiCalculator() {
                 <span>Total Members</span>
                 <span className="font-mono text-swoop-green">{members}</span>
               </label>
-              <input type="range" min={100} max={800} value={members} onChange={(e) => setMembers(+e.target.value)}
-                className="w-full accent-swoop-green" />
+              <div className="flex items-center gap-3">
+                <button type="button" aria-label="Decrease members" onClick={() => adjustMembers(-50)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">−</button>
+                <input type="range" min={100} max={800} value={members} onChange={(e) => setMembers(+e.target.value)}
+                  className="w-full accent-swoop-green h-3" />
+                <button type="button" aria-label="Increase members" onClick={() => adjustMembers(50)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">+</button>
+              </div>
             </div>
             <div>
               <label className="flex justify-between text-sm text-white/70 mb-2">
                 <span>Avg Annual Dues</span>
                 <span className="font-mono text-swoop-green">${dues.toLocaleString()}</span>
               </label>
-              <input type="range" min={2000} max={25000} step={500} value={dues} onChange={(e) => setDues(+e.target.value)}
-                className="w-full accent-swoop-green" />
+              <div className="flex items-center gap-3">
+                <button type="button" aria-label="Decrease dues" onClick={() => adjustDues(-500)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">−</button>
+                <input type="range" min={2000} max={25000} step={500} value={dues} onChange={(e) => setDues(+e.target.value)}
+                  className="w-full accent-swoop-green h-3" />
+                <button type="button" aria-label="Increase dues" onClick={() => adjustDues(500)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">+</button>
+              </div>
             </div>
             <div>
               <label className="flex justify-between text-sm text-white/70 mb-2">
                 <span>Annual Churn Rate</span>
                 <span className="font-mono text-swoop-green">{churn}%</span>
               </label>
-              <input type="range" min={1} max={15} value={churn} onChange={(e) => setChurn(+e.target.value)}
-                className="w-full accent-swoop-green" />
+              <div className="flex items-center gap-3">
+                <button type="button" aria-label="Decrease churn rate" onClick={() => adjustChurn(-1)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">−</button>
+                <input type="range" min={1} max={15} value={churn} onChange={(e) => setChurn(+e.target.value)}
+                  className="w-full accent-swoop-green h-3" />
+                <button type="button" aria-label="Increase churn rate" onClick={() => adjustChurn(1)} className="px-3 py-2 rounded-lg border border-white/20 text-white/80 text-sm min-w-[44px]">+</button>
+              </div>
             </div>
           </div>
           <div className="bg-white/5 rounded-xl p-8 space-y-6">
