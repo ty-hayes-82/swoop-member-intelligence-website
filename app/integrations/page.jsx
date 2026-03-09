@@ -66,7 +66,7 @@ export default function IntegrationsPage() {
         statLabel="CSV import hub"
         statValue="≈48-hour activation target"
         demoLabel="Outcome preview"
-        ctaLabel="Book integration review"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardReportPreview />

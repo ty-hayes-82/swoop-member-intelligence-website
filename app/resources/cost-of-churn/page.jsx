@@ -188,7 +188,7 @@ export default function CostOfChurnPage() {
         </div>
       </section>
 
-      <CTASection headline="Want to see your club's true cost of churn?" subtext="Use our ROI calculator. Takes 2 minutes." ctaText="Calculate ROI" ctaHref="/roi-calculator" />
+      <CTASection headline="Want to see your club's true cost of churn?" subtext="Use our ROI calculator. Takes 2 minutes." note="Prefer to run the calculator first? Book a demo and we'll send it right after." />
     </>
   )
 }

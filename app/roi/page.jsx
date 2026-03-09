@@ -31,7 +31,7 @@ export default function RoiPage() {
         statLabel="Average modeled impact"
         statValue="$168.4K"
         demoLabel="ROI preview"
-        ctaLabel="Book ROI review"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <RetentionValueCalculator />

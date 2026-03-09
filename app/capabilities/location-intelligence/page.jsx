@@ -52,7 +52,7 @@ export default function LocationIntelligencePage() {
         statLabel="Peak wait reduction"
         statValue="41.7%"
         demoLabel="Heatmap board"
-        ctaLabel="Book location demo"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <div className="rounded-lg border border-swoop-border bg-white p-3">

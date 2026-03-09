@@ -101,7 +101,7 @@ export default function PricingPage() {
         statLabel="Average payback"
         statValue="≈28 days"
         demoLabel="Board math preview"
-        ctaLabel="Book pricing walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardSnapshotCard />
@@ -110,10 +110,6 @@ export default function PricingPage() {
       <CTASection
         headline="Validate the pricing model with your club data."
         subtext="Run the ROI math during the call and leave with a board-ready sheet."
-        buttonText="Book pricing walkthrough"
-        buttonHref="/book-demo"
-        secondaryText="Email hello@swoopgolf.com"
-        secondaryHref="mailto:hello@swoopgolf.com"
         note="We reserve five pricing walkthroughs per week for private clubs."
       />
     </div>

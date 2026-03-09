@@ -51,7 +51,7 @@ export default function TeeSheetDemandPage() {
         statLabel="Fill quality improvement"
         statValue="+15.8 pts"
         demoLabel="Routing view"
-        ctaLabel="Book demand walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <RoutingComparisonMock />

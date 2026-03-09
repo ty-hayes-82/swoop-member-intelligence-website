@@ -59,7 +59,7 @@ export default function AIAgentsPage() {
         statLabel="Recommended actions approved"
         statValue="83.2%"
         demoLabel="Agent drawer"
-        ctaLabel="Book agent demo"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardSnapshotCard />

@@ -53,7 +53,7 @@ export default function WhyPage() {
         statLabel="Operational ramp"
         statValue="2.4x faster"
         demoLabel="Leadership snapshot"
-        ctaLabel="Book a comparison walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardReportPreview />

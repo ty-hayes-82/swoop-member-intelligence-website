@@ -93,7 +93,7 @@ export default function PlatformPage() {
         statLabel="Time to first measurable outcome"
         statValue="21.3 days"
         demoLabel="Platform snapshot"
-        ctaLabel="Book platform demo"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <BoardReportPreview />

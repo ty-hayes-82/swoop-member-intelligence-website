@@ -49,7 +49,7 @@ export default function FBOperationsPage() {
         statLabel="Post-round conversion lift"
         statValue="+11.7 pts"
         demoLabel="Upsell board"
-        ctaLabel="Book guest experience demo"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <PostRoundConversionMock />

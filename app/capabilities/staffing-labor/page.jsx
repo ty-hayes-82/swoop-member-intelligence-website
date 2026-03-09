@@ -62,7 +62,7 @@ export default function StaffingLaborPage() {
         statLabel="Service-level gain"
         statValue="+13.6 pts"
         demoLabel="Coverage board"
-        ctaLabel="Book staffing walkthrough"
+        ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
         <StaffingForecastGrid />
