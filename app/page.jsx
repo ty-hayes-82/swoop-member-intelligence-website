@@ -55,6 +55,27 @@ const capabilities = [
   },
 ]
 
+const automationRecipes = [
+  {
+    title: 'At-risk member save',
+    trigger: 'Health score drops 15 points or a complaint sits unresolved 48 hours',
+    action: 'Queues a GM call script, personal outreach plan, and tracked follow-up task',
+    outcome: 'Protects $18K/yr in dues before the resignation letter shows up',
+  },
+  {
+    title: 'Auto tee time offer',
+    trigger: 'Retention-priority member waits more than 3 days for a Saturday slot',
+    action: 'Holds the next cancellation, texts the member, and alerts the starter',
+    outcome: 'Keeps high-value members on the tee sheet instead of the waitlist',
+  },
+  {
+    title: 'Post-round dining upsell',
+    trigger: 'Wind or slow-round warnings that would normally hurt dining covers',
+    action: 'Sends a dining invite, reserves a table, and notifies the Grill Room lead',
+    outcome: 'Recovers $5,700/month in F&B tied to slow Saturday rounds',
+  },
+]
+
 export default function HomePage() {
   return (
     <div className="space-y-16 pb-16">
@@ -123,6 +144,35 @@ export default function HomePage() {
                   <Link href={capability.href} className="text-sm font-semibold text-swoop-accent">Explore →</Link>
                 </div>
                 {capability.mock}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-10 bg-swoop-bg/50">
+        <div className="mx-auto max-w-container">
+          <p className="text-sm font-semibold uppercase tracking-wider text-swoop-muted">Automation Recipes</p>
+          <h2 className="mt-2 text-3xl font-bold">Pre-built workflows the team can approve in seconds.</h2>
+          <p className="mt-3 max-w-3xl text-swoop-muted">Every recipe ties a live trigger to a clear action and a measurable outcome so you can show the board how the week was saved.</p>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {automationRecipes.map((recipe) => (
+              <article key={recipe.title} className="h-full rounded-2xl border border-swoop-border bg-white p-5 shadow-sm">
+                <h3 className="text-xl font-semibold">{recipe.title}</h3>
+                <dl className="mt-4 space-y-3 text-sm">
+                  <div>
+                    <dt className="text-swoop-muted">Trigger</dt>
+                    <dd className="font-medium text-swoop-dark">{recipe.trigger}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-swoop-muted">Action</dt>
+                    <dd className="font-medium text-swoop-dark">{recipe.action}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-swoop-muted">Outcome</dt>
+                    <dd className="font-medium text-swoop-dark">{recipe.outcome}</dd>
+                  </div>
+                </dl>
               </article>
             ))}
           </div>
