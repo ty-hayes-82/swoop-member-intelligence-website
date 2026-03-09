@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/metadata'
 import DemoForm from '@/components/DemoForm'
+import { SchedulerMock } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Book a Demo — See Your Club in Swoop',
@@ -48,7 +49,6 @@ const faqs = [
 export default function BookDemoPage() {
   return (
     <>
-      {/* Hero + Form */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto grid md:grid-cols-2 gap-16 items-start">
           <div>
@@ -83,18 +83,30 @@ export default function BookDemoPage() {
                 <div key={s.label} className="text-center">
                   <p className="font-mono text-2xl font-bold text-swoop-green">{s.value}</p>
                   <p className="text-xs text-swoop-muted mt-1">{s.label}</p>
+                  <span className="mt-2 inline-flex rounded-full border border-swoop-border px-2 py-0.5 text-[11px] font-semibold text-swoop-muted">Demo data</span>
                 </div>
               ))}
             </div>
             <p className="text-xs text-swoop-muted">Demo scenario metrics from Oakmont Hills CC simulation.</p>
           </div>
-          <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8">
-            <DemoForm />
+          <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8 space-y-4">
+            <SchedulerMock />
+            <div className="rounded-lg border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
+              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Confirmation email preview</p>
+              <p className="mt-2 font-semibold text-swoop-dark">Subject: Your Swoop walkthrough is booked</p>
+              <p className="mt-1">We&apos;ll send presenter + agenda automatically to {`{your email}`}. Attachment includes login + call link.</p>
+            </div>
+            <div className="rounded-lg border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
+              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Internal notification</p>
+              <p className="mt-2">Ops channel ping: “New demo booked — Tue 1:00 PM · Scottsdale CC. Assign GM advisor.”</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-white p-4">
+              <DemoForm />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What You'll See */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">What you&apos;ll see in the demo</h2>
@@ -109,7 +121,6 @@ export default function BookDemoPage() {
         </div>
       </section>
 
-      {/* Demo Process */}
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">How the demo works</h2>
@@ -128,7 +139,6 @@ export default function BookDemoPage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold text-center mb-12">Common questions</h2>
@@ -143,7 +153,6 @@ export default function BookDemoPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-20 px-6 bg-swoop-dark text-white">
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to see what your club is missing?</h2>
@@ -152,7 +161,7 @@ export default function BookDemoPage() {
           </p>
           <a
             href="#demo-form"
-            className="inline-block px-8 py-4 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition text-lg"
+            className="inline-block px-8 py-4 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green/80 transition text-lg"
           >
             Book a Demo
           </a>

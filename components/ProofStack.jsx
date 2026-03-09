@@ -3,8 +3,12 @@ import Link from 'next/link'
 export default function ProofStack({
   statLabel,
   statValue,
+  statContext = 'Demo data — Oakmont Hills CC (Jan 2026)',
   demoLabel,
+  demoContext = 'Captured in current release',
   quote,
+  quoteSource = 'Ty Hayes',
+  quoteRole = 'Founder, Swoop Golf',
   ctaLabel,
   ctaHref,
   children,
@@ -15,18 +19,21 @@ export default function ProofStack({
         <article className="rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">{statLabel}</p>
           <p className="mt-3 text-3xl font-bold">{statValue}</p>
-          <span className="mt-4 inline-flex rounded-full border border-swoop-border bg-swoop-bg px-2.5 py-1 text-[11px] font-semibold text-swoop-muted">
-            Demo data
-          </span>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-swoop-muted/80">{statContext}</p>
         </article>
 
         <article className="rounded-2xl border border-swoop-border bg-white p-4">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-swoop-muted">{demoLabel}</p>
           <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">{children}</div>
+          <p className="mt-3 text-[11px] uppercase tracking-widest text-swoop-muted/80">{demoContext}</p>
         </article>
 
         <blockquote className="rounded-2xl border border-swoop-border bg-white p-6 text-sm leading-relaxed text-swoop-muted">
           “{quote}”
+          <footer className="mt-4 text-[13px] font-semibold text-swoop-dark">
+            {quoteSource}
+            <span className="block text-xs font-normal text-swoop-muted">{quoteRole}</span>
+          </footer>
         </blockquote>
 
         <article className="flex rounded-2xl border border-swoop-border bg-swoop-dark p-6 text-white">
