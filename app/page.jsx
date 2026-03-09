@@ -22,6 +22,24 @@ export const metadata = buildMetadata({
   path: '/',
 })
 
+const conversionSteps = [
+  {
+    label: 'Step 1',
+    title: 'Share your context',
+    detail: 'Hold a demo slot and send tee sheet + POS exports (we provide the template).',
+  },
+  {
+    label: 'Step 2',
+    title: '15-minute data review',
+    detail: 'We plug your sample data into Swoop and show the live dashboards on the call.',
+  },
+  {
+    label: 'Step 3',
+    title: 'Board-ready rollout plan',
+    detail: 'Get pricing, ROI math, and a go-live checklist within two weeks of the first call.',
+  },
+]
+
 const capabilities = [
   {
     title: 'Member intelligence',
@@ -87,8 +105,9 @@ export default function HomePage() {
             <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop combines tee sheet, POS, CRM, weather, and staffing data into one operating layer so your team can act faster and prove outcomes weekly.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
-              <Link href="/platform" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">See Platform</Link>
+              <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">Get pricing &amp; rollout plan</Link>
             </div>
+            <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
             <div className="stat-chip-row mt-4">
               <div className="stat-chip">
                 <span className="stat-chip__label">Members at risk</span>
@@ -108,6 +127,26 @@ export default function HomePage() {
             </div>
           </div>
           <ProductWalkthroughHero />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-swoop-muted">Fast path to go live</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {conversionSteps.map((step) => (
+              <article key={step.title} className="rounded-xl border border-swoop-border/70 bg-swoop-bg px-4 py-5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-swoop-muted">{step.label}</p>
+                <h3 className="mt-1 text-lg font-semibold text-swoop-dark">{step.title}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{step.detail}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <Link href="/book-demo" className="inline-flex min-h-[44px] items-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">Hold my slot</Link>
+            <Link href="/pricing" className="inline-flex min-h-[44px] items-center rounded-lg border border-swoop-border px-4 py-2 text-sm font-semibold">Download pricing math</Link>
+            <span className="text-xs uppercase tracking-[0.3em] text-swoop-muted">5 demo slots/week · first come, first served</span>
+          </div>
         </div>
       </section>
 
@@ -200,7 +239,15 @@ export default function HomePage() {
 
       <TestimonialHighlight />
 
-      <CTASection headline="See Swoop on your club scenarios." subtext="We’ll map signal, action, and board proof in one walkthrough." />
+      <CTASection
+        headline="See Swoop on your club scenarios."
+        subtext="We’ll map signal, action, and board proof in one walkthrough."
+        buttonText="Book your slot"
+        buttonHref="/book-demo"
+        secondaryText="Get pricing PDF"
+        secondaryHref="/pricing"
+        note="Next availability: Tuesdays 11:00 AM MT · Thursdays 2:00 PM MT"
+      />
 
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-swoop-dark p-6 text-white">
