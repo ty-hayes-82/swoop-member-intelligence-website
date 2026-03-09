@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const platformLinks = [
@@ -29,6 +29,21 @@ const navItems = [
 
 export default function StickyNav() {
   const [open, setOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const dropdownTimeout = useRef()
+
+  useEffect(() => () => clearTimeout(dropdownTimeout.current), [])
+
+  const openDropdown = (label) => {
+    if (!label) return
+    clearTimeout(dropdownTimeout.current)
+    setActiveDropdown(label)
+  }
+
+  const closeDropdown = () => {
+    clearTimeout(dropdownTimeout.current)
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 120)
+  }
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-swoop-border">
@@ -40,10 +55,17 @@ export default function StickyNav() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <div key={item.label} className="relative group">
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => item.children ? openDropdown(item.label) : null}
+              onMouseLeave={() => item.children ? closeDropdown() : null}
+            >
               <Link
                 href={item.href || item.children?.[0]?.href || '/'}
                 className="text-sm font-medium text-swoop-muted hover:text-swoop-dark transition inline-flex items-center gap-1"
+                onFocus={() => item.children ? openDropdown(item.label) : null}
+                onBlur={() => item.children ? closeDropdown() : null}
               >
                 {item.label}
                 {item.children && (
@@ -53,7 +75,11 @@ export default function StickyNav() {
                 )}
               </Link>
               {item.children && (
-                <div className="absolute left-0 top-full hidden pt-3 group-hover:block group-focus-within:block">
+                <div
+                  className={`absolute left-0 top-full pt-2 ${activeDropdown === item.label ? 'block' : 'hidden'}`}
+                  onMouseEnter={() => openDropdown(item.label)}
+                  onMouseLeave={closeDropdown}
+                >
                   <div className="bg-white border border-swoop-border rounded-xl shadow-lg min-w-[220px] py-3">
                     {item.children.map((child) => (
                       <Link
