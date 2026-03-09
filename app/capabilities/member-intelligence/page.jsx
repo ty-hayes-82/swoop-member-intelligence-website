@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import MemberTableDemo from '@/components/MemberTableDemo'
 import { MemberRiskRoster, DecayTimeline, GmActionScript } from '@/components/ProductMockups'
 
 export const metadata = {
@@ -82,6 +83,12 @@ export default function MemberIntelligencePage() {
             imageClassName="w-full"
             caption="Member Intelligence ranks every member, shows decay signals, and surfaces the next action."
           />
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-swoop-bg">
+        <div className="max-w-container mx-auto">
+          <MemberTableDemo />
         </div>
       </section>
 

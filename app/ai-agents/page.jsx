@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import AgentRecommendationCard from '@/components/AgentRecommendationCard'
 
 export const metadata = {
   title: 'AI Agents',
@@ -101,6 +102,22 @@ export default function AIAgentsPage() {
           <div className="text-center text-white">
             <h2 className="text-2xl font-bold mb-4">Human-in-the-loop. Always.</h2>
             <p className="text-white/70 max-w-xl mx-auto">Swoop agents recommend. You decide. Every action shows the expected impact, the confidence level, and the reasoning. Approve, dismiss, or modify — the system learns from every decision.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-swoop-bg">
+        <div className="max-w-container mx-auto grid gap-8 lg:grid-cols-2 items-center">
+          <AgentRecommendationCard />
+          <div className="space-y-4">
+            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider">Agent inbox</p>
+            <h2 className="text-3xl font-bold">Approve the action, not the spreadsheet hunt.</h2>
+            <p className="text-swoop-muted">Each recommendation shows the impact estimate, confidence, and reasoning. Bulk-approve by agent type or drill into the drawer for granular context.</p>
+            <ul className="text-sm text-swoop-muted space-y-2">
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>Approve, dismiss, or modify with one click</li>
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>Every decision tracked for ROI attribution</li>
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>Drawer links to full member profile + context</li>
+            </ul>
           </div>
         </div>
       </section>

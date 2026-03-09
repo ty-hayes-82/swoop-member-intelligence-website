@@ -6,13 +6,7 @@ import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import HeroBanner from '@/components/HeroBanner'
 import LensCard from '@/components/LensCard'
 import HealthScoreMeter from '@/components/HealthScoreMeter'
-import WaitlistSorterDemo from '@/components/WaitlistSorterDemo'
-import DemandHeatmapMini from '@/components/DemandHeatmapMini'
-import AgentRecommendationCard from '@/components/AgentRecommendationCard'
-import MemberTableDemo from '@/components/MemberTableDemo'
-import RevenueComparisonChart from '@/components/RevenueComparisonChart'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
-import IntegrationStatusGrid from '@/components/IntegrationStatusGrid'
 import { LiveOpsPreviewGrid } from '@/components/ProductMockups'
 
 const lenses = [
@@ -228,21 +222,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive demos */}
+      {/* Morning Briefing preview */}
       <section className="py-20 px-6 bg-swoop-bg">
-        <div className="max-w-container mx-auto space-y-8">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <WaitlistSorterDemo />
-            <DemandHeatmapMini />
-          </div>
-          <AgentRecommendationCard />
-          <div className="grid gap-8 lg:grid-cols-2">
-            <MemberTableDemo />
-            <RevenueComparisonChart />
-          </div>
-          <div className="grid gap-8 lg:grid-cols-2">
-            <MorningBriefingPreview />
-            <IntegrationStatusGrid />
+        <div className="max-w-container mx-auto grid gap-12 lg:grid-cols-2 items-center">
+          <MorningBriefingPreview />
+          <div className="space-y-4">
+            <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider">Live every morning</p>
+            <h2 className="text-3xl font-bold">Quick Wins, at-risk members, and staffing alerts in one glance.</h2>
+            <p className="text-swoop-muted">Morning Briefing pulls data from every connected system and hands you a prioritized checklist: retention saves, demand shifts, labor gaps, and revenue plays. No more tab-hopping.</p>
+            <ul className="text-sm text-swoop-muted space-y-2">
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>3 Quick Wins worth $14K in dues and F&B</li>
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>At-risk members ranked by value + urgency</li>
+              <li className="flex items-start gap-2"><span className="text-swoop-green mt-0.5">→</span>Staffing and demand alerts with recommended actions</li>
+            </ul>
           </div>
         </div>
       </section>

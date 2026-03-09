@@ -1,5 +1,6 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
+import RevenueComparisonChart from '@/components/RevenueComparisonChart'
 import { BoardReportPreviewMini, RevenueAttributionStrip, PipelineMemberDeepDive } from '@/components/ProductMockups'
 
 export const metadata = {
@@ -122,6 +123,12 @@ export default function RevenuePipelinePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-swoop-bg">
+        <div className="max-w-container mx-auto">
+          <RevenueComparisonChart />
         </div>
       </section>
 
