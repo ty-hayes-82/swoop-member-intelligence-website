@@ -1,6 +1,8 @@
 import CTASection from '@/components/CTASection'
 import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 import { RoutingComparison, CancellationPredictionPanel } from '@/components/ProductMockups'
+import WaitlistSorterDemo from '@/components/WaitlistSorterDemo'
+import DemandHeatmapMini from '@/components/DemandHeatmapMini'
 
 export const metadata = {
   title: 'Tee Sheet & Demand',
@@ -154,6 +156,13 @@ export default function TeeSheetDemandPage() {
         <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
           <RoutingComparison />
           <CancellationPredictionPanel />
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-swoop-bg">
+        <div className="max-w-container mx-auto grid gap-8 lg:grid-cols-2">
+          <WaitlistSorterDemo />
+          <DemandHeatmapMini />
         </div>
       </section>
 

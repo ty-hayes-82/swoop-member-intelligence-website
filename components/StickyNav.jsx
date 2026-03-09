@@ -13,6 +13,30 @@ const platformLinks = [
   { label: 'Integrations', href: '/integrations' },
 ]
 
+const integrationMenu = [
+  { label: 'Tee Sheet & Booking', href: '/integrations#tee-sheet', type: 'heading' },
+  { label: 'ForeTees', href: '/integrations#foretees', nested: true },
+  { label: 'ForeUP', href: '/integrations#foreup', nested: true },
+  { label: 'POS & Dining', href: '/integrations#pos-fb', type: 'heading' },
+  { label: 'Jonas POS', href: '/integrations#jonas-pos', nested: true },
+  { label: 'Square', href: '/integrations#square-pos', nested: true },
+  { label: 'Toast', href: '/integrations#toast', nested: true },
+  { label: 'Member CRM', href: '/integrations#member-crm', type: 'heading' },
+  { label: 'Northstar', href: '/integrations#northstar', nested: true },
+  { label: 'Clubessential', href: '/integrations#clubessential', nested: true },
+  { label: 'Club Prophet', href: '/integrations#club-prophet', nested: true },
+  { label: 'Staffing & Labor', href: '/integrations#staffing', type: 'heading' },
+  { label: '7shifts', href: '/integrations#7shifts', nested: true },
+  { label: 'ADP', href: '/integrations#adp', nested: true },
+  { label: 'ClubReady', href: '/integrations#clubready', nested: true },
+  { label: 'Communication', href: '/integrations#communications', type: 'heading' },
+  { label: 'Twilio', href: '/integrations#twilio', nested: true },
+  { label: 'Mailchimp', href: '/integrations#mailchimp', nested: true },
+  { label: 'HubSpot', href: '/integrations#hubspot', nested: true },
+  { label: 'Payment', href: '/integrations#payments', type: 'heading' },
+  { label: 'Square Payments', href: '/integrations#square-payments', nested: true },
+];
+
 const companyLinks = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
@@ -21,6 +45,7 @@ const companyLinks = [
 
 const navItems = [
   { label: 'Platform', href: '/platform', children: platformLinks },
+  { label: 'Integrations', href: '/integrations', children: integrationMenu },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Why Swoop', href: '/why-swoop' },
   { label: 'Pricing', href: '/pricing' },
@@ -82,13 +107,19 @@ export default function StickyNav() {
                 >
                   <div className="bg-white border border-swoop-border rounded-xl shadow-lg min-w-[220px] py-3">
                     {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-5 py-2 text-sm text-swoop-muted hover:text-swoop-dark hover:bg-swoop-bg transition"
-                      >
-                        {child.label}
-                      </Link>
+                      child.type === 'heading' ? (
+                        <div key={child.label} className="px-5 pt-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-swoop-muted/80">
+                          {child.label}
+                        </div>
+                      ) : (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className={`block ${child.nested ? 'pl-8 pr-5' : 'px-5'} py-2 text-sm text-swoop-muted hover:text-swoop-dark hover:bg-swoop-bg transition`}
+                        >
+                          {child.label}
+                        </Link>
+                      )
                     ))}
                   </div>
                 </div>
@@ -134,14 +165,20 @@ export default function StickyNav() {
               {item.children && (
                 <div className="mt-1 ml-4 border-l border-swoop-border/60 pl-4 space-y-1">
                   {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      onClick={() => setOpen(false)}
-                      className="block py-1 text-sm text-swoop-muted"
-                    >
-                      {child.label}
-                    </Link>
+                    child.type === 'heading' ? (
+                      <div key={child.label} className="text-[11px] font-bold uppercase tracking-wider text-swoop-muted/80 pt-2">
+                        {child.label}
+                      </div>
+                    ) : (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setOpen(false)}
+                        className={`block py-1 text-sm ${child.nested ? 'pl-4 text-swoop-muted/90' : 'text-swoop-muted'}`}
+                      >
+                        {child.label}
+                      </Link>
+                    )
                   ))}
                 </div>
               )}
