@@ -5,7 +5,7 @@ import { BoardSnapshotCard, GmScriptCard } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'AI Agents',
-  description: 'AI agents surface risks and route the next action with measurable outcomes.',
+  description: 'AI assistants watch every member, slot, and outlet signal and tee up the next best move with impact math.',
   path: '/ai-agents',
 })
 
@@ -34,7 +34,7 @@ export default function AIAgentsPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">AI Agents</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Automations your GM team can approve in context.</h1>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">24/7 assistants that spot the problem, draft the fix, and let you stay in control.</h1>
         </div>
       </section>
 

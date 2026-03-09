@@ -17,7 +17,7 @@ import {
 
 export const metadata = buildMetadata({
   title: 'Platform Overview',
-  description: 'Complete club intelligence platform connecting your tee sheet, POS, CRM, and staffing systems into one decision layer for private club GMs.',
+  description: 'Give your GM team one page to see problems, fix them, and show the board proof — without rebuilding your stack.',
   path: '/platform',
 })
 
@@ -53,7 +53,7 @@ export default function PlatformPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Platform</p>
-          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">One operating layer for member, demand, staffing, and board outcomes.</h1>
+          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">One weekly rhythm across members, tee sheet, dining, staffing, and board math.</h1>
         </div>
       </section>
 
