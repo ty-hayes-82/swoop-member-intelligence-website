@@ -68,7 +68,7 @@ const boardReport = {
 
 export default function RevenuePipelinePage() {
   return (
-    <>
+    <div className="space-y-16">
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto">
           <div className="flex items-center gap-3 mb-4">
@@ -197,6 +197,6 @@ export default function RevenuePipelinePage() {
       </section>
 
       <CTASection headline="See the revenue your club is leaving on the table." subtext="We'll walk through your tee sheet yield, pipeline health, and attribution model." />
-    </>
+    </div>
   )
 }

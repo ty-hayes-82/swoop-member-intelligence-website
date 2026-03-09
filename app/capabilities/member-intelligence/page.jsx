@@ -27,7 +27,7 @@ const archetypes = [
 
 export default function MemberIntelligencePage() {
   return (
-    <>
+    <div className="space-y-16">
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto">
           <div className="flex items-center gap-3 mb-4">
@@ -96,6 +96,6 @@ export default function MemberIntelligencePage() {
       </section>
 
       <CTASection headline="See which members need attention today." subtext="Book a demo and we'll show you the health scores from our 300-member simulation." />
-    </>
+    </div>
   )
 }

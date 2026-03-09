@@ -41,7 +41,7 @@ const whatCouldHaveBeen = [
 
 export default function StaffingLaborPage() {
   return (
-    <>
+    <div className="space-y-16">
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto">
           <div className="flex items-center gap-3 mb-4">
@@ -151,6 +151,6 @@ export default function StaffingLaborPage() {
       </section>
 
       <CTASection headline="See where staffing gaps cost you members." subtext="We'll show you the connection between coverage and complaints." />
-    </>
+    </div>
   )
 }

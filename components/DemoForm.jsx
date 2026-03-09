@@ -51,12 +51,12 @@ export default function DemoForm() {
       </div>
       <div>
         <label className="block text-sm font-medium mb-1">Email</label>
-        <input name="email" type="email" required autoComplete="email"
+        <input name="email" type="email" inputMode="email" required autoComplete="email"
           className="w-full border border-swoop-border rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-swoop-green focus:border-transparent outline-none" />
       </div>
       <div>
         <label className="block text-sm font-medium mb-1">Phone</label>
-        <input name="phone" type="tel" required autoComplete="tel"
+        <input name="phone" type="tel" inputMode="tel" pattern="[0-9+() -]*" required autoComplete="tel"
           className="w-full border border-swoop-border rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-swoop-green focus:border-transparent outline-none" />
       </div>
       <div>

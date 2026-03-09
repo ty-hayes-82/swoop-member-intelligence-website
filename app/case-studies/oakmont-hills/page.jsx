@@ -69,7 +69,7 @@ export default function OakmontHillsPage() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-4">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-swoop-card border border-swoop-border rounded-xl p-6 text-center">
               <p className="font-mono text-3xl font-bold text-red-500">$22K/yr</p>
               <p className="text-sm text-swoop-muted mt-2">Revenue lost</p>
