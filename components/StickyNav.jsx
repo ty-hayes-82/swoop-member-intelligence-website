@@ -72,7 +72,7 @@ export default function StickyNav() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-swoop-border">
-      <div className="max-w-container mx-auto flex items-center justify-between px-6 py-4">
+      <div className="sticky-nav-inner max-w-container mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="text-xl font-bold text-swoop-dark">
           Swoop
         </Link>
@@ -152,7 +152,7 @@ export default function StickyNav() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="md:hidden border-t border-swoop-border bg-white px-6 py-4 space-y-4">
+        <nav className="sticky-nav-mobile md:hidden border-t border-swoop-border bg-white px-6 py-4 space-y-4">
           {navItems.map((item) => (
             <div key={item.label}>
               <Link

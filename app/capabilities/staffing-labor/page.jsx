@@ -60,7 +60,7 @@ export default function StaffingLaborPage() {
 
       <ProofStack
         statLabel="Service-level gain"
-        statValue="+14 pts"
+        statValue="+13.6 pts"
         demoLabel="Coverage board"
         quote="We shifted labor earlier and prevented the complaint cluster entirely."
         ctaLabel="Book staffing walkthrough"

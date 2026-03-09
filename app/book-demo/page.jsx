@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import DemoForm from '@/components/DemoForm'
-import { SchedulerMock } from '@/components/CapabilityMocks'
+import SchedulerEmbed from '@/components/SchedulerEmbed'
+import TrustedBetaStrip from '@/components/TrustedBetaStrip'
 
 export const metadata = buildMetadata({
   title: 'Book a Demo — See Your Club in Swoop',
@@ -9,41 +10,41 @@ export const metadata = buildMetadata({
 })
 
 const stats = [
-  { value: '91%', label: 'Waitlist fill rate' },
-  { value: '$312', label: 'Revenue per tee slot' },
-  { value: '6 days', label: 'Early warning on resignations' },
+  { value: '91%', label: 'Waitlist fill rate', context: 'Demo data — Oakmont Hills' },
+  { value: '$312', label: 'Revenue per tee slot', context: 'Demo data — Oakmont Hills' },
+  { value: '6 days', label: 'Early warning on resignations', context: 'Demo data — Oakmont Hills' },
 ]
 
 const whatYouWillSee = [
   {
     title: 'Your Member Risk Profile',
-    description: 'See which members are pulling away before they resign. We\'ll show you health scores, engagement decay patterns, and the specific signals that predict churn weeks in advance.',
+    description: 'See which members are pulling away before they resign. Health scores, engagement decay patterns, and the exact signals that predict churn weeks in advance.',
   },
   {
     title: 'Tee Sheet Revenue Leakage',
-    description: 'How much revenue are you leaving on the table from cancellations, no-shows, and suboptimal waitlist management? We\'ll map your demand patterns and show you the recovery opportunity.',
+    description: 'Quantify revenue you are leaving on the table from cancellations, no-shows, and FIFO waitlists. We map demand patterns and the recovery opportunity.',
   },
   {
-    title: 'Cross-System Intelligence You Can\'t See Today',
-    description: 'Your tee sheet, POS, CRM, and payroll systems don\'t talk to each other. Swoop connects them. See how member dining behavior predicts tee sheet engagement, and how staffing gaps correlate with service complaints.',
+    title: 'Cross-System Intelligence',
+    description: 'Your tee sheet, POS, CRM, and payroll systems don’t talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.',
   },
   {
     title: 'AI Agent Recommendations',
-    description: 'Walk through a typical Daily Briefing. See how our six AI agents monitor your club 24/7, flag risks, and recommend specific actions with predicted outcomes.',
+    description: 'Walk through a Daily Briefing. See how our agents monitor your club 24/7, flag risks, and recommend actions with predicted outcomes.',
   },
 ]
 
 const demoProcess = [
-  { step: '01', title: 'Tell us about your club', description: '5 minutes — Member count, tee sheet system, current retention challenges' },
-  { step: '02', title: 'We\'ll show you the platform', description: '20 minutes — Live walkthrough using a 300-member club scenario' },
-  { step: '03', title: 'Q&A and next steps', description: '5 minutes — Your questions, pricing, implementation timeline' },
+  { step: '01', title: 'Tell us about your club', description: '5 minutes — member count, systems, retention challenges.' },
+  { step: '02', title: 'See the platform live', description: '20 minutes — guided walkthrough on Oakmont Hills demo data.' },
+  { step: '03', title: 'Q&A and next steps', description: '5 minutes — pricing, implementation, board readiness.' },
 ]
 
 const faqs = [
-  { q: 'Do I need to bring data to the demo?', a: 'No. We use a realistic demo scenario based on a 300-member club. If you want to see your specific data, we can schedule a follow-up call after you export basic reports from your current systems.' },
-  { q: 'How long does implementation take?', a: 'Most clubs are live in under 2 weeks. We connect to your existing systems via API — no rip-and-replace, no IT project.' },
-  { q: 'Will this replace my current club management software?', a: 'No. Swoop sits on top of your existing stack (tee sheet platforms, club management systems, POS, etc.) and adds intelligence they can\'t provide. Your staff keeps using the tools they already know.' },
-  { q: 'Is this just for large clubs?', a: 'Swoop works for any private club with 200+ members. The ROI scales with member count and annual dues, but the intelligence layer is valuable at any size.' },
+  { q: 'Do I need to bring data to the demo?', a: 'No. We use a realistic 300-member demo scenario. Bring exports later if you want to see your own data.' },
+  { q: 'How long does implementation take?', a: 'Most clubs are live within 2 weeks. We connect via API — no rip-and-replace.' },
+  { q: 'Does Swoop replace my club management software?', a: 'No. Swoop sits on top of your existing tee sheet, POS, CRM, and payroll systems.' },
+  { q: 'Is Swoop only for large clubs?', a: 'We deliver value for private clubs with 200+ members. ROI scales with dues and outlet mix.' },
 ]
 
 export default function BookDemoPage() {
@@ -55,55 +56,38 @@ export default function BookDemoPage() {
             <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Book a Demo</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">See your club&apos;s blind spots in 30 minutes.</h1>
             <p className="text-lg text-swoop-muted mb-8">
-              Book a personalized walkthrough. We&apos;ll show you tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots — using scenarios from a real 300-member club.
+              Book a personalized walkthrough. We&apos;ll show tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots using the Oakmont Hills demo environment.
             </p>
-            <div className="bg-swoop-green/10 border-2 border-swoop-green rounded-xl p-6 mb-8">
-              <p className="font-semibold mb-2">What you&apos;ll see in the demo:</p>
-              <ul className="space-y-2 text-sm text-swoop-muted">
-                <li className="flex items-start gap-2">
-                  <span className="text-swoop-green mt-0.5">✓</span>
-                  <span>Live platform walkthrough with real club scenarios</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-swoop-green mt-0.5">✓</span>
-                  <span>AI agent recommendations and Daily Briefing flow</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-swoop-green mt-0.5">✓</span>
-                  <span>Integration mapping for your tech stack</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-swoop-green mt-0.5">✓</span>
-                  <span>Pricing, timeline, and implementation details</span>
-                </li>
-              </ul>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="font-mono text-2xl font-bold text-swoop-green">{s.value}</p>
+                <div key={s.label} className="rounded-xl border border-swoop-border bg-white p-4 text-center">
+                  <p className="font-mono text-2xl font-bold text-swoop-dark">{s.value}</p>
                   <p className="text-xs text-swoop-muted mt-1">{s.label}</p>
-                  <span className="mt-2 inline-flex rounded-full border border-swoop-border px-2 py-0.5 text-[11px] font-semibold text-swoop-muted">Demo data</span>
+                  <p className="mt-2 text-[11px] uppercase tracking-widest text-swoop-muted/80">{s.context}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-swoop-muted">Demo scenario metrics from Oakmont Hills CC simulation.</p>
+            <ul className="space-y-2 text-sm text-swoop-muted">
+              <li>• Live platform walkthrough with real club scenarios</li>
+              <li>• AI agent recommendations + Daily Briefing flow</li>
+              <li>• Integration mapping for your tech stack</li>
+              <li>• Pricing, implementation timeline, and board math</li>
+            </ul>
           </div>
-          <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8 space-y-4">
-            <SchedulerMock />
-            <div className="rounded-lg border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
-              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Confirmation email preview</p>
-              <p className="mt-2 font-semibold text-swoop-dark">Subject: Your Swoop walkthrough is booked</p>
-              <p className="mt-1">We&apos;ll send presenter + agenda automatically to {`{your email}`}. Attachment includes login + call link.</p>
-            </div>
-            <div className="rounded-lg border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
-              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Internal notification</p>
-              <p className="mt-2">Ops channel ping: “New demo booked — Tue 1:00 PM · Scottsdale CC. Assign GM advisor.”</p>
-            </div>
-            <div className="rounded-xl border border-swoop-border bg-white p-4">
-              <DemoForm />
-            </div>
+          <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8">
+            <DemoForm origin="book-demo" />
           </div>
+        </div>
+      </section>
+
+      <TrustedBetaStrip />
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container">
+          <SchedulerEmbed
+            title="Prefer to grab time yourself?"
+            description="Calendly embed with live availability. Pick a slot and we’ll send confirmation email + calendar invite instantly."
+          />
         </div>
       </section>
 
@@ -124,11 +108,11 @@ export default function BookDemoPage() {
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">How the demo works</h2>
-          <p className="text-center text-swoop-muted mb-12 max-w-2xl mx-auto">30 minutes. Zero commitment. You&apos;ll leave with a clear picture of what Swoop can recover for your club.</p>
+          <p className="text-center text-swoop-muted mb-12 max-w-2xl mx-auto">30 minutes. Zero commitment. Leave with a clear picture of recovered revenue and member saves.</p>
           <div className="grid md:grid-cols-3 gap-8">
             {demoProcess.map((item) => (
               <div key={item.step} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-swoop-green/10 border-2 border-swoop-green text-2xl font-bold text-swoop-green mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-swoop-dark/10 border-2 border-swoop-dark text-2xl font-bold text-swoop-dark mb-4">
                   {item.step}
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
@@ -161,11 +145,11 @@ export default function BookDemoPage() {
           </p>
           <a
             href="#demo-form"
-            className="inline-block px-8 py-4 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green/80 transition text-lg"
+            className="inline-block px-8 py-4 bg-white text-swoop-dark font-semibold rounded-lg hover:bg-white/90 transition text-lg"
           >
             Book a Demo
           </a>
-          <p className="text-white/50 text-sm mt-4">Available Mon-Fri, 9am-5pm EST</p>
+          <p className="text-white/50 text-sm mt-4">Available Mon–Fri, 9am–5pm EST</p>
         </div>
       </section>
     </>

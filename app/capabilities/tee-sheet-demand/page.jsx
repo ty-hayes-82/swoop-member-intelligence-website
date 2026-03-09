@@ -49,7 +49,7 @@ export default function TeeSheetDemandPage() {
 
       <ProofStack
         statLabel="Fill quality improvement"
-        statValue="+16 pts"
+        statValue="+15.8 pts"
         demoLabel="Routing view"
         quote="The same opening now solves retention instead of just clearing the waitlist."
         ctaLabel="Book demand walkthrough"
