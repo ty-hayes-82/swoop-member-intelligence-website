@@ -7,7 +7,7 @@ export default function ScreenshotLightbox({
   src,
   alt,
   frameClassName = '',
-  imageClassName = 'w-full h-auto',
+  imageClassName = '',
   caption,
   badge = 'View full size',
   width = 1280,
@@ -18,7 +18,14 @@ export default function ScreenshotLightbox({
   return (
     <>
       <div className={`relative max-w-4xl mx-auto ${frameClassName}`}>
-        <Image src={src} alt={alt} width={width} height={height} quality={85} className={imageClassName} />
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          quality={85}
+          className={`w-full h-auto object-cover object-top max-h-[400px] ${imageClassName}`}
+        />
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -42,7 +49,14 @@ export default function ScreenshotLightbox({
               ×
             </button>
             <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border">
-              <Image src={src} alt={alt} width={width} height={height} quality={85} className="w-full h-auto" />
+              <Image
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                quality={85}
+                className="w-full h-auto object-cover object-top max-h-[400px]"
+              />
             </div>
             {caption && (
               <p className="text-white/80 text-sm text-center mt-4 max-w-2xl mx-auto">{caption}</p>
