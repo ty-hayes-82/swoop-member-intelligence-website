@@ -5,14 +5,14 @@ import { BoardReportPreview } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Why Swoop',
-  description: 'Compare Swoop with legacy BI and point tools on deployment speed, live signals, and actionability.',
+  description: 'Compare Swoop with legacy BI and point tools on deployment speed, live metrics, and actionability.',
   path: '/why',
 })
 
 const rows = [
   { metric: 'Deployment time', legacy: '8-16 weeks', swoop: '2-3 weeks' },
-  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live signal stream' },
-  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Guided playbooks + routing' },
+  { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live metrics with hourly refresh' },
+  { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Step-by-step routing with clear owners' },
   { metric: 'Attribution depth', legacy: 'Lagging summaries', swoop: 'Action-level proof' },
 ]
 

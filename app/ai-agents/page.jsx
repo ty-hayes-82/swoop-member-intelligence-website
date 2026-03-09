@@ -11,8 +11,8 @@ export const metadata = buildMetadata({
 
 const recipes = [
   'At-risk member score drop > 12 points → GM script + call task',
-  'Cancellation risk > 70% at 24h → retention routing pre-alert',
-  'Staffing gap during post-round peak → role-level shift recommendation',
+  'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
+  'Staffing gap during post-round peak → suggest which position to backfill and when',
   'Unresolved complaint > 72h → comp offer draft + escalation',
 ]
 

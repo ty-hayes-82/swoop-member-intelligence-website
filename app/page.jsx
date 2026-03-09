@@ -191,7 +191,7 @@ export default function HomePage() {
         statContext="Oakmont Hills CC demo, week 3 (Jan 2026)"
         demoLabel="Member workflow"
         demoContext="Captured from the Oakmont Hills release"
-        quote="The Monday signal-to-action loop made retention measurable, not anecdotal."
+        quote="The Monday brief gave us proof we could show the board, not just gut feel."
         ctaLabel="See your retention map"
         ctaHref="/book-demo"
       >

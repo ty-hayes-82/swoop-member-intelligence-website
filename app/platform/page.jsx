@@ -24,7 +24,7 @@ export const metadata = buildMetadata({
 const weeks = [
   {
     title: 'Week 1 Intake',
-    detail: 'Connect feeds, normalize entities, validate baseline risk coverage.',
+    detail: 'Connect feeds, line up member records, and verify baseline risk coverage.',
     mock: <AtRiskRosterMock />,
   },
   {
@@ -34,7 +34,7 @@ const weeks = [
   },
   {
     title: 'Week 3 Automations',
-    detail: 'Enable automated board snapshots and agent-driven playbooks.',
+    detail: 'Enable automated board snapshots and ready-to-send workflows.',
     mock: <BoardReportPreview />,
   },
 ]
