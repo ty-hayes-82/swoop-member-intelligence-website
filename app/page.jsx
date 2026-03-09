@@ -8,6 +8,7 @@ import LensCard from '@/components/LensCard'
 import HealthScoreMeter from '@/components/HealthScoreMeter'
 import WaitlistSorterDemo from '@/components/WaitlistSorterDemo'
 import DemandHeatmapMini from '@/components/DemandHeatmapMini'
+import AgentRecommendationCard from '@/components/AgentRecommendationCard'
 
 const lenses = [
   { slug: 'member-intelligence', title: 'Member Intelligence', icon: '👥', color: 'border-lens-members', bgColor: 'bg-purple-50', description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.' },
@@ -217,11 +218,12 @@ export default function HomePage() {
 
       {/* Interactive demos */}
       <section className="py-20 px-6 bg-swoop-bg">
-        <div className="max-w-container mx-auto">
+        <div className="max-w-container mx-auto space-y-8">
           <div className="grid gap-8 lg:grid-cols-2">
             <WaitlistSorterDemo />
             <DemandHeatmapMini />
           </div>
+          <AgentRecommendationCard />
         </div>
       </section>
 
