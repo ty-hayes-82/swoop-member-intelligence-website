@@ -6,6 +6,7 @@ import CTASection from '@/components/CTASection'
 import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -81,8 +82,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Know where member value is leaking before Monday gets away from you.</h1>
-            <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop combines tee sheet, POS, CRM, weather, and staffing data into one operating layer so your team can act faster and prove outcomes weekly.</p>
+            <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Every member has a health score. You just cant see it yet.</h1>
+            <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
               <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">See Pricing</Link>
@@ -127,7 +128,7 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-relaxed text-white/90">“{entry.quote}”</p>
                 <p className="mt-3 text-xs text-white/70">{entry.person} — {entry.role}</p>
                 <p className="mt-3 text-base font-semibold text-white">{entry.metric}</p>
-                <p className="text-[11px] uppercase tracking-widest text-white/60">Demo data scenario — Oakmont Hills CC (Jan 2026)</p>
+                <DemoDisclosure tone="dark" />
               </article>
             ))}
           </div>
