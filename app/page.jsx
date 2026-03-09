@@ -342,7 +342,7 @@ export default function HomePage() {
             href="/book-demo"
             className="inline-flex w-full sm:w-auto justify-center px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition min-h-[48px]"
           >
-            Apply for Founding Partner
+            Book a Demo
           </Link>
           <p className="text-sm text-swoop-muted mt-3">3 of 10 spots remaining</p>
         </div>

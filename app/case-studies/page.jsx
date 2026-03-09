@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
           <h2 className="text-2xl font-bold mb-4">Founding Partner Case Studies — Coming Soon</h2>
           <p className="text-swoop-muted max-w-xl mx-auto mb-8">Our first 10 founding partner clubs will have full case studies published here with real metrics, real outcomes, and real GM quotes. Be one of them.</p>
           <Link href="/book-demo" className="inline-block px-8 py-3.5 bg-swoop-green text-swoop-dark font-semibold rounded-lg hover:bg-swoop-green-hover transition">
-            Apply for Founding Partner
+            Book a Demo
           </Link>
         </div>
       </section>

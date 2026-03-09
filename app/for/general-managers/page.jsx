@@ -38,7 +38,7 @@ export default function GeneralManagersPage() {
               Book a Demo
             </Link>
             <Link href="/platform" className="px-6 py-3 border-2 border-swoop-green text-swoop-green font-semibold rounded-lg hover:bg-swoop-green hover:text-swoop-dark transition">
-              See the Platform
+              Book a Demo
             </Link>
           </div>
         </div>
