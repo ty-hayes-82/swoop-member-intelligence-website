@@ -1,9 +1,17 @@
 import CTASection from '@/components/CTASection'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'Staffing & Labor',
   description: 'Tie labor coverage to predicted demand across golf and clubhouse touchpoints. Catch understaffed windows early enough to avoid member friction.',
 }
+
+const staffingMetrics = [
+  { value: '48 hrs', label: 'Average alert lead time', detail: 'Labor Optimizer coverage warnings' },
+  { value: '223x', label: 'ROI on acting', detail: 'Whitfield scenario math' },
+  { value: '$380', label: 'Cost to fix', detail: 'Additional labor recommended' },
+  { value: '$85K', label: 'Cost of ignoring', detail: 'Dues + ancillary + replacement' },
+]
 
 const capabilities = [
   { title: 'Demand-Driven Scheduling', desc: 'Swoop connects tee sheet bookings, event calendars, and weather forecasts to staffing requirements. Know exactly how many people you need before the schedule is posted.' },
@@ -52,6 +60,12 @@ export default function StaffingLaborPage() {
           <p className="text-lg text-swoop-muted max-w-2xl">
             Tie labor coverage to predicted demand across golf and clubhouse touchpoints. Catch understaffed windows early enough to avoid member friction.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={staffingMetrics} />
         </div>
       </section>
 

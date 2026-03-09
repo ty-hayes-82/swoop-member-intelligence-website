@@ -1,9 +1,17 @@
 import CTASection from '@/components/CTASection'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'Revenue & Pipeline',
   description: 'Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.',
 }
+
+const revenueMetrics = [
+  { value: '$251K', label: 'Annualized impact tracked', detail: 'Attribution from demo scenario' },
+  { value: '42x', label: 'ROI on Swoop Pro', detail: 'Attributed revenue vs. platform cost' },
+  { value: '$88K', label: 'Dues protected monthly', detail: 'From four retained members' },
+  { value: '8.6 days', label: 'Payback period', detail: 'Time to recoup annual cost' },
+]
 
 const metrics = [
   { title: 'Per-Slot Revenue Optimization', desc: 'Not all tee times are equal. Saturday 8am generates $340/slot. Tuesday 2pm generates $95. Swoop helps you allocate inventory to maximize yield without alienating members.' },
@@ -79,6 +87,12 @@ export default function RevenuePipelinePage() {
           <p className="text-lg text-swoop-muted max-w-2xl">
             Track revenue opportunities and risks from lead to retained member. Prove which actions moved conversion, spend, and renewal outcomes.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={revenueMetrics} />
         </div>
       </section>
 

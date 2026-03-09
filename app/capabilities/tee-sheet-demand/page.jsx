@@ -1,9 +1,17 @@
 import CTASection from '@/components/CTASection'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'Tee Sheet & Demand',
   description: 'Predict cancellations and backfill each open slot with the right member. Optimize pace and demand signals without overbooking guesswork.',
 }
+
+const capabilityMetrics = [
+  { value: '91%', label: 'Fill rate w/ retention routing', detail: 'vs. 78% FIFO baseline' },
+  { value: '67%', label: 'Cancellations predicted 24h+ ahead', detail: 'Slots flagged before members cancel' },
+  { value: '$312', label: 'Revenue per tee slot', detail: 'When routed to at-risk members' },
+  { value: '2.1x', label: 'Higher waitlist conversion', detail: 'Retention-prioritized vs. FIFO' },
+]
 
 const features = [
   { title: 'Cancellation Prediction', desc: 'AI forecasts which bookings are likely to cancel based on weather, member behavior patterns, and historical no-show rates. You know before the member does.' },
@@ -99,6 +107,12 @@ export default function TeeSheetDemandPage() {
           <p className="text-lg text-swoop-muted max-w-2xl">
             Predict cancellations and backfill each open slot with the right member. Optimize pace and demand signals without overbooking guesswork.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={capabilityMetrics} />
         </div>
       </section>
 

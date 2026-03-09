@@ -1,9 +1,17 @@
 import CTASection from '@/components/CTASection'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'F&B Operations',
   description: 'Connect golf flow, weather, and reservations to outlet demand in real time. Shift prep and staffing before service degrades.',
 }
+
+const fbMetrics = [
+  { value: '$5.7K', label: 'Monthly F&B recovered', detail: 'When pace + staffing align' },
+  { value: '35 → 18%', label: 'Conversion drop during slow rounds', detail: 'Proof that tee sheet impacts dining' },
+  { value: '12 min', label: 'Service time saved', detail: 'When coverage adjusts before rush' },
+  { value: '3 systems', label: 'Signals merged', detail: 'Tee sheet + weather + POS' },
+]
 
 const insights = [
   { title: 'Post-Round Dining Conversion', desc: 'Track which tee times convert to dining visits. A 35% baseline means 65% of golfers leave without spending at the grill room. Swoop identifies the gap and the intervention.' },
@@ -62,6 +70,12 @@ export default function FBOperationsPage() {
           <p className="text-lg text-swoop-muted max-w-2xl">
             Connect golf flow, weather, and reservations to outlet demand in real time. Shift prep and staffing before service degrades.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={fbMetrics} />
         </div>
       </section>
 

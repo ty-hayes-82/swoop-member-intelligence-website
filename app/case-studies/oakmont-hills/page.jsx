@@ -7,6 +7,12 @@ export const metadata = {
   description: 'How Swoop detected a $22K/yr resignation risk 6 days before it happened — by connecting signals across tee sheet, POS, and CRM.',
 }
 
+const signalDrops = [
+  { label: 'F&B spend per visit', beforeLabel: '$47 baseline check', afterLabel: '$28 after Jan 16', beforePct: 100, afterPct: 60, caption: '40% drop in two weeks as service declined.' },
+  { label: 'Complaint aging', beforeLabel: '<24 hrs target', afterLabel: '6 days unresolved', beforePct: 15, afterPct: 100, caption: 'Service desk acknowledged but never closed the loop.' },
+  { label: 'Rounds played per month', beforeLabel: '8 rounds', afterLabel: '3 rounds', beforePct: 100, afterPct: 38, caption: 'Usage cratered the same month complaints spiked.' },
+]
+
 export default function OakmontHillsPage() {
   return (
     <>
@@ -27,6 +33,31 @@ export default function OakmontHillsPage() {
           <p className="text-swoop-green font-mono text-sm mb-4">DEMO SCENARIO · OAKMONT HILLS CC · SCOTTSDALE, AZ</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">You had 6 days. Your tee sheet software never told you.</h1>
           <p className="text-xl text-white/70">The story of James Whitfield — and the $22,000/year resignation that should never have happened.</p>
+        </div>
+      </section>
+
+      <section className="py-16 px-6 bg-swoop-bg">
+        <div className="max-w-container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold mb-2 text-center">What the data actually showed</h2>
+          <p className="text-swoop-muted text-center mb-10">Every system saw a different piece. Together, the trend line was obvious.</p>
+          <div className="space-y-5">
+            {signalDrops.map((signal) => (
+              <div key={signal.label} className="bg-white border border-swoop-border rounded-xl p-6">
+                <div className="flex items-center justify-between gap-4 text-sm font-semibold">
+                  <span>{signal.label}</span>
+                  <span className="text-swoop-muted">{signal.caption}</span>
+                </div>
+                <div className="relative h-4 bg-slate-100 rounded-full overflow-hidden mt-4">
+                  <div className="absolute inset-y-0 left-0 bg-swoop-muted/40" style={{ width: `${signal.beforePct}%` }} />
+                  <div className="absolute inset-y-0 left-0 bg-swoop-green" style={{ width: `${signal.afterPct}%` }} />
+                </div>
+                <div className="flex items-center justify-between text-xs text-swoop-muted mt-2 font-mono">
+                  <span>Before: {signal.beforeLabel}</span>
+                  <span>After: {signal.afterLabel}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

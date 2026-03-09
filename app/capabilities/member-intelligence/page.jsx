@@ -1,11 +1,18 @@
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import MetricCalloutStrip from '@/components/MetricCalloutStrip'
 
 export const metadata = {
   title: 'Member Intelligence',
   description: 'Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.',
 }
+
+const metrics = [
+  { value: '6.4 wks', label: 'Average early warning', detail: 'Member Pulse lead time across demo data' },
+  { value: '$1.38M', label: 'Value at risk monitored', detail: 'Annual dues + F&B tracked for Oakmont Hills' },
+  { value: '92%', label: 'Prediction confidence', detail: 'Member Pulse accuracy vs. resignations' },
+]
 
 const signals = [
   { label: 'Visit Frequency', desc: 'Track rounds, dining visits, and facility usage trends per member over rolling 90-day windows.' },
@@ -38,6 +45,12 @@ export default function MemberIntelligencePage() {
           <p className="text-lg text-swoop-muted max-w-2xl">
             Surface changing engagement behavior before it turns into churn risk. Prioritize interventions by member value and relationship sensitivity.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 -mt-8">
+        <div className="max-w-container mx-auto">
+          <MetricCalloutStrip metrics={metrics} />
         </div>
       </section>
 
