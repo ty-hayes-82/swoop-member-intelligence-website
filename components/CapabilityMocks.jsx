@@ -339,3 +339,120 @@ export function SchedulerMock() {
     </div>
   )
 }
+
+function AnnotationList({ items }) {
+  return (
+    <ul className="mt-3 space-y-1 text-xs text-swoop-muted">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2">
+          <span className="text-swoop-accent mt-0.5">●</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export function DailyBriefingScreenshot() {
+  const annotations = [
+    'Quick Wins stack ranks saves, staffing, and revenue actions',
+    'Live member on-property count with alerts',
+    'Board summary auto-builds from actions',
+  ]
+  return (
+    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
+      <p className="font-semibold">Daily Briefing</p>
+      <div className="mt-3 space-y-2 text-swoop-muted">
+        <div className="rounded-lg border border-swoop-border px-3 py-2">
+          <p className="font-semibold text-swoop-dark">Quick Wins</p>
+          <p>Save queue · Staffing gap · Tee sheet recovery</p>
+        </div>
+        <div className="rounded-lg border border-swoop-border px-3 py-2">
+          <p className="font-semibold text-swoop-dark">Members on property</p>
+          <p>47 right now · 3 at-risk · 2 VIP clusters</p>
+        </div>
+      </div>
+      <AnnotationList items={annotations} />
+    </div>
+  )
+}
+
+export function AgentCommandScreenshot() {
+  const annotations = [
+    'Approve/Dismiss buttons show predicted impact',
+    'GM script + comp offer inside drawer',
+    'Audit log stamps owner + due date',
+  ]
+  return (
+    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
+      <p className="font-semibold">Agent Command</p>
+      <div className="mt-3 rounded-lg border border-swoop-border px-3 py-2 text-swoop-muted">
+        <p className="font-semibold text-swoop-dark">Retention outreach · James Whitfield</p>
+        <p>Impact +$22K ARR · Confidence 84%</p>
+      </div>
+      <AnnotationList items={annotations} />
+    </div>
+  )
+}
+
+export function TeeSheetScreenshot() {
+  const annotations = [
+    'FIFO vs Retention view shows who gets the slot',
+    'Cancellation risk heat bars update live',
+    'Routing reason explains the save logic',
+  ]
+  return (
+    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
+      <p className="font-semibold">Tee Sheet Routing</p>
+      <div className="mt-3 grid gap-2 text-swoop-muted">
+        <div className="rounded border border-swoop-border px-3 py-2">
+          <p className="font-semibold text-swoop-dark">FIFO</p>
+          <p>Slot goes to Tom C.</p>
+        </div>
+        <div className="rounded border border-swoop-border px-3 py-2">
+          <p className="font-semibold text-swoop-dark">Retention</p>
+          <p>Slot goes to Anne J. (score 58)</p>
+        </div>
+      </div>
+      <AnnotationList items={annotations} />
+    </div>
+  )
+}
+
+export function MemberRosterScreenshot() {
+  const annotations = [
+    'Health score trend with decay timeline',
+    'Tier and value badges for prioritization',
+    'One-click to open profile drawer',
+  ]
+  return (
+    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
+      <p className="font-semibold">Member Roster</p>
+      <div className="mt-3 space-y-2">
+        {['James Whitfield · Platinum · 42', 'Anne Jordan · Gold · 54', 'Tom Park · Silver · 58'].map((row) => (
+          <div key={row} className="rounded border border-swoop-border px-3 py-2 text-swoop-muted">{row}</div>
+        ))}
+      </div>
+      <AnnotationList items={annotations} />
+    </div>
+  )
+}
+
+export function BoardReportScreenshot() {
+  const annotations = [
+    'Revenue, staffing, and retention callouts auto-filled',
+    'Action-to-outcome links recorded for audit',
+    'Exports ready for PDF/board packets',
+  ]
+  return (
+    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
+      <p className="font-semibold">Board Report</p>
+      <div className="mt-3 space-y-2 text-swoop-muted">
+        <div className="rounded border border-swoop-border px-3 py-2">+$42K protected ARR</div>
+        <div className="rounded border border-swoop-border px-3 py-2">Labor % 29 · Service 94%</div>
+        <div className="rounded border border-swoop-border px-3 py-2">11 saves logged this month</div>
+      </div>
+      <AnnotationList items={annotations} />
+    </div>
+  )
+}

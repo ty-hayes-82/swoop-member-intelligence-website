@@ -51,6 +51,30 @@ const capabilities = [
   },
 ]
 
+const demoTestimonials = [
+  {
+    name: 'Lena Ortiz',
+    role: 'GM · Demo scenario',
+    club: 'Stonebrook Country Club',
+    quote: '“Seeing the Monday save queue convinced our board that the risk list is actionable, not theoretical.”',
+    metric: '$168K protected ARR demo',
+  },
+  {
+    name: 'Marcus Bell',
+    role: 'COO · Demo scenario',
+    club: 'Riverbend Portfolio',
+    quote: '“The demo proved how staff routing and revenue attribution meet in one report — it felt like a real Monday pulse.”',
+    metric: '14pt service-level lift demo',
+  },
+  {
+    name: 'Hannah Patel',
+    role: 'F&B Director · Demo scenario',
+    club: 'Foothills Club',
+    quote: '“Post-round conversion went from theory to playbook because the demo tied signals to scripts and comps I could hand to my team.”',
+    metric: '+12pt conversion demo',
+  },
+]
+
 function LocationIntelligenceHeroCard() {
   return (
     <div className="rounded-2xl border border-swoop-border bg-white p-4 shadow-xl">
@@ -105,6 +129,7 @@ export default function HomePage() {
 
       <section className="px-6 -mt-6">
         <article className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <div className="mb-2 inline-flex rounded-full border border-swoop-border bg-swoop-bg px-2.5 py-1 text-[11px] font-semibold text-swoop-muted">Demo data</div>
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Whitfield micro case study</p>
           <h2 className="mt-2 text-2xl font-bold">A 6-day warning became a same-week save playbook.</h2>
           <p className="mt-3 text-sm text-swoop-muted">Whitfield’s usage decay, unresolved complaint, and dining drop were detected Monday morning; GM outreach closed by Wednesday and renewal risk returned to stable by Friday.</p>
@@ -127,6 +152,23 @@ export default function HomePage() {
                   <Link href={capability.href} className="text-sm font-semibold text-swoop-accent">Explore →</Link>
                 </div>
                 {capability.mock}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Demo testimonials</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {demoTestimonials.map((item) => (
+              <article key={item.name} className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-sm">
+                <div className="mb-2 inline-flex rounded-full border border-swoop-border bg-white px-2 py-0.5 text-[11px] font-semibold text-swoop-muted">Demo scenario</div>
+                <p className="font-semibold">{item.name}</p>
+                <p className="text-xs text-swoop-muted">{item.role} · {item.club}</p>
+                <p className="mt-3 text-swoop-muted leading-relaxed">{item.quote}</p>
+                <p className="mt-3 text-xs font-semibold">{item.metric}</p>
               </article>
             ))}
           </div>

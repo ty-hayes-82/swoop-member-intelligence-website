@@ -5,6 +5,11 @@ import {
   BoardReportPreview,
   AtRiskRosterMock,
   RoutingComparisonMock,
+  DailyBriefingScreenshot,
+  AgentCommandScreenshot,
+  TeeSheetScreenshot,
+  MemberRosterScreenshot,
+  BoardReportScreenshot,
 } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -31,6 +36,14 @@ const weeks = [
   },
 ]
 
+const screenshotDeck = [
+  { title: 'Daily Briefing', component: <DailyBriefingScreenshot /> },
+  { title: 'Agent Command', component: <AgentCommandScreenshot /> },
+  { title: 'Tee Sheet routing', component: <TeeSheetScreenshot /> },
+  { title: 'Member roster', component: <MemberRosterScreenshot /> },
+  { title: 'Board report', component: <BoardReportScreenshot /> },
+]
+
 export default function PlatformPage() {
   return (
     <div className="space-y-16 pb-16">
@@ -50,6 +63,17 @@ export default function PlatformPage() {
               <div className="mt-4">{week.mock}</div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Annotated product screenshots</p>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {screenshotDeck.map((shot) => (
+              <div key={shot.title}>{shot.component}</div>
+            ))}
+          </div>
         </div>
       </section>
 

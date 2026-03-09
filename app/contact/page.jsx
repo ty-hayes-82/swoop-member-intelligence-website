@@ -42,6 +42,15 @@ export default function ContactPage() {
               <SchedulerMock />
             </div>
           </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Automatic confirmation</p>
+            <p className="mt-2 font-semibold text-swoop-dark">Subject: “We\'re confirmed for your Swoop call”</p>
+            <p className="mt-1">Email includes presenter, Zoom link, and agenda — sent instantly after you pick a slot.</p>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Internal notification</p>
+            <p className="mt-2">Ops channel note: “Contact form submitted by GM · respond inside 1 business day.”</p>
+          </div>
         </aside>
       </section>
     </div>
