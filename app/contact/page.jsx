@@ -1,6 +1,6 @@
 import { buildMetadata } from '@/lib/metadata'
 import DemoForm from '@/components/DemoForm'
-import { SchedulerMock } from '@/components/CapabilityMocks'
+import SchedulerEmbed from '@/components/SchedulerEmbed'
 
 export const metadata = buildMetadata({
   title: 'Contact',
@@ -31,25 +31,23 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-container gap-8 lg:grid-cols-[1fr_320px]">
+      <section className="mx-auto grid max-w-container gap-8 lg:grid-cols-[1fr_360px]">
         <div className="rounded-2xl border border-swoop-border bg-white p-8">
-          <DemoForm />
+          <DemoForm origin="contact" />
         </div>
         <aside className="space-y-4">
-          <div className="rounded-2xl border border-swoop-border bg-white p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Drop on calendar</p>
-            <div className="mt-3">
-              <SchedulerMock />
-            </div>
-          </div>
+          <SchedulerEmbed
+            title="Drop directly on our calendar"
+            description="Same Calendly embed as the demo page. Pick a time and get instant confirmation + Zoom link."
+          />
           <div className="rounded-2xl border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
             <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Automatic confirmation</p>
-            <p className="mt-2 font-semibold text-swoop-dark">Subject: “We\'re confirmed for your Swoop call”</p>
-            <p className="mt-1">Email includes presenter, Zoom link, and agenda — sent instantly after you pick a slot.</p>
+            <p className="mt-2 font-semibold text-swoop-dark">Subject: “We&apos;re confirmed for your Swoop call”</p>
+            <p className="mt-1">Email includes presenter, meeting link, and agenda — delivered immediately after you submit or schedule.</p>
           </div>
           <div className="rounded-2xl border border-swoop-border bg-white p-4 text-sm text-swoop-muted">
             <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Internal notification</p>
-            <p className="mt-2">Ops channel note: “Contact form submitted by GM · respond inside 1 business day.”</p>
+            <p className="mt-2">Ops channel ping: “Contact form submitted — respond within SLA.”</p>
           </div>
         </aside>
       </section>

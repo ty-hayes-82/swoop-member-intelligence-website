@@ -1,67 +1,36 @@
 'use client'
 
-import { useState } from 'react'
-
-const sections = [
-  {
-    title: 'Quick Wins (3)',
-    items: [
-      'Call James Whitfield before 10 AM — unresolved service complaint.',
-      'Approve Labor Optimizer shift for Grill Room Saturday brunch.',
-      'Ping Lisa Chen about Tuesday cancellation slot.'
-    ]
-  },
-  {
-    title: 'Today\'s Risks',
-    items: [
-      'F&B conversion down 18% after 3 PM — pace flagged.',
-      'Two open complaints past SLA.',
-      'Waitlist churn probability 62% on weekend slots.'
-    ]
-  },
-  {
-    title: 'System Notes',
-    items: [
-      'Northstar sync complete at 6:12 AM.',
-      'ForeTees webhooks delayed 4 minutes — auto-retried.',
-      'New AI agent recommendation queue ready for review.'
-    ]
-  }
+const chips = [
+  { label: 'At-risk members', value: '23' },
+  { label: 'Tee sheet fill', value: '87%' },
+  { label: 'F&B covers', value: '340' },
+  { label: 'Labor call-outs', value: '2' },
+  { label: 'Service recoveries', value: '3' },
 ]
 
 export default function MorningBriefingPreview() {
-  const [openIndex, setOpenIndex] = useState(0)
-
   return (
-    <div className="bg-swoop-dark text-white rounded-2xl p-6 border border-white/10 shadow-lg">
+    <div className="responsive-card bg-swoop-dark text-white rounded-2xl p-6 border border-white/10 shadow-lg">
       <p className="text-xs uppercase tracking-[0.3em] text-white/50">Morning Briefing</p>
-      <h3 className="text-2xl font-semibold mt-2">6:00 AM digest</h3>
-      <p className="text-white/70 text-sm mb-4">Tap a panel to preview what the GM sees with their coffee.</p>
-      <div className="space-y-3">
-        {sections.map((section, index) => (
-          <div key={section.title}>
-            <button
-              type="button"
-              onClick={() => setOpenIndex(index)}
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left font-semibold transition ${
-                openIndex === index ? 'bg-white/10' : 'bg-white/5 text-white/80'
-              }`}
-            >
-              {section.title}
-              <span className={`text-lg transition-transform ${openIndex === index ? 'rotate-90' : ''}`}>›</span>
-            </button>
-            {openIndex === index && (
-              <ul className="bg-white/5 rounded-xl px-5 py-3 text-sm text-white/80 space-y-2 mt-2">
-                {section.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="text-swoop-green mt-0.5">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
+      <h3 className="text-2xl font-semibold mt-2">Monday 7:15 AM performance pulse</h3>
+      <p className="text-white/70 text-sm mb-4">Live operating metrics for first-huddle decisions.</p>
+      <div className="stat-chip-row mb-5">
+        {chips.map((chip) => (
+          <div key={chip.label} className="stat-chip stat-chip--dark">
+            <span className="stat-chip__label">{chip.label}</span>
+            <span className="stat-chip__value">{chip.value}</span>
           </div>
         ))}
+      </div>
+      <div className="rounded-xl bg-white/5 p-4 text-sm text-white/85">
+        <p className="text-xs uppercase tracking-[0.2em] text-white/60">GM action queue</p>
+        <ul className="mt-3 space-y-2">
+          <li>• 23 at-risk members routed to outreach by 9:30 AM.</li>
+          <li>• Tee sheet is 87% filled with 14 premium slots still open.</li>
+          <li>• F&B pacing projects 340 covers if floor staffing holds.</li>
+          <li>• Labor optimizer recommends backfill for 2 call-outs.</li>
+          <li>• 3 service recoveries pending owner follow-up today.</li>
+        </ul>
       </div>
     </div>
   )

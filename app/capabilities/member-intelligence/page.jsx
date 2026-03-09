@@ -61,7 +61,7 @@ export default function MemberIntelligencePage() {
 
       <ProofStack
         statLabel="Retention lift"
-        statValue="21%"
+        statValue="21.2%"
         demoLabel="At-risk board"
         quote="We stopped losing members in silence because Monday actions finally had owner-level proof."
         ctaLabel="Book member demo"

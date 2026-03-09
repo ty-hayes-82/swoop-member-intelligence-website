@@ -1,6 +1,9 @@
 import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ProofStack from '@/components/ProofStack'
+import TrustedBetaStrip from '@/components/TrustedBetaStrip'
+import VideoPlaceholder from '@/components/VideoPlaceholder'
+import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import {
   BoardReportPreview,
   AtRiskRosterMock,
@@ -50,14 +53,16 @@ export default function PlatformPage() {
       <section className="px-6 py-20 md:py-28 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Platform</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">One operating layer for member, demand, staffing, and board outcomes.</h1>
+          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">One operating layer for member, demand, staffing, and board outcomes.</h1>
         </div>
       </section>
+
+      <TrustedBetaStrip />
 
       <section className="px-6">
         <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
           {weeks.map((week) => (
-            <article key={week.title} className="rounded-2xl border border-swoop-border bg-white p-6">
+            <article key={week.title} className="responsive-card rounded-2xl border border-swoop-border bg-white p-6">
               <h2 className="text-xl font-semibold">{week.title}</h2>
               <p className="mt-2 text-sm text-swoop-muted">{week.detail}</p>
               <div className="mt-4">{week.mock}</div>
@@ -67,7 +72,14 @@ export default function PlatformPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-2">
+          <VideoPlaceholder />
+          <MorningBriefingPreview />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="responsive-card mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Annotated product screenshots</p>
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             {screenshotDeck.map((shot) => (
@@ -79,7 +91,7 @@ export default function PlatformPage() {
 
       <ProofStack
         statLabel="Time to first measurable outcome"
-        statValue="21 days"
+        statValue="21.3 days"
         demoLabel="Platform snapshot"
         quote="By week three we had a complete intake-to-automation rhythm with clear ownership."
         ctaLabel="Book platform demo"

@@ -29,7 +29,7 @@ export default function RoiPage() {
 
       <ProofStack
         statLabel="Average modeled impact"
-        statValue="$168,000"
+        statValue="$168.4K"
         demoLabel="ROI preview"
         quote="The toggle made downside protection and upside growth clear for ownership in one slide."
         ctaLabel="Book ROI review"

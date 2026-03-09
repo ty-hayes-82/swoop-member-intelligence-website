@@ -95,7 +95,7 @@ export default function PricingPage() {
 
       <ProofStack
         statLabel="Average payback"
-        statValue="< 30 days"
+        statValue="≈28 days"
         demoLabel="Board math preview"
         quote="Finance and operations finally looked at the same outcome model."
         ctaLabel="Book pricing walkthrough"

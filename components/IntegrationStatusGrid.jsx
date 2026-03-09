@@ -4,11 +4,12 @@ import { useMemo, useState } from 'react'
 
 const connections = [
   { vendor: 'ForeTees', category: 'Tee sheet', status: 'Connected', lastSync: '2m ago' },
-  { vendor: 'Northstar', category: 'Member CRM', status: 'Syncing', lastSync: 'Live' },
-  { vendor: 'Clubessential', category: 'POS', status: 'Connected', lastSync: '12m ago' },
+  { vendor: 'Jonas', category: 'Club management', status: 'Connected', lastSync: '9m ago' },
+  { vendor: 'Northstar', category: 'Club management', status: 'Syncing', lastSync: 'Live' },
+  { vendor: 'Clubessential', category: 'Club management', status: 'Connected', lastSync: '12m ago' },
   { vendor: 'Square', category: 'Payments', status: 'Queued', lastSync: 'Waiting' },
   { vendor: 'ADP', category: 'Payroll', status: 'Connected', lastSync: '35m ago' },
-  { vendor: 'Lightspeed', category: 'Dining POS', status: 'Syncing', lastSync: 'Live' },
+  { vendor: 'Dining POS (generic)', category: 'Dining POS', status: 'Syncing', lastSync: 'Live' },
 ]
 
 const filters = ['All', 'Connected', 'Syncing', 'Queued']
@@ -33,7 +34,7 @@ export default function IntegrationStatusGrid() {
         <div>
           <p className="text-xs uppercase tracking-wide text-swoop-muted">Integrations</p>
           <h3 className="text-xl font-semibold">Live system status</h3>
-          <p className="text-sm text-swoop-muted">Know which vendors are synced, syncing, or waiting.</p>
+          <p className="text-sm text-swoop-muted">Swoop connects to your existing club management system (Jonas, Northstar, Clubessential) — no rip-and-replace required. CSV fallback is available.</p>
         </div>
         <div className="flex gap-2 flex-wrap">
           {filters.map((option) => (

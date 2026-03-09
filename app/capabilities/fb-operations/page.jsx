@@ -47,7 +47,7 @@ export default function FBOperationsPage() {
 
       <ProofStack
         statLabel="Post-round conversion lift"
-        statValue="+12 pts"
+        statValue="+11.7 pts"
         demoLabel="Upsell board"
         quote="When we timed offers to finish clusters, grill and shop both moved."
         ctaLabel="Book guest experience demo"

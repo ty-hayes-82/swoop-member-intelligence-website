@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
 import ProofStack from '@/components/ProofStack'
+import IntegrationStatusGrid from '@/components/IntegrationStatusGrid'
 import { SourceBadgeRow, BoardReportPreview } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -22,7 +23,8 @@ export default function IntegrationsPage() {
       <section className="px-6 py-20 md:py-28 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Integrations</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">From source systems to measurable outcomes.</h1>
+          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">From source systems to measurable outcomes.</h1>
+          <p className="mt-4 text-swoop-muted">Swoop connects to your existing club management system (Jonas, Northstar, Clubessential) — no rip-and-replace required. CSV fallback is available while API credentials are finalized.</p>
           <div className="mt-4 flex justify-center">
             <SourceBadgeRow />
           </div>
@@ -30,7 +32,13 @@ export default function IntegrationsPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+        <div className="mx-auto max-w-container">
+          <IntegrationStatusGrid />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="responsive-card mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <h2 className="text-2xl font-bold">Data-flow visualization</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-4">
             {flow.map((node, index) => (
@@ -44,7 +52,7 @@ export default function IntegrationsPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+        <div className="responsive-card mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <h2 className="text-2xl font-bold">Implementation timeline</h2>
           <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
             {timeline.map((item) => (
@@ -56,7 +64,7 @@ export default function IntegrationsPage() {
 
       <ProofStack
         statLabel="CSV import hub"
-        statValue="48-hour activation"
+        statValue="≈48-hour activation target"
         demoLabel="Outcome preview"
         quote="The CSV hub gave us board-ready visibility before full API credentials were complete."
         ctaLabel="Book integration review"
