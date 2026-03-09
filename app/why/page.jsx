@@ -1,7 +1,5 @@
 import { buildMetadata } from '@/lib/metadata'
-import CTASection from '@/components/CTASection'
-import ProofStack from '@/components/ProofStack'
-import { BoardReportPreview } from '@/components/CapabilityMocks'
+import Link from 'next/link'
 
 export const metadata = buildMetadata({
   title: 'Why Swoop',
@@ -10,6 +8,14 @@ export const metadata = buildMetadata({
 })
 
 const rows = [
+
+const whyFaqs = [
+  { question: 'Why not just use our CRM?', answer: 'CRMs log interactions. Swoop watches behavior across systems and tells you who is at risk before you interact.' },
+  { question: 'Why not spreadsheets?', answer: 'Spreadsheets show historical data. Swoop combines live signals so you act before a resignation email appears.' },
+  { question: 'What is the switching cost?', answer: 'None. Swoop overlays your stack. No need to rip out tee sheet, POS, or CRM tools.' },
+  { question: 'How is Swoop different from Noteefy-style tools?', answer: 'Waitlist tools focus on slots. Swoop prioritizes members by health, spend, and retention impact across every lens.' },
+]
+
   { metric: 'Deployment time', legacy: '8-16 weeks', swoop: '2-3 weeks' },
   { metric: 'Real-time data', legacy: 'Nightly batch', swoop: 'Live metrics with hourly refresh' },
   { metric: 'Action workflows', legacy: 'Manual follow-up', swoop: 'Step-by-step routing with clear owners' },
@@ -49,17 +55,67 @@ export default function WhyPage() {
         </div>
       </section>
 
-      <ProofStack
-        statLabel="Operational ramp"
-        statValue="2.4x faster"
-        demoLabel="Leadership snapshot"
-        ctaLabel="Book a Demo"
-        ctaHref="/book-demo"
-      >
-        <BoardReportPreview />
-      </ProofStack>
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — how Swoop changes your week</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• See risks before they escalate</li>
+              <li>• Act on data, not gut feel</li>
+              <li>• Report outcomes, not activities</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — what you prove</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Retention rate improvement</li>
+              <li>• Revenue recovered</li>
+              <li>• Churn prevented</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      <CTASection headline="Compare your current stack to Swoop." subtext="We’ll run the benchmark with your operating model." />
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Comparison artifact</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold text-swoop-dark">What a waitlist tool sees</p>
+              <p className="mt-2 text-sm text-swoop-muted">12 people waiting for Saturday 8am.</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold text-swoop-dark">What Swoop sees</p>
+              <p className="mt-2 text-sm text-swoop-muted">3 of those 12 are at-risk members whose engagement dropped 30% — prioritize their experience.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Why Swoop FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {whyFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">Ready to compare your stack?</h2>
+          <p className="text-swoop-muted mb-6">Book a demo and we’ll benchmark your current tools against Swoop.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
+
     </div>
   )
 }
