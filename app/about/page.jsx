@@ -1,5 +1,5 @@
 import { buildMetadata } from '@/lib/metadata'
-import CTASection from '@/components/CTASection'
+import Link from 'next/link'
 
 export const metadata = buildMetadata({
   title: 'About Swoop Golf',
@@ -24,6 +24,12 @@ const security = [
   'Role-based access controls for operator workflows',
   'Data segregation by property and portfolio',
   'Audit logs for action approvals and automations',
+]
+
+const aboutFaqs = [
+  { question: 'Who built Swoop?', answer: 'Club operators and data scientists who saw the retention gap firsthand.' },
+  { question: 'Where does data come from?', answer: 'Your existing systems — tee sheet, POS, CRM, and email.' },
+  { question: 'What support is included?', answer: 'Onboarding, training, and ongoing success management are built into paid tiers.' },
 ]
 
 export default function AboutPage() {
@@ -60,7 +66,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CTASection headline="Talk with the founding team about your club model." />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — how Swoop helps ops</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Surface risks early.</li>
+              <li>• Recommend actions with impact math.</li>
+              <li>• Track outcomes and handoffs.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — how Swoop proves value</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Board-ready retention metrics.</li>
+              <li>• Cumulative save count.</li>
+              <li>• ROI tracking that ties to dues and spend.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Operating principles</p>
+          <ol className="mt-4 space-y-3 text-sm text-swoop-muted">
+            <li>1. Every recommendation needs context.</li>
+            <li>2. GMs approve before agents act.</li>
+            <li>3. Data stays in your environment.</li>
+            <li>4. Impact is measured, not assumed.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">About FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {aboutFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">Meet the team behind the briefings.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to see how Swoop embeds into your operations.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
