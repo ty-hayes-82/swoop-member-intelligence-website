@@ -78,8 +78,8 @@ const automationRecipes = [
 
 export default function HomePage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24">
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">For private-club GMs</p>
@@ -130,7 +130,7 @@ export default function HomePage() {
 
       <TrustStrip />
 
-      <section className="px-6 py-10">
+      <section className="px-6 py-8">
         <div className="mx-auto max-w-container">
           <h2 className="text-3xl font-bold">Interactive capability previews</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">

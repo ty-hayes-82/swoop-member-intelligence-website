@@ -16,6 +16,20 @@ body {
   background-color: #F8F9FA;
 }
 
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .page-stack {
+    gap: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
 button,
 input[type="button"],
 input[type="submit"],

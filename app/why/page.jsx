@@ -18,8 +18,8 @@ const rows = [
 
 export default function WhyPage() {
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28 text-center">
+    <div className="page-stack">
+      <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Why Swoop</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Purpose-built for operators, not dashboard tourists.</h1>
