@@ -76,7 +76,7 @@ export default function BookDemoPage() {
                 </li>
               </ul>
             </div>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="font-mono text-2xl font-bold text-swoop-green">{s.value}</p>
@@ -86,7 +86,7 @@ export default function BookDemoPage() {
             </div>
             <p className="text-xs text-swoop-muted">Demo scenario metrics from Oakmont Hills CC simulation.</p>
           </div>
-          <div className="bg-swoop-card border border-swoop-border rounded-xl p-8 sticky top-8">
+          <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8">
             <DemoForm />
           </div>
         </div>

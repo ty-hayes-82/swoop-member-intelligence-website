@@ -20,7 +20,7 @@ export default function ContactPage() {
             <p><span className="font-semibold text-swoop-text">Location:</span> Scottsdale, Arizona</p>
           </div>
         </div>
-        <div className="bg-swoop-card border border-swoop-border rounded-xl p-8">
+        <div id="contact-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg">
           <DemoForm />
         </div>
       </div>

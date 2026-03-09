@@ -51,7 +51,7 @@ const conversionDrivers = [
 
 export default function FBOperationsPage() {
   return (
-    <>
+    <div className="space-y-16">
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-container mx-auto">
           <div className="flex items-center gap-3 mb-4">
@@ -171,6 +171,6 @@ export default function FBOperationsPage() {
       </section>
 
       <CTASection headline="See your F&B blind spots." subtext="We'll show you the connection between your tee sheet and your dining revenue." />
-    </>
+    </div>
   )
 }
