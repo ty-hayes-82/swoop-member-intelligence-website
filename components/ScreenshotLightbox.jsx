@@ -18,9 +18,10 @@ export default function ScreenshotLightbox({
 }) {
   const [open, setOpen] = useState(false)
 
-  const resolvedPreviewMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
-  const previewMaxHeight = resolvedPreviewMaxHeight || '350px'
-  const resolvedLightboxMaxHeight = typeof lightboxMaxHeight === 'number' ? `${lightboxMaxHeight}px` : lightboxMaxHeight
+  const previewCapPx = 350
+  const clampedPreviewMax = typeof maxHeight === 'number' ? Math.min(maxHeight, previewCapPx) : previewCapPx
+  const previewMaxHeight = typeof clampedPreviewMax === 'number' ? `${clampedPreviewMax}px` : clampedPreviewMax
+  const resolvedLightboxMaxHeight = typeof lightboxMaxHeight === 'number' ? `${lightboxMaxHeight}px` : lightboxMaxHeight || '85vh'
   const previewStyle = previewMaxHeight ? { maxHeight: previewMaxHeight } : undefined
   const lightboxStyle = resolvedLightboxMaxHeight ? { maxHeight: resolvedLightboxMaxHeight } : undefined
 
@@ -33,12 +34,12 @@ export default function ScreenshotLightbox({
   const lightboxImageClasses = `${imageBaseClasses} ${lightboxClampClasses} ${imageClassName}`.trim()
 
   const imagePreviewStyle = previewMaxHeight
-    ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto' }
-    : { width: '100%', height: 'auto' }
+    ? { maxHeight: previewMaxHeight, width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
+    : { width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
 
   const imageLightboxStyle = resolvedLightboxMaxHeight
-    ? { maxHeight: resolvedLightboxMaxHeight, width: '100%', height: 'auto' }
-    : { width: '100%', height: 'auto' }
+    ? { maxHeight: resolvedLightboxMaxHeight, width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
+    : { width: '100%', height: 'auto', objectFit: 'cover', objectPosition }
 
   return (
     <>
@@ -50,7 +51,7 @@ export default function ScreenshotLightbox({
           height={height}
           quality={85}
           className={previewImageClasses}
-          style={{ ...imagePreviewStyle, objectFit: 'cover', objectPosition }}
+          style={imagePreviewStyle}
           sizes="(max-width: 768px) 100vw, 1200px"
           loading="lazy"
         />
@@ -84,7 +85,7 @@ export default function ScreenshotLightbox({
                 height={height}
                 quality={85}
                 className={lightboxImageClasses}
-                style={{ ...imageLightboxStyle, objectFit: 'cover', objectPosition }}
+                style={imageLightboxStyle}
                 sizes="(max-width: 768px) 100vw, 1200px"
               />
             </div>
