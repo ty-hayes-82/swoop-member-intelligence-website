@@ -1,105 +1,110 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import FaqAccordion from '@/components/FaqAccordion'
+import ProofStack from '@/components/ProofStack'
 import CTASection from '@/components/CTASection'
+import { BoardSnapshotCard } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Pricing',
-  description: 'Simple pricing. No long-term contracts. Start free with health scores, upgrade to Pro for full analytics, or go all-in with Club.',
+  description: 'Simple pricing with clear operational math for private clubs.',
   path: '/pricing',
 })
 
 const tiers = [
   {
-    name: 'Free',
+    name: 'Starter',
     price: '$0',
-    period: 'forever',
-    desc: 'Connect your existing systems. See member health scores and basic risk alerts.',
-    features: ['Health score dashboard', 'Basic risk alerts', 'Up to 3 integrations', 'Email support'],
-    cta: 'Start Free',
+    desc: 'Health scores and basic risk watchlists.',
+    features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
-    popular: false,
+    cta: 'Start',
   },
   {
     name: 'Pro',
-    price: '$499',
-    period: '/month',
-    desc: 'Complete operational intelligence with cross-system analytics and AI agent recommendations.',
-    features: ['Complete platform access', 'Cross-system intelligence', 'AI agent recommendations', 'Up to 10 integrations', 'Priority support', '14-day free trial'],
-    cta: 'Start 14-Day Trial',
+    price: '$499/mo',
+    desc: 'Signal-to-action workflows for one club team.',
+    features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
-    popular: true,
+    cta: 'Book Pro Demo',
+    boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
-    name: 'Club',
-    price: '$1,499',
-    period: '/month',
-    desc: 'Everything in Pro plus the Swoop member app, GPS behavioral data, and closed-loop engagement.',
-    features: ['Everything in Pro', 'Swoop member app included', 'GPS + real-time behavioral data', 'Push notification channel', 'Closed-loop engagement tracking', 'Dedicated success manager'],
-    cta: 'Book a Demo',
+    name: 'Enterprise',
+    price: '$1,499+/mo',
+    desc: 'Portfolio reporting and multi-club orchestration.',
+    features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
-    popular: false,
+    cta: 'Talk Sales',
+    boardMath: ['ARR protected: $740K', 'Agent hours saved: 96/mo'],
   },
 ]
 
 const faqs = [
-  { q: 'How long does setup take?', a: 'Most clubs are live in under 2 weeks. We connect to your existing tee sheet, POS, and CRM — no rip-and-replace required.' },
-  { q: 'Do I need to replace my current software?', a: 'No. Swoop sits on top of your existing systems and connects via API. We support 28 integrations across 10 categories.' },
-  { q: 'Can I try it before committing?', a: 'Absolutely. Our Free tier gives you health scores with no credit card required. Pro includes a 14-day trial.' },
-  { q: 'Is my members\' data secure?', a: 'Yes. All data is encrypted in transit and at rest. We never share member data with third parties. SOC 2 compliance is on our roadmap.' },
-  { q: 'What makes Swoop different from standalone waitlist tools?', a: 'Standalone waitlist tools fill cancelled tee times — one function, one system. Swoop is a full intelligence platform across five operational categories with AI agents, member behavioral data, and closed-loop engagement.' },
+  { q: 'How quickly can we launch?', a: 'Most clubs complete onboarding in 2-3 weeks.' },
+  { q: 'Do we replace existing systems?', a: 'No. Swoop overlays current tee sheet, CRM, POS, and labor tools.' },
+  { q: 'Can we start with one site?', a: 'Yes. Pro is designed for single-club rollout before scaling.' },
+  { q: 'How is value measured?', a: 'We track protected ARR, saved labor time, and action-level outcomes.' },
 ]
 
 export default function PricingPage() {
   return (
-    <>
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Simple pricing. No long-term contracts.</h1>
-          <p className="text-lg text-swoop-muted">Start free with your existing systems. Upgrade when you see the value.</p>
+    <div className="space-y-16 pb-16">
+      <section className="px-6 py-20 md:py-28 text-center">
+        <div className="mx-auto max-w-container">
+          <h1 className="text-4xl font-bold md:text-5xl">Pricing aligned to board outcomes.</h1>
         </div>
       </section>
 
-      <section className="pb-20 px-6">
-        <div className="max-w-container mx-auto grid md:grid-cols-3 gap-6">
-          {tiers.map((t) => (
-            <div key={t.name} className={`bg-swoop-card border rounded-xl p-8 flex flex-col ${t.popular ? 'border-swoop-green ring-2 ring-swoop-green/20 md:scale-105' : 'border-swoop-border'}`}>
-              {t.popular && (
-                <span className="inline-block self-start text-xs font-bold text-swoop-dark bg-swoop-green px-3 py-1 rounded-full mb-4">Most Popular</span>
-              )}
-              <h3 className="text-2xl font-bold">{t.name}</h3>
-              <div className="mt-2 mb-4">
-                <span className="text-4xl font-bold font-mono">{t.price}</span>
-                <span className="text-swoop-muted text-sm ml-1">{t.period}</span>
-              </div>
-              <p className="text-swoop-muted text-sm mb-6">{t.desc}</p>
-              <ul className="space-y-2 mb-8 flex-grow">
-                {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <span className="text-swoop-green mt-0.5">✓</span>
-                    {f}
-                  </li>
+      <section className="px-6">
+        <div className="mx-auto grid max-w-container gap-6 md:grid-cols-3">
+          {tiers.map((tier) => (
+            <article key={tier.name} className="flex flex-col rounded-2xl border border-swoop-border bg-white p-6">
+              <h2 className="text-2xl font-bold">{tier.name}</h2>
+              <p className="mt-1 text-3xl font-bold">{tier.price}</p>
+              <p className="mt-2 text-sm text-swoop-muted">{tier.desc}</p>
+              <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+                {tier.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <Link
-                href={t.href}
-                className={`block text-center py-3 rounded-lg font-semibold transition ${t.popular ? 'bg-swoop-green text-swoop-dark hover:bg-swoop-green-hover' : 'border-2 border-swoop-green text-swoop-green hover:bg-swoop-green hover:text-swoop-dark'}`}
-              >
-                {t.cta}
+              {tier.boardMath && (
+                <div className="mt-4 rounded-xl border border-swoop-border bg-swoop-bg p-3 text-xs">
+                  <p className="font-semibold">Board math</p>
+                  {tier.boardMath.map((line) => (
+                    <p key={line} className="mt-1 text-swoop-muted">{line}</p>
+                  ))}
+                </div>
+              )}
+              <Link href={tier.href} className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">
+                {tier.cta}
               </Link>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently asked questions</h2>
-          <FaqAccordion items={faqs} />
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">FAQ</h2>
+          <div className="mt-6">
+            <FaqAccordion items={faqs.map((item) => ({ q: item.q, a: item.a }))} />
+          </div>
         </div>
       </section>
 
-      <CTASection headline="Ready to see your club's data in Swoop?" subtext="Book a 30-minute demo. No commitment required." />
-    </>
+      <ProofStack
+        statLabel="Average payback"
+        statValue="< 30 days"
+        demoLabel="Board math preview"
+        quote="Finance and operations finally looked at the same outcome model."
+        ctaLabel="Book pricing walkthrough"
+        ctaHref="/book-demo"
+      >
+        <BoardSnapshotCard />
+      </ProofStack>
+
+      <CTASection headline="Validate the pricing model with your club data." />
+    </div>
   )
 }
