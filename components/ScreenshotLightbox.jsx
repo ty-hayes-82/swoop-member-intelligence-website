@@ -16,14 +16,15 @@ export default function ScreenshotLightbox({
 }) {
   const [open, setOpen] = useState(false)
   const resolvedMaxHeight = typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight
-  const previewStyles = resolvedMaxHeight ? { maxHeight: resolvedMaxHeight } : undefined
+  const clampedMaxHeight = resolvedMaxHeight || '350px'
+  const sharedStyles = clampedMaxHeight ? { maxHeight: clampedMaxHeight } : undefined
   const previewFrameClasses = `relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white max-h-[350px] ${frameClassName}`.trim()
-  const previewImageClasses = `w-full h-auto object-cover object-top max-h-[350px] rounded-2xl ${imageClassName}`.trim()
-  const lightboxImageClasses = `w-full h-auto object-cover object-top rounded-2xl ${imageClassName}`.trim()
+  const previewImageClasses = `w-full h-full object-cover object-top rounded-2xl max-h-[350px] ${imageClassName}`.trim()
+  const lightboxImageClasses = `w-full h-full object-cover object-top rounded-2xl max-h-[350px] ${imageClassName}`.trim()
 
   return (
     <>
-      <div className={previewFrameClasses} style={previewStyles}>
+      <div className={previewFrameClasses} style={sharedStyles}>
         <Image
           src={src}
           alt={alt}
@@ -31,7 +32,7 @@ export default function ScreenshotLightbox({
           height={height}
           quality={85}
           className={previewImageClasses}
-          style={previewStyles}
+          style={sharedStyles}
         />
         <button
           type="button"
@@ -55,7 +56,7 @@ export default function ScreenshotLightbox({
             >
               ×
             </button>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border border-swoop-border" style={sharedStyles}>
               <Image
                 src={src}
                 alt={alt}
@@ -63,6 +64,7 @@ export default function ScreenshotLightbox({
                 height={height}
                 quality={85}
                 className={lightboxImageClasses}
+                style={sharedStyles}
               />
             </div>
             {caption && (
