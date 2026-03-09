@@ -10,9 +10,9 @@ export const metadata = buildMetadata({
 })
 
 const stats = [
-  { value: '91%', label: 'Waitlist fill rate', context: 'Demo data — Oakmont Hills' },
-  { value: '$312', label: 'Revenue per tee slot', context: 'Demo data — Oakmont Hills' },
-  { value: '6 days', label: 'Early warning on resignations', context: 'Demo data — Oakmont Hills' },
+  { value: '91%', label: 'Waitlist fill rate', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
+  { value: '$312', label: 'Revenue per tee slot', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
+  { value: '6 days', label: 'Early warning on resignations', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
 ]
 
 const whatYouWillSee = [
@@ -41,10 +41,10 @@ const demoProcess = [
 ]
 
 const faqs = [
-  { q: 'Do I need to bring data to the demo?', a: 'No. We use a realistic 300-member demo scenario. Bring exports later if you want to see your own data.' },
-  { q: 'How long does implementation take?', a: 'Most clubs are live within 2 weeks. We connect via API — no rip-and-replace.' },
-  { q: 'Does Swoop replace my club management software?', a: 'No. Swoop sits on top of your existing tee sheet, POS, CRM, and payroll systems.' },
-  { q: 'Is Swoop only for large clubs?', a: 'We deliver value for private clubs with 200+ members. ROI scales with dues and outlet mix.' },
+  { q: 'Who should attend?', a: 'GM plus one ops lead.' },
+  { q: 'How long is the demo?', a: '30 minutes.' },
+  { q: 'Do I need to prepare anything?', a: 'No. We bring the Oakmont Hills demo data. Bring exports later if you want to see your own club.' },
+  { q: 'What happens after?', a: 'You receive a recorded summary, the sample briefing sheet, and next-step recommendations.' },
 ]
 
 export default function BookDemoPage() {
@@ -118,6 +118,41 @@ export default function BookDemoPage() {
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-swoop-muted">{item.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16">
+        <div className="mx-auto max-w-container grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — what you get on the call</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• 30-minute walkthrough of your club's risk profile using demo data</li>
+              <li>• Q&A on integrations, agent approvals, and handoffs</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — what you take to your board</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Sample briefing sheet showcasing engagement decay + saves</li>
+              <li>• ROI estimate tied to your board's retention targets</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Demo agenda</p>
+          <div className="space-y-3 text-sm text-swoop-muted">
+            {[
+              '1. Your club's current blind spots',
+              '2. Live walkthrough of member health scoring',
+              '3. AI agent recommendation examples',
+              '4. Custom ROI estimate for your club',
+            ].map((item) => (
+              <p key={item} className="rounded-xl border border-swoop-border bg-swoop-bg px-4 py-3">{item}</p>
             ))}
           </div>
         </div>

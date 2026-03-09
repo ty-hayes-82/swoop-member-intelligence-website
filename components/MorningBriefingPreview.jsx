@@ -1,5 +1,7 @@
 'use client'
 
+import DemoDisclosure from '@/components/DemoDisclosure'
+
 const chips = [
   { label: 'At-risk members', value: '23' },
   { label: 'Tee sheet fill', value: '87%' },
@@ -32,6 +34,7 @@ export default function MorningBriefingPreview() {
           <li>• 3 service recoveries pending owner follow-up today.</li>
         </ul>
       </div>
+      <DemoDisclosure tone="dark" className="mt-4 text-[11px]" />
     </div>
   )
 }

@@ -1,10 +1,5 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import FaqAccordion from '@/components/FaqAccordion'
-import ProofStack from '@/components/ProofStack'
-import CTASection from '@/components/CTASection'
-import RoiCalculator from '@/components/RoiCalculator'
-import { BoardSnapshotCard } from '@/components/CapabilityMocks'
 import { PLAN_PRICING } from '@/lib/pricing'
 
 export const metadata = buildMetadata({
@@ -20,7 +15,6 @@ const tiers = [
     desc: 'Health scores and basic risk watchlists.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
-    cta: 'Start',
   },
   {
     name: PLAN_PRICING.pro.label,
@@ -28,7 +22,6 @@ const tiers = [
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
-    cta: 'Book Pro Demo',
     boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
@@ -37,16 +30,22 @@ const tiers = [
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
-    cta: 'Talk Sales',
     boardMath: ['ARR protected: $740K', 'Agent hours saved: 96/mo'],
   },
 ]
 
+const inclusions = [
+  { tier: 'Free', items: ['Daily Briefing', 'Member Health Scores'] },
+  { tier: 'Pro', items: ['+ 6 AI Agents', '+ Demand Optimization', '+ Pipeline Intelligence'] },
+  { tier: 'Club', items: ['+ Multi-department Coverage', '+ Board Reporting', '+ Dedicated Success Manager'] },
+]
+
 const faqs = [
-  { q: 'How quickly can we launch?', a: 'Most clubs complete onboarding in 2-3 weeks.' },
-  { q: 'Do we replace existing systems?', a: 'No. Swoop overlays current tee sheet, CRM, POS, and labor tools.' },
-  { q: 'Can we start with one site?', a: 'Yes. Pro is designed for single-club rollout before scaling.' },
-  { q: 'How is value measured?', a: 'We track protected ARR, saved labor time, and action-level outcomes.' },
+  { question: 'What is the contract term?', answer: 'Month-to-month. No long-term commitment required.' },
+  { question: 'Is there an implementation fee?', answer: 'No. Setup and onboarding are included in all paid tiers.' },
+  { question: 'Does my club need an app?', answer: 'No. Swoop is a web-based dashboard for your operations team.' },
+  { question: 'Who owns the data?', answer: 'You do. Your data is never shared and can be exported at any time.' },
+  { question: 'Can I cancel anytime?', answer: 'Yes. Cancel from your account settings with no penalties.' },
 ]
 
 export default function PricingPage() {
@@ -55,6 +54,7 @@ export default function PricingPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <h1 className="text-4xl font-bold md:text-5xl">Pricing aligned to board outcomes.</h1>
+          <p className="mt-4 text-lg text-swoop-muted">Pick the tier that matches your retention focus — upgrade as your team expands.</p>
         </div>
       </section>
 
@@ -79,39 +79,75 @@ export default function PricingPage() {
                 </div>
               )}
               <Link href={tier.href} className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">
-                {tier.cta}
+                Book a Demo
               </Link>
             </article>
           ))}
         </div>
       </section>
 
-      <RoiCalculator />
-
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <h2 className="text-2xl font-bold">FAQ</h2>
-          <div className="mt-6">
-            <FaqAccordion items={faqs.map((item) => ({ q: item.q, a: item.a }))} />
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — how clubs choose their tier</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Start with Free to explore the briefing experience</li>
+              <li>• Move to Pro when you want AI agent recommendations</li>
+              <li>• Upgrade to Club for multi-department coverage and board reporting</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — how ROI is proven</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Track cumulative saves and recovered revenue monthly</li>
+              <li>• Compare churn rate before and after Swoop</li>
+              <li>• Generate board-ready retention reports with one click</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <ProofStack
-        statLabel="Average payback"
-        statValue="≈28 days"
-        demoLabel="Board math preview"
-        ctaLabel="Book a Demo"
-        ctaHref="/book-demo"
-      >
-        <BoardSnapshotCard />
-      </ProofStack>
+      <section className="px-6 pb-16">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">What's included</p>
+          <div className="mt-4 grid gap-6 md:grid-cols-3">
+            {inclusions.map((tier) => (
+              <article key={tier.tier} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <h3 className="text-lg font-semibold text-swoop-dark">{tier.tier}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-swoop-muted">
+                  {tier.items.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <CTASection
-        headline="Validate the pricing model with your club data."
-        subtext="Run the ROI math during the call and leave with a board-ready sheet."
-        note="We reserve five pricing walkthroughs per week for private clubs."
-      />
+      <section className="px-6 pb-16">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Pricing FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {faqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-20 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">Ready to run the math on your club?</h2>
+          <p className="text-swoop-muted mb-6">Book a demo and see exactly how Swoop automates these frameworks.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

@@ -17,6 +17,14 @@ const timeline = [
   'Week 3: Automation tuning and board report handoff',
 ]
 
+const integrationFaqs = [
+  { question: 'Is Swoop SOC 2 certified?', answer: 'SOC 2 Type II certification is on our roadmap for Q3 2026. We follow SOC 2 controls today.' },
+  { question: 'How is PII handled?', answer: 'Member data is encrypted at rest and in transit. No PII leaves your environment.' },
+  { question: 'Is access read-only or read-write?', answer: 'Read-only by default. Write access like sending emails requires explicit approval per action.' },
+  { question: 'How often does data sync?', answer: 'Real-time for tee sheet and POS. Daily for CRM and email platforms.' },
+  { question: 'Do you support SSO?', answer: 'Yes. We support SAML 2.0 and OAuth flows for enterprise deployments.' },
+]
+
 export default function IntegrationsPage() {
   return (
     <div className="space-y-16 pb-16">
@@ -34,6 +42,77 @@ export default function IntegrationsPage() {
       <section className="px-6">
         <div className="mx-auto max-w-container">
           <IntegrationStatusGrid />
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">The problem with siloed data</h2>
+          <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+            <li>• Tee sheet data never reaches your POS.</li>
+            <li>• POS data never syncs with your CRM.</li>
+            <li>• CRM data never informs your email platform.</li>
+            <li>• Swoop connects them so risk and revenue signals stay in sync.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — what IT does week 1</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Provide API credentials for tee sheet and POS.</li>
+              <li>• Swoop configures read-only connections.</li>
+              <li>• Data flows begin within 24 hours.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — what data is visible</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Member engagement scores across every touchpoint.</li>
+              <li>• Cross-system identity matching.</li>
+              <li>• Unified timeline per member.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Integration architecture</p>
+          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr]">
+            <div className="space-y-2">
+              {['Tee Sheet', 'POS', 'CRM', 'Email'].map((item) => (
+                <div key={item} className="rounded-xl border border-swoop-border bg-swoop-bg p-3 text-center text-sm font-semibold">{item}</div>
+              ))}
+              <p className="text-center text-xs text-swoop-muted">Your systems</p>
+            </div>
+            <div className="flex flex-col items-center justify-center text-sm font-semibold text-swoop-muted">
+              <div className="rounded-full border border-swoop-border bg-white px-4 py-2 text-swoop-dark">Swoop intelligence layer</div>
+              <div className="my-2 text-lg">→</div>
+            </div>
+            <div className="space-y-2">
+              {['Daily Briefing', 'AI Agents', 'Board Reports'].map((item) => (
+                <div key={item} className="rounded-xl border border-swoop-border bg-swoop-bg p-3 text-center text-sm font-semibold">{item}</div>
+              ))}
+              <p className="text-center text-xs text-swoop-muted">Swoop outputs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Trust & security FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {integrationFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

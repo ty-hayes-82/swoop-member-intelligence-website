@@ -53,7 +53,31 @@ const testimonialCards = [
   },
 ]
 
+const faqItems = [
+  {
+    question: 'How much does Swoop cost?',
+    answer: 'Three tiers: Free, Pro at $499/mo, Club at $1,499/mo.',
+  },
+  {
+    question: 'What integrations are supported?',
+    answer: 'Tee sheet, POS, CRM, email, and scheduling systems. See /integrations for the full list.',
+  },
+  {
+    question: 'How long does setup take?',
+    answer: 'Most clubs are live within 2 weeks with existing data connections.',
+  },
+  {
+    question: 'Is this real member data?',
+    answer: 'Our demo uses simulated data from Oakmont Hills CC. Your deployment uses your live club data.',
+  },
+  {
+    question: 'Can I try it before committing?',
+    answer: 'Yes — book a demo and we will walk through your club's data.',
+  },
+]
+
 const pricingTiers = [
+
   {
     name: 'Free',
     price: '$0/mo',
@@ -84,9 +108,9 @@ export default function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">For private-club GMs</p>
             <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Every member has a health score. You just cant see it yet.</h1>
             <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
-              <Link href="/pricing" className="inline-flex min-h-[46px] items-center rounded-lg border border-swoop-border bg-white px-5 py-2.5 text-sm font-semibold">See Pricing</Link>
+              <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
           </div>
@@ -114,6 +138,55 @@ export default function HomePage() {
 
       <HomeCapabilityTabs />
       <TrustedBetaStrip />
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday Morning</p>
+            <h3 className="mt-2 text-xl font-semibold text-swoop-dark">What you check in 10 minutes</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Open Daily Briefing to see overnight engagement changes</li>
+              <li>• Review 3 recommended actions from your AI agents</li>
+              <li>• Flag any at-risk members for personal outreach</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday Afternoon</p>
+            <h3 className="mt-2 text-xl font-semibold text-swoop-dark">What you prove to your board</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Net member health trend for the week</li>
+              <li>• Revenue recovered through proactive interventions</li>
+              <li>• Churn prevention score and saves count</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8 text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
+          <div className="mt-4 flex justify-center">
+            <div className="w-full max-w-3xl rounded-2xl border border-dashed border-swoop-border bg-[#F3F4F6] aspect-[3/2] flex items-center justify-center text-sm text-swoop-muted">
+              Daily Briefing — Oakmont Hills CC demo data
+            </div>
+          </div>
+          <p className="mt-4 text-sm text-swoop-muted">See engagement decay, spend shifts, and recommended actions in one view.</p>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {faqItems.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">

@@ -1,12 +1,19 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import CTASection from '@/components/CTASection'
 
 export const metadata = buildMetadata({
   title: 'Member Health Scoring',
   description: 'How Swoop calculates member health scores, identifies churn risk 6-8 weeks early, and recommends retention interventions with predicted success rates.',
   path: '/features/member-health',
 })
+
+const memberFeatureFaqs = [
+  { question: 'What causes false positives?', answer: 'Weights adjust automatically, but you can exclude certain signals or members from alerts.' },
+  { question: 'Can I adjust score thresholds?', answer: 'Yes. Set per-segment thresholds for At Risk and Critical states.' },
+  { question: 'How fresh is the data?', answer: 'Tee sheet/POS updates hourly, CRM/email daily, with overrides for priority events.' },
+  { question: 'Is member data shared across clubs?', answer: 'No. Data stays scoped to your club or portfolio only.' },
+  { question: 'How do I act on a low score?', answer: 'Each low score ships with a recommended playbook, owner, and expected outcome math.' },
+]
 
 const healthSignals = [
   { category: 'Engagement Decay', signals: ['Tee time frequency declining', 'Days since last visit trending up', 'Booking window shortening', 'Cancellation rate increasing'], weight: 'High' },
@@ -192,10 +199,66 @@ export default function MemberHealthPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See member health scoring in action." 
-        subtext="We'll walk you through a live demo with real behavioral signals and AI-recommended interventions." 
-      />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — health review</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Scan at-risk roster and assign owners.</li>
+              <li>• Approve AI interventions per member.</li>
+              <li>• Log outreach outcomes in one click.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board update</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Show saves and ARR protected.</li>
+              <li>• Highlight members still at risk.</li>
+              <li>• Share next-week plan with leadership.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Member health scorecard — artifact</p>
+          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-sm text-swoop-muted">
+            <p>Score: <span className="font-semibold text-swoop-dark">73 / 100</span></p>
+            <p>Trend: <span className="text-[#AF4C0B]">Declining</span></p>
+            <p className="mt-4 font-semibold text-swoop-dark">Key signals</p>
+            <ul className="mt-2 space-y-1">
+              <li>• Rounds down 30%</li>
+              <li>• Email opens flat</li>
+              <li>• Dining spend stable</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Member health FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {memberFeatureFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See member health scoring in action.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to review your signals, thresholds, and playbooks.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </>
   )
 }

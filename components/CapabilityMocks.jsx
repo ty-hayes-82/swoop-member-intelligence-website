@@ -1,3 +1,5 @@
+import DemoDisclosure from '@/components/DemoDisclosure'
+
 export function AtRiskRosterMock() {
   const rows = [
     { initials: 'JW', name: 'James Whitfield', tier: 'Platinum', score: 42, route: 'GM call' },
@@ -26,6 +28,7 @@ export function AtRiskRosterMock() {
           </div>
         ))}
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -52,6 +55,7 @@ export function DecayTimelineMock() {
           </div>
         ))}
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -69,6 +73,7 @@ export function GmScriptCard() {
       <p className="mt-3 font-semibold">Comp offer</p>
       <p className="text-swoop-muted">Priority Saturday slot + hosted foursome lunch.</p>
       <p className="mt-3 rounded-md bg-swoop-bg p-2 font-semibold">Ask: “Can I earn one more month before you decide?”</p>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -95,6 +100,7 @@ export function RoutingComparisonMock() {
         <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Retention</p>
         <ul className="mt-2 space-y-2 text-xs text-swoop-muted">{retention.map((item) => <li key={item}>{item}</li>)}</ul>
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -121,6 +127,7 @@ export function CancellationRiskCard() {
         ))}
       </div>
       <p className="mt-3 rounded-md bg-swoop-bg p-2 text-xs">Suggested action: pre-alert 3 at-risk members by SMS.</p>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -143,6 +150,7 @@ export function RetentionValueCalculator() {
         <p className="text-[11px] uppercase tracking-wider text-white/70">Protected ARR</p>
         <p className="text-lg font-bold">${protectedArr.toLocaleString()}</p>
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -163,6 +171,7 @@ export function PostRoundConversionMock() {
           <p className="text-xs text-swoop-muted">{tile.revenue}</p>
         </div>
       ))}
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -185,6 +194,7 @@ export function ServiceFailureBlock() {
           </li>
         ))}
       </ul>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -227,6 +237,7 @@ export function StaffingForecastGrid() {
           </div>
         </div>
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -244,6 +255,7 @@ export function StaffingBeforeAfterCard() {
         <p className="mt-2 text-swoop-muted">Labor %: 29%</p>
         <p className="text-swoop-muted">Member wait: 9 min</p>
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -260,6 +272,7 @@ export function BoardSnapshotCard() {
       <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
         {['Retention', 'Staffing', 'F&B'].map((tag) => <span key={tag} className="rounded-full bg-swoop-dark px-2 py-1 text-white">{tag}</span>)}
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -275,6 +288,7 @@ export function BoardReportPreview() {
         <p className="font-semibold">Risk & Staffing Callout</p>
         <p className="mt-1 text-swoop-muted">3 high-risk members routed, 2 coverage windows corrected</p>
       </div>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -298,6 +312,7 @@ export function AttributionChordMock() {
           </li>
         ))}
       </ul>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -320,6 +335,7 @@ export function PipelineExampleCard() {
           </li>
         ))}
       </ul>
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -373,6 +389,7 @@ export function DailyBriefingScreenshot() {
         </div>
       </div>
       <AnnotationList items={annotations} />
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -391,6 +408,7 @@ export function AgentCommandScreenshot() {
         <p>Impact +$22K ARR · Confidence 84%</p>
       </div>
       <AnnotationList items={annotations} />
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -415,6 +433,7 @@ export function TeeSheetScreenshot() {
         </div>
       </div>
       <AnnotationList items={annotations} />
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -434,6 +453,7 @@ export function MemberRosterScreenshot() {
         ))}
       </div>
       <AnnotationList items={annotations} />
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }
@@ -453,6 +473,7 @@ export function BoardReportScreenshot() {
         <div className="rounded border border-swoop-border px-3 py-2">11 saves logged this month</div>
       </div>
       <AnnotationList items={annotations} />
+      <DemoDisclosure className="mt-4 text-[11px]" />
     </div>
   )
 }

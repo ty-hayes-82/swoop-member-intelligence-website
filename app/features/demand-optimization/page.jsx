@@ -1,12 +1,19 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import CTASection from '@/components/CTASection'
 
 export const metadata = buildMetadata({
   title: 'Demand Optimization',
   description: 'How Swoop predicts tee sheet demand, optimizes waitlist routing by retention value, and forecasts cancellation clusters 48 hours ahead.',
   path: '/features/demand-optimization',
 })
+
+const demandFeatureFaqs = [
+  { question: 'Does this affect member fairness?', answer: 'Yes—in a positive way. Priorities are disclosed and focus on at-risk and high-value members.' },
+  { question: 'Can members see their priority?', answer: 'No. Routing logic stays internal while maintaining equitable narratives.' },
+  { question: 'Can I override rules?', answer: 'Absolutely. Ops leaders can override any slot with one click.' },
+  { question: 'How does seasonality factor in?', answer: 'Forecasts adjust weights based on historical seasonal demand.' },
+  { question: 'What about guest play?', answer: 'Guests stay in the mix, but member retention logic takes precedence.' },
+]
 
 const demandSignals = [
   { signal: 'Historical booking patterns by day/time/season', impact: 'Baseline demand modeling' },
@@ -193,10 +200,65 @@ export default function DemandOptimizationPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See retention-first waitlists in action." 
-        subtext="We'll walk you through a live cancellation scenario and show how Swoop routes slots by retention value, not signup time." 
-      />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — demand moves</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Review predicted cancellations.</li>
+              <li>• Approve retention-prioritized routing.</li>
+              <li>• Notify members before they call in.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board proof</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Fill-rate vs FIFO baseline.</li>
+              <li>• Revenue per slot and saves recorded.</li>
+              <li>• Narrative for board-ready updates.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Waitlist prioritization rules — artifact</p>
+          <div className="space-y-2 text-sm text-swoop-muted">
+            {[
+              'Rule 1: At-risk members get priority for peak times',
+              'Rule 2: High-value members see availability first',
+              'Rule 3: New members get onboarding slots',
+            ].map((rule) => (
+              <div key={rule} className="rounded-xl border border-swoop-border bg-swoop-bg px-4 py-3">{rule}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Demand optimization FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {demandFeatureFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See retention-first waitlists in action.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo and watch Swoop route slots by member impact.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </>
   )
 }

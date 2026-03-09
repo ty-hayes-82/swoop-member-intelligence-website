@@ -1,12 +1,18 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import CTASection from '@/components/CTASection'
 
 export const metadata = buildMetadata({
   title: 'AI Agents',
   description: 'Six AI agents monitoring your club 24/7. They detect issues, recommend actions, estimate impact, and execute approved plans — your always-on operational staff.',
   path: '/features/ai-agents',
 })
+
+const agentFeatureFaqs = [
+  { question: 'How are agents different from alerts?', answer: 'Agents provide context, recommended actions, and expected impact; alerts just ping you.' },
+  { question: 'Can I build custom agents?', answer: 'Yes. Custom triggers and playbooks can be configured per club.' },
+  { question: 'What approvals are required?', answer: 'Human approval is required unless you explicitly enable auto-approve on low-risk actions.' },
+  { question: 'How is agent performance measured?', answer: 'Every approval logs outcomes and contributes to agent-level ROI reporting.' },
+]
 
 const agents = [
   {
@@ -252,10 +258,62 @@ export default function AIAgentsPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See AI agents in action." 
-        subtext="We'll walk you through a live Agent Command session with real recommendations and approval workflows." 
-      />
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — supervising agents</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Review overnight recommendations.</li>
+              <li>• Approve or modify actions per agent.</li>
+              <li>• Assign ownership where human touch is needed.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — proving value</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Agent-level ROI and save counts.</li>
+              <li>• Actions executed vs. dismissed.</li>
+              <li>• Export-ready summaries for leadership.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Agent playbook — artifact</p>
+          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-sm text-swoop-muted">
+            <p>Agent: Member Pulse</p>
+            <p>Trigger: Engagement score below 50 for 2 weeks</p>
+            <p>Action: Recommend personal outreach from Membership Director</p>
+            <p>Expected outcome: 40% save rate based on similar interventions</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">AI agent FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {agentFeatureFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 text-center">
+        <div className="mx-auto max-w-container">
+          <h2 className="text-2xl font-bold mb-4">See AI agents in action.</h2>
+          <p className="text-swoop-muted mb-6">Book a demo to run through Agent Command approvals.</p>
+          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
+            Book a Demo
+          </Link>
+        </div>
+      </section>
     </>
   )
 }
