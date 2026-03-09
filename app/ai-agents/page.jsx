@@ -10,6 +10,30 @@ export const metadata = buildMetadata({
 })
 
 const recipes = [
+
+const agentFaqs = [
+  {
+    question: 'Can AI agents take actions without my approval?',
+    answer: 'No. Every action requires human approval unless you explicitly enable auto-approve for low-risk items.',
+  },
+  {
+    question: 'What if an agent recommends something wrong?',
+    answer: 'You reject it. Agents learn from your feedback pattern over time.',
+  },
+  {
+    question: 'Who can approve agent recommendations?',
+    answer: 'Configurable by role — GM, department heads, or designated staff.',
+  },
+  {
+    question: 'Can I turn off specific agents?',
+    answer: 'Yes. Each of the 6 agents can be enabled or disabled independently.',
+  },
+  {
+    question: 'How do agents access our data?',
+    answer: 'Agents read from your connected systems through secure API integrations. They never modify source data.',
+  },
+]
+
   'At-risk member score drop > 12 points → GM script + call task',
   'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
   'Staffing gap during post-round peak → suggest which position to backfill and when',
@@ -52,6 +76,60 @@ export default function AIAgentsPage() {
               <li key={recipe} className="rounded-lg border border-swoop-border bg-swoop-bg px-3 py-2">{recipe}</li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — how approvals work</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Each agent surfaces a recommendation with context and expected impact</li>
+              <li>• You approve, reject, or modify before any action is taken</li>
+              <li>• Approved actions execute automatically and log results</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — audit trail and proof of impact</p>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Every recommendation and outcome is logged</li>
+              <li>• Weekly impact summary shows saves and revenue recovered</li>
+              <li>• Board-ready report of AI-assisted decisions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Agent flow</p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { title: 'Step 1 · Agent Flags', detail: 'Member 247 engagement dropped 40% in 3 weeks' },
+              { title: 'Step 2 · GM Approves', detail: 'Schedule personal call from Membership Director' },
+              { title: 'Step 3 · Outcome', detail: 'Member renewed — saved $18K in annual dues' },
+            ].map((step, index) => (
+              <div key={step.title} className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-sm text-swoop-muted">
+                <p className="font-semibold text-swoop-dark">{step.title}</p>
+                <p className="mt-2">{step.detail}</p>
+                {index < 2 && <div className="mt-3 text-xs text-swoop-muted">↓</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">AI agent FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {agentFaqs.map((item) => (
+              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
+                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
