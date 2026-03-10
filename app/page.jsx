@@ -1,10 +1,8 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import Image from 'next/image'
-import TrustStrip from '@/components/TrustStrip'
-import TrustedBetaStrip from '@/components/TrustedBetaStrip'
-import CTASection from '@/components/CTASection'
 import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
+import TrustStrip from '@/components/TrustStrip'
+import CTASection from '@/components/CTASection'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
 import DemoDisclosure from '@/components/DemoDisclosure'
@@ -19,17 +17,42 @@ const howItWorks = [
   {
     title: 'See',
     summary: 'Monday 6:00 AM briefing',
-    detail: 'All tee sheet, POS, CRM, weather, and staffing signals are waiting in the daily briefing so you know the problems before the huddle starts.',
+    detail: 'Your tee sheet, POS, CRM, and staffing signals land in one briefing so you see every wobble before the day starts.',
   },
   {
     title: 'Decide',
     summary: 'Same-day action queue',
-    detail: 'AI agents recommend the next best action with outcome math. You approve or dismiss inside Agent Command and the system handles routing.',
+    detail: 'AI agents recommend the next best action with impact math. You approve or assign inside Agent Command.',
   },
   {
     title: 'Act',
-    summary: 'By Friday proof pack',
-    detail: 'Every intervention rolls up to a board-ready snapshot so you show what was prevented and what’s still at risk going into the weekend.',
+    summary: 'Friday proof pack',
+    detail: 'Every intervention rolls into a board-ready snapshot so you show what was prevented and what still needs attention.',
+  },
+]
+
+const proofStats = [
+  { label: 'Retention lift', value: '+21%', note: 'Oakmont Hills CC demo · Week 3' },
+  { label: 'Members saved', value: '6', note: 'Personal outreach in 10 days' },
+  { label: 'Tee sheet fill', value: '91%', note: 'Retention-prioritized routing' },
+]
+
+const weeklyFlow = [
+  {
+    title: 'Monday — 10 minute briefing',
+    bullets: [
+      'Spot every member whose score slipped over the weekend.',
+      'Approve three AI agent recommendations with impact math.',
+      'Assign staff owners before the first tee time goes out.',
+    ],
+  },
+  {
+    title: 'Friday — board-ready proof',
+    bullets: [
+      'Show dues protected and revenue recovered.',
+      'Email a PDF briefing to department heads.',
+      'Close the loop on every action with owner + outcome.',
+    ],
   },
 ]
 
@@ -54,171 +77,7 @@ const testimonialCards = [
   },
 ]
 
-const faqItems = [
-  {
-    question: 'How much does Swoop cost?',
-    answer: 'Three tiers: Free, Pro at $499/mo, Club at $1,499/mo.',
-  },
-  {
-    question: 'What integrations are supported?',
-    answer: 'Tee sheet, POS, CRM, email, and scheduling systems. See /integrations for the full list.',
-  },
-  {
-    question: 'How long does setup take?',
-    answer: 'Most clubs are live within 2 weeks with existing data connections.',
-  },
-  {
-    question: 'Is this real member data?',
-    answer: 'Our demo uses simulated data from Oakmont Hills CC. Your deployment uses your live club data.',
-  },
-  {
-    question: 'Can I try it before committing?',
-    answer: 'Yes — book a demo and we will walk through your club&apos;s data.',
-  },
-]
-
-
-function DailyBriefingMock() {
-  const riskMembers = [
-    { name: 'James Whitfield', score: 42, archetype: 'Balanced Active', due: 'Call before 2:00 PM' },
-    { name: 'Anne Jordan', score: 38, archetype: 'Weekend Warrior', due: 'Meet starter on #1' },
-    { name: 'Robert Callahan', score: 41, archetype: 'Declining', due: "Invite to chef's table" },
-  ]
-  const actionItems = [
-    { label: 'Service Recovery', detail: 'F&B Director call James within 2 hrs', impact: '$18K dues protected' },
-    { label: 'Waitlist Routing', detail: 'Fill Sat 8:10A with retention priority', impact: '$36K dues at stake' },
-    { label: 'Staffing Alert', detail: 'Cover Grill Room lunch 12–2P', impact: 'Avoid 8% revenue dip' },
-  ]
-  const timeline = [
-    { label: '05:30', text: 'Daily Briefing ready', type: 'ready' },
-    { label: '06:45', text: '3 AI agent actions waiting approval', type: 'agent' },
-    { label: '09:10', text: 'At-risk member checked in', type: 'member' },
-  ]
-  const statCards = [
-    { label: 'Health score', value: '74', sub: '▲ 4 vs last week' },
-    { label: 'Members flagged', value: '6', sub: 'Personal outreach today' },
-    { label: 'Revenue at risk', value: '$54K', sub: 'If no action is taken' },
-  ]
-
-  const agentStatuses = [
-    { name: 'Member Pulse', state: '2 approvals', accent: '#4ADE80' },
-    { name: 'Demand Optimizer', state: '1 pending', accent: '#F97316' },
-  ]
-  const opsInsights = [
-    { label: 'Wind alert', detail: '15 mph gusts at noon', icon: '💨' },
-    { label: 'F&B surge', detail: '+22% lunch covers expected', icon: '🍽' },
-    { label: 'Staffing gap', detail: 'Grill Room lunch understaffed', icon: '👩‍🍳' },
-  ]
-
-  return (
-    <div className="w-full max-w-4xl rounded-[36px] border border-white/10 bg-[#050B16] p-6 text-left text-white shadow-[0_30px_70px_rgba(6,10,24,0.55)]">
-      <div className="flex flex-wrap items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/70">
-        <span>Daily Briefing</span>
-        <span className="text-white/50">Oakmont Hills · 6:00 AM</span>
-      </div>
-
-      <div className="mt-5 grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
-        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/40">
-          <Image
-            src="/screenshots/daily-briefing.png"
-            alt="Daily Briefing dashboard"
-            width={1400}
-            height={900}
-            className="h-full w-full object-cover brightness-[0.92]"
-            priority
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#050B16]/90 via-transparent to-[#041028]/40" />
-          <div className="pointer-events-none absolute top-4 left-4 flex gap-3">
-            {statCards.map((card) => (
-              <div key={card.label} className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">{card.label}</p>
-                <p className="text-2xl font-semibold text-white">{card.value}</p>
-                <p className="text-[11px] text-white/70">{card.sub}</p>
-              </div>
-            ))}
-          </div>
-          <div className="pointer-events-none absolute bottom-4 left-4 rounded-full border border-white/25 bg-black/40 px-4 py-2 text-[11px] font-semibold text-white">
-            Live demo — AI agents standing by
-          </div>
-          <div className="pointer-events-none absolute bottom-4 right-4 w-48 rounded-2xl border border-white/15 bg-black/55 p-3 text-[11px]">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">AI agent queue</p>
-            <div className="mt-2 space-y-2">
-              {agentStatuses.map((agent) => (
-                <div key={agent.name} className="flex items-center justify-between text-white">
-                  <span className="text-xs font-semibold">{agent.name}</span>
-                  <span className="text-[11px]" style={{ color: agent.accent }}>{agent.state}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">At-risk members today</p>
-            <div className="mt-4 space-y-3">
-              {riskMembers.map((member) => (
-                <div key={member.name} className="flex items-start justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-                  <div>
-                    <p className="text-sm font-semibold text-white">{member.name}</p>
-                    <p className="text-xs text-white/60">{member.archetype}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xs font-semibold text-[#F97316]">Score {member.score}</p>
-                    <p className="text-[11px] text-white/60">{member.due}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-[#F97316]/30 bg-[#F97316]/10 p-5 text-[#FFECD0]">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em]">Today’s actions</p>
-            <div className="mt-4 space-y-3">
-              {actionItems.map((item) => (
-                <div key={item.label} className="rounded-xl border border-white/20 bg-white/5/30 p-3">
-                  <p className="text-sm font-semibold">{item.label}</p>
-                  <p className="text-xs text-white/80">{item.detail}</p>
-                  <p className="text-[11px] text-[#FED7AA]">{item.impact}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-white/70">Approve in Agent Command →</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">Timeline</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {timeline.map((event) => (
-            <div key={event.label} className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              <span className="text-xs font-semibold text-white/70">{event.label}</span>
-              <span className="text-sm text-white">{event.text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-4 grid gap-3 md:grid-cols-3">
-        {opsInsights.map((insight) => (
-          <div key={insight.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-            <p className="text-xs font-semibold text-white/70">{insight.icon} {insight.label}</p>
-            <p className="text-sm text-white">{insight.detail}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] text-white/60">
-        <span>Demo environment — simulated Oakmont Hills data</span>
-        <span>CSV fallback · Tee sheet · POS · CRM</span>
-      </div>
-    </div>
-  )
-}
-
 const pricingTiers = [
-
   {
     name: 'Free',
     price: '$0/mo',
@@ -243,6 +102,7 @@ const pricingTiers = [
 export default function HomePage() {
   return (
     <div className="page-stack">
+      {/* Section 1 — Hero + proof metrics */}
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
@@ -254,13 +114,23 @@ export default function HomePage() {
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {proofStats.map((stat) => (
+                <div key={stat.label} className="rounded-2xl border border-swoop-border bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-swoop-muted">{stat.label}</p>
+                  <p className="mt-2 text-2xl font-bold text-swoop-dark">{stat.value}</p>
+                  <p className="text-xs text-swoop-muted">{stat.note}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <ProductWalkthroughHero />
         </div>
         <TrustStrip />
       </section>
 
-      <section className="px-6 py-12 bg-white">
+      {/* Section 2 — How it works */}
+      <section className="px-6 py-12">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-swoop-muted">How it works</p>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -275,59 +145,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RoiCalculator />
-
-      <HomeCapabilityTabs />
-      <TrustedBetaStrip />
-
-      <section className="px-6">
-        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday Morning</p>
-            <h3 className="mt-2 text-xl font-semibold text-swoop-dark">What you check in 10 minutes</h3>
-            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Open Daily Briefing to see overnight engagement changes</li>
-              <li>• Review 3 recommended actions from your AI agents</li>
-              <li>• Flag any at-risk members for personal outreach</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday Afternoon</p>
-            <h3 className="mt-2 text-xl font-semibold text-swoop-dark">What you prove to your board</h3>
-            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Net member health trend for the week</li>
-              <li>• Revenue recovered through proactive interventions</li>
-              <li>• Churn prevention score and saves count</li>
-            </ul>
-          </div>
+      {/* Section 3 — ROI calculator */}
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-container">
+          <RoiCalculator />
         </div>
       </section>
 
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
-          <div className="mt-6 flex justify-center">
-            <DailyBriefingMock />
-          </div>
-          <p className="mt-4 text-sm text-swoop-muted">See engagement decay, spend shifts, and recommended actions in one view.</p>
-        </div>
-      </section>
-
-      <section className="px-6">
+      {/* Section 4 — Capability preview */}
+      <section className="px-6 py-12">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <h2 className="text-2xl font-bold">FAQ</h2>
-          <div className="mt-6 space-y-4">
-            {faqItems.map((item) => (
-              <details key={item.question} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
-                <summary className="cursor-pointer text-sm font-semibold text-swoop-dark">{item.question}</summary>
-                <p className="mt-2 text-sm text-swoop-muted">{item.answer}</p>
-              </details>
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-swoop-muted">Platform preview</p>
+              <h2 className="mt-2 text-2xl font-bold text-swoop-dark">See It · Fix It · Prove It across the Five Lenses</h2>
+            </div>
+            <Link href="/platform" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Explore the platform →</Link>
+          </div>
+          <div className="mt-6">
+            <HomeCapabilityTabs />
           </div>
         </div>
       </section>
 
-      <section className="px-6">
+      {/* Section 5 — Weekly flow (Monday/Friday) */}
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          {weeklyFlow.map((block) => (
+            <article key={block.title} className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">{block.title}</p>
+              <h3 className="mt-2 text-xl font-semibold text-swoop-dark">{block.title.includes('Monday') ? 'What you check in 10 minutes' : 'What you prove by Friday'}</h3>
+              <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+                {block.bullets.map((line) => (
+                  <li key={line}>• {line}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Section 6 — Social proof */}
+      <section className="px-6 py-12">
         <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
           <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Founder testimony</p>
           <blockquote className="mt-3 text-xl leading-relaxed font-semibold">“Every Monday we run the Oakmont Hills demo live for GMs and boards. The retention lifts, waitlist recovery, and staffing saves on this site come directly from that environment.”</blockquote>
@@ -347,14 +206,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6">
+      {/* Section 7 — Pricing snapshot */}
+      <section className="px-6 py-12">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Pricing snapshot</p>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Pricing snapshot</p>
+              <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Free to explore · Pro to run a club · Club for multi-property teams</h2>
+            </div>
+            <Link href="/pricing" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Full pricing breakdown →</Link>
+          </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {pricingTiers.map((tier) => (
               <article key={tier.name} className={`flex flex-col rounded-2xl border ${tier.highlighted ? 'border-swoop-dark bg-swoop-dark text-white' : 'border-swoop-border bg-white text-swoop-dark'} p-6`}>
                 <div>
-                  <h2 className="text-2xl font-bold">{tier.name}</h2>
+                  <h3 className="text-2xl font-bold">{tier.name}</h3>
                   <p className="mt-1 text-3xl font-bold">{tier.price}</p>
                   <p className={`mt-2 text-sm ${tier.highlighted ? 'text-white/80' : 'text-swoop-muted'}`}>{tier.desc}</p>
                 </div>
@@ -369,6 +235,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section 8 — Final CTA */}
       <CTASection
         headline="See Swoop on your club scenarios."
         subtext="We’ll map signal, action, and board proof in one walkthrough."
