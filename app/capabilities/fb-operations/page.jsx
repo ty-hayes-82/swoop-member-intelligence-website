@@ -1,6 +1,8 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import { PostRoundConversionMock, ServiceFailureBlock, SourceBadgeRow } from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
+import { SourceBadgeRow } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'F&B Operations',
@@ -16,10 +18,25 @@ const fbFaqs = [
   { question: 'How does weather affect predictions?', answer: 'Weather deltas adjust predicted covers and staffing lead times as soon as the forecast shifts.' },
 ]
 
+const fbHighlights = [
+  {
+    title: 'Outlet pacing with dollars attached',
+    detail: 'Every outlet tile shows revenue, covers, avg check, and 6-month trend so you know which rooms are slipping.',
+  },
+  {
+    title: 'Post-round conversion insight',
+    detail: 'Slow pace alerts tie directly to Grill Room revenue drops, reminding operations that pace is also an F&B lever.',
+  },
+  {
+    title: 'Staffing risk surfaced early',
+    detail: 'Understaffing losses are quantified per outlet so coverage corrections have a dollar-backed narrative.',
+  },
+]
+
 export default function FBOperationsPage() {
   return (
     <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">F&B / Guest Experience</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Turn post-round moments into revenue and loyalty.</h1>
@@ -28,16 +45,32 @@ export default function FBOperationsPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container space-y-6">
-          <PostRoundConversionMock />
-          <div className="grid gap-6 lg:grid-cols-2">
-            <ServiceFailureBlock />
-            <div className="rounded-xl border border-swoop-border bg-white p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Connected inputs</p>
-              <div className="mt-3"><SourceBadgeRow /></div>
-              <p className="mt-4 text-sm text-swoop-muted">Signal (slow pace + warm weather surge) → Insight (grill queue and shop drop-off risk) → Action (post-round upsell plus staffing shift).</p>
-            </div>
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-2xl border border-swoop-border bg-white p-5">
+            <ScreenshotLightbox
+              src="/screenshots/fb-operations.png"
+              alt="F&B operations dashboard screenshot"
+              maxHeight={420}
+            />
+            <p className="mt-3 text-sm text-swoop-muted">Outlet performance view tying tee-sheet pace, weather, and POS data into one prep-ready dashboard. Demo data — Oakmont Hills CC.</p>
+            <DemoDisclosure className="mt-1 text-xs" />
           </div>
+          <div className="space-y-4">
+            {fbHighlights.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-sm font-semibold text-swoop-dark">{card.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{card.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Connected inputs</p>
+          <div className="mt-3"><SourceBadgeRow /></div>
+          <p className="mt-4 text-sm text-swoop-muted">Signal (slow pace + warm weather surge) → Insight (grill queue and shop drop-off risk) → Action (post-round upsell plus staffing shift).</p>
         </div>
       </section>
 
@@ -63,7 +96,7 @@ export default function FBOperationsPage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — proof for leadership</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• Covers vs plan with variance callouts.</li>
-              <li>• Post-round conversion uplift tied to ARR.</li>
+              <li>• Post-round conversion uplift tied to annual dues impact.</li>
               <li>• Service recovery log with follow-up status.</li>
             </ul>
           </div>
@@ -74,9 +107,7 @@ export default function FBOperationsPage() {
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Covers vs prep — artifact</p>
           <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-center">
-            <p className="text-sm text-swoop-muted">Predicted: <span className="font-semibold text-swoop-dark">145 covers</span></p>
-            <p className="text-sm text-swoop-muted">Actual: <span className="font-semibold text-swoop-dark">138 covers</span></p>
-            <p className="mt-2 text-sm font-semibold text-[#147A3E]">Variance: 5% (within tolerance)</p>
+            <p className="text-sm text-swoop-muted">Predicted vs actual covers for the Grill Room with variance guidance for F&B leads.</p>
           </div>
         </div>
       </section>

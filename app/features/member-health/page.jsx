@@ -212,7 +212,7 @@ export default function MemberHealthPage() {
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board update</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Show saves and ARR protected.</li>
+              <li>• Show saves and annual dues protected.</li>
               <li>• Highlight members still at risk.</li>
               <li>• Share next-week plan with leadership.</li>
             </ul>

@@ -10,7 +10,7 @@ const slides = [
     label: 'Daily Briefing',
     heading: 'Start the day with the save list',
     caption: 'Health scores, dues at risk, weather, and on-property members in one 10-minute briefing.',
-    image: '/screenshots/daily-briefing.png',
+    image: '/images/screenshot-daily-briefing.png',
     alt: 'Daily Briefing dashboard screenshot showing prioritized save list',
     highlights: [
       {
@@ -32,7 +32,7 @@ const slides = [
     label: 'Member Intelligence',
     heading: 'Zoom into any archetype',
     caption: 'Behavioral decay patterns, spend shifts, and email engagement in one roster.',
-    image: '/screenshots/member-intelligence.png',
+    image: '/images/screenshot-member-intelligence.png',
     alt: 'Member Intelligence roster screenshot with health scores and risk reasons',
     highlights: [
       {
@@ -54,7 +54,7 @@ const slides = [
     label: 'Action Queue',
     heading: 'Approve AI recommendations',
     caption: 'Every recommendation shows impact math, owner, and due date before you approve.',
-    image: '/screenshots/agent-command.png',
+    image: '/images/screenshot-agent-command.png',
     alt: 'Action queue screenshot with AI recommendations awaiting approval',
     highlights: [
       {

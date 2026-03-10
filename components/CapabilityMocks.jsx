@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import DemoDisclosure from '@/components/DemoDisclosure'
 
 export function AtRiskRosterMock() {
@@ -147,7 +148,7 @@ export function RetentionValueCalculator() {
         <div className="flex justify-between"><span>At-risk members</span><span className="font-semibold">{atRisk}</span></div>
       </div>
       <div className="mt-3 rounded-md bg-swoop-dark p-3 text-white">
-        <p className="text-[11px] uppercase tracking-wider text-white/70">Protected ARR</p>
+        <p className="text-[11px] uppercase tracking-wider text-white/70">Annual dues protected</p>
         <p className="text-lg font-bold">${protectedArr.toLocaleString()}</p>
       </div>
       <DemoDisclosure className="mt-4 text-[11px]" />
@@ -282,7 +283,7 @@ export function BoardReportPreview() {
     <div className="space-y-3">
       <div className="rounded-xl border border-swoop-border bg-white p-4 text-xs">
         <p className="font-semibold">Revenue Callout</p>
-        <p className="mt-1 text-swoop-muted">+$42K protected ARR this month</p>
+        <p className="mt-1 text-swoop-muted">+$42K in annual dues protected this month</p>
       </div>
       <div className="rounded-xl border border-swoop-border bg-white p-4 text-xs">
         <p className="font-semibold">Risk & Staffing Callout</p>
@@ -395,20 +396,22 @@ export function DailyBriefingScreenshot() {
 }
 
 export function AgentCommandScreenshot() {
-  const annotations = [
-    'Approve/Dismiss buttons show predicted impact',
-    'GM script + comp offer inside drawer',
-    'Audit log stamps owner + due date',
-  ]
   return (
-    <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
-      <p className="font-semibold">Agent Command</p>
-      <div className="mt-3 rounded-lg border border-swoop-border px-3 py-2 text-swoop-muted">
-        <p className="font-semibold text-swoop-dark">Retention outreach · James Whitfield</p>
-        <p>Impact +$22K ARR · Confidence 84%</p>
+    <div className="rounded-2xl border border-swoop-border bg-white p-4">
+      <div className="relative overflow-hidden rounded-xl border border-swoop-border/60 bg-swoop-bg">
+        <div className="relative aspect-[16/10] w-full">
+          <Image
+            src="/images/screenshot-agent-command.png"
+            alt="Agent Command approvals showing AI recommendations with impact math"
+            fill
+            sizes="(max-width: 1024px) 100vw, 560px"
+            className="object-cover"
+          />
+        </div>
       </div>
-      <AnnotationList items={annotations} />
-      <DemoDisclosure className="mt-4 text-[11px]" />
+      <p className="mt-3 text-xs uppercase tracking-[0.3em] text-swoop-muted">Demo data — Oakmont Hills CC · January 2026</p>
+      <p className="mt-1 text-sm text-swoop-muted">Agent Command queues show impact, owners, due dates, and proof before you approve.</p>
+      <DemoDisclosure className="mt-3 text-[11px]" />
     </div>
   )
 }
@@ -468,7 +471,7 @@ export function BoardReportScreenshot() {
     <div className="rounded-2xl border border-swoop-border bg-white p-4 text-xs">
       <p className="font-semibold">Board Report</p>
       <div className="mt-3 space-y-2 text-swoop-muted">
-        <div className="rounded border border-swoop-border px-3 py-2">+$42K protected ARR</div>
+        <div className="rounded border border-swoop-border px-3 py-2">+$42K in annual dues protected</div>
         <div className="rounded border border-swoop-border px-3 py-2">Labor % 29 · Service 94%</div>
         <div className="rounded border border-swoop-border px-3 py-2">11 saves logged this month</div>
       </div>

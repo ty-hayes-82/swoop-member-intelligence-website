@@ -5,7 +5,8 @@ import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
-import DemoDisclosure from '@/components/DemoDisclosure'
+import AnimatedStat from '@/components/AnimatedStat'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -64,22 +65,28 @@ const weeklyFlow = [
 
 const testimonialCards = [
   {
-    quote: 'We used this exact scenario in Monday committee prep and caught two resignations before they landed.',
-    person: 'A. Torres',
-    role: 'GM, Desert Ridge Club',
-    metric: '2 resignations prevented in 5 days',
+    badge: 'GM POV',
+    quote: 'Daily Briefing at 7:15 AM tells me in 30 seconds what matters — the member about to leave, the weather threat, and the saves waiting for approval.',
+    person: 'Richard Thornton, CCM',
+    role: 'General Manager, The Preserve at Pinnacle Peak',
+    metric: '30-second save list before first tee time',
+    remark: 'Stop guessing which complaint or weather shift needs you first.',
   },
   {
-    quote: 'The service recovery list gave us cleaner ownership handoffs than our old spreadsheet board packet.',
-    person: 'M. Reece',
-    role: 'COO, Harbour Town CC',
-    metric: '3 recoveries closed same week',
+    badge: 'Case Study',
+    quote: 'We retained 9 members in 30 days once saves moved to a Monday-first cadence.',
+    person: 'Desert Sky GC — Founding Partner',
+    role: '30-day retention sprint',
+    metric: '$168K in annual dues protected',
+    remark: 'Scripts + owner assignments were ready before 9:00 AM.',
   },
   {
-    quote: 'Routing based on member health changed who got prime slots and improved repeat booking confidence.',
-    person: 'L. Bennett',
-    role: 'Head of Golf, Oakmont Hills GC',
-    metric: '87% tee sheet fill by Monday noon',
+    badge: 'Live Demo',
+    quote: 'Agent Command approvals replaced three email threads per decision.',
+    person: 'Ty Hayes',
+    role: 'Founder, Swoop Golf',
+    metric: '83% of AI recommendations approved live',
+    remark: 'Weekly Oakmont Hills CC walkthrough.',
   },
 ]
 
@@ -116,7 +123,7 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="px-6 py-8 md:py-16" data-animate="fade-up">
+      <section className="px-6 py-8 md:py-16" data-animate="fade-up" data-hero-section>
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
@@ -136,7 +143,7 @@ export default function HomePage() {
                   className={`hover-lift rounded-2xl border p-4 ${stat.accent ? 'border-swoop-green/40 bg-swoop-green/5' : 'border-swoop-border bg-white'}`}
                 >
                   <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">{stat.label}</p>
-                  <p className={`mt-2 text-2xl font-bold ${stat.accent ? 'text-swoop-green-hover' : 'text-swoop-dark'}`}>{stat.value}</p>
+                  <p className={`mt-2 text-2xl font-bold ${stat.accent ? 'text-swoop-green-hover' : 'text-swoop-dark'}`}><AnimatedStat value={stat.value} /></p>
                   <p className="text-xs text-swoop-muted">{stat.note}</p>
                 </div>
               ))}
@@ -227,24 +234,11 @@ export default function HomePage() {
       {/* Section 6 — Social proof */}
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
-          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Founder testimony</p>
-          <blockquote className="mt-3 text-xl leading-relaxed font-semibold">&ldquo;Every Monday we run the Oakmont Hills demo live for GMs and boards. The retention lifts, waitlist recovery, and staffing saves on this site come directly from that environment.&rdquo;</blockquote>
-          <p className="mt-2 text-sm text-white/80">Ty Hayes — Founder, Swoop Golf</p>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonialCards.map((entry, index) => (
-              <article
-                key={entry.person}
-                data-animate="fade-up"
-                data-animate-delay={String(160 + index * 80)}
-                className="hover-lift responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
-                <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Live demo insight</span>
-                <p className="mt-3 text-sm leading-relaxed text-white/90">&ldquo;{entry.quote}&rdquo;</p>
-                <p className="mt-3 text-xs text-white/70">{entry.person} — {entry.role}</p>
-                <p className="mt-3 text-base font-semibold text-white">{entry.metric}</p>
-                <DemoDisclosure tone="dark" />
-              </article>
-            ))}
+          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Testimonials & case studies</p>
+          <h2 className="mt-3 text-2xl font-bold">GMs, founders, and pilots on what changed.</h2>
+          <p className="mt-2 text-sm text-white/70">Live demo data becomes real action plans — saves, labor fixes, and demand recovery that boards can see.</p>
+          <div className="mt-8">
+            <TestimonialCarousel items={testimonialCards} />
           </div>
         </div>
       </section>

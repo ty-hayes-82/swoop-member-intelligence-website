@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import { BoardReportPreview, PipelineExampleCard, AttributionChordMock } from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export const metadata = buildMetadata({
   title: 'Revenue & Pipeline',
@@ -16,10 +17,25 @@ const pipelineFaqs = [
   { question: 'Can I export for board reporting?', answer: 'One-click exports create PDF/CSV packets mapped to your narrative.' },
 ]
 
+const pipelineHighlights = [
+  {
+    title: 'Prospect conversion queue',
+    detail: 'Hot, warm, and cold tiers show sponsor, visit count, total spend, and estimated dues so you know which invitations matter.',
+  },
+  {
+    title: 'Revenue attribution math',
+    detail: 'Each save/action records estimated annual dues impact and links to supporting actions for board-ready storytelling.',
+  },
+  {
+    title: 'Board snapshot ready in one click',
+    detail: 'Top cards roll up hot pipeline value, average days since last visit, and invite-ready counts.',
+  },
+]
+
 export default function RevenuePipelinePage() {
   return (
     <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Revenue & Pipeline</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Prove what was saved, not only what was lost.</h1>
@@ -28,10 +44,25 @@ export default function RevenuePipelinePage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
-          <BoardReportPreview />
-          <PipelineExampleCard />
-          <AttributionChordMock />
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-2xl border border-swoop-border bg-white p-5">
+            <ScreenshotLightbox
+              src="/screenshots/revenue-pipeline.jpg"
+              alt="Revenue and pipeline dashboard screenshot"
+              maxHeight={420}
+              objectPosition="top"
+            />
+            <p className="mt-3 text-sm text-swoop-muted">Prospect conversion queue with dues tiers, sponsor context, and conversion scores. Demo data — Oakmont Hills CC.</p>
+            <DemoDisclosure className="mt-1 text-xs" />
+          </div>
+          <div className="space-y-4">
+            {pipelineHighlights.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-sm font-semibold text-swoop-dark">{card.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{card.detail}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -56,7 +87,7 @@ export default function RevenuePipelinePage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — operational use</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• Review slots with slipping revenue expectations.</li>
-              <li>• Approve AI recommendations tied to ARR impact.</li>
+              <li>• Approve AI recommendations tied to annual dues impact.</li>
               <li>• Update pipeline stages with single-click notes.</li>
             </ul>
           </div>
@@ -102,7 +133,7 @@ export default function RevenuePipelinePage() {
       <section className="px-6 pb-16 text-center">
         <div className="mx-auto max-w-container">
           <h2 className="text-2xl font-bold mb-4">See the per-slot revenue view your board wants.</h2>
-          <p className="text-swoop-muted mb-6">Book a demo to tie every action to ARR impact.</p>
+          <p className="text-swoop-muted mb-6">Book a demo to tie every action to annual dues impact.</p>
           <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
             Book a Demo
           </Link>
