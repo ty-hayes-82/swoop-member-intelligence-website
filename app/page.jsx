@@ -106,7 +106,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Every member has a health score. You just cant see it yet.</h1>
+            <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">Every member has a health score. You just can&apos;t see it yet.</h1>
             <p className="mt-4 max-w-xl text-lg text-swoop-muted">Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-5 py-2.5 text-sm font-semibold text-white">Book a Demo</Link>
