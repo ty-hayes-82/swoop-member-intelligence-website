@@ -1,13 +1,12 @@
 'use client'
 import { useMemo, useState } from 'react'
+import { getSchedulerUrl } from '@/lib/scheduler'
 
 export default function DemoForm({ origin = 'book-demo' }) {
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
 
-  const schedulerUrl = useMemo(() => (
-    process.env.NEXT_PUBLIC_SCHEDULER_URL || 'https://calendly.com/swoopgolf/club-intelligence-walkthrough'
-  ), [])
+  const schedulerUrl = useMemo(() => getSchedulerUrl(), [])
 
   async function handleSubmit(e) {
     e.preventDefault()
