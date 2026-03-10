@@ -1,4 +1,4 @@
-const DEFAULT_SCHEDULER_URL = 'https://calendly.com/swoopgolf/club-intelligence-walkthrough'
+const DEFAULT_SCHEDULER_URL = 'https://calendly.com/swoopgolf/30min'
 
 export default function SchedulerEmbed({
   url,
