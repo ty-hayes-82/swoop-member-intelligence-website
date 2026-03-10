@@ -16,7 +16,16 @@ export const metadata = {
     default: 'Swoop Golf — Club Intelligence for General Managers',
     template: '%s | Swoop Golf',
   },
+  description: defaultMetadata.description,
   metadataBase: new URL('https://swoopgolf.com'),
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    siteName: 'Swoop Golf',
+  },
+  twitter: {
+    ...defaultMetadata.twitter,
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({ children }) {
