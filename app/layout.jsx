@@ -2,6 +2,7 @@ import './globals.css'
 import StickyNav from '@/components/StickyNav'
 import Footer from '@/components/Footer'
 import MobileStickyCTA from '@/components/MobileStickyCTA'
+import RevealProvider from '@/components/RevealProvider'
 import { buildMetadata } from '@/lib/metadata'
 import { PLAN_PRICING, PRICING_PLAN_ORDER, PRICING_SUMMARY } from '@/lib/pricing'
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }} />
       </head>
       <body className="bg-swoop-bg text-swoop-text font-sans antialiased">
+        <RevealProvider />
         <StickyNav />
         <main>{children}</main>
         <Footer />
