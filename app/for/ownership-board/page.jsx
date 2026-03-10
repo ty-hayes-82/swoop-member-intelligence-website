@@ -21,6 +21,14 @@ const boardTools = [
   { tool: 'Quarterly Board Packages', desc: 'Auto-generated reports with key metrics, trend analysis, and comparative benchmarks. No more manual assembly. Export in 30 seconds.' },
 ]
 
+const boardFaqs = [
+  { q: 'What metrics do boards check on Monday?', a: 'Live dues-at-risk, saves vs. losses, and which interventions GM teams approved that week.' },
+  { q: 'Can we integrate this into existing board packets?', a: 'Yes. Export the ownership scorecard as PDF, CSV, or embed the live link in your packet.' },
+  { q: 'How does this help fiduciary oversight?', a: 'Every GM request is tied to predicted impact and tracked payback, so you fund initiatives with evidence.' },
+  { q: 'Does it work for multi-club portfolios?', a: 'Swoop normalizes metrics across properties so you can compare retention, revenue per member, and labor efficiency apples-to-apples.' },
+  { q: 'How fast can we get live data?', a: 'Most boards see their first portfolio dashboard within 2 weeks of connecting the data feeds.' },
+]
+
 export default function OwnershipBoardPage() {
   return (
     <div className="page-stack">
@@ -117,9 +125,72 @@ export default function OwnershipBoardPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See portfolio intelligence in action." 
-        subtext="We'll show you real-time benchmarks, cross-property rollups, and board-ready reporting." 
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday briefing</p>
+            <h3 className="mt-2 text-2xl font-bold">Fiduciary snapshot in five minutes</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Portfolio dues-at-risk with member counts per club.</li>
+              <li>• Capital + staffing asks tied to projected ROI.</li>
+              <li>• GM follow-through on last week&apos;s directives.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday session</p>
+            <h3 className="mt-2 text-2xl font-bold">Board-ready recap</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Saves vs. resignations with dues impact.</li>
+              <li>• Variance to budget on labor, demand, and F&amp;B.</li>
+              <li>• Red/yellow/green callouts that need board decisions.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
+          <h3 className="mt-3 text-2xl font-bold">Ownership scorecard</h3>
+          <p className="mt-3 text-swoop-muted">One-page export that rolls up member health, dues at risk, staffing initiatives, and realized ROI for every property.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-4">
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-center">
+              <p className="text-sm font-semibold">Column A</p>
+              <p className="text-xs text-swoop-muted">Club + dues at risk</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-center">
+              <p className="text-sm font-semibold">Column B</p>
+              <p className="text-xs text-swoop-muted">Actions taken</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-center">
+              <p className="text-sm font-semibold">Column C</p>
+              <p className="text-xs text-swoop-muted">ROI / payback</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-center">
+              <p className="text-sm font-semibold">Column D</p>
+              <p className="text-xs text-swoop-muted">Board decision needed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Ownership &amp; board FAQs</h2>
+          <div className="mt-6 space-y-4">
+            {boardFaqs.map((faq) => (
+              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
+                <h3 className="text-lg font-semibold">{faq.q}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        headline="Book a Demo for your board or ownership team"
+        subtext="We&apos;ll review dues-at-risk, ROI reporting, and capital decision workflows on your data assumptions."
       />
     </div>
   )
