@@ -23,6 +23,13 @@ const gmTools = [
   { tool: 'Agent Command', desc: 'Six AI agents monitoring 24/7. They surface issues, recommend actions, show impact estimates. You approve or dismiss — never hunt for problems.' },
 ]
 
+const gmFaqs = [
+  { q: 'How long does the Monday review take?', a: '25 minutes. Five to scan signals, fifteen to assign outreach, five to log make-good offers.' },
+  { q: 'Can I customize which alerts show up?', a: 'Yes. Tag members, outlets, or KPIs you care about most. The Daily Briefing reorders itself around your priorities.' },
+  { q: 'Does Swoop replace my team?', a: 'No. It removes swivel-chair monitoring so your pros and managers focus on the conversations that matter.' },
+  { q: 'When will I see retention impact?', a: 'Most clubs see their first save within two weeks because Member Intelligence exposes the silent churners immediately.' },
+]
+
 export default function GeneralManagersPage() {
   return (
     <div className="page-stack">
@@ -109,9 +116,68 @@ export default function GeneralManagersPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See your club the way you have always wanted." 
-        subtext="We'll walk you through a typical Monday morning in Swoop — from Daily Briefing to approved AI recommendations." 
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday cadence</p>
+            <h3 className="mt-2 text-2xl font-bold">Operational clarity + retention focus</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• 6 AM Daily Briefing prioritizes members, outlets, staffing.</li>
+              <li>• Assign outreach owners directly from the briefing.</li>
+              <li>• Log promised fixes so the board can see progress Friday.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday recap</p>
+            <h3 className="mt-2 text-2xl font-bold">Board talking points ready in minutes</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Saves by household with dues preserved.</li>
+              <li>• Service gaps fixed vs. still open.</li>
+              <li>• Labor + demand tradeoffs backed by data.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
+          <h3 className="mt-3 text-2xl font-bold">GM ops board</h3>
+          <p className="mt-3 text-swoop-muted">Side-by-side snapshot of member health, outlet performance, and staffing coverage. Use it to run Monday standups and Friday board preps.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column A</p>
+              <p className="text-sm text-swoop-muted">Members with risk + recommended action.</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column B</p>
+              <p className="text-sm text-swoop-muted">Outlet alerts and labor fixes.</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column C</p>
+              <p className="text-sm text-swoop-muted">Board-ready math: dues protected, covers recovered.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">GM FAQs</h2>
+          <div className="mt-6 space-y-4">
+            {gmFaqs.map((faq) => (
+              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
+                <h3 className="text-lg font-semibold">{faq.q}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        headline="Book a Demo for the GM workflow"
+        subtext="We&apos;ll walk your team through a live Monday briefing, assign outreach, and export the Friday board recap together."
       />
     </div>
   )
