@@ -116,7 +116,7 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="px-6 py-8 md:py-16">
+      <section className="px-6 py-8 md:py-16" data-animate="fade-up">
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
@@ -128,8 +128,13 @@ export default function HomePage() {
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {proofStats.map((stat) => (
-                <div key={stat.label} className={`rounded-2xl border p-4 ${stat.accent ? 'border-swoop-green/40 bg-swoop-green/5' : 'border-swoop-border bg-white'}`}>
+              {proofStats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  data-animate="fade-up"
+                  data-animate-delay={String(200 + index * 80)}
+                  className={`hover-lift rounded-2xl border p-4 ${stat.accent ? 'border-swoop-green/40 bg-swoop-green/5' : 'border-swoop-border bg-white'}`}
+                >
                   <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">{stat.label}</p>
                   <p className={`mt-2 text-2xl font-bold ${stat.accent ? 'text-swoop-green-hover' : 'text-swoop-dark'}`}>{stat.value}</p>
                   <p className="text-xs text-swoop-muted">{stat.note}</p>
@@ -137,7 +142,9 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <ProductWalkthroughHero />
+          <div data-animate="fade-scale" data-animate-delay="200">
+            <ProductWalkthroughHero />
+          </div>
         </div>
       </section>
 
@@ -149,8 +156,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">How it works</p>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {howItWorks.map((step) => (
-              <article key={step.title} className="rounded-xl border border-swoop-border/70 bg-swoop-bg px-4 py-5" style={{ borderTop: `3px solid ${step.accent}` }}>
+            {howItWorks.map((step, index) => (
+              <article
+                key={step.title}
+                data-animate="fade-up"
+                data-animate-delay={String(120 + index * 80)}
+                className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg px-4 py-5"
+                style={{ borderTop: `3px solid ${step.accent}` }}>
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white" style={{ backgroundColor: step.accent }}>{step.step}</span>
                   <h3 className="text-lg font-semibold text-swoop-dark">{step.title}</h3>
@@ -194,8 +206,12 @@ export default function HomePage() {
       {/* Section 5 — Weekly flow */}
       <section className="px-6">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
-          {weeklyFlow.map((block) => (
-            <article key={block.title} className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
+          {weeklyFlow.map((block, index) => (
+            <article
+              key={block.title}
+              data-animate="fade-up"
+              data-animate-delay={String(120 + index * 80)}
+              className="hover-lift rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">{block.title}</p>
               <h3 className="mt-2 text-xl font-semibold text-swoop-dark">{block.title.includes('Monday') ? 'What you check in 10 minutes' : 'What you prove by Friday'}</h3>
               <ul className="mt-4 space-y-2 text-sm" style={{ color: '#3d4f44' }}>
@@ -216,8 +232,12 @@ export default function HomePage() {
           <p className="mt-2 text-sm text-white/80">Ty Hayes — Founder, Swoop Golf</p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonialCards.map((entry) => (
-              <article key={entry.person} className="responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
+            {testimonialCards.map((entry, index) => (
+              <article
+                key={entry.person}
+                data-animate="fade-up"
+                data-animate-delay={String(160 + index * 80)}
+                className="hover-lift responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
                 <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Live demo insight</span>
                 <p className="mt-3 text-sm leading-relaxed text-white/90">&ldquo;{entry.quote}&rdquo;</p>
                 <p className="mt-3 text-xs text-white/70">{entry.person} — {entry.role}</p>
@@ -240,8 +260,12 @@ export default function HomePage() {
             <Link href="/pricing" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Full pricing breakdown →</Link>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {pricingTiers.map((tier) => (
-              <article key={tier.name} className={`relative flex flex-col rounded-2xl border ${tier.highlighted ? 'border-swoop-dark bg-swoop-dark text-white' : 'border-swoop-border bg-white text-swoop-dark'} p-6`}>
+            {pricingTiers.map((tier, index) => (
+              <article
+                key={tier.name}
+                data-animate="fade-up"
+                data-animate-delay={String(140 + index * 100)}
+                className={`hover-lift relative flex flex-col rounded-2xl border ${tier.highlighted ? 'border-swoop-dark bg-swoop-dark text-white' : 'border-swoop-border bg-white text-swoop-dark'} p-6`}>
                 {tier.badge && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-swoop-green px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-swoop-dark">{tier.badge}</span>
                 )}

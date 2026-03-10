@@ -6,7 +6,7 @@ export default function CTASection({
   note = null,
 }) {
   return (
-    <section className="bg-swoop-dark py-16 px-6">
+    <section className="bg-swoop-dark py-16 px-6" data-animate="fade-up">
       <div className="max-w-container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{headline}</h2>
         <p className="text-lg text-white/70 mb-6 max-w-2xl mx-auto">{subtext}</p>
