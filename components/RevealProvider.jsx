@@ -15,6 +15,14 @@ export default function RevealProvider({ threshold = DEFAULT_THRESHOLD }) {
   const pathname = usePathname()
 
   useEffect(() => {
+    const root = document.documentElement
+    if (!root.classList.contains('reveal-enabled')) {
+      root.classList.add('reveal-enabled')
+    }
+    return () => root.classList.remove('reveal-enabled')
+  }, [])
+
+  useEffect(() => {
     const sections = Array.from(document.querySelectorAll('section'))
     sections.forEach((section, index) => {
       if (section.dataset.animate === 'false' || section.dataset.animateSkip === 'true') return
