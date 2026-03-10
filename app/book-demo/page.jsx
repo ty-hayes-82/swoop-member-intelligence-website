@@ -128,7 +128,7 @@ export default function BookDemoPage() {
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — what you get on the call</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• 30-minute walkthrough of your club's risk profile using demo data</li>
+              <li>• 30-minute walkthrough of your club&apos;s risk profile using demo data</li>
               <li>• Q&A on integrations, agent approvals, and handoffs</li>
             </ul>
           </div>
@@ -136,7 +136,7 @@ export default function BookDemoPage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — what you take to your board</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• Sample briefing sheet showcasing engagement decay + saves</li>
-              <li>• ROI estimate tied to your board's retention targets</li>
+              <li>• ROI estimate tied to your board&apos;s retention targets</li>
             </ul>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function BookDemoPage() {
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Demo agenda</p>
           <div className="space-y-3 text-sm text-swoop-muted">
             {[
-              '1. Your club's current blind spots',
+              '1. Your club&apos;s current blind spots',
               '2. Live walkthrough of member health scoring',
               '3. AI agent recommendation examples',
               '4. Custom ROI estimate for your club',
