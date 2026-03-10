@@ -17,14 +17,17 @@ export default function CaseStudyCard({ href, eyebrow, title, subtitle, stats = 
         <span className="text-sm text-swoop-accent font-medium">Read the full story →</span>
       </div>
       {stats.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="bg-swoop-bg rounded-lg p-4 text-center">
-              <p className={`font-mono text-2xl font-bold ${stat.color || 'text-swoop-green'}`}>{stat.value}</p>
-              <p className="text-xs text-swoop-muted mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-swoop-bg rounded-lg p-4 text-center">
+                <p className={`font-mono text-2xl font-bold ${stat.color || 'text-swoop-green'}`}>{stat.value}</p>
+                <p className="text-xs text-swoop-muted mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-[11px] uppercase tracking-widest text-swoop-muted/80">Demo data — Oakmont Hills CC (Jan 2026)</p>
+        </>
       )}
     </Link>
   )

@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/metadata'
 import CTASection from '@/components/CTASection'
+import DemoDisclosure from '@/components/DemoDisclosure'
 import { AtRiskRosterMock, RoutingComparisonMock, StaffingForecastGrid } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -126,6 +127,7 @@ export default function HowItWorksPage() {
               </li>
             </ul>
             <p className="mt-4 text-sm font-semibold text-swoop-ink">Live signal ranking delivered by Day 10.</p>
+            <DemoDisclosure className="mt-4" />
           </article>
 
           <article className="rounded-2xl border border-swoop-border bg-white p-6">
@@ -136,7 +138,7 @@ export default function HowItWorksPage() {
               <li>$312 per slot average when retention routing is approved.</li>
               <li>6-day advance warning on at-risk waitlist demand.</li>
             </ul>
-            <p className="mt-5 text-xs uppercase tracking-wide text-swoop-muted">Demo data scenario — Oakmont Hills CC (Jan 2026)</p>
+            <DemoDisclosure className="mt-5" />
           </article>
 
           <article className="rounded-2xl border border-dashed border-swoop-border bg-white p-6">
