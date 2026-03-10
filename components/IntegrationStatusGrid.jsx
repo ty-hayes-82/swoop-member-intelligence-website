@@ -3,13 +3,13 @@
 import { useMemo, useState } from 'react'
 
 const connections = [
-  { vendor: 'ForeTees', category: 'Tee sheet', status: 'Connected', lastSync: '2m ago' },
-  { vendor: 'Jonas', category: 'Club management', status: 'Connected', lastSync: '9m ago' },
-  { vendor: 'Northstar', category: 'Club management', status: 'Syncing', lastSync: 'Live' },
-  { vendor: 'Clubessential', category: 'Club management', status: 'Connected', lastSync: '12m ago' },
-  { vendor: 'Square', category: 'Payments', status: 'Queued', lastSync: 'Waiting' },
-  { vendor: 'ADP', category: 'Payroll', status: 'Connected', lastSync: '35m ago' },
-  { vendor: 'Dining POS (generic)', category: 'Dining POS', status: 'Syncing', lastSync: 'Live' },
+  { vendor: 'Leading tee sheet platforms', category: 'Tee sheet & booking', status: 'Connected', lastSync: '2m ago' },
+  { vendor: 'Traditional club management suites', category: 'Club operations', status: 'Connected', lastSync: '9m ago' },
+  { vendor: 'Dining POS + bar systems', category: 'Food & beverage', status: 'Syncing', lastSync: 'Live' },
+  { vendor: 'Member CRM / communications', category: 'Engagement', status: 'Connected', lastSync: '12m ago' },
+  { vendor: 'Payments & accounting stacks', category: 'Finance', status: 'Queued', lastSync: 'Waiting' },
+  { vendor: 'Labor & payroll platforms', category: 'Staffing', status: 'Connected', lastSync: '35m ago' },
+  { vendor: 'Custom CSV / API feeds', category: 'Data bridge', status: 'Syncing', lastSync: 'Live' },
 ]
 
 const filters = ['All', 'Connected', 'Syncing', 'Queued']
@@ -34,7 +34,7 @@ export default function IntegrationStatusGrid() {
         <div>
           <p className="text-xs uppercase tracking-wide text-swoop-muted">Integrations</p>
           <h3 className="text-xl font-semibold">Live system status</h3>
-          <p className="text-sm text-swoop-muted">Swoop connects to your existing club management system (Jonas, Northstar, Clubessential) — no rip-and-replace required. CSV fallback is available.</p>
+          <p className="text-sm text-swoop-muted">Swoop connects to traditional club management, POS, staffing, and engagement platforms — no rip-and-replace required. Secure APIs and CSV fallback are both supported.</p>
         </div>
         <div className="flex gap-2 flex-wrap">
           {filters.map((option) => (

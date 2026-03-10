@@ -5,68 +5,86 @@ import TrustedBetaStrip from '@/components/TrustedBetaStrip'
 import MorningBriefingPreview from '@/components/MorningBriefingPreview'
 import {
   BoardReportPreview,
-  AtRiskRosterMock,
   RoutingComparisonMock,
-  DailyBriefingScreenshot,
   AgentCommandScreenshot,
-  TeeSheetScreenshot,
-  MemberRosterScreenshot,
-  BoardReportScreenshot,
 } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Platform Overview',
-  description: 'Give your GM team one page to see problems, fix them, and show the board proof — without rebuilding your stack.',
+  description: 'See It. Fix It. Prove It. — one workflow for private club operators who need action, not dashboards.',
   path: '/platform',
 })
 
-const weeks = [
+const frameworkSections = [
   {
-    title: 'Week 1 Intake',
-    detail: 'Connect feeds, line up member records, and verify baseline risk coverage.',
-    mock: <AtRiskRosterMock />,
+    id: 'see-it',
+    label: 'See It',
+    headline: 'One daily briefing shows every risk before noon.',
+    description:
+      'Member health, tee-sheet demand, staffing coverage, and service issues in a single rolling view so you know where to act before complaints land on your desk.',
+    bullets: [
+      'Member health scores update hourly with live engagement and spend shifts',
+      'Demand lens ties cancellations to downstream revenue loss',
+      'Staffing and service KPIs highlight the next shift likely to miss standards',
+    ],
+    component: <MorningBriefingPreview />,
   },
   {
-    title: 'Week 2 Activation',
-    detail: 'Route first workflows for demand, staffing, and member saves.',
-    mock: <RoutingComparisonMock />,
+    id: 'fix-it',
+    label: 'Fix It',
+    headline: 'AI agents route the next best move with context.',
+    description:
+      'Approve ready-to-send outreach, staffing adjustments, and demand fills. Every suggestion includes the why, the financial impact, and the playbook.',
+    bullets: [
+      'Member save tasks include call scripts, health history, and value at risk',
+      'Demand optimizer fills gaps with members who drive ancillary revenue',
+      'Service recovery auto-drafts apologies and escalations when thresholds break',
+    ],
+    component: <AgentCommandScreenshot />,
   },
   {
-    title: 'Week 3 Automations',
-    detail: 'Enable automated board snapshots and ready-to-send workflows.',
-    mock: <BoardReportPreview />,
+    id: 'prove-it',
+    label: 'Prove It',
+    headline: 'Board-ready proof without rebuilding a spreadsheet Friday night.',
+    description:
+      'Retention impact, dollars recovered, and AI agent performance roll up into a monthly executive view — ready to paste into your packet.',
+    bullets: [
+      'Board snapshot auto-builds with member saves, revenue impact, and staffing intel',
+      'Every approved action is attributed back to dollars and satisfaction gain',
+      'Exportable packets keep finance, ownership, and committees aligned',
+    ],
+    component: <BoardReportPreview />,
   },
-]
-
-const screenshotDeck = [
-  { title: 'Daily Briefing', component: <DailyBriefingScreenshot /> },
-  { title: 'Agent Command', component: <AgentCommandScreenshot /> },
-  { title: 'Tee Sheet routing', component: <TeeSheetScreenshot /> },
-  { title: 'Member roster', component: <MemberRosterScreenshot /> },
-  { title: 'Board report', component: <BoardReportScreenshot /> },
 ]
 
 const platformFaqs = [
   {
-    question: 'What are lenses?',
-    answer: 'Lenses are operational views: member health, demand, F&B, staffing, revenue, and location.',
+    question: 'How does the See It → Fix It → Prove It flow work?',
+    answer: 'Briefing surfaces risks, agents draft actions, and reporting packages the outcomes — using the same underlying data model.',
   },
   {
     question: 'What data sources are required?',
-    answer: 'Tee sheet and POS at minimum. Email and CRM unlock deeper insights.',
+    answer: 'Tee sheet and POS are the foundations. CRM, email, and staffing systems deepen the intelligence.',
   },
   {
-    question: 'How is data governed?',
-    answer: 'All data stays in your Vercel Postgres instance. No cross-club sharing.',
+    question: 'Where does our data live?',
+    answer: 'In your Vercel Postgres instance. Swoop is the intelligence layer, not the system of record.',
   },
   {
-    question: 'How long does adoption take?',
-    answer: 'Most teams are using the Daily Briefing within 48 hours of setup.',
+    question: 'How long does it take to deploy?',
+    answer: 'Most clubs connect sources in week one, route actions in week two, and automate board packets by week three.',
   },
   {
-    question: 'Can I customize what appears in my briefing?',
-    answer: 'Yes. Each lens and alert threshold is configurable.',
+    question: 'Can we customize the lenses and alerts?',
+    answer: 'Yes. Each lens, metric, and threshold is configurable per club.',
   },
+]
+
+const boardSnapshot = [
+  { metric: 'Member Health Index', current: '73.5', prior: '68.2', trend: 'Up' },
+  { metric: 'Dues at Risk', current: '$633K', prior: '$891K', trend: 'Down' },
+  { metric: 'Tee Time Yield', current: '94%', prior: '87%', trend: 'Up' },
+  { metric: 'Active Saves', current: '12', prior: '8', trend: 'Up' },
 ]
 
 export default function PlatformPage() {
@@ -75,58 +93,62 @@ export default function PlatformPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Platform</p>
-          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">From Monday briefing to Friday board proof in one view.</h1>
+          <h1 className="hero-headline mt-4 text-4xl font-bold md:text-5xl">See it. Fix it. Prove it — in the same workflow.</h1>
         </div>
       </section>
 
       <TrustedBetaStrip />
 
       <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
-          {weeks.map((week) => (
-            <article key={week.title} className="responsive-card rounded-2xl border border-swoop-border bg-white p-6">
-              <h2 className="text-xl font-semibold">{week.title}</h2>
-              <p className="mt-2 text-sm text-swoop-muted">{week.detail}</p>
-              <div className="mt-4">{week.mock}</div>
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6 text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-swoop-muted">Framework</p>
+          <h2 className="mt-3 text-2xl font-bold">Every private club workflow follows the same pattern.</h2>
+          <p className="mt-2 text-swoop-muted">
+            <strong>See the risk</strong>, <strong>fix it with approval-grade actions</strong>, and <strong>prove the outcome</strong>. Swoop stitches those steps together without ripping out your tee sheet, POS, or CRM.
+          </p>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container space-y-12">
+          {frameworkSections.map((section, index) => (
+            <article
+              key={section.id}
+              id={section.id}
+              className="responsive-card grid gap-8 rounded-2xl border border-swoop-border bg-white p-6 lg:grid-cols-[1.1fr_1fr]"
+            >
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-swoop-muted">{section.label}</p>
+                <h2 className="mt-2 text-2xl font-bold">{section.headline}</h2>
+                <p className="mt-3 text-sm text-swoop-muted">{section.description}</p>
+                <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+                  {section.bullets.map((bullet) => (
+                    <li key={bullet}>• {bullet}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-swoop-border bg-swoop-bg/40 p-4">{section.component}</div>
             </article>
           ))}
         </div>
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container">
-          <MorningBriefingPreview />
-        </div>
-      </section>
-
-      <section className="px-6">
-        <div className="responsive-card mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Annotated product screenshots</p>
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
-            {screenshotDeck.map((shot) => (
-              <div key={shot.title}>{shot.component}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — your workflow across lenses</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Daily briefing checklist</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Check member health scores for overnight changes</li>
-              <li>• Review tee sheet demand and cancellation risks</li>
-              <li>• Approve AI-recommended outreach and staffing adjustments</li>
+              <li>• Member saves ranked by risk, spend, and loyalty impact</li>
+              <li>• Demand and cancellation intel tied to downstream revenue</li>
+              <li>• Staffing gaps flagged with expected covers at risk</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board packet outputs</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Board packet outputs</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Member retention rate and trend</li>
-              <li>• Revenue per available tee time</li>
-              <li>• F&B covers forecast accuracy</li>
-              <li>• Cumulative agent impact report</li>
+              <li>• Retention impact and dues saved</li>
+              <li>• Agent action log with financial attribution</li>
+              <li>• Operational risks carried into next week</li>
             </ul>
           </div>
         </div>
@@ -134,31 +156,28 @@ export default function PlatformPage() {
 
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Sample board packet</p>
-          <div className="overflow-x-auto">
-            <div className="rounded-2xl border border-dashed border-swoop-border bg-[#F5F5F5] p-6 text-left">
-              <h3 className="text-xl font-semibold text-swoop-dark">Monthly Board Report — Oakmont Hills CC · January 2026</h3>
-              <table className="mt-4 w-full text-sm">
-                <thead className="text-left text-xs uppercase tracking-wide text-swoop-muted">
-                  <tr><th className="py-2">Metric</th><th>This Month</th><th>Prior Month</th><th>Trend</th></tr>
-                </thead>
-                <tbody>
-                  {[
-                    { metric: 'Member Health Index', current: '73.5', prior: '68.2', trend: 'Up' },
-                    { metric: 'Dues at Risk', current: '$633K', prior: '$891K', trend: 'Down' },
-                    { metric: 'Tee Time Yield', current: '94%', prior: '87%', trend: 'Up' },
-                    { metric: 'Active Saves', current: '12', prior: '8', trend: 'Up' },
-                  ].map((row) => (
-                    <tr key={row.metric} className="border-t border-swoop-border/60">
-                      <td className="py-2 font-semibold">{row.metric}</td>
-                      <td>{row.current}</td>
-                      <td>{row.prior}</td>
-                      <td>{row.trend}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <h2 className="text-xl font-semibold">Sample board-ready snapshot</h2>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-swoop-border/60 bg-[#F8F8F8] p-6">
+            <table className="w-full text-sm">
+              <thead className="text-left text-xs uppercase tracking-wide text-swoop-muted">
+                <tr>
+                  <th className="py-2">Metric</th>
+                  <th>This Month</th>
+                  <th>Prior Month</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody>
+                {boardSnapshot.map((row) => (
+                  <tr key={row.metric} className="border-t border-swoop-border/50">
+                    <td className="py-2 font-semibold">{row.metric}</td>
+                    <td>{row.current}</td>
+                    <td>{row.prior}</td>
+                    <td>{row.trend}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -184,10 +203,10 @@ export default function PlatformPage() {
         ctaLabel="Book a Demo"
         ctaHref="/book-demo"
       >
-        <BoardReportPreview />
+        <RoutingComparisonMock />
       </ProofStack>
 
-      <CTASection headline="See the week-by-week rollout on your stack." subtext="No rip-and-replace required." />
+      <CTASection headline="See the See It → Fix It → Prove It flow on your stack." subtext="No rip-and-replace required." />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
+import Image from 'next/image'
 import TrustStrip from '@/components/TrustStrip'
 import TrustedBetaStrip from '@/components/TrustedBetaStrip'
 import CTASection from '@/components/CTASection'
@@ -93,74 +94,84 @@ function DailyBriefingMock() {
     { label: '06:45', text: '3 AI agent actions waiting approval', type: 'agent' },
     { label: '09:10', text: 'At-risk member checked in', type: 'member' },
   ]
+  const statCards = [
+    { label: 'Health score', value: '74', sub: '▲ 4 vs last week' },
+    { label: 'Members flagged', value: '6', sub: 'Personal outreach today' },
+    { label: 'Revenue at risk', value: '$54K', sub: 'If no action is taken' },
+  ]
 
   return (
-    <div className="w-full max-w-3xl rounded-[32px] border border-white/10 bg-gradient-to-br from-[#101A2E] via-[#07101F] to-[#010308] p-6 text-left text-white shadow-[0_25px_65px_rgba(12,16,32,0.45)]">
-      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/60">
+    <div className="w-full max-w-4xl rounded-[36px] border border-white/10 bg-[#050B16] p-6 text-left text-white shadow-[0_30px_70px_rgba(6,10,24,0.55)]">
+      <div className="flex flex-wrap items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/70">
         <span>Daily Briefing</span>
         <span className="text-white/50">Oakmont Hills · 6:00 AM</span>
       </div>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-3">
-        {[{
-          label: 'Health score',
-          value: '74',
-          sub: '▲ 4 vs last week',
-        }, {
-          label: 'Members flagged',
-          value: '6',
-          sub: 'Personal outreach today',
-        }, {
-          label: 'Revenue at risk',
-          value: '$54K',
-          sub: 'If no action is taken',
-        }].map((card) => (
-          <div key={card.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-white/50">{card.label}</p>
-            <p className="mt-1 text-3xl font-semibold">{card.value}</p>
-            <p className="text-sm text-white/70">{card.sub}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-6 grid gap-4 lg:grid-cols-[1.6fr,1fr]">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <p className="text-xs font-semibold uppercase tracking-widest text-white/60">At-risk members today</p>
-          <div className="mt-4 space-y-3">
-            {riskMembers.map((member) => (
-              <div key={member.name} className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-semibold text-white">{member.name}</p>
-                  <p className="text-xs text-white/60">{member.archetype}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs font-semibold text-[#F97316]">Score {member.score}</p>
-                  <p className="text-[11px] text-white/60">{member.due}</p>
-                </div>
+      <div className="mt-5 grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/40">
+          <Image
+            src="/screenshots/daily-briefing.png"
+            alt="Daily Briefing dashboard"
+            width={1400}
+            height={900}
+            className="h-full w-full object-cover brightness-[0.92]"
+            priority
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#050B16]/90 via-transparent to-[#041028]/40" />
+          <div className="pointer-events-none absolute top-4 left-4 flex gap-3">
+            {statCards.map((card) => (
+              <div key={card.label} className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">{card.label}</p>
+                <p className="text-2xl font-semibold text-white">{card.value}</p>
+                <p className="text-[11px] text-white/70">{card.sub}</p>
               </div>
             ))}
+          </div>
+          <div className="pointer-events-none absolute bottom-4 left-4 rounded-full border border-white/25 bg-black/40 px-4 py-2 text-[11px] font-semibold text-white">
+            Live demo — AI agents standing by
           </div>
         </div>
-        <div className="rounded-2xl border border-[#F97316]/30 bg-[#F97316]/10 p-5 text-[#FFEDD5]">
-          <p className="text-xs font-semibold uppercase tracking-widest">Today’s actions</p>
-          <div className="mt-4 space-y-4">
-            {actionItems.map((item) => (
-              <div key={item.label} className="rounded-xl border border-white/20 bg-white/5/20 p-3">
-                <p className="text-sm font-semibold">{item.label}</p>
-                <p className="text-xs text-white/80">{item.detail}</p>
-                <p className="text-[11px] text-[#FED7AA]">{item.impact}</p>
-              </div>
-            ))}
+
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">At-risk members today</p>
+            <div className="mt-4 space-y-3">
+              {riskMembers.map((member) => (
+                <div key={member.name} className="flex items-start justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                  <div>
+                    <p className="text-sm font-semibold text-white">{member.name}</p>
+                    <p className="text-xs text-white/60">{member.archetype}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs font-semibold text-[#F97316]">Score {member.score}</p>
+                    <p className="text-[11px] text-white/60">{member.due}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-white/70">Approve in Agent Command →</p>
+
+          <div className="rounded-2xl border border-[#F97316]/30 bg-[#F97316]/10 p-5 text-[#FFECD0]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em]">Today’s actions</p>
+            <div className="mt-4 space-y-3">
+              {actionItems.map((item) => (
+                <div key={item.label} className="rounded-xl border border-white/20 bg-white/5/30 p-3">
+                  <p className="text-sm font-semibold">{item.label}</p>
+                  <p className="text-xs text-white/80">{item.detail}</p>
+                  <p className="text-[11px] text-[#FED7AA]">{item.impact}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-white/70">Approve in Agent Command →</p>
+          </div>
         </div>
       </div>
 
       <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
-        <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Timeline</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/60">Timeline</p>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {timeline.map((event) => (
-            <div key={event.label} className="flex flex-col gap-1">
+            <div key={event.label} className="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
               <span className="text-xs font-semibold text-white/70">{event.label}</span>
               <span className="text-sm text-white">{event.text}</span>
             </div>
@@ -168,7 +179,7 @@ function DailyBriefingMock() {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center justify-between text-[11px] text-white/60">
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] text-white/60">
         <span>Demo environment — simulated Oakmont Hills data</span>
         <span>CSV fallback · Tee sheet · POS · CRM</span>
       </div>

@@ -9,7 +9,7 @@ export const metadata = buildMetadata({
 })
 
 const fbFaqs = [
-  { question: 'What POS systems are supported?', answer: 'Jonas, Northstar, Clubessential, Lightspeed, and other API-friendly platforms.' },
+  { question: 'What POS systems are supported?', answer: 'Swoop works with leading club POS and dining platforms via secure API or CSV connections.' },
   { question: 'How far ahead are covers predicted?', answer: 'Rolling 7-day forecasts with intra-day refresh based on pace and weather.' },
   { question: 'Can it handle multiple outlets?', answer: 'Yes. Each outlet gets its own forecast, staffing view, and upsell prompts.' },
   { question: 'Does it account for events?', answer: 'Event RSVPs and banquet sheets feed the forecast and staffing view automatically.' },

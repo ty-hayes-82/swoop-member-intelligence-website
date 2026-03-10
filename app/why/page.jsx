@@ -18,7 +18,7 @@ const whyFaqs = [
   { question: 'Why not just use our CRM?', answer: 'CRMs log interactions. Swoop watches behavior across systems and tells you who is at risk before you interact.' },
   { question: 'Why not spreadsheets?', answer: 'Spreadsheets show historical data. Swoop combines live signals so you act before a resignation email appears.' },
   { question: 'What is the switching cost?', answer: 'None. Swoop overlays your stack. No need to rip out tee sheet, POS, or CRM tools.' },
-  { question: 'How is Swoop different from Noteefy-style tools?', answer: 'Waitlist tools focus on slots. Swoop prioritizes members by health, spend, and retention impact across every lens.' },
+  { question: 'How is Swoop different from waitlist-only tools?', answer: 'Most waitlist apps fill slots. Swoop prioritizes members based on health, spend, and retention impact so every slot protects revenue.' },
 ]
 
 
