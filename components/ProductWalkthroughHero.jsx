@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import DemoDisclosure from '@/components/DemoDisclosure'
 
@@ -23,7 +23,7 @@ const slides = [
       },
       {
         title: 'Weather + tee sheet risk',
-        detail: 'Wind, pace, and understaffing alerts tied directly to today’s tee times.',
+        detail: 'Wind, pace, and understaffing alerts tied directly to today\u2019s tee times.',
       },
     ],
   },
@@ -73,25 +73,101 @@ const slides = [
   },
 ]
 
+const CYCLE_INTERVAL = 6000 // 6 seconds per tab
+
 export default function ProductWalkthroughHero() {
   const [index, setIndex] = useState(0)
+  const [fade, setFade] = useState(true)
+  const [progress, setProgress] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const timerRef = useRef(null)
+  const progressRef = useRef(null)
+  const tabContainerRef = useRef(null)
   const slide = slides[index]
 
+  // Switch tab with crossfade
+  const switchTab = useCallback((newIndex) => {
+    setFade(false)
+    setTimeout(() => {
+      setIndex(newIndex)
+      setFade(true)
+      setProgress(0)
+    }, 150)
+  }, [])
+
+  // Auto-cycle with progress
+  useEffect(() => {
+    if (paused) return
+
+    const startTime = Date.now()
+    const tick = () => {
+      const elapsed = Date.now() - startTime
+      const pct = Math.min((elapsed / CYCLE_INTERVAL) * 100, 100)
+      setProgress(pct)
+
+      if (elapsed >= CYCLE_INTERVAL) {
+        switchTab((index + 1) % slides.length)
+        return
+      }
+      progressRef.current = requestAnimationFrame(tick)
+    }
+    progressRef.current = requestAnimationFrame(tick)
+
+    return () => {
+      if (progressRef.current) cancelAnimationFrame(progressRef.current)
+    }
+  }, [index, paused, switchTab])
+
+  // Manual tab click
+  const handleTabClick = (i) => {
+    if (progressRef.current) cancelAnimationFrame(progressRef.current)
+    switchTab(i)
+  }
+
   return (
-    <div className="rounded-3xl border border-swoop-border bg-white p-5 shadow-xl">
+    <div
+      className="hero-mockup-container rounded-3xl border border-swoop-border bg-white p-5 shadow-xl"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-2" role="tablist">
+        {/* Tab pills with sliding indicator */}
+        <div className="relative flex flex-wrap gap-2" role="tablist" ref={tabContainerRef}>
           {slides.map((item, i) => (
             <button
               key={item.id}
               type="button"
-              onClick={() => setIndex(i)}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-                i === index ? 'bg-swoop-dark text-white' : 'bg-swoop-bg text-swoop-dark'
+              onClick={() => handleTabClick(i)}
+              className={`relative z-10 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-200 ${
+                i === index ? 'text-white' : 'bg-swoop-bg text-swoop-dark hover:bg-swoop-border'
               }`}
               aria-pressed={i === index}
             >
+              {i === index && (
+                <span
+                  className="absolute inset-0 rounded-full bg-swoop-dark"
+                  style={{
+                    zIndex: -1,
+                    transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                />
+              )}
               {item.label}
+              {/* Progress bar under active tab */}
+              {i === index && (
+                <span
+                  className="absolute bottom-0 left-2 right-2 h-[2px] rounded-full overflow-hidden"
+                  style={{ zIndex: 1 }}
+                >
+                  <span
+                    className="block h-full rounded-full bg-swoop-green"
+                    style={{
+                      width: `${progress}%`,
+                      transition: 'width 50ms linear',
+                    }}
+                  />
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -100,7 +176,14 @@ export default function ProductWalkthroughHero() {
         </span>
       </div>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr),280px]">
+      {/* Content area with crossfade */}
+      <div
+        className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr),280px]"
+        style={{
+          opacity: fade ? 1 : 0,
+          transition: 'opacity 200ms ease-in-out',
+        }}
+      >
         <div>
           <div className="relative overflow-hidden rounded-2xl border border-swoop-border bg-swoop-dark/95 p-3">
             <div className="relative mx-auto aspect-[16/9] w-full max-w-[720px]">

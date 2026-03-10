@@ -40,6 +40,11 @@ body {
   line-height: 1.2 !important;
 }
 
+.hero-mockup-container {
+  max-height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
 button,
 input[type="button"],
 input[type="submit"],
