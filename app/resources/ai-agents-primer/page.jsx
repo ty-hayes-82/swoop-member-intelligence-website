@@ -61,6 +61,14 @@ const principles = [
   },
 ]
 
+const aiAgentFaqs = [
+  { q: 'Where do I start with agents?', a: 'Begin with Member Pulse. It watches health scores, tee sheet decay, and complaint history, then suggests who needs outreach each Monday.' },
+  { q: 'How are approvals handled?', a: 'Every agent recommendation comes with an Approve or Snooze control. Nothing executes without your click and the action log records who approved it.' },
+  { q: 'What happens on Fridays?', a: 'You run a governance cadence: review agent accuracy, close the loop on completed actions, and note where playbooks need tweaks.' },
+  { q: 'Do I need data science staff?', a: 'No. Agents plug into the systems you already have. Swoop handles modeling. Your team reviews recommendations just like triaging email.' },
+  { q: 'How long until we see outcomes?', a: 'Most clubs see measurable saves in the first 30 days because Member Pulse and Service Recovery act on existing at-risk members immediately.' },
+]
+
 const misconceptions = [
   {
     myth: 'AI agents will automate my job away',
