@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
+import PrimaryCTA from '@/components/PrimaryCTA'
 import { PLAN_PRICING } from '@/lib/pricing'
 
 export const metadata = buildMetadata({
@@ -78,13 +79,19 @@ export default function PricingPage() {
                   ))}
                 </div>
               )}
-              <Link href={tier.href} className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-swoop-dark px-4 py-2 text-sm font-semibold text-white">
-                Book a Demo
+              <Link href={tier.href} className="mt-4 text-sm font-semibold text-swoop-accent underline underline-offset-4">
+                See plan details
               </Link>
             </article>
           ))}
         </div>
       </section>
+
+      <div className="px-6 pb-10">
+        <div className="mx-auto max-w-container text-center">
+          <PrimaryCTA />
+        </div>
+      </div>
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
@@ -143,9 +150,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-container">
           <h2 className="text-2xl font-bold mb-4">Ready to run the math on your club?</h2>
           <p className="text-swoop-muted mb-6">Book a demo and see exactly how Swoop automates these frameworks.</p>
-          <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white">
-            Book a Demo
-          </Link>
+          <PrimaryCTA />
         </div>
       </section>
     </div>

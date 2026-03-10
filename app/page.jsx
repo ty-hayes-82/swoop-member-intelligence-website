@@ -7,6 +7,7 @@ import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
 import AnimatedStat from '@/components/AnimatedStat'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
+import PrimaryCTA from '@/components/PrimaryCTA'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -130,7 +131,7 @@ export default function HomePage() {
             <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Every member has a health score. You just can&apos;t see it yet.</h1>
             <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-green px-5 py-2.5 text-sm font-semibold text-swoop-dark hover:bg-swoop-green-hover transition">Book a Demo</Link>
+              <PrimaryCTA tone="dark" />
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
