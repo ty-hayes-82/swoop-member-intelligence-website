@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import CTASection from '@/components/CTASection'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export const metadata = buildMetadata({
   title: 'Case Studies',
@@ -105,6 +106,7 @@ export default function CaseStudiesPage() {
               <li>Controller confirmed dues at risk ($22K) + F&B drop (−38% trailing 8 weeks).</li>
               <li>GM assigned Member Experience lead to approve outreach script.</li>
             </ul>
+            <DemoDisclosure className="mt-5" />
           </article>
           <article className="rounded-2xl border border-swoop-border bg-white p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday — What the board saw</p>
@@ -114,7 +116,7 @@ export default function CaseStudiesPage() {
               <li>Retention queue rerouted 6 members, adding 91% fill rate coverage.</li>
               <li>Board packet screenshot shows action → owner → timestamp.</li>
             </ul>
-            <p className="mt-5 text-xs uppercase tracking-wide text-swoop-muted">Demo data: Oakmont Hills CC — Jan 2026.</p>
+            <DemoDisclosure className="mt-5" />
           </article>
           <article className="rounded-2xl border border-dashed border-swoop-border bg-white p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
@@ -137,6 +139,7 @@ export default function CaseStudiesPage() {
                   <h3 className="mt-2 text-xl font-semibold">{study.name}</h3>
                   <p className="mt-1 text-sm font-semibold text-swoop-ink">{study.stat}</p>
                   <p className="mt-2 text-sm text-swoop-muted">{study.summary}</p>
+                  <DemoDisclosure className="mt-3 text-xs" />
                   <Link href={study.href} className="mt-4 inline-flex text-sm font-semibold text-swoop-accent">Read the full walkthrough →</Link>
                 </article>
               ))}

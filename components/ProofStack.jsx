@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export default function ProofStack({
   statLabel,
   statValue,
-  statContext = 'Demo data — Oakmont Hills CC (Jan 2026)',
+  statContext = 'Demo data scenario — Oakmont Hills CC (Jan 2026)',
   demoLabel,
   demoContext = 'Captured in current release',
   quote = null,
@@ -20,13 +21,13 @@ export default function ProofStack({
         <article className="rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">{statLabel}</p>
           <p className="mt-3 text-3xl font-bold">{statValue}</p>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-swoop-muted/80">{statContext}</p>
+          <DemoDisclosure className="mt-3" label={statContext} />
         </article>
 
         <article className="rounded-2xl border border-swoop-border bg-white p-4">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-swoop-muted">{demoLabel}</p>
           <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">{children}</div>
-          <p className="mt-3 text-[11px] uppercase tracking-widest text-swoop-muted/80">{demoContext}</p>
+          <DemoDisclosure className="mt-3 text-[11px]" label={demoContext} />
         </article>
 
         {quote && (
@@ -48,7 +49,7 @@ export default function ProofStack({
             >
               {ctaLabel}
             </Link>
-            <p className="text-[11px] uppercase tracking-widest text-white/50">{disclosure}</p>
+            <DemoDisclosure tone="dark" label={disclosure} />
           </div>
         </article>
       </div>

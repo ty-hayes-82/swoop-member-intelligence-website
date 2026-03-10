@@ -3,7 +3,7 @@ export default function MetricCalloutStrip({ metrics = [], className = '' }) {
 
   const baseClasses = 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4'
   const classes = [baseClasses, className].filter(Boolean).join(' ')
-  const defaultContext = 'Demo data — Oakmont Hills CC (Jan 2026)'
+  const defaultContext = 'Demo data scenario — Oakmont Hills CC (Jan 2026)'
 
   return (
     <div className={classes}>
