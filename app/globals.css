@@ -23,6 +23,12 @@ body {
   padding-bottom: 3rem;
 }
 
+@media (max-width: 767px) {
+  .page-stack {
+    padding-bottom: 5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .page-stack {
     gap: 3.5rem;
