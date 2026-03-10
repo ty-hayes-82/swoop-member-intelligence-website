@@ -76,6 +76,106 @@ const faqItems = [
   },
 ]
 
+
+function DailyBriefingMock() {
+  const riskMembers = [
+    { name: 'James Whitfield', score: 42, archetype: 'Balanced Active', due: 'Call before 2:00 PM' },
+    { name: 'Anne Jordan', score: 38, archetype: 'Weekend Warrior', due: 'Meet starter on #1' },
+    { name: 'Robert Callahan', score: 41, archetype: 'Declining', due: "Invite to chef's table" },
+  ]
+  const actionItems = [
+    { label: 'Service Recovery', detail: 'F&B Director call James within 2 hrs', impact: '$18K dues protected' },
+    { label: 'Waitlist Routing', detail: 'Fill Sat 8:10A with retention priority', impact: '$36K dues at stake' },
+    { label: 'Staffing Alert', detail: 'Cover Grill Room lunch 12–2P', impact: 'Avoid 8% revenue dip' },
+  ]
+  const timeline = [
+    { label: '05:30', text: 'Daily Briefing ready', type: 'ready' },
+    { label: '06:45', text: '3 AI agent actions waiting approval', type: 'agent' },
+    { label: '09:10', text: 'At-risk member checked in', type: 'member' },
+  ]
+
+  return (
+    <div className="w-full max-w-3xl rounded-[32px] border border-white/10 bg-gradient-to-br from-[#101A2E] via-[#07101F] to-[#010308] p-6 text-left text-white shadow-[0_25px_65px_rgba(12,16,32,0.45)]">
+      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/60">
+        <span>Daily Briefing</span>
+        <span className="text-white/50">Oakmont Hills · 6:00 AM</span>
+      </div>
+
+      <div className="mt-4 grid gap-4 md:grid-cols-3">
+        {[{
+          label: 'Health score',
+          value: '74',
+          sub: '▲ 4 vs last week',
+        }, {
+          label: 'Members flagged',
+          value: '6',
+          sub: 'Personal outreach today',
+        }, {
+          label: 'Revenue at risk',
+          value: '$54K',
+          sub: 'If no action is taken',
+        }].map((card) => (
+          <div key={card.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-white/50">{card.label}</p>
+            <p className="mt-1 text-3xl font-semibold">{card.value}</p>
+            <p className="text-sm text-white/70">{card.sub}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 grid gap-4 lg:grid-cols-[1.6fr,1fr]">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/60">At-risk members today</p>
+          <div className="mt-4 space-y-3">
+            {riskMembers.map((member) => (
+              <div key={member.name} className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold text-white">{member.name}</p>
+                  <p className="text-xs text-white/60">{member.archetype}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs font-semibold text-[#F97316]">Score {member.score}</p>
+                  <p className="text-[11px] text-white/60">{member.due}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rounded-2xl border border-[#F97316]/30 bg-[#F97316]/10 p-5 text-[#FFEDD5]">
+          <p className="text-xs font-semibold uppercase tracking-widest">Today’s actions</p>
+          <div className="mt-4 space-y-4">
+            {actionItems.map((item) => (
+              <div key={item.label} className="rounded-xl border border-white/20 bg-white/5/20 p-3">
+                <p className="text-sm font-semibold">{item.label}</p>
+                <p className="text-xs text-white/80">{item.detail}</p>
+                <p className="text-[11px] text-[#FED7AA]">{item.impact}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-white/70">Approve in Agent Command →</p>
+        </div>
+      </div>
+
+      <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+        <p className="text-xs font-semibold uppercase tracking-widest text-white/60">Timeline</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {timeline.map((event) => (
+            <div key={event.label} className="flex flex-col gap-1">
+              <span className="text-xs font-semibold text-white/70">{event.label}</span>
+              <span className="text-sm text-white">{event.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center justify-between text-[11px] text-white/60">
+        <span>Demo environment — simulated Oakmont Hills data</span>
+        <span>CSV fallback · Tee sheet · POS · CRM</span>
+      </div>
+    </div>
+  )
+}
+
 const pricingTiers = [
 
   {
@@ -165,10 +265,8 @@ export default function HomePage() {
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
-          <div className="mt-4 flex justify-center">
-            <div className="w-full max-w-3xl rounded-2xl border border-dashed border-swoop-border bg-[#F3F4F6] aspect-[3/2] flex items-center justify-center text-sm text-swoop-muted">
-              Daily Briefing — Oakmont Hills CC demo data
-            </div>
+          <div className="mt-6 flex justify-center">
+            <DailyBriefingMock />
           </div>
           <p className="mt-4 text-sm text-swoop-muted">See engagement decay, spend shifts, and recommended actions in one view.</p>
         </div>
