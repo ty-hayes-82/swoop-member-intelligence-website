@@ -8,6 +8,14 @@ export const metadata = buildMetadata({
   path: '/resources/churn-prevention-guide',
 })
 
+const retentionFaqs = [
+  { q: 'How long should a weekly retention review take?', a: 'Block 30 minutes every Monday. Five minutes to scan dashboard deltas, fifteen minutes to triage the at-risk list, ten minutes to assign outreach and log owners.' },
+  { q: 'Who needs to be in the room?', a: 'GM, membership/experience lead, and whoever owns service recovery. Ownership or board liaisons join monthly to review progress.' },
+  { q: 'What data sources are required?', a: 'Tee sheet, POS, complaint tracking, and email engagement cover 90% of churn risk. Add event + locker usage later for nuance.' },
+  { q: 'How do I prove ROI to the board?', a: 'Use Friday talking points: saves vs. at-risk members, dues preserved, outreach still in-flight, and obstacles that need board help.' },
+  { q: 'Can smaller clubs run this cadence?', a: 'Yes. Even with 150 members you still benefit from a Monday signal review and a Friday recap. The list is shorter, the discipline matters more.' },
+]
+
 export default function ChurnPreventionGuidePage() {
   return (
     <>
@@ -161,6 +169,70 @@ export default function ChurnPreventionGuidePage() {
           <p className="text-swoop-muted">
             That's the problem Swoop solves: cross-system intelligence, automated flagging, and attribution-ready reporting. But the playbooks above work with or without Swoop. The key is: <strong>act before the resignation letter arrives.</strong>
           </p>
+        </div>
+      </section>
+
+
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday cadence</p>
+            <h3 className="mt-2 text-2xl font-bold">Weekly retention review</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Check score deltas across every cohort.</li>
+              <li>• Triage members who dropped 12+ points or filed complaints.</li>
+              <li>• Assign outreach owners with due dates and make-good offers.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday recap</p>
+            <h3 className="mt-2 text-2xl font-bold">Board talking points</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Saves this week and dues preserved.</li>
+              <li>• Members still at risk and why.</li>
+              <li>• Help needed (policy changes, staffing, comp authority).</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
+          <h3 className="mt-3 text-2xl font-bold">Retention review worksheet</h3>
+          <p className="mt-3 text-swoop-muted">One page template we use with GMs every Monday: score deltas, complaint feed, outreach owners, and follow-up status.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Left column</p>
+              <ul className="mt-2 text-sm text-swoop-muted space-y-1">
+                <li>• Member</li>
+                <li>• Health score drop</li>
+                <li>• Triggering signal</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Right column</p>
+              <ul className="mt-2 text-sm text-swoop-muted space-y-1">
+                <li>• Owner + due date</li>
+                <li>• Offer / remedy</li>
+                <li>• Result + dues protected</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Retention FAQs</h2>
+          <div className="mt-6 space-y-4">
+            {retentionFaqs.map((faq) => (
+              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
+                <h3 className="text-lg font-semibold">{faq.q}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
