@@ -22,7 +22,7 @@ const tiers = [
     desc: 'Member-saving workflows for one club team.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
-    boardMath: ['ARR protected: $192K', 'Agent hours saved: 28/mo'],
+    boardMath: ['Annual dues protected: $192K', 'Agent hours saved: 28/mo'],
   },
   {
     name: PLAN_PRICING.club.label,
@@ -30,7 +30,7 @@ const tiers = [
     desc: 'Portfolio reporting and multi-club orchestration.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
-    boardMath: ['ARR protected: $740K', 'Agent hours saved: 96/mo'],
+    boardMath: ['Annual dues protected: $740K', 'Agent hours saved: 96/mo'],
   },
 ]
 
