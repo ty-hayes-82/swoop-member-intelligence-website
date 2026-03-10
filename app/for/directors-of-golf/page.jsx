@@ -23,6 +23,13 @@ const dogTools = [
   { tool: 'Operations Dashboard', desc: "Real-time view of today's tee sheet flow, pace of play alerts, staffing coverage, and cancellation clusters. Your command center for daily golf operations." },
 ]
 
+const dogFaqs = [
+  { q: 'How does the Monday workflow look?', a: 'Review the tee sheet heatmap, confirm which members need nudges, and approve waitlist notifications based on retention impact.' },
+  { q: 'Will this replace my tee sheet software?', a: 'No. Swoop layers on top and feeds routing decisions back into your existing platform.' },
+  { q: 'Can I override the agent recommendations?', a: 'Always. You approve or reroute any slot before notifications go out.' },
+  { q: 'Does this help with F&B conversions?', a: 'Yes. Post-round data highlights foursomes that skip the Grill Room so you can test offers immediately.' },
+]
+
 export default function DirectorsOfGolfPage() {
   return (
     <>
@@ -122,9 +129,68 @@ export default function DirectorsOfGolfPage() {
         </div>
       </section>
 
-      <CTASection 
-        headline="See retention-driven waitlists in action." 
-        subtext="We'll walk you through a typical cancellation scenario and show how Swoop prioritizes the right members." 
+      <section className="py-20 px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday focus</p>
+            <h3 className="mt-2 text-2xl font-bold">Tee sheet + retention alignment</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Approve retention-prioritized waitlist routing.</li>
+              <li>• Check pace-of-play forecast for bottlenecks.</li>
+              <li>• Assign ambassadors to members slipping in play.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday recap</p>
+            <h3 className="mt-2 text-2xl font-bold">Proof for the GM + board</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Slots routed to at-risk members.</li>
+              <li>• Pace issues prevented vs. escalations.</li>
+              <li>• Incremental F&amp;B captured post-round.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
+          <h3 className="mt-3 text-2xl font-bold">Tee sheet orchestration board</h3>
+          <p className="mt-3 text-swoop-muted">Shows every cancellation, the member who received the slot, and the retention reason behind the routing.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column A</p>
+              <p className="text-sm text-swoop-muted">Cancellation details + value at risk.</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column B</p>
+              <p className="text-sm text-swoop-muted">Recommended member + rationale.</p>
+            </div>
+            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+              <p className="text-sm font-semibold">Column C</p>
+              <p className="text-sm text-swoop-muted">Outcome + F&amp;B conversion.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Director of Golf FAQs</h2>
+          <div className="mt-6 space-y-4">
+            {dogFaqs.map((faq) => (
+              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
+                <h3 className="text-lg font-semibold">{faq.q}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        headline="Book a Demo for your tee sheet team"
+        subtext="We&apos;ll simulate cancellations, approvals, and F&amp;B follow-ups so you can see the full retention impact."
       />
     </>
   )
