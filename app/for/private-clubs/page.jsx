@@ -1,86 +1,129 @@
 import { buildMetadata } from '@/lib/metadata'
-import CTASection from '@/components/CTASection'
-import { AtRiskRosterMock, GmScriptCard } from '@/components/CapabilityMocks'
+import AudiencePage from '@/components/AudiencePage.jsx'
 
 export const metadata = buildMetadata({
   title: 'For Private Clubs',
-  description: 'Operational intelligence for private clubs with retention and service pressure.',
+  description: 'Give every member a personalized, proactive experience.',
   path: '/for/private-clubs',
 })
 
-const privateClubFaqs = [
-  { q: 'What do we review on Mondays?', a: 'Member health deltas, complaint backlog, and outreach owners so every at-risk household has a next step.' },
-  { q: 'How do we keep exclusivity while scaling outreach?', a: 'Swoop flags the right members and proposes GM-voice scripts so every touch feels personal.' },
-  { q: 'Can we see household-level storylines?', a: 'Yes. Every profile shows tenure, family participation, service issues, and upcoming events to invite them back.' },
-  { q: 'How fast can we stand this up?', a: 'Most private clubs are live within 10 business days once tee sheet + POS access is granted.' },
-]
-
 export default function PrivateClubsPage() {
+  const hero = {
+    title: 'Your members expect you to know them',
+    subtitle: 'Swoop tracks every preference, activity, and signal so outreach feels bespoke even with 300 members.',
+    supportText: 'Oakmont-style member profiles included',
+    miniDashboard: {
+      title: 'Member Profile — Anne Jordan',
+      subtitle: 'Weekend Warrior · Joined 2016',
+      pill: 'Health 38',
+      rows: [
+        { label: 'Activity', detail: 'Rounds down 75% · dining minimum only', value: 'Declining', color: '#F97316' },
+        { label: 'Preferences', detail: 'Prefers early tee + doubles espresso', value: 'Remember', color: '#4ADE80' },
+        { label: 'Next touch', detail: 'Invite to Chef&apos;s table Friday', value: 'Scheduled', color: '#60A5FA' },
+        { label: 'Notes', detail: 'Loved the Sept tasting · mention kids returning', value: 'Personal', color: '#FBBF24' },
+      ],
+    },
+  }
+
+  const painPoints = [
+    {
+      icon: '🧾',
+      title: 'Can&apos;t remember 300 preferences',
+      text: 'Member timelines store every note, complaint, and win so you never rely on memory.',
+    },
+    {
+      icon: '📉',
+      title: 'Miss engagement drops until too late',
+      text: 'Health scores flag withdrawal in golf, dining, email, and events weeks earlier.',
+    },
+    {
+      icon: '🤖',
+      title: 'Generic outreach feels impersonal',
+      text: 'Swoop drafts context-rich outreach and tracks who followed up so every touchpoint feels white-glove.',
+    },
+  ]
+
+  const mondayItems = [
+    { label: 'Top 10 households', detail: 'Personalized actions queued for each member', color: '#4ADE80' },
+    { label: 'Service recovery list', detail: '3 members need a follow-up before Friday', color: '#F87171' },
+    { label: 'Event invitations', detail: 'Wine dinner seats held for members with low dining spend', color: '#FBBF24' },
+    { label: 'Ambassador assignments', detail: 'Pair new member tours with high NPS ambassadors', color: '#60A5FA' },
+  ]
+
+  const fridayMetrics = [
+    { label: 'Member satisfaction', value: '98%', trend: '+4 pts vs last quarter', trendColor: '#4ADE80' },
+    { label: 'Personal saves', value: '12', trend: 'Logged with ROI math', trendColor: '#60A5FA' },
+    { label: 'Member profiles', value: '300', trend: 'Fully enriched', trendColor: '#FBBF24' },
+    { label: 'Outreach coverage', value: '100%', trend: 'All high-value households touched weekly', trendColor: '#4ADE80' },
+  ]
+
+  const dashboard = {
+    title: 'Member intimacy dashboard',
+    subtitle: 'See every household, their engagement trend, and the next personal touch.',
+    metrics: [
+      { label: 'Households engaged', value: '272', fill: 0.9, barColor: '#4ADE80' },
+      { label: 'Complaints unresolved', value: '2', fill: 0.2, barColor: '#F97316' },
+      { label: 'Upcoming invites', value: '18', fill: 0.6, barColor: '#60A5FA' },
+    ],
+    table: {
+      columns: ['Member', 'Health', 'Next action'],
+      rows: [
+        { cells: ['Anne Jordan', '38', 'Chef&apos;s table invite Friday'] },
+        { cells: ['Robert Callahan', '41', 'Concierge call re: F&B experience'] },
+        { cells: ['Linda Foster', '52', 'Remind about couples golf + babysitting'] },
+      ],
+    },
+  }
+
+  const testimonial = {
+    quote: 'Our membership director finally has one place to prep before every conversation. Members feel like we remembered everything.',
+    name: 'David Chen',
+    title: 'Membership Director',
+    club: 'Augusta Pines',
+  }
+
+  const metrics = [
+    { value: '300', label: 'Member profiles', accent: '#60A5FA' },
+    { value: '12', label: 'Personal saves', accent: '#4ADE80' },
+    { value: '98%', label: 'Member satisfaction', accent: '#FBBF24' },
+  ]
+
+  const faq = [
+    {
+      question: 'Can we log personal notes and reminders?',
+      answer: 'Yes. Every profile tracks notes, promised gestures, and context. Alerts remind staff before the next visit.',
+    },
+    {
+      question: 'How does outreach get tracked?',
+      answer: 'Swoop auto-assigns owners, drafts messages, and records who actually completed the touchpoint.',
+    },
+    {
+      question: 'Will members see this data?',
+      answer: 'No. This is an internal system to keep your team aligned and proactive.',
+    },
+    {
+      question: 'Do we need more staff to manage it?',
+      answer: 'No. Swoop eliminates the manual spreadsheets so your existing team can focus on relationships.',
+    },
+  ]
+
+  const cta = {
+    headline: 'Give every member the white-glove experience they expect.',
+    subtext: 'See how health scores, personal notes, and outreach reminders flow into one member timeline.',
+    buttonText: 'Book a Demo',
+  }
+
   return (
-    <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-container">
-          <h1 className="text-4xl font-bold md:text-5xl">Private clubs: protect relationships before they go dark.</h1>
-          <p className="mt-4 text-lg text-swoop-muted">Vertical proof: 21% retention lift and 18-hour average follow-up on high-risk members.</p>
-        </div>
-      </section>
-      <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-2">
-          <AtRiskRosterMock />
-          <GmScriptCard />
-        </div>
-      </section>
-      <section className="px-6">
-        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-swoop-border bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Monday ritual</p>
-            <h3 className="mt-2 text-2xl font-bold">Member intimacy checklist</h3>
-            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Review top 15 at-risk households.</li>
-              <li>• Pair each with a GM or membership owner.</li>
-              <li>• Load scripts + offers so outreach feels curated.</li>
-            </ul>
-          </article>
-          <article className="rounded-2xl border border-swoop-border bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Friday recap</p>
-            <h3 className="mt-2 text-2xl font-bold">Exclusivity proof</h3>
-            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Outreach completed + next touches queued.</li>
-              <li>• Members returning for curated events.</li>
-              <li>• Dues protected with service fixes in flight.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Artifact</p>
-          <h3 className="mt-3 text-2xl font-bold">Member intimacy workbook</h3>
-          <p className="mt-3 text-swoop-muted">Combines household context, recent experiences, and recommended gestures so every outreach feels bespoke.</p>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">Storyline timeline</div>
-            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">Complaints + service notes</div>
-            <div className="rounded-xl border border-swoop-border bg-swoop-bg p-4">Upcoming invites</div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <h2 className="text-2xl font-bold">Private club FAQs</h2>
-          <div className="mt-6 space-y-4">
-            {privateClubFaqs.map((faq) => (
-              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
-                <h3 className="text-lg font-semibold">{faq.q}</h3>
-                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTASection headline="Book a Demo for your private club" subtext="We&apos;ll show the intimacy workflow with your real member archetypes and outreach cadences." />
-    </div>
+    <AudiencePage
+      hero={hero}
+      painPoints={painPoints}
+      mondayItems={mondayItems}
+      fridayMetrics={fridayMetrics}
+      dashboard={dashboard}
+      testimonial={testimonial}
+      metrics={metrics}
+      faq={faq}
+      cta={cta}
+    />
   )
 }
