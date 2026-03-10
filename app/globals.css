@@ -19,8 +19,8 @@ body {
 .page-stack {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding-bottom: 3rem;
+  gap: 1rem;
+  padding-bottom: 2rem;
 }
 
 @media (max-width: 767px) {
@@ -31,9 +31,13 @@ body {
 
 @media (min-width: 768px) {
   .page-stack {
-    gap: 3.5rem;
-    padding-bottom: 3.5rem;
+    gap: 1.5rem;
+    padding-bottom: 2.5rem;
   }
+}
+
+.hero-headline {
+  line-height: 1.2 !important;
 }
 
 button,
@@ -217,7 +221,6 @@ html {
 @media (max-width: 390px) {
   .hero-headline {
     font-size: 2rem !important;
-    line-height: 1.15;
   }
 
   .sticky-nav-inner {

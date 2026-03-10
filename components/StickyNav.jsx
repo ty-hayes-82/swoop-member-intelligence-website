@@ -12,26 +12,6 @@ const platformLinks = [
   { label: 'AI Agents', href: '/ai-agents' },
 ]
 
-const integrationMenu = [
-  { label: 'Tee Sheet & Booking', href: '/integrations#tee-sheet', type: 'heading' },
-  { label: 'Leading tee sheet platforms', href: '/integrations#tee-sheet', nested: true },
-  { label: 'Legacy booking tools', href: '/integrations#tee-sheet', nested: true },
-  { label: 'POS & Dining', href: '/integrations#pos-fb', type: 'heading' },
-  { label: 'Traditional club management suites', href: '/integrations#pos-fb', nested: true },
-  { label: 'Modern dining & bar POS', href: '/integrations#pos-fb', nested: true },
-  { label: 'Member CRM', href: '/integrations#member-crm', type: 'heading' },
-  { label: 'Membership databases', href: '/integrations#member-crm', nested: true },
-  { label: 'Marketing automation & comms', href: '/integrations#member-crm', nested: true },
-  { label: 'Staffing & Labor', href: '/integrations#staffing', type: 'heading' },
-  { label: 'Labor forecasting platforms', href: '/integrations#staffing', nested: true },
-  { label: 'Time & attendance systems', href: '/integrations#staffing', nested: true },
-  { label: 'Communication', href: '/integrations#communications', type: 'heading' },
-  { label: 'SMS & email infrastructure', href: '/integrations#communications', nested: true },
-  { label: 'Member engagement tools', href: '/integrations#communications', nested: true },
-  { label: 'Payment', href: '/integrations#payments', type: 'heading' },
-  { label: 'Payments & accounting stacks', href: '/integrations#payments', nested: true },
-];
-
 const companyLinks = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
@@ -50,9 +30,20 @@ const navItems = [
 export default function StickyNav() {
   const [open, setOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
   const dropdownTimeout = useRef()
 
-  useEffect(() => () => clearTimeout(dropdownTimeout.current), [])
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(dropdownTimeout.current)
+    }
+  }, [])
 
   const openDropdown = (label) => {
     if (!label) return
@@ -66,7 +57,7 @@ export default function StickyNav() {
   }
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-swoop-border">
+    <header className={`sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-swoop-border transition-shadow duration-200 ${scrolled ? 'shadow-sm' : ''}`}>
       <div className="sticky-nav-inner max-w-container mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="text-xl font-bold text-swoop-dark">
           Swoop
