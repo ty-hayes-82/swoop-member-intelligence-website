@@ -8,6 +8,15 @@ export const metadata = buildMetadata({
   path: '/resources/cost-of-churn',
 })
 
+const churnFaqs = [
+  { q: 'Why use assumptions before plugging in my own numbers?', a: 'It anchors the board in reality. Start with $15K dues + $8K secondary spend so everyone understands the scale before you swap in your exact figures.' },
+  { q: 'What if our ancillary spend is lower?', a: 'Edit the inputs. The calculator updates instantly. The artifact shows the formula so finance can audit the math.' },
+  { q: 'How does referral value get quantified?', a: 'Use your historical initiation plus expected tenure. We default to $26K lifetime impact per referral, but you can replace it with your own blended average.' },
+  { q: 'Does this include dues at risk or only realized churn?', a: 'Both. Run it with last year\'s resignations, then run it again on the current at-risk list to show potential exposure.' },
+  { q: 'How do I present this to the board?', a: 'Use the Friday talking points: members lost, true cost, and the retention program needed to protect the next $390K in exposure.' },
+]
+
+
 export default function CostOfChurnPage() {
   return (
     <>
@@ -19,6 +28,35 @@ export default function CostOfChurnPage() {
           <p className="text-xl text-swoop-muted">Beyond dues: replacement cost, lost referrals, and operational drag.</p>
         </div>
       </section>
+
+      <section className="px-6">
+        <div className="max-w-container mx-auto grid gap-6 lg:grid-cols-2">
+          <article className="rounded-2xl border border-swoop-border bg-white p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Assumptions</p>
+            <h3 className="mt-3 text-2xl font-bold">Baseline inputs for board math</h3>
+            <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
+              <li>• Avg dues: $15K per member.</li>
+              <li>• Secondary spend: $8K (F&B, events, retail).</li>
+              <li>• Referral value: $26K lifetime impact.</li>
+              <li>• Replacement cost: 2.5× dues.</li>
+              <li>• Operational drag: 12 hours of staff/board time.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-swoop-bg p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Calculator artifact</p>
+            <h3 className="mt-3 text-xl font-bold">15 members lost = $390K true impact</h3>
+            <div className="mt-4 space-y-3 text-sm text-swoop-muted">
+              <div className="flex justify-between border-b border-swoop-border pb-2"><span>Dues</span><span>$225K</span></div>
+              <div className="flex justify-between border-b border-swoop-border pb-2"><span>Secondary spend</span><span>$120K</span></div>
+              <div className="flex justify-between border-b border-swoop-border pb-2"><span>Replacement cost</span><span>$140K</span></div>
+              <div className="flex justify-between pb-2"><span>Operational drag</span><span>$5K</span></div>
+              <div className="flex justify-between border-t border-swoop-border pt-3 text-base font-semibold text-swoop-dark"><span>Total exposure</span><span>$390K</span></div>
+            </div>
+            <p className="mt-3 text-xs text-swoop-muted">Swap the inputs and the totals update instantly in the downloadable Google Sheet.</p>
+          </article>
+        </div>
+      </section>
+
 
       <section className="py-20 px-6">
         <div className="max-w-container mx-auto max-w-3xl">
@@ -185,6 +223,21 @@ export default function CostOfChurnPage() {
           <p className="text-swoop-muted">
             The clubs that win on retention aren't the ones with zero churn—that's impossible. They're the ones who measure it honestly, intervene early, and prove the ROI of every save.
           </p>
+        </div>
+      </section>
+
+
+      <section className="px-6 py-16">
+        <div className="max-w-container mx-auto rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">Cost of churn FAQs</h2>
+          <div className="mt-6 space-y-4">
+            {churnFaqs.map((faq) => (
+              <article key={faq.q} className="border-b border-swoop-border pb-4 last:border-0 last:pb-0">
+                <h3 className="text-lg font-semibold">{faq.q}</h3>
+                <p className="mt-2 text-sm text-swoop-muted">{faq.a}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
