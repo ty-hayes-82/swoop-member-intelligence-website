@@ -100,6 +100,16 @@ function DailyBriefingMock() {
     { label: 'Revenue at risk', value: '$54K', sub: 'If no action is taken' },
   ]
 
+  const agentStatuses = [
+    { name: 'Member Pulse', state: '2 approvals', accent: '#4ADE80' },
+    { name: 'Demand Optimizer', state: '1 pending', accent: '#F97316' },
+  ]
+  const opsInsights = [
+    { label: 'Wind alert', detail: '15 mph gusts at noon', icon: '💨' },
+    { label: 'F&B surge', detail: '+22% lunch covers expected', icon: '🍽' },
+    { label: 'Staffing gap', detail: 'Grill Room lunch understaffed', icon: '👩‍🍳' },
+  ]
+
   return (
     <div className="w-full max-w-4xl rounded-[36px] border border-white/10 bg-[#050B16] p-6 text-left text-white shadow-[0_30px_70px_rgba(6,10,24,0.55)]">
       <div className="flex flex-wrap items-center justify-between text-[11px] uppercase tracking-[0.3em] text-white/70">
@@ -129,6 +139,17 @@ function DailyBriefingMock() {
           </div>
           <div className="pointer-events-none absolute bottom-4 left-4 rounded-full border border-white/25 bg-black/40 px-4 py-2 text-[11px] font-semibold text-white">
             Live demo — AI agents standing by
+          </div>
+          <div className="pointer-events-none absolute bottom-4 right-4 w-48 rounded-2xl border border-white/15 bg-black/55 p-3 text-[11px]">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">AI agent queue</p>
+            <div className="mt-2 space-y-2">
+              {agentStatuses.map((agent) => (
+                <div key={agent.name} className="flex items-center justify-between text-white">
+                  <span className="text-xs font-semibold">{agent.name}</span>
+                  <span className="text-[11px]" style={{ color: agent.accent }}>{agent.state}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -177,6 +198,15 @@ function DailyBriefingMock() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="mt-4 grid gap-3 md:grid-cols-3">
+        {opsInsights.map((insight) => (
+          <div key={insight.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+            <p className="text-xs font-semibold text-white/70">{insight.icon} {insight.label}</p>
+            <p className="text-sm text-white">{insight.detail}</p>
+          </div>
+        ))}
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] text-white/60">
