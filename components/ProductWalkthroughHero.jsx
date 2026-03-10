@@ -1,200 +1,135 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import Image from 'next/image'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
-const scenes = [
+const slides = [
   {
     id: 'briefing',
     label: 'Daily Briefing',
-    caption:
-      'Start every morning with a prioritized save list. Health scores, dues at risk, and who is on property right now in one glance.',
-    metric: { label: 'Members at risk this week', value: '14', delta: '+2 flagged overnight' },
-    quickWins: [
-      { title: 'Call James Whitfield before 11:00 AM', meta: 'Health 42 · Grill Room complaint unresolved' },
-      { title: 'Walk the tee sheet w/ Marcus Webb', meta: 'High-value guest arriving 7:40 AM' },
-    ],
-    roster: [
-      { name: 'James Whitfield', score: 42, signal: 'Complaint unresolved · 6 days', action: 'Escalate to F&B lead' },
-      { name: 'Sandra Chen', score: 38, signal: 'Dining spend down 62%', action: 'Invite to Chef tasting' },
-      { name: 'Robert Mills', score: 33, signal: 'Skipped dues autopay', action: 'Finance follow-up today' },
-    ],
-    actionFeed: [
-      { label: 'F&B', text: 'Have Grill Room GM greet James with preferred table' },
-      { label: 'Member Experience', text: 'Sandra visiting tonight — comp dessert + GM visit' },
+    heading: 'Start the day with the save list',
+    caption: 'Health scores, dues at risk, weather, and on-property members in one 10-minute briefing.',
+    image: '/screenshots/daily-briefing.png',
+    alt: 'Daily Briefing dashboard screenshot showing prioritized save list',
+    highlights: [
+      {
+        title: 'Prioritized saves',
+        detail: 'Know which members slipped over the weekend and how much annual dues is attached to each.',
+      },
+      {
+        title: 'On-property intel',
+        detail: 'See which at-risk members are on site right now so staff can intercept before they leave.',
+      },
+      {
+        title: 'Weather + tee sheet risk',
+        detail: 'Wind, pace, and understaffing alerts tied directly to today’s tee times.',
+      },
     ],
   },
   {
     id: 'member-intel',
     label: 'Member Intelligence',
-    caption:
-      'Zoom into any archetype to see decay patterns, dues impact, and the exact play that keeps them engaged.',
-    metric: { label: 'Saves this month', value: '$178K', delta: 'recovered dues value' },
-    quickWins: [
-      { title: 'Balanced Active — 4 slipping members', meta: 'Email engagement ↓ 48% · dining flat' },
-      { title: 'Weekend Warriors — waitlist friction', meta: '6 members stuck behind FIFO queue' },
-    ],
-    roster: [
-      { name: 'Anne Jordan', score: 58, signal: 'Plays only weekends · waitlist blocked twice', action: 'Offer Fri twilight slot' },
-      { name: 'Kevin Hurst', score: 31, signal: 'Critical · no rounds since Dec 14', action: 'GM call w/ comped foursome' },
-      { name: 'Linda Leonard', score: 24, signal: 'Ghosted F&B · dues autopay only', action: 'Board sponsor outreach' },
-    ],
-    actionFeed: [
-      { label: 'Waitlist', text: 'Route Anne + Kevin ahead of FIFO for Sat 7:00 AM' },
-      { label: 'Member Care', text: 'Send family dining invite to Linda — highlight new chef' },
+    heading: 'Zoom into any archetype',
+    caption: 'Behavioral decay patterns, spend shifts, and email engagement in one roster.',
+    image: '/screenshots/member-intelligence.png',
+    alt: 'Member Intelligence roster screenshot with health scores and risk reasons',
+    highlights: [
+      {
+        title: 'Archetype decay',
+        detail: 'Weekend Warriors vs. Social Members show different warning signs and dues impact.',
+      },
+      {
+        title: 'Risk reasons surfaced',
+        detail: 'Email drops, dining gaps, skipped events, and complaint streaks drive every score.',
+      },
+      {
+        title: 'Action drawer',
+        detail: 'Open a member to see family notes, preferred outreach, and the next approved play.',
+      },
     ],
   },
   {
     id: 'action-queue',
     label: 'Action Queue',
-    caption:
-      'Approve AI recommendations with full context. Every action logs an owner, due date, and proof of impact.',
-    metric: { label: 'Approvals waiting', value: '3', delta: 'avg confidence 88%' },
-    quickWins: [
-      { title: 'Retention outreach — James Whitfield', meta: 'Send GM text + comp dessert' },
-      { title: 'Staffing surge — Saturday Grill Room', meta: 'Add 2 servers · 5:30-8:30 PM' },
-    ],
-    roster: [
-      { name: 'Demand Optimizer', score: 86, signal: '72% cancellation risk Saturday 7:08', action: 'Approve retention routing' },
-      { name: 'Service Recovery', score: 74, signal: 'Complaint idle 48h — Grill Room', action: 'Assign to Alexis Chen' },
-      { name: 'Labor Optimizer', score: 69, signal: 'Coverage gap 2.5 hrs tonight', action: 'Offer OT to dining captains' },
-    ],
-    actionFeed: [
-      { label: 'Ops', text: 'Add 2 floaters to Saturday PM shift — demand spike' },
-      { label: 'GM Note', text: 'Text James post-round w/ comp dessert + apology' },
+    heading: 'Approve AI recommendations',
+    caption: 'Every recommendation shows impact math, owner, and due date before you approve.',
+    image: '/screenshots/agent-command.png',
+    alt: 'Action queue screenshot with AI recommendations awaiting approval',
+    highlights: [
+      {
+        title: 'Retention outreach',
+        detail: 'Pre-written GM notes with comp suggestions tied to dues value at risk.',
+      },
+      {
+        title: 'Staffing surges',
+        detail: 'Labor optimizations map coverage gaps to exact shifts before the rush hits.',
+      },
+      {
+        title: 'Audit friendly',
+        detail: 'One click assigns an owner, due date, and proof so you can show what was saved.',
+      },
     ],
   },
 ]
 
-const scoreBadgeClasses = (score) => {
-  if (score >= 70) return 'bg-emerald-500/10 text-emerald-200 border border-emerald-400/30'
-  if (score >= 50) return 'bg-amber-500/10 text-amber-100 border border-amber-400/30'
-  if (score >= 30) return 'bg-orange-500/10 text-orange-100 border border-orange-400/30'
-  return 'bg-red-500/15 text-red-200 border border-red-400/30'
-}
-
-const healthColor = (score) => {
-  if (score >= 70) return 'text-emerald-300'
-  if (score >= 50) return 'text-amber-200'
-  if (score >= 30) return 'text-orange-200'
-  return 'text-red-200'
-}
-
 export default function ProductWalkthroughHero() {
   const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % scenes.length)
-    }, 6000)
-    return () => clearInterval(id)
-  }, [])
-
-  const scene = scenes[index]
+  const slide = slides[index]
 
   return (
-    <div className="rounded-3xl border border-swoop-border bg-white/80 p-5 shadow-xl backdrop-blur">
-      <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0F1312] via-[#111b17] to-[#1F2F24] p-6 text-white shadow-[0_20px_80px_rgba(15,19,18,0.6)]">
-        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-2">
-            {scenes.map((item, i) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setIndex(i)}
-                className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
-                  i === index ? 'bg-white/15 text-white shadow-inner' : 'bg-white/5 text-white/70'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60">
-            Demo data — Oakmont Hills CC (Jan 2026)
-          </span>
+    <div className="rounded-3xl border border-swoop-border bg-white p-5 shadow-xl">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2" role="tablist">
+          {slides.map((item, i) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setIndex(i)}
+              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition ${
+                i === index ? 'bg-swoop-dark text-white' : 'bg-swoop-bg text-swoop-dark'
+              }`}
+              aria-pressed={i === index}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
-
-        <div className="grid gap-6 lg:grid-cols-[240px,1fr]">
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/60">{scene.metric.label}</p>
-              <div className="mt-3 flex items-baseline gap-3">
-                <span className="text-4xl font-semibold text-white">{scene.metric.value}</span>
-                <span className="text-sm text-emerald-200">{scene.metric.delta}</span>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/60">Quick wins</p>
-              <div className="mt-3 space-y-3">
-                {scene.quickWins.map((win) => (
-                  <div key={win.title} className="rounded-xl border border-white/10 bg-white/5 p-3">
-                    <p className="text-sm font-semibold text-white">{win.title}</p>
-                    <p className="text-xs text-white/70">{win.meta}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 text-amber-100">
-              <p className="text-xs uppercase tracking-[0.2em]">Action feed</p>
-              <div className="mt-2 space-y-2">
-                {scene.actionFeed.map((item) => (
-                  <p key={item.text} className="text-sm">
-                    <span className="font-semibold text-white">[{item.label}]</span> {item.text}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-inner">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/60">Live roster</p>
-                <p className="text-sm text-white/80">Signal → suggested action</p>
-              </div>
-              <div className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold text-white/70">
-                Board-ready output
-              </div>
-            </div>
-            <div className="space-y-3">
-              {scene.roster.map((row) => (
-                <div
-                  key={`${scene.id}-${row.name}`}
-                  className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
-                >
-                  <div className={`font-mono text-xs px-3 py-1 rounded-full ${scoreBadgeClasses(row.score)}`}>
-                    {row.score}
-                  </div>
-                  <div className="min-w-[180px] flex-1">
-                    <p className="text-sm font-semibold text-white">{row.name}</p>
-                    <p className={`text-xs ${healthColor(row.score)}`}>{row.signal}</p>
-                  </div>
-                  <div className="text-sm text-white/80">
-                    {row.action}
-                  </div>
-                  <button
-                    type="button"
-                    className="ml-auto inline-flex items-center rounded-full border border-white/20 px-3 py-1 text-xs font-semibold text-white/80 transition hover:bg-white/10"
-                  >
-                    Open drawer →
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-swoop-muted">
+          Demo data — Oakmont Hills CC (Jan 2026)
+        </span>
       </div>
 
-      <p className="mt-4 text-sm text-swoop-muted">{scene.caption}</p>
-      <div className="mt-3 flex gap-2">
-        {scenes.map((_, i) => (
-          <span
-            key={_.id}
-            className={`h-2.5 flex-1 rounded-full transition ${i === index ? 'bg-swoop-dark' : 'bg-swoop-border'}`}
-          />
-        ))}
+      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr),280px]">
+        <div>
+          <div className="relative overflow-hidden rounded-2xl border border-swoop-border bg-swoop-dark/95 p-3">
+            <div className="relative mx-auto aspect-[16/9] w-full max-w-[720px]">
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 720px"
+                className="rounded-xl object-cover"
+                priority
+              />
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-swoop-muted">{slide.caption}</p>
+          <DemoDisclosure className="mt-2 text-xs text-swoop-muted" />
+        </div>
+
+        <div className="rounded-2xl border border-swoop-border bg-swoop-bg p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-swoop-muted">{slide.label}</p>
+          <h3 className="mt-3 text-xl font-semibold text-swoop-dark">{slide.heading}</h3>
+          <div className="mt-4 space-y-4">
+            {slide.highlights.map((item) => (
+              <article key={item.title} className="rounded-xl border border-swoop-border bg-white p-4 shadow-sm">
+                <p className="text-sm font-semibold text-swoop-dark">{item.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

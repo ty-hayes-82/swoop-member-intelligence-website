@@ -1,11 +1,11 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
-import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
 import DemoDisclosure from '@/components/DemoDisclosure'
+import ProofStack from '@/components/ProofStack'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -19,21 +19,21 @@ const howItWorks = [
     title: 'See It',
     summary: 'Member health scores',
     detail: 'Your tee sheet, POS, CRM, and staffing signals land in one briefing so you see every wobble before the day starts.',
-    accent: '#10B981',
+    accent: '#1F2F24',
   },
   {
     step: 2,
     title: 'Fix It',
     summary: 'Manual interventions',
-    detail: 'AI agents recommend the next best action with impact math. You approve or assign inside Agent Command.',
-    accent: '#059669',
+    detail: 'AI agents recommend the next best action with impact math. You approve or assign inside the action queue.',
+    accent: '#F3922D',
   },
   {
     step: 3,
     title: 'Prove It',
     summary: 'Board-ready reporting',
     detail: 'Every intervention rolls into a board-ready snapshot so you show what was prevented and what still needs attention.',
-    accent: '#047857',
+    accent: '#4ADE80',
   },
 ]
 
@@ -43,43 +43,40 @@ const proofStats = [
   { label: 'Tee sheet fill', value: '91%', note: 'Retention-prioritized routing' },
 ]
 
-const weeklyFlow = [
-  {
-    title: 'Monday — 10 minute briefing',
-    bullets: [
-      'Spot every member whose score slipped over the weekend.',
-      'Approve three AI agent recommendations with impact math.',
-      'Assign staff owners before the first tee time goes out.',
-    ],
-  },
-  {
-    title: 'Friday — board-ready proof',
-    bullets: [
-      'Show dues protected and revenue recovered.',
-      'Email a PDF briefing to department heads.',
-      'Close the loop on every action with owner + outcome.',
-    ],
-  },
-]
+const proofStackConfig = {
+  statLabel: 'Annual dues protected',
+  statValue: '$633K',
+  statContext: 'Oakmont Hills CC demo · Week 3',
+  demoLabel: 'Board packet preview',
+  demoContext: 'Pulled from production build',
+  quote: 'This is the only briefing I have seen that tells me exactly who to call, what to say, and what it protects.',
+  quoteSource: 'Ty Hayes',
+  quoteRole: 'Founder, Swoop Golf',
+  ctaLabel: 'See your retention map',
+  ctaHref: '/book-demo',
+}
 
-const testimonialCards = [
+const quickWins = [
   {
-    quote: 'We used this exact scenario in Monday committee prep and caught two resignations before they landed.',
-    person: 'A. Torres',
-    role: 'GM, Desert Ridge Club',
-    metric: '2 resignations prevented in 5 days',
+    label: 'Retention save',
+    scenario: 'Monday 7:15 AM briefing',
+    summary: 'James Whitfield complaint unresolved for 6 days; health score 42 with $18K dues at risk.',
+    action: 'GM call + comp dessert before noon; assign follow-up owner with due time.',
+    impact: '$18K dues protected',
   },
   {
-    quote: 'The service recovery list gave us cleaner ownership handoffs than our old spreadsheet board packet.',
-    person: 'M. Reece',
-    role: 'COO, Harbour Town CC',
-    metric: '3 recoveries closed same week',
+    label: 'Waitlist recovery',
+    scenario: 'Tee sheet reroute · Saturday AM',
+    summary: 'FIFO held six Weekend Warriors behind casual guests. Retention routing moves members to the top before release.',
+    action: 'Assign Marcus Webb as slot owner and text members with concierge confirmation.',
+    impact: '91% tee sheet fill',
   },
   {
-    quote: 'Routing based on member health changed who got prime slots and improved repeat booking confidence.',
-    person: 'L. Bennett',
-    role: 'Head of Golf, Oakmont Hills GC',
-    metric: '87% tee sheet fill by Monday noon',
+    label: 'Service recovery',
+    scenario: 'Action queue · 3 approvals',
+    summary: 'Dining complaint idle 48 hours. AI agent drafts apology, comp, and staff assignment with confidence score.',
+    action: 'Approve plan, assign Alexis (Member Experience), and log expected revenue at risk.',
+    impact: '3 recoveries closed in-week',
   },
 ]
 
@@ -96,7 +93,7 @@ const pricingTiers = [
     name: 'Pro',
     price: '$499/mo',
     desc: 'Full workflow playbooks for a single club team.',
-    perks: ['10 integrations', 'AI agent approvals', 'Board-ready attribution'],
+    perks: ['10 integrations', 'AI action approvals', 'Board-ready attribution'],
     highlighted: true,
     badge: 'Most Popular',
     cta: 'Start Pro Trial',
@@ -115,15 +112,19 @@ const pricingTiers = [
 export default function HomePage() {
   return (
     <div className="page-stack">
-      {/* Section 1 — Hero + proof metrics */}
+      {/* Section 1 — Hero */}
       <section className="px-6 py-8 md:py-16" data-hero-section>
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-accent">For private-club GMs</p>
             <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Every member has a health score. You just can&apos;t see it yet.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
+            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>
+              Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-green px-5 py-2.5 text-sm font-semibold text-swoop-dark hover:bg-swoop-green-hover transition">Book a Demo</Link>
+              <Link href="/book-demo" className="inline-flex min-h-[46px] items-center rounded-lg bg-swoop-green px-5 py-2.5 text-sm font-semibold text-swoop-dark transition hover:bg-swoop-green-hover">
+                Book a Demo
+              </Link>
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
@@ -141,10 +142,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust strip */}
-      <TrustStrip />
+      {/* Section 2 — Proof stack */}
+      <ProofStack {...proofStackConfig}>
+        <div className="space-y-3 text-sm text-swoop-dark">
+          <p className="font-semibold">Morning Briefing → Action Queue → Board PDF</p>
+          <ul className="list-disc space-y-1 pl-5 text-swoop-muted">
+            <li>Prioritized save list with dues impact.</li>
+            <li>On-property alerts with service recovery scripts.</li>
+            <li>Auto-generated board-ready export every Friday.</li>
+          </ul>
+        </div>
+      </ProofStack>
 
-      {/* Section 2 — How it works */}
+      {/* Section 3 — Quick wins */}
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-white p-8">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Quick wins</p>
+              <h2 className="mt-2 text-2xl font-bold text-swoop-dark">See it Monday. Fix it mid-week. Prove it Friday.</h2>
+            </div>
+            <Link href="/book-demo" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Walk through your scenarios →</Link>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {quickWins.map((card) => (
+              <article key={card.label} className="flex flex-col rounded-2xl border border-swoop-border bg-swoop-bg p-5">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-swoop-accent">{card.label}</span>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-swoop-muted">{card.scenario}</p>
+                <p className="mt-3 text-sm text-swoop-dark">{card.summary}</p>
+                <p className="mt-3 text-sm font-semibold text-swoop-dark">
+                  Action: <span className="font-normal text-swoop-muted">{card.action}</span>
+                </p>
+                <div className="mt-auto pt-4 text-sm font-semibold text-swoop-dark">{card.impact}</div>
+                <DemoDisclosure className="mt-3 text-[11px] text-swoop-muted" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4 — How it works */}
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">How it works</p>
@@ -163,7 +200,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 3 — ROI calculator */}
+      {/* Section 5 — ROI calculator */}
       <section className="px-6">
         <div className="mx-auto max-w-container">
           <RoiCalculator />
@@ -174,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 4 — Capability preview */}
+      {/* Section 6 — Capability preview */}
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -187,44 +224,6 @@ export default function HomePage() {
           </div>
           <div className="mt-6">
             <HomeCapabilityTabs />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5 — Weekly flow */}
-      <section className="px-6">
-        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
-          {weeklyFlow.map((block) => (
-            <article key={block.title} className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">{block.title}</p>
-              <h3 className="mt-2 text-xl font-semibold text-swoop-dark">{block.title.includes('Monday') ? 'What you check in 10 minutes' : 'What you prove by Friday'}</h3>
-              <ul className="mt-4 space-y-2 text-sm" style={{ color: '#3d4f44' }}>
-                {block.bullets.map((line) => (
-                  <li key={line}>• {line}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Section 6 — Social proof */}
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
-          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Founder testimony</p>
-          <blockquote className="mt-3 text-xl leading-relaxed font-semibold">&ldquo;Every Monday we run the Oakmont Hills demo live for GMs and boards. The retention lifts, waitlist recovery, and staffing saves on this site come directly from that environment.&rdquo;</blockquote>
-          <p className="mt-2 text-sm text-white/80">Ty Hayes — Founder, Swoop Golf</p>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {testimonialCards.map((entry) => (
-              <article key={entry.person} className="responsive-card rounded-2xl border border-white/20 bg-white/5 p-5">
-                <span className="inline-flex rounded-full border border-white/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Live demo insight</span>
-                <p className="mt-3 text-sm leading-relaxed text-white/90">&ldquo;{entry.quote}&rdquo;</p>
-                <p className="mt-3 text-xs text-white/70">{entry.person} — {entry.role}</p>
-                <p className="mt-3 text-base font-semibold text-white">{entry.metric}</p>
-                <DemoDisclosure tone="dark" />
-              </article>
-            ))}
           </div>
         </div>
       </section>
@@ -256,7 +255,12 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <div className="mt-auto pt-5">
-                  <Link href={tier.ctaHref} className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition ${tier.highlighted ? 'bg-swoop-green text-swoop-dark hover:bg-swoop-green-hover' : 'border border-swoop-border bg-swoop-bg text-swoop-dark hover:bg-swoop-border'}`}>{tier.cta}</Link>
+                  <Link
+                    href={tier.ctaHref}
+                    className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition ${tier.highlighted ? 'bg-swoop-green text-swoop-dark hover:bg-swoop-green-hover' : 'border border-swoop-border bg-swoop-bg text-swoop-dark hover:bg-swoop-border'}`}
+                  >
+                    {tier.cta}
+                  </Link>
                 </div>
               </article>
             ))}
