@@ -5,37 +5,69 @@ import { BoardSnapshotCard, GmScriptCard } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'AI Agents',
-  description: 'AI assistants watch every member, slot, and outlet signal and tee up the next best move with impact math.',
+  description: 'Six canonical AI agents monitor your operation, draft recommendations, and route human approvals — no autopilot required.',
   path: '/ai-agents',
 })
 
-const recipes = [
-  'At-risk member score drop > 12 points → GM script + call task',
-  'Cancellation risk > 70% at 24h → hold the slot for a priority member and alert the starter',
-  'Staffing gap during post-round peak → suggest which position to backfill and when',
-  'Unresolved complaint > 72h → comp offer draft + escalation',
+const agents = [
+  {
+    name: 'Member Pulse',
+    monitors: 'Attendance, spend, satisfaction, and communication lag for every member household.',
+    recommendation: 'Flags a 12-year golf member whose health score dropped 14 points and drafts a personal call script for the GM.',
+    approval: 'You approve or reject the contact plan, and Pulse logs the outcome for retention reporting.',
+  },
+  {
+    name: 'Demand Optimizer',
+    monitors: 'Open tee inventory, cancellation risk, and F&B uplift per time block.',
+    recommendation: 'Identifies tomorrow’s 2:10 PM gap, ranks high-value members likely to dine afterward, and generates a targeted invite list.',
+    approval: 'Starter lead approves the auto-drafted texts/email and sends in two clicks.',
+  },
+  {
+    name: 'Service Recovery',
+    monitors: 'Service complaints, ticket stats, wait times, and tip sentiment across outlets.',
+    recommendation: 'Detects a three-shift backlog in the Grill Room, drafts apology messaging, and schedules a comp credit if approved.',
+    approval: 'Department head approves the escalation before anything is sent or credited.',
+  },
+  {
+    name: 'Labor Optimizer',
+    monitors: 'Actual vs. scheduled staffing, demand forecasts, and overtime exposure.',
+    recommendation: 'Projects Friday lunch to miss coverage by two servers and suggests which roles to reassign plus expected covers saved.',
+    approval: 'Ops lead approves the shift swap and the instructions flow to the staffing system.',
+  },
+  {
+    name: 'Revenue Analyst',
+    monitors: 'Dues at risk, ancillary revenue, cart fees, and pipeline momentum.',
+    recommendation: 'Spots a $42K variance in cart fee capture versus rounds played and drafts a weekly revenue note for finance.',
+    approval: 'GM reviews the note, adds context if needed, and routes it to the board list.',
+  },
+  {
+    name: 'Engagement Autopilot',
+    monitors: 'Event participation, lesson history, approvals, and channel preferences.',
+    recommendation: 'Sees a multi-club family skipping tournaments and drafts an invite to a social mixer with curated talking points for staff.',
+    approval: 'Membership director approves messaging and logs outcome with one tap.',
+  },
 ]
 
 const agentFaqs = [
   {
     question: 'Can AI agents take actions without my approval?',
-    answer: 'No. Every action requires human approval unless you explicitly enable auto-approve for low-risk items.',
+    answer: 'No. Every action requires explicit approval unless you toggle auto-approve for low-risk categories.',
   },
   {
     question: 'What if an agent recommends something wrong?',
-    answer: 'You reject it. Agents learn from your feedback pattern over time.',
+    answer: 'Reject it. Agents learn from your decisions and tighten future recommendations.',
   },
   {
     question: 'Who can approve agent recommendations?',
-    answer: 'Configurable by role — GM, department heads, or designated staff.',
+    answer: 'You control approval paths. GM, membership, golf, and dining leaders each get tailored queues.',
   },
   {
-    question: 'Can I turn off specific agents?',
-    answer: 'Yes. Each of the 6 agents can be enabled or disabled independently.',
+    question: 'Can I turn specific agents off?',
+    answer: 'Yes. Enable only the agents you need, and switch them on as your team is ready.',
   },
   {
     question: 'How do agents access our data?',
-    answer: 'Agents read from your connected systems through secure API integrations. They never modify source data.',
+    answer: 'Agents read from your connected systems via secure, read-only APIs. They never write back to your sources.',
   },
 ]
 
@@ -57,7 +89,10 @@ export default function AIAgentsPage() {
       <section className="px-6 py-16 md:py-24 text-center">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">AI Agents</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">24/7 assistants that spot the problem, draft the fix, and let you stay in control.</h1>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Six assistants that monitor every signal and keep humans in the loop.</h1>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-swoop-muted">
+            Each agent owns a domain — member health, demand, service, labor, revenue, or engagement. They watch the data, draft the fix, and wait for your approval.
+          </p>
         </div>
       </section>
 
@@ -68,32 +103,38 @@ export default function AIAgentsPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
-          <h2 className="text-2xl font-bold">Automation recipes</h2>
-          <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-            {recipes.map((recipe) => (
-              <li key={recipe} className="rounded-lg border border-swoop-border bg-swoop-bg px-3 py-2">{recipe}</li>
-            ))}
-          </ul>
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
+          {agents.map((agent) => (
+            <article key={agent.name} className="rounded-2xl border border-swoop-border bg-white p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-swoop-muted">{agent.name}</p>
+              <h2 className="mt-2 text-xl font-semibold">{agent.monitors}</h2>
+              <p className="mt-3 text-sm text-swoop-muted">
+                <strong>Example recommendation:</strong> {agent.recommendation}
+              </p>
+              <p className="mt-2 text-sm text-swoop-muted">
+                <strong>Approval flow:</strong> {agent.approval}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="px-6">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — how approvals work</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Approval rhythm</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Each agent surfaces a recommendation with context and expected impact</li>
-              <li>• You approve, reject, or modify before any action is taken</li>
-              <li>• Approved actions execute automatically and log results</li>
+              <li>• Agents queue recommendations with impact math and context</li>
+              <li>• You approve, reject, or edit before anything is sent or scheduled</li>
+              <li>• Every decision updates retention math and audit logs</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — audit trail and proof of impact</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Human oversight</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Every recommendation and outcome is logged</li>
-              <li>• Weekly impact summary shows saves and revenue recovered</li>
-              <li>• Board-ready report of AI-assisted decisions</li>
+              <li>• Role-based approval queues keep departments in control</li>
+              <li>• Auto-approve only what you explicitly allow</li>
+              <li>• Board-ready audit trail shows who approved what and when</li>
             </ul>
           </div>
         </div>
@@ -105,7 +146,7 @@ export default function AIAgentsPage() {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               { title: 'Step 1 · Agent Flags', detail: 'Member 247 engagement dropped 40% in 3 weeks' },
-              { title: 'Step 2 · GM Approves', detail: 'Schedule personal call from Membership Director' },
+              { title: 'Step 2 · GM Approves', detail: 'Membership director reviews the scripted call + task' },
               { title: 'Step 3 · Outcome', detail: 'Member renewed — saved $18K in annual dues' },
             ].map((step, index) => (
               <div key={step.title} className="rounded-xl border border-swoop-border bg-swoop-bg p-4 text-sm text-swoop-muted">
@@ -142,7 +183,7 @@ export default function AIAgentsPage() {
         <BoardSnapshotCard />
       </ProofStack>
 
-      <CTASection headline="See your own agent inbox and approval flows." />
+      <CTASection headline="Review the six agents in action on your own data." />
     </div>
   )
 }

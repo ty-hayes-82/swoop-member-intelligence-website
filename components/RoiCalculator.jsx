@@ -11,7 +11,7 @@ export default function RoiCalculator() {
   const annualLoss = atRisk * dues
   const swoopSaves = Math.round(atRisk * 0.65)
   const recovered = swoopSaves * dues
-  const swoopProCost = PRO_ANNUAL_COST // $99/mo × 12
+  const swoopProCost = PRO_ANNUAL_COST // $499/mo × 12
   const netGain = recovered - swoopProCost
   const roiMultiple = recovered > 0 ? Math.round(recovered / swoopProCost) : 0
 
