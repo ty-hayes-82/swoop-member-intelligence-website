@@ -10,7 +10,6 @@ const platformLinks = [
   { label: 'Staffing & Labor', href: '/capabilities/staffing-labor' },
   { label: 'Revenue & Pipeline', href: '/capabilities/revenue-pipeline' },
   { label: 'AI Agents', href: '/ai-agents' },
-  { label: 'Integrations', href: '/integrations' },
 ]
 
 const integrationMenu = [
@@ -41,7 +40,7 @@ const companyLinks = [
 
 const navItems = [
   { label: 'Platform', href: '/platform', children: platformLinks },
-  { label: 'Integrations', href: '/integrations', children: integrationMenu },
+  { label: 'Integrations', href: '/integrations' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Why Swoop', href: '/why-swoop' },
   { label: 'Pricing', href: '/pricing' },
