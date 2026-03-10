@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import { AtRiskRosterMock, DecayTimelineMock, GmScriptCard } from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export const metadata = buildMetadata({
   title: 'Member Intelligence',
@@ -11,7 +12,7 @@ export const metadata = buildMetadata({
 const workflow = [
   { title: 'Signal', detail: 'Health score drops, spend softens, and complaint aging passes 72 hours.' },
   { title: 'Action', detail: 'GM receives script + routing recommendation before the morning standup.' },
-  { title: 'Proof', detail: 'Save probability and protected ARR are written back to board reporting.' },
+  { title: 'Proof', detail: 'Save probability and annual dues protected are written back to board reporting.' },
 ]
 
 const memberFaqs = [
@@ -22,10 +23,25 @@ const memberFaqs = [
   { question: 'How accurate are the predictions?', answer: 'Clubs typically see 80%+ precision on resignations flagged at least two weeks early.' },
 ]
 
+const insightCards = [
+  {
+    title: 'Health trajectory in context',
+    detail: 'Weekly decay timeline shows email, golf, dining, and complaint streaks so outreach references real behavior.',
+  },
+  {
+    title: 'Action drawer with script + comps',
+    detail: 'Approving an action opens a full profile: family notes, preferred channel, and approved comp guidance.',
+  },
+  {
+    title: 'Board math stays in sync',
+    detail: 'Every outreach logs owner, due date, and protected dues so Friday packets export without extra spreadsheets.',
+  },
+]
+
 export default function MemberIntelligencePage() {
   return (
     <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Member Intelligence</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Know who is drifting before resignation language appears.</h1>
@@ -34,10 +50,25 @@ export default function MemberIntelligencePage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
-          <AtRiskRosterMock />
-          <DecayTimelineMock />
-          <GmScriptCard />
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-2xl border border-swoop-border bg-white p-5">
+            <ScreenshotLightbox
+              src="/images/screenshot-member-intelligence.png"
+              alt="Member Intelligence roster with at-risk members highlighted"
+              maxHeight={420}
+              objectPosition="top"
+            />
+            <p className="mt-3 text-sm text-swoop-muted">Live roster showing health distribution, dues at risk, and the complete save queue. Demo data — Oakmont Hills CC, January 2026.</p>
+            <DemoDisclosure className="mt-1 text-xs" />
+          </div>
+          <div className="space-y-4">
+            {insightCards.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-sm font-semibold text-swoop-dark">{card.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{card.detail}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -59,7 +90,7 @@ export default function MemberIntelligencePage() {
         <article className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Micro case study · Desert Sky GC</p>
           <h2 className="mt-2 text-2xl font-bold">9 saves in 30 days with one-call playbooks.</h2>
-          <p className="mt-3 text-sm text-swoop-muted">Desert Sky moved from reactive outreach to a Monday-first save cadence: 9 members retained, $168K protected ARR, and average complaint follow-up time cut to 19 hours.</p>
+          <p className="mt-3 text-sm text-swoop-muted">Desert Sky moved from reactive outreach to a Monday-first save cadence: 9 members retained, $168K in annual dues protected, and average complaint follow-up time cut to 19 hours.</p>
         </article>
       </section>
 
@@ -77,7 +108,7 @@ export default function MemberIntelligencePage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — board proof</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• Retention trend and save probability deltas.</li>
-              <li>• Protected ARR and intervention attribution.</li>
+              <li>• Annual dues protected and intervention attribution.</li>
               <li>• Next-week outlook for the board packet.</li>
             </ul>
           </div>

@@ -2,13 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import {
-  AtRiskRosterMock,
-  RoutingComparisonMock,
-  PostRoundConversionMock,
-  StaffingForecastGrid,
-  BoardReportPreview,
-} from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 const tabs = [
   {
@@ -17,7 +12,12 @@ const tabs = [
     description: 'Catch resignation risk 6–8 weeks early with health scores, decay reasons, and save playbooks.',
     link: '/capabilities/member-intelligence',
     highlights: ['Live health scores by member', 'Save queue arrives every Monday', 'Board-ready attribution for every intervention'],
-    mock: <AtRiskRosterMock />,
+    screenshot: {
+      src: '/images/screenshot-member-intelligence.png',
+      alt: 'Member Intelligence roster with at-risk members highlighted',
+      caption: 'Demo data — Oakmont Hills CC · January 2026',
+      objectPosition: 'top',
+    },
   },
   {
     id: 'tee-sheet',
@@ -25,7 +25,12 @@ const tabs = [
     description: 'Fill openings with the right members, not just whoever signed up first.',
     link: '/capabilities/tee-sheet-demand',
     highlights: ['Cancellation prediction 24–72h ahead', 'Retention-prioritized waitlist routing', 'Pace-of-play and demand forecasting'],
-    mock: <RoutingComparisonMock />,
+    screenshot: {
+      src: '/screenshots/waitlist-demand.jpg',
+      alt: 'Waitlist and demand intelligence screenshot',
+      caption: 'Retention-prioritized queue vs FIFO · Demo data',
+      objectPosition: 'top',
+    },
   },
   {
     id: 'fb',
@@ -33,7 +38,11 @@ const tabs = [
     description: 'Align tee sheet finish windows with staffing and post-round conversion prompts.',
     link: '/capabilities/fb-operations',
     highlights: ['Live outlet pacing', 'Service recovery queue', 'Offer prompts tied to finish clusters'],
-    mock: <PostRoundConversionMock />,
+    screenshot: {
+      src: '/screenshots/fb-operations.png',
+      alt: 'F&B operations dashboard screenshot',
+      caption: 'Outlet revenue and post-round conversion — Demo data',
+    },
   },
   {
     id: 'staffing',
@@ -41,7 +50,11 @@ const tabs = [
     description: 'See coverage gaps 48 hours ahead so service never slips.',
     link: '/capabilities/staffing-labor',
     highlights: ['Shift recommendations with ROI math', 'Labor-cost-per-revenue tracking', 'Married to tee sheet and weather signals'],
-    mock: <StaffingForecastGrid />,
+    screenshot: {
+      src: '/screenshots/staffing-labor.png',
+      alt: 'Staffing and service recovery dashboard screenshot',
+      caption: 'Service recovery + staffing gaps — Demo data',
+    },
   },
   {
     id: 'revenue',
@@ -49,7 +62,12 @@ const tabs = [
     description: 'Prove what was saved, not just what was lost, with action-level attribution.',
     link: '/capabilities/revenue-pipeline',
     highlights: ['Board-ready story of saves and growth', 'Action vs. outcome tracking', 'Pipeline health snapshot every Friday'],
-    mock: <BoardReportPreview />,
+    screenshot: {
+      src: '/screenshots/revenue-pipeline.jpg',
+      alt: 'Revenue & pipeline dashboard screenshot',
+      caption: 'Prospect conversion queue with dues impact — Demo data',
+      objectPosition: 'top',
+    },
   },
 ]
 
@@ -86,7 +104,16 @@ export default function HomeCapabilityTabs() {
               Explore capability →
             </Link>
           </div>
-          <div className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">{tab.mock}</div>
+          <div className="rounded-2xl border border-swoop-border bg-swoop-bg/60 p-4">
+            <ScreenshotLightbox
+              src={tab.screenshot.src}
+              alt={tab.screenshot.alt}
+              maxHeight={260}
+              objectPosition={tab.screenshot.objectPosition ?? 'top'}
+            />
+            <p className="mt-3 text-xs text-swoop-muted">{tab.screenshot.caption}</p>
+            <DemoDisclosure className="mt-1 text-[11px]" />
+          </div>
         </div>
       </div>
     </section>
