@@ -1,6 +1,7 @@
 import './globals.css'
 import StickyNav from '@/components/StickyNav'
 import Footer from '@/components/Footer'
+import MobileStickyCTA from '@/components/MobileStickyCTA'
 import { buildMetadata } from '@/lib/metadata'
 import { PLAN_PRICING, PRICING_PLAN_ORDER, PRICING_SUMMARY } from '@/lib/pricing'
 
@@ -102,6 +103,7 @@ export default function RootLayout({ children }) {
         <StickyNav />
         <main>{children}</main>
         <Footer />
+        <MobileStickyCTA />
       </body>
     </html>
   )
