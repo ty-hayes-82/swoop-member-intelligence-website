@@ -13,6 +13,12 @@ const founding = [
   'Graham Liu — Head of Engineering',
 ]
 
+const mission = [
+  'Make it impossible to miss when a member starts pulling away.',
+  'Give operators the board-ready proof they need every Friday.',
+  'Automate the busywork so teams can focus on service, not spreadsheets.',
+]
+
 const advisory = [
   'Former private-club GM (Top 100 US private club)',
   'Hospitality labor analytics operator',
@@ -32,13 +38,57 @@ const aboutFaqs = [
   { question: 'What support is included?', answer: 'Onboarding, training, and ongoing success management are built into paid tiers.' },
 ]
 
+const timeline = [
+  {
+    label: 'January 2024',
+    detail: 'Ty loses a $22K/year member after three missed follow-ups. Starts building a spreadsheet-driven briefing he could run every Monday.',
+  },
+  {
+    label: 'Summer 2025',
+    detail: 'Founding team forms to turn the spreadsheet into a live intelligence layer that stitches tee sheet, dining, staff notes, and complaints.',
+  },
+  {
+    label: 'January 2026',
+    detail: 'Oakmont Hills CC demo goes live: 300 members, five outlets, and seven AI-assisted playbooks running every morning.',
+  },
+]
+
 export default function AboutPage() {
   return (
     <div className="space-y-16 pb-16">
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">About</p>
-          <h1 className="mt-4 text-4xl font-bold md:text-5xl">Built by operators who have lived the Monday fire drill.</h1>
+          <h1 className="mt-4 text-4xl font-bold md:text-5xl">The clubhouse story that led Ty Hayes to build Swoop.</h1>
+          <p className="mt-6 max-w-3xl text-lg text-swoop-muted">
+            Ty ran member experience for a 300-member desert club and spent every Monday morning digging through tee sheets, POS exports,
+            and inboxes to answer one question: <strong className="font-semibold text-swoop-dark">who is at risk right now?</strong> When James Whitfield resigned after
+            three missed warning signs, Ty wrote the first version of Swoop to make sure it would never happen again. That founders loop — <span className="font-semibold text-swoop-dark">see it, fix it, prove it</span> — is the mission.
+          </p>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-[2fr,1fr]">
+          <article className="rounded-2xl border border-swoop-border bg-white p-8">
+            <h2 className="text-2xl font-bold">Why we built it</h2>
+            <p className="mt-4 text-base text-swoop-muted">
+              In January 2026 Ty was still hand-building Monday briefing decks in Google Sheets. The data was right, but it landed too late to
+              save the members who were already gone. Swoop now stitches tee sheet, dining, complaints, and agent recommendations into one
+              timeline so a GM can spot the wobble while there is still time to call the member.
+            </p>
+            <p className="mt-4 text-base text-swoop-muted">
+              Every product decision runs through the same filter: would this have helped Ty call James Whitfield before he resigned?
+            </p>
+          </article>
+          <article className="rounded-2xl border border-swoop-border bg-white p-8">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-swoop-muted">Mission checkpoints</h3>
+            <ul className="mt-4 space-y-3 text-sm text-swoop-muted">
+              {mission.map((line) => (
+                <li key={line}>• {line}</li>
+              ))}
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -56,6 +106,20 @@ export default function AboutPage() {
             <h2 className="text-xl font-semibold">Security & Privacy</h2>
             <ul className="mt-3 space-y-2 text-sm text-swoop-muted">{security.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <h2 className="text-2xl font-bold">The Swoop timeline</h2>
+          <div className="mt-6 space-y-4">
+            {timeline.map((event) => (
+              <div key={event.label} className="rounded-xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-swoop-accent">{event.label}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{event.detail}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
