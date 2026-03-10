@@ -7,28 +7,43 @@ import { usePathname } from 'next/navigation'
 const HIDDEN_ROUTES = new Set(['/book-demo'])
 
 export default function MobileStickyCTA() {
-  const pathname = usePathname()
+  const pathname = usePathname() || ''
   const [visible, setVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window === 'undefined') return
-      const shouldShow = window.innerWidth < 768 && window.scrollY > 520
-      setVisible(shouldShow)
-    }
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
-    }
+    setMounted(true)
   }, [])
 
-  if (typeof window === 'undefined') return null
-  const suppressed = Array.from(HIDDEN_ROUTES).some((route) => (pathname ?? '').startsWith(route))
-  if (suppressed) return null
-  if (!visible) return null
+  useEffect(() => {
+    if (!mounted) return
+    const update = () => {
+      if (typeof window === 'undefined') return
+      const isMobile = window.matchMedia('(max-width: 767px)').matches
+      if (!isMobile) {
+        setVisible(false)
+        return
+      }
+      const hero = document.querySelector('[data-hero-section]')
+      if (hero) {
+        const rect = hero.getBoundingClientRect()
+        setVisible(rect.bottom <= 0)
+        return
+      }
+      setVisible(window.scrollY > 320)
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [mounted, pathname])
+
+  const suppressed = Array.from(HIDDEN_ROUTES).some((route) => pathname.startsWith(route))
+  if (!mounted || suppressed || !visible) return null
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-swoop-border bg-white px-4 py-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] md:hidden">

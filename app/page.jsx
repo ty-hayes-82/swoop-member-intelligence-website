@@ -116,7 +116,7 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="px-6 py-8 md:py-16">
+      <section className="px-6 py-8 md:py-16" data-hero-section>
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-accent">For private-club GMs</p>
