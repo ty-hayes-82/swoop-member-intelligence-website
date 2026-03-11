@@ -1,18 +1,17 @@
 import { buildMetadata } from '@/lib/metadata'
 import DemoForm from '@/components/DemoForm'
-import SchedulerEmbed from '@/components/SchedulerEmbed'
 import TrustedBetaStrip from '@/components/TrustedBetaStrip'
 
 export const metadata = buildMetadata({
-  title: 'Book a Demo — See Your Club in Swoop',
+  title: 'Book a Demo - See Your Club in Swoop',
   description: 'Schedule a personalized 30-minute walkthrough. See tee sheet leakage, at-risk members, F&B pressure, and revenue blind spots using real club scenarios.',
   path: '/book-demo',
 })
 
 const stats = [
-  { value: '91%', label: 'Waitlist fill rate', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
-  { value: '$312', label: 'Revenue per tee slot', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
-  { value: '6 days', label: 'Early warning on resignations', context: 'Demo data scenario — Oakmont Hills CC (Jan 2026)' },
+  { value: '91%', label: 'Waitlist fill rate', context: 'Demo data scenario - Oakmont Hills CC (Jan 2026)' },
+  { value: '$312', label: 'Revenue per tee slot', context: 'Demo data scenario - Oakmont Hills CC (Jan 2026)' },
+  { value: '6 days', label: 'Early warning on resignations', context: 'Demo data scenario - Oakmont Hills CC (Jan 2026)' },
 ]
 
 const whatYouWillSee = [
@@ -26,7 +25,7 @@ const whatYouWillSee = [
   },
   {
     title: 'Cross-System Intelligence',
-    description: 'Your tee sheet, POS, CRM, and payroll systems don’t talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.',
+    description: "Your tee sheet, POS, CRM, and payroll systems don't talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.",
   },
   {
     title: 'AI Agent Recommendations',
@@ -35,9 +34,9 @@ const whatYouWillSee = [
 ]
 
 const demoProcess = [
-  { step: '01', title: 'Tell us about your club', description: '5 minutes — member count, systems, retention challenges.' },
-  { step: '02', title: 'See the platform live', description: '20 minutes — guided walkthrough on Oakmont Hills demo data.' },
-  { step: '03', title: 'Q&A and next steps', description: '5 minutes — pricing, implementation, board readiness.' },
+  { step: '01', title: 'Tell us about your club', description: '5 minutes - member count, systems, retention challenges.' },
+  { step: '02', title: 'See the platform live', description: '20 minutes - guided walkthrough on Oakmont Hills demo data.' },
+  { step: '03', title: 'Q&A and next steps', description: '5 minutes - pricing, implementation, board readiness.' },
 ]
 
 const faqs = [
@@ -82,15 +81,6 @@ export default function BookDemoPage() {
 
       <TrustedBetaStrip />
 
-      <section className="px-6">
-        <div className="mx-auto max-w-container">
-          <SchedulerEmbed
-            title="Prefer to grab time yourself?"
-            description="Calendly embed with live availability. Pick a slot and we’ll send confirmation email + calendar invite instantly."
-          />
-        </div>
-      </section>
-
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">What you&apos;ll see in the demo</h2>
@@ -126,14 +116,14 @@ export default function BookDemoPage() {
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-container grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday — what you get on the call</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday - what you get on the call</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• 30-minute walkthrough of your club&apos;s risk profile using demo data</li>
               <li>• Q&A on integrations, agent approvals, and handoffs</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday — what you take to your board</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday - what you take to your board</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
               <li>• Sample briefing sheet showcasing engagement decay + saves</li>
               <li>• ROI estimate tied to your board&apos;s retention targets</li>
@@ -176,7 +166,7 @@ export default function BookDemoPage() {
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to see what your club is missing?</h2>
           <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            Book a 30-minute demo. No pitch deck, no generic slides — just a live walkthrough of the platform with real club scenarios.
+            Book a 30-minute demo. No pitch deck, no generic slides - just a live walkthrough of the platform with real club scenarios.
           </p>
           <a
             href="#demo-form"
@@ -184,7 +174,7 @@ export default function BookDemoPage() {
           >
             Book a Demo
           </a>
-          <p className="text-white/50 text-sm mt-4">Available Mon–Fri, 9am–5pm EST</p>
+          <p className="text-white/50 text-sm mt-4">Available Mon-Fri, 9am-5pm EST</p>
         </div>
       </section>
     </>

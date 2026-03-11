@@ -3,13 +3,14 @@ import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const platformLinks = [
+  { label: 'Daily Briefing', href: '/platform#daily-briefing' },
   { label: 'Platform Overview', href: '/platform' },
-  { label: 'Member Intelligence', href: '/capabilities/member-intelligence' },
+  { label: 'Member Health', href: '/capabilities/member-intelligence' },
   { label: 'Tee Sheet & Demand', href: '/capabilities/tee-sheet-demand' },
-  { label: 'F&B Operations', href: '/capabilities/fb-operations' },
-  { label: 'Staffing & Labor', href: '/capabilities/staffing-labor' },
+  { label: 'F&B & Dining', href: '/capabilities/fb-operations' },
+  { label: 'Staffing & Service', href: '/capabilities/staffing-labor' },
   { label: 'Revenue & Pipeline', href: '/capabilities/revenue-pipeline' },
-  { label: 'AI Agents', href: '/ai-agents' },
+  { label: 'Agent Command', href: '/ai-agents' },
 ]
 
 const companyLinks = [

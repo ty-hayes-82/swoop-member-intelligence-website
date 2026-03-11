@@ -26,7 +26,7 @@ const howItWorks = [
   {
     step: 2,
     title: 'Fix It',
-    summary: 'Manual interventions',
+    summary: 'GM-approved actions',
     detail: 'AI agents recommend the next best action with impact math. You approve or assign inside Agent Command.',
     accent: '#059669',
   },
@@ -66,28 +66,28 @@ const weeklyFlow = [
 
 const testimonialCards = [
   {
-    badge: 'GM POV',
-    quote: 'Daily Briefing at 7:15 AM tells me in 30 seconds what matters — the member about to leave, the weather threat, and the saves waiting for approval.',
-    person: 'Richard Thornton, CCM',
-    role: 'General Manager, The Preserve at Pinnacle Peak',
-    metric: '30-second save list before first tee time',
-    remark: 'Stop guessing which complaint or weather shift needs you first.',
+    badge: 'Founding Partner',
+    quote: "We're testing Layer 3 Intelligence in live operations. Early results show member health scores catching resignation signals our CRM misses entirely.",
+    person: 'Private Beta Partner Club',
+    role: 'Mid-Atlantic Region • 320 Members',
+    metric: '6 at-risk members identified in first 10 days',
+    remark: 'Founding Partner clubs get priority feature access and dedicated implementation support.',
   },
   {
-    badge: 'Case Study',
-    quote: 'We retained 9 members in 30 days once saves moved to a Monday-first cadence.',
-    person: 'Desert Sky GC — Founding Partner',
-    role: '30-day retention sprint',
-    metric: '$168K in annual dues protected',
-    remark: 'Scripts + owner assignments were ready before 9:00 AM.',
+    badge: 'Founding Partner',
+    quote: 'The daily briefing replaced three separate system logins. Now we see tee sheet gaps, member risk, and staffing coverage in one 90-second scroll.',
+    person: 'Desert Mountain Region Partner',
+    role: 'Southwest Private Club • 280 Members',
+    metric: 'Briefing reviewed at 7:15 AM daily',
+    remark: 'Partners shape the roadmap — your workflow becomes the product.',
   },
   {
     badge: 'Live Demo',
-    quote: 'Agent Command approvals replaced three email threads per decision.',
+    quote: "Oakmont Hills demo data shows how cross-system intelligence works. Real deployment mirrors the same workflow with your club's actual integrations.",
     person: 'Ty Hayes',
     role: 'Founder, Swoop Golf',
-    metric: '83% of AI recommendations approved live',
-    remark: 'Weekly Oakmont Hills CC walkthrough.',
+    metric: 'Weekly product walkthroughs available',
+    remark: 'See the See It → Fix It → Prove It flow on live demo data.',
   },
 ]
 
@@ -95,7 +95,7 @@ const pricingTiers = [
   {
     name: 'Free',
     price: '$0/mo',
-    desc: 'Baseline member health scores and weekly summary emails.',
+    desc: 'Answer one question: which members are drifting away? Health scores from integrations only.',
     perks: ['3 integrations', 'Weekly briefing email', 'Starter playbooks'],
     cta: 'Get Started Free',
     ctaHref: '/book-demo',
@@ -103,7 +103,7 @@ const pricingTiers = [
   {
     name: 'Pro',
     price: '$499/mo',
-    desc: 'Full workflow playbooks for a single club team.',
+    desc: 'Answer all three questions. See operations breaking, F&B revenue leaking, and members disengaging — then fix it.',
     perks: ['10 integrations', 'AI agent approvals', 'Board-ready attribution'],
     highlighted: true,
     badge: 'Most Popular',
@@ -113,7 +113,7 @@ const pricingTiers = [
   {
     name: 'Club',
     price: '$1,499/mo',
-    desc: 'Multi-property orchestration and dedicated success.',
+    desc: 'All three questions across every property. Portfolio-level intelligence with dedicated success.',
     perks: ['Portfolio rollups', 'Custom ingestion', 'Dedicated success lead'],
     cta: 'Contact Sales',
     ctaHref: '/contact',
@@ -128,10 +128,10 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Every member has a health score. You just can&apos;t see it yet.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
+            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop firefighting. Start orchestrating.</h1>
+            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>The Real-Time Cockpit that shows you where today is breaking — before members feel it.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <PrimaryCTA tone="dark" />
+              <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-swoop-dark/90">See the Daily Briefing</Link>
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
@@ -158,6 +158,86 @@ export default function HomePage() {
 
       {/* Trust strip */}
       <TrustStrip />
+
+      {/* Wedge Strategy Section — Member Health as Entry Point */}
+      <section className="px-6 py-8" data-animate="fade-up">
+        <div className="mx-auto max-w-container rounded-3xl border border-swoop-green/30 bg-gradient-to-br from-swoop-green/5 to-white p-8 md:p-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Wedge Product · 90% adoption rate</p>
+              <h2 className="mt-3 text-3xl font-bold text-swoop-dark md:text-4xl">Start with the Early Warning System</h2>
+              <p className="mt-4 text-lg" style={{ color: '#3d4f44' }}>90% of clubs value a daily Health Score. It&rsquo;s the fastest way to protect your dues base.</p>
+              <p className="mt-4 text-sm" style={{ color: '#6B7280' }}>Member Health sits at the center of Swoop&rsquo;s intelligence platform. It connects tee sheet activity, F&amp;B spend, email engagement, and complaint signals into one simple score — so you know which members need outreach before they start the resignation conversation.</p>
+              <div className="mt-6">
+                <Link href="/platform#member-health" className="inline-flex items-center justify-center rounded-lg bg-swoop-green px-6 py-3 text-sm font-semibold text-swoop-dark transition hover:bg-swoop-green-hover">See Member Health in action</Link>
+              </div>
+            </div>
+            <div className="relative" data-animate="fade-scale" data-animate-delay="200">
+              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white shadow-xl">
+                {/* Placeholder for Member Health roster screenshot */}
+                <div className="aspect-[4/3] bg-gradient-to-br from-swoop-bg to-white p-6">
+                  <div className="flex items-center justify-between border-b border-swoop-border pb-3">
+                    <h3 className="text-sm font-semibold text-swoop-dark">Member Health Roster</h3>
+                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">6 at risk</span>
+                  </div>
+                  <div className="mt-4 space-y-3">
+                    <div className="flex items-center gap-3 rounded-lg bg-red-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-700">38</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">James Whitfield</p>
+                        <p className="text-xs text-swoop-muted">12-year member · $24K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-red-700">↓ 18 pts</span>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-lg bg-orange-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">52</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">Sarah Mitchell</p>
+                        <p className="text-xs text-swoop-muted">8-year member · $18K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-orange-700">↓ 12 pts</span>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-lg bg-yellow-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-700">64</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">Robert Chen</p>
+                        <p className="text-xs text-swoop-muted">5-year member · $15K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-yellow-700">↓ 8 pts</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section - Three Questions Only Swoop Can Answer */}
+      <section className="px-6" data-animate="fade-up">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Why Swoop exists</p>
+          <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Three questions your current systems cannot answer</h2>
+          <p className="mt-2 text-sm" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and CRM each see one slice. Swoop connects them to answer the questions that actually drive retention, revenue, and service consistency.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #F59E0B' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Operational Command</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Where is today at risk of breaking &mdash; right now?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I manage by anecdotes. I cannot see what is about to break until it is too late.&rdquo;</p>
+            </article>
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #10B981' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Revenue Optimization</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Which operational failures are costing you F&amp;B spend?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I know my F&amp;B numbers, but I cannot connect a bad hole-9 experience to a lost dinner.&rdquo;</p>
+            </article>
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #3B82F6' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Member Health</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Which members are quietly drifting away?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I can see rounds and spend, but I cannot see when a good member is quietly disengaging.&rdquo;</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       {/* Section 2 — How it works */}
       <section className="px-6">

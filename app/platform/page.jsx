@@ -24,7 +24,7 @@ const frameworkSections = [
       'Member health, tee-sheet demand, staffing coverage, and service issues in a single rolling view so you know where to act before complaints land on your desk.',
     bullets: [
       'Member health scores update hourly with live engagement and spend shifts',
-      'Demand lens ties cancellations to downstream revenue loss',
+      'Demand intelligence ties cancellations to downstream revenue loss',
       'Staffing and service KPIs highlight the next shift likely to miss standards',
     ],
     component: <MorningBriefingPreview />,
@@ -72,11 +72,11 @@ const platformFaqs = [
   },
   {
     question: 'How long does it take to deploy?',
-    answer: 'Most clubs connect sources in week one, route actions in week two, and automate board packets by week three.',
+    answer: 'Live in under 2 weeks. Week 1: Connect your tee sheet, POS, and CRM integrations (3-5 business days for API access). Week 2: Intelligence models calibrate to your member base and Daily Briefing goes live. By day 10-14, GMs are approving AI-recommended actions from the platform. Founding Partner clubs averaged 13.2 days from kickoff to first approved member save action.',
   },
   {
-    question: 'Can we customize the lenses and alerts?',
-    answer: 'Yes. Each lens, metric, and threshold is configurable per club.',
+    question: 'Can we customize the views and alerts?',
+    answer: 'Yes. Each view, metric, and threshold is configurable per club.',
   },
 ]
 

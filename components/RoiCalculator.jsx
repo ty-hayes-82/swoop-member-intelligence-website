@@ -25,6 +25,7 @@ export default function RoiCalculator() {
     <section className="bg-swoop-dark py-20 px-6">
       <div className="max-w-container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">What is churn costing your club?</h2>
+        <p className="text-white/70 text-center text-sm max-w-2xl mx-auto">Typical clubs in private beta recover <strong className="text-swoop-green">\$150K-\$300K</strong> in annual dues with Swoop. Use the calculator below to estimate your club's exposure and potential recovery.</p>
         <p className="text-white/60 text-center mb-12">Adjust the sliders to see your club&apos;s exposure — and what Swoop recovers.</p>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
