@@ -128,10 +128,10 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop discovering problems after the complaint.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and complaint log can&apos;t talk to each other. Swoop connects them &mdash; so you see the member about to leave, the shift about to break, and the revenue about to vanish. Your club systems see transactions. Swoop sees behavior.</p>
+            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop firefighting. Start orchestrating.</h1>
+            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>The Real-Time Cockpit that shows you where today is breaking — before members feel it.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <PrimaryCTA tone="dark" />
+              <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-swoop-dark/90">See the Daily Briefing</Link>
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
