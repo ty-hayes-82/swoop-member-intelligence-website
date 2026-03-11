@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&family=DM+Serif+Display:ital@0;1&display=swap');
 
 :root {
   font-size: 16px;
@@ -36,8 +36,22 @@ body {
   }
 }
 
+/* Display typography - DES-W03 */
+.display-font {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.02em;
+}
+
 .hero-headline {
-  line-height: 1.2 !important;
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1 !important;
+}
+
+.section-headline {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .hero-mockup-container {
@@ -101,6 +115,57 @@ html {
 .hover-lift:focus-within {
   transform: translateY(-6px);
   box-shadow: 0 24px 45px rgba(23, 35, 27, 0.08);
+}
+
+/* Premium screenshot depth - DES-W02 */
+.screenshot-depth {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.screenshot-depth:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18), 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Screenshot with subtle glow */
+.screenshot-glow {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15), 
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 0 40px rgba(16, 185, 129, 0.08);
+}
+.screenshot-glow:hover {
+  box-shadow: 
+    0 24px 70px rgba(0, 0, 0, 0.18), 
+    0 10px 24px rgba(0, 0, 0, 0.1),
+    0 0 50px rgba(16, 185, 129, 0.12);
+}
+
+/* Premium CTA buttons - DES-W04 */
+.cta-primary-green {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-primary-green:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 222, 128, 0.4);
+}
+.cta-primary-green:active {
+  transform: scale(1.08) translateY(-1px);
+}
+
+.cta-primary-dark {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(31, 47, 36, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-primary-dark:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 47, 36, 0.35);
+}
+.cta-primary-dark:active {
+  transform: scale(1.08) translateY(-1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
