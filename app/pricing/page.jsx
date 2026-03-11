@@ -47,7 +47,7 @@ const featureComparison = [
     features: [
       { name: 'Member Health Scores', free: true, pro: true, club: true },
       { name: 'Daily Briefing', free: true, pro: true, club: true },
-      { name: 'Full Dashboard (5 Lenses)', free: false, pro: true, club: true },
+      { name: 'Full Operational Dashboard', free: false, pro: true, club: true },
       { name: 'AI Agent Recommendations', free: false, pro: true, club: true },
       { name: 'Board-Ready Reports', free: false, pro: true, club: true },
       { name: 'Member App (optional)', free: false, pro: 'Add-on', club: 'Included' },

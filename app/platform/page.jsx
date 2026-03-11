@@ -100,6 +100,29 @@ export default function PlatformPage() {
       <TrustedBetaStrip />
 
       <section className="px-6">
+        <div className="mx-auto max-w-container">
+          <p className="text-center text-sm uppercase tracking-[0.3em] text-swoop-muted mb-8">Three questions every GM needs answered by Monday morning</p>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-swoop-border bg-white p-6 text-center">
+              <p className="text-3xl mb-3">🔍</p>
+              <h3 className="text-lg font-bold text-swoop-dark mb-2">Which members are drifting away?</h3>
+              <p className="text-sm text-swoop-muted">Health scores flag disengagement 6 weeks before a resignation letter lands.</p>
+            </div>
+            <div className="rounded-2xl border border-swoop-border bg-white p-6 text-center">
+              <p className="text-3xl mb-3">💸</p>
+              <h3 className="text-lg font-bold text-swoop-dark mb-2">Where is revenue leaking?</h3>
+              <p className="text-sm text-swoop-muted">Pace delays, staffing gaps, and no-shows cost the average club $9,500/month in F&amp;B alone.</p>
+            </div>
+            <div className="rounded-2xl border border-swoop-border bg-white p-6 text-center">
+              <p className="text-3xl mb-3">⚠️</p>
+              <h3 className="text-lg font-bold text-swoop-dark mb-2">What is about to break?</h3>
+              <p className="text-sm text-swoop-muted">Staffing shortfalls, service lapses, and operational failures — flagged before they hit your phone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-swoop-muted">Framework</p>
           <h2 className="mt-3 text-2xl font-bold">Every private club workflow follows the same pattern.</h2>
