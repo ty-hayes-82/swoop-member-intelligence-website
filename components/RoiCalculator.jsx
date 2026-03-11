@@ -66,22 +66,67 @@ export default function RoiCalculator() {
               </div>
             </div>
           </div>
-          <div className="bg-white/5 rounded-xl p-8 space-y-6">
+          <div className="bg-white/5 rounded-xl p-8 space-y-6 border border-white/10">
             <div>
-              <p className="text-white/50 text-sm">Members at risk annually</p>
+              <p className="text-white/50 text-sm mb-2">Members at risk annually</p>
               <p className="font-mono text-4xl font-bold text-red-400">{atRisk}</p>
+              {/* Visual bar showing percentage */}
+              <div className="mt-3 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-red-400 rounded-full transition-all duration-500"
+                  style={{ width: `${(atRisk / members) * 100}%` }}
+                />
+              </div>
+              <p className="text-white/40 text-xs mt-1">{churn}% of total membership</p>
             </div>
             <div>
-              <p className="text-white/50 text-sm">Annual revenue at risk</p>
+              <p className="text-white/50 text-sm mb-2">Annual revenue at risk</p>
               <p className="font-mono text-4xl font-bold text-red-400">${annualLoss.toLocaleString()}</p>
+              {/* Visual comparison bar */}
+              <div className="mt-3 space-y-1">
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-red-400 rounded-full" style={{ width: '100%' }} />
+                  </div>
+                  <span className="text-white/40 text-xs w-16">At risk</span>
+                </div>
+              </div>
             </div>
             <div className="pt-4 border-t border-white/10">
-              <p className="text-white/50 text-sm">Swoop projected saves (65% retention)</p>
+              <p className="text-white/50 text-sm mb-2">Swoop projected saves (65% retention)</p>
               <p className="font-mono text-4xl font-bold text-swoop-green">{swoopSaves} members</p>
+              {/* Comparison bar */}
+              <div className="mt-3 space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 h-3 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-red-400/50 rounded-full" style={{ width: '100%' }} />
+                  </div>
+                  <span className="text-white/40 text-xs w-20">{atRisk} at risk</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 h-3 bg-white/10 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-swoop-green rounded-full transition-all duration-500"
+                      style={{ width: `${(swoopSaves / atRisk) * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-swoop-green text-xs w-20 font-semibold">{swoopSaves} saved</span>
+                </div>
+              </div>
             </div>
             <div>
-              <p className="text-white/50 text-sm">Revenue recovered with Swoop</p>
+              <p className="text-white/50 text-sm mb-2">Revenue recovered with Swoop</p>
               <p className="font-mono text-5xl font-bold text-swoop-green">${recovered.toLocaleString()}</p>
+              {/* Visual indicator of recovery percentage */}
+              <div className="mt-3 h-3 bg-white/10 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-swoop-green to-emerald-400 rounded-full transition-all duration-500"
+                  style={{ width: `${(recovered / annualLoss) * 100}%` }}
+                />
+              </div>
+              <p className="text-swoop-green/80 text-xs mt-1 font-semibold">
+                {Math.round((recovered / annualLoss) * 100)}% of at-risk revenue recovered
+              </p>
             </div>
             <div className="pt-4 mt-4 border-t border-swoop-green/30 bg-swoop-green/10 rounded-lg p-4 -mx-4">
               <p className="text-white/50 text-sm">Swoop Pro annual cost</p>
