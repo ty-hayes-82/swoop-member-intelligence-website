@@ -293,11 +293,34 @@ export default function HomePage() {
       </section>
 
       {/* Section 6 — Social proof */}
-      <section className="px-6">
-        <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
-          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Testimonials & case studies</p>
-          <h2 className="section-headline mt-3 text-2xl font-bold md:text-3xl">GMs, founders, and pilots on what changed.</h2>
-          <p className="mt-2 text-sm text-white/70">Live demo data becomes real action plans — saves, labor fixes, and demand recovery that boards can see.</p>
+      <section className="px-6" data-animate="fade-up">
+        <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-gradient-to-br from-swoop-dark to-[#0F1612] p-10 md:p-12 text-white shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Testimonials & case studies</p>
+            <h2 className="section-headline mt-3 text-3xl font-bold md:text-4xl lg:text-5xl">
+              GMs, founders, and pilots on what changed.
+            </h2>
+            <p className="mt-4 text-base text-white/80 leading-relaxed">
+              Live demo data becomes real action plans — saves, labor fixes, and demand recovery that boards can see.
+            </p>
+            
+            {/* Trust metrics row */}
+            <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-2xl md:text-3xl font-bold text-white">12</p>
+                <p className="text-xs text-white/70 mt-1">Beta Clubs</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-2xl md:text-3xl font-bold text-white">+21%</p>
+                <p className="text-xs text-white/70 mt-1">Retention Lift</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-2xl md:text-3xl font-bold text-white">91%</p>
+                <p className="text-xs text-white/70 mt-1">Fill Rate</p>
+              </div>
+            </div>
+          </div>
+          
           <div className="mt-8">
             <TestimonialCarousel items={testimonialCards} />
           </div>
