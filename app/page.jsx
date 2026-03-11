@@ -159,6 +159,60 @@ export default function HomePage() {
       {/* Trust strip */}
       <TrustStrip />
 
+      {/* Wedge Strategy Section — Member Health as Entry Point */}
+      <section className="px-6 py-8" data-animate="fade-up">
+        <div className="mx-auto max-w-container rounded-3xl border border-swoop-green/30 bg-gradient-to-br from-swoop-green/5 to-white p-8 md:p-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Wedge Product · 90% adoption rate</p>
+              <h2 className="mt-3 text-3xl font-bold text-swoop-dark md:text-4xl">Start with the Early Warning System</h2>
+              <p className="mt-4 text-lg" style={{ color: '#3d4f44' }}>90% of clubs value a daily Health Score. It&rsquo;s the fastest way to protect your dues base.</p>
+              <p className="mt-4 text-sm" style={{ color: '#6B7280' }}>Member Health sits at the center of Swoop&rsquo;s intelligence platform. It connects tee sheet activity, F&amp;B spend, email engagement, and complaint signals into one simple score — so you know which members need outreach before they start the resignation conversation.</p>
+              <div className="mt-6">
+                <Link href="/platform#member-health" className="inline-flex items-center justify-center rounded-lg bg-swoop-green px-6 py-3 text-sm font-semibold text-swoop-dark transition hover:bg-swoop-green-hover">See Member Health in action</Link>
+              </div>
+            </div>
+            <div className="relative" data-animate="fade-scale" data-animate-delay="200">
+              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white shadow-xl">
+                {/* Placeholder for Member Health roster screenshot */}
+                <div className="aspect-[4/3] bg-gradient-to-br from-swoop-bg to-white p-6">
+                  <div className="flex items-center justify-between border-b border-swoop-border pb-3">
+                    <h3 className="text-sm font-semibold text-swoop-dark">Member Health Roster</h3>
+                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">6 at risk</span>
+                  </div>
+                  <div className="mt-4 space-y-3">
+                    <div className="flex items-center gap-3 rounded-lg bg-red-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-700">38</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">James Whitfield</p>
+                        <p className="text-xs text-swoop-muted">12-year member · $24K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-red-700">↓ 18 pts</span>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-lg bg-orange-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">52</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">Sarah Mitchell</p>
+                        <p className="text-xs text-swoop-muted">8-year member · $18K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-orange-700">↓ 12 pts</span>
+                    </div>
+                    <div className="flex items-center gap-3 rounded-lg bg-yellow-50 p-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-700">64</div>
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold text-swoop-dark">Robert Chen</p>
+                        <p className="text-xs text-swoop-muted">5-year member · $15K/yr value</p>
+                      </div>
+                      <span className="text-xs font-semibold text-yellow-700">↓ 8 pts</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section - Three Questions Only Swoop Can Answer */}
       <section className="px-6" data-animate="fade-up">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
