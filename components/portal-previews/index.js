@@ -5,12 +5,15 @@
  */
 
 // Daily Briefing
-export { default as AlertCard } from './daily-briefing/AlertCard';
-export { default as DailyBriefingDemo } from './daily-briefing/DailyBriefingDemo';
+export { default as AlertCard } from './daily-briefing/AlertCard'
+export { default as DailyBriefingDemo } from './daily-briefing/DailyBriefingDemo'
 
 // Member Health
-export { default as HealthScoreCard } from './member-health/HealthScoreCard';
-export { default as HealthScoreGrid } from './member-health/HealthScoreGrid';
+export { default as HealthScoreCard } from './member-health/HealthScoreCard'
+export { default as HealthScoreGrid } from './member-health/HealthScoreGrid'
 
 // Integrations
-export { default as IntelligenceScoreGauge } from './integrations/IntelligenceScoreGauge';
+export { default as IntelligenceScoreGauge } from './integrations/IntelligenceScoreGauge'
+
+// Tee Sheet & Demand
+export { default as TeeSheetRoutingPreview } from './tee-sheet/TeeSheetRoutingPreview'
