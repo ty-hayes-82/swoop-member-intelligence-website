@@ -13,14 +13,14 @@ const tiers = [
   {
     name: PLAN_PRICING.free.label,
     price: PLAN_PRICING.free.display,
-    desc: 'Health scores and basic risk watchlists.',
+    desc: 'Answer one question: which members are drifting away? Health scores from integrations only.',
     features: ['Member health baseline', '3 integrations', 'Weekly summary'],
     href: '/book-demo',
   },
   {
     name: PLAN_PRICING.pro.label,
     price: PLAN_PRICING.pro.display,
-    desc: 'Member-saving workflows for one club team.',
+    desc: 'Answer all three questions. See operations breaking, revenue leaking, and members disengaging — then fix it.',
     features: ['Full workflow playbooks', '10 integrations', 'Agent recommendations'],
     href: '/book-demo',
     boardMath: ['Annual dues protected: $192K', 'Agent hours saved: 28/mo'],
@@ -28,7 +28,7 @@ const tiers = [
   {
     name: PLAN_PRICING.club.label,
     price: PLAN_PRICING.club.display,
-    desc: 'Portfolio reporting and multi-club orchestration.',
+    desc: 'All three questions across every property. Portfolio-level intelligence with dedicated success.',
     features: ['Multi-club rollups', 'Custom ingestion', 'Dedicated success team'],
     href: '/book-demo',
     boardMath: ['Annual dues protected: $740K', 'Agent hours saved: 96/mo'],
@@ -36,9 +36,9 @@ const tiers = [
 ]
 
 const inclusions = [
-  { tier: 'Free', items: ['Daily Briefing', 'Member Health Scores'] },
-  { tier: 'Pro', items: ['+ 6 AI Agents', '+ Demand Optimization', '+ Pipeline Intelligence'] },
-  { tier: 'Club', items: ['+ Multi-department Coverage', '+ Board Reporting', '+ Dedicated Success Manager'] },
+  { tier: 'Free', items: ['Member Health (Q3)', 'Daily Briefing', 'Weekly Summary'] },
+  { tier: 'Pro', items: ['+ Operational Command (Q1)', '+ Revenue Optimization (Q2)', '+ 6 AI Agents'] },
+  { tier: 'Club', items: ['+ All 3 Questions at Portfolio Scale', '+ Board Reporting', '+ Dedicated Success Manager'] },
 ]
 
 const featureComparison = [

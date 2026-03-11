@@ -27,19 +27,19 @@ export default function GeneralManagersPage() {
 
   const painPoints = [
     {
-      icon: '🧠',
-      title: 'Blind to disengagement',
-      text: 'You only learn a member is at risk when the resignation letter hits. Member health flags surface the warning six weeks earlier.',
+      icon: '🎯',
+      title: 'Where is today at risk of breaking?',
+      text: '“I manage by anecdotes and lagging reports — I can’t see what’s about to break until it’s too late.” Swoop surfaces staffing gaps, pacing issues, and complaints before 7 AM.',
     },
     {
-      icon: '📊',
-      title: 'Data scattered across 6 systems',
-      text: 'Tee sheet, POS, CRM, staffing, and complaints never talk to each other. Swoop stitches them into one view.',
+      icon: '💰',
+      title: 'What ops failures are costing you F&B spend?',
+      text: '“I know my F&B numbers, but I can’t connect a bad hole-9 experience to a lost dinner.” Swoop traces pace of play to post-round covers to revenue impact.',
     },
     {
-      icon: '🌅',
-      title: 'Monday morning uncertainty',
-      text: 'Every Monday starts with a fire drill. Swoop sends the plan at 6:00 AM so you already know the top three moves.',
+      icon: '🔍',
+      title: 'Which members are quietly drifting away?',
+      text: '“I can see rounds and spend, but I can’t see when a good member is quietly drifting away.” Swoop catches disengagement across touchpoints weeks before resignation.',
     },
   ]
 

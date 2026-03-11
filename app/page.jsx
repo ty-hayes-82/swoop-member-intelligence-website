@@ -8,6 +8,7 @@ import RoiCalculator from '@/components/RoiCalculator'
 import AnimatedStat from '@/components/AnimatedStat'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import { HealthScoreGrid } from '@/components/portal-previews'
+import RevenueChain from '@/components/RevenueChain'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -183,6 +184,13 @@ export default function HomePage() {
               <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I can see rounds and spend, but I cannot see when a good member is quietly disengaging.&rdquo;</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* Revenue Chain — Q2 visual */}
+      <section className="px-6">
+        <div className="mx-auto max-w-container">
+          <RevenueChain />
         </div>
       </section>
 

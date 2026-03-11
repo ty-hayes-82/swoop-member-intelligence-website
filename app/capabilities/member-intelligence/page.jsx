@@ -44,8 +44,10 @@ export default function MemberIntelligencePage() {
       <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Member Intelligence</p>
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-swoop-accent/90 italic max-w-3xl">“Which members are quietly drifting away across multiple touchpoints?”</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Know who is drifting before resignation language appears.</h1>
           <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday workflow: Daily Briefing opens with the at-risk roster, the GM acts in minutes, and outcomes are attributed by Friday review.</p>
+          <p className="mt-4 max-w-2xl text-sm text-swoop-muted/70 italic border-l-2 border-swoop-accent/30 pl-4">“I can see rounds and spend, but I can’t see when a good member is quietly drifting away.”</p>
         </div>
       </section>
 

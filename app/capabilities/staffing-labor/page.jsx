@@ -39,8 +39,10 @@ export default function StaffingLaborPage() {
       <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Staffing & Service</p>
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-swoop-accent/90 italic max-w-3xl">“Which service, staffing, or pacing issues require action in the next 30 minutes?”</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Forecast coverage before member experience breaks.</h1>
           <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday workflow starts with 48-hour coverage risk, routes shift recommendations, and pushes board snapshots by end of day.</p>
+          <p className="mt-4 max-w-2xl text-sm text-swoop-muted/70 italic border-l-2 border-swoop-accent/30 pl-4">“I manage by anecdotes and lagging reports — I can’t see what’s about to break until it’s too late.”</p>
         </div>
       </section>
 

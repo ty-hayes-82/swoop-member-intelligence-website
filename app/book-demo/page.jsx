@@ -57,6 +57,15 @@ export default function BookDemoPage() {
             <p className="text-lg text-swoop-muted mb-8">
               Book a personalized walkthrough. We&apos;ll show tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots using the Oakmont Hills demo environment.
             </p>
+            <div className="rounded-xl border border-swoop-border/50 bg-swoop-dark/5 p-5 mb-8">
+              <p className="text-xs font-bold uppercase tracking-wider text-swoop-accent mb-4">Sound familiar?</p>
+              <div className="space-y-4">
+                <p className="text-sm text-swoop-muted italic border-l-2 border-swoop-accent/30 pl-3">&ldquo;I manage by anecdotes and lagging reports &mdash; I can&rsquo;t see what&rsquo;s about to break until it&rsquo;s too late.&rdquo;</p>
+                <p className="text-sm text-swoop-muted italic border-l-2 border-swoop-accent/30 pl-3">&ldquo;I know my F&amp;B numbers, but I can&rsquo;t connect a bad hole-9 experience to a lost dinner.&rdquo;</p>
+                <p className="text-sm text-swoop-muted italic border-l-2 border-swoop-accent/30 pl-3">&ldquo;I can see rounds and spend, but I can&rsquo;t see when a good member is quietly drifting away.&rdquo;</p>
+              </div>
+              <p className="text-xs text-swoop-muted/60 mt-3">These are the questions only Swoop can answer.</p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               {stats.map((s) => (
                 <div key={s.label} className="rounded-xl border border-swoop-border bg-white p-4 text-center">

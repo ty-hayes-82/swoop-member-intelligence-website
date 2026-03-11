@@ -38,8 +38,10 @@ export default function RevenuePipelinePage() {
       <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Revenue & Pipeline</p>
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-swoop-accent/90 italic max-w-3xl">“Where are we losing revenue moments — and what is the dollar value?”</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Prove what was saved, not only what was lost.</h1>
           <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday flow: AE validates pipeline movement, GM reviews save outcomes, and board snapshots update with attributable impact.</p>
+          <p className="mt-4 max-w-2xl text-sm text-swoop-muted/70 italic border-l-2 border-swoop-accent/30 pl-4">“I know my F&B numbers, but I can’t connect a bad hole-9 experience to a lost dinner.”</p>
         </div>
       </section>
 

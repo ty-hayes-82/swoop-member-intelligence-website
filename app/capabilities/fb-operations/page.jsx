@@ -2,6 +2,7 @@ import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import DemoDisclosure from '@/components/DemoDisclosure'
+import RevenueChain from '@/components/RevenueChain'
 import { SourceBadgeRow } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
@@ -39,8 +40,16 @@ export default function FBOperationsPage() {
       <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">F&B / Guest Experience</p>
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-swoop-accent/90 italic max-w-3xl">“Which operational failures are costing you F&B spend?”</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Turn post-round moments into revenue and loyalty.</h1>
           <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday workflow aligns tee finish windows, staffing readiness, and upsell offers before lunch service begins.</p>
+          <p className="mt-4 max-w-2xl text-sm text-swoop-muted/70 italic border-l-2 border-swoop-accent/30 pl-4">“I know my F&B numbers, but I can’t connect a bad hole-9 experience to a lost dinner.”</p>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="mx-auto max-w-container">
+          <RevenueChain />
         </div>
       </section>
 

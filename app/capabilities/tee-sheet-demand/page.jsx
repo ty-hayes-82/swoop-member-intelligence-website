@@ -38,8 +38,10 @@ export default function TeeSheetDemandPage() {
       <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Tee Sheet & Demand</p>
+          <p className="mt-6 text-xl md:text-2xl font-semibold text-swoop-accent/90 italic max-w-3xl">“Where is today at risk of breaking — right now — before members feel it?”</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Fill slots with retention logic, not queue luck.</h1>
           <p className="mt-4 max-w-3xl text-lg text-swoop-muted">Monday demand workflow routes openings by churn risk and value, then shows the GM exactly what FIFO would have missed.</p>
+          <p className="mt-4 max-w-2xl text-sm text-swoop-muted/70 italic border-l-2 border-swoop-accent/30 pl-4">“I manage by anecdotes and lagging reports — I can’t see what’s about to break until it’s too late.”</p>
         </div>
       </section>
 
