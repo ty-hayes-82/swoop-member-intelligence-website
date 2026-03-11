@@ -1,15 +1,13 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
-import AnimatedBriefingHero from '@/components/AnimatedBriefingHero'
+import HeroSplitScreen from '@/components/HeroSplitScreen'
 import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
 import RoiCalculator from '@/components/RoiCalculator'
 import AnimatedStat from '@/components/AnimatedStat'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
-import PrimaryCTA from '@/components/PrimaryCTA'
-import { DailyBriefingDemo, HealthScoreGrid } from '@/components/portal-previews'
+import { HealthScoreGrid } from '@/components/portal-previews'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -39,12 +37,6 @@ const howItWorks = [
     detail: 'Every intervention rolls into a board-ready snapshot so you show what was prevented and what still needs attention.',
     accent: '#047857',
   },
-]
-
-const proofStats = [
-  { label: 'Retention lift', value: '+21%', note: 'Oakmont Hills CC demo · Week 3' },
-  { label: 'Members saved', value: '6', note: 'Personal outreach in 10 days', accent: true },
-  { label: 'Tee sheet fill', value: '91%', note: 'Retention-prioritized routing' },
 ]
 
 const weeklyFlow = [
@@ -133,42 +125,8 @@ const pricingTiers = [
 export default function HomePage() {
   return (
     <div className="page-stack">
-      {/* Section 1 — Hero + proof metrics */}
-      <section className="relative px-6 py-16 md:py-24 lg:py-32 overflow-hidden" data-animate="fade-up" data-hero-section>
-        {/* Enhanced gradient background with more visual drama */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50/30 to-white -z-10"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_50%)] -z-10"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(74,222,128,0.05),_transparent_60%)] -z-10"></div>
-        <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-6xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">Stop firefighting. Start orchestrating.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>The Real-Time Cockpit that shows you where today is breaking — before members feel it.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white cta-primary-dark">See the Daily Briefing</Link>
-              <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
-            </div>
-            <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {proofStats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  data-animate="fade-up"
-                  data-animate-delay={String(200 + index * 80)}
-                  className={`hover-lift rounded-2xl border p-4 ${stat.accent ? 'border-swoop-green/40 bg-swoop-green/5' : 'border-swoop-border bg-white'}`}
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">{stat.label}</p>
-                  <p className={`mt-2 text-2xl font-bold ${stat.accent ? 'text-swoop-green-hover' : 'text-swoop-dark'}`}><AnimatedStat value={stat.value} /></p>
-                  <p className="text-xs text-swoop-muted">{stat.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div data-animate="fade-scale" data-animate-delay="200" className="relative">
-            <AnimatedBriefingHero />
-          </div>
-        </div>
-      </section>
+      {/* Section 1 — Hero: Split-Screen Product Showcase */}
+      <HeroSplitScreen />
 
       {/* Trust strip */}
       <TrustStrip />
