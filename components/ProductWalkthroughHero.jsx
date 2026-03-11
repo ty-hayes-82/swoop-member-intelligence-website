@@ -126,7 +126,10 @@ export default function ProductWalkthroughHero() {
 
   return (
     <div
-      className="hero-mockup-container rounded-3xl border border-swoop-border bg-white p-5 shadow-xl"
+      className="hero-mockup-container rounded-3xl border border-swoop-border bg-white p-5 shadow-2xl hover:shadow-[0_20px_70px_rgba(0,0,0,0.12)] transition-shadow duration-300"
+      style={{
+        boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.08)',
+      }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

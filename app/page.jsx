@@ -125,7 +125,11 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="px-6 py-8 md:py-16 bg-gradient-to-b from-green-50 to-white" data-animate="fade-up" data-hero-section>
+      <section className="relative px-6 py-12 md:py-20 lg:py-24 overflow-hidden" data-animate="fade-up" data-hero-section>
+        {/* Enhanced gradient background with more visual drama */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50/30 to-white -z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_50%)] -z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(74,222,128,0.05),_transparent_60%)] -z-10"></div>
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>

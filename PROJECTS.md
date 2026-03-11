@@ -8,11 +8,12 @@
 
 ## Priority 1: P2 Polish (1-2 hours)
 
-### GMC-12: Expand pricing tier details
-- [ ] Add feature comparison table to pricing page
-- [ ] Show what's included at each tier (Free / Pro / Club)
-- [ ] Three-column layout with checkmarks
-- [ ] Key features: Health Scores, Dashboard, Member App, Integrations, User seats, Support, Data retention
+### GMC-12: Expand pricing tier details ✅
+- [x] Add feature comparison table to pricing page
+- [x] Show what's included at each tier (Free / Pro / Club)
+- [x] Three-column layout with checkmarks
+- [x] Key features: Health Scores, Dashboard, Member App, Integrations, User seats, Support, Data retention
+- **Commit:** e754853
 
 ---
 
