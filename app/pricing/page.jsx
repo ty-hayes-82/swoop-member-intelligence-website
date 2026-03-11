@@ -41,6 +41,38 @@ const inclusions = [
   { tier: 'Club', items: ['+ Multi-department Coverage', '+ Board Reporting', '+ Dedicated Success Manager'] },
 ]
 
+const featureComparison = [
+  {
+    category: 'Core Features',
+    features: [
+      { name: 'Member Health Scores', free: true, pro: true, club: true },
+      { name: 'Daily Briefing', free: true, pro: true, club: true },
+      { name: 'Full Dashboard (5 Lenses)', free: false, pro: true, club: true },
+      { name: 'AI Agent Recommendations', free: false, pro: true, club: true },
+      { name: 'Board-Ready Reports', free: false, pro: true, club: true },
+      { name: 'Member App (optional)', free: false, pro: 'Add-on', club: 'Included' },
+    ]
+  },
+  {
+    category: 'Integrations & Data',
+    features: [
+      { name: 'System Integrations', free: '3', pro: '10', club: 'Unlimited' },
+      { name: 'Data History', free: '30 days', pro: '12 months', club: '36 months' },
+      { name: 'Custom Data Ingestion', free: false, pro: false, club: true },
+      { name: 'API Access', free: false, pro: false, club: true },
+    ]
+  },
+  {
+    category: 'Team & Support',
+    features: [
+      { name: 'User Seats', free: '1', pro: '5', club: 'Unlimited' },
+      { name: 'Support Level', free: 'Email', pro: 'Priority email', club: 'Dedicated success manager' },
+      { name: 'Onboarding', free: 'Self-serve', pro: 'Guided setup', club: 'White-glove + training' },
+      { name: 'Multi-Club Management', free: false, pro: false, club: true },
+    ]
+  },
+]
+
 const faqs = [
   { question: 'What is the contract term?', answer: 'Month-to-month. No long-term commitment required.' },
   { question: 'Is there an implementation fee?', answer: 'No. Setup and onboarding are included in all paid tiers.' },
@@ -92,6 +124,82 @@ export default function PricingPage() {
           <PrimaryCTA />
         </div>
       </div>
+
+      {/* Feature Comparison Table */}
+      <section className="px-6 py-16 bg-swoop-bg">
+        <div className="mx-auto max-w-container">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold">Compare plans in detail</h2>
+            <p className="mt-3 text-swoop-muted">See exactly what's included at each tier</p>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <div className="inline-block min-w-full align-middle">
+              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white">
+                <table className="min-w-full divide-y divide-swoop-border">
+                  <thead>
+                    <tr className="bg-white">
+                      <th scope="col" className="py-4 px-6 text-left text-sm font-semibold text-swoop-dark">Features</th>
+                      <th scope="col" className="py-4 px-6 text-center text-sm font-semibold text-swoop-dark">Free</th>
+                      <th scope="col" className="py-4 px-6 text-center text-sm font-semibold text-swoop-dark border-l-2 border-[#4ADE80]">Pro</th>
+                      <th scope="col" className="py-4 px-6 text-center text-sm font-semibold text-swoop-dark">Club</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-swoop-border bg-white">
+                    {featureComparison.map((category) => (
+                      <>
+                        <tr key={category.category} className="bg-swoop-bg">
+                          <td colSpan={4} className="py-3 px-6 text-xs font-semibold uppercase tracking-wider text-swoop-muted">
+                            {category.category}
+                          </td>
+                        </tr>
+                        {category.features.map((feature) => (
+                          <tr key={feature.name} className="hover:bg-swoop-bg transition-colors">
+                            <td className="py-4 px-6 text-sm text-swoop-dark">{feature.name}</td>
+                            <td className="py-4 px-6 text-center">
+                              {typeof feature.free === 'boolean' ? (
+                                feature.free ? (
+                                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">✓</span>
+                                ) : (
+                                  <span className="text-swoop-muted text-xs">—</span>
+                                )
+                              ) : (
+                                <span className="text-sm text-swoop-dark">{feature.free}</span>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-center border-l-2 border-[#4ADE80]">
+                              {typeof feature.pro === 'boolean' ? (
+                                feature.pro ? (
+                                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">✓</span>
+                                ) : (
+                                  <span className="text-swoop-muted text-xs">—</span>
+                                )
+                              ) : (
+                                <span className="text-sm text-swoop-dark font-medium">{feature.pro}</span>
+                              )}
+                            </td>
+                            <td className="py-4 px-6 text-center">
+                              {typeof feature.club === 'boolean' ? (
+                                feature.club ? (
+                                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">✓</span>
+                                ) : (
+                                  <span className="text-swoop-muted text-xs">—</span>
+                                )
+                              ) : (
+                                <span className="text-sm text-swoop-dark font-medium">{feature.club}</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="px-6 py-16">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
