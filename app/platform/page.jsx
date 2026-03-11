@@ -72,7 +72,7 @@ const platformFaqs = [
   },
   {
     question: 'How long does it take to deploy?',
-    answer: 'Most clubs connect sources in week one, route actions in week two, and automate board packets by week three.',
+    answer: 'Live in under 2 weeks. Week 1: Connect your tee sheet, POS, and CRM integrations (3-5 business days for API access). Week 2: Intelligence models calibrate to your member base and Daily Briefing goes live. By day 10-14, GMs are approving AI-recommended actions from the platform. Founding Partner clubs averaged 13.2 days from kickoff to first approved member save action.',
   },
   {
     question: 'Can we customize the views and alerts?',
