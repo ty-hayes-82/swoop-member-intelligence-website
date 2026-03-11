@@ -188,7 +188,7 @@ export default function HomePage() {
       </section>
 
       {/* Revenue Chain — Q2 visual */}
-      <section className="px-6">
+      <section className="px-6 py-8">
         <div className="mx-auto max-w-container">
           <RevenueChain />
         </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
                 key={step.title}
                 data-animate="fade-up"
                 data-animate-delay={String(120 + index * 80)}
-                className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg px-4 py-5"
+                className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-6"
                 style={{ borderTop: `3px solid ${step.accent}` }}>
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white" style={{ backgroundColor: step.accent }}>{step.step}</span>

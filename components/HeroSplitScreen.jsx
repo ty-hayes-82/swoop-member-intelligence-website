@@ -54,7 +54,7 @@ export default function HeroSplitScreen() {
               </Link>
               <Link 
                 href="/pricing" 
-                className="text-sm font-semibold text-swoop-dark underline underline-offset-4 hover:text-swoop-green-hover transition-colors"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-swoop-dark px-6 py-3 text-sm font-semibold text-swoop-dark hover:bg-swoop-dark/5 transition-colors"
               >
                 See Pricing
               </Link>
