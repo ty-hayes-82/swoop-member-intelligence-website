@@ -24,7 +24,7 @@ const frameworkSections = [
       'Member health, tee-sheet demand, staffing coverage, and service issues in a single rolling view so you know where to act before complaints land on your desk.',
     bullets: [
       'Member health scores update hourly with live engagement and spend shifts',
-      'Demand lens ties cancellations to downstream revenue loss',
+      'Demand intelligence ties cancellations to downstream revenue loss',
       'Staffing and service KPIs highlight the next shift likely to miss standards',
     ],
     component: <MorningBriefingPreview />,
@@ -75,8 +75,8 @@ const platformFaqs = [
     answer: 'Most clubs connect sources in week one, route actions in week two, and automate board packets by week three.',
   },
   {
-    question: 'Can we customize the lenses and alerts?',
-    answer: 'Yes. Each lens, metric, and threshold is configurable per club.',
+    question: 'Can we customize the views and alerts?',
+    answer: 'Yes. Each view, metric, and threshold is configurable per club.',
   },
 ]
 

@@ -59,7 +59,7 @@ export default function GeneralManagersPage() {
 
   const dashboard = {
     title: 'Operations command center — live',
-    subtitle: 'Every lens in one panel: member health, demand, F&B, staffing.',
+    subtitle: 'Every view in one panel: member health, demand, F&B, staffing.',
     metrics: [
       { label: 'At-risk members', value: '34', fill: 0.68, barColor: '#F97316' },
       { label: 'Dues at stake', value: '$540K', fill: 0.82, barColor: '#F87171' },

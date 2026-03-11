@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function LensCard({ href, icon, title, description, colorClass = '', bgClass = '' }) {
+export default function CapabilityCard({ href, icon, title, description, colorClass = '', bgClass = '' }) {
   return (
     <Link
       href={href}
