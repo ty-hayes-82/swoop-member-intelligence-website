@@ -95,7 +95,7 @@ const pricingTiers = [
   {
     name: 'Free',
     price: '$0/mo',
-    desc: 'Baseline member health scores and weekly summary emails.',
+    desc: 'Answer one question: which members are drifting away? Health scores from integrations only.',
     perks: ['3 integrations', 'Weekly briefing email', 'Starter playbooks'],
     cta: 'Get Started Free',
     ctaHref: '/book-demo',
@@ -103,7 +103,7 @@ const pricingTiers = [
   {
     name: 'Pro',
     price: '$499/mo',
-    desc: 'Full workflow playbooks for a single club team.',
+    desc: 'Answer all three questions. See operations breaking, F&B revenue leaking, and members disengaging — then fix it.',
     perks: ['10 integrations', 'AI agent approvals', 'Board-ready attribution'],
     highlighted: true,
     badge: 'Most Popular',
@@ -113,7 +113,7 @@ const pricingTiers = [
   {
     name: 'Club',
     price: '$1,499/mo',
-    desc: 'Multi-property orchestration and dedicated success.',
+    desc: 'All three questions across every property. Portfolio-level intelligence with dedicated success.',
     perks: ['Portfolio rollups', 'Custom ingestion', 'Dedicated success lead'],
     cta: 'Contact Sales',
     ctaHref: '/contact',
@@ -129,7 +129,7 @@ export default function HomePage() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
             <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop discovering problems after the complaint.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and complaint log can&apos;t talk to each other. Swoop connects them &mdash; so you see the member about to leave, the shift about to break, and the revenue about to vanish, all before your first tee time.</p>
+            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and complaint log can&apos;t talk to each other. Swoop connects them &mdash; so you see the member about to leave, the shift about to break, and the revenue about to vanish. Your club systems see transactions. Swoop sees behavior.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <PrimaryCTA tone="dark" />
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
