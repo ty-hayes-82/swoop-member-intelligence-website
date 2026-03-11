@@ -66,28 +66,28 @@ const weeklyFlow = [
 
 const testimonialCards = [
   {
-    badge: 'GM POV',
-    quote: 'Daily Briefing at 7:15 AM tells me in 30 seconds what matters — the member about to leave, the weather threat, and the saves waiting for approval.',
-    person: 'Richard Thornton, CCM',
-    role: 'General Manager, The Preserve at Pinnacle Peak',
-    metric: '30-second save list before first tee time',
-    remark: 'Stop guessing which complaint or weather shift needs you first.',
+    badge: 'Founding Partner',
+    quote: "We're testing Layer 3 Intelligence in live operations. Early results show member health scores catching resignation signals our CRM misses entirely.",
+    person: 'Private Beta Partner Club',
+    role: 'Mid-Atlantic Region • 320 Members',
+    metric: '6 at-risk members identified in first 10 days',
+    remark: 'Founding Partner clubs get priority feature access and dedicated implementation support.',
   },
   {
-    badge: 'Case Study',
-    quote: 'We retained 9 members in 30 days once saves moved to a Monday-first cadence.',
-    person: 'Desert Sky GC — Founding Partner',
-    role: '30-day retention sprint',
-    metric: '$168K in annual dues protected',
-    remark: 'Scripts + owner assignments were ready before 9:00 AM.',
+    badge: 'Founding Partner',
+    quote: 'The daily briefing replaced three separate system logins. Now we see tee sheet gaps, member risk, and staffing coverage in one 90-second scroll.',
+    person: 'Desert Mountain Region Partner',
+    role: 'Southwest Private Club • 280 Members',
+    metric: 'Briefing reviewed at 7:15 AM daily',
+    remark: 'Partners shape the roadmap — your workflow becomes the product.',
   },
   {
     badge: 'Live Demo',
-    quote: 'Agent Command approvals replaced three email threads per decision.',
+    quote: "Oakmont Hills demo data shows how cross-system intelligence works. Real deployment mirrors the same workflow with your club's actual integrations.",
     person: 'Ty Hayes',
     role: 'Founder, Swoop Golf',
-    metric: '83% of AI recommendations approved live',
-    remark: 'Weekly Oakmont Hills CC walkthrough.',
+    metric: 'Weekly product walkthroughs available',
+    remark: 'See the See It → Fix It → Prove It flow on live demo data.',
   },
 ]
 
