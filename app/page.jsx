@@ -162,7 +162,7 @@ export default function HomePage() {
       </section>
 
       {/* Section - Three Questions Only Swoop Can Answer */}
-      <section className="px-6 py-8 bg-gray-50" data-animate="fade-up">
+      <section className="px-6 py-12 bg-gray-50" data-animate="fade-up">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Why Swoop exists</p>
           <h2 className="section-headline mt-2 text-2xl font-bold text-swoop-dark tracking-tight md:text-3xl lg:text-4xl">Three questions your current systems cannot answer</h2>
@@ -195,8 +195,8 @@ export default function HomePage() {
       </section>
 
       {/* Section 2 — How it works */}
-      <section className="px-6 py-8 bg-white">
-        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
+      <section className="px-6 py-12 bg-white">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">How it works</p>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             {howItWorks.map((step, index) => (
@@ -230,7 +230,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 4 — Capability preview */}
-      <section className="px-6 py-8 bg-gray-50">
+      <section className="px-6 py-12 bg-gray-50">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -247,7 +247,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 5 — Weekly flow */}
-      <section className="px-6 py-8 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
           {weeklyFlow.map((block, index) => (
             <article
@@ -303,7 +303,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 7 — Pricing snapshot */}
-      <section className="px-6 py-8 bg-gray-50">
+      <section className="px-6 py-12 bg-gray-50">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>

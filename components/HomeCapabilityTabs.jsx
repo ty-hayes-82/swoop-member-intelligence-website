@@ -111,7 +111,7 @@ export default function HomeCapabilityTabs() {
               key={item.id}
               type="button"
               onClick={() => switchTab(item.id)}
-              className={`px-4 py-2 text-sm font-semibold rounded-full border transition-all duration-200 ${
+              className={`px-5 py-2.5 text-sm font-semibold rounded-full border transition-all duration-200 ${
                 active === item.id 
                   ? 'bg-swoop-dark text-white border-swoop-dark shadow-md scale-105' 
                   : 'border-swoop-border text-swoop-muted hover:border-swoop-dark hover:bg-swoop-bg'

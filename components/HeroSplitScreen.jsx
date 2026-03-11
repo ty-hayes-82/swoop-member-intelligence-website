@@ -65,13 +65,13 @@ export default function HeroSplitScreen() {
             </p>
             
             {/* Trust Metrics */}
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="mt-10 grid gap-5 sm:grid-cols-3">
               {trustMetrics.map((stat, index) => (
                 <div
                   key={stat.label}
                   data-animate="fade-up"
                   data-animate-delay={String(200 + index * 80)}
-                  className={`hover-lift rounded-2xl border p-4 transition-all ${
+                  className={`hover-lift rounded-2xl border p-5 transition-all ${
                     stat.accent 
                       ? 'border-swoop-green/40 bg-swoop-green/5' 
                       : 'border-swoop-border bg-white'
