@@ -16,20 +16,20 @@ const stats = [
 
 const whatYouWillSee = [
   {
-    title: 'Your Member Risk Profile',
-    description: 'See which members are pulling away before they resign. Health scores, engagement decay patterns, and the exact signals that predict churn weeks in advance.',
+    question: "Which members are about to leave \u2014 and can I catch them in time?",
+    outcome: "You\u2019ll see health scores for every member, the engagement signals that predict churn 6 weeks out, and the exact list of at-risk members you can save this month.",
   },
   {
-    title: 'Tee Sheet Revenue Leakage',
-    description: 'Quantify revenue you are leaving on the table from cancellations, no-shows, and FIFO waitlists. We map demand patterns and the recovery opportunity.',
+    question: "How much revenue am I losing to empty tee times?",
+    outcome: "You\u2019ll see your dollar-per-slot leakage from cancellations, no-shows, and unfilled waitlists \u2014 and the recovery opportunity mapped to your actual demand patterns.",
   },
   {
-    title: 'Cross-System Intelligence',
-    description: "Your tee sheet, POS, CRM, and payroll systems don't talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.",
+    question: "Why can\u2019t I connect a bad round to a lost dinner reservation?",
+    outcome: "You\u2019ll see tee sheet, POS, CRM, and payroll data unified \u2014 behavior correlations that explain revenue drops and staffing pressure in one view.",
   },
   {
-    title: 'AI Agent Recommendations',
-    description: 'Walk through a Daily Briefing. See how our agents monitor your club 24/7, flag risks, and recommend actions with predicted outcomes.',
+    question: "What should I be acting on right now?",
+    outcome: "You\u2019ll walk through a live Daily Briefing \u2014 AI agents monitoring your club 24/7, flagging risks, and recommending actions with predicted outcomes.",
   },
 ]
 
@@ -55,7 +55,7 @@ export default function BookDemoPage() {
             <p className="text-swoop-accent text-sm font-bold uppercase tracking-wider mb-4">Book a Demo</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">See your club&apos;s blind spots in 30 minutes.</h1>
             <p className="text-lg text-swoop-muted mb-8">
-              Book a personalized walkthrough. We&apos;ll show tee sheet leakage, at-risk members, F&B staffing pressure, and revenue blind spots using the Oakmont Hills demo environment.
+              Book a personalized walkthrough. We&apos;ll show tee sheet leakage, at-risk members, F&amp;B staffing pressure, and revenue blind spots using the Oakmont Hills demo environment.
             </p>
             <div className="rounded-xl border border-swoop-border/50 bg-swoop-dark/5 p-5 mb-8">
               <p className="text-xs font-bold uppercase tracking-wider text-swoop-accent mb-4">Sound familiar?</p>
@@ -76,10 +76,10 @@ export default function BookDemoPage() {
               ))}
             </div>
             <ul className="space-y-2 text-sm text-swoop-muted">
-              <li>• Live platform walkthrough with real club scenarios</li>
-              <li>• AI agent recommendations + Daily Briefing flow</li>
-              <li>• Integration mapping for your tech stack</li>
-              <li>• Pricing, implementation timeline, and board math</li>
+              <li>&bull; Live platform walkthrough with real club scenarios</li>
+              <li>&bull; AI agent recommendations + Daily Briefing flow</li>
+              <li>&bull; Integration mapping for your tech stack</li>
+              <li>&bull; Pricing, implementation timeline, and board math</li>
             </ul>
           </div>
           <div id="demo-form" className="bg-swoop-card border border-swoop-border rounded-xl p-8 shadow-lg md:sticky md:top-8">
@@ -92,12 +92,13 @@ export default function BookDemoPage() {
 
       <section className="py-20 px-6 bg-white">
         <div className="max-w-container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What you&apos;ll see in the demo</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">What you&apos;ll see in the demo</h2>
+          <p className="text-center text-swoop-muted mb-12 max-w-2xl mx-auto">Every card is a question you&apos;re already asking. The demo shows you the answer.</p>
           <div className="grid md:grid-cols-2 gap-6">
             {whatYouWillSee.map((item) => (
-              <div key={item.title} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
-                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-                <p className="text-sm text-swoop-muted leading-relaxed">{item.description}</p>
+              <div key={item.question} className="bg-swoop-card border border-swoop-border rounded-xl p-6">
+                <h3 className="text-lg font-semibold mb-3 text-swoop-dark">&ldquo;{item.question}&rdquo;</h3>
+                <p className="text-sm text-swoop-muted leading-relaxed">{item.outcome}</p>
               </div>
             ))}
           </div>
@@ -127,15 +128,15 @@ export default function BookDemoPage() {
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#4ADE80]">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#147A3E]">Monday - what you get on the call</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• 30-minute walkthrough of your club&apos;s risk profile using demo data</li>
-              <li>• Q&A on integrations, agent approvals, and handoffs</li>
+              <li>&bull; 30-minute walkthrough of your club&apos;s risk profile using demo data</li>
+              <li>&bull; Q&amp;A on integrations, agent approvals, and handoffs</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-swoop-border bg-white p-6 shadow-sm border-t-4 border-[#F97316]">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#AF4C0B]">Friday - what you take to your board</p>
             <ul className="mt-4 space-y-2 text-sm text-swoop-muted">
-              <li>• Sample briefing sheet showcasing engagement decay + saves</li>
-              <li>• ROI estimate tied to your board&apos;s retention targets</li>
+              <li>&bull; Sample briefing sheet showcasing engagement decay + saves</li>
+              <li>&bull; ROI estimate tied to your board&apos;s retention targets</li>
             </ul>
           </div>
         </div>
@@ -144,9 +145,9 @@ export default function BookDemoPage() {
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Demo agenda</p>
-          <div className="space-y-3 text-sm text-swoop-muted">
+          <div className="space-y-3 text-sm text-swoop-muted mt-4">
             {[
-              '1. Your club&apos;s current blind spots',
+              "1. Your club\u2019s current blind spots",
               '2. Live walkthrough of member health scoring',
               '3. AI agent recommendation examples',
               '4. Custom ROI estimate for your club',
@@ -175,7 +176,7 @@ export default function BookDemoPage() {
         <div className="max-w-container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to see what your club is missing?</h2>
           <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            Book a 30-minute demo. No pitch deck, no generic slides - just a live walkthrough of the platform with real club scenarios.
+            Book a 30-minute demo. No pitch deck, no generic slides &mdash; just a live walkthrough of the platform with real club scenarios.
           </p>
           <a
             href="#demo-form"
