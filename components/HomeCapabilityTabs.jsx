@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import DemoDisclosure from '@/components/DemoDisclosure'
-import { TeeSheetRoutingPreview } from '@/components/portal-previews'
+import { DailyBriefingDemo, TeeSheetRoutingPreview } from '@/components/portal-previews'
 
 const tabs = [
   {
@@ -89,7 +89,8 @@ export default function HomeCapabilityTabs() {
   const [active, setActive] = useState(tabs[0].id)
   const [fade, setFade] = useState(true)
   const tab = tabs.find((item) => item.id === active) ?? tabs[0]
-  const showLivePreview = tab.id === 'tee-sheet'
+  const showDailyBriefingLivePreview = tab.id === 'briefing'
+  const showTeeSheetLivePreview = tab.id === 'tee-sheet'
 
   const switchTab = (newId) => {
     if (newId === active) return
@@ -138,7 +139,7 @@ export default function HomeCapabilityTabs() {
           </div>
 
           <div className="rounded-2xl border border-swoop-border bg-swoop-bg/60 p-4">
-            {showLivePreview ? (
+            {(showDailyBriefingLivePreview || showTeeSheetLivePreview) ? (
               <>
                 <div className="mb-3 flex items-center gap-2">
                   <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-emerald-700">
@@ -146,7 +147,13 @@ export default function HomeCapabilityTabs() {
                   </span>
                   <span className="text-[11px] text-swoop-muted">Not a screenshot</span>
                 </div>
-                <TeeSheetRoutingPreview />
+                {showDailyBriefingLivePreview ? (
+                  <div className="max-h-[320px] overflow-y-auto pr-1">
+                    <DailyBriefingDemo />
+                  </div>
+                ) : (
+                  <TeeSheetRoutingPreview />
+                )}
               </>
             ) : (
               <>
