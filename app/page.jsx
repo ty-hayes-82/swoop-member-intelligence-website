@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
 import ProductWalkthroughHero from '@/components/ProductWalkthroughHero'
+import AnimatedBriefingHero from '@/components/AnimatedBriefingHero'
 import TrustStrip from '@/components/TrustStrip'
 import CTASection from '@/components/CTASection'
 import HomeCapabilityTabs from '@/components/HomeCapabilityTabs'
@@ -133,12 +134,12 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="relative px-6 py-12 md:py-20 lg:py-24 overflow-hidden" data-animate="fade-up" data-hero-section>
+      <section className="relative px-6 py-16 md:py-24 lg:py-32 overflow-hidden" data-animate="fade-up" data-hero-section>
         {/* Enhanced gradient background with more visual drama */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50/30 to-white -z-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_50%)] -z-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(74,222,128,0.05),_transparent_60%)] -z-10"></div>
-        <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
+        <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
             <h1 className="hero-headline mt-4 text-5xl font-bold leading-[1.1] md:text-6xl lg:text-7xl">Stop firefighting. Start orchestrating.</h1>
@@ -163,8 +164,8 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div data-animate="fade-scale" data-animate-delay="200">
-            <ProductWalkthroughHero />
+          <div data-animate="fade-scale" data-animate-delay="200" className="relative">
+            <AnimatedBriefingHero />
           </div>
         </div>
       </section>
