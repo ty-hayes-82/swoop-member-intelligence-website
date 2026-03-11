@@ -86,25 +86,42 @@ const tabs = [
 
 export default function HomeCapabilityTabs() {
   const [active, setActive] = useState(tabs[0].id)
+  const [fade, setFade] = useState(true)
   const tab = tabs.find((item) => item.id === active) ?? tabs[0]
+
+  const switchTab = (newId) => {
+    if (newId === active) return
+    setFade(false)
+    setTimeout(() => {
+      setActive(newId)
+      setFade(true)
+    }, 150)
+  }
 
   return (
     <section className="px-6">
-      <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
+      <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6 shadow-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-swoop-muted">Capabilities</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {tabs.map((item) => (
             <button
               key={item.id}
               type="button"
-              onClick={() => setActive(item.id)}
-              className={`px-4 py-2 text-sm font-semibold rounded-full border ${active === item.id ? 'bg-swoop-dark text-white border-swoop-dark' : 'border-swoop-border text-swoop-muted hover:border-swoop-dark'}`}
+              onClick={() => switchTab(item.id)}
+              className={`px-4 py-2 text-sm font-semibold rounded-full border transition-all duration-200 ${
+                active === item.id 
+                  ? 'bg-swoop-dark text-white border-swoop-dark shadow-md scale-105' 
+                  : 'border-swoop-border text-swoop-muted hover:border-swoop-dark hover:bg-swoop-bg'
+              }`}
             >
               {item.label}
             </button>
           ))}
         </div>
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr,420px]">
+        <div 
+          className="mt-6 grid gap-6 lg:grid-cols-[1fr,420px] transition-opacity duration-200"
+          style={{ opacity: fade ? 1 : 0 }}
+        >
           <div>
             <p className="text-lg font-semibold text-swoop-dark">{tab.label}</p>
             <p className="mt-2 text-sm text-swoop-muted">{tab.description}</p>
