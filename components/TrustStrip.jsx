@@ -1,8 +1,8 @@
 const items = [
+  '12 Clubs in Private Beta',
   '28 System Integrations',
   'Live in Under 2 Weeks',
   'No Rip-and-Replace',
-  'No Long-Term Contract',
 ]
 
 export default function TrustStrip() {
