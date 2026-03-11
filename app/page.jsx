@@ -128,7 +128,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop firefighting. Start orchestrating.</h1>
+            <h1 className="hero-headline mt-4 text-5xl font-bold leading-[1.1] md:text-6xl lg:text-7xl">Stop firefighting. Start orchestrating.</h1>
             <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>The Real-Time Cockpit that shows you where today is breaking — before members feel it.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-swoop-dark/90">See the Daily Briefing</Link>
@@ -165,7 +165,7 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Wedge Product · 90% adoption rate</p>
-              <h2 className="mt-3 text-3xl font-bold text-swoop-dark md:text-4xl">Start with the Early Warning System</h2>
+              <h2 className="section-headline mt-3 text-3xl font-bold text-swoop-dark md:text-4xl lg:text-5xl">Start with the Early Warning System</h2>
               <p className="mt-4 text-lg" style={{ color: '#3d4f44' }}>90% of clubs value a daily Health Score. It&rsquo;s the fastest way to protect your dues base.</p>
               <p className="mt-4 text-sm" style={{ color: '#6B7280' }}>Member Health sits at the center of Swoop&rsquo;s intelligence platform. It connects tee sheet activity, F&amp;B spend, email engagement, and complaint signals into one simple score — so you know which members need outreach before they start the resignation conversation.</p>
               <div className="mt-6">
@@ -217,7 +217,7 @@ export default function HomePage() {
       <section className="px-6 py-8 bg-gray-50" data-animate="fade-up">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Why Swoop exists</p>
-          <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Three questions your current systems cannot answer</h2>
+          <h2 className="section-headline mt-2 text-2xl font-bold text-swoop-dark md:text-3xl">Three questions your current systems cannot answer</h2>
           <p className="mt-2 text-sm" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and CRM each see one slice. Swoop connects them to answer the questions that actually drive retention, revenue, and service consistency.</p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #F59E0B' }}>
@@ -280,7 +280,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Platform preview</p>
-              <h2 className="mt-2 text-2xl font-bold text-swoop-dark">See It · Fix It · Prove It</h2>
+              <h2 className="section-headline mt-2 text-2xl font-bold text-swoop-dark md:text-3xl">See It · Fix It · Prove It</h2>
               <p className="mt-1 text-sm" style={{ color: '#3d4f44' }}>Member health, dining &amp; events, tee sheet demand, staffing, and revenue — all in one view.</p>
             </div>
             <Link href="/platform" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Explore the platform →</Link>
@@ -316,7 +316,7 @@ export default function HomePage() {
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-3xl border border-swoop-border bg-swoop-dark p-8 text-white">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-white/60">Testimonials & case studies</p>
-          <h2 className="mt-3 text-2xl font-bold">GMs, founders, and pilots on what changed.</h2>
+          <h2 className="section-headline mt-3 text-2xl font-bold md:text-3xl">GMs, founders, and pilots on what changed.</h2>
           <p className="mt-2 text-sm text-white/70">Live demo data becomes real action plans — saves, labor fixes, and demand recovery that boards can see.</p>
           <div className="mt-8">
             <TestimonialCarousel items={testimonialCards} />
@@ -330,7 +330,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Pricing snapshot</p>
-              <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Free to explore · Pro to run a club · Club for multi-property teams</h2>
+              <h2 className="section-headline mt-2 text-2xl font-bold text-swoop-dark md:text-3xl">Free to explore · Pro to run a club · Club for multi-property teams</h2>
             </div>
             <Link href="/pricing" className="text-sm font-semibold text-swoop-dark underline underline-offset-4">Full pricing breakdown →</Link>
           </div>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&family=DM+Serif+Display:ital@0;1&display=swap');
 
 :root {
   font-size: 16px;
@@ -36,8 +36,22 @@ body {
   }
 }
 
+/* Display typography - DES-W03 */
+.display-font {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.02em;
+}
+
 .hero-headline {
-  line-height: 1.2 !important;
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1 !important;
+}
+
+.section-headline {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .hero-mockup-container {
