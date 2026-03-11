@@ -43,7 +43,7 @@ export default function ScreenshotLightbox({
     aspectRatio,
   }
 
-  const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white rounded-3xl'
+  const basePreviewClasses = 'relative max-w-4xl mx-auto overflow-hidden border border-swoop-border bg-white rounded-3xl screenshot-glow'
   const previewClampClasses = 'max-h-[350px]'
   const lightboxClampClasses = 'max-h-[85vh]'
   const previewFrameClasses = `${basePreviewClasses} ${previewClampClasses} ${frameClassName}`.trim()

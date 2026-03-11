@@ -173,7 +173,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative" data-animate="fade-scale" data-animate-delay="200">
-              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white shadow-xl">
+              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white screenshot-depth">
                 {/* Placeholder for Member Health roster screenshot */}
                 <div className="aspect-[4/3] bg-gradient-to-br from-swoop-bg to-white p-6">
                   <div className="flex items-center justify-between border-b border-swoop-border pb-3">

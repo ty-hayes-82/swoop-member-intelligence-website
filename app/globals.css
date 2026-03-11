@@ -103,6 +103,30 @@ html {
   box-shadow: 0 24px 45px rgba(23, 35, 27, 0.08);
 }
 
+/* Premium screenshot depth - DES-W02 */
+.screenshot-depth {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.screenshot-depth:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18), 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Screenshot with subtle glow */
+.screenshot-glow {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15), 
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 0 40px rgba(16, 185, 129, 0.08);
+}
+.screenshot-glow:hover {
+  box-shadow: 
+    0 24px 70px rgba(0, 0, 0, 0.18), 
+    0 10px 24px rgba(0, 0, 0, 0.1),
+    0 0 50px rgba(16, 185, 129, 0.12);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

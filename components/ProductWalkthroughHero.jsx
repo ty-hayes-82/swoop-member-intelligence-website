@@ -185,7 +185,7 @@ export default function ProductWalkthroughHero() {
         }}
       >
         <div>
-          <div className="relative overflow-hidden rounded-2xl border border-swoop-border bg-swoop-dark/95 p-3">
+          <div className="relative overflow-hidden rounded-2xl border border-swoop-border bg-swoop-dark/95 p-3 screenshot-depth">
             <div className="relative mx-auto aspect-[16/9] w-full max-w-[720px]">
               <Image
                 src={slide.image}
