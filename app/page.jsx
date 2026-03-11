@@ -124,7 +124,7 @@ export default function HomePage() {
   return (
     <div className="page-stack">
       {/* Section 1 — Hero + proof metrics */}
-      <section className="px-6 py-8 md:py-16" data-animate="fade-up" data-hero-section>
+      <section className="px-6 py-8 md:py-16 bg-gradient-to-b from-green-50 to-white" data-animate="fade-up" data-hero-section>
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
@@ -214,7 +214,7 @@ export default function HomePage() {
       </section>
 
       {/* Section - Three Questions Only Swoop Can Answer */}
-      <section className="px-6" data-animate="fade-up">
+      <section className="px-6 py-8 bg-gray-50" data-animate="fade-up">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Why Swoop exists</p>
           <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Three questions your current systems cannot answer</h2>
@@ -240,7 +240,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 2 — How it works */}
-      <section className="px-6">
+      <section className="px-6 py-8 bg-white">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">How it works</p>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -275,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 4 — Capability preview */}
-      <section className="px-6">
+      <section className="px-6 py-8 bg-gray-50">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -292,7 +292,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 5 — Weekly flow */}
-      <section className="px-6">
+      <section className="px-6 py-8 bg-white">
         <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-2">
           {weeklyFlow.map((block, index) => (
             <article
@@ -325,7 +325,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 7 — Pricing snapshot */}
-      <section className="px-6">
+      <section className="px-6 py-8 bg-gray-50">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
