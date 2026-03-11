@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ScreenshotLightbox from '@/components/ScreenshotLightbox'
 import DemoDisclosure from '@/components/DemoDisclosure'
+import { TeeSheetRoutingPreview } from '@/components/portal-previews'
 
 const tabs = [
   {
@@ -87,6 +88,7 @@ const tabs = [
 export default function HomeCapabilityTabs() {
   const [active, setActive] = useState(tabs[0].id)
   const tab = tabs.find((item) => item.id === active) ?? tabs[0]
+  const showLivePreview = tab.id === 'tee-sheet'
 
   return (
     <section className="px-6">
@@ -104,6 +106,7 @@ export default function HomeCapabilityTabs() {
             </button>
           ))}
         </div>
+
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr,420px]">
           <div>
             <p className="text-lg font-semibold text-swoop-dark">{tab.label}</p>
@@ -117,14 +120,30 @@ export default function HomeCapabilityTabs() {
               Explore capability →
             </Link>
           </div>
+
           <div className="rounded-2xl border border-swoop-border bg-swoop-bg/60 p-4">
-            <ScreenshotLightbox
-              src={tab.screenshot.src}
-              alt={tab.screenshot.alt}
-              maxHeight={260}
-              objectPosition={tab.screenshot.objectPosition ?? 'top'}
-            />
-            <p className="mt-3 text-xs text-swoop-muted">{tab.screenshot.caption}</p>
+            {showLivePreview ? (
+              <>
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-emerald-700">
+                    Live Component
+                  </span>
+                  <span className="text-[11px] text-swoop-muted">Not a screenshot</span>
+                </div>
+                <TeeSheetRoutingPreview />
+              </>
+            ) : (
+              <>
+                <ScreenshotLightbox
+                  src={tab.screenshot.src}
+                  alt={tab.screenshot.alt}
+                  maxHeight={260}
+                  objectPosition={tab.screenshot.objectPosition ?? 'top'}
+                />
+                <p className="mt-3 text-xs text-swoop-muted">{tab.screenshot.caption}</p>
+              </>
+            )}
+
             <DemoDisclosure className="mt-1 text-[11px]" />
           </div>
         </div>
