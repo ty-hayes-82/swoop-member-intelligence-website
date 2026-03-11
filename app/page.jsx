@@ -8,6 +8,7 @@ import RoiCalculator from '@/components/RoiCalculator'
 import AnimatedStat from '@/components/AnimatedStat'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import PrimaryCTA from '@/components/PrimaryCTA'
+import { DailyBriefingDemo, HealthScoreGrid } from '@/components/portal-previews'
 
 export const metadata = buildMetadata({
   title: 'Swoop Golf — Club Intelligence for General Managers',
@@ -173,40 +174,15 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative" data-animate="fade-scale" data-animate-delay="200">
-              <div className="overflow-hidden rounded-2xl border border-swoop-border bg-white screenshot-depth">
-                {/* Placeholder for Member Health roster screenshot */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-swoop-bg to-white p-6">
-                  <div className="flex items-center justify-between border-b border-swoop-border pb-3">
-                    <h3 className="text-sm font-semibold text-swoop-dark">Member Health Roster</h3>
-                    <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">6 at risk</span>
-                  </div>
-                  <div className="mt-4 space-y-3">
-                    <div className="flex items-center gap-3 rounded-lg bg-red-50 p-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 text-sm font-bold text-red-700">38</div>
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-swoop-dark">James Whitfield</p>
-                        <p className="text-xs text-swoop-muted">12-year member · $24K/yr value</p>
-                      </div>
-                      <span className="text-xs font-semibold text-red-700">↓ 18 pts</span>
-                    </div>
-                    <div className="flex items-center gap-3 rounded-lg bg-orange-50 p-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-700">52</div>
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-swoop-dark">Sarah Mitchell</p>
-                        <p className="text-xs text-swoop-muted">8-year member · $18K/yr value</p>
-                      </div>
-                      <span className="text-xs font-semibold text-orange-700">↓ 12 pts</span>
-                    </div>
-                    <div className="flex items-center gap-3 rounded-lg bg-yellow-50 p-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-100 text-sm font-bold text-yellow-700">64</div>
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-swoop-dark">Robert Chen</p>
-                        <p className="text-xs text-swoop-muted">5-year member · $15K/yr value</p>
-                      </div>
-                      <span className="text-xs font-semibold text-yellow-700">↓ 8 pts</span>
-                    </div>
-                  </div>
+              {/* Live portal component - replaces static screenshot */}
+              <div className="overflow-hidden rounded-2xl border-2 border-swoop-green/20 bg-white p-6">
+                <div className="mb-4 flex items-center gap-2">
+                  <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-800">
+                    LIVE COMPONENT
+                  </span>
+                  <span className="text-xs text-gray-500">Not a screenshot</span>
                 </div>
+                <HealthScoreGrid showAll={false} />
               </div>
             </div>
           </div>
