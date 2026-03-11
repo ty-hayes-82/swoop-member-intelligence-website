@@ -7,8 +7,21 @@ import DemoDisclosure from '@/components/DemoDisclosure'
 
 const tabs = [
   {
+    id: 'briefing',
+    label: 'Daily Briefing',
+    description: 'Start every morning knowing exactly what needs attention — AI-prioritized actions, not a wall of reports.',
+    link: '/platform#daily-briefing',
+    highlights: ['Risk alerts before the first tee time', 'AI agent recommendations with impact math', 'Weather, staffing, and member signals in one view'],
+    screenshot: {
+      src: '/images/screenshot-member-intelligence.png',
+      alt: 'Daily Briefing with prioritized actions',
+      caption: 'Demo data — Oakmont Hills CC morning briefing',
+      objectPosition: 'top',
+    },
+  },
+  {
     id: 'member',
-    label: 'Member Intelligence',
+    label: 'Member Health',
     description: 'Catch resignation risk 6–8 weeks early with health scores, decay reasons, and save playbooks.',
     link: '/capabilities/member-intelligence',
     highlights: ['Live health scores by member', 'Save queue arrives every Monday', 'Board-ready attribution for every intervention'],

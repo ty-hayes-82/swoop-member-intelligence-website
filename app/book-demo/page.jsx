@@ -25,7 +25,7 @@ const whatYouWillSee = [
   },
   {
     title: 'Cross-System Intelligence',
-    description: 'Your tee sheet, POS, CRM, and payroll systems don't talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.',
+    description: "Your tee sheet, POS, CRM, and payroll systems don't talk to each other. Swoop connects them so you can see behavior correlations and staffing pressure together.",
   },
   {
     title: 'AI Agent Recommendations',

@@ -40,7 +40,7 @@ export default function AudiencePage({
         fontFamily: 'var(--font-sans)',
       }}
     >
-      <section
+      <section data-hero-section
         style={{
           display: 'flex',
           flexWrap: 'wrap',

@@ -1,6 +1,7 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import { RoutingComparisonMock, CancellationRiskCard, RetentionValueCalculator } from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
 
 export const metadata = buildMetadata({
   title: 'Tee Sheet & Demand',
@@ -16,10 +17,25 @@ const teeFaqs = [
   { question: 'What about walk-ins?', answer: 'Walk-ins remain, but Swoop proactively offers open slots to members before they reach the walk-in queue.' },
 ]
 
+const teeHighlights = [
+  {
+    title: 'Retention routing vs FIFO',
+    detail: 'Queue shows who would get the slot under FIFO vs Swoop. High-value members leapfrog when health scores slide.',
+  },
+  {
+    title: 'Cancellation probability window',
+    detail: '24–72h indicators combine weather, pace, and sentiment so staff pre-alert the right members before a slot goes dark.',
+  },
+  {
+    title: 'Acceptance math surfaced',
+    detail: 'Each recommendation cites dues at stake, acceptance likelihood, and routing reason so approvals take seconds.',
+  },
+]
+
 export default function TeeSheetDemandPage() {
   return (
     <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Tee Sheet & Demand</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Fill slots with retention logic, not queue luck.</h1>
@@ -28,10 +44,25 @@ export default function TeeSheetDemandPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
-          <RoutingComparisonMock />
-          <CancellationRiskCard />
-          <RetentionValueCalculator />
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-2xl border border-swoop-border bg-white p-5">
+            <ScreenshotLightbox
+              src="/screenshots/waitlist-demand.jpg"
+              alt="Waitlist and demand intelligence screenshot"
+              maxHeight={420}
+              objectPosition="top"
+            />
+            <p className="mt-3 text-sm text-swoop-muted">Retention-prioritized queue with cancellation forecasts, dues impact, and routing rationale. Demo data — Oakmont Hills CC.</p>
+            <DemoDisclosure className="mt-1 text-xs" />
+          </div>
+          <div className="space-y-4">
+            {teeHighlights.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-sm font-semibold text-swoop-dark">{card.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{card.detail}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -75,24 +106,8 @@ export default function TeeSheetDemandPage() {
       <section className="px-6">
         <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-swoop-muted">Demand heatmap — artifact</p>
-          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6">
-            <p className="font-semibold text-swoop-dark">Weekly slot view</p>
-            <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs font-semibold">
-              {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
-                <span key={day}>{day}</span>
-              ))}
-            </div>
-            <div className="mt-2 grid grid-cols-7 gap-2 text-xs">
-              {['High', 'Med', 'Low', 'High', 'Med', 'High', 'Low'].map((level, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-md px-2 py-3 text-center font-semibold"
-                  style={{ backgroundColor: level === 'High' ? '#FECACA' : level === 'Med' ? '#FDE68A' : '#DCFCE7' }}
-                >
-                  {level}
-                </div>
-              ))}
-            </div>
+          <div className="rounded-xl border border-swoop-border bg-swoop-bg p-6 text-center">
+            <p className="text-sm text-swoop-muted">Predicted demand spikes flagged by daypart for member-facing communications.</p>
           </div>
         </div>
       </section>

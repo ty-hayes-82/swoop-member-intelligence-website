@@ -1,12 +1,8 @@
 import { buildMetadata } from '@/lib/metadata'
 import Link from 'next/link'
-import {
-  StaffingForecastGrid,
-  StaffingBeforeAfterCard,
-  BoardSnapshotCard,
-  ServiceFailureBlock,
-  SourceBadgeRow,
-} from '@/components/CapabilityMocks'
+import ScreenshotLightbox from '@/components/ScreenshotLightbox'
+import DemoDisclosure from '@/components/DemoDisclosure'
+import { ServiceFailureBlock, SourceBadgeRow } from '@/components/CapabilityMocks'
 
 export const metadata = buildMetadata({
   title: 'Staffing & Labor',
@@ -22,10 +18,25 @@ const staffingFaqs = [
   { question: 'Can department heads see their own view?', answer: 'Each department gets a filtered briefing plus mobile notifications.' },
 ]
 
+const staffingHighlights = [
+  {
+    title: 'Service recovery playbook',
+    detail: 'Every complaint ties to the staffing gap that triggered it so correcting the shift is part of the workflow.',
+  },
+  {
+    title: 'Coverage forecast',
+    detail: '48-hour view compares predicted covers to scheduled staff and quantifies the shortfall in dollars.',
+  },
+  {
+    title: 'Ownership trail',
+    detail: 'Assign a GM, F&B lead, or department head to each action so board packets show who handled the fix.',
+  },
+]
+
 export default function StaffingLaborPage() {
   return (
     <div className="space-y-16 pb-16">
-      <section className="px-6 py-20 md:py-28">
+      <section className="px-6 py-20 md:py-28" data-hero-section>
         <div className="mx-auto max-w-container">
           <p className="text-sm font-bold uppercase tracking-wider text-swoop-accent">Staffing & Service</p>
           <h1 className="mt-4 text-4xl font-bold md:text-5xl">Forecast coverage before member experience breaks.</h1>
@@ -34,10 +45,24 @@ export default function StaffingLaborPage() {
       </section>
 
       <section className="px-6">
-        <div className="mx-auto grid max-w-container gap-6 lg:grid-cols-3">
-          <StaffingForecastGrid />
-          <StaffingBeforeAfterCard />
-          <BoardSnapshotCard />
+        <div className="mx-auto max-w-container grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-2xl border border-swoop-border bg-white p-5">
+            <ScreenshotLightbox
+              src="/screenshots/staffing-labor.png"
+              alt="Staffing and service recovery dashboard screenshot"
+              maxHeight={420}
+            />
+            <p className="mt-3 text-sm text-swoop-muted">Service recovery drawer highlighting James Whitfield, complaint aging, and recommended outreach. Demo data — Oakmont Hills CC.</p>
+            <DemoDisclosure className="mt-1 text-xs" />
+          </div>
+          <div className="space-y-4">
+            {staffingHighlights.map((card) => (
+              <article key={card.title} className="rounded-2xl border border-swoop-border bg-swoop-bg p-4">
+                <p className="text-sm font-semibold text-swoop-dark">{card.title}</p>
+                <p className="mt-2 text-sm text-swoop-muted">{card.detail}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

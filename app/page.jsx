@@ -26,7 +26,7 @@ const howItWorks = [
   {
     step: 2,
     title: 'Fix It',
-    summary: 'Manual interventions',
+    summary: 'GM-approved actions',
     detail: 'AI agents recommend the next best action with impact math. You approve or assign inside Agent Command.',
     accent: '#059669',
   },
@@ -128,8 +128,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-container gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">For private-club GMs</p>
-            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Every member has a health score. You just can&apos;t see it yet.</h1>
-            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Swoop surfaces engagement decay, spend shifts, and booking drop-offs across every member — then gives your team the playbook to act before a resignation letter lands.</p>
+            <h1 className="hero-headline mt-4 text-4xl font-bold leading-[1.2] md:text-5xl">Stop discovering problems after the complaint.</h1>
+            <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and complaint log can&apos;t talk to each other. Swoop connects them &mdash; so you see the member about to leave, the shift about to break, and the revenue about to vanish, all before your first tee time.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <PrimaryCTA tone="dark" />
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
@@ -158,6 +158,32 @@ export default function HomePage() {
 
       {/* Trust strip */}
       <TrustStrip />
+
+      {/* Section - Three Questions Only Swoop Can Answer */}
+      <section className="px-6" data-animate="fade-up">
+        <div className="mx-auto max-w-container rounded-2xl border border-swoop-border bg-white p-8">
+          <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Why Swoop exists</p>
+          <h2 className="mt-2 text-2xl font-bold text-swoop-dark">Three questions your current systems cannot answer</h2>
+          <p className="mt-2 text-sm" style={{ color: '#3d4f44' }}>Your tee sheet, POS, and CRM each see one slice. Swoop connects them to answer the questions that actually drive retention, revenue, and service consistency.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #F59E0B' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Operational Command</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Where is today at risk of breaking &mdash; right now?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I manage by anecdotes. I cannot see what is about to break until it is too late.&rdquo;</p>
+            </article>
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #10B981' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Revenue Optimization</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Which operational failures are costing you F&amp;B spend?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I know my F&amp;B numbers, but I cannot connect a bad hole-9 experience to a lost dinner.&rdquo;</p>
+            </article>
+            <article className="hover-lift rounded-xl border border-swoop-border/70 bg-swoop-bg p-5" style={{ borderTop: '3px solid #3B82F6' }}>
+              <p className="text-xs font-semibold uppercase tracking-[1.2px] text-swoop-muted">Member Health</p>
+              <h3 className="mt-2 text-lg font-semibold text-swoop-dark">Which members are quietly drifting away?</h3>
+              <p className="mt-2 text-sm italic" style={{ color: '#6B7280' }}>&ldquo;I can see rounds and spend, but I cannot see when a good member is quietly disengaging.&rdquo;</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       {/* Section 2 — How it works */}
       <section className="px-6">
