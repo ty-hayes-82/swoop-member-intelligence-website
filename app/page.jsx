@@ -131,7 +131,7 @@ export default function HomePage() {
             <h1 className="hero-headline mt-4 text-5xl font-bold leading-[1.1] md:text-6xl lg:text-7xl">Stop firefighting. Start orchestrating.</h1>
             <p className="mt-4 max-w-xl text-lg" style={{ color: '#3d4f44' }}>The Real-Time Cockpit that shows you where today is breaking — before members feel it.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-swoop-dark/90">See the Daily Briefing</Link>
+              <Link href="/book-demo" className="inline-flex items-center justify-center rounded-lg bg-swoop-dark px-6 py-3 text-sm font-semibold text-white cta-primary-dark">See the Daily Briefing</Link>
               <Link href="/pricing" className="text-sm font-semibold text-swoop-muted underline underline-offset-4">See Pricing</Link>
             </div>
             <p className="mt-3 text-sm text-swoop-muted">Next live demo openings: Tuesday 11:00 AM MT · Thursday 2:00 PM MT</p>
@@ -169,7 +169,7 @@ export default function HomePage() {
               <p className="mt-4 text-lg" style={{ color: '#3d4f44' }}>90% of clubs value a daily Health Score. It&rsquo;s the fastest way to protect your dues base.</p>
               <p className="mt-4 text-sm" style={{ color: '#6B7280' }}>Member Health sits at the center of Swoop&rsquo;s intelligence platform. It connects tee sheet activity, F&amp;B spend, email engagement, and complaint signals into one simple score — so you know which members need outreach before they start the resignation conversation.</p>
               <div className="mt-6">
-                <Link href="/platform#member-health" className="inline-flex items-center justify-center rounded-lg bg-swoop-green px-6 py-3 text-sm font-semibold text-swoop-dark transition hover:bg-swoop-green-hover">See Member Health in action</Link>
+                <Link href="/platform#member-health" className="inline-flex items-center justify-center rounded-lg bg-swoop-green px-6 py-3 text-sm font-semibold text-swoop-dark cta-primary-green">See Member Health in action</Link>
               </div>
             </div>
             <div className="relative" data-animate="fade-scale" data-animate-delay="200">

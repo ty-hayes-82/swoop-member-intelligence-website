@@ -141,6 +141,33 @@ html {
     0 0 50px rgba(16, 185, 129, 0.12);
 }
 
+/* Premium CTA buttons - DES-W04 */
+.cta-primary-green {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-primary-green:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 222, 128, 0.4);
+}
+.cta-primary-green:active {
+  transform: scale(1.08) translateY(-1px);
+}
+
+.cta-primary-dark {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(31, 47, 36, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cta-primary-dark:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 47, 36, 0.35);
+}
+.cta-primary-dark:active {
+  transform: scale(1.08) translateY(-1px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
