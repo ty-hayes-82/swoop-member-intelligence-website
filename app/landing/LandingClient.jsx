@@ -5,7 +5,7 @@ import { theme } from '@/lib/landing-theme';
 import {
   problemCards, coreCapabilities, comparisonFeatures, objections,
   agents, integrationCategories, foundingPartnerBenefits,
-  pricingTiers, faqItems,
+  pricingTiers, faqItems, testimonial, teamMembers, tamData,
 } from '@/lib/landing-data';
 import './landing.css';
 
@@ -116,11 +116,14 @@ function HeroSection() {
           Your members get{' '}<em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>a concierge.</em><br />
           Your GM gets{' '}<em style={{ color: TEAL, fontStyle: 'italic' }}>a command center.</em>
         </h1>
-        <p style={{ color: theme.colors.textSecondary, fontSize: 'clamp(17px, 2vw, 22px)', lineHeight: 1.55, maxWidth: 760, marginBottom: theme.spacing.xl }}>
+        <p style={{ color: theme.colors.textSecondary, fontSize: 'clamp(17px, 2vw, 22px)', lineHeight: 1.55, maxWidth: 760, marginBottom: theme.spacing.md }}>
           AI agents that work both sides of the club relationship. Members book,
           ask, and engage through a personal concierge. The GM sees the full
           picture, acts on coordinated intelligence, and proves the impact to
           the board.
+        </p>
+        <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.md, maxWidth: 760, marginBottom: theme.spacing.xl, lineHeight: 1.55 }}>
+          Every member interaction makes the system smarter. More data feeds better predictions, which drive better outcomes, which generate more engagement data. This compounding data flywheel is our moat — and it deepens with every club we onboard.
         </p>
         <div className="landing-hero-ctas">
           <button type="button" className="landing-hero-cta"
@@ -150,14 +153,45 @@ function HeroSection() {
 function ProductPreview() {
   return (
     <section id="product-preview" style={{ marginBottom: theme.spacing.xxl, textAlign: 'center' }}>
-      <iframe
-        src="https://swoop-member-portal-dev.vercel.app/#/demo/split-screen"
-        style={{ width: '100%', height: 500, border: '1px solid #e4e4e7', borderRadius: 16, overflow: 'hidden' }}
-        loading="lazy"
-        title="Swoop platform preview"
-      />
+      <div
+        onClick={() => scrollToSection('demo-form')}
+        style={{
+          width: '100%', height: 500, borderRadius: 16, overflow: 'hidden',
+          background: 'linear-gradient(135deg, #181818 0%, #2A2A2A 50%, #181818 100%)',
+          border: '1px solid #e4e4e7', cursor: 'pointer', position: 'relative',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          gap: '20px', transition: 'box-shadow 200ms ease',
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(243,146,45,0.2)'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
+      >
+        <div style={{
+          width: 72, height: 72, borderRadius: '50%', background: 'rgba(243,146,45,0.15)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: '2px solid rgba(243,146,45,0.4)',
+        }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#F3922D">
+            <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
+          </svg>
+        </div>
+        <p style={{ color: '#FFFFFF', fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 700, margin: 0 }}>
+          Live Demo Available
+        </p>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: theme.fontSize.md, margin: 0 }}>
+          Book a Walkthrough
+        </p>
+        <div style={{ position: 'absolute', bottom: 20, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 32 }}>
+          {['Member Concierge', 'GM Command Center', 'AI Agents'].map((label) => (
+            <span key={label} style={{
+              color: 'rgba(255,255,255,0.4)', fontSize: theme.fontSize.sm,
+              padding: '6px 14px', borderRadius: 999,
+              border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
+            }}>{label}</span>
+          ))}
+        </div>
+      </div>
       <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, marginTop: theme.spacing.md }}>
-        Live demo — member concierge on the left, GM intelligence feed on the right.
+        See the member concierge and GM intelligence feed side by side.
       </p>
     </section>
   );
@@ -394,7 +428,7 @@ function AgentsSection() {
       </p>
       <div className="landing-grid-3">
         {agents.map((agent) => (
-          <article key={agent.name} style={{
+          <article key={agent.name} className="landing-card-hover" style={{
             border: `1px solid ${theme.colors.border}`, borderRadius: theme.radius.lg,
             background: theme.colors.bgCard, padding: 'clamp(18px, 3vw, 22px)',
             display: 'flex', flexDirection: 'column', gap: theme.spacing.sm, height: '100%',
@@ -506,10 +540,18 @@ function IntegrationsSection() {
 
 /* ─── Pricing ─── */
 
-function PricingCard({ tier }) {
+function PricingCard({ tier, isAnnual }) {
   const isPopular = tier.badge === 'Most Popular';
+  const monthlyNum = parseInt(tier.price.replace(/[^0-9]/g, ''), 10);
+  const displayPrice = (!monthlyNum || monthlyNum === 0)
+    ? tier.price
+    : isAnnual
+      ? `$${Math.round(monthlyNum * 0.8).toLocaleString()}/mo`
+      : tier.price;
+  const annualAnchor = (monthlyNum > 0 && isAnnual) ? `Billed annually ($${(Math.round(monthlyNum * 0.8) * 12).toLocaleString()}/yr)` : tier.priceAnchor;
+
   return (
-    <article style={{
+    <article className="landing-card-hover" style={{
       background: theme.colors.bgCard, border: `1px solid ${isPopular ? theme.colors.ctaAccent : theme.colors.border}`,
       borderRadius: theme.radius.lg, padding: isPopular ? '26px 22px' : '22px',
       boxShadow: isPopular ? theme.shadow.lg : theme.shadow.sm, transform: isPopular ? 'translateY(-6px)' : 'none',
@@ -520,8 +562,13 @@ function PricingCard({ tier }) {
         </span>
       )}
       <h3 style={{ fontSize: theme.fontSize.xl, marginBottom: 6 }}>{tier.name}</h3>
-      <p style={{ fontSize: theme.fontSize.xxl, margin: '0 0 4px', fontWeight: 700 }}>{tier.price}</p>
-      {tier.priceAnchor && <p style={{ fontSize: theme.fontSize.sm, color: theme.colors.textMuted, margin: '0 0 10px' }}>{tier.priceAnchor}</p>}
+      <p style={{ fontSize: theme.fontSize.xxl, margin: '0 0 4px', fontWeight: 700 }}>{displayPrice}</p>
+      {annualAnchor && <p style={{ fontSize: theme.fontSize.sm, color: theme.colors.textMuted, margin: '0 0 10px' }}>{annualAnchor}</p>}
+      {isAnnual && monthlyNum > 0 && (
+        <span style={{ display: 'inline-block', marginBottom: theme.spacing.sm, padding: '3px 8px', borderRadius: theme.radius.sm, background: '#12b76a22', color: '#12b76a', fontSize: theme.fontSize.xs, fontWeight: 700 }}>
+          Save 20%
+        </span>
+      )}
       <p style={{ color: theme.colors.textSecondary, marginBottom: theme.spacing.md }}>{tier.description}</p>
       <ul style={{ margin: `0 0 ${theme.spacing.lg}`, paddingLeft: 18, color: theme.colors.textSecondary }}>
         {tier.features.map((f) => <li key={f} style={{ marginBottom: 8 }}>{f}</li>)}
@@ -538,12 +585,20 @@ function PricingCard({ tier }) {
 }
 
 function PricingSection() {
+  const [isAnnual, setIsAnnual] = useState(false);
+
   return (
     <section id="pricing" style={{ marginBottom: theme.spacing.xxl }}>
       <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm }}>Simple pricing. No long-term contracts.</h2>
-      <p style={{ color: theme.colors.textSecondary, marginBottom: theme.spacing.xl, fontSize: theme.fontSize.lg }}>Start free with your existing systems. Upgrade when you see the value.</p>
+      <p style={{ color: theme.colors.textSecondary, marginBottom: theme.spacing.lg, fontSize: theme.fontSize.lg }}>Start free with your existing systems. Upgrade when you see the value.</p>
+      <div style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
+        <div className="billing-toggle">
+          <button type="button" className={`billing-toggle-option ${!isAnnual ? 'active' : ''}`} onClick={() => setIsAnnual(false)}>Monthly</button>
+          <button type="button" className={`billing-toggle-option ${isAnnual ? 'active' : ''}`} onClick={() => setIsAnnual(true)}>Annual <span style={{ color: '#12b76a', fontWeight: 700 }}>-20%</span></button>
+        </div>
+      </div>
       <div className="landing-grid-3" style={{ alignItems: 'stretch' }}>
-        {pricingTiers.map((tier) => <PricingCard key={tier.name} tier={tier} />)}
+        {pricingTiers.map((tier) => <PricingCard key={tier.name} tier={tier} isAnnual={isAnnual} />)}
       </div>
     </section>
   );
@@ -555,14 +610,20 @@ function RoiCalculatorSection() {
   const [members, setMembers] = useState(300);
   const [dues, setDues] = useState(8000);
   const [churn, setChurn] = useState(5);
+  const [saveRate, setSaveRate] = useState(50);
+  const [animKey, setAnimKey] = useState(0);
 
   const atRisk = Math.round(members * (churn / 100));
   const annualLoss = atRisk * dues;
-  const swoopSaves = Math.round(atRisk * 0.50);
+  const swoopSaves = Math.round(atRisk * (saveRate / 100));
   const recovered = swoopSaves * dues;
   const swoopProCost = 5988;
   const netGain = recovered - swoopProCost;
   const roiMultiple = recovered > 0 ? Math.round(recovered / swoopProCost) : 0;
+
+  useEffect(() => {
+    setAnimKey((k) => k + 1);
+  }, [members, dues, churn, saveRate]);
 
   return (
     <section className="landing-section-padded" style={{
@@ -579,6 +640,7 @@ function RoiCalculatorSection() {
             { label: 'Total Members', value: members, set: setMembers, min: 100, max: 800 },
             { label: 'Avg Annual Dues', value: dues, set: setDues, min: 2000, max: 25000, step: 500, prefix: '$' },
             { label: 'Annual Turnover Rate', value: churn, set: setChurn, min: 1, max: 15, suffix: '%' },
+            { label: 'Projected Save Rate', value: saveRate, set: setSaveRate, min: 30, max: 70, suffix: '%' },
           ].map((s) => (
             <div key={s.label}>
               <label style={{ display: 'flex', justifyContent: 'space-between', fontSize: theme.fontSize.sm, marginBottom: theme.spacing.sm, color: `${theme.colors.bgCard}B3` }}>
@@ -589,25 +651,25 @@ function RoiCalculatorSection() {
             </div>
           ))}
         </div>
-        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: theme.radius.lg, padding: theme.spacing.xl, display: 'flex', flexDirection: 'column', gap: theme.spacing.md }}>
-          <div>
+        <div key={animKey} style={{ background: 'rgba(255,255,255,0.05)', borderRadius: theme.radius.lg, padding: theme.spacing.xl, display: 'flex', flexDirection: 'column', gap: theme.spacing.md }}>
+          <div className="roi-animated">
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Members at risk annually</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.urgent }}>{atRisk}</p>
           </div>
-          <div>
+          <div className="roi-animated" style={{ animationDelay: '0.05s' }}>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Annual revenue at risk</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.urgent }}>${annualLoss.toLocaleString()}</p>
           </div>
-          <div style={{ paddingTop: theme.spacing.md, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop projected saves (modeled at 40-65% early-intervention range)</p>
-            <p style={{ fontSize: theme.fontSize.xs, color: `${theme.colors.bgCard}60`, marginTop: 4 }}>(based on membership organization research)</p>
+          <div className="roi-animated" style={{ animationDelay: '0.1s', paddingTop: theme.spacing.md, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+            <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop projected saves (at {saveRate}% save rate)</p>
+            <p style={{ fontSize: theme.fontSize.xs, color: `${theme.colors.bgCard}60`, marginTop: 4 }}>(based on membership organization research, 30-70% range)</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.ctaAccent }}>{swoopSaves} members</p>
           </div>
-          <div>
+          <div className="roi-animated" style={{ animationDelay: '0.15s' }}>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Revenue recovered with Swoop</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '40px', fontWeight: 700, color: theme.colors.ctaAccent }}>${recovered.toLocaleString()}</p>
           </div>
-          <div style={{ paddingTop: theme.spacing.md, marginTop: theme.spacing.sm, borderTop: `1px solid ${theme.colors.ctaAccent}40`, background: `${theme.colors.ctaAccent}10`, borderRadius: theme.radius.md, padding: theme.spacing.md }}>
+          <div className="roi-animated" style={{ animationDelay: '0.2s', paddingTop: theme.spacing.md, marginTop: theme.spacing.sm, borderTop: `1px solid ${theme.colors.ctaAccent}40`, background: `${theme.colors.ctaAccent}10`, borderRadius: theme.radius.md, padding: theme.spacing.md }}>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop Pro annual cost</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '20px', fontWeight: 700, color: `${theme.colors.bgCard}CC` }}>-${swoopProCost.toLocaleString()}</p>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80`, marginTop: theme.spacing.sm }}>Net revenue gain</p>
@@ -776,6 +838,29 @@ function DemoCtaSection() {
         <label><span style={{ display: 'block', marginBottom: 6 }}>Club</span><input type="text" name="club" autoComplete="organization" required style={inputStyle} /></label>
         <label><span style={{ display: 'block', marginBottom: 6 }}>Email</span><input type="email" name="email" autoComplete="email" required style={inputStyle} /></label>
         <label><span style={{ display: 'block', marginBottom: 6 }}>Phone</span><input type="tel" name="phone" autoComplete="tel" style={inputStyle} /></label>
+        <label>
+          <span style={{ display: 'block', marginBottom: 6 }}>Your Role</span>
+          <select name="role" required style={{ ...inputStyle, appearance: 'auto' }}>
+            <option value="">Select role...</option>
+            <option value="gm">General Manager</option>
+            <option value="agm">Assistant GM</option>
+            <option value="director_golf">Director of Golf</option>
+            <option value="director_fb">F&B Director</option>
+            <option value="membership">Membership Director</option>
+            <option value="coo">COO / Board Member</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>
+          <span style={{ display: 'block', marginBottom: 6 }}>Club Size (members)</span>
+          <select name="club_size" required style={{ ...inputStyle, appearance: 'auto' }}>
+            <option value="">Select size...</option>
+            <option value="under_200">Under 200</option>
+            <option value="200_400">200 - 400</option>
+            <option value="400_600">400 - 600</option>
+            <option value="600_plus">600+</option>
+          </select>
+        </label>
         <button type="submit" className="landing-demo-submit"
           style={{ ...demoButtonStyle, cursor: status === 'submitting' ? 'wait' : 'pointer', opacity: status === 'submitting' ? 0.7 : 1 }}
           disabled={status === 'submitting'}
@@ -785,6 +870,11 @@ function DemoCtaSection() {
           {status === 'submitting' ? 'Submitting\u2026' : 'Book Your Demo'}
         </button>
       </form>
+      <p style={{ marginTop: theme.spacing.md, textAlign: 'center' }}>
+        <a href="https://calendly.com/swoopgolf/demo" target="_blank" rel="noopener noreferrer" style={{ color: theme.colors.ctaAccent, textDecoration: 'underline', fontWeight: 600, fontSize: theme.fontSize.md }}>
+          Or schedule directly on Calendly &rarr;
+        </a>
+      </p>
       {(status === 'success' || status === 'error') && feedback && (
         <p style={{ marginTop: theme.spacing.md, fontSize: theme.fontSize.sm, color: status === 'success' ? theme.colors.ctaAccent : theme.colors.urgent }} role="status">{feedback}</p>
       )}
@@ -829,6 +919,91 @@ function FloatingDemoCta() {
   );
 }
 
+/* ─── Testimonial ─── */
+
+function TestimonialSection() {
+  return (
+    <section style={{ marginBottom: theme.spacing.xxl }}>
+      <div style={{
+        background: theme.colors.landingCream, borderRadius: theme.radius.xl,
+        padding: 'clamp(32px, 6vw, 56px) clamp(24px, 4vw, 40px)', textAlign: 'center',
+        borderLeft: `4px solid ${theme.colors.ctaAccent}`,
+      }}>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill={theme.colors.ctaAccent} style={{ marginBottom: theme.spacing.md, opacity: 0.3 }}>
+          <path d="M11 7.05V4a1 1 0 0 0-1-1H7a8 8 0 0 0-8 8v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H2a6 6 0 0 1 6-6h2a1 1 0 0 0 1-1zm13 0V4a1 1 0 0 0-1-1h-3a8 8 0 0 0-8 8v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2a6 6 0 0 1 6-6h2a1 1 0 0 0 1-1z"/>
+        </svg>
+        <blockquote style={{ margin: 0, fontSize: 'clamp(18px, 2.5vw, 24px)', lineHeight: 1.6, fontStyle: 'italic', color: theme.colors.textPrimary, maxWidth: 800, marginLeft: 'auto', marginRight: 'auto' }}>
+          &ldquo;{testimonial.quote}&rdquo;
+        </blockquote>
+        <p style={{ marginTop: theme.spacing.lg, fontWeight: 700, color: theme.colors.textPrimary }}>{testimonial.author}</p>
+        <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm }}>{testimonial.org}</p>
+        <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.xs, marginTop: theme.spacing.sm, fontStyle: 'italic' }}>{testimonial.note}</p>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Team ─── */
+
+function TeamSection() {
+  return (
+    <section style={{ marginBottom: theme.spacing.xxl }}>
+      <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm }}>Built by people who know clubs.</h2>
+      <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.lg, marginBottom: theme.spacing.xl }}>
+        Our team has deep roots in private club technology and enterprise SaaS.
+      </p>
+      <div className="landing-grid-3">
+        {teamMembers.map((member) => (
+          <article key={member.name} className="landing-card-hover" style={{
+            background: theme.colors.bgCard, border: `1px solid ${theme.colors.border}`,
+            borderRadius: theme.radius.lg, padding: '24px', textAlign: 'center',
+          }}>
+            <div style={{
+              width: 64, height: 64, borderRadius: '50%', margin: '0 auto 16px',
+              background: `linear-gradient(135deg, ${theme.colors.ctaAccent}22, ${theme.colors.bgDeep})`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '24px', fontWeight: 700, color: theme.colors.ctaAccent,
+            }}>
+              {member.name.split(' ').map((n) => n[0]).join('')}
+            </div>
+            <h3 style={{ fontSize: theme.fontSize.lg, marginBottom: 4 }}>{member.name}</h3>
+            <p style={{ fontSize: theme.fontSize.sm, fontWeight: 700, color: theme.colors.ctaAccent, marginBottom: theme.spacing.sm }}>{member.title}</p>
+            <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.sm, lineHeight: 1.5 }}>{member.background}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ─── TAM / Why Now ─── */
+
+function TamSection() {
+  return (
+    <section style={{ marginBottom: theme.spacing.xxl }}>
+      <div style={{
+        background: theme.colors.bgSidebar, borderRadius: theme.radius.xl, color: theme.colors.textOnDark,
+        padding: 'clamp(32px, 6vw, 56px) clamp(24px, 4vw, 40px)',
+      }}>
+        <p style={{ color: theme.colors.ctaAccent, fontSize: theme.fontSize.sm, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: theme.spacing.md, textAlign: 'center' }}>
+          {tamData.headline}
+        </p>
+        <div className="landing-grid-3" style={{ marginBottom: theme.spacing.xl }}>
+          {tamData.stats.map((stat) => (
+            <div key={stat.label} style={{ textAlign: 'center' }}>
+              <p style={{ fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 700, fontFamily: theme.fonts.mono, color: theme.colors.ctaAccent, lineHeight: 1, marginBottom: theme.spacing.sm }}>{stat.value}</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: theme.fontSize.md }}>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: theme.fontSize.lg, lineHeight: 1.6, maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+          {tamData.narrative}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Main Landing Page ─── */
 
 export default function LandingClient() {
@@ -842,13 +1017,16 @@ export default function LandingClient() {
         <ProblemSection />
         <InlineCta />
         <CoreCapabilitiesSection />
+        <TestimonialSection />
         <InlineCta />
         <ComparisonSection />
         <AgentsSection />
+        <TamSection />
         <IntegrationsSection />
         <PricingSection />
         <RoiCalculatorSection />
         <SocialProofSection />
+        <TeamSection />
         <FaqSection />
       </main>
       <div style={fullWidth}>

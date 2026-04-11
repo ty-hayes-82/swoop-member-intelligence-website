@@ -1,3 +1,57 @@
+/* ─── Count-up animation ─── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.roi-animated {
+  animation: countUp 0.5s ease-out forwards;
+}
+
+/* ─── Card hover states ─── */
+.landing-card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.landing-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #F3922D;
+}
+
+/* ─── Billing toggle ─── */
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #F3F4F6;
+  border: 1px solid #e4e4e7;
+  cursor: pointer;
+}
+
+.billing-toggle-option {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+  font-family: inherit;
+}
+
+.billing-toggle-option.active {
+  background: #0F0F0F;
+  color: #FFFFFF;
+}
+
+.billing-toggle-option:not(.active) {
+  background: transparent;
+  color: #3F3F46;
+}
+
 .landing-page {
   min-height: 100vh;
   overflow-x: hidden;
