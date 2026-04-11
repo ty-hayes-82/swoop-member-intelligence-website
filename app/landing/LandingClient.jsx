@@ -126,14 +126,14 @@ function HeroSection() {
           <button type="button" className="landing-hero-cta"
             style={{ ...ctaBase, background: theme.colors.accent, color: '#FFFFFF', cursor: 'pointer' }}
             onClick={() => scrollToSection('demo-form')}
-            onMouseEnter={(e) => { e.currentTarget.style.background = theme.colors.ctaGreenHover; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = theme.colors.ctaAccentHover; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = theme.colors.accent; }}
           >
             Book a 30-Minute Demo
           </button>
           <button type="button" className="landing-hero-cta"
             style={{ ...ctaBase, background: 'transparent', color: TEAL, borderColor: TEAL, cursor: 'pointer' }}
-            onClick={() => scrollToSection('platform')}
+            onClick={() => scrollToSection('product-preview')}
             onMouseEnter={(e) => { e.currentTarget.style.background = TEAL; e.currentTarget.style.color = '#FFFFFF'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = TEAL; }}
           >
@@ -145,9 +145,27 @@ function HeroSection() {
   );
 }
 
+/* ─── Product Preview ─── */
+
+function ProductPreview() {
+  return (
+    <section id="product-preview" style={{ marginBottom: theme.spacing.xxl, textAlign: 'center' }}>
+      <iframe
+        src="https://swoop-member-portal-dev.vercel.app/#/demo/split-screen"
+        style={{ width: '100%', height: 500, border: '1px solid #e4e4e7', borderRadius: 16, overflow: 'hidden' }}
+        loading="lazy"
+        title="Swoop platform preview"
+      />
+      <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, marginTop: theme.spacing.md }}>
+        Live demo — member concierge on the left, GM intelligence feed on the right.
+      </p>
+    </section>
+  );
+}
+
 /* ─── Trust Strip ─── */
 
-const trustSignals = ['28 System Integrations', 'Live in Under 2 Weeks', 'No Rip-and-Replace', 'Data Encrypted at Rest & in Transit'];
+const trustSignals = ['Live Demo Available', 'Live in Under 2 Weeks', 'No Rip-and-Replace', 'Data Encrypted at Rest & in Transit'];
 
 function TrustStrip() {
   return (
@@ -215,7 +233,7 @@ function InlineCta({ text = 'See how it works', targetId = 'demo-form' }) {
     <div style={{ textAlign: 'center', marginBottom: theme.spacing.xxl }}>
       <button onClick={() => scrollToSection(targetId)} style={{
         background: 'none', border: 'none', cursor: 'pointer',
-        color: theme.colors.ctaGreen, textDecoration: 'none', fontWeight: 600,
+        color: theme.colors.ctaAccent, textDecoration: 'none', fontWeight: 600,
         fontSize: theme.fontSize.lg, fontFamily: 'inherit',
       }}>
         {text} &rarr;
@@ -226,7 +244,13 @@ function InlineCta({ text = 'See how it works', targetId = 'demo-form' }) {
 
 /* ─── Core Capabilities ─── */
 
-const iconLabel = { Users: 'MI', Calendar: 'TS', Utensils: 'FB', UsersRound: 'SL', DollarSign: 'RP' };
+const capSvgIcons = {
+  Users: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  Calendar: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
+  Utensils: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>,
+  UsersRound: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>,
+  DollarSign: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>,
+};
 
 function CoreCapabilitiesSection() {
   const cardRefs = useRef([]);
@@ -263,8 +287,8 @@ function CoreCapabilitiesSection() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', flexWrap: 'wrap', fontSize: theme.fontSize.xs, textTransform: 'uppercase', letterSpacing: '0.08em', color: theme.colors.textMuted }}>
               <span>{cap.source}</span><span>{cap.freshness}</span>
             </div>
-            <div style={{ height: 34, width: 34, borderRadius: theme.radius.md, background: `${cap.color}22`, color: cap.color, fontFamily: theme.fonts.mono, fontSize: theme.fontSize.sm, fontWeight: 600, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-              {iconLabel[cap.icon]}
+            <div style={{ height: 34, width: 34, borderRadius: theme.radius.md, background: `${cap.color}22`, color: cap.color, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+              {capSvgIcons[cap.icon]}
             </div>
             <div>
               <h3 style={{ fontSize: theme.fontSize.lg, marginBottom: theme.spacing.xs }}>{cap.title}</h3>
@@ -319,7 +343,7 @@ function ComparisonSection() {
         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 680 }}>
           <thead>
             <tr style={{ background: theme.colors.bgDeep }}>
-              {['Feature', 'Swoop', 'Waitlist Tools', 'Your CRM Alone', 'Spreadsheets'].map((h) => (
+              {['Feature', 'Swoop', 'Waitlist Tools', 'Your CRM Alone', 'Point Solutions (ForeUP, etc.)'].map((h) => (
                 <th key={h} style={{ textAlign: h === 'Feature' ? 'left' : 'center', padding: '14px 14px', fontWeight: 700, color: theme.colors.textPrimary, borderBottom: `1px solid ${theme.colors.border}` }}>{h}</th>
               ))}
             </tr>
@@ -352,7 +376,14 @@ function ComparisonSection() {
 
 /* ─── Agents ─── */
 
-const agentIconLabel = { Radar: 'DS', RefreshCw: 'WO', UserRound: 'MS', ChefHat: 'FB', UsersRound: 'LP', LineChart: 'RA' };
+const agentSvgIcons = {
+  UserRound: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>,
+  Radar: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19.07 4.93A10 10 0 0 0 2 12"/><path d="M16.24 7.76A6 6 0 0 0 6 12"/><circle cx="12" cy="12" r="2"/></svg>,
+  ChefHat: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V20H6z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>,
+  UsersRound: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>,
+  LineChart: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>,
+  RefreshCw: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>,
+};
 
 function AgentsSection() {
   return (
@@ -370,10 +401,9 @@ function AgentsSection() {
           }}>
             <div style={{
               width: 36, height: 36, borderRadius: theme.radius.md, background: theme.colors.bgDeep,
-              color: theme.colors.textPrimary, fontFamily: theme.fonts.mono, fontSize: theme.fontSize.sm,
-              fontWeight: 600, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: theme.spacing.md,
+              color: theme.colors.textPrimary, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: theme.spacing.md,
             }}>
-              {agentIconLabel[agent.icon]}
+              {agentSvgIcons[agent.icon]}
             </div>
             <h3 style={{ fontSize: theme.fontSize.lg, marginBottom: theme.spacing.sm }}>{agent.name}</h3>
             <p style={{ color: theme.colors.textSecondary }}>{agent.description}</p>
@@ -402,13 +432,13 @@ function IntegrationsSection() {
       <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.lg, marginBottom: theme.spacing.xl }}>
         These systems collect data. Swoop is the intelligence layer that connects them, adds location-aware behavioral signals, and turns cross-system patterns into actionable recommendations.
       </p>
-      <div style={{ border: `2px solid ${theme.colors.ctaGreen}`, borderRadius: theme.radius.lg, background: theme.colors.bgCard, padding: 'clamp(18px, 4vw, 28px)', marginBottom: theme.spacing.xl }}>
+      <div style={{ border: `2px solid ${theme.colors.ctaAccent}`, borderRadius: theme.radius.lg, background: theme.colors.bgCard, padding: 'clamp(18px, 4vw, 28px)', marginBottom: theme.spacing.xl }}>
         <p style={{ fontSize: theme.fontSize.sm, color: theme.colors.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: theme.spacing.md }}>
           What Swoop Adds That No Integration Can Provide
         </p>
         <div className="landing-grid-2" style={{ gap: 16 }}>
           {swoopUnique.map((item) => (
-            <div key={item.title} style={{ borderLeft: `3px solid ${theme.colors.ctaGreen}`, paddingLeft: '14px' }}>
+            <div key={item.title} style={{ borderLeft: `3px solid ${theme.colors.ctaAccent}`, paddingLeft: '14px' }}>
               <p style={{ fontWeight: 600, marginBottom: 6 }}>{item.title}</p>
               <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.sm, lineHeight: 1.6 }}>{item.desc}</p>
             </div>
@@ -428,12 +458,12 @@ function IntegrationsSection() {
           </div>
           <div style={{ textAlign: 'center' }}>
             <div style={{ background: theme.colors.bgSidebar, color: theme.colors.textOnDark, borderRadius: theme.radius.md, padding: '16px', marginBottom: theme.spacing.md }}>
-              <p style={{ fontSize: theme.fontSize.xs, color: theme.colors.ctaGreen, fontWeight: 600, textTransform: 'uppercase', marginBottom: 8 }}>Swoop Intelligence Layer</p>
+              <p style={{ fontSize: theme.fontSize.xs, color: theme.colors.ctaAccent, fontWeight: 600, textTransform: 'uppercase', marginBottom: 8 }}>Swoop Intelligence Layer</p>
               <div style={{ fontSize: theme.fontSize.sm, lineHeight: 1.8 }}>
                 <p>Location data</p><p>Behavioral patterns</p><p>Cross-system correlation</p><p>AI prediction</p>
               </div>
             </div>
-            <div style={{ fontSize: '32px', color: theme.colors.ctaGreen }}>&rarr;</div>
+            <div style={{ fontSize: '32px', color: theme.colors.ctaAccent }}>&rarr;</div>
           </div>
           <div>
             <p style={{ fontSize: theme.fontSize.xs, color: theme.colors.textMuted, fontWeight: 600, textTransform: 'uppercase', marginBottom: theme.spacing.sm }}>Swoop Delivers</p>
@@ -480,24 +510,25 @@ function PricingCard({ tier }) {
   const isPopular = tier.badge === 'Most Popular';
   return (
     <article style={{
-      background: theme.colors.bgCard, border: `1px solid ${isPopular ? theme.colors.ctaGreen : theme.colors.border}`,
+      background: theme.colors.bgCard, border: `1px solid ${isPopular ? theme.colors.ctaAccent : theme.colors.border}`,
       borderRadius: theme.radius.lg, padding: isPopular ? '26px 22px' : '22px',
       boxShadow: isPopular ? theme.shadow.lg : theme.shadow.sm, transform: isPopular ? 'translateY(-6px)' : 'none',
     }}>
       {isPopular && (
-        <span style={{ display: 'inline-block', marginBottom: theme.spacing.sm, padding: '5px 10px', borderRadius: theme.radius.sm, background: `${theme.colors.ctaGreen}2B`, color: theme.colors.ctaGreenText, fontSize: theme.fontSize.sm, fontWeight: 700 }}>
+        <span style={{ display: 'inline-block', marginBottom: theme.spacing.sm, padding: '5px 10px', borderRadius: theme.radius.sm, background: `${theme.colors.ctaAccent}2B`, color: theme.colors.ctaAccentText, fontSize: theme.fontSize.sm, fontWeight: 700 }}>
           {tier.badge}
         </span>
       )}
       <h3 style={{ fontSize: theme.fontSize.xl, marginBottom: 6 }}>{tier.name}</h3>
-      <p style={{ fontSize: theme.fontSize.xxl, margin: '0 0 10px', fontWeight: 700 }}>{tier.price}</p>
+      <p style={{ fontSize: theme.fontSize.xxl, margin: '0 0 4px', fontWeight: 700 }}>{tier.price}</p>
+      {tier.priceAnchor && <p style={{ fontSize: theme.fontSize.sm, color: theme.colors.textMuted, margin: '0 0 10px' }}>{tier.priceAnchor}</p>}
       <p style={{ color: theme.colors.textSecondary, marginBottom: theme.spacing.md }}>{tier.description}</p>
       <ul style={{ margin: `0 0 ${theme.spacing.lg}`, paddingLeft: 18, color: theme.colors.textSecondary }}>
         {tier.features.map((f) => <li key={f} style={{ marginBottom: 8 }}>{f}</li>)}
       </ul>
       <button type="button" onClick={() => scrollToSection('demo-form')} style={{
-        width: '100%', borderRadius: theme.radius.md, border: `1px solid ${isPopular ? theme.colors.ctaGreen : theme.colors.border}`,
-        background: isPopular ? theme.colors.ctaGreen : theme.colors.bgCard, color: isPopular ? theme.colors.ctaGreenText : theme.colors.textPrimary,
+        width: '100%', borderRadius: theme.radius.md, border: `1px solid ${isPopular ? theme.colors.ctaAccent : theme.colors.border}`,
+        background: isPopular ? theme.colors.ctaAccent : theme.colors.bgCard, color: isPopular ? theme.colors.ctaAccentText : theme.colors.textPrimary,
         fontWeight: 700, fontFamily: theme.fonts.sans, fontSize: theme.fontSize.md, padding: '12px 14px', cursor: 'pointer',
       }}>
         {tier.cta}
@@ -527,7 +558,7 @@ function RoiCalculatorSection() {
 
   const atRisk = Math.round(members * (churn / 100));
   const annualLoss = atRisk * dues;
-  const swoopSaves = Math.round(atRisk * 0.65);
+  const swoopSaves = Math.round(atRisk * 0.50);
   const recovered = swoopSaves * dues;
   const swoopProCost = 5988;
   const netGain = recovered - swoopProCost;
@@ -552,9 +583,9 @@ function RoiCalculatorSection() {
             <div key={s.label}>
               <label style={{ display: 'flex', justifyContent: 'space-between', fontSize: theme.fontSize.sm, marginBottom: theme.spacing.sm, color: `${theme.colors.bgCard}B3` }}>
                 <span>{s.label}</span>
-                <span style={{ fontFamily: theme.fonts.mono, color: theme.colors.ctaGreen }}>{s.prefix || ''}{s.prefix ? s.value.toLocaleString() : s.value}{s.suffix || ''}</span>
+                <span style={{ fontFamily: theme.fonts.mono, color: theme.colors.ctaAccent }}>{s.prefix || ''}{s.prefix ? s.value.toLocaleString() : s.value}{s.suffix || ''}</span>
               </label>
-              <input type="range" min={s.min} max={s.max} step={s.step || 1} value={s.value} onChange={(e) => s.set(+e.target.value)} style={{ width: '100%', accentColor: theme.colors.ctaGreen }} />
+              <input type="range" min={s.min} max={s.max} step={s.step || 1} value={s.value} onChange={(e) => s.set(+e.target.value)} style={{ width: '100%', accentColor: theme.colors.ctaAccent }} />
             </div>
           ))}
         </div>
@@ -568,19 +599,20 @@ function RoiCalculatorSection() {
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.urgent }}>${annualLoss.toLocaleString()}</p>
           </div>
           <div style={{ paddingTop: theme.spacing.md, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop projected saves (65% early-intervention retention rate)</p>
-            <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.ctaGreen }}>{swoopSaves} members</p>
+            <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop projected saves (modeled at 40-65% early-intervention range)</p>
+            <p style={{ fontSize: theme.fontSize.xs, color: `${theme.colors.bgCard}60`, marginTop: 4 }}>(based on membership organization research)</p>
+            <p style={{ fontFamily: theme.fonts.mono, fontSize: '32px', fontWeight: 700, color: theme.colors.ctaAccent }}>{swoopSaves} members</p>
           </div>
           <div>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Revenue recovered with Swoop</p>
-            <p style={{ fontFamily: theme.fonts.mono, fontSize: '40px', fontWeight: 700, color: theme.colors.ctaGreen }}>${recovered.toLocaleString()}</p>
+            <p style={{ fontFamily: theme.fonts.mono, fontSize: '40px', fontWeight: 700, color: theme.colors.ctaAccent }}>${recovered.toLocaleString()}</p>
           </div>
-          <div style={{ paddingTop: theme.spacing.md, marginTop: theme.spacing.sm, borderTop: `1px solid ${theme.colors.ctaGreen}40`, background: `${theme.colors.ctaGreen}10`, borderRadius: theme.radius.md, padding: theme.spacing.md }}>
+          <div style={{ paddingTop: theme.spacing.md, marginTop: theme.spacing.sm, borderTop: `1px solid ${theme.colors.ctaAccent}40`, background: `${theme.colors.ctaAccent}10`, borderRadius: theme.radius.md, padding: theme.spacing.md }}>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80` }}>Swoop Pro annual cost</p>
             <p style={{ fontFamily: theme.fonts.mono, fontSize: '20px', fontWeight: 700, color: `${theme.colors.bgCard}CC` }}>-${swoopProCost.toLocaleString()}</p>
             <p style={{ fontSize: theme.fontSize.sm, color: `${theme.colors.bgCard}80`, marginTop: theme.spacing.sm }}>Net revenue gain</p>
-            <p style={{ fontFamily: theme.fonts.mono, fontSize: '40px', fontWeight: 700, color: theme.colors.ctaGreen }}>${netGain.toLocaleString()}</p>
-            <p style={{ color: `${theme.colors.ctaGreen}CC`, fontSize: theme.fontSize.sm, marginTop: theme.spacing.xs, fontWeight: 600 }}>{roiMultiple}&times; return on investment</p>
+            <p style={{ fontFamily: theme.fonts.mono, fontSize: '40px', fontWeight: 700, color: theme.colors.ctaAccent }}>${netGain.toLocaleString()}</p>
+            <p style={{ color: `${theme.colors.ctaAccent}CC`, fontSize: theme.fontSize.sm, marginTop: theme.spacing.xs, fontWeight: 600 }}>{roiMultiple}&times; return on investment</p>
           </div>
         </div>
       </div>
@@ -594,10 +626,10 @@ const socialIntegrations = ['Tee Sheet Platforms', 'Club Management Systems', 'P
 const pillStyle = { display: 'inline-block', padding: '6px 14px', borderRadius: 999, background: theme.colors.bgCard, border: `1px solid ${theme.colors.border}`, fontSize: theme.fontSize.sm, fontWeight: 500 };
 
 const metricCards = [
-  { title: 'Early Warning System', metric: '6 days', subtitle: 'Average advance notice on at-risk members', description: 'Detected James Whitfield resignation risk 6 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.' },
-  { title: 'Waitlist Performance', metric: '91%', subtitle: 'Fill rate with retention-prioritized queue', description: 'Improved from 67% reactive fill rate by ranking waitlist members by retention value and match-fit, not just timestamp.' },
-  { title: 'Revenue Per Slot', metric: '$312', subtitle: 'Average revenue per slot with intelligence', description: 'Increased from $187 reactive average by backfilling cancellations with high-engagement, high-F&B members first.' },
-  { title: 'Dues at Risk Visibility', metric: '$1.38M', subtitle: 'Annual dues identified as at-risk in demo', description: '23 members flagged across health score decline, declining visits, unresolved complaints, and behavioral pattern changes.' },
+  { title: 'Early Warning System', metric: '6 days', subtitle: 'Average advance notice on at-risk members', description: 'Projected: Detected James Whitfield resignation risk 6 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.' },
+  { title: 'Waitlist Performance', metric: '91%', subtitle: 'Fill rate with retention-prioritized queue', description: 'Projected: Improved from 67% reactive fill rate by ranking waitlist members by retention value and match-fit, not just timestamp.' },
+  { title: 'Revenue Per Slot', metric: '$312', subtitle: 'Average revenue per slot with intelligence', description: 'Projected: Increased from $187 reactive average by backfilling cancellations with high-engagement, high-F&B members first.' },
+  { title: 'Dues at Risk Visibility', metric: '$1.38M', subtitle: 'Annual dues identified as at-risk in demo', description: 'Projected: 23 members flagged across health score decline, declining visits, unresolved complaints, and behavioral pattern changes.' },
 ];
 
 function SocialProofSection() {
@@ -608,18 +640,18 @@ function SocialProofSection() {
         <ul className="landing-trust-strip" style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: theme.spacing.md }}>
           {socialIntegrations.map((c) => <li key={c} className="landing-trust-chip" style={pillStyle}>{c}</li>)}
         </ul>
-        <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, margin: 0 }}>28 integrations &middot; Live in under 2 weeks &middot; No rip-and-replace</p>
+        <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, margin: 0 }}>Live in under 2 weeks &middot; No rip-and-replace</p>
       </div>
       <div style={{ marginBottom: theme.spacing.xxl }}>
-        <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm, textAlign: 'center' }}>Intelligence in action: live demo results</h2>
+        <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm, textAlign: 'center' }}>What Swoop detects in a 300-member club</h2>
         <p style={{ color: theme.colors.textMuted, marginBottom: theme.spacing.xl, textAlign: 'center', maxWidth: 700, margin: `0 auto ${theme.spacing.xl}` }}>
           Metrics from the Pinetree CC demo environment (300 members, real system data). Founding partner case studies publishing Q2 2026.
         </p>
         <div className="landing-grid-2" style={{ gap: theme.spacing.lg }}>
           {metricCards.map((card) => (
-            <article key={card.title} style={{ border: `1px solid ${theme.colors.border}`, borderLeft: `4px solid ${theme.colors.ctaGreen}`, borderRadius: theme.radius.lg, padding: '24px', background: theme.colors.bgCard }}>
+            <article key={card.title} style={{ border: `1px solid ${theme.colors.border}`, borderLeft: `4px solid ${theme.colors.ctaAccent}`, borderRadius: theme.radius.lg, padding: '24px', background: theme.colors.bgCard }}>
               <p style={{ fontSize: theme.fontSize.sm, textTransform: 'uppercase', fontWeight: 600, color: theme.colors.textMuted, marginBottom: theme.spacing.xs }}>{card.title}</p>
-              <p style={{ fontSize: '42px', fontWeight: 700, fontFamily: theme.fonts.mono, color: theme.colors.ctaGreen, marginBottom: theme.spacing.xs, lineHeight: 1 }}>{card.metric}</p>
+              <p style={{ fontSize: '42px', fontWeight: 700, fontFamily: theme.fonts.mono, color: theme.colors.ctaAccent, marginBottom: theme.spacing.xs, lineHeight: 1 }}>{card.metric}</p>
               <p style={{ fontSize: theme.fontSize.md, fontWeight: 600, marginBottom: theme.spacing.sm, color: theme.colors.textPrimary }}>{card.subtitle}</p>
               <p style={{ fontSize: theme.fontSize.sm, color: theme.colors.textSecondary, lineHeight: 1.5 }}>{card.description}</p>
             </article>
@@ -641,7 +673,7 @@ function SocialProofSection() {
       <div style={{ marginTop: theme.spacing.lg }}>
         <button onClick={() => scrollToSection('demo-form')} style={{
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '12px 20px',
-          borderRadius: theme.radius.md, background: theme.colors.ctaGreen, color: theme.colors.ctaGreenText,
+          borderRadius: theme.radius.md, background: theme.colors.ctaAccent, color: theme.colors.ctaAccentText,
           fontWeight: 700, border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '16px',
         }}>
           Apply for Founding Partner
@@ -698,8 +730,8 @@ const inputStyle = {
 
 const demoButtonStyle = {
   minWidth: 180, height: 48, borderRadius: 8, fontFamily: theme.fonts.sans,
-  fontWeight: 700, fontSize: '16px', padding: '0 24px', background: theme.colors.ctaGreen,
-  color: theme.colors.ctaGreenText, border: '2px solid transparent', transition: 'background 150ms ease',
+  fontWeight: 700, fontSize: '16px', padding: '0 24px', background: theme.colors.ctaAccent,
+  color: theme.colors.ctaAccentText, border: '2px solid transparent', transition: 'background 150ms ease',
 };
 
 function DemoCtaSection() {
@@ -747,21 +779,53 @@ function DemoCtaSection() {
         <button type="submit" className="landing-demo-submit"
           style={{ ...demoButtonStyle, cursor: status === 'submitting' ? 'wait' : 'pointer', opacity: status === 'submitting' ? 0.7 : 1 }}
           disabled={status === 'submitting'}
-          onMouseEnter={(e) => { if (status !== 'submitting') e.currentTarget.style.background = theme.colors.ctaGreenHover; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = theme.colors.ctaGreen; }}
+          onMouseEnter={(e) => { if (status !== 'submitting') e.currentTarget.style.background = theme.colors.ctaAccentHover; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = theme.colors.ctaAccent; }}
         >
           {status === 'submitting' ? 'Submitting\u2026' : 'Book Your Demo'}
         </button>
       </form>
       {(status === 'success' || status === 'error') && feedback && (
-        <p style={{ marginTop: theme.spacing.md, fontSize: theme.fontSize.sm, color: status === 'success' ? theme.colors.ctaGreen : theme.colors.urgent }} role="status">{feedback}</p>
+        <p style={{ marginTop: theme.spacing.md, fontSize: theme.fontSize.sm, color: status === 'success' ? theme.colors.ctaAccent : theme.colors.urgent }} role="status">{feedback}</p>
       )}
       <p style={{ marginTop: theme.spacing.md, color: `${theme.colors.bgCard}D9`, fontSize: theme.fontSize.sm }}>No credit card required &middot; 30-minute walkthrough &middot; Cancel anytime</p>
       <p style={{ marginTop: theme.spacing.sm, color: `${theme.colors.bgCard}99`, fontSize: theme.fontSize.sm }}>
-        Or email us directly: <a href="mailto:demo@swoopgolf.com" style={{ color: theme.colors.ctaGreen, textDecoration: 'underline' }}>demo@swoopgolf.com</a>
-        {' \u00b7 '}Prefer to talk? <a href="tel:+14802259702" style={{ color: theme.colors.ctaGreen, textDecoration: 'underline' }}>(480) 225-9702</a>
+        Or email us directly: <a href="mailto:demo@swoopgolf.com" style={{ color: theme.colors.ctaAccent, textDecoration: 'underline' }}>demo@swoopgolf.com</a>
+        {' \u00b7 '}Prefer to talk? <a href="tel:+14802259702" style={{ color: theme.colors.ctaAccent, textDecoration: 'underline' }}>(480) 225-9702</a>
       </p>
     </section>
+  );
+}
+
+/* ─── Floating Demo CTA ─── */
+
+function FloatingDemoCta() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={() => scrollToSection('demo-form')}
+      style={{
+        position: 'fixed', bottom: 28, right: 28, zIndex: 999,
+        background: theme.colors.ctaAccent, color: '#FFFFFF',
+        border: 'none', borderRadius: 12, padding: '14px 24px',
+        fontWeight: 700, fontSize: '16px', fontFamily: theme.fonts.sans,
+        cursor: 'pointer', boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+        transition: 'background 150ms ease',
+      }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = theme.colors.ctaAccentHover; }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = theme.colors.ctaAccent; }}
+    >
+      Book a Demo &rarr;
+    </button>
   );
 }
 
@@ -773,6 +837,7 @@ export default function LandingClient() {
       <LandingNav />
       <main style={container}>
         <HeroSection />
+        <ProductPreview />
         <TrustStrip />
         <ProblemSection />
         <InlineCta />
@@ -791,6 +856,7 @@ export default function LandingClient() {
           <DemoCtaSection />
         </div>
       </div>
+      <FloatingDemoCta />
       <footer style={{
         borderTop: '1px solid #e4e4e7', padding: '32px clamp(16px, 4vw, 32px)',
         textAlign: 'center', color: '#6B7280', fontSize: '0.85rem',
