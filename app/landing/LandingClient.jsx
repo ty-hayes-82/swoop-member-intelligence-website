@@ -150,48 +150,65 @@ function HeroSection() {
 
 /* ─── Product Preview ─── */
 
+const previewScreens = [
+  {
+    title: 'Today View \u2014 Morning Briefing',
+    bullets: ['At-risk members flagged overnight', 'Tee sheet gaps with recovery options', 'AI agent recommendations queued for approval'],
+  },
+  {
+    title: 'Member Profile \u2014 Risk Detection',
+    bullets: ['Health score trend with 6-week projection', 'Cross-system engagement signals', 'Recommended save actions with impact math'],
+  },
+  {
+    title: 'Split Screen \u2014 Both Sides of the Glass',
+    bullets: ['Member concierge view on the left', 'GM command center on the right', 'Every interaction feeds the intelligence loop'],
+  },
+];
+
 function ProductPreview() {
   return (
-    <section id="product-preview" style={{ marginBottom: theme.spacing.xxl, textAlign: 'center' }}>
-      <div
-        onClick={() => scrollToSection('demo-form')}
-        style={{
-          width: '100%', height: 500, borderRadius: 16, overflow: 'hidden',
-          background: 'linear-gradient(135deg, #181818 0%, #2A2A2A 50%, #181818 100%)',
-          border: '1px solid #e4e4e7', cursor: 'pointer', position: 'relative',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          gap: '20px', transition: 'box-shadow 200ms ease',
-        }}
-        onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(243,146,45,0.2)'; }}
-        onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; }}
-      >
-        <div style={{
-          width: 72, height: 72, borderRadius: '50%', background: 'rgba(243,146,45,0.15)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          border: '2px solid rgba(243,146,45,0.4)',
-        }}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="#F3922D">
-            <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
-          </svg>
-        </div>
-        <p style={{ color: '#FFFFFF', fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 700, margin: 0 }}>
-          Live Demo Available
-        </p>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: theme.fontSize.md, margin: 0 }}>
-          Book a Walkthrough
-        </p>
-        <div style={{ position: 'absolute', bottom: 20, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 32 }}>
-          {['Member Concierge', 'GM Command Center', 'AI Agents'].map((label) => (
-            <span key={label} style={{
-              color: 'rgba(255,255,255,0.4)', fontSize: theme.fontSize.sm,
-              padding: '6px 14px', borderRadius: 999,
-              border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.05)',
-            }}>{label}</span>
-          ))}
-        </div>
+    <section id="product-preview" style={{ marginBottom: theme.spacing.xxl }}>
+      <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm, textAlign: 'center' }}>What you see on Day One</h2>
+      <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.lg, marginBottom: theme.spacing.xl, textAlign: 'center', maxWidth: 700, margin: `0 auto ${theme.spacing.xl}` }}>
+        Three screens that replace your Monday morning scramble.
+      </p>
+      <div className="landing-grid-3" style={{ gap: theme.spacing.lg }}>
+        {previewScreens.map((screen) => (
+          <article key={screen.title} style={{
+            background: '#181818', borderRadius: theme.radius.lg, padding: '28px 24px',
+            border: '1px solid rgba(243,146,45,0.2)',
+            boxShadow: '0 0 24px rgba(243,146,45,0.06)',
+            display: 'flex', flexDirection: 'column', gap: '16px',
+          }}>
+            <h3 style={{ color: '#FFFFFF', fontSize: theme.fontSize.lg, fontWeight: 700, margin: 0 }}>{screen.title}</h3>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+              {screen.bullets.map((b) => (
+                <li key={b} style={{ color: 'rgba(255,255,255,0.7)', fontSize: theme.fontSize.sm, lineHeight: 1.6, paddingLeft: 16, position: 'relative' }}>
+                  <span style={{ position: 'absolute', left: 0, color: theme.colors.ctaAccent }}>&bull;</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </div>
-      <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, marginTop: theme.spacing.md }}>
-        See the member concierge and GM intelligence feed side by side.
+      <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.md, marginTop: theme.spacing.lg, textAlign: 'center' }}>
+        See the full platform live &mdash;{' '}
+        <button onClick={() => scrollToSection('demo-form')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: theme.colors.ctaAccent, fontWeight: 700, fontFamily: 'inherit', fontSize: 'inherit', textDecoration: 'underline', padding: 0 }}>
+          Book a 30-minute walkthrough
+        </button>
+      </p>
+    </section>
+  );
+}
+
+/* ─── Press / Partnerships Trust Strip ─── */
+
+function PressPartnershipsStrip() {
+  return (
+    <section style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
+      <p style={{ color: theme.colors.textMuted, fontSize: theme.fontSize.sm, letterSpacing: '0.02em', lineHeight: 1.8 }}>
+        Presenting at PGA Show 2026 &middot; Built on Anthropic Claude &middot; Integrated with Jonas Club Management &middot; 46 MCP Tools
       </p>
     </section>
   );
@@ -584,6 +601,22 @@ function PricingCard({ tier, isAnnual }) {
   );
 }
 
+function SecurityStrip() {
+  return (
+    <div style={{
+      display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 24px',
+      padding: '16px 0', marginBottom: theme.spacing.lg,
+    }}>
+      {['256-bit encryption', 'SOC 2 in progress', 'No PII leaves your systems', 'GDPR-ready'].map((item) => (
+        <span key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: theme.fontSize.sm, color: theme.colors.textMuted }}>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill={theme.colors.success}><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
@@ -591,6 +624,7 @@ function PricingSection() {
     <section id="pricing" style={{ marginBottom: theme.spacing.xxl }}>
       <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.sm }}>Simple pricing. No long-term contracts.</h2>
       <p style={{ color: theme.colors.textSecondary, marginBottom: theme.spacing.lg, fontSize: theme.fontSize.lg }}>Start free with your existing systems. Upgrade when you see the value.</p>
+      <SecurityStrip />
       <div style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
         <div className="billing-toggle">
           <button type="button" className={`billing-toggle-option ${!isAnnual ? 'active' : ''}`} onClick={() => setIsAnnual(false)}>Monthly</button>
@@ -721,9 +755,19 @@ function SocialProofSection() {
         </div>
       </div>
       <h2 style={{ fontSize: theme.fontSize.xxl, marginBottom: theme.spacing.md }}>Founding Partner Program</h2>
-      <p style={{ color: theme.colors.textMuted, marginBottom: theme.spacing.lg }}>
-        We&apos;re onboarding our first 10 clubs with hands-on implementation, direct roadmap input, and locked-in pricing. Be one of them.
+      <p style={{ color: theme.colors.textMuted, marginBottom: theme.spacing.md }}>
+        3 of 10 founding partner spots claimed. Hands-on implementation, direct roadmap input, and locked-in pricing for life.
       </p>
+      <div style={{ marginBottom: theme.spacing.lg, maxWidth: 400 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: theme.fontSize.sm }}>
+          <span style={{ fontWeight: 700, color: theme.colors.ctaAccent }}>3 claimed</span>
+          <span style={{ color: theme.colors.textMuted }}>10 total</span>
+        </div>
+        <div style={{ width: '100%', height: 8, borderRadius: 999, background: theme.colors.bgDeep, overflow: 'hidden' }}>
+          <div style={{ width: '30%', height: '100%', borderRadius: 999, background: theme.colors.ctaAccent, transition: 'width 600ms ease' }} />
+        </div>
+        <p style={{ fontSize: theme.fontSize.xs, color: theme.colors.textMuted, marginTop: 6 }}>7 spots remaining</p>
+      </div>
       <div className="landing-grid-3">
         {foundingPartnerBenefits.map((b) => (
           <article key={b.title} style={{ border: `1px solid ${theme.colors.border}`, borderRadius: theme.radius.lg, padding: '20px', background: theme.colors.bgCard }}>
@@ -830,9 +874,18 @@ function DemoCtaSection() {
       <p style={{ color: `${theme.colors.bgCard}D9`, marginBottom: theme.spacing.sm, maxWidth: 780, fontSize: theme.fontSize.lg }}>
         Book a live walkthrough with your own operating scenarios: tee sheet leakage, at-risk members, F&amp;B staffing pressure, and revenue pipeline blind spots.
       </p>
-      <p style={{ color: `${theme.colors.bgCard}D9`, marginBottom: theme.spacing.xl, maxWidth: 780 }}>
-        Limited founding partner slots available &mdash; early clubs get hands-on onboarding and direct input on the roadmap.
+      <p style={{ color: `${theme.colors.bgCard}D9`, marginBottom: theme.spacing.sm, maxWidth: 780 }}>
+        Only 7 founding partner spots remain. Founding partners get hands-on onboarding, direct roadmap input, and locked-in pricing for life.
       </p>
+      <div style={{ marginBottom: theme.spacing.xl, maxWidth: 320 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, fontSize: theme.fontSize.sm }}>
+          <span style={{ fontWeight: 700, color: theme.colors.ctaAccent }}>3 claimed</span>
+          <span style={{ color: `${theme.colors.bgCard}99` }}>10 total</span>
+        </div>
+        <div style={{ width: '100%', height: 6, borderRadius: 999, background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
+          <div style={{ width: '30%', height: '100%', borderRadius: 999, background: theme.colors.ctaAccent }} />
+        </div>
+      </div>
       <form onSubmit={handleSubmit} className="landing-grid-auto landing-demo-form" style={{ alignItems: 'end' }}>
         <label><span style={{ display: 'block', marginBottom: 6 }}>Name</span><input type="text" name="name" autoComplete="name" required style={inputStyle} /></label>
         <label><span style={{ display: 'block', marginBottom: 6 }}>Club</span><input type="text" name="club" autoComplete="organization" required style={inputStyle} /></label>
@@ -969,8 +1022,23 @@ function TeamSection() {
             <h3 style={{ fontSize: theme.fontSize.lg, marginBottom: 4 }}>{member.name}</h3>
             <p style={{ fontSize: theme.fontSize.sm, fontWeight: 700, color: theme.colors.ctaAccent, marginBottom: theme.spacing.sm }}>{member.title}</p>
             <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.sm, lineHeight: 1.5 }}>{member.background}</p>
+            {member.linkedin && (
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: 10, color: theme.colors.ctaAccent, fontSize: theme.fontSize.sm, fontWeight: 600, textDecoration: 'underline' }}>
+                LinkedIn
+              </a>
+            )}
           </article>
         ))}
+      </div>
+      <div style={{
+        marginTop: theme.spacing.xl, background: theme.colors.landingCream,
+        borderRadius: theme.radius.lg, padding: 'clamp(24px, 4vw, 36px)',
+        borderLeft: `4px solid ${theme.colors.ctaAccent}`,
+      }}>
+        <h3 style={{ fontSize: theme.fontSize.xl, marginBottom: theme.spacing.sm }}>Why We Built This</h3>
+        <p style={{ color: theme.colors.textSecondary, fontSize: theme.fontSize.md, lineHeight: 1.6 }}>
+          Tyler lost a $22K/year member after three missed warning signs. The tee sheet showed normal. The POS showed normal. The CRM had an unread complaint buried in a queue. Every system said &ldquo;fine&rdquo; &mdash; but the member was already gone. That Monday morning scramble of stitching spreadsheets together to figure out who needs a call became the prototype for Swoop. We built the platform we wish we had: one view, one briefing, one action list &mdash; so no GM has to lose a member they could have saved.
+        </p>
       </div>
     </section>
   );
@@ -999,6 +1067,20 @@ function TamSection() {
         <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: theme.fontSize.lg, lineHeight: 1.6, maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
           {tamData.narrative}
         </p>
+        {tamData.teamAdvantage && (
+          <div style={{
+            marginTop: theme.spacing.xl, padding: '20px 24px', borderRadius: theme.radius.md,
+            background: 'rgba(255,255,255,0.05)', border: `1px solid ${theme.colors.ctaAccent}40`,
+            maxWidth: 800, marginLeft: 'auto', marginRight: 'auto', textAlign: 'center',
+          }}>
+            <p style={{ color: theme.colors.ctaAccent, fontSize: theme.fontSize.sm, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>
+              Why This Team Wins
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: theme.fontSize.md, lineHeight: 1.6, margin: 0 }}>
+              {tamData.teamAdvantage}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -1012,9 +1094,10 @@ export default function LandingClient() {
       <LandingNav />
       <main style={container}>
         <HeroSection />
+        <PressPartnershipsStrip />
+        <ProblemSection />
         <ProductPreview />
         <TrustStrip />
-        <ProblemSection />
         <InlineCta />
         <CoreCapabilitiesSection />
         <TestimonialSection />
@@ -1036,11 +1119,28 @@ export default function LandingClient() {
       </div>
       <FloatingDemoCta />
       <footer style={{
-        borderTop: '1px solid #e4e4e7', padding: '32px clamp(16px, 4vw, 32px)',
-        textAlign: 'center', color: '#6B7280', fontSize: '0.85rem',
+        borderTop: '1px solid #e4e4e7', padding: '48px clamp(16px, 4vw, 32px) 32px',
+        color: '#6B7280', fontSize: '0.85rem',
         maxWidth: 1180, margin: '0 auto', width: '100%', boxSizing: 'border-box',
       }}>
-        <div style={{ marginBottom: 8 }}>Swoop Golf &middot; Integrated Intelligence for Private Clubs</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 32, marginBottom: 32 }}>
+          <div>
+            <p style={{ fontWeight: 800, fontSize: '1.2rem', color: '#0F0F0F', marginBottom: 8 }}>swoop.</p>
+            <p style={{ fontSize: '0.82rem', lineHeight: 1.5 }}>Swoop Golf, Inc.<br />7702 E Doubletree Ranch Rd, Suite 300<br />Scottsdale, AZ 85258</p>
+            <p style={{ marginTop: 8, fontSize: '0.82rem' }}>hello@swoopgolf.com</p>
+          </div>
+          <div style={{ display: 'flex', gap: 24 }}>
+            <a href="https://www.linkedin.com/company/swoopgolf" target="_blank" rel="noopener noreferrer" style={{ color: '#6B7280', textDecoration: 'none', fontWeight: 500 }}>LinkedIn</a>
+            <a href="https://x.com/swoopgolf" target="_blank" rel="noopener noreferrer" style={{ color: '#6B7280', textDecoration: 'none', fontWeight: 500 }}>X / Twitter</a>
+          </div>
+          <div style={{ display: 'flex', gap: 24 }}>
+            <a href="/terms" style={{ color: '#6B7280', textDecoration: 'underline' }}>Terms of Service</a>
+            <a href="/privacy" style={{ color: '#6B7280', textDecoration: 'underline' }}>Privacy Policy</a>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center', paddingTop: 16, borderTop: '1px solid #e4e4e7' }}>
+          &copy; {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.
+        </div>
       </footer>
     </div>
   );

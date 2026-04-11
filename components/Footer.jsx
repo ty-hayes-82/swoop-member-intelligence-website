@@ -67,8 +67,19 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/40">
-          © {new Date().getFullYear()} Swoop Golf · All rights reserved
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-between items-center gap-6 text-sm text-white/40">
+          <div>
+            <p className="text-white/60 font-semibold">Swoop Golf, Inc.</p>
+            <p>7702 E Doubletree Ranch Rd, Suite 300, Scottsdale, AZ 85258</p>
+            <p className="mt-1">hello@swoopgolf.com</p>
+          </div>
+          <div className="flex gap-4">
+            <a href="https://www.linkedin.com/company/swoopgolf" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-swoop-green transition">LinkedIn</a>
+            <a href="https://x.com/swoopgolf" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-swoop-green transition">X / Twitter</a>
+          </div>
+          <div className="w-full text-center mt-4">
+            &copy; {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.
+          </div>
         </div>
       </div>
     </footer>
