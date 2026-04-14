@@ -2,7 +2,7 @@
  * website-critique.mjs
  *
  * Takes full-page screenshots of the live Swoop marketing site, then grades
- * each page through The Seven Lenses evaluation system:
+ * each page through The Eight Lenses evaluation system:
  *   1. The Architect (UI Design & Visual Craft)
  *   2. The GM (Private Club Buyer Persona)
  *   3. The Closer (Sales Conversion & Persuasion)
@@ -10,7 +10,8 @@
  *   5. The Skeptic (Trust, Credibility & Risk)
  *   6. The Storyteller (Messaging, Copy & Narrative)
  *   7. The First-Timer (First-Visit Experience & Clarity)
- * Each agent scores /100; combined = 700-point composite evaluation.
+ *   8. The Brand Guardian (Brand Consistency & Identity Fidelity)
+ * Each agent scores /100; combined = 800-point composite evaluation.
  *
  * Usage:
  *   GEMINI_API_KEY=<your_key> node scripts/website-critique.mjs
@@ -18,7 +19,7 @@
  * Output:
  *   website-critique-output/<YYYYMMDD_HHMMSS>/
  *     screenshots/        — 5 full-page PNGs
- *     critiques/          — 35 markdown files (5 pages × 7 agents)
+ *     critiques/          — 40 markdown files (5 pages × 8 agents)
  *     recommendations/    — 5 markdown files (one per page, targeting 95/100 per agent)
  *     MASTER_REPORT.md
  */
@@ -557,6 +558,7 @@ BEHAVIORAL RULES:
   },
 
   // ── 7. The First-Timer ────────────────────────────────────────────────────
+
   {
     id:   '07_the_first_timer',
     name: 'The First-Timer',
@@ -655,6 +657,102 @@ BEHAVIORAL RULES:
 - Your demographic: professional, 35–55, comfortable with technology but not technical, used to evaluating B2B services.`,
 
     userPromptSuffix: `Narrate your first-timer experience of this page in real time across all three phases (10 seconds, 60 seconds, 5 minutes). Score each dimension out of 100, produce your Overall Score, and list the top questions you wish the site had answered.`,
+  },
+
+  // ── 8. The Brand Guardian ─────────────────────────────────────────────────
+  {
+    id:   '08_the_brand_guardian',
+    name: 'The Brand Guardian',
+    systemPrompt: `You are The Brand Guardian — a brand identity auditor who evaluates whether this website faithfully and consistently expresses the Swoop brand. You are the final check before anything ships: if a page looks like it belongs to a different company, you catch it.
+
+You have deep knowledge of the Swoop visual identity and brand standards:
+
+SWOOP BRAND IDENTITY:
+- Primary palette: Orange (#F3922D / #D97706 deep), near-black (#0F0F0F / #181818), and white
+- Hero / dark sections: Forest green (#1A2E20 hero, #0E1A10 deep dark), brass accent (#B5956A)
+- Neutral tones: cream (#F7F5F2), sand (#F2ECE1), paper (#FFFFFF)
+- Typography: Plus Jakarta Sans (sans — primary UI and body), Fraunces (serif — display headlines and pull quotes), JetBrains Mono (mono — data, numbers, code callouts)
+- Voice: Direct, operationally specific, warm but not playful — speaks like a trusted advisor to a club GM, not a startup pitching investors
+- CTA language: Action-oriented, outcome-specific ("Book a Walkthrough", "Show me my club's leaks") — not generic ("Learn More", "Get Started", "Submit")
+- Brand feeling: Premium but accessible, data-confident, human-centered — a club software company that actually knows golf club operations
+
+---
+
+EVALUATION DIMENSIONS (score each /100):
+
+1. COLOR FIDELITY (25%)
+- Is the orange (#F3922D / amber-600 Tailwind) used consistently as the primary action color across all pages?
+- Are dark sections using the brand forest green (#1A2E20) or dark charcoal, not random dark backgrounds?
+- Is white-on-orange avoided in favor of dark-on-orange for WCAG compliance?
+- Are neutral backgrounds cream/sand tones or generic gray (#F5F5F5 / #E5E5E5) substitutes?
+- Are error/warning colors the Swoop semantic scales (amber/orange-deep) or generic red/green?
+
+2. TYPOGRAPHY FIDELITY (25%)
+- Is Plus Jakarta Sans the primary body and UI font? Or has a different sans-serif crept in?
+- Is Fraunces serif used for display headlines and pull quotes — not just defaulting to sans everywhere?
+- Is JetBrains Mono used for numerical data, financial figures, and code-style callouts?
+- Is the type scale consistent (12/14/16/20/26/38/52/64px)?
+- Are font weights used intentionally (700/800 for headlines, 400/500 for body)?
+
+3. VOICE & COPY CONSISTENCY (20%)
+- Does the copy sound like Swoop — operationally specific, warm, direct — or like generic B2B SaaS?
+- Is the product name "Swoop" (not "Swoop Club Intelligence" or "Swoop Golf" unless contextually appropriate)?
+- Are feature names consistent with Swoop's naming conventions ("Member Pulse", "Signals + Actions", "Morning Brief")?
+- Is "founding partner" language used consistently (not "early access", "beta", or "pilot")?
+- Are CTA phrases consistent across pages or does each page invent its own language?
+
+4. COMPONENT & PATTERN CONSISTENCY (15%)
+- Are card styles consistent: correct border-radius (16-20px), shadow system, background tones?
+- Are buttons using the correct Swoop button styles (amber/orange fill, dark text for primary; outline for secondary)?
+- Are section bands using the correct Swoop band system (cream, sand, dark/charcoal, hero-green)?
+- Are eyebrow labels (small uppercase tracking text) using consistent sizing, weight, and color (orange or brass)?
+- Are dividers and spacing consistent with the design system?
+
+5. BRAND DIFFERENTIATION (15%)
+- Does this page look unmistakably like Swoop, or could it belong to any golf tech company?
+- Is the brass (#B5956A) accent used intentionally as a secondary warm tone in dark sections?
+- Does the overall aesthetic feel premium and club-appropriate — not startup-generic or enterprise-sterile?
+- Are any off-brand elements present (stock photography, generic icons, placeholder copy)?
+
+---
+
+OUTPUT FORMAT:
+
+## Brand Coherence Verdict
+2–3 sentences: Does this page feel like Swoop? What's the single biggest brand consistency issue?
+
+**Overall Score: X / 100**
+
+## Dimension Scores
+| Dimension | Score /100 | Key Finding |
+|-----------|-----------|------------|
+| Color Fidelity | X | — |
+| Typography Fidelity | X | — |
+| Voice & Copy Consistency | X | — |
+| Component & Pattern Consistency | X | — |
+| Brand Differentiation | X | — |
+
+## On-Brand Elements
+Specific elements that correctly express the Swoop brand identity, with evidence.
+
+## Off-Brand Elements
+Specific deviations from Swoop brand standards, ranked by visibility/impact:
+- What it is, what it should be, where it appears
+
+## Brand Consistency vs. Other Pages
+Notes on any cross-page inconsistencies: elements that appear differently on this page than on others (e.g., a button style that differs from the home page).
+
+---
+
+BEHAVIORAL RULES:
+- You are the Swoop brand police, not a design critic. Your job is consistency and fidelity, not opinion.
+- Reference specific CSS values, hex codes, font names, and Tailwind class patterns when flagging deviations.
+- An on-brand page that uses slightly wrong orange is still a failure — brand is in the details.
+- Distinguish between intentional variation (dark hero sections can use forest green vs. charcoal) and unintentional drift (a section using generic #1a1a1a instead of the brand dark).
+- If a page has been recently updated and you see mixed old/new patterns, flag the inconsistency.
+- Score strictly — a page that looks mostly right but has 3 off-brand elements should score 70-75, not 90.`,
+
+    userPromptSuffix: `Apply the full brand consistency audit to this page. Score each dimension out of 100, produce your Overall Score, and list all off-brand elements with specific evidence (colors, fonts, copy patterns). Compare against the Swoop brand identity: orange (#F3922D) primary, Plus Jakarta Sans + Fraunces + JetBrains Mono type system, forest green (#1A2E20) hero sections, brass (#B5956A) accent, cream/sand neutral tones.`,
   },
 ];
 
@@ -1318,7 +1416,7 @@ ${text}
 // ---------------------------------------------------------------------------
 
 async function runAllCritiques(genAI, screenshotResults, outputDir) {
-  console.log('\n🤖  Running 7-lens critiques (The Seven Lenses) via Gemini…');
+  console.log('\n🤖  Running 8-lens critiques (The Eight Lenses) via Gemini…');
   const critiquesDir = path.join(outputDir, 'critiques');
   await ensureDir(critiquesDir);
 
@@ -1326,7 +1424,7 @@ async function runAllCritiques(genAI, screenshotResults, outputDir) {
 
   for (const page of screenshotResults) {
     console.log(`\n  Page: ${page.label}`);
-    // Fan out all 7 lens calls in parallel for this page
+    // Fan out all 8 lens calls in parallel for this page
     const tasks = AGENT_LENSES.map((lens) =>
       critiquePageWithAgent(genAI, page.screenshotPath, page, lens, critiquesDir)
         .catch((err) => {
@@ -1420,7 +1518,7 @@ async function generatePageRecommendations(genAI, page, pageCritiques, recsDir) 
   const components = PAGE_COMPONENTS[page.slug] || { page: `src/landing/pages/${page.slug}.jsx`, components: [] };
   const componentList = [components.page, ...components.components].map((f) => `- ${f}`).join('\n');
 
-  // Compile all 7 critiques for this page into a single block
+  // Compile all 8 critiques for this page into a single block
   const critiquesBlock = pageCritiques
     .map((c) => `### ${c.lens}\n\n${c.content}`)
     .join('\n\n---\n\n');
@@ -1444,7 +1542,7 @@ ${componentList}
 
 ## Current Critique Scores (The Seven Lenses)
 
-The page was evaluated by 7 specialist agents (The Seven Lenses system, max composite 700/700). Here are all their findings:
+The page was evaluated by 8 specialist agents (The Eight Lenses system, max composite 800/800). Here are all their findings:
 
 ---
 
@@ -1454,7 +1552,7 @@ ${critiquesBlock}
 
 ## Your Task
 
-The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 7 agent lenses** (665/700 composite target).
+The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 8 agent lenses** (760/800 composite target).
 
 Structure your output EXACTLY as follows:
 
@@ -1473,7 +1571,8 @@ Structure your output EXACTLY as follows:
 | The Skeptic (Trust) | X/100 | 95/100 | ... |
 | The Storyteller (Messaging) | X/100 | 95/100 | ... |
 | The First-Timer (Clarity) | X/100 | 95/100 | ... |
-| **Composite** | X/700 | 665/700 | ... |
+| The Brand Guardian (Brand) | X/100 | 95/100 | ... |
+| **Composite** | X/800 | 760/800 | ... |
 
 ---
 
@@ -1531,7 +1630,8 @@ For each change below, provide:
 | The Skeptic (Trust) | X/100 | X/100 | 95+/100 |
 | The Storyteller (Messaging) | X/100 | X/100 | 95+/100 |
 | The First-Timer (Clarity) | X/100 | X/100 | 95+/100 |
-| **Composite** | X/700 | X/700 | 665+/700 |
+| The Brand Guardian (Brand) | X/100 | X/100 | 95+/100 |
+| **Composite** | X/800 | X/800 | 760+/800 |
 
 ---
 
@@ -1569,14 +1669,14 @@ ${text}
 }
 
 async function runAllRecommendations(genAI, screenshotResults, allCritiques, cycleDir) {
-  console.log('\n🎯  Generating per-page 95/100 recommendations (665/700 composite target) via Gemini 3.1 Pro…');
+  console.log('\n🎯  Generating per-page 95/100 recommendations (760/800 composite target) via Gemini 3.1 Pro…');
   const recsDir = path.join(cycleDir, 'recommendations');
   await ensureDir(recsDir);
 
   const allRecs = [];
 
   for (const page of screenshotResults) {
-    // Gather only the 7 critiques for this page
+    // Gather only the 8 critiques for this page
     const pageCritiques = allCritiques.filter((c) => c.page === page.label);
     const rec = await generatePageRecommendations(genAI, page, pageCritiques, recsDir).catch((err) => {
       console.error(`    ✗ Recommendations failed for ${page.label}: ${err.message}`);
@@ -1604,14 +1704,14 @@ async function consolidate(genAI, allCritiques, screenshotResults, outputDir) {
 
   const model = genAI.getGenerativeModel({ model: PRO_MODEL });
 
-  const prompt = `You are a senior UX strategist and product consultant. You have received 35 structured critiques of a SaaS marketing website — 7 specialist agents (The Seven Lenses) applied to each of 5 pages. Each agent scores out of 100 for a maximum composite of 700/700.
+  const prompt = `You are a senior UX strategist and product consultant. You have received 40 structured critiques of a SaaS marketing website — 8 specialist agents (The Eight Lenses) applied to each of 5 pages. Each agent scores out of 100 for a maximum composite of 800/800.
 
 The website is for **Swoop Club Intelligence**, an AI-powered member intelligence platform for private golf and country clubs. Target customer: Club GM / COO. Primary conversion goal: book a demo call.
 
 Pages reviewed:
 ${pageList}
 
-The 7 critique agents are:
+The 8 critique agents are:
 1. The Architect — UI Design & Visual Craft (typography, color, layout, responsiveness, components, motion) — /100
 2. The GM — Private Club General Manager buyer persona (first impression, proof, operational clarity, risk reduction, next step) — /100
 3. The Closer — Sales Conversion & Persuasion (value prop clarity, persuasion architecture, CTA strategy, friction/objections, conversion mechanics) — /100
@@ -1619,6 +1719,7 @@ The 7 critique agents are:
 5. The Skeptic — Trust, Credibility & Risk Perception (proof density, legitimacy signals, product transparency, consistency, red flags) — /100
 6. The Storyteller — Messaging, Copy & Narrative (headline/value prop, narrative flow, voice/tone, copy craft, emotional resonance) — /100
 7. The First-Timer — First-Visit Experience & Clarity (instant clarity, progressive understanding, self-service info, emotional response, action readiness) — /100
+8. The Brand Guardian — Brand Consistency & Identity Fidelity (color fidelity, typography fidelity, voice consistency, component patterns, brand differentiation) — /100
 
 Here are all 45 critiques:
 
@@ -1636,7 +1737,7 @@ Synthesise all 45 critiques into a single, authoritative master report and devel
 
 # Swoop Club Intelligence — Website Audit Master Report
 **Date:** ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-**Pages Audited:** 5 | **Agents:** 7 (The Seven Lenses) | **Max Composite:** 700/700 | **Total Findings:** [count]
+**Pages Audited:** 5 | **Agents:** 8 (The Eight Lenses) | **Max Composite:** 800/800 | **Total Findings:** [count]
 
 ---
 
@@ -1645,14 +1746,14 @@ One paragraph. Overall site health verdict. Single most important thing to fix. 
 
 ## 2. Overall Site Health Dashboard
 
-| Page | Architect | GM | Closer | Speedster | Skeptic | Storyteller | First-Timer | Composite /700 | Top Issue |
-|------|----------|----|--------|-----------|---------|-------------|-------------|----------------|-----------|
-| Home | X | X | X | X | X | X | X | X/700 | ... |
-| Platform | X | X | X | X | X | X | X | X/700 | ... |
-| Pricing | X | X | X | X | X | X | X | X/700 | ... |
-| About | X | X | X | X | X | X | X | X/700 | ... |
-| Contact | X | X | X | X | X | X | X | X/700 | ... |
-| **Site Avg** | **X** | **X** | **X** | **X** | **X** | **X** | **X** | **X/700** | |
+| Page | Architect | GM | Closer | Speedster | Skeptic | Storyteller | First-Timer | Brand Guardian | Composite /800 | Top Issue |
+|------|----------|----|--------|-----------|---------|-------------|-------------|----------------|----------------|-----------|
+| Home | X | X | X | X | X | X | X | X | X/800 | ... |
+| Platform | X | X | X | X | X | X | X | X | X/800 | ... |
+| Pricing | X | X | X | X | X | X | X | X | X/800 | ... |
+| About | X | X | X | X | X | X | X | X | X/800 | ... |
+| Contact | X | X | X | X | X | X | X | X | X/800 | ... |
+| **Site Avg** | **X** | **X** | **X** | **X** | **X** | **X** | **X** | **X** | **X/800** | |
 
 ## 3. Cross-Page Patterns
 Issues or wins that appear on 3+ pages. These are systemic — fixing them once lifts the whole site.
@@ -1702,19 +1803,22 @@ Prioritised backlog in FINDING→IMPACT($)→SPRINT ORDER format.
 ### Backlog — Strategic Improvements (next quarter)
 [same table format]
 
-## 6. Quick Wins vs. Structural Fixes Summary
+## 6. Brand Coherence Summary (from The Brand Guardian)
+One paragraph: does the site feel consistently like Swoop across all 5 pages? What are the most common brand deviations? What single brand fix would have the highest cross-page impact?
+
+## 7. Quick Wins vs. Structural Fixes Summary
 
 **Quick Wins (ship this week):** [bulleted list, max 5]
 
 **Structural Fixes (next quarter):** [bulleted list, max 5]
 
-## 7. Confidence & Methodology Note
+## 8. Confidence & Methodology Note
 Note the confidence levels assigned across the technical audit, any areas where the screenshot-only analysis has limitations, and what additional data (heatmaps, analytics, user testing) would sharpen the recommendations.
 
 ---
 
 Rules:
-- Every claim must be traceable to at least one of the 35 critique files.
+- Every claim must be traceable to at least one of the 40 critique files.
 - No hallucinated findings — only synthesise what the critiques actually reported.
 - Dollar estimates should use the $18K ACV / 20-30% demo conversion benchmarks consistently.
 - Write for a technical founder / product team — specific, actionable, no fluff.
@@ -1734,25 +1838,27 @@ Rules:
 // ---------------------------------------------------------------------------
 
 const LENS_FIELD_MAP = {
-  'The Architect':    'architect',
-  'The GM':           'gm',
-  'The Closer':       'closer',
-  'The Speedster':    'speedster',
-  'The Skeptic':      'skeptic',
-  'The Storyteller':  'storyteller',
-  'The First-Timer':  'firstTimer',
+  'The Architect':       'architect',
+  'The GM':              'gm',
+  'The Closer':          'closer',
+  'The Speedster':       'speedster',
+  'The Skeptic':         'skeptic',
+  'The Storyteller':     'storyteller',
+  'The First-Timer':     'firstTimer',
+  'The Brand Guardian':  'brandGuardian',
 };
 
 function extractScores(pageCritiques) {
   const scores = {
-    architect:   null,
-    gm:          null,
-    closer:      null,
-    speedster:   null,
-    skeptic:     null,
-    storyteller: null,
-    firstTimer:  null,
-    composite:   null,  // sum of all 7 (/700)
+    architect:     null,
+    gm:            null,
+    closer:        null,
+    speedster:     null,
+    skeptic:       null,
+    storyteller:   null,
+    firstTimer:    null,
+    brandGuardian: null,
+    composite:     null,  // sum of all 8 (/800)
   };
 
   for (const c of pageCritiques) {
@@ -1773,7 +1879,7 @@ function extractScores(pageCritiques) {
 }
 
 function allPagesAtTarget(cycleScores) {
-  const TARGET_COMPOSITE = 665; // 95/100 × 7 agents
+  const TARGET_COMPOSITE = 760; // 95/100 × 8 agents
   return Object.values(cycleScores).every(
     (s) => s.composite !== null && s.composite >= TARGET_COMPOSITE
   );
@@ -1823,7 +1929,7 @@ async function main() {
 
   console.log(`\n🚀  Swoop Website Critique — run ${run}`);
   console.log(`📁  Output: ${outputDir}`);
-  console.log(`🎯  Target: 665+/700 composite (95/100 per agent across all 7 lenses)\n`);
+  console.log(`🎯  Target: 760+/800 composite (95/100 per agent across all 8 lenses)\n`);
 
   // ── 1. Screenshots ──────────────────────────────────────────────────────
   const screenshotResults = await takeScreenshots(outputDir);
@@ -1842,12 +1948,12 @@ async function main() {
     scores[page.slug] = extractScores(pageCritiques);
   }
 
-  console.log('\n📊  Scores (The Seven Lenses — /100 each, /700 composite):');
-  console.log(`  ${'Page'.padEnd(12)} Arch  GM    Closr Speedster Skeptic Story 1stT  Composite`);
+  console.log('\n📊  Scores (The Eight Lenses — /100 each, /800 composite):');
+  console.log(`  ${'Page'.padEnd(12)} Arch  GM   Closr Spd  Skpt  Story 1stT  Brand Composite`);
   for (const [slug, s] of Object.entries(scores)) {
     const fmt = (v) => String(v ?? '?').padStart(4);
-    const comp = s.composite !== null ? `${s.composite}/700` : '?/700';
-    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)}    ${fmt(s.skeptic)}  ${fmt(s.storyteller)} ${fmt(s.firstTimer)}  ${comp}`);
+    const comp = s.composite !== null ? `${s.composite}/800` : '?/800';
+    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)} ${fmt(s.skeptic)} ${fmt(s.storyteller)} ${fmt(s.firstTimer)} ${fmt(s.brandGuardian)}  ${comp}`);
   }
 
   writeFile(path.join(outputDir, 'scores.json'), JSON.stringify({ run, scores }, null, 2));
