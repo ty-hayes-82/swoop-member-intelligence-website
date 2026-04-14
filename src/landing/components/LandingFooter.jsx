@@ -91,21 +91,27 @@ export default function LandingFooter() {
         </div>
 
         {/* Security strip */}
-        <p style={{ fontSize: 11, color: theme.colors.textMuted, textAlign: 'center', marginTop: 20, borderTop: '1px solid rgba(17,17,17,0.08)', paddingTop: 16, width: '100%' }}>
-          Your club&apos;s data stays yours. Mutual NDA on every pilot. AES-256 at rest, TLS 1.3 in transit. SOC 2 Type II in progress (Q3 2026).
+        <p className="text-gray-500 text-xs text-center mt-8 w-full border-t border-black/10 pt-4">
+          Your club's data stays yours. Mutual NDA on every pilot. AES-256 at rest, TLS 1.3 in transit. SOC 2 Type II in progress (Q3 2026).
         </p>
 
         {/* Copyright */}
-        <div style={{ width: '100%', borderTop: '1px solid rgba(17,17,17,0.06)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <span style={{ color: theme.colors.textMuted, fontSize: 12 }}>
+        <div className="w-full border-t border-black/5 pt-5 mt-5 flex justify-between items-center flex-wrap gap-4">
+          <span className="text-gray-500 text-xs">
             © {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.
           </span>
-          <a
-            href="#/contact"
-            style={{ color: theme.colors.accent, fontWeight: 700, textDecoration: 'none', fontSize: 14 }}
-          >
-            Book a Demo
-          </a>
+          <div className="flex gap-4 items-center">
+            <a href="#/contact" className="text-gray-600 hover:text-amber-600 inline-block min-h-[44px] min-w-[44px] p-2 -ml-2 text-sm transition-colors">
+              Talk to a GM who's using it →
+            </a>
+            <a
+              href="#/contact"
+              className="text-amber-600 font-bold text-sm min-h-[44px] min-w-[44px] p-2 hover:text-amber-700 transition-colors"
+              style={{ textDecoration: 'none' }}
+            >
+              Book a Walkthrough
+            </a>
+          </div>
         </div>
       </div>
     </footer>

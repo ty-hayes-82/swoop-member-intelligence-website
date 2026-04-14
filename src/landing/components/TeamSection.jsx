@@ -41,25 +41,40 @@ export default function TeamSection() {
           marginBottom: 48,
         }}
       >
-        {(team ?? []).map(member => (
+        {(team ?? []).map(member => {
+          const slug = member.name.toLowerCase().replace(/\s+/g, '-');
+          return (
           <Card key={member.name} interactive style={{ padding: 28, gap: 16 }}>
-            <div
-              style={{
-                width: 80,
-                height: 80,
-                borderRadius: '50%',
-                background: 'rgba(181,149,106,0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 28,
-                fontWeight: 700,
-                color: '#B5956A',
-                border: '2px solid rgba(181,149,106,0.3)',
-                marginBottom: 16,
-              }}
-            >
-              {member.name.charAt(0)}
+            <div style={{ position: 'relative', width: 80, height: 80, marginBottom: 16 }}>
+              <img
+                src={`/images/team/${slug}.webp`}
+                alt={member.name}
+                style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(181,149,106,0.4)', display: 'block' }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div
+                style={{
+                  display: 'none',
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  background: 'rgba(181,149,106,0.15)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 28,
+                  fontWeight: 700,
+                  color: '#B5956A',
+                  border: '2px solid rgba(181,149,106,0.3)',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                }}
+              >
+                {member.name.charAt(0)}
+              </div>
             </div>
             <div>
               <p style={{ fontSize: 17, fontWeight: 700, color: theme.neutrals.ink, margin: '0 0 2px' }}>
@@ -82,7 +97,8 @@ export default function TeamSection() {
               )}
             </div>
           </Card>
-        ))}
+          );
+        })}
       </div>
 
       {/* Moat */}

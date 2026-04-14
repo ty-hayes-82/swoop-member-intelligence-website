@@ -6,29 +6,45 @@ const narrativeBlocks = [
     time: 'The Morning',
     agents: 'Member Pulse · Chief of Staff',
     headline: 'Before you open your laptop, your morning briefing is ready.',
-    story: 'Overnight, the agent reviewed every signal across your systems: tee times booked, complaints filed, staffing gaps, weather changes, health score drops. It assembled a prioritized action plan ranked by dollars at risk. Three cards. Three decisions. Your entire morning triaged in 90 seconds.',
-    callout: '$18K dues at risk. Call James Whitfield before 10:15 AM.',
+    points: [
+      { label: 'Pattern Identified', text: 'Overnight review of all systems and signals.' },
+      { label: 'Action Taken', text: 'Assembled prioritized action plan ranked by dollars at risk.' },
+      { label: 'Outcome', text: 'Entire morning triaged in 90 seconds. Three decisions.' }
+    ],
+    callout: '> $18K dues at risk. Call James Whitfield before 10:15 AM.',
   },
   {
     time: 'The Watch',
     agents: 'Member Pulse · Service Recovery',
     headline: 'The complaint was filed Tuesday. By Thursday, the agent escalated it.',
-    story: 'Member Pulse monitors every health score and flags the moment a member\'s behavior crosses a threshold. Service Recovery tracks every complaint and escalates when resolution windows are breached. Together, they caught the complaint, connected it to a dining drop-off, and surfaced a coordinated recovery action before anyone on staff noticed the pattern.',
-    callout: 'Complaint aging 6 days · dining visits ↓40% · tee time 9:20 AM today.',
+    points: [
+      { label: 'Pattern Identified', text: 'Service recovery window breached on dining complaint.' },
+      { label: 'Action Taken', text: 'Cross-referenced with upcoming 9:20 AM tee time.' },
+      { label: 'Outcome', text: 'Coordinated recovery action surfaced before staff noticed.' }
+    ],
+    callout: '> Complaint aging 6 days · dining visits ↓40% · tee time 9:20 AM today.',
   },
   {
     time: 'The Revenue',
     agents: 'Revenue Analyst · Demand Optimizer',
     headline: 'Tuesday twilight slots were 42% empty. Now they\'re 68% full.',
-    story: 'Revenue Analyst identified the pattern: Tuesday PM fill rates were dragging, but waitlist members had a 72% historical conversion rate for that window. Demand Optimizer routed them a targeted offer. The slot filled. The F&B team got a heads-up. The incremental revenue was $780 that week.',
-    callout: '+$780 this week · 4 at-risk members converted · F&B prep adjusted.',
+    points: [
+      { label: 'Pattern Identified', text: 'Tuesday PM fill rates lagging.' },
+      { label: 'Action Taken', text: 'Drafted & targeted F&B offer to waitlist members.' },
+      { label: 'Outcome', text: '+$780 incremental revenue booked.' }
+    ],
+    callout: '> +$780 this week · 4 at-risk members converted · F&B prep adjusted.',
   },
   {
     time: 'The Floor',
     agents: 'Labor Optimizer · Engagement Autopilot',
     headline: 'Two servers called out. The agent redeployed before the lunch rush.',
-    story: 'Labor Optimizer cross-references your staffing schedule with tee sheet density, weather forecasts, and complaint history. When a gap appears in a window where at-risk members are booked, it doesn\'t just flag it — it recommends which floater to move, which outlet to prioritize, and which server to assign to the high-value tables.',
-    callout: 'Grill Room short 2 servers · banquet floater redeployed · 3 VIP tables covered.',
+    points: [
+      { label: 'Pattern Identified', text: 'Grill Room understaffed during high-value member bookings.' },
+      { label: 'Action Taken', text: 'Recommended floater redeployment and outlet prioritization.' },
+      { label: 'Outcome', text: '3 VIP tables covered without service drop-off.' }
+    ],
+    callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 VIP tables covered.',
   },
 ];
 
@@ -38,7 +54,7 @@ export default function AgentRevealSection() {
       band="dark"
       eyebrow="YOU HAVE A 300-MEMBER CLUB AND A 12-PERSON STAFF."
       title="Now you have a team that never sleeps."
-      subtitle="Six specialized agents monitor your operations continuously. They surface what matters, recommend what to do, and learn what works. You approve. They execute."
+      subtitle="Four specialized agents monitor your operations continuously. They surface what matters, recommend what to do, and learn what works. You approve. They execute."
     >
       <div
         style={{
@@ -51,51 +67,25 @@ export default function AgentRevealSection() {
         {narrativeBlocks.map((block) => (
           <div
             key={block.time}
-            style={{
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.10)',
-              borderRadius: 20,
-              padding: 32,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 16,
-            }}
+            className="bg-[#1e1e1e] border border-gray-700 p-6 rounded-lg flex flex-col gap-4"
           >
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: theme.colors.brass || '#B5956A', margin: '0 0 4px' }}>
+              <h4 className="text-amber-500 text-xs font-mono mb-2 uppercase tracking-wide">
                 {block.time}
-              </p>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.40)', margin: 0, letterSpacing: '0.02em' }}>
+              </h4>
+              <p className="text-xs text-white/40 m-0 tracking-wide">
                 {block.agents}
               </p>
             </div>
-            <h3
-              style={{
-                fontFamily: theme.fonts.serif,
-                fontSize: 'clamp(17px, 1.6vw, 20px)',
-                fontWeight: 700,
-                color: '#FFFFFF',
-                margin: 0,
-                lineHeight: 1.35,
-              }}
-            >
+            <h5 className="text-white text-lg font-semibold m-0">
               {block.headline}
-            </h3>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, margin: 0 }}>
-              {block.story}
-            </p>
-            <div
-              style={{
-                background: 'rgba(181,149,106,0.10)',
-                border: '1px solid rgba(181,149,106,0.25)',
-                borderRadius: 10,
-                padding: '12px 16px',
-                fontSize: 13,
-                fontFamily: theme.fonts.mono,
-                color: theme.colors.brass || '#B5956A',
-                lineHeight: 1.5,
-              }}
-            >
+            </h5>
+            <ul className="space-y-3 text-gray-300 text-sm m-0 p-0" style={{ listStyle: 'none' }}>
+              {block.points.map((pt, i) => (
+                <li key={i}><strong className="text-white">{pt.label}:</strong> {pt.text}</li>
+              ))}
+            </ul>
+            <div className="mt-auto bg-black p-3 rounded font-mono text-xs text-green-400">
               {block.callout}
             </div>
           </div>

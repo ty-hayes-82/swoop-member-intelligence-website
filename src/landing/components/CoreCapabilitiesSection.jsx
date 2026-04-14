@@ -104,10 +104,10 @@ export default function CoreCapabilitiesSection() {
               </p>
               {cap.metric && (
                 <div style={{ marginTop: 8 }}>
-                  <p style={{ fontSize: 20, fontWeight: 800, fontFamily: theme.fonts?.mono, color: theme.colors.accent, margin: 0, lineHeight: 1 }}>
+                  <p style={{ fontSize: 24, fontWeight: 800, fontFamily: theme.fonts?.mono, color: '#D97706', margin: 0, lineHeight: 1 }}>
                     {cap.metric.value}
                   </p>
-                  <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: '2px 0 0' }}>{cap.metric.label}</p>
+                  <p style={{ fontSize: 12, color: '#555', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', margin: '4px 0 0' }}>{cap.metric.label}</p>
                   {cap.metric.source && (
                     <p style={{ fontSize: 11, color: '#888', margin: '4px 0 0' }}>{cap.metric.source}</p>
                   )}

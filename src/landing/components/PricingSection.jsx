@@ -9,16 +9,8 @@ const pricingMobileStyles = `
   }
 `;
 
-const TIER_CTA_LABELS = {
-  '$0/mo': 'Start free — no card',
-  '$499/mo': 'Book demo — Standard',
-  '$1,499/mo': 'Talk to founders',
-};
-
 function PricingCard({ tier, onCtaClick }) {
   const isPopular = !!tier.badge;
-  const isFree = tier.price === '$0/mo';
-  const ctaLabel = TIER_CTA_LABELS[tier.price] ?? tier.cta;
   const handleCta = onCtaClick ?? (() =>
     document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 
@@ -96,15 +88,27 @@ function PricingCard({ tier, onCtaClick }) {
           <p style={{ margin: '6px 0 0' }}>{tier.technical}</p>
         </div>
       )}
-      <Button
-        variant={isPopular ? 'primary' : 'light'}
-        size="md"
-        block
-        onClick={handleCta}
-        style={{ width: '100%', minHeight: 52, marginTop: 20 }}
-      >
-        {ctaLabel}
-      </Button>
+
+      {tier.price === '$0/mo' && (
+        <button className="w-full border-2 border-gray-200 text-gray-700 font-semibold py-3 rounded-md hover:border-amber-600 transition-colors mt-6" onClick={handleCta}>
+          Book a Walkthrough
+        </button>
+      )}
+      {tier.price === '$499/mo' && (
+        <>
+          <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md transition-colors mt-6" onClick={handleCta}>
+            Book a Walkthrough
+          </button>
+          <p className="text-xs text-center text-gray-500 mt-3 font-medium">
+            Your systems connect in minutes. Your first brief arrives in 10 days.
+          </p>
+        </>
+      )}
+      {tier.price === '$1,499/mo' && (
+        <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md transition-colors mt-6" onClick={handleCta}>
+          Book a Walkthrough
+        </button>
+      )}
     </Card>
   );
 }
@@ -119,48 +123,6 @@ export default function PricingSection({ onCtaClick }) {
       subtitle="No long-term contract. Cancel at the end of any month."
     >
       <style>{pricingMobileStyles}</style>
-      {/* Founding partners banner */}
-      <div
-        style={{
-          background: '#FAF7F2',
-          border: '1px solid rgba(17,17,17,0.10)',
-          borderRadius: 12,
-          padding: '16px 24px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: 24,
-          marginBottom: 32,
-          flexWrap: 'wrap',
-        }}
-      >
-        <div>
-          <p
-            style={{
-              fontSize: 11,
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              color: theme.colors.accent,
-              margin: '0 0 4px',
-            }}
-          >
-            Founding Partners · 3 of 10 seats remaining
-          </p>
-          <p style={{ fontSize: 13, color: theme.colors.textSecondary, margin: 0, maxWidth: 520 }}>
-            A small founding cohort gets hands-on onboarding, direct roadmap influence, and
-            pricing locked for life.
-          </p>
-        </div>
-        <Button
-          size="sm"
-          onClick={onCtaClick ?? (() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))}
-          style={{ whiteSpace: 'nowrap' }}
-        >
-          Claim a founding seat
-        </Button>
-      </div>
-
       <div
         className="pricing-grid"
         style={{

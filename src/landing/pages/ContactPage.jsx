@@ -16,6 +16,9 @@ function ContactHeroPanel() {
       style={{ background: '#FFFFFF', borderBottom: '1px solid rgba(17,17,17,0.07)' }}
     >
       <div className="landing-container" style={{ maxWidth: 720 }}>
+        <h1 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, lineHeight: 1.15, margin: '0 0 20px', color: theme.neutrals.ink, letterSpacing: '-0.02em' }}>
+          Find Your Club's Hidden Revenue
+        </h1>
         <p
           style={{
             fontSize: 'clamp(17px, 1.6vw, 20px)',
@@ -81,7 +84,6 @@ export default function ContactPage() {
     <LandingShell>
       <ContactHeroPanel />
       <DemoCtaSection />
-      <TechDisclosurePanel />
     </LandingShell>
   );
 }

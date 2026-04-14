@@ -47,7 +47,7 @@ export default function MemberExperienceSection() {
         }}
       >
         {touchpoints.map(tp => (
-          <Card key={tp.num} style={{ padding: 32, gap: 16 }}>
+          <Card key={tp.num} style={{ padding: 32, gap: 16, boxShadow: '0 1px 4px rgba(0,0,0,0.08)', border: '1px solid rgba(17,17,17,0.07)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <span
                 style={{
@@ -80,7 +80,7 @@ export default function MemberExperienceSection() {
             <h3 style={{ fontSize: 18, fontWeight: 700, color: theme.neutrals.ink, margin: 0, lineHeight: 1.3 }}>
               {tp.headline}
             </h3>
-            <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: 0 }}>
+            <p style={{ fontSize: 15, color: theme.colors.textSecondary, lineHeight: 1.7, margin: 0 }}>
               {tp.story}
             </p>
             <div
@@ -115,9 +115,10 @@ export default function MemberExperienceSection() {
         <a
           href="#/contact"
           onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}
+          className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-md transition-colors"
+          style={{ textDecoration: 'none', minHeight: 44, minWidth: 44 }}
         >
-          Give your members a club that knows them →
+          Book a Walkthrough
         </a>
       </div>
     </SectionShell>

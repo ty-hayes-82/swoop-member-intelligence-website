@@ -25,6 +25,7 @@ export default function FaqItem({ question, answer, defaultOpen = false }) {
           cursor: 'pointer',
           fontFamily: 'inherit',
           textAlign: 'left',
+          minHeight: 44,
         }}
       >
         <span

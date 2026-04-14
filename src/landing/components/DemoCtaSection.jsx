@@ -139,11 +139,17 @@ export default function DemoCtaSection() {
                 size="lg"
                 block
                 disabled={status === 'submitting'}
+                className="bg-amber-600 hover:bg-amber-700 text-white border-none transition-colors"
                 style={{ marginTop: 6, opacity: status === 'submitting' ? 0.7 : 1, cursor: status === 'submitting' ? 'wait' : 'pointer' }}
               >
-                {status === 'submitting' ? 'Submitting…' : 'Show me my club\'s leaks'}
+                {status === 'submitting' ? 'Submitting…' : 'Book a Walkthrough'}
               </Button>
             </form>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>🔒 AES-256 Encryption</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>🛡️ SOC 2 Type II (In Progress)</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>📄 Mutual NDA on Every Pilot</span>
+            </div>
             {(status === 'success' || status === 'error') && feedback && (
               <p
                 role="status"
@@ -156,14 +162,14 @@ export default function DemoCtaSection() {
                 {feedback}
               </p>
             )}
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', marginTop: 12, textAlign: 'center' }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.80)', marginTop: 12, textAlign: 'center' }}>
               Tyler Hayes (co-founder) personally replies to every form within one business day.
             </p>
             <div style={{ marginTop: 32, padding: 20, border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12 }}>
               <p style={{ fontSize: 15, fontStyle: 'italic', lineHeight: 1.65, margin: 0 }}>
                 &ldquo;Swoop found $47k in lapsed dues in week one.&rdquo;
               </p>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 12 }}>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.70)', marginTop: 12 }}>
                 General Manager &middot; Top-100 private club &middot; Southwest
               </p>
             </div>
@@ -175,10 +181,10 @@ export default function DemoCtaSection() {
                 <li>30-min call — you keep the action list regardless</li>
               </ol>
             </div>
-            <p style={{ marginTop: 18, color: 'rgba(255,255,255,0.55)', fontSize: 13 }}>
+            <p style={{ marginTop: 18, color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
               No credit card · 30 minutes · Your club's own data · We'll confirm your slot within 1 business day.
             </p>
-            <p style={{ marginTop: 10, color: 'rgba(255,255,255,0.5)', fontSize: 13 }}>
+            <p style={{ marginTop: 10, color: 'rgba(255,255,255,0.70)', fontSize: 13 }}>
               Or email us at{' '}
               <a href="mailto:demo@swoopgolf.com" style={{ color: theme.colors.accent, textDecoration: 'underline' }}>
                 demo@swoopgolf.com

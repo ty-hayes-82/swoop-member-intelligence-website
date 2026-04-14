@@ -149,7 +149,7 @@ export default function RoiCalculatorSection() {
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', margin: '6px 0 0' }}>
               Revenue recovered ({swoopSaves} members saved)
             </p>
-            <p style={{ fontSize: 12, color: '#888', marginTop: 8, fontStyle: 'italic' }}>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', marginTop: 8, fontStyle: 'italic' }}>
               Calculated from your inputs: avg dues × estimated lapse rate × 12. Not a projection — math you can verify.
             </p>
           </div>
@@ -164,7 +164,7 @@ export default function RoiCalculatorSection() {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
-              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>Swoop Pro annual cost</span>
+              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>Signals + Actions annual cost</span>
               <span style={{ fontFamily: theme.fonts.mono, fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>-{fmt(swoopProCost)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
@@ -187,12 +187,18 @@ export default function RoiCalculatorSection() {
           Ready to recover your at-risk dues?
         </p>
         <p style={{ fontSize: 14, color: theme.colors.textSecondary, margin: '0 0 20px' }}>
-          Swoop Pro costs $5,988/year. Most clubs recover that in the first 60 days.
+          Signals + Actions costs $5,988/year. Most clubs recover that in the first 60 days.
         </p>
         <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+          style={{ display: 'inline-block', background: '#D97706', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
           Book a Walkthrough With Your Numbers →
         </a>
+        <div style={{ marginTop: 12 }}>
+          <a href="mailto:demo@swoopgolf.com?subject=ROI%20Estimate"
+            style={{ fontSize: 14, color: theme.colors.textSecondary, textDecoration: 'underline', textUnderlineOffset: 3 }}>
+            Email this projected ROI to myself / my board
+          </a>
+        </div>
       </div>
     </SectionShell>
   );

@@ -61,8 +61,9 @@ export default function TestimonialsSection() {
             </p>
             <p
               style={{
-                fontSize: 12,
-                color: theme.colors.textMuted,
+                fontSize: 13,
+                color: theme.colors.textSecondary,
+                fontWeight: 600,
                 margin: 0,
                 borderTop: `1px solid ${theme.neutrals.fog || '#e8e8e8'}`,
                 paddingTop: 14,
@@ -74,9 +75,11 @@ export default function TestimonialsSection() {
         ))}
       </div>
 
-      <p style={{ fontSize: 11, color: '#888', textAlign: 'center', marginTop: 16, fontStyle: 'italic' }}>
-        Founding-partner GMs asked us to withhold their names until Q2 2026 — ask us for a direct reference call.
-      </p>
+      <div style={{ marginTop: 20, marginInline: 'auto', maxWidth: 560, background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 8, padding: '14px 18px', textAlign: 'center' }}>
+        <p style={{ fontSize: 13, color: '#374151', fontStyle: 'italic', margin: 0 }}>
+          Founding-partner GMs asked us to withhold their names until Q2 2026. Ask us for a direct reference call on your demo.
+        </p>
+      </div>
 
       <div style={{ textAlign: 'center', marginTop: 40 }}>
         <p style={{ fontSize: 17, fontWeight: 600, color: theme.neutrals.ink, margin: '0 0 16px' }}>

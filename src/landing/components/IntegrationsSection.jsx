@@ -171,10 +171,23 @@ export default function IntegrationsSection() {
       <p style={{ fontSize: 14, color: theme.colors.textSecondary, textAlign: 'center', maxWidth: 560, margin: '24px auto 0', lineHeight: 1.6 }}>
         Swoop connects via read-only API — your existing systems keep running exactly as they do today. No write access is ever requested.
       </p>
+      <div style={{ textAlign: 'center', marginTop: 24 }}>
+        <a
+          href="#/contact"
+          onClick={() => { window.location.hash = '#/contact'; }}
+          className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-3 rounded-md transition-colors"
+          style={{ textDecoration: 'none', fontSize: 15 }}
+        >
+          Test Swoop on your data →
+        </a>
+      </div>
 
-      <details style={{ marginTop: 32, border: '1px solid rgba(255,255,255,0.15)', borderRadius: 8, padding: '16px 20px' }}>
-        <summary style={{ fontWeight: 600, cursor: 'pointer', fontSize: 15, color: '#FFFFFF' }}>For IT and Ops teams</summary>
-        <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.75)' }}>
+      <details style={{ marginTop: 32, border: '1px solid rgba(255,255,255,0.22)', borderRadius: 8, overflow: 'hidden' }}>
+        <summary style={{ fontWeight: 700, cursor: 'pointer', fontSize: 15, color: '#FFFFFF', background: 'rgba(255,255,255,0.07)', padding: '14px 20px', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span>For IT and Ops teams: Security &amp; Implementation Details</span>
+          <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.5)' }}>▾</span>
+        </summary>
+        <div style={{ marginTop: 0, padding: '16px 20px', fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,0.75)' }}>
           <p><strong style={{ color: '#FFFFFF' }}>Systems we connect to:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe, Toast, Square</p>
           <p><strong style={{ color: '#FFFFFF' }}>How data moves:</strong> Read via API or nightly SFTP. Write-back only for tee-sheet notes, CRM tasks, GM-approved messages.</p>
           <p><strong style={{ color: '#FFFFFF' }}>Security:</strong> AES-256 at rest, TLS 1.3, SSO, RBAC, 90-day audit log.</p>

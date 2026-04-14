@@ -290,7 +290,7 @@ export const pricingTiers = [
     name: 'Signals + Actions',
     price: '$499/mo',
     badge: 'Founding-Partner Pick',
-    badgeFootnote: 'Chosen by 5 of 7 founding-partner clubs.',
+    badgeFootnote: 'Join the 7 leading clubs already recovering revenue. Only 3 of 10 seats remaining.',
     description:
       'Everything in Signals, plus Swoop drafts the callback, comp offer, and staffing shift in plain English — so your team acts instead of sorting spreadsheets.',
     features: [

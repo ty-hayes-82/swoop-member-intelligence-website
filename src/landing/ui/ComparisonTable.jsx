@@ -17,9 +17,9 @@ function Mark({ value, highlight }) {
     return (
       <span
         style={{
-          fontSize: 11,
+          fontSize: 12,
           fontWeight: 700,
-          color: 'rgba(17,17,17,0.45)',
+          color: 'rgba(17,17,17,0.65)',
           textTransform: 'uppercase',
           letterSpacing: '0.08em',
         }}
@@ -28,7 +28,7 @@ function Mark({ value, highlight }) {
       </span>
     );
   }
-  return <Icon name="X" size={18} color="rgba(17,17,17,0.2)" strokeWidth={2.5} />;
+  return <Icon name="X" size={18} color="rgba(17,17,17,0.4)" strokeWidth={2.5} />;
 }
 
 export default function ComparisonTable({ features, columns }) {

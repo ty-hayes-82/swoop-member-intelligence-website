@@ -51,9 +51,10 @@ function HomeCtaStrip() {
           <Button
             size="lg"
             onClick={toDemoPage}
-            style={{ background: theme.colors.accent, color: '#FFFFFF', border: 'none' }}
+            className="bg-amber-600 hover:bg-amber-700 text-white font-semibold transition-colors border-none"
+            style={{ color: '#FFFFFF' }}
           >
-            See your club's data connected →
+            Book a Walkthrough
           </Button>
         </div>
 
@@ -61,13 +62,15 @@ function HomeCtaStrip() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, flexWrap: 'wrap' }}>
           <button
             onClick={toDemoPage}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14, color: 'rgba(255,255,255,0.55)', padding: 0 }}
+            className="text-white/55 hover:text-white inline-block min-h-[44px] min-w-[44px] p-2 transition-colors"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14 }}
           >
             Talk to a GM who's using it →
           </button>
           <button
             onClick={toDemoPage}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14, color: 'rgba(255,255,255,0.55)', padding: 0 }}
+            className="text-white/55 hover:text-white inline-block min-h-[44px] min-w-[44px] p-2 transition-colors"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14 }}
           >
             Get a sample morning briefing →
           </button>

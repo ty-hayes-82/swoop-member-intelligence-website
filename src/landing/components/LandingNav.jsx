@@ -70,7 +70,7 @@ export default function LandingNav() {
             {NAV_LINKS.map(({ label, href }) => (
               <a key={href} href={href} style={linkStyle(activeHash === href)}>{label}</a>
             ))}
-            <Button size="md" onClick={() => { window.location.hash = '#/contact'; }}>Book a Demo</Button>
+            <Button size="md" onClick={() => { window.location.hash = '#/contact'; }} className="bg-amber-600 hover:bg-amber-700 border-none text-white">Book a Walkthrough</Button>
           </div>
 
           {/* Hamburger — mobile only */}
@@ -110,8 +110,8 @@ export default function LandingNav() {
               <a key={href} href={href} style={{ ...linkStyle(activeHash === href), fontSize: 16 }}>{label}</a>
             ))}
             <div style={{ marginTop: 4 }}>
-              <Button size="md" onClick={() => { window.location.hash = '#/contact'; setMenuOpen(false); }}>
-                Book a Demo
+              <Button size="md" onClick={() => { window.location.hash = '#/contact'; setMenuOpen(false); }} className="bg-amber-600 hover:bg-amber-700 border-none text-white">
+                Book a Walkthrough
               </Button>
             </div>
           </div>

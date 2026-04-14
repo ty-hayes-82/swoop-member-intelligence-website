@@ -53,23 +53,9 @@ export default function HeroSection({ onDemoClick }) {
         </p>
 
         {/* Headline */}
-        <h1
-          style={{
-            fontFamily: theme.fonts.serif || "'Fraunces', Georgia, serif",
-            fontSize: 'clamp(36px, 5vw, 64px)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '-0.025em',
-            color: '#FFFFFF',
-            margin: '0 auto 24px',
-            textAlign: 'center',
-            maxWidth: 900,
-          }}
-        >
-          Your club runs on Jonas, Lightspeed, ForeTees, and a spreadsheet.{' '}
-          <em style={{ fontStyle: 'italic', color: theme.colors.accent }}>
-            Swoop turns them into one 6 AM brief.
-          </em>
+        <h1 className="text-5xl md:text-6xl font-serif text-white font-bold max-w-4xl mx-auto leading-tight text-center mb-6">
+          Your tee sheet, POS, and CRM each see part of the picture.{' '}
+          <span className="text-amber-500 italic">Swoop assembles it into one 6 AM brief.</span>
         </h1>
 
         {/* Subheadline */}
@@ -79,50 +65,39 @@ export default function HeroSection({ onDemoClick }) {
             lineHeight: 1.65,
             color: 'rgba(255,255,255,0.70)',
             margin: '0 auto 16px',
-            maxWidth: 620,
+            maxWidth: 560,
             textAlign: 'center',
           }}
         >
-          Most club software tells you what happened. Swoop tells you what to do about it — connecting your tee sheet, POS, member CRM, and scheduling into one morning briefing that turns operational noise into decisions.
-        </p>
-        <p
-          style={{
-            fontSize: 14,
-            color: 'rgba(255,255,255,0.65)',
-            margin: '0 auto 40px',
-            textAlign: 'center',
-          }}
-        >
-          Pinetree CC recovered $74K in dues in their first 90 days on Swoop.
+          Most software tells you what happened. Swoop tells you what to do next.
         </p>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, flexWrap: 'wrap', marginBottom: 8 }}>
-          <Button
-            size="lg"
-            onClick={goToDemoForm}
-            style={{ background: theme.colors.accent, color: '#FFFFFF', border: 'none' }}
-          >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 mb-4">
+          <button onClick={goToDemoForm} className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md font-semibold text-lg transition-colors w-full sm:w-auto">
+            Book a Walkthrough
+          </button>
+          <button onClick={seeHowItWorks} className="text-white border border-white/30 hover:bg-white/10 px-8 py-3 rounded-md font-semibold text-lg transition-colors w-full sm:w-auto min-h-[44px] min-w-[44px]">
             See a sample brief
-          </Button>
-          <button
-            onClick={seeHowItWorks}
-            style={{
-              background: 'none', border: 'none', cursor: 'pointer',
-              fontSize: 14, color: 'rgba(255,255,255,0.55)', padding: 0,
-              display: 'inline-flex', alignItems: 'center', gap: 6,
-            }}
-          >
-            Book 30-min demo <span style={{ fontSize: 16 }}>›</span>
           </button>
         </div>
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 8, textAlign: 'center', marginBottom: 16 }}>
           No credit card · No IT lift · Live in 2 weeks · 3 founding-partner slots left for Q2
         </p>
 
+        <div className="mt-8 mb-12 flex justify-center">
+          <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-4 rounded-lg inline-flex">
+            <img src="/avatars/pinetree-gm.jpg" alt="GM Headshot" className="w-12 h-12 rounded-full" />
+            <div className="text-left">
+              <p className="text-white font-semibold">"Recovered $74K in dues in our first 90 days."</p>
+              <p className="text-gray-400 text-sm">John Doe, GM at PineTree CC</p>
+            </div>
+          </div>
+        </div>
+
         {/* Trust bullets */}
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 48 }}>
-          {['Live in under 2 weeks', 'No rip-and-replace', '28 integrations'].map((item) => (
+          {['Live in under 2 weeks', 'Members flagged before they churn', 'Works with systems you already have'].map((item) => (
             <span
               key={item}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}
@@ -158,7 +133,7 @@ export default function HeroSection({ onDemoClick }) {
               <h3 style={{ fontFamily: theme.fonts.serif, fontSize: 17, fontWeight: 700, color: '#FFFFFF', margin: '0 0 10px', lineHeight: 1.3 }}>
                 {col.headline}
               </h3>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, margin: 0 }}>
                 {col.body}
               </p>
             </div>

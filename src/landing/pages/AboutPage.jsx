@@ -31,12 +31,12 @@ export default function AboutPage() {
               connecting your tee sheet, POS, member CRM, and scheduling into one morning briefing
               that turns operational noise into decisions.
             </p>
-            <a href="#/contact" style={{
-              display: 'inline-block', background: '#F3922D', color: '#fff',
+            <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{
+              display: 'inline-block', background: '#B45309', color: '#fff',
               fontWeight: 700, fontSize: 16, padding: '14px 32px',
               borderRadius: 8, textDecoration: 'none', marginTop: 24,
             }}>
-              Book a 15-min coffee chat
+              Book a Walkthrough
             </a>
           </div>
         </SectionShell>
@@ -49,8 +49,8 @@ export default function AboutPage() {
           </a>
         </div>
 
-        <TestimonialsSection />
         <SocialProofSection />
+        <TestimonialsSection />
         <FaqSection />
 
         <DemoCtaSection />
