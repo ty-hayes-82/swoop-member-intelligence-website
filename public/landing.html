@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swoop Golf — Club Intelligence for General Managers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0B1A0D;
+  --forest: #1A2F1C;
+  --green: #2A4A2C;
+  --moss: #3D6640;
+  --sage: #6B8F6E;
+  --mist: #D4E4D6;
+  --gold: #C9943A;
+  --gold-light: #E8B05A;
+  --gold-pale: #F5E8D0;
+  --ivory: #F7F3EC;
+  --cream: #EDE8DF;
+  --white: #FFFFFF;
+  --red-risk: #C0392B;
+  --blue-intel: #2563EB;
+  --text-muted: #6B7A6E;
+  --border: rgba(42,74,44,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 68px;
+  background: rgba(11,26,13,0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px;
+  border-bottom: 1px solid rgba(201,148,58,0.15);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--white);
+}
+.logo-mark {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; font-size: 20px; color: var(--white);
+  letter-spacing: -0.02em;
+}
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.logo-text span { color: var(--gold-light); }
+.nav-center {
+  display: flex; align-items: center; gap: 36px;
+}
+.nav-center a {
+  font-size: 14px; font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none; transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-center a:hover { color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-link-plain {
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-link-plain:hover { color: var(--white); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white); text-decoration: none;
+  padding: 9px 22px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  transition: all 0.25s;
+  box-shadow: 0 2px 12px rgba(201,148,58,0.25);
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,148,58,0.35); }
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--ink) 0%, var(--forest) 45%, #1E3C20 100%);
+  display: flex; align-items: center;
+  padding: 140px 56px 100px;
+  position: relative; overflow: hidden;
+}
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,148,58,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,148,58,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-bg-glow {
+  position: absolute; top: -20%; right: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(42,74,44,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 680px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(201,148,58,0.12);
+  border: 1px solid rgba(201,148,58,0.25);
+  color: var(--gold-light);
+  padding: 6px 18px; border-radius: 50px;
+  font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 32px;
+}
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  background: var(--gold-light); border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 600;
+  line-height: 1.04; color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.hero h1 .accent { color: var(--gold-light); font-style: italic; }
+.hero h1 .line-break { display: block; }
+
+.hero-sub {
+  font-size: 19px; color: rgba(255,255,255,0.65);
+  line-height: 1.65; max-width: 520px;
+  margin-bottom: 44px;
+}
+.hero-sub strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+.hero-ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 64px; }
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white); text-decoration: none;
+  padding: 16px 38px; border-radius: 10px;
+  font-size: 16px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+  box-shadow: 0 6px 28px rgba(201,148,58,0.3);
+}
+.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,148,58,0.4); }
+.btn-hero-secondary {
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  padding: 16px 32px; border-radius: 10px;
+  font-size: 16px; font-weight: 500;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  transition: all 0.25s;
+}
+.btn-hero-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--white); background: rgba(255,255,255,0.04); }
+
+.free-callout {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(201,148,58,0.08); border: 1px solid rgba(201,148,58,0.2);
+  border-radius: 8px; padding: 10px 18px;
+  color: var(--gold-light); font-size: 14px; font-weight: 500;
+}
+.free-badge {
+  background: var(--gold); color: var(--white);
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+.hero-stats {
+  display: flex; gap: 56px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 600;
+  color: var(--gold-light); line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+  margin-top: 6px; font-weight: 400;
+  max-width: 120px; line-height: 1.4;
+}
+
+.hero-right {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 45%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 140px 56px 100px 0;
+  z-index: 2;
+}
+.dashboard-preview {
+  width: 100%; max-width: 500px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.dp-header {
+  background: rgba(255,255,255,0.05);
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center; gap: 8px;
+}
+.dp-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dp-dot.r { background: #FF6058; }
+.dp-dot.y { background: #FFBD2E; }
+.dp-dot.g { background: #28C840; }
+.dp-url {
+  margin-left: auto; margin-right: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: rgba(255,255,255,0.3);
+}
+.dp-body { padding: 20px; }
+.dp-label {
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); margin-bottom: 14px;
+}
+.health-members { display: flex; flex-direction: column; gap: 8px; }
+.hm-row {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px; padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hm-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--white); flex-shrink: 0;
+}
+.av-red { background: rgba(192,57,43,0.6); }
+.av-amber { background: rgba(217,132,0,0.6); }
+.av-green { background: rgba(42,74,44,0.8); }
+.hm-name { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); flex: 1; }
+.hm-detail { font-size: 11px; color: rgba(255,255,255,0.35); }
+.health-score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 500;
+}
+.score-red { color: #EF5350; }
+.score-amber { color: #FFA726; }
+.score-green { color: #66BB6A; }
+.hm-trend {
+  font-size: 10px; font-weight: 600;
+  padding: 2px 7px; border-radius: 4px;
+}
+.trend-dn { background: rgba(192,57,43,0.2); color: #EF9A9A; }
+.trend-up { background: rgba(42,74,44,0.4); color: #81C784; }
+.trend-flat { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.35); }
+
+.dp-alert {
+  margin-top: 12px;
+  background: rgba(192,57,43,0.1);
+  border: 1px solid rgba(192,57,43,0.2);
+  border-radius: 10px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.dp-alert-icon { font-size: 16px; }
+.dp-alert-text { font-size: 12px; color: rgba(255,255,255,0.65); }
+.dp-alert-text strong { color: #EF9A9A; }
+
+/* ─── SOCIAL PROOF BAR ─────────────────────────────────── */
+.proof-bar {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 56px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 48px; flex-wrap: wrap;
+}
+.proof-label {
+  font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+.proof-integrations { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+.proof-int {
+  font-size: 14px; font-weight: 600; color: var(--sage);
+  opacity: 0.7;
+}
+.proof-divider { width: 1px; height: 24px; background: var(--border); }
+
+/* ─── SECTION COMMONS ──────────────────────────────────── */
+section { padding: 104px 56px; }
+.section-eyebrow {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 50px; font-weight: 600;
+  line-height: 1.1; color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.section-sub {
+  font-size: 18px; color: var(--text-muted);
+  line-height: 1.65; max-width: 560px;
+}
+
+/* ─── PROBLEM SECTION ──────────────────────────────────── */
+.problem-section {
+  background: var(--ivory);
+}
+.problem-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+  max-width: 1180px; margin: 0 auto;
+}
+.problem-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-style: italic; font-weight: 500;
+  color: var(--ink); line-height: 1.4;
+  border-left: 3px solid var(--gold);
+  padding-left: 24px;
+  margin: 36px 0;
+}
+.problem-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
+.problem-card {
+  background: var(--white);
+  border-radius: 12px; padding: 20px 22px;
+  border-left: 3px solid var(--red-risk);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.problem-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+.problem-card h4 { font-size: 15px; font-weight: 600; }
+.problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+.problem-right { padding-top: 8px; }
+.signal-box {
+  background: var(--white);
+  border-radius: 16px; padding: 32px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.signal-box h4 {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); margin-bottom: 22px;
+}
+.signal-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 18px; padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.signal-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.signal-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 600; color: var(--gold);
+  min-width: 90px; line-height: 1;
+}
+.signal-text { font-size: 14px; color: var(--ink); line-height: 1.5; }
+.signal-text strong { font-weight: 600; }
+
+/* ─── WEDGE / PRICING ──────────────────────────────────── */
+.pricing-section {
+  background: linear-gradient(180deg, var(--forest) 0%, #152817 100%);
+  padding: 104px 56px;
+}
+.pricing-header { text-align: center; margin-bottom: 72px; }
+.pricing-header .section-title { color: var(--white); }
+.pricing-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
+
+.wedge-framework {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; max-width: 1100px; margin: 0 auto 16px;
+}
+.wedge-step {
+  flex: 1; text-align: center;
+  padding: 8px 20px;
+  font-size: 13px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.ws-see { color: rgba(255,255,255,0.5); }
+.ws-fix { color: var(--gold-light); }
+.ws-prove { color: var(--gold); }
+.wedge-arrow {
+  color: rgba(255,255,255,0.15); font-size: 20px;
+  margin-top: -2px;
+}
+
+.pricing-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+
+.pricing-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 36px;
+  transition: all 0.3s;
+  position: relative;
+}
+.pricing-card:hover { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); }
+.pricing-card.featured {
+  background: rgba(201,148,58,0.06);
+  border-color: rgba(201,148,58,0.3);
+  box-shadow: 0 0 0 1px rgba(201,148,58,0.15), 0 24px 60px rgba(0,0,0,0.3);
+}
+
+.featured-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 4px 16px; border-radius: 20px;
+  white-space: nowrap;
+}
+
+.pc-tier {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.35); margin-bottom: 10px;
+}
+.pc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 600; color: var(--white);
+  margin-bottom: 6px;
+}
+.pc-tagline {
+  font-size: 14px; color: rgba(255,255,255,0.45);
+  line-height: 1.5; margin-bottom: 28px;
+  min-height: 42px;
+}
+
+.pc-price-row {
+  display: flex; align-items: baseline; gap: 6px;
+  margin-bottom: 6px;
+}
+.pc-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 600; color: var(--white); line-height: 1;
+}
+.pc-price-unit { font-size: 16px; color: rgba(255,255,255,0.4); }
+.pc-price-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+
+.pc-cta {
+  display: block; text-align: center; text-decoration: none;
+  padding: 14px; border-radius: 10px;
+  font-size: 15px; font-weight: 600;
+  transition: all 0.25s;
+  margin-bottom: 32px;
+}
+.pc-cta-free {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.8);
+}
+.pc-cta-free:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+.pc-cta-pro {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(201,148,58,0.25);
+}
+.pc-cta-pro:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(201,148,58,0.35); }
+.pc-cta-club {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(201,148,58,0.25);
+  color: var(--gold-light);
+}
+.pc-cta-club:hover { background: rgba(201,148,58,0.08); }
+
+.pc-divider {
+  height: 1px; background: rgba(255,255,255,0.07);
+  margin-bottom: 24px;
+}
+.pc-features-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.25); margin-bottom: 14px;
+}
+.pc-feature {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px; color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+.pc-check { color: var(--gold-light); flex-shrink: 0; margin-top: 1px; }
+.pc-check-muted { color: rgba(255,255,255,0.2); flex-shrink: 0; margin-top: 1px; }
+.pc-feature .bold { color: rgba(255,255,255,0.88); font-weight: 500; }
+
+.pc-soon {
+  display: inline-block;
+  font-size: 10px; font-weight: 600;
+  background: rgba(201,148,58,0.15); color: var(--gold-light);
+  padding: 1px 7px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-left: 6px; vertical-align: middle;
+}
+
+/* ─── OUTCOMES SECTION ─────────────────────────────────── */
+.outcomes-section {
+  background: var(--ivory);
+}
+.outcomes-header { text-align: center; margin-bottom: 72px; }
+.outcomes-header .section-sub { margin: 0 auto; }
+
+.outcomes-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; max-width: 1160px; margin: 0 auto;
+}
+.outcome-card {
+  background: var(--white); border-radius: 16px;
+  padding: 32px; border: 1px solid var(--border);
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.outcome-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.lc-green::before { background: linear-gradient(90deg, var(--moss), var(--sage)); }
+.lc-gold::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.lc-red::before { background: linear-gradient(90deg, #C0392B, #E74C3C); }
+.lc-blue::before { background: linear-gradient(90deg, #2563EB, #60A5FA); }
+.lc-purple::before { background: linear-gradient(90deg, #7C3AED, #A78BFA); }
+.lc-teal::before { background: linear-gradient(90deg, #0D9488, #2DD4BF); }
+
+.outcome-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.08); transform: translateY(-4px); border-color: transparent; }
+.outcome-icon { font-size: 28px; margin-bottom: 16px; }
+.outcome-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.outcome-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.outcome-tag {
+  display: inline-block; margin-top: 14px;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 4px;
+}
+.tag-free { background: rgba(42,74,44,0.1); color: var(--moss); }
+.tag-pro { background: rgba(201,148,58,0.12); color: var(--gold); }
+.tag-club { background: rgba(124,58,237,0.1); color: #7C3AED; }
+
+/* ─── HOW IT WORKS ─────────────────────────────────────── */
+.how-section { background: var(--cream); }
+.how-header { max-width: 520px; margin-bottom: 64px; }
+.how-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 32px; max-width: 1160px; margin: 0 auto;
+  position: relative;
+}
+.how-steps::before {
+  content: '';
+  position: absolute; top: 28px; left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px); height: 1px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  opacity: 0.3;
+}
+.how-step { text-align: center; padding-top: 8px; }
+.step-circle {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px; font-weight: 600; color: var(--gold);
+  margin: 0 auto 20px;
+  position: relative; z-index: 2;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.how-step h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.how-step p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── INTEGRATIONS ─────────────────────────────────────── */
+.integrations-section { background: var(--ivory); }
+.integrations-header { max-width: 520px; margin-bottom: 52px; }
+.integrations-grid {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  max-width: 900px;
+}
+.int-chip {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 50px; padding: 10px 22px;
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.int-chip:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 2px 12px rgba(201,148,58,0.12); }
+.int-note {
+  margin-top: 28px;
+  font-size: 13px; color: var(--text-muted);
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* ─── GM QUOTES ────────────────────────────────────────── */
+.quotes-section {
+  background: var(--forest);
+  padding: 104px 56px;
+}
+.quotes-header { text-align: center; margin-bottom: 64px; }
+.quotes-header .section-title { color: var(--white); }
+.quotes-header .section-sub { color: rgba(255,255,255,0.5); margin: 0 auto; }
+
+.quotes-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; max-width: 1160px; margin: 0 auto;
+}
+.quote-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 32px;
+}
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px; color: var(--gold); opacity: 0.4;
+  line-height: 0.5; margin-bottom: 20px;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-style: italic;
+  color: rgba(255,255,255,0.8); line-height: 1.55;
+  margin-bottom: 24px;
+}
+.quote-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.qa-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--green); border: 2px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--white);
+}
+.qa-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.8); }
+.qa-role { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+/* ─── CTA SECTION ──────────────────────────────────────── */
+.cta-section {
+  background: var(--ivory);
+  text-align: center; padding: 120px 56px;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; }
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px; font-weight: 600; line-height: 1.1;
+  color: var(--ink); letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.cta-title em { color: var(--gold); font-style: italic; }
+.cta-sub {
+  font-size: 18px; color: var(--text-muted);
+  line-height: 1.65; margin-bottom: 44px;
+}
+.cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-cta-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--white); text-decoration: none;
+  padding: 17px 40px; border-radius: 10px;
+  font-size: 16px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+  box-shadow: 0 6px 28px rgba(201,148,58,0.28);
+}
+.btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,148,58,0.38); }
+.btn-cta-free {
+  color: var(--moss); text-decoration: none;
+  padding: 17px 32px; border-radius: 10px;
+  font-size: 16px; font-weight: 600;
+  border: 2px solid var(--border);
+  transition: all 0.25s;
+}
+.btn-cta-free:hover { border-color: var(--moss); background: rgba(42,74,44,0.04); }
+
+.risk-stat {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(192,57,43,0.06);
+  border: 1px solid rgba(192,57,43,0.12);
+  border-radius: 8px; padding: 12px 20px;
+  font-size: 14px; color: var(--red-risk);
+}
+.rs-icon { font-size: 16px; }
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  padding: 48px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand .logo-mark { width: 32px; height: 32px; font-size: 17px; }
+.footer-brand span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600; color: rgba(255,255,255,0.7);
+}
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a {
+  font-size: 13px; color: rgba(255,255,255,0.3);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ─── SCROLL ANIMATIONS ────────────────────────────────── */
+.fade-up {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1; transform: translateY(0);
+}
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero-right { display: none; }
+  .hero { padding: 140px 40px 100px; }
+  .hero h1 { font-size: 56px; }
+  nav { padding: 0 32px; }
+  .nav-center { display: none; }
+}
+@media (max-width: 860px) {
+  section { padding: 72px 28px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .outcomes-grid { grid-template-columns: 1fr 1fr; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .quotes-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .section-title { font-size: 38px; }
+  .problem-layout { grid-template-columns: 1fr; gap: 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-mark">S</div>
+    <span class="logo-text">Swoop <span>Golf</span></span>
+  </a>
+  <div class="nav-center">
+    <a href="#pricing">Pricing</a>
+    <a href="#features">Platform</a>
+    <a href="#features">Staffing &amp; Service</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#integrations">Integrations</a>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="nav-link-plain">Sign In</a>
+    <a href="#pricing" class="nav-cta">Get Started Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Club Intelligence Platform · Free to Start
+    </div>
+    <h1>
+      Stop managing<br>
+      <span class="accent">by anecdote.</span>
+    </h1>
+    <p class="hero-sub">
+      Swoop gives GMs a single view across golf, dining, and member activity —
+      so you can spot who's quietly disengaging <strong>weeks before they resign.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-hero-primary">Get Member Health Scores Free →</a>
+      <a href="#pricing" class="btn-hero-secondary">See All Plans</a>
+    </div>
+    <div class="free-callout">
+      <span class="free-badge">Free Forever</span>
+      Member Health Scores for your entire club — no credit card required
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="val">90%</div>
+        <div class="lbl">of GMs call daily health scores "extremely valuable" <span style="font-size:10px;opacity:0.6;display:block;margin-top:4px;">Survey: 16 private clubs, Jan 2026</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">$138K</div>
+        <div class="lbl">average in preventable resignations per year <span style="font-size:10px;opacity:0.6;display:block;margin-top:4px;">Demo scenario: Pinetree CC</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">6–8</div>
+        <div class="lbl">weeks of warning before a member resigns <span style="font-size:10px;opacity:0.6;display:block;margin-top:4px;">Demo scenario: Pinetree CC</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="dashboard-preview">
+      <div class="dp-header">
+        <div class="dp-dot r"></div>
+        <div class="dp-dot y"></div>
+        <div class="dp-dot g"></div>
+        <div class="dp-url">app.swoopgolf.com · Member Health</div>
+      </div>
+      <div class="dp-body">
+        <div class="dp-label">Today's At-Risk Members</div>
+        <div class="health-members">
+          <div class="hm-row">
+            <div class="hm-avatar av-red">JK</div>
+            <div style="flex:1">
+              <div class="hm-name">James Kirkland</div>
+              <div class="hm-detail">No golf in 41 days · Dining ↓64%</div>
+            </div>
+            <div class="health-score score-red">38</div>
+            <div class="hm-trend trend-dn">↓12</div>
+          </div>
+          <div class="hm-row">
+            <div class="hm-avatar av-amber">SW</div>
+            <div style="flex:1">
+              <div class="hm-name">Sandra Whitmore</div>
+              <div class="hm-detail">3rd event miss this month</div>
+            </div>
+            <div class="health-score score-amber">54</div>
+            <div class="hm-trend trend-dn">↓7</div>
+          </div>
+          <div class="hm-row">
+            <div class="hm-avatar av-green">RP</div>
+            <div style="flex:1">
+              <div class="hm-name">Robert Park</div>
+              <div class="hm-detail">Engagement recovering</div>
+            </div>
+            <div class="health-score score-green">82</div>
+            <div class="hm-trend trend-up">↑9</div>
+          </div>
+        </div>
+        <div class="dp-alert">
+          <div class="dp-alert-icon">⚠️</div>
+          <div class="dp-alert-text"><strong>James Kirkland has a tee time at 9:40am.</strong> Consider a check-in — last satisfaction score was 4.1/10.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <span class="proof-label">Connects to</span>
+  <div class="proof-integrations">
+    <span class="proof-int">ForeTees</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Northstar</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Jonas</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Club Prophet</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Lightspeed</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Clubessential</span>
+    <div class="proof-divider"></div>
+    <span class="proof-int">Chronogolf</span>
+  </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section class="problem-section" id="problem">
+  <div class="problem-layout">
+    <div>
+      <div class="section-eyebrow">The Blind Spot</div>
+      <h2 class="section-title">You feel it. You can't see it.</h2>
+      <div class="problem-quote">
+        "I can see rounds played, but I can't see that John Smith is quietly disengaging everywhere."
+      </div>
+      <div class="problem-cards">
+        <div class="problem-card fade-up">
+          <div class="problem-card-header">
+            <h4>⛳ Tee sheet is full — but your best members aren't on it</h4>
+          </div>
+          <p>High-dues members reduce frequency months before they resign. It's invisible until it's too late.</p>
+        </div>
+        <div class="problem-card fade-up fade-up-delay-1">
+          <div class="problem-card-header">
+            <h4>🍽️ F&B margins are negative, but you don't know which service failures caused it</h4>
+          </div>
+          <p>When pace slows on holes 7-9 and the kitchen backs up, should you delay seating? You have no way to know.</p>
+        </div>
+        <div class="problem-card fade-up fade-up-delay-2">
+          <div class="problem-card-header">
+            <h4>📋 You're managing by anecdote, not intelligence</h4>
+          </div>
+          <p>By the time a complaint reaches you, the damage is done. The data existed — it just wasn't connected.</p>
+        </div>
+      </div>
+    </div>
+    <div class="problem-right">
+      <div class="signal-box fade-up">
+        <h4>Survey signals from 16+ private clubs</h4>
+        <div class="signal-row">
+          <div class="signal-num">90%</div>
+          <div class="signal-text">of GMs find a <strong>daily Member Health Score</strong> valuable or extremely valuable</div>
+        </div>
+        <div class="signal-row">
+          <div class="signal-num">11/16</div>
+          <div class="signal-text">clubs selected <strong>service consistency</strong> as a top-3 outcome for 2026</div>
+        </div>
+        <div class="signal-row">
+          <div class="signal-num">8/10</div>
+          <div class="signal-text">clubs are running <strong>F&B at negative or subsidized margins</strong></div>
+        </div>
+        <div class="signal-row">
+          <div class="signal-num">1/10</div>
+          <div class="signal-text">clubs are ready to <strong>switch systems</strong> — the solution must layer on, not rip-and-replace</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / WEDGE SECTION -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-header">
+    <div class="section-eyebrow" style="color:var(--gold-light)">See It → Fix It → Prove It</div>
+    <h2 class="section-title">Start free. Grow when you're ready.</h2>
+    <p class="section-sub">The Member Health Score is free forever. Add operational intelligence, AI agents, and ROI proof as your club needs them.</p>
+  </div>
+
+  <div class="wedge-framework">
+    <div class="wedge-step ws-see">👁 See It</div>
+    <div class="wedge-arrow">→</div>
+    <div class="wedge-step ws-fix">⚙️ Fix It</div>
+    <div class="wedge-arrow">→</div>
+    <div class="wedge-step ws-prove">📈 Prove It</div>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- FREE -->
+    <div class="pricing-card fade-up">
+      <div class="pc-tier">Starter</div>
+      <div class="pc-name">Health Score</div>
+      <div class="pc-tagline">Daily member health visibility. The intelligence every club should have — at zero cost.</div>
+      <div class="pc-price-row">
+        <div class="pc-price">$0</div>
+        <div class="pc-price-unit">/ month</div>
+      </div>
+      <div class="pc-price-note">Free forever · No credit card required</div>
+      <a href="#" class="pc-cta pc-cta-free">Get Started Free →</a>
+      <div class="pc-divider"></div>
+      <div class="pc-features-label">What's included</div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Daily Member Health Scores</span> — every member, every day</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">At-Risk Flagging</span> — who needs attention today</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Decay Signal Detection</span> — golf, dining, and events combined</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>7-day trend history per member</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>Morning email digest</span></div>
+      <div class="pc-feature"><span class="pc-check-muted">○</span><span style="color:rgba(255,255,255,0.25)">Real-time operational cockpit</span></div>
+      <div class="pc-feature"><span class="pc-check-muted">○</span><span style="color:rgba(255,255,255,0.25)">Automated playbooks</span></div>
+      <div class="pc-feature"><span class="pc-check-muted">○</span><span style="color:rgba(255,255,255,0.25)">AI recovery agents</span></div>
+    </div>
+
+    <!-- PRO -->
+    <div class="pricing-card featured fade-up fade-up-delay-1">
+      <div class="featured-badge">Most Popular · Best Value</div>
+      <div class="pc-tier">Professional</div>
+      <div class="pc-name">Cockpit</div>
+      <div class="pc-tagline">The real-time GM command center. See problems forming — and act before members feel them.</div>
+      <div class="pc-price-row">
+        <div class="pc-price" style="color:var(--gold-light)">$499</div>
+        <div class="pc-price-unit">/ month</div>
+      </div>
+      <div class="pc-price-note">Per club · Billed annually</div>
+      <a href="#" class="pc-cta pc-cta-pro">Book a Demo →</a>
+      <div class="pc-divider"></div>
+      <div class="pc-features-label">Everything in Starter, plus</div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Real-Time Operations Cockpit</span> — live club-wide view</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">F&B Performance Intelligence</span> — margins, covers, conversion</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Pace of Play + Demand Forecasting</span> with weather adjustment</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Staffing Gap Detection</span> — connect complaints to coverage</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">4 Automated Playbooks</span> — Slow Saturday, Service Save, Engagement Decay, Staffing Gap</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">90-day trend history</span> + resignation prediction timeline</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>Member archetype segmentation</span></div>
+      <div class="pc-feature"><span class="pc-check-muted">○</span><span style="color:rgba(255,255,255,0.25)">AI agent automations</span></div>
+    </div>
+
+    <!-- CLUB -->
+    <div class="pricing-card fade-up fade-up-delay-2">
+      <div class="pc-tier">Club Intelligence</div>
+      <div class="pc-name">Full Platform</div>
+      <div class="pc-tagline">AI agents, board-ready ROI reporting, and the complete club intelligence platform. Built for clubs ready to lead.</div>
+      <div class="pc-price-row">
+        <div class="pc-price">$1,499</div>
+        <div class="pc-price-unit">/ month</div>
+      </div>
+      <div class="pc-price-note">Per club · Billed annually</div>
+      <a href="#" class="pc-cta pc-cta-club">Contact Sales →</a>
+      <div class="pc-divider"></div>
+      <div class="pc-features-label">Everything in Pro, plus</div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">AI Recovery Agents</span> — auto-draft personal outreach for at-risk members</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Growth Pipeline Intelligence</span> — prospect scoring and conversion tracking</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Board-Ready ROI Reports</span> — dues protected, churn prevented, $$ saved</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Full platform access</span> — complete intelligence across all decision categories</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span><span class="bold">Unlimited history</span> + year-over-year comparisons</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>Multi-staff access with role-based views</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>Dedicated onboarding + CS team</span></div>
+      <div class="pc-feature"><span class="pc-check">✓</span><span>Custom integrations on request</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES / OUTCOMES -->
+<section class="outcomes-section" id="features">
+  <div class="outcomes-header">
+    <div class="section-eyebrow">Complete Intelligence Coverage</div>
+    <h2 class="section-title">Everything you need to run your club.</h2>
+    <p class="section-sub">Swoop connects your existing systems and surfaces insights that are invisible when they work in isolation.</p>
+  </div>
+  <div class="outcomes-grid">
+    <div class="outcome-card lc-gold fade-up">
+      <div class="outcome-icon">📋</div>
+      <h3>Daily Briefing</h3>
+      <p>Your morning command center. See who needs attention today, which at-risk members have tee times, and what's trending across the club.</p>
+      <span class="outcome-tag tag-free">Free</span>
+    </div>
+    <div class="outcome-card lc-green fade-up fade-up-delay-1">
+      <div class="outcome-icon">📊</div>
+      <h3>Operations Intelligence</h3>
+      <p>Daily revenue, pace of play, demand forecasting, and weather-adjusted staffing — all connected. See exactly how understaffing hits your bottom line.</p>
+      <span class="outcome-tag tag-pro">Pro</span>
+    </div>
+    <div class="outcome-card lc-red fade-up fade-up-delay-2">
+      <div class="outcome-icon">🎯</div>
+      <h3>Member Health & Retention</h3>
+      <p>Health scores, behavioral archetypes, engagement decay tracking, and resignation prediction. Know who's leaving 6–8 weeks before they do.</p>
+      <span class="outcome-tag tag-free">Free → Pro</span>
+    </div>
+    <div class="outcome-card lc-blue fade-up">
+      <div class="outcome-icon">👥</div>
+      <h3>Staffing & Service Quality</h3>
+      <p>Connect complaints to staffing gaps automatically. Get AI-drafted personal recovery outreach for unhappy members — in one click.</p>
+      <span class="outcome-tag tag-pro">Pro</span>
+    </div>
+    <div class="outcome-card lc-purple fade-up fade-up-delay-1">
+      <div class="outcome-icon">🤖</div>
+      <h3>AI Recovery Agents</h3>
+      <p>When a member's health score drops, Swoop can automatically draft personal outreach, schedule a check-in call, or alert your team — without you lifting a finger.</p>
+      <span class="outcome-tag tag-club">Club</span>
+    </div>
+    <div class="outcome-card lc-teal fade-up fade-up-delay-2">
+      <div class="outcome-icon">📈</div>
+      <h3>Growth Pipeline & ROI Proof</h3>
+      <p>Track prospects, measure conversions, and produce board-ready reports showing exactly how much dues revenue Swoop protected this quarter.</p>
+      <span class="outcome-tag tag-club">Club</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="how-header">
+    <div class="section-eyebrow">Getting Started</div>
+    <h2 class="section-title">Live in under two weeks.</h2>
+    <p class="section-sub">No rip-and-replace. Swoop layers onto your existing systems — we connect them, you run the club.</p>
+  </div>
+  <div class="how-steps">
+    <div class="how-step fade-up">
+      <div class="step-circle">01</div>
+      <h4>Connect Your Systems</h4>
+      <p>Plug into ForeTees, Northstar, Jonas, Club Prophet, and more. Secure, read-only API connections. No IT project required.</p>
+    </div>
+    <div class="how-step fade-up fade-up-delay-1">
+      <div class="step-circle">02</div>
+      <h4>Swoop Maps Patterns</h4>
+      <p>Our intelligence engine cross-references data across every platform — finding the decay signals hiding in plain sight.</p>
+    </div>
+    <div class="how-step fade-up fade-up-delay-2">
+      <div class="step-circle">03</div>
+      <h4>Get Your Daily Briefing</h4>
+      <p>Every morning, your dashboard shows who needs attention — at-risk members, complaints, revenue trends, and staffing alerts.</p>
+    </div>
+    <div class="how-step fade-up fade-up-delay-3">
+      <div class="step-circle">04</div>
+      <h4>Act Before It's Too Late</h4>
+      <p>Draft a personal note. Schedule a call. Trigger an AI agent. One-click actions that save members and protect dues revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations-section" id="integrations">
+  <div class="integrations-header">
+    <div class="section-eyebrow">Integrations</div>
+    <h2 class="section-title">Works with everything you already use.</h2>
+    <p class="section-sub">Eight data sources. Fourteen cross-domain insights. Zero disruption to your workflow.</p>
+  </div>
+  <div class="integrations-grid">
+    <div class="int-chip">💳 Point of Sale</div>
+    <div class="int-chip">⛳ Tee Sheet</div>
+    <div class="int-chip">👥 CRM / Membership</div>
+    <div class="int-chip">🌤️ Weather Service</div>
+    <div class="int-chip">📅 Staff Scheduling</div>
+    <div class="int-chip">🍽️ Dining Reservations</div>
+    <div class="int-chip">📒 Accounting</div>
+    <div class="int-chip">✉️ Email & Comms</div>
+  </div>
+  <div class="int-note">
+    <span>🔒</span>
+    Read-only connections · SOC 2 compliant · No data sold or shared · Your members' data stays yours
+  </div>
+</section>
+
+<!-- QUOTES / TESTIMONIALS -->
+<section class="quotes-section">
+  <div class="quotes-header">
+    <div class="section-eyebrow" style="color:var(--gold-light)">From the Field</div>
+    <h2 class="section-title">What GMs actually said.</h2>
+    <p class="section-sub">Pulled directly from club surveys — these are the words operators used to describe their pain.</p>
+  </div>
+  <div class="quotes-grid">
+    <div class="quote-card fade-up">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">I can feel when we're off, but I can't prove it until it's too late.</div>
+      <div class="quote-author">
+        <div class="qa-avatar">GM</div>
+        <div>
+          <div class="qa-name">General Manager</div>
+          <div class="qa-role">Mid-Atlantic Private Club</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card fade-up fade-up-delay-1">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">I manage by anecdote. By the time I see the data, the damage is done.</div>
+      <div class="quote-author">
+        <div class="qa-avatar">GM</div>
+        <div>
+          <div class="qa-name">General Manager</div>
+          <div class="qa-role">Southeast Country Club</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card fade-up fade-up-delay-2">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">I have a CRM, but it's a database, not an early warning system. It tells me who members are, not how they're feeling.</div>
+      <div class="quote-author">
+        <div class="qa-avatar">GM</div>
+        <div>
+          <div class="qa-name">General Manager</div>
+          <div class="qa-role">Midwest Private Club</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <div class="section-eyebrow">Ready to See the Full Picture?</div>
+    <h2 class="cta-title">Every week you wait,<br>another member <em>quietly walks away.</em></h2>
+    <p class="cta-sub">Start with your free Member Health Scores today. No credit card. No commitment. Just the visibility every GM should have.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-cta-primary">Get Started Free →</a>
+      <a href="#" class="btn-cta-free">Book a Demo Instead</a>
+    </div>
+    <div class="risk-stat">
+      <span class="rs-icon">⚠️</span>
+      The average private club loses <strong>&nbsp;$138K+&nbsp;</strong> in preventable resignations per year. <span style="font-size:10px;opacity:0.7;margin-left:6px;">Demo scenario: Pinetree CC</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo-mark">S</div>
+    <span>Swoop Golf</span>
+  </div>
+  <div class="footer-tagline">Integrated Intelligence for Private Clubs</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+    <a href="mailto:ty@swoopgolf.com">ty@swoopgolf.com</a>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth counter animations for hero stats
+function animateCount(el, target, suffix = '', duration = 1800) {
+  const start = performance.now();
+  const isFloat = target.toString().includes('.');
+  const update = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const val = isFloat ? (ease * target).toFixed(1) : Math.floor(ease * target);
+    el.textContent = val + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+</script>
+</body>
+</html>
