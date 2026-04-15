@@ -75,31 +75,54 @@ export function AgentsIllustration() {
 }
 
 export function IntegrationsIllustration() {
-  const center = { x: 160, y: 160 };
-  const radius = 100;
-  const nodes = 8;
+  const cx = 600;
+  const cy = 210;
+  const r = 155;
+  const nodes = [
+    { angle: -90,  label: 'Tee Sheet',         systems: 'Jonas · foreUP · ClubEssentials',    align: 'middle', dxLabel: 0,   dyLabel: -56 },
+    { angle: -45,  label: 'POS & F&B',         systems: 'Lightspeed · Toast · Square',        align: 'start',  dxLabel: 35,  dyLabel: -47 },
+    { angle: 0,    label: 'Member CRM',        systems: 'HubSpot · Salesforce · Mailchimp',   align: 'start',  dxLabel: 50,  dyLabel: -12 },
+    { angle: 45,   label: 'Communications',    systems: 'Twilio · SendGrid · Klaviyo',        align: 'start',  dxLabel: 35,  dyLabel: 35  },
+    { angle: 90,   label: 'Finance & BI',      systems: 'QuickBooks · Tableau · Sage',        align: 'middle', dxLabel: 0,   dyLabel: 44  },
+    { angle: 135,  label: 'Access & Activity', systems: 'Golfgenius · Brivo · Genetec',       align: 'end',    dxLabel: -35, dyLabel: 35  },
+    { angle: 180,  label: 'Staffing & Payroll',systems: 'ADP · 7shifts · Homebase',           align: 'end',    dxLabel: -50, dyLabel: -12 },
+    { angle: -135, label: 'Web & Lead',        systems: 'WordPress · Webflow · Typeform',     align: 'end',    dxLabel: -35, dyLabel: -47 },
+  ];
   return (
-    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style={svgBase} role="img" aria-label="Integration hub connecting many systems">
-      {[...Array(nodes)].map((_, i) => {
-        const rad = (i / nodes) * Math.PI * 2;
-        const x = center.x + Math.cos(rad) * radius;
-        const y = center.y + Math.sin(rad) * radius;
-        return <line key={i} x1={center.x} y1={center.y} x2={x} y2={y} stroke={ORANGE} strokeWidth="1.5" opacity="0.5" strokeDasharray="4 4" />;
+    <svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block', overflow: 'visible' }} role="img" aria-label="Swoop intelligence hub">
+      <defs>
+        <radialGradient id="hg2" cx="50%" cy="50%" r="35%">
+          <stop offset="0%" stopColor="rgba(243,146,45,0.06)" />
+          <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="420" fill="url(#hg2)" />
+      <circle cx={cx} cy={cy} r={r} stroke={ORANGE} strokeWidth="0.5" opacity="0.1" fill="none" />
+      {nodes.map((n) => {
+        const rad = (n.angle * Math.PI) / 180;
+        const x = cx + Math.cos(rad) * r;
+        const y = cy + Math.sin(rad) * r;
+        return <line key={`l-${n.label}`} x1={cx} y1={cy} x2={x.toFixed(1)} y2={y.toFixed(1)} stroke={ORANGE} strokeWidth="1.5" opacity="0.3" strokeDasharray="5 4" />;
       })}
-      {[...Array(nodes)].map((_, i) => {
-        const rad = (i / nodes) * Math.PI * 2;
-        const x = center.x + Math.cos(rad) * radius;
-        const y = center.y + Math.sin(rad) * radius;
+      <circle cx={cx} cy={cy} r="52" fill="rgba(243,146,45,0.09)" stroke={ORANGE} strokeWidth="1.5" />
+      <circle cx={cx} cy={cy} r="36" fill="rgba(243,146,45,0.06)" stroke={ORANGE} strokeWidth="0.8" strokeDasharray="4 4" opacity="0.5" />
+      <text x={cx} y={cy - 6} textAnchor="middle" fontSize="13" fontWeight="800" fill={ORANGE} fontFamily="'Plus Jakarta Sans',system-ui,sans-serif" letterSpacing="0.07em">SWOOP</text>
+      <text x={cx} y={cy + 10} textAnchor="middle" fontSize="9" fill="rgba(243,146,45,0.6)" fontFamily="'JetBrains Mono',monospace" letterSpacing="0.04em">intelligence hub</text>
+      {nodes.map((n) => {
+        const rad = (n.angle * Math.PI) / 180;
+        const x = cx + Math.cos(rad) * r;
+        const y = cy + Math.sin(rad) * r;
+        const lx = x + n.dxLabel;
+        const ly = y + n.dyLabel;
         return (
-          <g key={`n${i}`}>
-            <circle cx={x} cy={y} r="18" fill={PAPER} stroke={INK} strokeWidth="2" />
-            <circle cx={x} cy={y} r="6" fill={ORANGE} />
+          <g key={`n-${n.label}`}>
+            <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="10" fill="rgba(243,146,45,0.12)" stroke={ORANGE} strokeWidth="1" opacity="0.7" />
+            <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="4" fill={ORANGE} opacity="0.9" />
+            <text x={lx.toFixed(1)} y={ly.toFixed(1)} textAnchor={n.align} fontSize="11.5" fontWeight="700" fill="rgba(255,255,255,0.92)" fontFamily="'Plus Jakarta Sans',system-ui,sans-serif">{n.label}</text>
+            <text x={lx.toFixed(1)} y={(ly + 14).toFixed(1)} textAnchor={n.align} fontSize="9.5" fill="rgba(255,255,255,0.4)" fontFamily="'JetBrains Mono',monospace">{n.systems}</text>
           </g>
         );
       })}
-      <circle cx={center.x} cy={center.y} r="44" fill={INK} />
-      <circle cx={center.x} cy={center.y} r="44" fill="none" stroke={ORANGE} strokeWidth="3" />
-      <text x={center.x} y={center.y + 5} textAnchor="middle" fill={PAPER} fontSize="14" fontWeight="700" fontFamily="'Plus Jakarta Sans', sans-serif">HUB</text>
     </svg>
   );
 }

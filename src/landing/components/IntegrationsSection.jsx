@@ -15,7 +15,7 @@ export default function IntegrationsSection() {
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
         @media (min-width: 640px) { .integrations-list { display: none; } }
       `}</style>
-      <div style={{ maxWidth: 520, margin: '0 auto 64px' }}>
+      <div style={{ width: '100%', margin: '0 auto 48px' }}>
         <div className="integrations-ring">
           <IntegrationsIllustration />
         </div>
