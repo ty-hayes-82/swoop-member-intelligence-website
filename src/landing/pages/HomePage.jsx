@@ -6,6 +6,7 @@ import MemberExperienceSection from '@/landing/components/MemberExperienceSectio
 import IntegrationsSection from '@/landing/components/IntegrationsSection';
 import PricingSection from '@/landing/components/PricingSection';
 import AgentsLiveDemo from '@/landing/components/AgentsLiveDemo';
+import InlineCta from '@/landing/components/InlineCta';
 import { theme } from '@/config/theme';
 import { SectionShell, Button } from '@/landing/ui';
 
@@ -83,8 +84,10 @@ export default function HomePage() {
     <LandingShell>
       <HeroSection onDemoClick={toDemoPage} />
       <SeeItFixItProveItSection />
+      <InlineCta text="See how this works at your club →" href="#/contact" />
       <div className="hidden-mobile-section"><AgentRevealSection /></div>
       <MorningBriefingSection />
+      <InlineCta text="Book a walkthrough — see your morning brief →" href="#/contact" />
       <div className="hidden-mobile-section"><MemberExperienceSection /></div>
       <IntegrationsSection />
       <PricingSection onCtaClick={toDemoPage} />

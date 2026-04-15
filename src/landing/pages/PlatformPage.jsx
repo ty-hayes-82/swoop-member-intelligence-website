@@ -102,6 +102,15 @@ export default function PlatformPage() {
         <ComparisonSection />
       </div>
       <SecuritySection />
+      {/* FAQ link — helps skeptical buyers find objection handling without leaving the page */}
+      <div style={{ textAlign: 'center', padding: '16px 0 8px', borderTop: '1px solid rgba(17,17,17,0.06)' }}>
+        <p style={{ fontSize: 14, color: '#666', margin: 0 }}>
+          Still have questions?{' '}
+          <a href="#/about" onClick={() => { window.location.hash = '#/about'; }} style={{ color: '#B8600E', fontWeight: 600, textDecoration: 'none' }}>
+            See answers to common GM questions →
+          </a>
+        </p>
+      </div>
       <div id="pricing">
         <SectionShell band="dark" size="sm">
           <div style={{ textAlign: 'center' }}>
