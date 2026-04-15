@@ -28,11 +28,11 @@ export default function TrustStrip() {
   return (
     <>
       <div style={{ background: '#1A2E25', padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-        <p style={{ textAlign: 'center', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 16px' }}>
-          Trusted by Forward-Thinking Private Clubs
+        <p style={{ textAlign: 'center', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 8px' }}>
+          Built with founding-partner club operators
         </p>
         <p style={{ textAlign: 'center', fontSize: 14, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
-          Founding-partner club logos coming Q3 2025 · Reference calls available on request
+          Names withheld at clubs' request · Reference calls available on your walkthrough
         </p>
       </div>
       <section className="landing-section-sm" style={{ paddingTop: 56, paddingBottom: 16 }}>

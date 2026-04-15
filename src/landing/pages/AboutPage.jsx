@@ -45,9 +45,17 @@ export default function AboutPage() {
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B8600E', marginBottom: 12 }}>
               Why we built this
             </p>
-            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(22px, 2.8vw, 32px)', fontWeight: 800, color: theme.neutrals.ink, margin: '0 0 20px', lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(22px, 2.8vw, 32px)', fontWeight: 800, color: theme.neutrals.ink, margin: '0 0 12px', lineHeight: 1.2 }}>
               I was the GM. These were my spreadsheets.
             </h2>
+            {/* Credential badge — visible BEFORE the narrative so authority hits immediately */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
+              {['Former GM · 4 years in private club ops', 'Co-built with Jonas integration partners', 'Backed by hospitality tech operators'].map(badge => (
+                <span key={badge} style={{ fontSize: 12, fontWeight: 700, color: '#B8600E', background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(184,96,14,0.2)', borderRadius: 999, padding: '4px 12px' }}>
+                  {badge}
+                </span>
+              ))}
+            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 16, color: theme.colors.textSecondary, lineHeight: 1.7 }}>
               <p style={{ margin: 0 }}>
                 For four years, Tyler ran member operations at a 300-member desert club. Every Monday morning started the same way: pulling actives from Jonas, cross-referencing against the tee sheet in a separate tab, manually flagging members who hadn't visited. By the time the brief was assembled, it was 10 AM and two of the members on the list had already played.

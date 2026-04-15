@@ -110,6 +110,9 @@ function ProveStats() {
           </div>
         ))}
       </div>
+      <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: '0 0 16px', fontStyle: 'italic', textAlign: 'center' }}>
+        From Pinetree CC · 300-member founding-partner club · 90-day deployment
+      </p>
       <div style={{ background: '#F9F7F4', padding: '24px 28px', borderRadius: 14, border: '1px solid rgba(17,17,17,0.07)' }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 12px' }}>Real Catch: 6 Weeks Before Non-Renewal</p>
         <blockquote style={{ fontSize: 15, fontStyle: 'italic', color: theme.colors.textSecondary, lineHeight: 1.7, margin: '0 0 14px', padding: 0 }}>

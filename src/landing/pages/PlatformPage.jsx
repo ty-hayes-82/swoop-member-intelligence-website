@@ -71,14 +71,15 @@ export default function PlatformPage() {
       <div id="platform">
         <CoreCapabilitiesSection />
       </div>
-      <InlineCta text="See these six capabilities with your club's data →" targetId="demo-form" />
+      <InlineCta text="See these six capabilities with your club's data →" href="#/contact" />
       <div id="howitworks">
         <HowItWorksSection />
       </div>
+      <InlineCta text="Get a sample daily brief for your club →" href="#/contact" />
       <div id="agents">
         <AgentsSection />
       </div>
-      <InlineCta text="See the agents working live with your numbers →" targetId="demo-form" />
+      <InlineCta text="See the agents working live with your numbers →" href="#/contact" />
       <SaveStorySection />
       {/* Mid-page CTA */}
       <SectionShell band="sand" size="sm">

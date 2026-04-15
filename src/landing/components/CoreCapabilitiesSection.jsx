@@ -74,7 +74,7 @@ export default function CoreCapabilitiesSection() {
                   margin: '8px 0 0',
                   paddingLeft: 16,
                   color: theme.colors.textSecondary,
-                  fontSize: 13,
+                  fontSize: 14,
                   lineHeight: 1.65,
                 }}
               >

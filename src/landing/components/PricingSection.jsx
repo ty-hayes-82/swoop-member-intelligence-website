@@ -75,9 +75,9 @@ function PricingCard({ tier, onCtaClick }) {
               display: 'flex',
               alignItems: 'flex-start',
               gap: 10,
-              fontSize: 15,
+              fontSize: 16,
               color: theme.neutrals.ink,
-              lineHeight: 1.55,
+              lineHeight: 1.6,
             }}
           >
             <Icon name="Check" size={18} color={theme.colors.accent} strokeWidth={3} style={{ flexShrink: 0, marginTop: 2 }} />
