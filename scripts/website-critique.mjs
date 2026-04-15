@@ -11,7 +11,9 @@
  *   6. The Storyteller (Messaging, Copy & Narrative)
  *   7. The First-Timer (First-Visit Experience & Clarity)
  *   8. The Brand Guardian (Brand Consistency & Identity Fidelity)
- * Each agent scores /100; combined = 800-point composite evaluation.
+ *   9. The Mobile Inspector (Mobile UX on 390×844 iPhone)
+ *  10. The Alignment Inspector (Storyboard narrative & demo alignment)
+ * Each agent scores /100; combined = 1000-point composite evaluation.
  *
  * Usage:
  *   GEMINI_API_KEY=<your_key> node scripts/website-critique.mjs
@@ -19,7 +21,7 @@
  * Output:
  *   website-critique-output/<YYYYMMDD_HHMMSS>/
  *     screenshots/        — 5 full-page PNGs
- *     critiques/          — 40 markdown files (5 pages × 8 agents)
+ *     critiques/          — 50 markdown files (5 pages × 10 agents)
  *     recommendations/    — 5 markdown files (one per page, targeting 95/100 per agent)
  *     MASTER_REPORT.md
  */
@@ -47,9 +49,15 @@ const PAGES = [
   { index: '05', slug: 'contact',  hash: '#/contact',  label: 'Contact / Demo'   },
 ];
 
-const FLASH_MODEL = 'gemini-3.1-pro-preview'; // per-page critiques (45 calls)
+const FLASH_MODEL = 'gemini-3.1-pro-preview'; // per-page critiques (50 calls)
 const RECS_MODEL  = 'gemini-3.1-pro-preview'; // per-page recommendations
-const PRO_MODEL   = 'gemini-3-pro-preview';   // master consolidation report
+const PRO_MODEL   = 'gemini-3.1-pro-preview'; // master consolidation report
+
+// Storyboard file for Alignment Inspector lens
+const STORYBOARD_PATH = 'C:\\Users\\tyhay\\Downloads\\swoop_demo_storyboard (5).html';
+
+// Module-level storyboard content — populated in main() before critiques run
+let STORYBOARD_CONTENT = '';
 
 // Provider selection — set CRITIQUE_PROVIDER=claude to use Anthropic Claude
 const CRITIQUE_PROVIDER = (process.env.CRITIQUE_PROVIDER || 'gemini').toLowerCase();
@@ -884,6 +892,85 @@ BEHAVIORAL RULES:
 
     userPromptSuffix: `You are viewing a FULL-PAGE MOBILE SCREENSHOT at 390px viewport width (iPhone 14 equivalent). Evaluate this mobile layout for usability, legibility, and conversion effectiveness. Score each dimension out of 100, produce your Overall Score, and list every mobile-specific issue with specific evidence from the screenshot.`,
   },
+
+  // ── 10. The Alignment Inspector ───────────────────────────────────────────
+  {
+    id:   '10_the_alignment_inspector',
+    name: 'The Alignment Inspector',
+    storyboardRef: true,   // triggers storyboard content injection at runtime
+    systemPrompt: `You are The Alignment Inspector — a strategic brand auditor who measures how faithfully a marketing website reflects the product's sales narrative and demo storyboard. You have been given the full content of the Swoop demo storyboard (appended at the end of this system prompt). Your job is to evaluate whether each page of the Swoop website communicates the same value propositions, design language, feature framing, and audience messaging that the storyboard uses in sales demos.
+
+---
+
+EVALUATION DIMENSIONS (score each /100):
+
+1. NARRATIVE & MESSAGING ALIGNMENT (30%)
+- Is "connect the dots" (fragmented systems → unified intelligence) the central theme?
+- Are the three use cases present: Director morning briefing, GM member retention, Revenue/Board prep?
+- Is "Layer 3" cross-domain synthesis explained as the competitive moat?
+- Are dollar-quantified examples used to anchor value ($31/round, $32K member save, $9,580 leakage)?
+- Are the three pillars (See It, Fix It, Prove It) visible in CTA language and feature hierarchy?
+
+2. FEATURE REPRESENTATION ALIGNMENT (25%)
+- Is the Today View / Morning Briefing positioned as the hero feature replacing 4-system fragmentation?
+- Is the Health Score system and decay sequence concept (first-domino pattern) communicated?
+- Are action recommendations framed as manual-approval (human in loop, not auto-execution)?
+- Is the staffing-to-revenue connection (pace of play → dining conversion → dollars) demonstrated?
+- Is the Board Report generator showcased as a time-saver (6 hours → instant, 4-tab structure)?
+
+3. AUDIENCE & PERSONA ALIGNMENT (20%)
+- Is messaging segmented by persona: Director of Golf, General Manager, Board/Finance?
+- Are pain points articulated before solutions (70% of GMs manually bridge system gaps, etc.)?
+- Are audit-sourced benchmarks present (50% Cockpit preference, 90% value health scores, 60% top-3 staffing concern)?
+
+4. COPY & TONE ALIGNMENT (15%)
+- Does copy use specific scenarios and real-seeming numbers rather than generic benefit statements?
+- Is competitive positioning explicit and specific (vs. Jonas tee sheet, Northstar POS, native CRM)?
+- Are buyer quotes tied to quantified outcomes ("That member is worth $32K…")?
+
+5. VISUAL & DESIGN LANGUAGE ALIGNMENT (10%)
+- Does the overall aesthetic match the storyboard's dark, modern intelligence-product feel?
+- Is a serif font (Fraunces/Playfair Display) used for dramatic hero moments — storyboard uses Playfair Display for story titles?
+- Do page sections mirror the storyboard's demo flow: Set Scene → Show Insight → Drill Detail → Take Action → Quantify Impact?
+
+---
+
+OUTPUT FORMAT:
+
+## Alignment Verdict
+2–3 sentences: How well does this page reflect the storyboard's narrative and demo flow?
+
+**Overall Score: X / 100**
+
+## Dimension Scores
+| Dimension | Score /100 | Key Finding |
+|-----------|-----------|------------|
+| Narrative & Messaging | X | — |
+| Feature Representation | X | — |
+| Audience & Persona | X | — |
+| Copy & Tone | X | — |
+| Visual & Design Language | X | — |
+
+## Aligned Elements
+Specific copy, sections, or design choices that match the storyboard narrative — quote exact text where possible.
+
+## Misaligned Elements
+Specific gaps — what the storyboard emphasizes that the website underplays or omits, ranked by impact on sales conversion.
+
+## Top 3 Alignment Fixes
+The three changes most likely to close the gap between this page and the storyboard's sales story, with specific copy/design recommendations.
+
+---
+
+BEHAVIORAL RULES:
+- Base every finding on specific evidence from the screenshot: quote copy, name sections, cite visual patterns.
+- The storyboard is the authoritative reference. If the website says something differently, that is a misalignment.
+- Score strictly — a page that hits the main themes but misses persona segmentation and dollar quantification should score 60-70, not 85.
+- Do not penalize for known business constraints (no customer logos, placeholder photos, staging domain) per the scoring context above.
+- The storyboard content follows below — use it as your reference for all evaluation.`,
+
+    userPromptSuffix: `Evaluate this page for alignment with the Swoop demo storyboard. The full storyboard content is appended to your system prompt — use it as your reference. Score each dimension out of 100, produce your Overall Score, and list all misaligned elements with specific evidence from what you see in the screenshot.`,
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -1003,9 +1090,13 @@ async function critiquePageWithAgent(genAI, screenshotPath, page, lens, critique
   const imageBuffer = fs.readFileSync(effectivePath);
   const base64Image = imageBuffer.toString('base64');
 
+  const systemInstruction = lens.storyboardRef
+    ? `${lens.systemPrompt}\n\n---\n\nSTORYBOARD CONTENT:\n${STORYBOARD_CONTENT}`
+    : lens.systemPrompt;
+
   const model = genAI.getGenerativeModel({
     model: FLASH_MODEL,
-    systemInstruction: lens.systemPrompt,
+    systemInstruction,
     generationConfig: { maxOutputTokens: 65536 },
   });
 
@@ -1080,10 +1171,14 @@ ${lens.userPromptSuffix}
 
 Be specific — cite exact visible copy, element names, colours, and layout patterns. Do not speculate about elements that are not visible in the screenshot.`;
 
+  const systemPrompt = lens.storyboardRef
+    ? `${lens.systemPrompt}\n\n---\n\nSTORYBOARD CONTENT:\n${STORYBOARD_CONTENT}`
+    : lens.systemPrompt;
+
   const response = await anthropic.messages.create({
     model: CLAUDE_CRITIQUE_MODEL,
     max_tokens: 8192,
-    system: lens.systemPrompt,
+    system: systemPrompt,
     messages: [{
       role: 'user',
       content: [
@@ -1124,7 +1219,7 @@ ${text}
 
 async function runAllCritiques(genAI, screenshotResults, outputDir) {
   const provider = CRITIQUE_PROVIDER === 'claude' ? 'Claude' : 'Gemini';
-  console.log(`\n🤖  Running 8-lens critiques (The Eight Lenses) via ${provider}…`);
+  console.log(`\n🤖  Running 10-lens critiques (The Ten Lenses) via ${provider}…`);
   const critiquesDir = path.join(outputDir, 'critiques');
   await ensureDir(critiquesDir);
 
@@ -1132,7 +1227,7 @@ async function runAllCritiques(genAI, screenshotResults, outputDir) {
 
   for (const page of screenshotResults) {
     console.log(`\n  Page: ${page.label}`);
-    // Fan out all 8 lens calls in parallel for this page
+    // Fan out all 10 lens calls in parallel for this page
     const tasks = AGENT_LENSES.map((lens) => {
       const critiqueFn = CRITIQUE_PROVIDER === 'claude'
         ? critiquePageWithAgentClaude(genAI, page.screenshotPath, page, lens, critiquesDir)
@@ -1587,25 +1682,27 @@ const LENS_FIELD_MAP = {
   'The GM':               'gm',
   'The Closer':           'closer',
   'The Speedster':        'speedster',
-  'The Skeptic':          'skeptic',
-  'The Storyteller':      'storyteller',
-  'The First-Timer':      'firstTimer',
-  'The Brand Guardian':   'brandGuardian',
-  'The Mobile Inspector': 'mobileInspector',
+  'The Skeptic':              'skeptic',
+  'The Storyteller':          'storyteller',
+  'The First-Timer':          'firstTimer',
+  'The Brand Guardian':       'brandGuardian',
+  'The Mobile Inspector':     'mobileInspector',
+  'The Alignment Inspector':  'alignmentInspector',
 };
 
 function extractScores(pageCritiques) {
   const scores = {
-    architect:       null,
-    gm:              null,
-    closer:          null,
-    speedster:       null,
-    skeptic:         null,
-    storyteller:     null,
-    firstTimer:      null,
-    brandGuardian:   null,
-    mobileInspector: null,
-    composite:       null,  // sum of all 9 (/900)
+    architect:          null,
+    gm:                 null,
+    closer:             null,
+    speedster:          null,
+    skeptic:            null,
+    storyteller:        null,
+    firstTimer:         null,
+    brandGuardian:      null,
+    mobileInspector:    null,
+    alignmentInspector: null,
+    composite:          null,  // sum of all 10 (/1000)
   };
 
   for (const c of pageCritiques) {
@@ -1626,7 +1723,7 @@ function extractScores(pageCritiques) {
 }
 
 function allPagesAtTarget(cycleScores) {
-  const TARGET_COMPOSITE = 855; // 95/100 × 9 agents
+  const TARGET_COMPOSITE = 950; // 95/100 × 10 agents
   return Object.values(cycleScores).every(
     (s) => s.composite !== null && s.composite >= TARGET_COMPOSITE
   );
@@ -1680,18 +1777,28 @@ async function main() {
     console.log(`\n🤖  Provider: Gemini (${FLASH_MODEL})`);
   }
 
+  // ── Load storyboard for Alignment Inspector lens ────────────────
+  try {
+    STORYBOARD_CONTENT = fs.readFileSync(STORYBOARD_PATH, 'utf8');
+    console.log(`\nStoryboard loaded (${Math.round(STORYBOARD_CONTENT.length / 1024)}KB) for Alignment Inspector`);
+  } catch (err) {
+    console.warn(`\nCould not load storyboard at ${STORYBOARD_PATH}: ${err.message}`);
+    console.warn('Alignment Inspector will run without storyboard reference.\n');
+  }
+
   const run = timestamp();
   const outputDir = path.join(
     path.dirname(fileURLToPath(import.meta.url)),
     '..',
-    'website-critique-output',
-    run
+    '..',
+    'critiques',
+    `website-${run}`
   );
   await ensureDir(outputDir);
 
   console.log(`\n🚀  Swoop Website Critique — run ${run}`);
   console.log(`📁  Output: ${outputDir}`);
-  console.log(`🎯  Target: 855+/900 composite (95/100 per agent across all 9 lenses)\n`);
+  console.log(`🎯  Target: 950+/1000 composite (95/100 per agent across all 10 lenses)\n`);
 
   // ── 1. Screenshots ──────────────────────────────────────────────────────
   const screenshotResults = await takeScreenshots(outputDir);
@@ -1700,7 +1807,7 @@ async function main() {
     process.exit(1);
   }
 
-  // ── 2. Critiques (8 agents × 5 pages = 40 critiques) ───────────────────
+  // ── 2. Critiques (10 agents × 5 pages = 50 critiques) ───────────────────
   const allCritiques = await runAllCritiques(CRITIQUE_PROVIDER === 'claude' ? anthropic : genAI, screenshotResults, outputDir);
 
   // ── 3. Extract & print scores ───────────────────────────────────────────
