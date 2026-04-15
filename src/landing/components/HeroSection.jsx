@@ -265,7 +265,7 @@ export default function HeroSection({ onDemoClick }) {
 
         {/* Trust bullets */}
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 48 }}>
-          {['Live in under 2 weeks', 'Members flagged before they churn', 'Works with systems you already have'].map((item) => (
+          {['4 systems, 1 screen, zero Saturday morning tab-switching', 'Members flagged before they churn', 'Live in under 2 weeks'].map((item) => (
             <span
               key={item}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(255,255,255,0.78)', fontWeight: 500 }}

@@ -6,7 +6,7 @@ const agentRows = [
   { label: 'Service Recovery',     detail: 'Mid-comp drafted · Golf Room',           value: '$11K',   positive: true },
   { label: 'Demand Optimizer',     detail: 'Full-fare slots routed to 5 members',    value: '-$1.5K', positive: false },
   { label: 'Labor Optimizer',      detail: '2 FOH shifts added · Grill lunch',       value: '$3.2K',  positive: true },
-  { label: 'Engagement Autopilot', detail: '18 member outreach sequences',           value: '$42.4K', positive: true },
+  { label: 'Engagement Advisor',   detail: '18 member outreach sequences',           value: '$42.4K', positive: true },
   { label: 'Revenue Analyst',      detail: 'Board revenue report ready',             value: '$12K',   positive: true },
 ];
 
@@ -113,6 +113,29 @@ function ProveStats() {
       <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: '0 0 16px', fontStyle: 'italic', textAlign: 'center' }}>
         From Pinetree CC · 300-member founding-partner club · 90-day deployment
       </p>
+      <div style={{ background: '#1B1814', borderRadius: 12, padding: '20px 24px', marginBottom: 4 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.brass || '#B5956A', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 10px' }}>
+          F&amp;B LEAKAGE · BOARD-READY DECOMPOSITION
+        </p>
+        <p style={{ fontSize: 32, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 14px', lineHeight: 1, letterSpacing: '-0.02em' }}>
+          $9,580/mo
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {[
+            ['Pace of play → lost post-round dining', '$5,760'],
+            ['Understaffed Fridays', '$3,400'],
+            ['Weather no-shows, no cancellation outreach', '$420'],
+          ].map(([label, val]) => (
+            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.70)' }}>
+              <span>{label}</span>
+              <span style={{ fontFamily: theme.fonts.mono, color: theme.colors.accent, fontWeight: 700 }}>{val}</span>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', margin: '12px 0 0', fontStyle: 'italic' }}>
+          Illustrative decomposition — Swoop generates this breakdown in the Board Report
+        </p>
+      </div>
       <div style={{ background: '#F9F7F4', padding: '24px 28px', borderRadius: 14, border: '1px solid rgba(17,17,17,0.07)' }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 12px' }}>Real Catch: 6 Weeks Before Non-Renewal</p>
         <blockquote style={{ fontSize: 15, fontStyle: 'italic', color: theme.colors.textSecondary, lineHeight: 1.7, margin: '0 0 14px', padding: 0 }}>
@@ -130,7 +153,7 @@ const blocks = [
   {
     eyebrow: 'SEE IT',
     headline: 'One screen. Every signal. Before the first tee time.',
-    copy: 'Your tee sheet knows rounds. Your POS knows spend. Your CRM knows complaints. None of them know that James Whitfield has an unresolved complaint, a tee time in 90 minutes, and his dining visits dropped 40% this month. Swoop connects them into a single morning briefing that shows you exactly who needs attention and why.',
+    copy: 'Your tee sheet knows rounds. Your POS knows spend. Your CRM knows complaints. None of them know that James Whitfield has an unresolved complaint, a tee time in 90 minutes, and his dining visits dropped 40% this month. This is the disengagement arc: email engagement fades first, golf frequency follows, dining stops last. Swoop reads all three simultaneously — and every slow round that skips post-round dining costs the club $31. One screen. Four systems. Zero Saturday morning tab-switching.',
     memberDisclaimer: true,
     visual: <MorningBriefingPanel />,
   },
@@ -143,7 +166,7 @@ const blocks = [
   {
     eyebrow: 'PROVE IT',
     headline: 'Take a dollar number to the board. Not a feeling.',
-    copy: 'Every intervention is tracked. Every outcome is measured. Swoop generates a board-ready report that shows exactly how many members were protected, how much revenue was recovered, and what the retention rate looks like. One click. No spreadsheet assembly required.',
+    copy: 'Every intervention is tracked. Every outcome is measured. Swoop generates a board-ready report that shows exactly how many members were protected, how much revenue was recovered, and what the retention rate looks like. One click generates a 4-tab board report: Summary, Member Saves, Operational Saves, and What We Learned — sourced, attributed, and forwarded without rewriting.',
     visual: <ProveStats />,
   },
 ];

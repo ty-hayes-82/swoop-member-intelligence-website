@@ -8,7 +8,7 @@ import { SectionShell, FaqItem, Button } from '@/landing/ui';
 const pricingStats = [
   { value: '65%', label: 'Avg. at-risk member retention rate', source: 'Swoop 2024 Cohort' },
   { value: '$74K', label: 'Avg. dues recovered per club in first 90 days', source: 'Swoop 2024 Cohort' },
-  { value: '5 of 7', label: 'Founding clubs recovered annual cost within 60 days', source: 'Swoop 2024 Cohort' },
+  { value: '$9,580', label: 'Avg monthly F&B leakage surfaced — pace of play, staffing, weather', source: 'Swoop Founding-Partner Data' },
 ];
 
 function PricingHero() {
