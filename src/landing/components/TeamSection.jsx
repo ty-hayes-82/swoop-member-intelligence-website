@@ -107,8 +107,6 @@ export default function TeamSection() {
           background: theme.neutrals.ink,
           borderRadius: 20,
           padding: 'clamp(24px, 4vw, 40px)',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
           gap: 32,
           alignItems: 'center',
         }}
@@ -149,7 +147,7 @@ export default function TeamSection() {
           {[
             { stat: '46', label: 'production tools in orchestration' },
             { stat: '12 mo', label: 'of founding-partner data + model training' },
-            { stat: '#1', label: 'preferred Jonas Club integration partner' },
+            { stat: '✓', label: 'Preferred Jonas Club integration partner' },
           ].map(s => (
             <div
               key={s.stat}

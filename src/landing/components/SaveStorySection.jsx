@@ -142,7 +142,7 @@ function ProveItPanel() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
           gap: 16,
           marginBottom: 24,
         }}
@@ -184,11 +184,16 @@ function ProveItPanel() {
         <p style={{ fontSize: 17, fontWeight: 600, color: theme.neutrals.ink, margin: 0 }}>
           Karen Wittman, <em>nine years</em>.
         </p>
-        <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: 0 }}>
-          CRM said <em>active</em>. POS: last tab 18 days ago. Tee sheet: no-show three Wednesdays.{' '}
-          <strong style={{ color: theme.neutrals.ink }}>Not one system flagged her.</strong> Together they did.
-          A comp dinner went out Tuesday. Karen renewed in November.
-        </p>
+        <div style={{ marginTop: 16, padding: '16px 20px', background: 'rgba(255,255,255,0.06)', borderRadius: 12, borderLeft: '3px solid #F3922D' }}>
+          <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: 0 }}>
+            CRM said <em>active</em>. POS: last tab 18 days ago. Tee sheet: no-show three Wednesdays.{' '}
+            <strong style={{ color: theme.neutrals.ink }}>Not one system flagged her.</strong> Together they did.
+            A comp dinner went out Tuesday. Karen renewed in November.
+          </p>
+          <p style={{ fontSize: 11, fontFamily: theme.fonts.mono, color: 'rgba(255,255,255,0.55)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '8px 0 0' }}>
+            Case Snapshot · Karen Wittman · 9-Year Member
+          </p>
+        </div>
       </Card>
 
       <p style={{ fontSize: 14, color: theme.colors.textSecondary, marginTop: 20, lineHeight: 1.65 }}>
@@ -204,8 +209,6 @@ export default function SaveStorySection() {
     <SectionShell band="cream">
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
           gap: 'clamp(40px, 6vw, 80px)',
           alignItems: 'start',
         }}

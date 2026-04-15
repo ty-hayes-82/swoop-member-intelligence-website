@@ -99,7 +99,7 @@ function ProveStats() {
   ];
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: 12 }}>
         {stats.map(s => (
           <div key={s.value} style={{ background: theme.neutrals.paper, border: '1px solid rgba(17,17,17,0.08)', borderRadius: 14, padding: '18px 12px', textAlign: 'center' }}>
             <p style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 4px', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.value}</p>
@@ -160,8 +160,6 @@ export default function SeeItFixItProveItSection() {
             <div
               className="landing-split"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
                 gap: 'clamp(40px, 6vw, 80px)',
                 alignItems: 'center',
                 direction: isEven ? 'ltr' : 'rtl',

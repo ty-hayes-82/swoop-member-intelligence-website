@@ -74,7 +74,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                 textWrap: 'balance',
               }}
             >
-              See what Swoop would find at your club — in 15 minutes.
+              See what Swoop would find at your club — in 30 minutes.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
               Book a live walkthrough with your own operating scenarios: tee sheet leakage, at-risk
@@ -95,7 +95,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             </div>
 
             {/* What happens next */}
-            <div style={{ padding: '16px 20px', background: 'rgba(255,255,255,0.05)', borderRadius: 10, fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>
+            <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>
               <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 10 }}>What happens next:</strong>
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
                 <li>We confirm your slot within 1 business day</li>
@@ -183,10 +183,17 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                   </Button>
                 </form>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>🔒 AES-256 Encryption</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>🛡️ SOC 2 Type II (Audit Active)</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.80)', fontSize: 12 }}>📄 Mutual NDA on Every Engagement</span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 16px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  {[
+                    { icon: '■', label: 'AES-256 Encryption' },
+                    { icon: '◆', label: 'SOC 2 Type II' },
+                    { icon: '◉', label: 'Mutual NDA Included' },
+                  ].map(({ icon, label }) => (
+                    <span key={label} style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'rgba(255,255,255,0.78)', fontSize: 11, fontFamily: theme.fonts.mono, letterSpacing: '0.04em' }}>
+                      <span style={{ color: theme.colors.brass || '#B5956A', fontSize: 8 }}>{icon}</span>
+                      {label}
+                    </span>
+                  ))}
                 </div>
 
                 {status === 'error' && feedback && (

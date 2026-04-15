@@ -164,8 +164,6 @@ export default function HowItWorksSection() {
     >
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
           gap: 'clamp(32px, 5vw, 64px)',
           alignItems: 'center',
         }}

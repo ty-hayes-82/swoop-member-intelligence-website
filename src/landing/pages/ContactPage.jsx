@@ -80,8 +80,11 @@ function TechDisclosurePanel() {
   return (
     <section className="landing-section-sm" style={{ background: '#FAF7F2', borderTop: '1px solid rgba(17,17,17,0.07)' }}>
       <div className="landing-container" style={{ maxWidth: 640 }}>
-        <details style={{ border: '1px solid rgba(0,0,0,0.1)', borderRadius: 8, padding: '16px 20px', maxWidth: 640, marginInline: 'auto' }}>
-          <summary style={{ fontWeight: 600, cursor: 'pointer', fontSize: 15 }}>Data handling &amp; security details</summary>
+        <details style={{ border: '1px solid rgba(17,17,17,0.12)', borderRadius: 16, padding: '18px 24px', maxWidth: 640, marginInline: 'auto', background: '#fff' }}>
+          <summary style={{ fontWeight: 700, cursor: 'pointer', fontSize: 15, letterSpacing: '-0.01em', color: theme.neutrals.ink, display: 'flex', justifyContent: 'space-between', alignItems: 'center', listStyle: 'none' }}>
+            <span>Data handling &amp; security details</span>
+            <span style={{ fontSize: 18, color: theme.colors.accent, fontWeight: 300, flexShrink: 0, marginLeft: 12 }}>+</span>
+          </summary>
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe.</p>
@@ -125,7 +128,7 @@ function MinimalFooter() {
       background: theme.neutrals.paper,
       fontSize: 12, color: '#6b7280',
     }}>
-      <span>© {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.</span>
+      <span>© {new Date().getFullYear()} Swoop Golf, Inc. · Scottsdale, AZ · <a href="mailto:gm-support@swoopgolf.com" style={{ color: '#6b7280', textDecoration: 'none' }}>gm-support@swoopgolf.com</a></span>
       <div style={{ display: 'flex', gap: 16 }}>
         <a href="#/privacy" style={{ color: '#6b7280', textDecoration: 'none' }}>Privacy Policy</a>
         <a href="#/terms" style={{ color: '#6b7280', textDecoration: 'none' }}>Terms of Service</a>
@@ -141,7 +144,7 @@ export default function ContactPage() {
       <main>
         <ErrorBoundary>
           <ContactHeroPanel />
-          <DemoCtaSection ctaLabel="Get My Custom Retention Plan" />
+          <DemoCtaSection ctaLabel="Request My 30-Min Walkthrough →" />
           <TechDisclosurePanel />
         </ErrorBoundary>
       </main>
