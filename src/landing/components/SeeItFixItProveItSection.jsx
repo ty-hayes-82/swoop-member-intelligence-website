@@ -156,20 +156,20 @@ const blocks = [
   {
     eyebrow: 'SEE IT',
     headline: 'Every signal. One screen. Before the first tee time.',
-    copy: 'Your tee sheet, POS, and CRM each see part of the picture. None of them know James Whitfield has an unresolved complaint and a tee time in 90 minutes. Swoop reads all three overnight and flags it at 6 AM.',
+    copy: 'James Whitfield has an unresolved complaint and a tee time in 90 minutes. Your tee sheet doesn\'t know. Swoop does — by 6 AM.',
     memberDisclaimer: true,
     visual: <MorningBriefingPanel />,
   },
   {
     eyebrow: 'FIX IT',
     headline: 'The right action. The right person. Right now.',
-    copy: "Swoop doesn't just flag the at-risk member — it drafts the callback script, the comp offer, or the staffing shift. You review and approve. AI never contacts your members directly.",
+    copy: 'Callback script, comp offer, staffing shift — drafted. You approve. AI never contacts members directly.',
     visual: <ActionCard />,
   },
   {
     eyebrow: 'PROVE IT',
     headline: 'Take a dollar number to the board. Not a feeling.',
-    copy: 'Every intervention tracked. Every outcome measured. One click generates a 4-tab board report — members protected, revenue recovered, retention rate — sourced and attributed, no rewriting required.',
+    copy: 'One click. 4-tab board report — members protected, revenue recovered, retention rate. Sourced and attributed.',
     visual: <ProveStats />,
   },
 ];

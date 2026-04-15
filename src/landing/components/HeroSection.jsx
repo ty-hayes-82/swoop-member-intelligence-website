@@ -170,24 +170,9 @@ export default function HeroSection({ onDemoClick }) {
             letterSpacing: '-0.02em',
           }}
         >
-          Your tee sheet, POS, and CRM each see part of the picture.{' '}
-          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Swoop assembles it into one 6 AM brief.</em>
+          One 6 AM brief.<br />
+          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Every system. The next move, already drafted.</em>
         </h1>
-
-        {/* Subheadline */}
-        <p
-          style={{
-            fontSize: 18,
-            fontWeight: 500,
-            lineHeight: 1.65,
-            color: 'rgba(255,255,255,0.85)',
-            margin: '0 auto 16px',
-            maxWidth: 560,
-            textAlign: 'center',
-          }}
-        >
-          Most software tells you what happened. Swoop tells you what to do next.
-        </p>
 
         {/* CTAs */}
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 32, marginBottom: 16 }}>

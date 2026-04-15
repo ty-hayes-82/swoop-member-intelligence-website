@@ -4,10 +4,10 @@ import { SectionShell, Card, IconBadge } from '@/landing/ui';
 import { IntegrationsIllustration } from '@/landing/assets/Illustrations';
 
 const swoopUnique = [
-  { title: 'Real-Time Location Intelligence', desc: 'GPS and behavioral data from the Swoop member app. On-property movement patterns that no POS, tee sheet, or CRM captures.' },
-  { title: 'Layer 3 Behavioral Correlation', desc: 'How a member\'s dining patterns predict their tee sheet behavior. Swoop acts as a Layer 3 intelligence engine, connecting the dots across domains your systems cannot see alone — correlating dining, tee sheet, and CRM signals simultaneously.' },
-  { title: 'AI-Powered Predictive Recommendations', desc: 'Your systems collect data. Swoop interprets it and recommends specific actions with measurable outcomes — before problems become resignations.' },
-  { title: 'Closed-Loop Engagement Tracking', desc: 'From signal detection to GM action to member response to outcome measurement. Your existing tools stop at the data layer. Swoop closes the loop.' },
+  { title: 'Real-Time Location Intelligence', desc: 'On-property movement your POS can\'t see.' },
+  { title: 'Layer 3 Behavioral Correlation', desc: 'Dining patterns that predict tee sheet churn.' },
+  { title: 'Predictive Recommendations', desc: 'Specific actions, measurable outcomes.' },
+  { title: 'Closed-Loop Tracking', desc: 'Signal → action → outcome, all attributed.' },
 ];
 
 export default function IntegrationsSection() {
@@ -15,8 +15,8 @@ export default function IntegrationsSection() {
     <SectionShell
       band="dark"
       eyebrow="Integrations"
-      title="Your tools store the data. Swoop tells you exactly how to act on it."
-      subtitle="Your POS, tee sheet, and CRM don't talk to each other. Swoop connects them overnight, spots the gaps between a canceled tee time and a missed dinner, and tells you how to respond. Our team handles all the API mapping — whether you're cloud-based or running legacy on-premise systems like Jonas. You just log in."
+      title="Your tools store the data. Swoop tells you how to act on it."
+      subtitle="Your POS, tee sheet, and CRM don't talk to each other. Swoop connects them overnight — cloud or legacy Jonas — and our team handles the API mapping."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }

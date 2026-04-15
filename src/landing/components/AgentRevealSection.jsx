@@ -5,47 +5,30 @@ const narrativeBlocks = [
   {
     time: 'The Morning',
     agents: 'For the General Manager',
-    headline: 'Before you open your laptop, your morning briefing is ready.',
-    points: [
-      { label: 'Pattern Identified', text: 'Overnight review of all systems and signals.' },
-      { label: 'Action Taken', text: 'Assembled prioritized action plan ranked by dollars at risk.' },
-      { label: 'Outcome', text: '6 hours of multi-system spreadsheet assembly → instant 4-tab briefing. Three decisions before 7 AM.' }
-    ],
+    headline: 'Before you open your laptop, your brief is ready.',
+    outcome: '6 hrs of spreadsheet work → three decisions before 7 AM.',
     callout: '> $18K dues at risk. Call James Whitfield before 10:15 AM.',
   },
   {
     time: 'The Watch',
     agents: 'For the Director of Golf',
-    headline: 'The complaint was filed Tuesday. By Thursday, the agent escalated it.',
-    points: [
-      { label: 'Pattern Identified', text: 'Service recovery window breached on dining complaint.' },
-      { label: 'Action Taken', text: 'Cross-referenced with upcoming 9:20 AM tee time.' },
-      { label: 'Outcome', text: 'Coordinated recovery action surfaced before staff noticed.' }
-    ],
+    headline: 'Complaint filed Tuesday. Caught before the Thursday tee time.',
+    outcome: 'Service window surfaced before staff noticed.',
     callout: '> Complaint aging 6 days · dining visits ↓40% · tee time 9:20 AM today.',
   },
   {
     time: 'The Pace',
     agents: 'For the F&B Director',
     headline: 'Hole 12 backup is cutting post-round dining by 19 points.',
-    points: [
-      { label: 'Pattern Identified', text: '14-minute backup on Hole 12 directly correlates to canceled post-round dining reservations — dining conversion dropped from 41% to 22%.' },
-      { label: 'Action Taken', text: 'Alerted Ranger to Hole 12 bottleneck. Notified F&B to hold tables 15 extra minutes on Saturday rounds.' },
-      { label: 'Outcome', text: '$31 per round recovered in F&B revenue.' }
-    ],
+    outcome: '$31/round recovered. Ranger + F&B alerted in one message.',
     callout: '> $31/round recovered · dining conversion restored · F&B notified.',
   },
   {
     time: 'The Floor',
     agents: 'For the GM & F&B Director',
-    headline: 'Two servers called out. The agent alerted the manager to shift staff before the lunch rush.',
-    points: [
-      { label: 'Pattern Identified', text: 'Grill Room understaffed during high-value member bookings.' },
-      { label: 'Action Taken', text: 'Recommended floater redeployment and outlet prioritization.' },
-      { label: 'Outcome', text: '3 VIP tables covered without service drop-off.' }
-    ],
+    headline: 'Two servers called out. Shift covered before the lunch rush.',
+    outcome: '3 VIP tables covered without service drop-off.',
     callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 VIP tables covered.',
-    execution: 'Automatically drafts an SMS to your F&B Director with the recommended shift swap to approve in one tap. AI never sends without your sign-off.',
   },
 ];
 
@@ -55,7 +38,7 @@ export default function AgentRevealSection() {
       band="dark"
       eyebrow="YOU HAVE A 300-MEMBER CLUB AND A 12-PERSON STAFF."
       title="Now you have a team that never sleeps."
-      subtitle="Four specialized agents monitor your operations continuously. They surface what matters, recommend what to do, and learn what works. You approve. They execute."
+      subtitle="Four agents watch your operations 24/7. They propose. You approve. Outcomes tracked."
     >
       <div
         style={{
@@ -89,21 +72,12 @@ export default function AgentRevealSection() {
             <h5 style={{ fontFamily: theme.fonts.serif, fontSize: 18, fontWeight: 700, color: '#FFFFFF', margin: 0, lineHeight: 1.35 }}>
               {block.headline}
             </h5>
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {block.points.map((pt, i) => (
-                <li key={i} style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55 }}>
-                  <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>{pt.label}:</strong> {pt.text}
-                </li>
-              ))}
-            </ul>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, margin: 0 }}>
+              {block.outcome}
+            </p>
             <div style={{ marginTop: 'auto', background: 'rgba(0,0,0,0.50)', padding: '10px 14px', borderRadius: 8, fontFamily: theme.fonts.mono, fontSize: 12, color: '#F3922D', lineHeight: 1.5 }}>
               {block.callout}
             </div>
-            {block.execution && (
-              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '10px 14px', fontSize: 12, color: 'rgba(255,255,255,0.72)', lineHeight: 1.6 }}>
-                <span style={{ color: 'rgba(255,255,255,0.80)', fontWeight: 600 }}>Execution: </span>{block.execution}
-              </div>
-            )}
           </div>
         ))}
       </div>

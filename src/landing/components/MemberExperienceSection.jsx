@@ -83,17 +83,6 @@ export default function MemberExperienceSection() {
             <p style={{ fontSize: 15, color: theme.colors.textSecondary, lineHeight: 1.7, margin: 0 }}>
               {tp.story}
             </p>
-            <div
-              style={{
-                borderTop: '1px solid rgba(17,17,17,0.08)',
-                paddingTop: 14,
-                marginTop: 'auto',
-              }}
-            >
-              <p style={{ fontSize: 12, color: theme.colors.textMuted, lineHeight: 1.55, margin: 0, fontStyle: 'italic' }}>
-                ▸ {tp.how}
-              </p>
-            </div>
           </Card>
         ))}
       </div>
