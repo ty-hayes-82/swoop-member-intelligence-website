@@ -77,7 +77,7 @@ export default function ProblemSection() {
         ))}
       </div>
 
-      <p style={{ fontSize: 11, color: '#888', textAlign: 'center', marginTop: 24, fontStyle: 'italic' }}>
+      <p style={{ fontSize: 12, color: '#666', textAlign: 'center', marginTop: 24, fontStyle: 'italic' }}>
         Confidence scores reflect Swoop's signal-weighted detection accuracy across founding-partner data from our 300-member Pinetree CC deployment, Q4 2023.
       </p>
 

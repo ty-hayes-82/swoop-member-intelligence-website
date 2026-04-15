@@ -53,7 +53,7 @@ function PricingCard({ tier, onCtaClick }) {
         </span>
       )}
       {isPopular && tier.badgeFootnote && (
-        <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: '20px 0 -4px', textAlign: 'center', fontStyle: 'italic' }}>
+        <p style={{ fontSize: 12, color: theme.colors.textMuted, margin: '20px 0 -4px', textAlign: 'center', fontStyle: 'italic' }}>
           {tier.badgeFootnote}
         </p>
       )}

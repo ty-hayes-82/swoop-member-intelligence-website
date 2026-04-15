@@ -84,7 +84,7 @@ function ActionCard() {
       <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 14, fontFamily: theme.fonts.sans, fontStyle: 'italic', lineHeight: 1.6, margin: '0 0 14px', borderLeft: `3px solid ${theme.colors.accent}`, paddingLeft: 14 }}>
         "Mark — it's been a rough month. I'd like to personally comp two guest passes for your son's group this Sunday. — GM"
       </p>
-      <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: 0 }}>
+      <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 12, margin: 0 }}>
         ✓ GM approved · $8,400 dues protected · 1 tap · 0 spreadsheets
       </p>
     </div>

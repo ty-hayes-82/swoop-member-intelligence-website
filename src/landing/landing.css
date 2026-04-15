@@ -648,4 +648,5 @@ details[open] .faq-toggle-icon { transform: rotate(45deg); }
   .landing-roi-grid {
     grid-template-columns: 1fr !important;
   }
+  .landing-footer-links { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
 }

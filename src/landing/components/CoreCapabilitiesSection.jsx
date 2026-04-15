@@ -109,7 +109,7 @@ export default function CoreCapabilitiesSection() {
                   </p>
                   <p style={{ fontSize: 12, color: '#555', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', margin: '4px 0 0' }}>{cap.metric.label}</p>
                   {cap.metric.source && (
-                    <p style={{ fontSize: 11, color: '#888', margin: '4px 0 0' }}>{cap.metric.source}</p>
+                    <p style={{ fontSize: 12, color: '#666', margin: '4px 0 0' }}>{cap.metric.source}</p>
                   )}
                 </div>
               )}
@@ -118,7 +118,7 @@ export default function CoreCapabilitiesSection() {
           );
         })}
       </div>
-      <p style={{ fontSize: 11, color: '#888', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginTop: 24, maxWidth: 560, marginInline: 'auto' }}>
+      <p style={{ fontSize: 12, color: '#666', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginTop: 24, maxWidth: 560, marginInline: 'auto' }}>
         * Metrics represent average impact observed at a 500-member club over a trailing 90-day period.
       </p>
 

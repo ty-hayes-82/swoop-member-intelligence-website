@@ -54,7 +54,7 @@ export default function ComparisonSection() {
       >
         ← swipe to compare every column →
       </p>
-      <p style={{ fontSize: 11, color: '#888', marginTop: 12, fontStyle: 'italic' }}>
+      <p style={{ fontSize: 12, color: '#666', marginTop: 12, fontStyle: 'italic' }}>
         Comparison based on published feature matrices as of {new Date().getFullYear()}.
       </p>
 

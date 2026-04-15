@@ -105,7 +105,7 @@ function FixItPanel() {
           "Mark — it's been a rough month. I'd like to personally comp two guest passes for your
           son's group this Sunday. — GM"
         </p>
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: 0 }}>
+        <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 12, margin: 0 }}>
           ✓ GM approved · $8,400 dues protected · 1 tap · 0 spreadsheets
         </p>
       </div>

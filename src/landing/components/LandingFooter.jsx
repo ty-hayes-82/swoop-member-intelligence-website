@@ -103,7 +103,7 @@ export default function LandingFooter() {
           <span style={{ fontSize: 12, color: '#6b7280' }}>
             © {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.
           </span>
-          <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          <div className="landing-footer-links" style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <a href="#/contact" style={{ color: '#4b5563', fontSize: 14, textDecoration: 'none', minHeight: 44, minWidth: 44, display: 'inline-flex', alignItems: 'center' }}>
               Talk to a GM who's using it →
             </a>
