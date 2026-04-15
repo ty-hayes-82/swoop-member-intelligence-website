@@ -43,7 +43,7 @@ export default function SocialProofSection({ onCtaClick }) {
         className="landing-metric-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: 20,
           marginBottom: 16,
         }}

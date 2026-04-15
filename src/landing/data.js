@@ -220,7 +220,7 @@ export const agents = [
   {
     icon: 'RefreshCw',
     name: 'Engagement Autopilot',
-    description: 'Monitors declining participation and proposes targeted outreach for member reactivation.',
+    description: "Spots members who haven't visited in 30 days and drafts a personal invite to get them back.",
   },
 ];
 

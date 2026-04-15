@@ -1,0 +1,65 @@
+{
+  "run": "2026-04-15T01-36-59",
+  "scores": {
+    "home": {
+      "architect": 82,
+      "gm": 94,
+      "closer": 90,
+      "speedster": 94,
+      "skeptic": 92,
+      "storyteller": 94,
+      "firstTimer": 95,
+      "brandGuardian": 95,
+      "mobileInspector": 62,
+      "composite": 798
+    },
+    "platform": {
+      "architect": 86,
+      "gm": 94,
+      "closer": 90,
+      "speedster": 84,
+      "skeptic": 86,
+      "storyteller": 94,
+      "firstTimer": 94,
+      "brandGuardian": 97,
+      "mobileInspector": 82,
+      "composite": 807
+    },
+    "pricing": {
+      "architect": 82,
+      "gm": 92,
+      "closer": 92,
+      "speedster": 92,
+      "skeptic": 92,
+      "storyteller": 95,
+      "firstTimer": 94,
+      "brandGuardian": 96,
+      "mobileInspector": 87,
+      "composite": 822
+    },
+    "about": {
+      "architect": 84,
+      "gm": 95,
+      "closer": 91,
+      "speedster": 94,
+      "skeptic": 82,
+      "storyteller": 94,
+      "firstTimer": 94,
+      "brandGuardian": 91,
+      "mobileInspector": 84,
+      "composite": 809
+    },
+    "contact": {
+      "architect": 79,
+      "gm": 92,
+      "closer": 90,
+      "speedster": 89,
+      "skeptic": 80,
+      "storyteller": 89,
+      "firstTimer": 92,
+      "brandGuardian": 81,
+      "mobileInspector": 88,
+      "composite": 780
+    }
+  }
+}

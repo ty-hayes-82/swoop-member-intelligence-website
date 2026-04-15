@@ -243,7 +243,7 @@ export default function HeroSection({ onDemoClick }) {
         </div>
 
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', marginBottom: 24 }}>
-          No credit card · No IT lift · Live in 2 weeks · Cancel any time
+          No credit card · No IT lift · Live in 2 weeks · Zero member data sold or shared.
         </p>
 
         {/* Social proof quote */}
@@ -265,7 +265,7 @@ export default function HeroSection({ onDemoClick }) {
               key={item}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(255,255,255,0.78)', fontWeight: 500 }}
             >
-              <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#4ade80', flexShrink: 0 }} />
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'rgba(243,146,45,0.15)', border: '1px solid rgba(243,146,45,0.3)', color: '#F3922D', flexShrink: 0 }} />
               {item}
             </span>
           ))}
@@ -275,7 +275,7 @@ export default function HeroSection({ onDemoClick }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             borderRadius: 20,
             overflow: 'hidden',
             border: '1px solid rgba(255,255,255,0.10)',

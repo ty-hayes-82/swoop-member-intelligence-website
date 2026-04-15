@@ -23,10 +23,10 @@ function PricingCard({ tier, onCtaClick }) {
         padding: isPopular ? 36 : 28,
         position: 'relative',
         ...(isPopular && {
-          transform: 'translateY(-12px) scale(1.03)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 30px 60px rgba(243,146,45,0.22)',
+          transform: 'translateY(-8px)',
+          boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
           border: '2px solid #F3922D',
-          zIndex: 1,
+          zIndex: 10,
         }),
       }}
     >
@@ -63,6 +63,9 @@ function PricingCard({ tier, onCtaClick }) {
       </p>
       <p style={{ color: theme.colors.textSecondary, fontSize: 15, lineHeight: 1.55, margin: '0 0 8px' }}>
         {tier.description}
+        {tier.price === '$499/mo' && (
+          <> <strong>Stop sorting spreadsheets. Start saving dues.</strong></>
+        )}
       </p>
       <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'grid', gap: 10 }}>
         {tier.features.map((feature) => (
@@ -103,7 +106,7 @@ function PricingCard({ tier, onCtaClick }) {
               cursor: 'pointer', fontFamily: theme.fonts.sans,
             }}
           >
-            Get Free Daily Alerts
+            Book a Setup Call →
           </button>
           <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
             Instant access — connects to your systems in minutes.
@@ -147,7 +150,7 @@ function PricingCard({ tier, onCtaClick }) {
           onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1B1814'; }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; }}
         >
-          See the Full Platform →
+          Book a Premium Walkthrough →
         </button>
       )}
     </Card>

@@ -15,7 +15,7 @@ export default function IntegrationsSection() {
     <SectionShell
       band="dark"
       eyebrow="Integrations"
-      title="Your tools store the data. Swoop decides what to do with it."
+      title="Your tools store the data. Swoop tells you exactly how to act on it."
       subtitle="Your POS, tee sheet, and CRM don't talk to each other. Swoop connects them overnight, spots the gaps between a canceled tee time and a missed dinner, and tells you how to respond. Our team handles all the API mapping — whether you're cloud-based or running legacy on-premise systems like Jonas. You just log in."
     >
       <style>{`
@@ -181,7 +181,7 @@ export default function IntegrationsSection() {
             padding: '13px 28px', borderRadius: 8,
           }}
         >
-          Test Swoop on your data →
+          Book a Walkthrough →
         </a>
       </div>
 
