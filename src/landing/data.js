@@ -51,6 +51,7 @@ export const coreCapabilities = [
     summary: 'Know who is drifting before they resign.',
     bullets: [
       'Ranks every member by retention value × urgency.',
+      'Flags new members who haven\'t built dining, golf, and event habits by day 45 — before the 90-day window closes.',
       'Connects complaints, spend, rounds, and email engagement.',
     ],
     source: 'CRM + POS + Email',
@@ -189,13 +190,20 @@ export const comparisonFeatures = [
     crm: 'partial',
     sheets: false,
   },
+  {
+    feature: 'Manual approval inbox (every action GM-approved)',
+    swoop: true,
+    waitlistTools: false,
+    crm: false,
+    sheets: false,
+  },
 ];
 
 export const agents = [
   {
     icon: 'UserRound',
     name: 'Member Pulse',
-    description: 'Detects early disengagement signals and proposes interventions before members resign.',
+    description: 'Detects early disengagement signals — including new members who haven\'t built habits in their first 90 days — and drafts GM-approved interventions before members resign.',
   },
   {
     icon: 'Radar',
@@ -297,6 +305,7 @@ export const pricingTiers = [
     features: [
       'Everything in Signals',
       'Intelligence drafts the response',
+      'Board-ready monthly report',
       'Retention-prioritized waitlist routing',
       'Up to 10 integrations',
       'Priority support',
@@ -404,6 +413,11 @@ export const faqItems = [
       'Month-to-month. Cancel any time in the first 90 days for a full refund. After that, 30 days written notice. Your data exports in one click and your member records stay yours.',
   },
   {
+    question: 'How does Swoop handle complaint follow-through?',
+    answer:
+      'Swoop tracks the gap between "acknowledged" and "resolved." When a complaint sits unresolved for 30 days with no GM callback recorded, Swoop escalates it automatically — surfaces the member\'s full engagement history and drafts a callback script for one-tap GM approval. This 30-day window alert was the single most consistently cited daily pain across all four of our founding-partner GMs.',
+  },
+  {
     question: 'Can we talk to a reference club before deciding?',
     answer:
       'Yes. We will connect you with a founding-partner GM for a 20-minute peer call — no NDA, no sales involvement. Just one GM talking to another.',
@@ -411,6 +425,6 @@ export const faqItems = [
   {
     question: 'What integrations are available on day one?',
     answer:
-      '28 integrations across 10 categories. Tee Sheet: ForeUP, Jonas Club, Club Prophet, Lightspeed Golf. CRM: Jonas, ClubEssential, Northstar. POS: Toast, Square, Lightspeed Restaurant, POSitouch. Ask us if you do not see your stack listed.',
+      '28 integrations across 10 categories. Tee Sheet: ForeUP, Club Prophet, Lightspeed Golf. CRM: ClubEssential, Northstar. POS: Toast, Square, Lightspeed Restaurant, POSitouch. Jonas Club connects via CSV export on day one — no IT required, live in under 10 minutes. Native Jonas API sync is on our near-term roadmap. Ask us if you do not see your stack listed.',
   },
 ];
