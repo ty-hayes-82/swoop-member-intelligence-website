@@ -80,7 +80,7 @@ function TechDisclosurePanel() {
   return (
     <section className="landing-section-sm" style={{ background: '#FAF7F2', borderTop: '1px solid rgba(17,17,17,0.07)' }}>
       <div className="landing-container" style={{ maxWidth: 640 }}>
-        <details style={{ border: '1px solid rgba(17,17,17,0.12)', borderRadius: 16, padding: '18px 24px', maxWidth: 640, marginInline: 'auto', background: '#fff' }}>
+        <details open style={{ border: '1px solid rgba(17,17,17,0.12)', borderRadius: 16, padding: '18px 24px', maxWidth: 640, marginInline: 'auto', background: '#fff' }}>
           <summary style={{ fontWeight: 700, cursor: 'pointer', fontSize: 15, letterSpacing: '-0.01em', color: theme.neutrals.ink, display: 'flex', justifyContent: 'space-between', alignItems: 'center', listStyle: 'none' }}>
             <span>Data handling &amp; security details</span>
             <span style={{ fontSize: 18, color: theme.colors.accent, fontWeight: 300, flexShrink: 0, marginLeft: 12 }}>+</span>
@@ -110,11 +110,22 @@ function MinimalHeader() {
       display: 'flex', alignItems: 'center',
     }}>
       <span
-        style={{ fontWeight: 800, fontSize: 22, color: theme.neutrals.ink, letterSpacing: '-0.03em', cursor: 'pointer' }}
+        style={{ fontWeight: 800, fontSize: 22, color: theme.neutrals.ink, letterSpacing: '-0.03em', cursor: 'pointer', marginRight: 'auto' }}
         onClick={() => { window.location.hash = '#/landing'; }}
       >
         swoop<span style={{ color: theme.colors.accent }}>.</span>
       </span>
+      <nav style={{ display: 'flex', gap: 24 }}>
+        {[
+          { label: 'How it works', href: '#/platform' },
+          { label: 'Pricing', href: '#/pricing' },
+          { label: 'About', href: '#/about' },
+        ].map(({ label, href }) => (
+          <a key={label} href={href} onClick={() => { window.location.hash = href; }} style={{ fontSize: 14, color: theme.neutrals.ink, textDecoration: 'none', fontWeight: 500 }}>
+            {label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

@@ -24,10 +24,10 @@ export default function AboutPage() {
               Built for Club GMs & COOs
             </div>
             <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, lineHeight: 1.15, margin: '0 0 16px', color: '#FFFFFF' }}>
-              Your tee sheet, POS, and CRM collect data. Swoop turns it into decisions.
+              Your members are telling you they're leaving. Swoop makes sure you hear it — 6 weeks early.
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, margin: '0 0 0', maxWidth: '65ch', marginInline: 'auto' }}>
-              Every morning before your first tee time, Swoop connects your systems and tells you exactly which members need a call, which revenue gaps are open today, and what to do — before you open your laptop.
+              Built by a former GM who lost a 12-year member he didn't have to lose. Every morning, Swoop connects your tee sheet, POS, and CRM and tells you exactly who needs a call — before you open your laptop.
             </p>
             <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{
               display: 'inline-block', background: '#F3922D', color: '#0F0F0F',
@@ -36,6 +36,9 @@ export default function AboutPage() {
             }}>
               See What Swoop Finds at Your Club →
             </a>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 10 }}>
+              No contracts · No credit card · 30 minutes
+            </p>
           </div>
         </SectionShell>
 
@@ -55,6 +58,12 @@ export default function AboutPage() {
                   {badge}
                 </span>
               ))}
+            </div>
+            {/* TL;DR for skimmers — captures authority before the full narrative */}
+            <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(184,96,14,0.2)', borderRadius: 8, padding: '12px 16px', marginBottom: 20 }}>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: 15, color: theme.neutrals.ink }}>
+                TL;DR: 4 years as a club GM. Lost a 12-year member I didn't have to lose. Built the tool I wish I had.
+              </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 16, color: theme.colors.textSecondary, lineHeight: 1.7 }}>
               <p style={{ margin: 0 }}>
@@ -99,8 +108,8 @@ export default function AboutPage() {
             <p style={{ fontSize: 17, fontWeight: 700, color: '#1B1814', margin: '0 0 12px' }}>
               Curious what Swoop would find in your club's data right now?
             </p>
-            <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 15, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
-              See What Swoop Finds at Your Club →
+            <a href="#/pricing" onClick={() => { window.location.hash = '#/pricing'; }} style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 15, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
+              See What It Costs and What You Get →
             </a>
           </div>
         </div>

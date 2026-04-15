@@ -10,7 +10,7 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="Agents"
       title="Six AI agents working your club — live."
-      subtitle="Watch what the agents surface, recommend, and protect in real time. This panel auto-cycles through real scenarios from the Swoop OS."
+      subtitle="These aren't if/then rules. Each agent is trained on 12 months of club behavioral data and cross-references signals from your POS, tee sheet, CRM, and billing system — then drafts a specific, human-reviewable action. Watch it work:"
     >
       <AgentsLiveDemo />
 

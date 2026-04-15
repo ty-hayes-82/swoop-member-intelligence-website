@@ -118,6 +118,13 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                 demo@swoopgolf.com
               </a>
             </p>
+            <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>
+              <strong style={{ color: 'rgba(255,255,255,0.75)' }}>Tyler Hayes, Co-founder &amp; CEO</strong> — former GM at a 300-member desert club.
+              Built the tool he couldn't find.{' '}
+              <a href="#/about" onClick={() => { window.location.hash = '#/about'; }} style={{ color: theme.colors.accent, textDecoration: 'none' }}>
+                Our story →
+              </a>
+            </div>
           </div>
 
           {/* Right column — form only */}
@@ -186,7 +193,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 16px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                   {[
                     { icon: '■', label: 'AES-256 Encryption' },
-                    { icon: '◆', label: 'SOC 2 Type II' },
+                    { icon: '◆', label: 'SOC 2 (Audit Active)' },
                     { icon: '◉', label: 'Mutual NDA Included' },
                   ].map(({ icon, label }) => (
                     <span key={label} style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'rgba(255,255,255,0.78)', fontSize: 11, fontFamily: theme.fonts.mono, letterSpacing: '0.04em' }}>

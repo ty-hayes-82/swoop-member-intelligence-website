@@ -152,7 +152,7 @@ export default function SocialProofSection({ onCtaClick }) {
           ))}
         </div>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: 14, fontWeight: 700, color: '#F3922D', margin: '0 0 12px' }}>
+          <p style={{ fontSize: 14, fontWeight: 700, color: '#B8600E', margin: '0 0 12px' }}>
             Only 3 of 10 founding-partner spots remaining.
           </p>
           <Button

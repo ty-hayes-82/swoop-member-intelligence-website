@@ -22,6 +22,8 @@ function PricingCard({ tier, onCtaClick }) {
       style={{
         padding: isPopular ? 36 : 28,
         position: 'relative',
+        height: '100%',
+        boxSizing: 'border-box',
         ...(isPopular && {
           transform: 'translateY(-8px)',
           boxShadow: '0 24px 64px rgba(0,0,0,0.15)',

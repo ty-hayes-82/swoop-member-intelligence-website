@@ -104,11 +104,11 @@ function PricingCtaClose() {
   return (
     <SectionShell band="dark" size="sm">
       <div style={{ textAlign: 'center' }}>
-        <p style={{ fontSize: 26, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', margin: '0 0 12px' }}>
+        <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', margin: '0 0 12px', lineHeight: 1.2 }}>
           Ready to see which of your members are at risk?
-        </p>
+        </h2>
         <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, maxWidth: 460, margin: '0 auto 24px' }}>
-          Setup takes 15 minutes. Your first member brief arrives tomorrow morning.
+          30 minutes. Your real data. We'll show you exactly which members Swoop flags at a club like yours.
         </p>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
@@ -116,6 +116,9 @@ function PricingCtaClose() {
             Book a 30-min Walkthrough →
           </a>
         </div>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', marginTop: 12 }}>
+          No contracts · No credit card · Cancel any time
+        </p>
       </div>
     </SectionShell>
   );
@@ -126,6 +129,17 @@ export default function PricingPage() {
     <LandingShell>
       <PricingHero />
       <RoiCalculatorSection />
+      {/* Bridge: connect the ROI the visitor just calculated to the plan that recovers it */}
+      <div style={{ background: 'rgba(243,146,45,0.06)', borderTop: '1px solid rgba(243,146,45,0.15)', borderBottom: '1px solid rgba(243,146,45,0.15)', padding: '20px 24px', textAlign: 'center' }}>
+        <div className="landing-container">
+          <p style={{ fontSize: 16, fontWeight: 700, color: '#1B1814', margin: '0 0 4px' }}>
+            The <strong>Signals + Actions</strong> plan ($499/mo) is where most clubs recover 5× ROI in the first 60 days.
+          </p>
+          <p style={{ fontSize: 14, color: '#666', margin: 0 }}>
+            Start free with Signals. Upgrade only when your own numbers say so.
+          </p>
+        </div>
+      </div>
       <PricingSection onCtaClick={toDemoPage} />
       <PricingFaqSection />
       <PricingCtaClose />

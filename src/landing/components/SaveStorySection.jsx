@@ -204,6 +204,9 @@ function ProveItPanel() {
         Every signal sourced. Every action approved. Every outcome attributed — and a board-ready
         deck you forward without rewriting.
       </p>
+      <p style={{ fontSize: 12, color: theme.colors.textMuted, marginTop: 12, fontStyle: 'italic' }}>
+        Stats: Pinetree CC founding-partner data · 300 active members · 90-day deployment window
+      </p>
     </div>
   );
 }

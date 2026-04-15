@@ -47,6 +47,12 @@ export default function PlatformPage() {
             <p style={{ fontSize: 13, color: theme.colors.textMuted, marginTop: 10 }}>
               Plans scale seamlessly. <strong style={{ color: theme.neutrals.ink, fontWeight: 600 }}>Starting at $499/mo.</strong>
             </p>
+            <p style={{ fontSize: 13, color: theme.colors.textMuted, marginTop: 6 }}>
+              Not ready to book?{' '}
+              <a href="#/contact" onClick={toDemoPage} style={{ color: '#B8600E', fontWeight: 600, textDecoration: 'none' }}>
+                Request a sample morning brief for your club type →
+              </a>
+            </p>
           </div>
         </SectionShell>
       </div>

@@ -194,8 +194,9 @@ export default function HeroSection({ onDemoClick }) {
         <p
           style={{
             fontSize: 18,
+            fontWeight: 500,
             lineHeight: 1.65,
-            color: 'rgba(255,255,255,0.70)',
+            color: 'rgba(255,255,255,0.85)',
             margin: '0 auto 16px',
             maxWidth: 560,
             textAlign: 'center',
