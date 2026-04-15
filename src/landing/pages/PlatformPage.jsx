@@ -28,7 +28,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="Platform"
-          subtitle="One dashboard shows which members are drifting, why, and what to do next — assembled from your existing systems overnight."
+          subtitle="Your existing systems, unified overnight. One dashboard showing exactly who's drifting, why, and the exact move to make."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
@@ -45,18 +45,33 @@ export default function PlatformPage() {
           }
         >
           <div style={{ textAlign: 'center', marginTop: 8 }}>
-            <Button size="lg" onClick={toDemoPage} style={{ background: '#F3922D', color: '#0A0F0D', border: 'none' }}>
-              Book a 30-Min Walkthrough →
-            </Button>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+              <Button size="lg" onClick={toDemoPage} style={{ background: '#F3922D', color: '#0A0F0D', border: 'none' }}>
+                Book a 30-Min Walkthrough →
+              </Button>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>Takes 2 minutes. No credit card required.</span>
+            </div>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 16 }}>
               Plans scale seamlessly. <strong style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>Starting at $499/mo.</strong>
             </p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 6 }}>
-              Not ready to book?{' '}
-              <a href="#/contact" onClick={toDemoPage} style={{ color: '#F3922D', fontWeight: 600, textDecoration: 'none' }}>
+            <div style={{ marginTop: 12 }}>
+              <a
+                href="#/contact"
+                onClick={toDemoPage}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '10px 22px', borderRadius: 8,
+                  border: '1.5px solid rgba(243,146,45,0.5)',
+                  color: '#F3922D', fontWeight: 600, fontSize: 14,
+                  textDecoration: 'none',
+                  transition: 'background 150ms',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.1)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+              >
                 Request a sample morning brief for your club type →
               </a>
-            </p>
+            </div>
           </div>
         </SectionShell>
       </div>
@@ -74,6 +89,7 @@ export default function PlatformPage() {
             whiteSpace: 'nowrap', padding: '6px 14px',
             borderRadius: 999, border: '1px solid rgba(17,17,17,0.12)',
             fontSize: 13, textDecoration: 'none', color: '#1B1814',
+            minHeight: 44, display: 'inline-flex', alignItems: 'center',
           }}>{label}</a>
         ))}
       </div>
@@ -192,7 +208,7 @@ export default function PlatformPage() {
         <SectionShell band="dark" size="sm">
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.15 }}>
-              Ready to change how you run your club?
+              Stop managing spreadsheets. Start protecting your dues.
             </div>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, margin: '0 auto 24px', maxWidth: 480 }}>
               Give us 30 minutes. We'll show you how Swoop pays for itself before your first board meeting of the quarter.

@@ -103,23 +103,23 @@ function PricingCard({ tier, onCtaClick }) {
             onClick={handleCta}
             style={{
               width: '100%', marginTop: 8, padding: '13px 20px', borderRadius: 8,
-              border: '1px solid #F3922D', background: '#F3922D',
-              color: '#1B1814', fontWeight: 700, fontSize: 15,
+              border: '1px solid rgba(243,146,45,0.4)', background: 'rgba(243,146,45,0.08)',
+              color: '#92400e', fontWeight: 700, fontSize: 15,
               cursor: 'pointer', fontFamily: theme.fonts.sans,
               transition: 'all 150ms',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = '#e07f20'; e.currentTarget.style.borderColor = '#e07f20'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = '#F3922D'; e.currentTarget.style.borderColor = '#F3922D'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.15)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.08)'; }}
           >
-            Get Started Free →
+            Start Surfacing Data →
           </button>
           <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
-            Instant access — connects to your systems in minutes.
+            We'll activate your free instance on a 15-min setup call.
           </p>
         </>
       )}
       {tier.price === '$499/mo' && (
-        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16, fontSize: 12, color: '#555', fontStyle: 'italic', lineHeight: 1.6 }}>
+        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16, fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6 }}>
           "Alert: The Smith family hasn't visited in 21 days. Suggested action: Call James Smith to offer a complimentary tee time. Confidence: 91%."
         </div>
       )}
@@ -213,8 +213,8 @@ export default function PricingSection({ onCtaClick }) {
       <div style={{ textAlign: 'center', marginTop: 24, paddingTop: 24, borderTop: '1px solid rgba(17,17,17,0.07)' }}>
         <p style={{ fontSize: 14, color: theme.colors.textMuted, margin: 0 }}>
           Questions? Email{' '}
-          <a href="mailto:gm-support@swoopgolf.com" style={{ color: '#B8600E', textDecoration: 'none', fontWeight: 600 }}>
-            gm-support@swoopgolf.com
+          <a href="mailto:founders@swoopgolf.com" style={{ color: '#B8600E', textDecoration: 'none', fontWeight: 600 }}>
+            founders@swoopgolf.com
           </a>
           {' '}· We respond within 4 business hours.
         </p>

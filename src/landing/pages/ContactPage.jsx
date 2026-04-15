@@ -5,9 +5,9 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 revenue and retention gaps',
+  'A ranked list of your top 5 member retention and revenue leakage gaps',
   'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified)',
-  'A draft 90-day action plan — yours to keep, no strings attached',
+  'A Board-ready Revenue Leakage Report — exact operational blind spots, including F&B staffing vs. pace of play',
   'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\u2019t move forward.',
 ];
 
@@ -29,9 +29,10 @@ function ContactHeroPanel() {
             margin: '0 0 28px',
           }}
         >
-          In 30 minutes, we connect to your tee sheet and POS and show you exactly which members are
-          quietly disengaging and where revenue is leaking — before anyone resigns. You leave with a
-          prioritized action list, not a pitch deck.
+          The first time you realize a 10-year member is unhappy shouldn't be the day their resignation
+          letter lands on your desk. In 30 minutes, we use Layer 3 cross-domain synthesis to connect
+          your tee sheet and POS — and show you exactly who's quietly disengaging before anyone resigns.
+          You leave with a prioritized action list, not a pitch deck.
         </p>
         <p
           style={{
@@ -60,7 +61,14 @@ function ContactHeroPanel() {
         <div style={{ marginTop: 28, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <a
             href="#demo-form"
-            onClick={(e) => { e.preventDefault(); document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(() => {
+                const firstInput = document.querySelector('#demo-form input[name="name"]');
+                firstInput?.focus();
+              }, 500);
+            }}
             style={{
               display: 'inline-block', background: '#F3922D', color: '#0F0F0F',
               fontWeight: 700, fontSize: 16, padding: '14px 32px',
@@ -115,17 +123,7 @@ function MinimalHeader() {
       >
         swoop<span style={{ color: theme.colors.accent }}>.</span>
       </span>
-      <nav style={{ display: 'flex', gap: 24 }}>
-        {[
-          { label: 'How it works', href: '#/platform' },
-          { label: 'Pricing', href: '#/pricing' },
-          { label: 'About', href: '#/about' },
-        ].map(({ label, href }) => (
-          <a key={label} href={href} onClick={() => { window.location.hash = href; }} style={{ fontSize: 14, color: theme.neutrals.ink, textDecoration: 'none', fontWeight: 500 }}>
-            {label}
-          </a>
-        ))}
-      </nav>
+      {/* Nav hidden on /contact to maintain 1:1 attention ratio on this BOFU page */}
     </header>
   );
 }

@@ -5,9 +5,9 @@ import { SectionShell, Card, Button, IconBadge, Stat } from '@/landing/ui';
 const metricCards = [
   {
     title: 'Early Warning System',
-    metric: '6 days',
+    metric: '42 days',
     subtitle: 'Average advance notice on at-risk members',
-    description: 'Detected James Whitfield resignation risk 6 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.',
+    description: 'Detected James Whitfield resignation risk 42 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.',
   },
   {
     title: 'Waitlist Performance',
@@ -39,8 +39,9 @@ export default function SocialProofSection({ onCtaClick }) {
       title="Intelligence in action."
       subtitle="Metrics from our Pinetree CC founding-partner deployment — 300 members, live ForeUP + Jonas + Toast integration, 90-day analysis window."
     >
+      <style>{`@media (max-width: 639px) { .metric-grid-mobile { grid-template-columns: repeat(2, 1fr) !important; } }`}</style>
       <div
-        className="landing-metric-grid"
+        className="landing-metric-grid metric-grid-mobile"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',

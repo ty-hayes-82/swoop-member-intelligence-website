@@ -98,7 +98,7 @@ export default function AboutPage() {
                 For four years, Tyler ran member operations at a 300-member desert club. Every Monday morning started the same way: pulling actives from Jonas, cross-referencing against the tee sheet in a separate tab, manually flagging members who hadn't visited. By the time the brief was assembled, it was 10 AM and two of the members on the list had already played.
               </p>
               <p style={{ margin: 0 }}>
-                One week, a 12-year member — someone who'd never said a word — turned in her resignation letter. The signals were all there: no rounds in six weeks, a complaint two months prior, F&B spend down 60%. None of our systems had connected them. We only saw it in hindsight.
+                One week, a 12-year member — someone who'd never said a word — turned in her resignation letter. The signals were all there: <strong style={{ color: theme.neutrals.ink }}>her rounds were down 40%, her dining visits stopped two months ago</strong>, and a complaint from March was never followed up. F&B spend was down 60% before we noticed. We realized later that pacing delays were driving a <strong style={{ color: '#B8600E', background: 'rgba(243,146,45,0.06)', padding: '0 4px', borderRadius: 3 }}>$9,580/month F&B leakage</strong> across the entire membership. None of our systems had connected the dots. We only saw it in hindsight.
               </p>
 
               {/* Pull quote for visual break */}
@@ -150,15 +150,24 @@ export default function AboutPage() {
             <p style={{ fontSize: 17, fontWeight: 700, color: '#1B1814', margin: '0 0 12px' }}>
               Curious what Swoop would find in your club's data right now?
             </p>
-            <a href="#/pricing" onClick={() => { window.location.hash = '#/pricing'; }} style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 15, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
-              See What It Costs and What You Get →
+            <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 15, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
+              Book a 30-Minute Walkthrough →
             </a>
           </div>
         </div>
         <TeamSection />
 
         <div style={{ textAlign: 'center', margin: '40px 0' }}>
-          <a href="#/platform" style={{ fontSize: 16, fontWeight: 600, color: '#B8600E', textDecoration: 'none' }}>
+          <a href="#/platform" onClick={() => { window.location.hash = '#/platform'; }} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            background: '#1B1814', color: '#FFFFFF',
+            fontWeight: 600, fontSize: 15, padding: '12px 24px',
+            borderRadius: 8, textDecoration: 'none',
+            transition: 'background 150ms',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#2d2825'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = '#1B1814'; }}
+          >
             See how the platform works →
           </a>
         </div>

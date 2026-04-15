@@ -135,6 +135,9 @@ function ProveStats() {
         <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', margin: '12px 0 0', fontStyle: 'italic' }}>
           Illustrative decomposition — Swoop generates this breakdown in the Board Report
         </p>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', margin: '8px 0 0', fontStyle: 'italic', fontFamily: "'Fraunces', Georgia, serif" }}>
+          *80% of private clubs run F&B at a loss. Swoop tells you exactly why.
+        </p>
       </div>
       <div style={{ background: '#F9F7F4', padding: '24px 28px', borderRadius: 14, border: '1px solid rgba(17,17,17,0.07)' }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 12px' }}>Real Catch: 6 Weeks Before Non-Renewal</p>

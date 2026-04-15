@@ -104,17 +104,24 @@ export default function ComparisonSection() {
           }}
         >
           {objections.map((item) => (
-            <Card key={item.question} interactive>
-              <p style={{ fontSize: 18, fontWeight: 700, margin: '0 0 12px', color: theme.neutrals.ink, lineHeight: 1.35 }}>
-                {item.question}
-              </p>
-              <p style={{ color: theme.colors.textSecondary, fontSize: 15, lineHeight: 1.6, margin: 0 }}>
-                {item.answer}
-              </p>
-              <a href="#agents" style={{ fontSize: 14, color: '#F3922D', fontWeight: 600, textDecoration: 'none', display: 'block', marginTop: 12 }}>
-                See how Swoop handles this →
-              </a>
-            </Card>
+            <a
+              key={item.question}
+              href="#agents"
+              style={{ textDecoration: 'none', display: 'block' }}
+              className="objection-card-link"
+            >
+              <Card interactive style={{ height: '100%' }}>
+                <p style={{ fontSize: 18, fontWeight: 700, margin: '0 0 12px', color: theme.neutrals.ink, lineHeight: 1.35 }}>
+                  {item.question}
+                </p>
+                <p style={{ color: theme.colors.textSecondary, fontSize: 15, lineHeight: 1.6, margin: 0 }}>
+                  {item.answer}
+                </p>
+                <span style={{ fontSize: 14, color: '#F3922D', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4, marginTop: 12 }}>
+                  See how Swoop handles this <span style={{ display: 'inline-block', transition: 'transform 150ms' }}>→</span>
+                </span>
+              </Card>
+            </a>
           ))}
         </div>
 

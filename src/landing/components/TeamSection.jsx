@@ -120,10 +120,13 @@ export default function TeamSection() {
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               color: theme.colors.accent,
-              margin: '0 0 10px',
+              margin: '0 0 6px',
             }}
           >
-            Moat
+            Layer 3 Intelligence.
+          </p>
+          <p style={{ fontSize: 10, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.14em', margin: '0 0 12px', opacity: 0.7 }}>
+            See It · Fix It · Prove It.
           </p>
           <h3
             style={{
@@ -138,9 +141,9 @@ export default function TeamSection() {
             Why this is hard to copy.
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            46 operational integrations already wired and tested — from Jonas tee sheets to your POS to your CRM.{' '}
+            46 daily club workflows already mapped and automated. Swoop isn't just an integration — it's cross-domain synthesis that connects the dots between your Jonas tee sheet, F&B POS, and CRM so you don't have to.{' '}
             <strong style={{ color: '#FFFFFF' }}>Preferred Jonas Club integration partner.</strong>{' '}
-            Trained on 12 months of founding-partner data. No competitor has this depth of club-specific data connections.
+            Trained on 12 months of founding-partner data. No competitor has this depth of club-specific behavioral connections.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>

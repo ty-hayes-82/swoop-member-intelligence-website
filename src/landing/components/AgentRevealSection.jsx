@@ -4,7 +4,7 @@ import { SectionShell, Card } from '@/landing/ui';
 const narrativeBlocks = [
   {
     time: 'The Morning',
-    agents: 'Member Pulse · Chief of Staff',
+    agents: 'For the General Manager',
     headline: 'Before you open your laptop, your morning briefing is ready.',
     points: [
       { label: 'Pattern Identified', text: 'Overnight review of all systems and signals.' },
@@ -15,7 +15,7 @@ const narrativeBlocks = [
   },
   {
     time: 'The Watch',
-    agents: 'Member Pulse · Service Recovery',
+    agents: 'For the Director of Golf',
     headline: 'The complaint was filed Tuesday. By Thursday, the agent escalated it.',
     points: [
       { label: 'Pattern Identified', text: 'Service recovery window breached on dining complaint.' },
@@ -26,7 +26,7 @@ const narrativeBlocks = [
   },
   {
     time: 'The Pace',
-    agents: 'Revenue Analyst · Labor Optimizer',
+    agents: 'For the F&B Director',
     headline: 'Hole 12 backup is cutting post-round dining by 19 points.',
     points: [
       { label: 'Pattern Identified', text: '14-minute backup on Hole 12 directly correlates to canceled post-round dining reservations — dining conversion dropped from 41% to 22%.' },
@@ -37,8 +37,8 @@ const narrativeBlocks = [
   },
   {
     time: 'The Floor',
-    agents: 'Labor Optimizer · Engagement Autopilot',
-    headline: 'Two servers called out. The agent redeployed before the lunch rush.',
+    agents: 'For the GM & F&B Director',
+    headline: 'Two servers called out. The agent alerted the manager to shift staff before the lunch rush.',
     points: [
       { label: 'Pattern Identified', text: 'Grill Room understaffed during high-value member bookings.' },
       { label: 'Action Taken', text: 'Recommended floater redeployment and outlet prioritization.' },
@@ -108,13 +108,35 @@ export default function AgentRevealSection() {
         ))}
       </div>
 
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
+        <button
+          onClick={() => { window.location.hash = '#/contact'; }}
+          style={{
+            background: 'transparent',
+            border: '1px solid #F3922D',
+            color: '#F3922D',
+            padding: '13px 32px',
+            borderRadius: 8,
+            fontWeight: 700,
+            fontSize: 15,
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+            transition: 'background 150ms',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+        >
+          Show My Board — Book a Demo →
+        </button>
+      </div>
+
       <p
         style={{
           textAlign: 'center',
           fontSize: 18,
           fontStyle: 'italic',
           color: 'rgba(255,255,255,0.70)',
-          margin: 0,
+          margin: '32px 0 0',
           lineHeight: 1.5,
         }}
       >

@@ -79,7 +79,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a member we were about to lose. One dinner comp and a follow-up call saved $18K in annual dues.&rdquo;
+                &ldquo;Swoop flagged a member we were about to lose. One dinner comp and a follow-up call saved $32K in annual dues.&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club
@@ -92,7 +92,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
                 <li>We confirm your slot within 1 business day</li>
                 <li>
-                  We connect to Jonas, Clubessential, or Northstar.{' '}
+                  We connect to Jonas, Clubessential, or Northstar (read-only — zero write access).{' '}
                   <strong style={{ color: '#F3922D' }}>Zero IT required.</strong>
                   <span style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 4 }}>
                     We send a 2-minute instruction sheet for your admin to approve the sync. Read-only — nothing is ever written back.
@@ -107,17 +107,10 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             </p>
             <p style={{ marginTop: 8, color: 'rgba(255,255,255,0.75)', fontSize: 13 }}>
               Or email us at{' '}
-              <a href="mailto:demo@swoopgolf.com" style={{ color: theme.colors.accent, textDecoration: 'underline' }}>
-                demo@swoopgolf.com
+              <a href="mailto:founders@swoopgolf.com" style={{ color: theme.colors.accent, textDecoration: 'underline' }}>
+                founders@swoopgolf.com
               </a>
             </p>
-            <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>
-              <strong style={{ color: 'rgba(255,255,255,0.75)' }}>Tyler Hayes, Co-founder &amp; CEO</strong> — former GM at a 300-member desert club.
-              Built the tool he couldn't find.{' '}
-              <a href="#/about" onClick={() => { window.location.hash = '#/about'; }} style={{ color: theme.colors.accent, textDecoration: 'none' }}>
-                Our story →
-              </a>
-            </div>
           </div>
 
           {/* Right column — founder badge + form */}
@@ -178,10 +171,10 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               <>
                 <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 18 }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="landing-demo-form-row">
-                    <Input tone="dark" name="name" label="Name" type="text" autoComplete="name" required style={{ fontSize: 16, minHeight: 48 }} />
+                    <Input tone="dark" name="name" label="Full Name" type="text" autoComplete="name" required style={{ fontSize: 16, minHeight: 48 }} />
                     <Input tone="dark" name="club" label="Club" type="text" autoComplete="organization" placeholder="e.g., Pine Valley Golf Club" required style={{ fontSize: 16, minHeight: 48 }} />
                   </div>
-                  <Input tone="dark" name="email" type="email" inputMode="email" label="Email" autoComplete="email" required style={{ fontSize: 16, minHeight: 48 }} />
+                  <Input tone="dark" name="email" type="email" inputMode="email" label="Work Email" autoComplete="email" required style={{ fontSize: 16, minHeight: 48 }} />
                   <Button
                     type="submit"
                     size="lg"

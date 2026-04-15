@@ -237,13 +237,13 @@ export default function RoiCalculatorSection() {
         </div>
       </div>
 
-      <p style={{ fontSize: 13, color: '#777', maxWidth: 480, margin: '16px auto 0', textAlign: 'center', fontStyle: 'italic', lineHeight: 1.6 }}>
+      <p style={{ fontSize: 14, color: '#777', maxWidth: 520, margin: '16px auto 0', textAlign: 'center', fontStyle: 'italic', lineHeight: 1.6 }}>
         How this is calculated: At-risk revenue × 65% early-intervention retention rate (Pinetree CC founding-partner data, Q4 2023) − Swoop annual cost = net dues recovered.
       </p>
 
       <div style={{ maxWidth: 560, margin: '20px auto 0', borderLeft: '3px solid #F3922D', paddingLeft: 20 }}>
         <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontStyle: 'italic', color: '#333', fontSize: 15, lineHeight: 1.65, margin: '0 0 8px' }}>
-          "Swoop flagged the Smith family a month before they planned to quit. We comped them a dinner, had a chat, and saved $15k in annual dues. The Board was thrilled."
+          "Swoop flagged the Smith family a month before they planned to quit. We comped them a dinner, had a chat, and saved $32k in annual dues. The Board was thrilled."
         </p>
         <p style={{ fontSize: 12, fontWeight: 700, color: '#888', margin: 0 }}>— James Whitmore, GM · Pinetree Country Club · 300-member founding-partner club</p>
       </div>
@@ -255,22 +255,27 @@ export default function RoiCalculatorSection() {
         <p style={{ fontSize: 14, color: theme.colors.textSecondary, margin: '0 0 20px' }}>
           Signals + Actions costs $5,988/year. Most clubs recover that in the first 60 days.
         </p>
-        {/* Single dominant CTA */}
-        <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 17, padding: '16px 36px', borderRadius: 8, textDecoration: 'none', boxShadow: '0 4px 16px rgba(243,146,45,0.35)' }}>
-          Book a Walkthrough With Your Numbers →
-        </a>
-        {/* Subordinate text-link — not competing visually */}
-        <p style={{ marginTop: 14, fontSize: 13, color: theme.colors.textMuted }}>
-          Not ready to book?{' '}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+          <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
+            style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 17, padding: '16px 36px', borderRadius: 8, textDecoration: 'none', boxShadow: '0 4px 16px rgba(243,146,45,0.35)' }}>
+            Book a Walkthrough With Your Numbers →
+          </a>
           <button
             type="button"
             onClick={() => { setBoardModalOpen(true); setTimeout(() => boardEmailRef.current?.focus(), 50); }}
-            style={{ background: 'none', border: 'none', padding: 0, color: '#B8600E', fontWeight: 600, fontSize: 13, cursor: 'pointer', textDecoration: 'underline', fontFamily: 'inherit' }}
+            style={{
+              padding: '13px 28px', borderRadius: 8,
+              background: 'transparent', border: '1.5px solid rgba(17,17,17,0.20)',
+              color: theme.colors.textSecondary, fontWeight: 600, fontSize: 14,
+              cursor: 'pointer', fontFamily: 'inherit', minHeight: 44,
+              transition: 'background 150ms, border-color 150ms',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#f5f5f5'; e.currentTarget.style.borderColor = 'rgba(17,17,17,0.35)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(17,17,17,0.20)'; }}
           >
             Email this ROI report to your board →
           </button>
-        </p>
+        </div>
 
         {/* Board report email capture modal */}
         {boardModalOpen && (
