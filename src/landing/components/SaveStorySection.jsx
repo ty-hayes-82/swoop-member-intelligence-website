@@ -210,7 +210,7 @@ function ProveItPanel() {
 
 export default function SaveStorySection() {
   return (
-    <SectionShell band="cream">
+    <SectionShell band="paper">
       <div
         style={{
           gap: 'clamp(40px, 6vw, 80px)',

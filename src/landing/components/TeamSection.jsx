@@ -28,7 +28,7 @@ const team = [
 export default function TeamSection() {
   return (
     <SectionShell
-      band="paper"
+      band="cream"
       eyebrow="Who you'll work with"
       title="An extension of your team, not a disruption to it."
       subtitle="Every founding-partner club gets a dedicated point of contact — reachable by call, text, or email — from onboarding through your first board review. You're not a ticket number."
