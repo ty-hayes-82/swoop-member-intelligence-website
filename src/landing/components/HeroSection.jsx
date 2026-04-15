@@ -141,21 +141,6 @@ export default function HeroSection({ onDemoClick }) {
       }}
     >
       <div className="landing-container">
-        {/* Eyebrow */}
-        <p
-          style={{
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: theme.colors.brass || '#B5956A',
-            margin: '0 0 20px',
-            textAlign: 'center',
-          }}
-        >
-          The AI Chief of Staff for Golf &amp; Country Clubs
-        </p>
-
         {/* Headline */}
         <h1
           style={{
@@ -229,17 +214,6 @@ export default function HeroSection({ onDemoClick }) {
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', marginBottom: 8 }}>
           No credit card · No IT lift · Live in 2 weeks · Zero member data sold or shared.
         </p>
-        {/* Social proof quote */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
-          <div style={{ borderLeft: '3px solid #F3922D', paddingLeft: 16, maxWidth: 480 }}>
-            <p style={{ fontFamily: theme.fonts.serif, fontStyle: 'italic', fontSize: 16, color: '#FFFFFF', margin: '0 0 6px' }}>
-              "Recovered $74K in dues in our first 90 days."
-            </p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', margin: 0 }}>
-              — Founding-partner GM · 450-member private club · 90-day window
-            </p>
-          </div>
-        </div>
 
         {/* Trust bullets */}
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 48 }}>
