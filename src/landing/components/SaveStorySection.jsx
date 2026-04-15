@@ -59,8 +59,9 @@ function FixItPanel() {
         >
           <span
             style={{
-              background: '#22c55e',
-              color: '#FFFFFF',
+              background: 'rgba(243,146,45,0.18)',
+              color: '#F3922D',
+              border: '1px solid rgba(243,146,45,0.35)',
               fontSize: 10,
               fontWeight: 800,
               padding: '3px 8px',

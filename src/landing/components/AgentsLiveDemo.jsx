@@ -158,8 +158,8 @@ export default function AgentsLiveDemo() {
               width: 10,
               height: 10,
               borderRadius: '50%',
-              background: '#22c55e',
-              boxShadow: '0 0 0 0 rgba(34,197,94,0.7)',
+              background: '#B5956A',
+              boxShadow: '0 0 0 0 rgba(181,149,106,0.7)',
               animation: reduceMotion ? 'none' : 'landing-pulse 2s infinite',
             }}
           />

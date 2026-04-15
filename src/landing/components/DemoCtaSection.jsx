@@ -101,7 +101,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                 <li>We confirm your slot within 1 business day</li>
                 <li>
                   We pull a sample brief from your tee sheet and POS (5-min secure read)
-                  <span style={{ display: 'block', fontSize: 11, color: 'rgba(255,255,255,0.65)', marginTop: 2 }}>
+                  <span style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 4 }}>
                     Seamless read-only API connection to Jonas, Clubessential, Northstar, etc. Zero IT required.
                   </span>
                 </li>

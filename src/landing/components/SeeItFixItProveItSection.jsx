@@ -71,7 +71,7 @@ function ActionCard() {
   return (
     <div style={{ background: '#1B1814', borderRadius: 16, padding: '20px 24px', fontFamily: theme.fonts.mono }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-        <span style={{ background: '#22c55e', color: '#FFFFFF', fontSize: 10, fontWeight: 800, padding: '3px 8px', borderRadius: 4, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <span style={{ background: 'rgba(243,146,45,0.18)', color: '#F3922D', border: '1px solid rgba(243,146,45,0.35)', fontSize: 10, fontWeight: 800, padding: '3px 8px', borderRadius: 4, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           ✓ APPROVED · 06:31
         </span>
         <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12 }}>Mark Henderson · 14-yr family</span>

@@ -169,6 +169,7 @@ body:has(.landing-page) {
 }
 
 .landing-section-header h2 {
+  font-family: 'Fraunces', Georgia, serif;
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -636,4 +637,15 @@ details[open] .faq-toggle-icon { transform: rotate(45deg); }
   .desktop-only { display: none !important; }
   /* Comparison table scroll hint is irrelevant on mobile (table is hidden) */
   .landing-scroll-hint { display: none !important; }
+
+  /* Force all multi-column grids to stack on mobile */
+  .landing-demo-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .landing-demo-form-row {
+    grid-template-columns: 1fr !important;
+  }
+  .landing-roi-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
