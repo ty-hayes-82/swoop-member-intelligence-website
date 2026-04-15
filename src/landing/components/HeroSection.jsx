@@ -170,9 +170,23 @@ export default function HeroSection({ onDemoClick }) {
             letterSpacing: '-0.02em',
           }}
         >
-          One 6 AM brief.<br />
-          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Every system. The next move, already drafted.</em>
+          Your tee sheet, POS, and CRM don't talk to each other. <br />
+          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Swoop does — and briefs you every morning at 6 AM.</em>
         </h1>
+
+        {/* Subheadline */}
+        <p
+          style={{
+            color: 'rgba(255,255,255,0.65)',
+            fontSize: 17,
+            lineHeight: 1.5,
+            maxWidth: 540,
+            margin: '0 auto 16px',
+            textAlign: 'center',
+          }}
+        >
+          Most tools show you what happened. Swoop tells you what to do next.
+        </p>
 
         {/* CTAs */}
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 32, marginBottom: 16 }}>

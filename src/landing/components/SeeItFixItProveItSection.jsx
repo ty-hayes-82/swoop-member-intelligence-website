@@ -95,58 +95,51 @@ function ActionCard() {
 }
 
 function ProveStats() {
-  const stats = [
-    { value: '$32K', label: 'one save · one call' },
-    { value: '9 / 14', label: 'members retained' },
-    { value: '$67K', label: 'dues protected' },
+  const leakRows = [
+    ['Pace of play → lost post-round dining', '$5,760'],
+    ['Understaffed Fridays', '$3,400'],
+    ['Weather no-shows, no outreach', '$420'],
   ];
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: 12 }}>
-        {stats.map(s => (
-          <div key={s.value} style={{ background: theme.neutrals.paper, border: '1px solid rgba(17,17,17,0.08)', borderRadius: 14, padding: '18px 12px', textAlign: 'center' }}>
-            <p style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 4px', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.value}</p>
-            <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: 0 }}>{s.label}</p>
+    <div style={{ background: '#1a1208', borderRadius: 12, overflow: 'hidden', border: '1px solid rgba(243,146,45,0.2)' }}>
+      <div style={{ background: 'rgba(243,146,45,0.12)', borderBottom: '1px solid rgba(243,146,45,0.2)', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#F3922D' }} />
+          <span style={{ fontFamily: theme.fonts.mono, fontSize: 11, color: '#F3922D', letterSpacing: '0.1em' }}>BOARD REPORT · Q1 · GENERATED 07:02 AM</span>
+        </div>
+        <span style={{ fontFamily: theme.fonts.mono, fontSize: 10, color: 'rgba(255,255,255,0.4)' }}>Pinetree CC · 300 members</span>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid rgba(243,146,45,0.1)' }}>
+        {[
+          { val: '$67K', sub: 'dues protected', sub2: '9 of 14 saves closed', highlight: true },
+          { val: '$9.6K', sub: 'F&B leakage', sub2: 'identified per month' },
+          { val: '$32K', sub: 'recovered', sub2: 'single intervention' },
+        ].map(({ val, sub, sub2, highlight }, i) => (
+          <div key={val} style={{ padding: '20px 16px', borderRight: i < 2 ? '1px solid rgba(243,146,45,0.1)' : 'none' }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: highlight ? '#F3922D' : 'rgba(255,255,255,0.9)', lineHeight: 1, fontFamily: theme.fonts.mono }}>{val}</div>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 4, lineHeight: 1.3 }}>{sub}<br />{sub2}</div>
+            <div style={{ marginTop: 8, fontSize: 10, color: 'rgba(243,146,45,0.6)', fontFamily: theme.fonts.mono }}>✓ attributed</div>
           </div>
         ))}
       </div>
-      <p style={{ fontSize: 11, color: theme.colors.textMuted, margin: '0 0 16px', fontStyle: 'italic', textAlign: 'center' }}>
-        From Pinetree CC · 300-member founding-partner club · 90-day deployment
-      </p>
-      <div style={{ background: '#1B1814', borderRadius: 12, padding: '20px 24px', marginBottom: 4 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.brass || '#B5956A', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 10px' }}>
-          F&amp;B LEAKAGE · BOARD-READY DECOMPOSITION
-        </p>
-        <p style={{ fontSize: 32, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 14px', lineHeight: 1, letterSpacing: '-0.02em' }}>
-          $9,580/mo
-        </p>
+      <div style={{ padding: '16px 20px', borderBottom: '1px solid rgba(243,146,45,0.1)' }}>
+        <div style={{ fontSize: 10, fontFamily: theme.fonts.mono, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.08em', marginBottom: 10 }}>F&amp;B LEAKAGE BREAKDOWN · $9,580/mo identified</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          {[
-            ['Pace of play → lost post-round dining', '$5,760'],
-            ['Understaffed Fridays', '$3,400'],
-            ['Weather no-shows, no cancellation outreach', '$420'],
-          ].map(([label, val]) => (
-            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.70)' }}>
-              <span>{label}</span>
-              <span style={{ fontFamily: theme.fonts.mono, color: theme.colors.accent, fontWeight: 700 }}>{val}</span>
+          {leakRows.map(([label, val]) => (
+            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>{label}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#F3922D', fontFamily: theme.fonts.mono }}>{val}</span>
             </div>
           ))}
         </div>
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', margin: '12px 0 0', fontStyle: 'italic' }}>
-          Illustrative decomposition — Swoop generates this breakdown in the Board Report
-        </p>
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', margin: '8px 0 0', fontStyle: 'italic', fontFamily: "'Fraunces', Georgia, serif" }}>
-          *80% of private clubs run F&B at a loss. Swoop tells you exactly why.
-        </p>
       </div>
-      <div style={{ background: '#F9F7F4', padding: '24px 28px', borderRadius: 14, border: '1px solid rgba(17,17,17,0.07)' }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 12px' }}>Real Catch: 6 Weeks Before Non-Renewal</p>
-        <blockquote style={{ fontSize: 15, fontStyle: 'italic', color: theme.colors.textSecondary, lineHeight: 1.7, margin: '0 0 14px', padding: 0 }}>
-          "Swoop flagged a 9-year member. CRM said active. POS showed her last tab was 18 days ago. Tee sheet showed she missed three Wednesdays. No one had noticed. Swoop drafted a comp dinner text. She renewed in November."
-        </blockquote>
-        <p style={{ fontSize: 12, fontWeight: 700, color: theme.neutrals.ink, margin: 0 }}>
-          — General Manager, 450-Member Private Club (Swoop Cohort Data)
-        </p>
+      <div style={{ padding: '16px 20px' }}>
+        <div style={{ borderLeft: '3px solid #F3922D', paddingLeft: 14 }}>
+          <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', lineHeight: 1.5 }}>
+            &ldquo;Swoop flagged a 9-year member. CRM said active. POS said 18 days silent. No one had noticed. She renewed in November.&rdquo;
+          </div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 8 }}>GM, 450-member private club</div>
+        </div>
       </div>
     </div>
   );
@@ -156,7 +149,7 @@ const blocks = [
   {
     eyebrow: 'SEE IT',
     headline: 'Every signal. One screen. Before the first tee time.',
-    copy: 'James Whitfield has an unresolved complaint and a tee time in 90 minutes. Your tee sheet doesn\'t know. Swoop does — by 6 AM.',
+    copy: 'Swoop reads your tee sheet, POS, and CRM overnight. By 6 AM, at-risk members are flagged with context — so you act before they churn, not after.',
     memberDisclaimer: true,
     visual: <MorningBriefingPanel />,
   },
@@ -169,7 +162,7 @@ const blocks = [
   {
     eyebrow: 'PROVE IT',
     headline: 'Take a dollar number to the board. Not a feeling.',
-    copy: 'One click. 4-tab board report — members protected, revenue recovered, retention rate. Sourced and attributed.',
+    copy: 'Every save tracked. Every dollar attributed. One click generates a board-ready report.',
     visual: <ProveStats />,
   },
 ];

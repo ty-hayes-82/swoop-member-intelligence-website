@@ -3,68 +3,34 @@ import { integrationCategories } from '@/landing/data';
 import { SectionShell, Card, IconBadge } from '@/landing/ui';
 import { IntegrationsIllustration } from '@/landing/assets/Illustrations';
 
-const swoopUnique = [
-  { title: 'Real-Time Location Intelligence', desc: 'On-property movement your POS can\'t see.' },
-  { title: 'Layer 3 Behavioral Correlation', desc: 'Dining patterns that predict tee sheet churn.' },
-  { title: 'Predictive Recommendations', desc: 'Specific actions, measurable outcomes.' },
-  { title: 'Closed-Loop Tracking', desc: 'Signal → action → outcome, all attributed.' },
-];
-
 export default function IntegrationsSection() {
   return (
     <SectionShell
       band="dark"
       eyebrow="Integrations"
-      title="Your tools store the data. Swoop tells you how to act on it."
-      subtitle="Your POS, tee sheet, and CRM don't talk to each other. Swoop connects them overnight — cloud or legacy Jonas — and our team handles the API mapping."
+      title="Every system your club runs. Connected overnight."
+      subtitle="Cloud or legacy Jonas — our team handles the API mapping. No IT lift on your end."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
         @media (min-width: 640px) { .integrations-list { display: none; } }
       `}</style>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-          gap: 'clamp(32px, 5vw, 72px)',
-          alignItems: 'center',
-          marginBottom: 64,
-        }}
-        className="landing-integrations-hero"
-      >
-        <div style={{ maxWidth: 360, margin: '0 auto' }}>
-          <div className="integrations-ring">
-            <IntegrationsIllustration />
-          </div>
-          <div className="integrations-list" style={{ display: 'none' }}>
-            {[
-              { category: 'Tee sheet', items: 'Jonas, ClubEssentials, Northstar, ClubReady, foreUP, Club Prophet' },
-              { category: 'POS', items: 'Lightspeed Golf, Square, Toast, Clover' },
-              { category: 'CRM', items: 'HubSpot, Salesforce, Mailchimp' },
-            ].map(g => (
-              <div key={g.category} style={{ marginBottom: 12 }}>
-                <div style={{ fontWeight: 600, fontSize: 13, color: '#888', marginBottom: 4 }}>{g.category.toUpperCase()}</div>
-                <div style={{ fontSize: 15, color: '#FFFFFF' }}>{g.items}</div>
-              </div>
-            ))}
-            <p style={{ fontSize: 12, color: '#888', marginTop: 16 }}>Preferred integration partner: Jonas Club Software.</p>
-          </div>
+      <div style={{ maxWidth: 520, margin: '0 auto 64px' }}>
+        <div className="integrations-ring">
+          <IntegrationsIllustration />
         </div>
-        <div style={{ display: 'grid', gap: 20 }}>
-          {swoopUnique.map((item) => (
-            <div
-              key={item.title}
-              style={{
-                borderLeft: `3px solid ${theme.colors.accent}`,
-                paddingLeft: 18,
-              }}
-            >
-              <p style={{ fontSize: 17, fontWeight: 700, margin: '0 0 6px', color: '#FFFFFF' }}>{item.title}</p>
-              <p style={{ fontSize: 14, lineHeight: 1.55, color: 'rgba(255,255,255,0.7)', margin: 0 }}>
-                {item.desc}
-              </p>
+        <div className="integrations-list" style={{ display: 'none' }}>
+          {[
+            { category: 'Tee sheet', items: 'Jonas, ClubEssentials, Northstar, ClubReady, foreUP, Club Prophet' },
+            { category: 'POS', items: 'Lightspeed Golf, Square, Toast, Clover' },
+            { category: 'CRM', items: 'HubSpot, Salesforce, Mailchimp' },
+          ].map(g => (
+            <div key={g.category} style={{ marginBottom: 12 }}>
+              <div style={{ fontWeight: 600, fontSize: 13, color: '#888', marginBottom: 4 }}>{g.category.toUpperCase()}</div>
+              <div style={{ fontSize: 15, color: '#FFFFFF' }}>{g.items}</div>
             </div>
           ))}
+          <p style={{ fontSize: 12, color: '#888', marginTop: 16 }}>Preferred integration partner: Jonas Club Software.</p>
         </div>
       </div>
 
