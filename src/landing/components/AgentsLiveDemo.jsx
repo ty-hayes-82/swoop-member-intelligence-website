@@ -468,7 +468,7 @@ export default function AgentsLiveDemo() {
         These six agents run 24/7 for every member. Want to see them working for your club?
       </p>
       <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-        style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+        style={{ display: 'inline-block', background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
         Book the 30-Minute Walkthrough →
       </a>
     </div>

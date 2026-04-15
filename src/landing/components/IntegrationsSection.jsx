@@ -16,7 +16,7 @@ export default function IntegrationsSection() {
       band="dark"
       eyebrow="Integrations"
       title="Your tools store the data. Swoop decides what to do with it."
-      subtitle="These systems collect data. Swoop is the intelligence layer that connects them, adds location-aware behavioral signals, and turns cross-system patterns into actionable recommendations."
+      subtitle="Your POS, tee sheet, and CRM don't talk to each other. Swoop connects them overnight, spots the gaps between a canceled tee time and a missed dinner, and tells you how to respond. Our team handles all the API mapping — whether you're cloud-based or running legacy on-premise systems like Jonas. You just log in."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
@@ -47,7 +47,7 @@ export default function IntegrationsSection() {
                 <div style={{ fontSize: 15, color: '#FFFFFF' }}>{g.items}</div>
               </div>
             ))}
-            <p style={{ fontSize: 12, color: '#888', marginTop: 16 }}>Preferred integration partner: Jonas Club Software (Feb 2026).</p>
+            <p style={{ fontSize: 12, color: '#888', marginTop: 16 }}>Preferred integration partner: Jonas Club Software.</p>
           </div>
         </div>
         <div style={{ display: 'grid', gap: 20 }}>
@@ -110,7 +110,7 @@ export default function IntegrationsSection() {
               <p style={{ color: theme.colors.accent, fontFamily: theme.fonts.mono, fontSize: 13, margin: '0 0 6px' }}>
                 {category.systems} connected systems
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 12, margin: 0, lineHeight: 1.5 }}>
+              <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, margin: 0, lineHeight: 1.5 }}>
                 {category.vendors.join(' · ')}
               </p>
             </div>
@@ -175,8 +175,11 @@ export default function IntegrationsSection() {
         <a
           href="#/contact"
           onClick={() => { window.location.hash = '#/contact'; }}
-          className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-3 rounded-md transition-colors"
-          style={{ textDecoration: 'none', fontSize: 15 }}
+          style={{
+            display: 'inline-block', textDecoration: 'none', fontSize: 15,
+            background: '#F3922D', color: '#1B1814', fontWeight: 700,
+            padding: '13px 28px', borderRadius: 8,
+          }}
         >
           Test Swoop on your data →
         </a>

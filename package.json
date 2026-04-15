@@ -14,9 +14,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.89.0",
     "@google/generative-ai": "^0.24.0",
     "@vitejs/plugin-react": "^4.3.4",
     "playwright": "^1.52.0",
+    "sharp": "^0.34.5",
     "vite": "^6.3.5"
   }
 }

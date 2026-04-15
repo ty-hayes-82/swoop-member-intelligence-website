@@ -127,7 +127,7 @@ export const coreCapabilities = [
     freshness: 'Board-ready report generated nightly',
     confidence: '94% confidence',
     why: '4 members saved this month via playbooks',
-    metric: { value: '$251K', label: 'annualized impact', source: 'Pinetree CC pilot · 300-member club · trailing 90 days' },
+    metric: { value: '$251K', label: 'annualized impact', source: 'Pinetree CC founding-partner data · 300-member club · trailing 90 days' },
   },
   {
     icon: 'Send',
@@ -290,7 +290,7 @@ export const pricingTiers = [
     name: 'Signals + Actions',
     price: '$499/mo',
     badge: 'Founding-Partner Pick',
-    badgeFootnote: 'Join the 7 leading clubs already recovering revenue. Only 3 of 10 seats remaining.',
+    badgeFootnote: 'Most popular for private clubs with 200–500 members.',
     description:
       'Everything in Signals, plus Swoop drafts the callback, comp offer, and staffing shift in plain English — so your team acts instead of sorting spreadsheets.',
     features: [
@@ -378,9 +378,9 @@ export const faqItems = [
       'Standalone waitlist tools fill cancelled tee times — one function, one system. Swoop is a full intelligence platform that connects members, demand, service, labor, and revenue with AI agents, behavioral data, and closed-loop engagement. Waitlist software is a feature; Swoop is the operating layer.',
   },
   {
-    question: 'What does a founding-partner pilot actually look like?',
+    question: 'What does the founding-partner program actually look like?',
     answer:
-      'Six months. Your data, your members, your systems. We connect your tee sheet, POS, and CRM in week one. Your GM gets a daily brief starting day two. At the end, you have a board deck with every save attributed, every dollar traced. 3 of 10 founding seats remain — first ten clubs get locked-in pricing for life.',
+      'Six months. Your data, your members, your systems. We connect your tee sheet, POS, and CRM in week one. Your GM gets a daily brief starting day two. At the end, you have a board deck with every save attributed, every dollar traced. Founding-partner clubs get locked-in pricing for life.',
   },
   {
     question: 'What happens if we cancel?',

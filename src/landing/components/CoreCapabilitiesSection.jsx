@@ -33,8 +33,8 @@ export default function CoreCapabilitiesSection() {
       id="platform"
       band="cream"
       eyebrow="THE PLATFORM"
-      title="Six jobs Swoop does before your GM finishes coffee."
-      subtitle="Member behavior, demand, service, labor, revenue, outreach — all surfaced on one page your team can act from before the first tee time."
+      title="Six jobs Swoop does before you finish your morning coffee."
+      subtitle="Member behavior, demand, service, labor, revenue, outreach — all surfaced on one page you can act from before the first tee time."
     >
       <style>{`@media (max-width: 639px) { .cap-card-body { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } }`}</style>
       <div
@@ -65,7 +65,7 @@ export default function CoreCapabilitiesSection() {
                 {cap.dataSources}
               </p>
             )}
-            <p className="cap-card-body" style={{ fontSize: 14, color: theme.colors.textSecondary, margin: 0, lineHeight: 1.6 }}>
+            <p className="cap-card-body" style={{ fontSize: 15, color: theme.colors.textSecondary, margin: 0, lineHeight: 1.6 }}>
               {outcomePrefix && <strong style={{ color: theme.neutrals.ink }}>{outcomePrefix}</strong>}{bodyText}
             </p>
             {cap.bullets?.length > 0 && (
@@ -104,7 +104,7 @@ export default function CoreCapabilitiesSection() {
               </p>
               {cap.metric && (
                 <div style={{ marginTop: 8 }}>
-                  <p style={{ fontSize: 24, fontWeight: 800, fontFamily: theme.fonts?.mono, color: '#D97706', margin: 0, lineHeight: 1 }}>
+                  <p style={{ fontSize: 24, fontWeight: 800, fontFamily: theme.fonts.mono, color: '#D97706', margin: 0, lineHeight: 1 }}>
                     {cap.metric.value}
                   </p>
                   <p style={{ fontSize: 12, color: '#555', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', margin: '4px 0 0' }}>{cap.metric.label}</p>
@@ -118,14 +118,18 @@ export default function CoreCapabilitiesSection() {
           );
         })}
       </div>
-      <div style={{ textAlign: 'center', marginTop: 40 }}>
+      <p style={{ fontSize: 11, color: '#888', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginTop: 24, maxWidth: 560, marginInline: 'auto' }}>
+        * Metrics represent average impact observed at a 500-member club over a trailing 90-day period.
+      </p>
+
+      <div style={{ textAlign: 'center', marginTop: 24 }}>
         <p style={{ fontSize: 17, fontWeight: 600, color: theme.neutrals.ink, margin: '0 0 16px' }}>
           Ready to see how Swoop maps to your club?
         </p>
         <a
           href="#/contact"
           onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}
+          style={{ display: 'inline-block', background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}
         >
           Book the 30-Minute Walkthrough →
         </a>

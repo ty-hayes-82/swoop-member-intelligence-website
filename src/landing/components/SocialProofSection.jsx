@@ -37,7 +37,7 @@ export default function SocialProofSection({ onCtaClick }) {
       band="cream"
       eyebrow="PROOF"
       title="Intelligence in action."
-      subtitle="Metrics from our Pinetree CC founding-partner pilot — 300 members, live ForeUP + Jonas + Toast integration, 90-day analysis window."
+      subtitle="Metrics from our Pinetree CC founding-partner deployment — 300 members, live ForeUP + Jonas + Toast integration, 90-day analysis window."
     >
       <div
         className="landing-metric-grid"
@@ -85,7 +85,7 @@ export default function SocialProofSection({ onCtaClick }) {
         ))}
       </div>
       <p style={{ fontSize: 12, color: theme.colors.textMuted, textAlign: 'center', margin: '0 0 64px', fontStyle: 'italic' }}>
-        Source: Pinetree CC pilot · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period
+        Source: Pinetree CC founding-partner data · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period
       </p>
 
       <div
@@ -104,7 +104,7 @@ export default function SocialProofSection({ onCtaClick }) {
               padding: '6px 16px',
               borderRadius: 999,
               background: theme.colors.accent,
-              color: '#FFFFFF',
+              color: '#1B1814',
               fontSize: 11,
               fontWeight: 800,
               textTransform: 'uppercase',
@@ -126,7 +126,7 @@ export default function SocialProofSection({ onCtaClick }) {
             Join the Founding Partner Program.
           </h3>
           <p style={{ color: theme.colors.textSecondary, fontSize: 17, maxWidth: 620, margin: '0 auto' }}>
-            A small cohort of clubs gets hands-on onboarding, direct roadmap influence, and pricing locked for life. Nine seats remaining.
+            A small cohort of clubs gets hands-on onboarding, direct roadmap influence, and pricing locked for life.
           </p>
         </div>
         <div

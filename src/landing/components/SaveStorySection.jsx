@@ -43,7 +43,7 @@ function FixItPanel() {
       {/* Approved action card */}
       <div
         style={{
-          background: '#0F0F0F',
+          background: '#1B1814',
           borderRadius: 16,
           padding: '20px 24px',
           fontFamily: theme.fonts.mono,

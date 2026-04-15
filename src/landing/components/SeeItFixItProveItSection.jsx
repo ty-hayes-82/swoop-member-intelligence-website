@@ -14,7 +14,7 @@ function MorningBriefingPanel() {
   return (
     <div
       style={{
-        background: '#0D1A0E',
+        background: '#1B1814',
         border: '1px solid rgba(255,255,255,0.10)',
         borderRadius: 16,
         overflow: 'hidden',
@@ -23,7 +23,7 @@ function MorningBriefingPanel() {
     >
       <div
         style={{
-          background: '#0a1309',
+          background: '#141210',
           borderBottom: '1px solid rgba(255,255,255,0.08)',
           padding: '10px 18px',
           display: 'flex',
@@ -40,7 +40,7 @@ function MorningBriefingPanel() {
         <div style={{ fontFamily: theme.fonts.mono, fontSize: 42, fontWeight: 800, color: '#FFFFFF', lineHeight: 1, letterSpacing: '-0.02em' }}>
           $42.2K
         </div>
-        <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>
+        <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>
           protected across 8 actions · delivered 06:14
         </div>
       </div>
@@ -49,9 +49,9 @@ function MorningBriefingPanel() {
           <div key={row.label} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '7px 20px', gap: 8 }}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <span style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.85)' }}>{row.label}</span>
-              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.38)', marginLeft: 8 }}>{row.detail}</span>
+              <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.62)', marginLeft: 8 }}>{row.detail}</span>
             </div>
-            <span style={{ fontSize: 12, fontFamily: theme.fonts.mono, fontWeight: 700, color: row.positive ? theme.colors.brass || '#B5956A' : 'rgba(255,255,255,0.45)', flexShrink: 0 }}>
+            <span style={{ fontSize: 12, fontFamily: theme.fonts.mono, fontWeight: 700, color: row.positive ? theme.colors.brass || '#B5956A' : 'rgba(255,255,255,0.65)', flexShrink: 0 }}>
               {row.value}
             </span>
           </div>
@@ -59,7 +59,7 @@ function MorningBriefingPanel() {
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.30)' }}>sent to gm@pinetree.com — ready before the first tee time</span>
-        <div style={{ width: 24, height: 24, borderRadius: '50%', background: theme.colors.brass || '#B5956A', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 900, color: '#0D1A0E' }}>
+        <div style={{ width: 24, height: 24, borderRadius: '50%', background: theme.colors.brass || '#B5956A', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 900, color: '#1B1814' }}>
           S
         </div>
       </div>
@@ -69,7 +69,7 @@ function MorningBriefingPanel() {
 
 function ActionCard() {
   return (
-    <div style={{ background: '#0F0F0F', borderRadius: 16, padding: '20px 24px', fontFamily: theme.fonts.mono }}>
+    <div style={{ background: '#1B1814', borderRadius: 16, padding: '20px 24px', fontFamily: theme.fonts.mono }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
         <span style={{ background: '#22c55e', color: '#FFFFFF', fontSize: 10, fontWeight: 800, padding: '3px 8px', borderRadius: 4, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           ✓ APPROVED · 06:31
@@ -107,17 +107,15 @@ function ProveStats() {
           </div>
         ))}
       </div>
-      <Card style={{ padding: 24, gap: 8 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Six weeks before non-renewal</p>
-        <p style={{ fontSize: 16, fontWeight: 600, color: theme.neutrals.ink, margin: 0 }}>Karen Wittman, <em>nine years</em>.</p>
-        <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: 0 }}>
-          CRM said <em>active</em>. POS: last tab 18 days ago. Tee sheet: no-show three Wednesdays.{' '}
-          <strong style={{ color: theme.neutrals.ink }}>Not one system flagged her.</strong> Together they did. A comp dinner went out Tuesday. Karen renewed in November.
+      <div style={{ background: '#F9F7F4', padding: '24px 28px', borderRadius: 14, border: '1px solid rgba(17,17,17,0.07)' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: theme.colors.accent, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 12px' }}>Real Catch: 6 Weeks Before Non-Renewal</p>
+        <blockquote style={{ fontSize: 15, fontStyle: 'italic', color: theme.colors.textSecondary, lineHeight: 1.7, margin: '0 0 14px', padding: 0 }}>
+          "Swoop flagged a 9-year member. CRM said active. POS showed her last tab was 18 days ago. Tee sheet showed she missed three Wednesdays. No one had noticed. Swoop drafted a comp dinner text. She renewed in November."
+        </blockquote>
+        <p style={{ fontSize: 12, fontWeight: 700, color: theme.neutrals.ink, margin: 0 }}>
+          — General Manager, 450-Member Private Club (Swoop Cohort Data)
         </p>
-        <p style={{ fontSize: 11, color: '#888', fontStyle: 'italic', marginTop: 8 }}>
-          Composite example based on real Swoop deployments. Member name changed.
-        </p>
-      </Card>
+      </div>
     </div>
   );
 }
@@ -133,7 +131,7 @@ const blocks = [
   {
     eyebrow: 'FIX IT',
     headline: 'The right action. The right person. Before the problem compounds.',
-    copy: "A health score isn't useful if nobody acts on it. Right errors. Right people. Ranked by dollars at risk. Swoop recommends specific interventions tied to specific members, assigns them to the right staff member, and tracks whether they were completed. One phone call from the GM. $32K in dues protected. That's not a dashboard. That's an operating system.",
+    copy: "Dashboards don't save memberships. Actions do. Swoop doesn't just flag the at-risk member — it drafts the exact callback script, comp offer, or staffing shift required. You review, click send, and the member gets saved. AI never talks directly to your members. One phone call from the GM. $32K in dues protected. That's not a dashboard. That's an operating system.",
     visual: <ActionCard />,
   },
   {

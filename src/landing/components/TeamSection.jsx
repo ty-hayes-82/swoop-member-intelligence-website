@@ -30,8 +30,8 @@ export default function TeamSection() {
     <SectionShell
       band="paper"
       eyebrow="Who you'll work with"
-      title="The humans in your clubhouse for six months."
-      subtitle="6 founding clubs — for six months we sit in your systems, on your calls, and in your board deck."
+      title="An extension of your team, not a disruption to it."
+      subtitle="6 founding-partner clubs — for six months we sit in your systems, on your calls, and in your board deck."
     >
       <div
         style={{
@@ -80,18 +80,18 @@ export default function TeamSection() {
               <p style={{ fontSize: 17, fontWeight: 700, color: theme.neutrals.ink, margin: '0 0 2px' }}>
                 {member.name}
               </p>
-              <p style={{ fontSize: 13, fontWeight: 600, color: theme.colors.accent, margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: '#B8600E', margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 {member.title}
               </p>
               <div style={{ marginTop: 4, marginBottom: 8 }}>
-                <span style={{ fontSize: 13, color: '#888' }}>{member.priorRole}</span>
+                <span style={{ fontSize: 13, color: '#595959' }}>{member.priorRole}</span>
               </div>
               <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: '0 0 8px' }}>
                 {member.bio}
               </p>
               {member.linkedinUrl && (
                 <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer"
-                   style={{ fontSize: 13, color: '#F3922D', textDecoration: 'none', display: 'inline-block' }}>
+                   style={{ fontSize: 13, color: '#B8600E', textDecoration: 'none', display: 'inline-block' }}>
                   LinkedIn →
                 </a>
               )}
@@ -129,6 +129,7 @@ export default function TeamSection() {
           </p>
           <h3
             style={{
+              fontFamily: "'Fraunces', Georgia, serif",
               fontSize: 'clamp(22px, 2.5vw, 30px)',
               fontWeight: 700,
               color: '#FFFFFF',
@@ -139,16 +140,15 @@ export default function TeamSection() {
             Why this is hard to copy.
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            Proprietary cross-system intelligence from 12 months of pilot data.{' '}
+            46 operational integrations already wired and tested — from Jonas tee sheets to your POS to your CRM.{' '}
             <strong style={{ color: '#FFFFFF' }}>Preferred Jonas Club integration partner.</strong>{' '}
-            First MCP-native club platform with 46 production tools — no competitor has shipped
-            agent-to-club-system orchestration at this depth.
+            Trained on 12 months of founding-partner data. No competitor has this depth of club-specific data connections.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>
           {[
             { stat: '46', label: 'production tools in orchestration' },
-            { stat: '12 mo', label: 'of pilot data + model training' },
+            { stat: '12 mo', label: 'of founding-partner data + model training' },
             { stat: '#1', label: 'preferred Jonas Club integration partner' },
           ].map(s => (
             <div

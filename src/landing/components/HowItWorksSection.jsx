@@ -11,7 +11,7 @@ function MorningBriefCard() {
   return (
     <div
       style={{
-        background: '#0F0F0F',
+        background: '#1B1814',
         borderRadius: 20,
         padding: 'clamp(20px, 3vw, 32px)',
         fontFamily: theme.fonts.mono,
@@ -58,7 +58,7 @@ function MorningBriefCard() {
         </p>
         <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
           {['Rounds ↓42% in 6 wks', 'Complaint aging 4 days', 'POS spend ↓31%'].map(s => (
-            <span key={s} style={{ color: 'rgba(255,255,255,0.55)', fontSize: 13 }}>{s}</span>
+            <span key={s} style={{ color: 'rgba(255,255,255,0.72)', fontSize: 13 }}>{s}</span>
           ))}
         </div>
       </div>
@@ -73,7 +73,7 @@ function MorningBriefCard() {
           marginBottom: 16,
         }}
       >
-        <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: 11, margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 11, margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Recommended action
         </p>
         <p style={{ color: '#FFFFFF', fontSize: 14, margin: 0, fontFamily: theme.fonts.sans, lineHeight: 1.5 }}>

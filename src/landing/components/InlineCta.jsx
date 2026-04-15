@@ -16,16 +16,16 @@ export default function InlineCta({ text = 'See how it works', targetId = 'demo-
           display: 'inline-flex',
           alignItems: 'center',
           gap: 8,
-          color: theme.colors.accent,
+          color: '#B8600E',
           textDecoration: 'none',
           fontWeight: 700,
           fontSize: 16,
-          borderBottom: `2px solid ${theme.colors.accent}`,
+          borderBottom: '2px solid #B8600E',
           paddingBottom: 4,
         }}
       >
         {text}
-        <Icon name="ArrowRight" size={18} color={theme.colors.accent} />
+        <Icon name="ArrowRight" size={18} color="#B8600E" />
       </a>
     </div>
   );

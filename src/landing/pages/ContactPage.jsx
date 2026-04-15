@@ -1,23 +1,25 @@
 import { theme } from '@/config/theme';
-import LandingShell from '@/landing/LandingShell';
 import DemoCtaSection from '@/landing/components/DemoCtaSection';
+import MobileStickyCta from '@/landing/components/MobileStickyCta';
+import ErrorBoundary from '@/landing/components/ErrorBoundary';
+import '@/landing/landing.css';
 
 const leaveWithItems = [
   'A ranked list of your top 5 revenue and retention gaps',
   'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified)',
   'A draft 90-day action plan — yours to keep, no strings attached',
-  'Your data under mutual NDA. We never share club data across pilots. Deleted within 30 days if you don\u2019t move forward.',
+  'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\u2019t move forward.',
 ];
 
 function ContactHeroPanel() {
   return (
     <section
       className="landing-section-sm"
-      style={{ background: '#FFFFFF', borderBottom: '1px solid rgba(17,17,17,0.07)' }}
+      style={{ background: '#FAF7F2', borderBottom: '1px solid rgba(17,17,17,0.07)' }}
     >
       <div className="landing-container" style={{ maxWidth: 720 }}>
-        <h1 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, lineHeight: 1.15, margin: '0 0 20px', color: theme.neutrals.ink, letterSpacing: '-0.02em' }}>
-          Find Your Club's Hidden Revenue
+        <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, lineHeight: 1.1, margin: '0 0 16px', color: theme.neutrals.ink, letterSpacing: '-0.02em' }}>
+          Find the Members You're About to Lose.<br /><span style={{ color: '#B8600E' }}>Before They Resign.</span>
         </h1>
         <p
           style={{
@@ -27,9 +29,9 @@ function ContactHeroPanel() {
             margin: '0 0 28px',
           }}
         >
-          In 30 minutes, we load your tee-sheet data into Swoop and show you exactly where revenue is
-          leaking and which members are quietly disengaging. You leave with a prioritized action list
-          — not a pitch deck.
+          In 30 minutes, we connect to your tee sheet and POS and show you exactly which members are
+          quietly disengaging and where revenue is leaking — before anyone resigns. You leave with a
+          prioritized action list, not a pitch deck.
         </p>
         <p
           style={{
@@ -37,7 +39,7 @@ function ContactHeroPanel() {
             fontWeight: 700,
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color: theme.colors.accent,
+            color: '#B8600E',
             margin: '0 0 14px',
           }}
         >
@@ -47,13 +49,28 @@ function ContactHeroPanel() {
           {leaveWithItems.map((item) => (
             <li
               key={item}
-              style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 15, color: theme.neutrals.ink, lineHeight: 1.5 }}
+              style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 16, color: theme.neutrals.ink, lineHeight: 1.5 }}
             >
-              <span style={{ color: theme.colors.accent, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+              <span style={{ color: '#B8600E', fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
               {item}
             </li>
           ))}
         </ul>
+        {/* Anchor CTA — scroll to form */}
+        <div style={{ marginTop: 28, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+          <a
+            href="#demo-form"
+            onClick={(e) => { e.preventDefault(); document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
+            style={{
+              display: 'inline-block', background: '#F3922D', color: '#0F0F0F',
+              fontWeight: 700, fontSize: 16, padding: '14px 32px',
+              borderRadius: 8, textDecoration: 'none',
+            }}
+          >
+            Book My 30-Minute Walkthrough →
+          </a>
+          <span style={{ fontSize: 13, color: theme.colors.textMuted }}>Free · No credit card · No IT lift</span>
+        </div>
       </div>
     </section>
   );
@@ -61,15 +78,15 @@ function ContactHeroPanel() {
 
 function TechDisclosurePanel() {
   return (
-    <section className="landing-section-sm" style={{ background: '#FFFFFF', borderTop: '1px solid rgba(17,17,17,0.07)' }}>
+    <section className="landing-section-sm" style={{ background: '#FAF7F2', borderTop: '1px solid rgba(17,17,17,0.07)' }}>
       <div className="landing-container" style={{ maxWidth: 640 }}>
         <details style={{ border: '1px solid rgba(0,0,0,0.1)', borderRadius: 8, padding: '16px 20px', maxWidth: 640, marginInline: 'auto' }}>
           <summary style={{ fontWeight: 600, cursor: 'pointer', fontSize: 15 }}>Data handling &amp; security details</summary>
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
-            <p><strong>Your data stays yours.</strong> Mutual NDA on every pilot. We are a data processor, not a controller.</p>
+            <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe.</p>
             <p><strong>Write-back scope:</strong> Only tee-sheet notes, CRM tasks, and GM-approved messages. We never modify financial records.</p>
-            <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II in progress (Q3 2026).</p>
+            <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active).</p>
             <p><strong>AI:</strong> Anthropic Claude API with zero-retention agreement. Member PII never trains any model. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>
           </div>
@@ -79,11 +96,57 @@ function TechDisclosurePanel() {
   );
 }
 
+function MinimalHeader() {
+  return (
+    <header style={{
+      position: 'sticky', top: 0, zIndex: 200,
+      background: 'rgba(250,247,242,0.97)',
+      backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+      borderBottom: '1px solid rgba(17,17,17,0.08)',
+      padding: '16px clamp(20px, 4vw, 40px)',
+      display: 'flex', alignItems: 'center',
+    }}>
+      <span
+        style={{ fontWeight: 800, fontSize: 22, color: theme.neutrals.ink, letterSpacing: '-0.03em', cursor: 'pointer' }}
+        onClick={() => { window.location.hash = '#/landing'; }}
+      >
+        swoop<span style={{ color: theme.colors.accent }}>.</span>
+      </span>
+    </header>
+  );
+}
+
+function MinimalFooter() {
+  return (
+    <footer style={{
+      borderTop: '1px solid rgba(17,17,17,0.08)',
+      padding: '20px clamp(20px, 4vw, 40px)',
+      display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12,
+      background: theme.neutrals.paper,
+      fontSize: 12, color: '#6b7280',
+    }}>
+      <span>© {new Date().getFullYear()} Swoop Golf, Inc. All rights reserved.</span>
+      <div style={{ display: 'flex', gap: 16 }}>
+        <a href="#/privacy" style={{ color: '#6b7280', textDecoration: 'none' }}>Privacy Policy</a>
+        <a href="#/terms" style={{ color: '#6b7280', textDecoration: 'none' }}>Terms of Service</a>
+      </div>
+    </footer>
+  );
+}
+
 export default function ContactPage() {
   return (
-    <LandingShell>
-      <ContactHeroPanel />
-      <DemoCtaSection />
-    </LandingShell>
+    <div className="landing-page" style={{ color: theme.neutrals.ink, fontFamily: theme.fonts.sans }}>
+      <MinimalHeader />
+      <main>
+        <ErrorBoundary>
+          <ContactHeroPanel />
+          <DemoCtaSection ctaLabel="Get My Custom Retention Plan" />
+          <TechDisclosurePanel />
+        </ErrorBoundary>
+      </main>
+      <MinimalFooter />
+      <MobileStickyCta />
+    </div>
   );
 }

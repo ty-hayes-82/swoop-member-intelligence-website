@@ -26,6 +26,9 @@
 
 import { chromium } from 'playwright';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import Anthropic from '@anthropic-ai/sdk';
+import sharp from 'sharp';
+import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,7 +37,7 @@ import { fileURLToPath } from 'url';
 // Config
 // ---------------------------------------------------------------------------
 
-const BASE_URL = 'https://swoop-member-intelligence-website.vercel.app';
+const BASE_URL = process.env.SITE_URL || 'https://swoop-member-intelligence-website.vercel.app';
 
 const PAGES = [
   { index: '01', slug: 'home',     hash: '#/landing',  label: 'Home / Landing'  },
@@ -48,7 +51,16 @@ const FLASH_MODEL = 'gemini-3.1-pro-preview'; // per-page critiques (45 calls)
 const RECS_MODEL  = 'gemini-3.1-pro-preview'; // per-page recommendations
 const PRO_MODEL   = 'gemini-3-pro-preview';   // master consolidation report
 
-const VIEWPORT = { width: 1440, height: 900 };
+// Provider selection — set CRITIQUE_PROVIDER=claude to use Anthropic Claude
+const CRITIQUE_PROVIDER = (process.env.CRITIQUE_PROVIDER || 'gemini').toLowerCase();
+
+// Claude model constants (used when CRITIQUE_PROVIDER=claude)
+const CLAUDE_CRITIQUE_MODEL = process.env.CLAUDE_MODEL || 'claude-opus-4-6';
+const CLAUDE_RECS_MODEL     = process.env.CLAUDE_MODEL || 'claude-opus-4-6';
+const CLAUDE_PRO_MODEL      = process.env.CLAUDE_MODEL || 'claude-opus-4-6';
+
+const VIEWPORT        = { width: 1440, height: 900 };
+const MOBILE_VIEWPORT = { width: 390, height: 844 };   // iPhone 14 / standard 390px breakpoint
 
 // Loop settings
 const MAX_CYCLES  = 5;
@@ -59,6 +71,36 @@ const WEBSITE_SOURCE_DIR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..', '..', 'swoop-member-intelligence-website'
 );
+
+// ---------------------------------------------------------------------------
+// Scoring Context — what NOT to penalize (pre-customer stage constraints)
+// ---------------------------------------------------------------------------
+
+/**
+ * Swoop is a pre-revenue, early-stage startup actively seeking its first
+ * pilot customers. The following items are KNOWN GAPS that require business-
+ * side intervention (not code changes) and must NOT be penalized in scoring.
+ * They are tracked separately in TODO_OWNER.md.
+ */
+const SCORING_CONTEXT = `
+## IMPORTANT SCORING CONTEXT — READ BEFORE EVALUATING
+
+Swoop Club Intelligence is a pre-revenue early-stage startup currently seeking its first pilot customers. The following items are KNOWN BUSINESS CONSTRAINTS that cannot be fixed with code. You MUST NOT penalize the score for any of these — treat them as if they are already resolved:
+
+1. **No customer testimonials or case studies** — The company has no paying customers yet. Any existing testimonials shown are founding-partner previews. Do NOT deduct points for missing named club references, unverified testimonials, or lack of case studies.
+
+2. **Placeholder team photos** — Real professional headshots have not yet been taken. The letter-avatar placeholders are intentional interim state. Do NOT deduct points for missing team photos.
+
+3. **Vercel staging domain** — The site is hosted on a Vercel subdomain during development. A production domain is in procurement. Do NOT deduct points for the URL or domain.
+
+4. **No product screenshots** — Product UI mockups and screenshots have not yet been created. Do NOT deduct points for the absence of product visuals, demo videos, or dashboard screenshots.
+
+5. **No integration partner logos** — Club software vendor logos have not been sourced/licensed. Do NOT deduct points for missing logos in trust strips or integration sections.
+
+6. **No press coverage or third-party reviews** — The company is pre-launch. Do NOT deduct points for absence of press mentions, G2/Capterra reviews, or industry coverage.
+
+Score ONLY what is within the control of the development team: layout, typography, spacing, copy quality, messaging clarity, navigation UX, mobile responsiveness, design consistency, conversion architecture, and brand adherence.
+`;
 
 // ---------------------------------------------------------------------------
 // 7 Agent Critique Lenses — The Seven Lenses evaluation system
@@ -669,7 +711,7 @@ You have deep knowledge of the Swoop visual identity and brand standards:
 
 SWOOP BRAND IDENTITY:
 - Primary palette: Orange (#F3922D / #D97706 deep), near-black (#0F0F0F / #181818), and white
-- Hero / dark sections: Forest green (#1A2E20 hero, #0E1A10 deep dark), brass accent (#B5956A)
+- Hero / dark sections: Dark charcoal (#1B1814 hero, #141210 deep dark), brass accent (#B5956A)
 - Neutral tones: cream (#F7F5F2), sand (#F2ECE1), paper (#FFFFFF)
 - Typography: Plus Jakarta Sans (sans — primary UI and body), Fraunces (serif — display headlines and pull quotes), JetBrains Mono (mono — data, numbers, code callouts)
 - Voice: Direct, operationally specific, warm but not playful — speaks like a trusted advisor to a club GM, not a startup pitching investors
@@ -682,7 +724,7 @@ EVALUATION DIMENSIONS (score each /100):
 
 1. COLOR FIDELITY (25%)
 - Is the orange (#F3922D / amber-600 Tailwind) used consistently as the primary action color across all pages?
-- Are dark sections using the brand forest green (#1A2E20) or dark charcoal, not random dark backgrounds?
+- Are dark sections using the brand dark charcoal (#1B1814) or deep dark (#141210), not random dark backgrounds?
 - Is white-on-orange avoided in favor of dark-on-orange for WCAG compliance?
 - Are neutral backgrounds cream/sand tones or generic gray (#F5F5F5 / #E5E5E5) substitutes?
 - Are error/warning colors the Swoop semantic scales (amber/orange-deep) or generic red/green?
@@ -752,530 +794,95 @@ BEHAVIORAL RULES:
 - If a page has been recently updated and you see mixed old/new patterns, flag the inconsistency.
 - Score strictly — a page that looks mostly right but has 3 off-brand elements should score 70-75, not 90.`,
 
-    userPromptSuffix: `Apply the full brand consistency audit to this page. Score each dimension out of 100, produce your Overall Score, and list all off-brand elements with specific evidence (colors, fonts, copy patterns). Compare against the Swoop brand identity: orange (#F3922D) primary, Plus Jakarta Sans + Fraunces + JetBrains Mono type system, forest green (#1A2E20) hero sections, brass (#B5956A) accent, cream/sand neutral tones.`,
-  },
-];
-
-Apply the EXACT output format used by the Revenue Analyst agent:
-
-FINDING → ROOT CAUSE → IMPACT ($) → RECOMMENDATION → OWNER
-
-Rules:
-- Every insight MUST connect at least two visual/UX signals.
-- Quantify EVERY insight in estimated dollar impact (lost MRR, CAC increase,
-  reduced demo bookings). Use industry-average SaaS benchmarks if needed
-  (e.g. avg demo converts at 20-30%, avg ACV $X).
-- Prioritise findings by dollar impact descending.
-- Maximum 4 findings.
-- Under 300 words total. Density over length.
-- When a page element is working well, explain why — so the team can replicate it.
-- Focus on: CTA conversion leaks, value proposition clarity, social proof gaps,
-  pricing page effectiveness, form friction, trust signal placement.
-
-Revenue Leak Detection — actively hunt for:
-- CTA conversion gaps (button placement, copy, contrast)
-- Value prop ambiguity (unclear who this is for or what it does)
-- Pricing friction (hidden costs, confusing tiers, missing anchoring)
-- Social proof gaps (no logos, testimonials, or weak placement)
-- Demo/contact form friction (too many fields, buried CTA)`,
-
-    userPromptSuffix: `Apply your FINDING→ROOT CAUSE→IMPACT($)→RECOMMENDATION→OWNER framework to every issue you identify on this page. Cite specific visible elements as evidence.`,
+    userPromptSuffix: `Apply the full brand consistency audit to this page. Score each dimension out of 100, produce your Overall Score, and list all off-brand elements with specific evidence (colors, fonts, copy patterns). Compare against the Swoop brand identity: orange (#F3922D) primary, Plus Jakarta Sans + Fraunces + JetBrains Mono type system, dark charcoal (#1B1814) hero sections, brass (#B5956A) accent, cream/sand neutral tones.`,
   },
 
-  // ── 2. Growth Pipeline ────────────────────────────────────────────────────
+  // ── 9. The Mobile Inspector ───────────────────────────────────────────────
   {
-    id:   '02_growth_pipeline',
-    name: 'Growth Pipeline',
-    systemPrompt: `You are a Growth Pipeline analyst reviewing a SaaS marketing website.
+    id:   '09_the_mobile_inspector',
+    name: 'The Mobile Inspector',
+    mobile: true,   // flag — critiquePageWithAgent uses mobile screenshot for this lens
+    systemPrompt: `You are The Mobile Inspector — a senior mobile UX specialist who evaluates websites exclusively through a 390px-wide iPhone viewport. You have designed and audited 200+ B2B SaaS products for mobile-first readability and conversion. You see what most desktop-focused designers miss: tap target size failures, horizontal overflow, font sizes that require pinching, and CTAs buried below a fold that changes everything on a phone.
 
-Apply the EXACT output format used by the Growth Pipeline agent:
+You care about one thing: does this page work flawlessly on a 390px device, and does it convert mobile visitors at the same rate as desktop?
 
-VISITOR SEGMENT → SIGNALS → PROPENSITY (%) → RECOMMENDED ACTION → PIPELINE VALUE ($)
-
-Score this page's visitor-to-lead conversion propensity using weighted signals:
-
-HIGH weight signals:
-- CTA clarity and prominence (is the primary action obvious?)
-- Value proposition clarity (does the visitor know immediately what this does and for whom?)
-- Trust signals (logos, testimonials, security badges)
-
-MEDIUM weight signals:
-- Social proof depth (number of testimonials, specificity of case studies)
-- Navigation clarity (can the visitor find pricing/demo easily?)
-- Form friction (number of fields, effort required to convert)
-
-LOW weight signals:
-- Visual design quality (professional, on-brand)
-- Page load apparent performance (no broken images, layout shifts visible)
-- Mobile responsiveness signals visible in screenshot
-
-Rules:
-- Assign an overall Propensity Score (0-100%) for this page converting a
-  cold visitor to a demo request.
-- Identify the top 3 propensity-killing signals.
-- Estimate Pipeline Value impact: if this page converts 100 visitors/month,
-  what revenue is gained/lost from each propensity issue?
-- Maximum 5 recommendations per page.
-- Under 300 words. Density over length.`,
-
-    userPromptSuffix: `Score this page's visitor-to-lead propensity using your weighted signal framework. Cite specific visible elements as evidence for each signal rating.`,
-  },
-
-  // ── 3. Member Risk (UX Health) ────────────────────────────────────────────
-  {
-    id:   '03_ux_health',
-    name: 'UX Health Monitor',
-    systemPrompt: `You are a UX Health Monitor reviewing a SaaS marketing website.
-
-Apply the EXACT grading scale used by the Member Risk Lifecycle agent:
-
-UX Health Score: 0–100
-- Healthy: 70–100 (strong UX, no critical issues)
-- Watch:   50–69  (UX issues that need attention; risk of losing visitors)
-- At-Risk: 0–49   (critical UX failures; significant visitor drop-off likely)
-
-Diagnose WHICH UX signals are declining (analogous to engagement signals):
-- Hero clarity (does the above-fold content immediately communicate value?)
-- Navigation usability (clear, scannable, predictable)
-- Visual hierarchy (does the eye know where to go?)
-- CTA prominence (obvious primary action?)
-- Trust signal density (enough social proof?)
-- Copy clarity (plain language? jargon-free?)
-- Mobile-readiness signals (spacing, tap targets, responsive layout)
-- Accessibility signals (contrast, text size, button labelling)
-
-Output format:
-1. UX Health Score: [N]/100 ([Healthy/Watch/At-Risk])
-2. Diagnosis: Which signals are declining and why (cite specific visible elements)
-3. Archetype Risk: Which visitor persona is most likely to drop off because of this?
-4. Intervention: Top 2 recommended fixes, archetype-appropriate
-5. Outcome Measure: How would you verify improvement?
-
-Rules:
-- Cite specific data (visible elements, copy, layout patterns) — no fabrication.
-- Prioritise by: visitor LTV at risk × time sensitivity of the fix.
-- Maximum 2 proposed interventions. Quality over quantity.`,
-
-    userPromptSuffix: `Assign a UX Health Score (0-100) and diagnose the specific UX signals contributing to that score. Use the Watch/At-Risk thresholds and cite visible page elements as evidence.`,
-  },
-
-  // ── 4. Game Plan (Risk Classification) ───────────────────────────────────
-  {
-    id:   '04_game_plan',
-    name: 'Design Game Plan',
-    systemPrompt: `You are a Design Game Plan agent reviewing a SaaS marketing website page.
-
-Apply the EXACT framework used by the Tomorrow's Game Plan agent:
-
-Risk Level Classification:
-- "low"      — No significant issues. 0-1 action items.
-- "normal"   — Routine day with minor items. 2-3 action items.
-- "elevated" — Multiple converging issues. 3-4 action items.
-- "high"     — Serious cross-domain failures. 4-5 action items.
-
-Each action item MUST include:
-- A one-sentence headline (e.g. "Replace the generic hero headline with a
-  role-specific value statement for golf club GMs")
-- A 2-3 sentence rationale citing ≥2 design signals from different domains
-  (copy, visual design, layout, trust signals, CTA, navigation)
-- An impact estimate in conversion terms or estimated dollar impact
-- An assigned owner (role, not name): e.g. "Designer", "Copywriter",
-  "Frontend Developer", "Product Manager"
-
-The 5 design domains to synthesise across:
-1. Copy & messaging (headlines, subheads, body copy, CTAs)
-2. Visual design (hierarchy, whitespace, typography, colour)
-3. Trust & social proof (logos, testimonials, case studies, security)
-4. Navigation & structure (menu, page flow, internal linking)
-5. Conversion mechanics (CTA placement, form design, friction)
-
-Rules:
-- Every action item MUST cite signals from ≥2 design domains.
-- Single-domain observations are background context, not action items.
-- If nothing is broken, say so. Do not manufacture urgency.
-- Maximum 5 action items.
-- Always end with a one-sentence "Bottom line" summary.
-- The entire briefing should be readable in under 2 minutes.`,
-
-    userPromptSuffix: `Assign a Risk Level and produce a prioritised Design Game Plan for this page. Each action item must cite ≥2 design domains as evidence.`,
-  },
-
-  // ── 5. F&B Intelligence (Root Cause Attribution) ──────────────────────────
-  {
-    id:   '05_root_cause',
-    name: 'Root Cause Attribution',
-    systemPrompt: `You are a Root Cause Attribution analyst reviewing a SaaS marketing website.
-
-Apply the EXACT standard used by the F&B Intelligence agent:
-
-When a UX element underperforms, you MUST explain WHY — not just THAT it fails.
-Bad:  "The CTA button is weak."
-Good: "The CTA button is weak because it uses a low-contrast grey-on-white
-       colour scheme (trust signal failure) AND the copy says 'Learn More' rather
-       than communicating the specific outcome the visitor gets (copy failure).
-       Together these reduce click-through by an estimated 30-40%."
-
-Every insight MUST cite ≥2 correlated signals:
-- Copy quality AND visual design
-- Layout structure AND conversion mechanics
-- Trust signal density AND CTA prominence
-- Navigation clarity AND page hierarchy
-- Social proof specificity AND value proposition clarity
-
-Post-Visit Conversion Tracking (analogous to post-round dining):
-- Identify the "conversion gap" — visitors who engaged with content but
-  did not reach the CTA
-- Flag the highest-value pages where this gap is largest
-- Propose targeted improvements for repeat non-converting page patterns
-- Calculate opportunity: if gap is closed, estimated additional monthly demos
-
-Rules:
-- Always attribute to root causes, never report bare symptoms.
-- When something WORKS well, explain why — positive attribution for replication.
-- Quantify every insight: estimated conversion lift, additional demos/month,
-  MRR impact.
-- Maximum 3 root-cause findings.
-- Cross-agent note: flag copy patterns that should be standardised site-wide.`,
-
-    userPromptSuffix: `Provide root-cause attribution for this page's key UX wins and failures. Every insight must cite ≥2 correlated signals and quantify the impact.`,
-  },
-
-  // ── 6. Board Report (Evidence-Based Impact) ───────────────────────────────
-  {
-    id:   '06_board_report',
-    name: 'Board Report',
-    systemPrompt: `You are a Board Report compiler reviewing a SaaS marketing website.
-
-Apply the EXACT attribution standard from the Board Report Compiler agent:
-
-Every claimed finding MUST trace back to a specific visible element:
-- "Hero is weak" — name the specific headline copy, cite what is weak about it
-- "Trust signals missing" — name the section where they belong, what is absent
-- "Pricing page converts poorly" — cite specific friction points visible on screen
-- "CTA underperforms" — cite button copy, colour, placement as evidence
-
-No hallucinated findings:
-- Every observation must be visible in the screenshot.
-- If something cannot be verified, write "not visible in screenshot."
-- Never estimate beyond what the visual evidence supports.
-
-Narrative quality (write for a board / exec audience):
-- Lead with a headline: "[Page Name]: [one-sentence verdict]"
-- Tell the story: what works, what does not, what we should do
-- Use specific element names (not "the button" — "the orange 'Book a Demo' CTA")
-- Cite the most impactful finding first
-- End with a forward look: one thing to watch after the fix ships
-
-Attribution chain for every finding:
-1. Visual evidence (what you see)
-2. UX principle violated or confirmed
-3. Estimated impact on conversion
-
-Format: 1 page max. Board members skim.
-Time Saved Metric: note at the bottom — "Manual audit baseline: 2 hrs. Agent-assisted: <5 min."`,
-
-    userPromptSuffix: `Write a board-level evidence-based assessment of this page. Lead with a headline verdict, trace every finding to a specific visible element, and end with a forward look.`,
-  },
-
-  // ── 7. Staffing & Demand (Confidence-Calibrated Technical) ────────────────
-  {
-    id:   '07_technical_audit',
-    name: 'Technical & Accessibility Audit',
-    systemPrompt: `You are a Technical & Accessibility Auditor reviewing a SaaS marketing website.
-
-Apply the EXACT confidence calibration framework from the Staffing-Demand agent:
-
-Confidence Calibration:
-- No data to support observation: confidence = 0.5 ("First observation of this pattern")
-- 1-5 similar pattern instances visible: confidence = 0.5-0.7
-- 6-15 instances visible: confidence = 0.6-0.85
-- 16+ clear instances: confidence = 0.7-0.95
-NEVER report confidence > 0.95. Design is inherently uncertain.
-
-Every recommendation MUST include exactly one consequence type:
-1. Conversion risk — how this technical/accessibility issue reduces conversion rate
-2. Trust loss — how this issue erodes visitor confidence
-3. Revenue impact — estimated MRR lost due to this issue
-4. Resource waste — design/dev effort being wasted on ineffective patterns
-
-Evaluate across these domains:
-- Typography: contrast ratios (WCAG AA minimum), font size legibility, line length
-- Colour: sufficient contrast between text and background, colour-blind safe
-- Spacing & layout: consistent grid, breathing room, visual rhythm
-- Button/CTA accessibility: size (min 44×44px), label clarity, state visibility
-- Image alt text signals: any broken images, decorative vs informational
-- Responsive signals: does the layout appear to work at various scales?
-- Performance signals: heavy animations, layout complexity, render-blocking patterns
-
-Rules:
-- Be specific. "Increase button size to 44px minimum" not "make buttons bigger."
-- Always cite the conversion or accessibility justification.
-- Flag both over-engineering waste AND under-investment gaps.
-- Maximum 5 findings. Prioritise by consequence severity.`,
-
-    userPromptSuffix: `Audit this page for technical and accessibility issues using confidence-calibrated recommendations. Every finding must include a consequence type and confidence level (0.5-0.95).`,
-  },
-
-  // ── 8. Personal Concierge (Brand Voice & UX) ──────────────────────────────
-  {
-    id:   '08_brand_voice',
-    name: 'Brand Voice & UX Concierge',
-    systemPrompt: `You are a Brand Voice & UX Concierge reviewing a SaaS marketing website.
-
-Apply the EXACT assessment standard from the Personal Concierge agent.
-
-Your role is the RELATIONSHIP layer — you evaluate whether the page feels personal,
-warm, and specific rather than generic and corporate.
-
-Grading dimensions:
-1. Specificity (MANDATORY): Does the copy use specific language or generic placeholders?
-   - Generic: "We help clubs grow" → no score
-   - Specific: "We help private golf clubs retain at-risk members before they resign" → full score
-   Score specificity: Low / Medium / High
-
-2. Tone: Is the copy warm and human, or stiff and corporate?
-   Score tone: Cold / Neutral / Warm
-
-3. Proactive value (MANDATORY — every response must include a proactive suggestion):
-   Does the page proactively show the visitor what they will gain, without them
-   having to ask? Or does it wait for them to read every section to figure it out?
-   Score proactivity: Reactive / Balanced / Proactive
-
-4. Personalization signals: Does the page speak to a specific person in a specific
-   role (e.g. "Golf Club GM"), or to everyone in general?
-   Score personalization: Generic / Targeted / Hyper-targeted
-
-5. Re-engagement cues: Are there elements that would pull back a visitor who
-   is about to leave? (Exit intent, scroll-triggered content, compelling social proof)
-   Score: Absent / Weak / Strong
-
-EVERY response MUST include at least ONE proactive suggestion the design team
-did not ask for — a non-obvious improvement that would meaningfully lift warmth
-or conversion.
-
-Rules:
-- Be specific. Never generic. Reference exact copy or elements.
-- Use warm, direct language in your critique. Lead with what works.
-- Under 300 words.`,
-
-    userPromptSuffix: `Assess this page's brand voice, specificity, and personalization quality. Include at least one proactive suggestion the team did not ask for. Score each dimension and cite specific visible copy or elements.`,
-  },
-
-  // ── 9. Service Recovery (Friction & Pain Point) ───────────────────────────
-  {
-    id:   '09_friction_audit',
-    name: 'Friction & UX Pain Point Audit',
-    systemPrompt: `You are a Friction & UX Pain Point auditor reviewing a SaaS marketing website.
-
-Apply the EXACT 6-step lifecycle from the Service Recovery agent, repurposed
-to identify and triage visitor friction points (analogous to member complaints):
-
-Step 1 — Route to Department (Immediate):
-Identify the friction point and assign to the responsible owner:
-- Copy/messaging friction → "Copywriter"
-- Visual/layout friction → "Designer"
-- Technical/performance friction → "Frontend Developer"
-- Strategic/positioning friction → "Product Manager"
-
-Step 2 — Severity Alert:
-For each friction point, assess urgency:
-- Critical (deal-breaker): visitor cannot or will not convert because of this
-- High: significantly reduces conversion probability
-- Medium: reduces conversion for a segment of visitors
-- Low: minor friction, low impact
-
-Step 3 — Monitor Pattern:
-Is this a one-off issue or a recurring pattern across the page?
-
-Step 4 — 48-Hour Equivalent (Quick Fix Available?):
-Can this friction be resolved in <1 day? If yes, flag as "quick win."
-
-Step 5 — Visitor LTV at Risk:
-For each Critical/High friction point, estimate visitor lifetime value at risk.
-Assume avg club software deal = $18K ACV. If this friction reduces demo conversion
-by 10%, and the page sees 200 visitors/month, that is 2 fewer demos/month → potential
-$36K/month in pipeline at risk.
-
-Step 6 — Record Pattern:
-Summarise the top friction pattern across the page for inclusion in the master report.
-
-No-Fault Language Rule (adapted):
-When describing friction, focus on the UX gap, not blame:
-- Use: "The navigation lacks a clear path to pricing"
-- Avoid: "The design team made a poor choice"
-
-Rules:
-- Every friction finding MUST include: owner, severity, quick-win flag, visitor LTV at risk.
-- Repeat patterns (same issue in 3+ places) get elevated priority.
-- Maximum 5 friction findings.`,
-
-    userPromptSuffix: `Audit this page for visitor friction points using the 6-step Service Recovery lifecycle. Each finding must include owner, severity, quick-win flag, and visitor LTV at risk.`,
-  },
-
-  // ── 10. UI & Functionality — Full Professional Audit ─────────────────────
-  {
-    id:   '10_ui_functionality',
-    name: 'UI & Functionality Audit',
-    systemPrompt: `You are a senior website critique agent specializing in UI design and front-end functionality. You evaluate websites with the rigor of a professional audit and the taste of an award-winning creative director. Every observation is grounded in a specific principle, tied to a measurable standard, and paired with an actionable recommendation ranked by impact.
-
-## Evaluation Framework
-
-Critique this page across the following six domains, scored individually on a 1–10 scale.
+Your evaluation covers five dimensions. Score each out of 100, then produce a weighted composite score.
 
 ---
 
-### 1. Visual Design & Brand Identity (Weight: 20%)
+EVALUATION DIMENSIONS (score each /100):
 
-Evaluate:
-- **Typography system:** Clear hierarchy using a distinctive display/heading font paired with a refined body font. Minimum 16px body text. Consistent sizing and spacing. Penalize generic defaults or overused AI-template fonts when differentiation would benefit the brand.
-- **Color architecture:** Palette follows the 60/30/10 rule. Dominant tones with sharp accents — not timid, evenly distributed palettes. Sufficient contrast (4.5:1 body text, 3:1 large text). Intentional use of color to guide attention.
-- **Spatial composition:** Strategic whitespace. Intentional layout decisions — asymmetry, overlap, grid-breaking elements, controlled density — rather than templated defaults. Consistent spacing system.
-- **Visual consistency:** Icons, illustrations, photography, and UI elements share a coherent style language.
-- **Brand differentiation:** Would a visitor remember this site after 30 seconds? Does the design feel intentionally crafted — not interchangeable with any competitor?
-- **Atmosphere & depth:** Visual interest through gradients, textures, patterns, layered transparencies — or flat solid backgrounds?
-- **Dark mode:** Maintains contrast, hierarchy, brand identity. Warm neutrals considered over harsh pure-black/white.
+1. LAYOUT & OVERFLOW (25%)
+- Is there any horizontal overflow or scroll at 390px?
+- Do multi-column desktop grids correctly collapse to single-column on mobile?
+- Do hero sections, pricing cards, and comparison tables reflow gracefully?
+- Are elements clipped, cut off, or awkwardly stacked?
+- Is max-width properly constrained with appropriate side padding (16-20px)?
 
----
+2. TYPOGRAPHY LEGIBILITY (20%)
+- Are body text sizes ≥ 16px on mobile (16px = minimum readable, 15px is borderline)?
+- Do headings scale appropriately (not oversized at 60px filling the full width)?
+- Are line lengths comfortable on a 390px viewport (not one-word-per-line or wall-of-text)?
+- Is text contrast sufficient against background colors?
+- Are all text elements visible without needing to zoom?
 
-### 2. Layout & Information Architecture (Weight: 20%)
+3. TAP TARGETS & INTERACTION (25%)
+- Are all interactive elements (buttons, links, form inputs) ≥ 44×44px per Apple HIG?
+- Are tap targets spaced ≥ 8px apart to prevent mis-taps?
+- Are navigation menus usable by thumb on mobile?
+- Do form fields have appropriate input types (email, tel, etc.) for mobile keyboards?
+- Are any hover-only interactions that have no touch equivalent?
 
-Evaluate:
-- **Visual hierarchy:** Every page guides: headline → supporting content → CTA.
-- **Content scannability:** Short paragraphs, walls of text broken with visuals, key info front-loaded.
-- **Navigation clarity:** Immediately discoverable, clear concise labels, flat structure (≤3 clicks to any page).
-- **Wayfinding:** Users always know where they are, how they got there, how to go back.
-- **Cognitive load:** Choices limited and clear, progressive disclosure used.
-- **Above-the-fold impact:** Who, what, why within seconds — headline, subheadline, visual, primary action.
-- **Page structure consistency:** Same-type pages follow consistent structural patterns.
+4. CONTENT PRIORITIZATION (20%)
+- Does the most important information appear above the fold at 390px height?
+- Are secondary/supporting content sections appropriately collapsed or reduced on mobile?
+- Is the primary CTA visible without scrolling, or reachable within 1-2 scrolls?
+- Does the mobile layout tell the same story as desktop, or does it lose critical context?
+- Are images and media appropriately sized and not overshadowing content?
 
----
-
-### 3. Responsiveness & Cross-Device Experience (Weight: 20%)
-
-Evaluate:
-- **True adaptation:** Restructures layouts per viewport — not merely shrinks. Components recomposed.
-- **Touch targets:** All interactive elements ≥44×44px with adequate spacing.
-- **Thumb-zone design:** Primary actions reachable in natural thumb zone.
-- **Mobile content parity:** Content-complete on mobile. Critical elements accessible.
-- **Mobile typography:** Legible without pinch-zoom. Line lengths 45–75 characters. Comfortable line height.
-- **Viewport stability:** No horizontal scrolling. Sticky elements don't cover content.
-- **Mobile forms:** Input types match field purpose. Keyboards adapt. Autofill supported.
-- **Breakpoint transitions:** Smooth transitions, no awkward intermediate states.
+5. MOBILE CONVERSION FLOW (10%)
+- Is the mobile CTA flow as smooth as desktop?
+- Do sticky elements (nav, CTA bar) work correctly without covering content?
+- Is the contact/demo form usable on mobile without pinching or zooming?
+- Are social proof elements (testimonials, logos) visible and legible on mobile?
 
 ---
 
-### 4. Interactive Elements & Component Quality (Weight: 15%)
+OUTPUT FORMAT:
 
-Evaluate:
-- **Buttons & CTAs:** Primary actions visually prominent, clearly worded with action verbs. Clear primary/secondary/tertiary distinction. Consistent sizing, padding, styling.
-- **Forms:** Labels always visible (not placeholder-only). Inline validation. Specific error messages near fields. Required fields indicated.
-- **Hover & focus states:** Clear, consistent visual feedback. Focus indicators visible, well-styled.
-- **Loading & empty states:** Skeleton screens or progressive loading. Helpful, actionable empty states.
-- **Error handling:** Specific, recoverable. 404 pages offer navigation paths.
-- **Modals & overlays:** Used sparingly. Dismissible (close button, click-outside, Escape). Focus trapped correctly.
-- **Tables & data display:** Responsive. Sortable/filterable where appropriate.
+## Mobile UX Verdict
+2-3 sentences: Does this page work on mobile? What is the single highest-priority mobile fix?
 
----
+**Overall Score: X / 100**
 
-### 5. Motion & Micro-Interaction (Weight: 10%)
+## Dimension Scores
+| Dimension | Score /100 | Key Finding |
+|-----------|-----------|------------|
+| Layout & Overflow | X | — |
+| Typography Legibility | X | — |
+| Tap Targets & Interaction | X | — |
+| Content Prioritization | X | — |
+| Mobile Conversion Flow | X | — |
 
-Evaluate:
-- **Purposeful animation:** Serves a function (guiding attention, indicating state change) — not decorative noise.
-- **Page load orchestration:** Coordinated reveal with intentional staggering — not random pop-in.
-- **Scroll-triggered behavior:** Clarifies content — doesn't slow information access.
-- **Transitions:** Smooth page and state transitions. Maintain spatial orientation.
-- **Micro-interactions:** Polished small moments — button feedback, validation cues, toggle responses, progress indicators.
-- **Performance cost:** No jank, layout shifts, or frame drops. CSS-driven where possible.
-- **Reduced motion:** Degrades gracefully for prefers-reduced-motion. Decorative removed, essential preserved.
+## Critical Mobile Issues (fix immediately)
+For each issue: what it is, where it occurs, what the fix is, and which dimension(s) it affects.
 
----
+## Mobile Wins (what works well)
+Specific elements that work exceptionally on mobile.
 
-### 6. Performance & Loading Experience (Weight: 15%)
-
-Evaluate (from a UI/UX perspective — no DevTools required, assess from visible behavior):
-- **Perceived speed:** Content appears progressively, not blank screen wait.
-- **LCP:** Primary above-the-fold content appears within 2.5s. Hero images optimized.
-- **Layout stability (CLS):** Elements don't shift position as page loads. Images have explicit dimensions.
-- **Interaction responsiveness (INP):** Instant response to clicks, taps, keyboard input.
-- **Image handling:** Appropriately sized for containers. Modern formats (WebP/AVIF). Lazy loading below fold.
-- **Font loading:** No FOIT/FOUT. Fallback font visually close to web font.
-- **Third-party impact:** Chat widgets, analytics don't noticeably delay load.
+## Quick Fixes vs. Structural Fixes
+List of issues split by effort: quick CSS fix (<1 hour) vs. structural refactor (>1 day).
 
 ---
 
-## Output Format
+BEHAVIORAL RULES:
+- You are evaluating a MOBILE screenshot, not a desktop screenshot. Everything you describe must be based on what is visible in the 390px-wide viewport.
+- Be specific: cite exact elements, sections, and copy that you see. Do not describe generic mobile problems.
+- Font size violations are critical — a 13px label that's fine on desktop is unacceptable on mobile.
+- A button that looks large on desktop may be a 32×32 tap target on mobile — flag it.
+- Score strictly. A page that "mostly works" on mobile but has 3+ tap target failures should score 55-65, not 80.`,
 
-Use this EXACT structure:
-
-## Site Overview
-- URL: [page URL]
-- Purpose: SaaS marketing for private golf club intelligence platform
-- Primary audience: Club GM / COO
-- Device tested: Desktop 1440px (screenshot analysis)
-
----
-
-## Executive Summary
-3–5 sentences covering greatest strengths, most critical weaknesses, and overall verdict against 2026 professional standards.
-
-Overall Score: X / 10
-
----
-
-## Domain Scores
-
-| Domain | Score | Weight | Weighted Score | Priority |
-|--------|-------|--------|---------------|----------|
-| Visual Design & Brand Identity | X/10 | 20% | X.X | — |
-| Layout & Information Architecture | X/10 | 20% | X.X | — |
-| Responsiveness & Cross-Device | X/10 | 20% | X.X | — |
-| Interactive Elements & Components | X/10 | 15% | X.X | — |
-| Motion & Micro-Interaction | X/10 | 10% | X.X | — |
-| Performance & Loading Experience | X/10 | 15% | X.X | — |
-| **Weighted Total** | | 100% | **X.X / 10** | |
-
----
-
-## Detailed Findings
-
-For each domain:
-
-### [Domain Name] — X/10
-
-**Strengths:**
-- Specific observations with evidence (page section, element, pattern)
-
-**Issues:**
-- Specific problems with severity: Critical / Major / Minor
-
-**Recommendations:**
-- What to change, why it matters, expected impact: High / Medium / Low
-
----
-
-## Priority Action Plan
-
-Top 5–10 changes ranked by effort and impact. Format as:
-
-| # | Change | Effort | Impact | Domain |
-|---|--------|--------|--------|--------|
-| 1 | ... | Low | High | ... |
-
-Quick wins (Low effort + High impact) first.
-
----
-
-## Behavioral Guidelines
-
-- Be specific: "Body text is 14px at 1.3 line height — below 16px minimum" not "improve typography"
-- Reference every element by its page section or component name
-- Prioritize ruthlessly: broken mobile nav = Critical; inconsistent icon weight = Minor
-- Acknowledge strengths with the same specificity as problems
-- Separate measurable requirements (contrast ratios, touch targets) from design recommendations
-- Evaluate against the site's purpose, audience, and 2026 professional standards
-- Write for a designer/developer/PM who can act immediately`,
-
-    userPromptSuffix: `Apply the full 6-domain UI & Functionality audit framework to this page. Score each domain 1–10, compute the weighted total, and produce the complete output structure including Executive Summary, Domain Scores table, Detailed Findings for all 6 domains, and Priority Action Plan. Be specific — cite exact visible elements, copy, and layout patterns as evidence for every score.`,
+    userPromptSuffix: `You are viewing a FULL-PAGE MOBILE SCREENSHOT at 390px viewport width (iPhone 14 equivalent). Evaluate this mobile layout for usability, legibility, and conversion effectiveness. Score each dimension out of 100, produce your Overall Score, and list every mobile-specific issue with specific evidence from the screenshot.`,
   },
 ];
 
@@ -1348,9 +955,32 @@ async function takeScreenshots(outputDir) {
       const filename = `${page.index}_${page.slug}.png`;
       const filePath = path.join(screenshotsDir, filename);
       await tab.screenshot({ path: filePath, fullPage: true });
-
-      results.push({ ...page, screenshotPath: filePath, filename });
       console.log(`     ✓ ${filename}`);
+
+      // Mobile screenshot — resize viewport, scroll, screenshot, restore
+      await tab.setViewportSize(MOBILE_VIEWPORT);
+      await tab.evaluate(async () => {
+        await new Promise((resolve) => {
+          let totalHeight = 0;
+          const distance = 300;
+          const timer = setInterval(() => {
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+            if (totalHeight >= document.body.scrollHeight) {
+              clearInterval(timer);
+              window.scrollTo(0, 0);
+              resolve();
+            }
+          }, 60);
+        });
+      });
+      await tab.waitForTimeout(600);
+      const mobileFilename = `${page.index}_${page.slug}_mobile.png`;
+      const mobileFilePath = path.join(screenshotsDir, mobileFilename);
+      await tab.screenshot({ path: mobileFilePath, fullPage: true });
+      console.log(`     ✓ ${mobileFilename}`);
+
+      results.push({ ...page, screenshotPath: filePath, filename, mobileScreenshotPath: mobileFilePath, mobileFilename });
     } catch (err) {
       console.error(`     ✗ Failed to screenshot ${page.label}: ${err.message}`);
     } finally {
@@ -1368,17 +998,22 @@ async function takeScreenshots(outputDir) {
 // ---------------------------------------------------------------------------
 
 async function critiquePageWithAgent(genAI, screenshotPath, page, lens, critiquesDir) {
-  const imageBuffer = fs.readFileSync(screenshotPath);
+  // Mobile Inspector uses the mobile screenshot instead of desktop
+  const effectivePath = lens.mobile && page.mobileScreenshotPath ? page.mobileScreenshotPath : screenshotPath;
+  const imageBuffer = fs.readFileSync(effectivePath);
   const base64Image = imageBuffer.toString('base64');
 
   const model = genAI.getGenerativeModel({
     model: FLASH_MODEL,
     systemInstruction: lens.systemPrompt,
+    generationConfig: { maxOutputTokens: 65536 },
   });
 
   const userPrompt = `You are reviewing the **${page.label}** page of the Swoop Club Intelligence marketing website (https://swoop-member-intelligence-website.vercel.app/).
 
 Swoop Club Intelligence is an AI-powered member intelligence platform for private golf and country clubs. Its target customer is the Club GM or COO who wants to reduce member churn, improve F&B revenue, and run smarter operations with less manual effort.
+
+${SCORING_CONTEXT}
 
 ${lens.userPromptSuffix}
 
@@ -1412,11 +1047,84 @@ ${text}
 }
 
 // ---------------------------------------------------------------------------
+// Claude variant — critiquePageWithAgent
+// ---------------------------------------------------------------------------
+
+// Claude's max image dimension is 8000px — resize tall full-page screenshots.
+const CLAUDE_MAX_PX = 7900;
+
+async function resizeForClaude(screenshotPath) {
+  const meta = await sharp(screenshotPath).metadata();
+  if ((meta.width ?? 0) <= CLAUDE_MAX_PX && (meta.height ?? 0) <= CLAUDE_MAX_PX) {
+    return fs.readFileSync(screenshotPath);
+  }
+  const scale = Math.min(CLAUDE_MAX_PX / (meta.width ?? 1440), CLAUDE_MAX_PX / (meta.height ?? 1));
+  return sharp(screenshotPath)
+    .resize(Math.floor((meta.width ?? 1440) * scale), Math.floor((meta.height ?? 900) * scale))
+    .png()
+    .toBuffer();
+}
+
+async function critiquePageWithAgentClaude(anthropic, screenshotPath, page, lens, critiquesDir) {
+  const effectivePath = lens.mobile && page.mobileScreenshotPath ? page.mobileScreenshotPath : screenshotPath;
+  const imageBuffer = await resizeForClaude(effectivePath);
+  const base64Image = imageBuffer.toString('base64');
+
+  const userPrompt = `You are reviewing the **${page.label}** page of the Swoop Club Intelligence marketing website (https://swoop-member-intelligence-website.vercel.app/).
+
+Swoop Club Intelligence is an AI-powered member intelligence platform for private golf and country clubs. Its target customer is the Club GM or COO who wants to reduce member churn, improve F&B revenue, and run smarter operations with less manual effort.
+
+${SCORING_CONTEXT}
+
+${lens.userPromptSuffix}
+
+Be specific — cite exact visible copy, element names, colours, and layout patterns. Do not speculate about elements that are not visible in the screenshot.`;
+
+  const response = await anthropic.messages.create({
+    model: CLAUDE_CRITIQUE_MODEL,
+    max_tokens: 8192,
+    system: lens.systemPrompt,
+    messages: [{
+      role: 'user',
+      content: [
+        {
+          type: 'image',
+          source: { type: 'base64', media_type: 'image/png', data: base64Image },
+        },
+        { type: 'text', text: userPrompt },
+      ],
+    }],
+  });
+
+  const text = response.content.find((b) => b.type === 'text')?.text ?? '';
+
+  const outFilename = `${page.index}_${page.slug}__${lens.id}.md`;
+  const outPath = path.join(critiquesDir, outFilename);
+
+  const content = `# ${lens.name} — ${page.label}
+
+**Page:** ${page.label}
+**URL:** ${BASE_URL}/${page.hash}
+**Lens:** ${lens.name}
+**Critique Model:** ${CLAUDE_CRITIQUE_MODEL}
+**Generated:** ${new Date().toISOString()}
+
+---
+
+${text}
+`;
+
+  writeFile(outPath, content);
+  return { lens: lens.name, page: page.label, filePath: outPath, content: text };
+}
+
+// ---------------------------------------------------------------------------
 // Step 3 — Run all 45 critiques (9 lenses × 5 pages)
 // ---------------------------------------------------------------------------
 
 async function runAllCritiques(genAI, screenshotResults, outputDir) {
-  console.log('\n🤖  Running 8-lens critiques (The Eight Lenses) via Gemini…');
+  const provider = CRITIQUE_PROVIDER === 'claude' ? 'Claude' : 'Gemini';
+  console.log(`\n🤖  Running 8-lens critiques (The Eight Lenses) via ${provider}…`);
   const critiquesDir = path.join(outputDir, 'critiques');
   await ensureDir(critiquesDir);
 
@@ -1425,13 +1133,15 @@ async function runAllCritiques(genAI, screenshotResults, outputDir) {
   for (const page of screenshotResults) {
     console.log(`\n  Page: ${page.label}`);
     // Fan out all 8 lens calls in parallel for this page
-    const tasks = AGENT_LENSES.map((lens) =>
-      critiquePageWithAgent(genAI, page.screenshotPath, page, lens, critiquesDir)
-        .catch((err) => {
-          console.error(`    ✗ ${lens.name} failed: ${err.message}`);
-          return { lens: lens.name, page: page.label, filePath: null, content: `ERROR: ${err.message}` };
-        })
-    );
+    const tasks = AGENT_LENSES.map((lens) => {
+      const critiqueFn = CRITIQUE_PROVIDER === 'claude'
+        ? critiquePageWithAgentClaude(genAI, page.screenshotPath, page, lens, critiquesDir)
+        : critiquePageWithAgent(genAI, page.screenshotPath, page, lens, critiquesDir);
+      return critiqueFn.catch((err) => {
+        console.error(`    ✗ ${lens.name} failed: ${err.message}`);
+        return { lens: lens.name, page: page.label, filePath: null, content: `ERROR: ${err.message}` };
+      });
+    });
     const results = await Promise.all(tasks);
     allCritiques.push(...results);
   }
@@ -1509,10 +1219,12 @@ const PAGE_COMPONENTS = {
 // Step 3.5 — Per-page recommendations targeting 95/100 (Gemini 3.1 Pro)
 // ---------------------------------------------------------------------------
 
-async function generatePageRecommendations(genAI, page, pageCritiques, recsDir) {
+async function generatePageRecommendations(genAI, anthropic, page, pageCritiques, recsDir) {
   console.log(`  → Recommendations: ${page.label}`);
 
-  const imageBuffer = fs.readFileSync(page.screenshotPath);
+  const imageBuffer = CRITIQUE_PROVIDER === 'claude'
+    ? await resizeForClaude(page.screenshotPath)
+    : fs.readFileSync(page.screenshotPath);
   const base64Image = imageBuffer.toString('base64');
 
   const components = PAGE_COMPONENTS[page.slug] || { page: `src/landing/pages/${page.slug}.jsx`, components: [] };
@@ -1523,7 +1235,7 @@ async function generatePageRecommendations(genAI, page, pageCritiques, recsDir) 
     .map((c) => `### ${c.lens}\n\n${c.content}`)
     .join('\n\n---\n\n');
 
-  const model = genAI.getGenerativeModel({ model: RECS_MODEL });
+  const model = CRITIQUE_PROVIDER === 'claude' ? null : genAI.getGenerativeModel({ model: RECS_MODEL, generationConfig: { maxOutputTokens: 65536 } });
 
   const prompt = `You are a senior React developer and UX strategist working on the Swoop Club Intelligence marketing website.
 
@@ -1542,7 +1254,7 @@ ${componentList}
 
 ## Current Critique Scores (The Seven Lenses)
 
-The page was evaluated by 8 specialist agents (The Eight Lenses system, max composite 800/800). Here are all their findings:
+The page was evaluated by 9 specialist agents (The Nine Lenses system, max composite 900/900). Here are all their findings:
 
 ---
 
@@ -1552,7 +1264,7 @@ ${critiquesBlock}
 
 ## Your Task
 
-The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 8 agent lenses** (760/800 composite target).
+The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 9 agent lenses** (855/900 composite target).
 
 Structure your output EXACTLY as follows:
 
@@ -1572,7 +1284,8 @@ Structure your output EXACTLY as follows:
 | The Storyteller (Messaging) | X/100 | 95/100 | ... |
 | The First-Timer (Clarity) | X/100 | 95/100 | ... |
 | The Brand Guardian (Brand) | X/100 | 95/100 | ... |
-| **Composite** | X/800 | 760/800 | ... |
+| The Mobile Inspector (Mobile UX) | X/100 | 95/100 | ... |
+| **Composite** | X/900 | 855/900 | ... |
 
 ---
 
@@ -1631,7 +1344,8 @@ For each change below, provide:
 | The Storyteller (Messaging) | X/100 | X/100 | 95+/100 |
 | The First-Timer (Clarity) | X/100 | X/100 | 95+/100 |
 | The Brand Guardian (Brand) | X/100 | X/100 | 95+/100 |
-| **Composite** | X/800 | X/800 | 760+/800 |
+| The Mobile Inspector (Mobile UX) | X/100 | X/100 | 95+/100 |
+| **Composite** | X/900 | X/900 | 855+/900 |
 
 ---
 
@@ -1642,21 +1356,40 @@ Rules:
 - Do not invent problems not identified in the critiques.
 - Prioritise changes that fix multiple lens scores simultaneously.`;
 
-  const result = await model.generateContent([
-    { inlineData: { mimeType: 'image/png', data: base64Image } },
-    prompt,
-  ]);
-
-  const text = result.response.text();
+  let text;
+  if (CRITIQUE_PROVIDER === 'claude') {
+    const response = await anthropic.messages.create({
+      model: CLAUDE_RECS_MODEL,
+      max_tokens: 8192,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'image',
+            source: { type: 'base64', media_type: 'image/png', data: base64Image },
+          },
+          { type: 'text', text: prompt },
+        ],
+      }],
+    });
+    text = response.content.find((b) => b.type === 'text')?.text ?? '';
+  } else {
+    const result = await model.generateContent([
+      { inlineData: { mimeType: 'image/png', data: base64Image } },
+      prompt,
+    ]);
+    text = result.response.text();
+  }
 
   const outFilename = `${page.index}_${page.slug}__recommendations.md`;
   const outPath = path.join(recsDir, outFilename);
+  const recsModelName = CRITIQUE_PROVIDER === 'claude' ? CLAUDE_RECS_MODEL : RECS_MODEL;
 
   const content = `# ${page.label} — Recommendations to Achieve 95/100
 
 **Page:** ${page.label}
 **URL:** ${BASE_URL}/${page.hash}
-**Recommendations Model:** ${RECS_MODEL}
+**Recommendations Model:** ${recsModelName}
 **Generated:** ${new Date().toISOString()}
 
 ---
@@ -1668,8 +1401,9 @@ ${text}
   return { page: page.label, filePath: outPath, content: text };
 }
 
-async function runAllRecommendations(genAI, screenshotResults, allCritiques, cycleDir) {
-  console.log('\n🎯  Generating per-page 95/100 recommendations (760/800 composite target) via Gemini 3.1 Pro…');
+async function runAllRecommendations(genAI, anthropic, screenshotResults, allCritiques, cycleDir) {
+  const recsProvider = CRITIQUE_PROVIDER === 'claude' ? `Claude (${CLAUDE_RECS_MODEL})` : 'Gemini 3.1 Pro';
+  console.log(`\n🎯  Generating per-page 95/100 recommendations via ${recsProvider}…`);
   const recsDir = path.join(cycleDir, 'recommendations');
   await ensureDir(recsDir);
 
@@ -1678,7 +1412,7 @@ async function runAllRecommendations(genAI, screenshotResults, allCritiques, cyc
   for (const page of screenshotResults) {
     // Gather only the 8 critiques for this page
     const pageCritiques = allCritiques.filter((c) => c.page === page.label);
-    const rec = await generatePageRecommendations(genAI, page, pageCritiques, recsDir).catch((err) => {
+    const rec = await generatePageRecommendations(genAI, anthropic, page, pageCritiques, recsDir).catch((err) => {
       console.error(`    ✗ Recommendations failed for ${page.label}: ${err.message}`);
       return { page: page.label, filePath: null, content: `ERROR: ${err.message}` };
     });
@@ -1692,8 +1426,9 @@ async function runAllRecommendations(genAI, screenshotResults, allCritiques, cyc
 // Step 4 — Master Report via Gemini 2.5 Pro
 // ---------------------------------------------------------------------------
 
-async function consolidate(genAI, allCritiques, screenshotResults, outputDir) {
-  console.log('\n📊  Consolidating with Gemini 2.5 Pro…');
+async function consolidate(genAI, anthropic, allCritiques, screenshotResults, outputDir) {
+  const consolidateProvider = CRITIQUE_PROVIDER === 'claude' ? `Claude (${CLAUDE_PRO_MODEL})` : 'Gemini 2.5 Pro';
+  console.log(`\n📊  Consolidating with ${consolidateProvider}…`);
 
   // Build the combined input — all 45 critiques labelled
   const critiquesText = allCritiques
@@ -1702,7 +1437,7 @@ async function consolidate(genAI, allCritiques, screenshotResults, outputDir) {
 
   const pageList = screenshotResults.map((p) => `- ${p.label}: ${BASE_URL}/${p.hash}`).join('\n');
 
-  const model = genAI.getGenerativeModel({ model: PRO_MODEL });
+  const model = CRITIQUE_PROVIDER === 'claude' ? null : genAI.getGenerativeModel({ model: PRO_MODEL, generationConfig: { maxOutputTokens: 65536 } });
 
   const prompt = `You are a senior UX strategist and product consultant. You have received 40 structured critiques of a SaaS marketing website — 8 specialist agents (The Eight Lenses) applied to each of 5 pages. Each agent scores out of 100 for a maximum composite of 800/800.
 
@@ -1824,8 +1559,18 @@ Rules:
 - Write for a technical founder / product team — specific, actionable, no fluff.
 - The entire report should be scannable in under 10 minutes.`;
 
-  const result = await model.generateContent(prompt);
-  const masterReport = result.response.text();
+  let masterReport;
+  if (CRITIQUE_PROVIDER === 'claude') {
+    const response = await anthropic.messages.create({
+      model: CLAUDE_PRO_MODEL,
+      max_tokens: 8192,
+      messages: [{ role: 'user', content: prompt }],
+    });
+    masterReport = response.content.find((b) => b.type === 'text')?.text ?? '';
+  } else {
+    const result = await model.generateContent(prompt);
+    masterReport = result.response.text();
+  }
 
   const outPath = path.join(outputDir, 'MASTER_REPORT.md');
   writeFile(outPath, masterReport);
@@ -1838,27 +1583,29 @@ Rules:
 // ---------------------------------------------------------------------------
 
 const LENS_FIELD_MAP = {
-  'The Architect':       'architect',
-  'The GM':              'gm',
-  'The Closer':          'closer',
-  'The Speedster':       'speedster',
-  'The Skeptic':         'skeptic',
-  'The Storyteller':     'storyteller',
-  'The First-Timer':     'firstTimer',
-  'The Brand Guardian':  'brandGuardian',
+  'The Architect':        'architect',
+  'The GM':               'gm',
+  'The Closer':           'closer',
+  'The Speedster':        'speedster',
+  'The Skeptic':          'skeptic',
+  'The Storyteller':      'storyteller',
+  'The First-Timer':      'firstTimer',
+  'The Brand Guardian':   'brandGuardian',
+  'The Mobile Inspector': 'mobileInspector',
 };
 
 function extractScores(pageCritiques) {
   const scores = {
-    architect:     null,
-    gm:            null,
-    closer:        null,
-    speedster:     null,
-    skeptic:       null,
-    storyteller:   null,
-    firstTimer:    null,
-    brandGuardian: null,
-    composite:     null,  // sum of all 8 (/800)
+    architect:       null,
+    gm:              null,
+    closer:          null,
+    speedster:       null,
+    skeptic:         null,
+    storyteller:     null,
+    firstTimer:      null,
+    brandGuardian:   null,
+    mobileInspector: null,
+    composite:       null,  // sum of all 9 (/900)
   };
 
   for (const c of pageCritiques) {
@@ -1867,7 +1614,7 @@ function extractScores(pageCritiques) {
 
     const text = c.content || '';
     // Match "Overall Score: X / 100" or "Composite Score: X / 100"
-    const m = text.match(/(?:overall|composite)\s+score[:\s*]+(\d{1,3})\s*\/\s*100/i);
+    const m = text.match(/(?:overall|composite)\s+score[:\s*]+(\d{1,3})(?:\.\d+)?\s*\/\s*100/i);
     if (m) scores[field] = parseInt(m[1], 10);
   }
 
@@ -1879,7 +1626,7 @@ function extractScores(pageCritiques) {
 }
 
 function allPagesAtTarget(cycleScores) {
-  const TARGET_COMPOSITE = 760; // 95/100 × 8 agents
+  const TARGET_COMPOSITE = 855; // 95/100 × 9 agents
   return Object.values(cycleScores).every(
     (s) => s.composite !== null && s.composite >= TARGET_COMPOSITE
   );
@@ -1909,14 +1656,29 @@ function detectRegressions(prevScores, currScores) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error('Error: GEMINI_API_KEY environment variable is not set.');
-    console.error('Usage: GEMINI_API_KEY=<your_key> node scripts/website-critique.mjs');
-    process.exit(1);
-  }
+  // ── Provider initialisation ────────────────────────────────────────────
+  let genAI = null;
+  let anthropic = null;
 
-  const genAI = new GoogleGenerativeAI(apiKey);
+  if (CRITIQUE_PROVIDER === 'claude') {
+    const anthropicKey = process.env.ANTHROPIC_API_KEY;
+    if (!anthropicKey) {
+      console.error('Error: ANTHROPIC_API_KEY environment variable is not set.');
+      console.error('Usage: CRITIQUE_PROVIDER=claude ANTHROPIC_API_KEY=<your_key> node scripts/website-critique.mjs');
+      process.exit(1);
+    }
+    anthropic = new Anthropic({ apiKey: anthropicKey });
+    console.log(`\n🤖  Provider: Claude (${CLAUDE_CRITIQUE_MODEL})`);
+  } else {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      console.error('Error: GEMINI_API_KEY environment variable is not set.');
+      console.error('Usage: GEMINI_API_KEY=<your_key> node scripts/website-critique.mjs');
+      process.exit(1);
+    }
+    genAI = new GoogleGenerativeAI(apiKey);
+    console.log(`\n🤖  Provider: Gemini (${FLASH_MODEL})`);
+  }
 
   const run = timestamp();
   const outputDir = path.join(
@@ -1929,7 +1691,7 @@ async function main() {
 
   console.log(`\n🚀  Swoop Website Critique — run ${run}`);
   console.log(`📁  Output: ${outputDir}`);
-  console.log(`🎯  Target: 760+/800 composite (95/100 per agent across all 8 lenses)\n`);
+  console.log(`🎯  Target: 855+/900 composite (95/100 per agent across all 9 lenses)\n`);
 
   // ── 1. Screenshots ──────────────────────────────────────────────────────
   const screenshotResults = await takeScreenshots(outputDir);
@@ -1938,8 +1700,8 @@ async function main() {
     process.exit(1);
   }
 
-  // ── 2. Critiques (7 agents × 5 pages = 35 critiques) ───────────────────
-  const allCritiques = await runAllCritiques(genAI, screenshotResults, outputDir);
+  // ── 2. Critiques (8 agents × 5 pages = 40 critiques) ───────────────────
+  const allCritiques = await runAllCritiques(CRITIQUE_PROVIDER === 'claude' ? anthropic : genAI, screenshotResults, outputDir);
 
   // ── 3. Extract & print scores ───────────────────────────────────────────
   const scores = {};
@@ -1948,12 +1710,12 @@ async function main() {
     scores[page.slug] = extractScores(pageCritiques);
   }
 
-  console.log('\n📊  Scores (The Eight Lenses — /100 each, /800 composite):');
-  console.log(`  ${'Page'.padEnd(12)} Arch  GM   Closr Spd  Skpt  Story 1stT  Brand Composite`);
+  console.log('\n📊  Scores (The Nine Lenses — /100 each, /900 composite):');
+  console.log(`  ${'Page'.padEnd(12)} Arch  GM   Closr Spd  Skpt  Story 1stT  Brand Mobil Composite`);
   for (const [slug, s] of Object.entries(scores)) {
     const fmt = (v) => String(v ?? '?').padStart(4);
-    const comp = s.composite !== null ? `${s.composite}/800` : '?/800';
-    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)} ${fmt(s.skeptic)} ${fmt(s.storyteller)} ${fmt(s.firstTimer)} ${fmt(s.brandGuardian)}  ${comp}`);
+    const comp = s.composite !== null ? `${s.composite}/900` : '?/900';
+    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)} ${fmt(s.skeptic)} ${fmt(s.storyteller)} ${fmt(s.firstTimer)} ${fmt(s.brandGuardian)} ${fmt(s.mobileInspector)}  ${comp}`);
   }
 
   writeFile(path.join(outputDir, 'scores.json'), JSON.stringify({ run, scores }, null, 2));
@@ -1963,10 +1725,10 @@ async function main() {
   }
 
   // ── 4. Recommendations (one file per page) ──────────────────────────────
-  await runAllRecommendations(genAI, screenshotResults, allCritiques, outputDir);
+  await runAllRecommendations(genAI, anthropic, screenshotResults, allCritiques, outputDir);
 
   // ── 5. Master report ────────────────────────────────────────────────────
-  await consolidate(genAI, allCritiques, screenshotResults, outputDir);
+  await consolidate(genAI, anthropic, allCritiques, screenshotResults, outputDir);
 
   console.log(`\n✅  Done!`);
   console.log(`   Screenshots    : ${path.join(outputDir, 'screenshots')}`);
@@ -1974,6 +1736,28 @@ async function main() {
   console.log(`   Recommendations: ${path.join(outputDir, 'recommendations')}`);
   console.log(`   Master Report  : ${path.join(outputDir, 'MASTER_REPORT.md')}`);
   console.log(`   Scores         : ${path.join(outputDir, 'scores.json')}`);
+
+  // ── 6. Generate DEV_PLAN.md via generate_dev_plan.py ────────────────────
+  console.log('\n📋  Generating DEV_PLAN.md…');
+  await new Promise((resolve, reject) => {
+    const proc = spawn('py', ['-3', path.join(path.dirname(fileURLToPath(import.meta.url)), 'generate_dev_plan.py'), outputDir], {
+      stdio: 'inherit',
+      env: process.env,
+    });
+    proc.on('close', (code) => {
+      if (code === 0) {
+        console.log(`   DEV_PLAN.md    : ${path.join(outputDir, 'DEV_PLAN.md')}`);
+        resolve();
+      } else {
+        console.error(`   ✗ generate_dev_plan.py exited with code ${code}`);
+        resolve(); // don't fail the whole run if dev plan fails
+      }
+    });
+    proc.on('error', (err) => {
+      console.error(`   ✗ Could not launch generate_dev_plan.py: ${err.message}`);
+      resolve();
+    });
+  });
 }
 
 main().catch((err) => {

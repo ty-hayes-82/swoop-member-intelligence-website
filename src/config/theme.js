@@ -81,8 +81,8 @@ export const theme = {
     chartPurple:  SLATE,
 
     landingCream: '#F7F5F2',
-    heroGreen:    '#1A2E20',
-    darkSection:  '#0E1A10',
+    heroGreen:    '#1B1814',
+    darkSection:  '#141210',
     brass:        '#B5956A',
     brand:        '#F3922D',
 

@@ -55,7 +55,7 @@ export default function ComparisonSection() {
         ← swipe to compare every column →
       </p>
       <p style={{ fontSize: 11, color: '#888', marginTop: 12, fontStyle: 'italic' }}>
-        Comparison based on published feature matrices as of Apr 2026.
+        Comparison based on published feature matrices as of {new Date().getFullYear()}.
       </p>
 
       <div style={{ textAlign: 'center', marginTop: 40 }}>
@@ -63,7 +63,7 @@ export default function ComparisonSection() {
           Swoop does what none of these can do alone.
         </p>
         <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+          style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
           See it in 30 minutes →
         </a>
       </div>
@@ -71,6 +71,7 @@ export default function ComparisonSection() {
       <div style={{ marginTop: 72 }}>
         <h3
           style={{
+            fontFamily: "'Fraunces', Georgia, serif",
             fontSize: 28,
             fontWeight: 700,
             marginBottom: 28,
@@ -105,7 +106,7 @@ export default function ComparisonSection() {
 
         <div style={{ textAlign: 'center', marginTop: 40 }}>
           <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-            style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+            style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
             Every objection answered. Book the walkthrough →
           </a>
         </div>

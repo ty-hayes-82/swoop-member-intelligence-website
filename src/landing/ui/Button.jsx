@@ -24,7 +24,7 @@ const base = {
 const variants = {
   primary: {
     background: theme.colors.accent,
-    color: '#FFFFFF',
+    color: '#1B1814',
     boxShadow: '0 8px 20px rgba(243,146,45,0.28)',
   },
   primaryHover: {

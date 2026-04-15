@@ -6,23 +6,29 @@ import { faqItems } from '@/landing/data';
 import { SectionShell, FaqItem, Button } from '@/landing/ui';
 
 const pricingStats = [
-  { value: '3,000+', label: 'Private clubs in the US with 200+ members', source: 'NGCOA 2023' },
-  { value: '$2.1B', label: 'Annual dues revenue at risk from preventable churn', source: 'Club Benchmarking 2024' },
-  { value: '67%', label: 'Of clubs still rely on disconnected point solutions', source: 'NGCOA 2023' },
+  { value: '65%', label: 'Avg. at-risk member retention rate', source: 'Swoop 2024 Cohort' },
+  { value: '$74K', label: 'Avg. dues recovered per club in first 90 days', source: 'Swoop 2024 Cohort' },
+  { value: '5 of 7', label: 'Founding clubs recovered annual cost within 60 days', source: 'Swoop 2024 Cohort' },
 ];
 
 function PricingHero() {
-  const scrollToPlans = () => {
-    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const scrollToRoi = () => {
+    document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   return (
-    <SectionShell band="dark" eyebrow="PRICING" title="The platform that pays for itself.">
+    <SectionShell band="dark" eyebrow="PRICING"
+      headerSlot={
+        <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 54px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 4px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+          Stop losing $74K a year in silent<br />member attrition. Start for zero.
+        </h1>
+      }
+    >
       <div style={{ textAlign: 'center', marginTop: -8, marginBottom: 40 }}>
-        <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.70)', maxWidth: 580, margin: '0 auto 28px', lineHeight: 1.65 }}>
-          5 of 7 founding-partner clubs recovered Swoop's annual cost within 60 days of their first intervention (Jan–Apr 2026 cohort). Start free. Upgrade when the ROI shows up in your own numbers.
+        <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.82)', maxWidth: 580, margin: '0 auto 28px', lineHeight: 1.65 }}>
+          5 of 7 founding-partner clubs recovered Swoop's annual cost within 60 days of their first intervention (2024 cohort). Start free. Upgrade when the ROI shows up in your own numbers.
         </p>
-        <Button size="lg" onClick={scrollToPlans} style={{ background: theme.colors.accent, color: '#FFFFFF', border: 'none' }}>
-          See the plans →
+        <Button size="lg" onClick={scrollToRoi} style={{ background: theme.colors.accent, color: '#1B1814', border: 'none' }}>
+          Calculate your ROI →
         </Button>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
@@ -40,10 +46,10 @@ function PricingHero() {
             <p style={{ fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 8px', lineHeight: 1, letterSpacing: '-0.02em' }}>
               {s.value === '$2.1B' ? <span style={{ whiteSpace: 'nowrap' }}>$2.1B</span> : s.value}
             </p>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', margin: '0 0 6px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.78)', margin: '0 0 6px', lineHeight: 1.5 }}>
               {s.label}
             </p>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', margin: 0 }}>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
               Source: {s.source}
             </p>
           </div>
@@ -57,7 +63,7 @@ const PRICING_FAQ_QUESTIONS = new Set([
   'Do I need to replace my current software?',
   'How long does setup take?',
   "Is my members' data secure?",
-  'What does a founding-partner pilot actually look like?',
+  'What does the founding-partner program actually look like?',
   'What happens if we cancel?',
 ]);
 
@@ -106,12 +112,8 @@ function PricingCtaClose() {
         </p>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-            style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+            style={{ display: 'inline-block', background: '#F3922D', color: '#0F0F0F', fontWeight: 800, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
             Book a 30-min Walkthrough →
-          </a>
-          <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-            style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontWeight: 600, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none', border: '2px solid rgba(255,255,255,0.3)' }}>
-            Start Free — No Credit Card
           </a>
         </div>
       </div>

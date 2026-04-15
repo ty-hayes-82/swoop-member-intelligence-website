@@ -40,7 +40,7 @@ function PricingCard({ tier, onCtaClick }) {
             padding: '6px 16px',
             borderRadius: 999,
             background: theme.colors.accent,
-            color: '#FFFFFF',
+            color: '#1B1814',
             fontSize: 11,
             fontWeight: 800,
             textTransform: 'uppercase',
@@ -58,7 +58,7 @@ function PricingCard({ tier, onCtaClick }) {
         </p>
       )}
       <h3 style={{ fontSize: 19, fontWeight: 700, margin: 0, color: theme.neutrals.ink }}>{tier.name}</h3>
-      <p style={{ fontSize: 42, margin: '4px 0 0', fontWeight: 800, color: theme.neutrals.ink, letterSpacing: '-0.02em', lineHeight: 1 }}>
+      <p style={{ fontSize: 42, margin: '4px 0 0', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", color: theme.neutrals.ink, letterSpacing: '-0.02em', lineHeight: 1 }}>
         {tier.price}
       </p>
       <p style={{ color: theme.colors.textSecondary, fontSize: 15, lineHeight: 1.55, margin: '0 0 8px' }}>
@@ -90,23 +90,64 @@ function PricingCard({ tier, onCtaClick }) {
       )}
 
       {tier.price === '$0/mo' && (
-        <button className="w-full border-2 border-gray-200 text-gray-700 font-semibold py-3 rounded-md hover:border-amber-600 transition-colors mt-6" onClick={handleCta}>
-          Book a Walkthrough
-        </button>
+        <>
+          <p style={{ fontSize: 13, color: '#6b7280', fontWeight: 500, textAlign: 'center', margin: '0 0 4px' }}>
+            Free forever. No credit card required.
+          </p>
+          <button
+            onClick={handleCta}
+            style={{
+              width: '100%', marginTop: 8, padding: '13px 20px', borderRadius: 8,
+              border: '2px solid #1B1814', background: 'transparent',
+              color: '#1B1814', fontWeight: 700, fontSize: 15,
+              cursor: 'pointer', fontFamily: theme.fonts.sans,
+            }}
+          >
+            Get Free Daily Alerts
+          </button>
+          <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
+            Instant access — connects to your systems in minutes.
+          </p>
+        </>
+      )}
+      {tier.price === '$499/mo' && (
+        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16, fontSize: 12, color: '#555', fontStyle: 'italic', lineHeight: 1.6 }}>
+          "Alert: The Smith family hasn't visited in 21 days. Suggested action: Call James Smith to offer a complimentary tee time. Confidence: 91%."
+        </div>
       )}
       {tier.price === '$499/mo' && (
         <>
-          <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md transition-colors mt-6" onClick={handleCta}>
-            Book a Walkthrough
+          <button
+            onClick={handleCta}
+            style={{
+              width: '100%', marginTop: 24, padding: '13px 20px', borderRadius: 8,
+              border: 'none', background: theme.colors.accent,
+              color: '#1B1814', fontWeight: 700, fontSize: 15,
+              cursor: 'pointer', fontFamily: theme.fonts.sans,
+              boxShadow: '0 4px 14px rgba(243,146,45,0.35)',
+            }}
+          >
+            Book a 30-Min Walkthrough →
           </button>
-          <p className="text-xs text-center text-gray-500 mt-3 font-medium">
+          <p style={{ fontSize: 12, textAlign: 'center', color: theme.colors.textMuted, marginTop: 10, fontWeight: 500 }}>
             Your systems connect in minutes. Your first brief arrives in 10 days.
           </p>
         </>
       )}
       {tier.price === '$1,499/mo' && (
-        <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md transition-colors mt-6" onClick={handleCta}>
-          Book a Walkthrough
+        <button
+          onClick={handleCta}
+          style={{
+            width: '100%', marginTop: 24, padding: '13px 20px', borderRadius: 8,
+            border: '1px solid #d1d5db', background: 'transparent',
+            color: '#1B1814', fontWeight: 700, fontSize: 15,
+            cursor: 'pointer', fontFamily: theme.fonts.sans,
+            transition: 'border-color 150ms',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1B1814'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; }}
+        >
+          See the Full Platform →
         </button>
       )}
     </Card>
@@ -123,6 +164,14 @@ export default function PricingSection({ onCtaClick }) {
       subtitle="No long-term contract. Cancel at the end of any month."
     >
       <style>{pricingMobileStyles}</style>
+
+      {/* Trust bar — IT objection handled before buyer sees pricing */}
+      <div style={{ maxWidth: 600, margin: '0 auto 32px', background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(243,146,45,0.25)', borderRadius: 10, padding: '14px 20px', textAlign: 'center' }}>
+        <p style={{ margin: 0, fontWeight: 700, color: '#1B1814', fontSize: 15 }}>
+          Live in 14 days · Zero IT required · Cancel any time
+        </p>
+      </div>
+
       <div
         className="pricing-grid"
         style={{
@@ -136,6 +185,13 @@ export default function PricingSection({ onCtaClick }) {
         {pricingTiers.map((tier) => (
           <PricingCard key={tier.name} tier={tier} onCtaClick={onCtaClick} />
         ))}
+      </div>
+
+      {/* Zero Implementation Fees callout */}
+      <div style={{ maxWidth: 640, margin: '40px auto 0', textAlign: 'center', padding: '20px 24px', background: 'rgba(17,17,17,0.03)', borderRadius: 10, border: '1px solid rgba(17,17,17,0.08)' }}>
+        <p style={{ margin: 0, fontSize: 15, color: theme.neutrals.ink, lineHeight: 1.6 }}>
+          <strong>Zero Implementation Fees.</strong> Swoop's onboarding team maps your read-only APIs (yes, even legacy Jonas servers) at no extra cost. No hidden IT invoices.
+        </p>
       </div>
 
       {/* Reassurance strip */}

@@ -65,7 +65,7 @@ body:has(.landing-page) {
 }
 
 .landing-band-dark {
-  background: #0F0F0F;
+  background: #1B1814;
   color: #FFFFFF;
 }
 
@@ -131,7 +131,7 @@ body:has(.landing-page) {
 
 .landing-eyebrow {
   display: inline-block;
-  color: #F3922D;
+  color: #A25204;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -620,3 +620,20 @@ body:has(.landing-page) {
 /* ── Mobile sticky CTA ────────────────────────────────────────────── */
 @media (min-width: 768px) { .md-hidden-sticky { display: none !important; } }
 @media (max-width: 767px) { body { padding-bottom: 68px; } }
+
+/* ── FAQ <details> native accordion ──────────────────────────────── */
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { display: none; }
+details[open] summary .faq-toggle-icon { content: '×'; transform: rotate(45deg); display: inline-block; }
+details .faq-toggle-icon { transition: transform 200ms ease; display: inline-block; }
+details[open] .faq-toggle-icon { transform: rotate(45deg); }
+
+/* ── Mobile-hide: desktop-only heavy sections ─────────────────────── */
+/* Elements with .desktop-only are hidden below 768px.
+   Use sparingly — only for content that is genuinely unreadable on
+   a narrow viewport and has no useful mobile equivalent. */
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+  /* Comparison table scroll hint is irrelevant on mobile (table is hidden) */
+  .landing-scroll-hint { display: none !important; }
+}

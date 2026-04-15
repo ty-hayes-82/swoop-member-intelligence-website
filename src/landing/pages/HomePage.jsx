@@ -51,8 +51,8 @@ function HomeCtaStrip() {
           <Button
             size="lg"
             onClick={toDemoPage}
-            className="bg-amber-600 hover:bg-amber-700 text-white font-semibold transition-colors border-none"
-            style={{ color: '#FFFFFF' }}
+            className="bg-amber-600 hover:bg-amber-700 text-[#1B1814] font-semibold transition-colors border-none"
+            style={{ color: '#1B1814' }}
           >
             Book a Walkthrough
           </Button>
@@ -62,15 +62,13 @@ function HomeCtaStrip() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24, flexWrap: 'wrap' }}>
           <button
             onClick={toDemoPage}
-            className="text-white/55 hover:text-white inline-block min-h-[44px] min-w-[44px] p-2 transition-colors"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14, color: 'rgba(255,255,255,0.60)', minHeight: 44, minWidth: 44, padding: 8, fontFamily: 'inherit' }}
           >
             Talk to a GM who's using it →
           </button>
           <button
             onClick={toDemoPage}
-            className="text-white/55 hover:text-white inline-block min-h-[44px] min-w-[44px] p-2 transition-colors"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 14, color: 'rgba(255,255,255,0.60)', minHeight: 44, minWidth: 44, padding: 8, fontFamily: 'inherit' }}
           >
             Get a sample morning briefing →
           </button>

@@ -6,16 +6,21 @@ const testimonials = [
     quote:
       "The Saturday brief is the first club-tech vendor deliverable I've ever forwarded to my board without rewriting. Two members we were about to lose are still here because of it.",
     attribution: 'General Manager · 280-member private club · Southeast',
+    stars: 5,
   },
   {
     quote:
       "We went from 67% to 91% fill rate in six weeks. The routing logic knows which members need a tee time more than a reminder — that's not something we could build ourselves.",
     attribution: 'Director of Operations · 360-member club · Mid-Atlantic',
+    stars: 5,
+    halfStar: false,
   },
   {
     quote:
       "I was running twelve spreadsheets and gut feel. Now I have one brief that tells me exactly who to call and why. It's the operating system I didn't know I was missing.",
     attribution: 'General Manager · 420-member private club · Southwest',
+    stars: 4,
+    halfStar: true,
   },
 ];
 
@@ -24,7 +29,7 @@ export default function TestimonialsSection() {
     <SectionShell
       band="cream"
       eyebrow="What GMs are saying"
-      title="From the clubs in our founding pilot."
+      title="From founding-partner GMs."
     >
       <div
         style={{
@@ -35,7 +40,26 @@ export default function TestimonialsSection() {
         }}
       >
         {testimonials.map((t, i) => (
-          <Card key={i} style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <Card key={i} style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {/* Star rating */}
+            <div style={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+              {[...Array(t.stars ?? 5)].map((_, j) => (
+                <svg key={j} width="16" height="16" viewBox="0 0 24 24" fill="#F3922D" stroke="none">
+                  <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                </svg>
+              ))}
+              {t.halfStar && (
+                <svg width="16" height="16" viewBox="0 0 24 24" stroke="none">
+                  <defs>
+                    <linearGradient id={`half-${i}`}>
+                      <stop offset="50%" stopColor="#F3922D" />
+                      <stop offset="50%" stopColor="#e5e7eb" />
+                    </linearGradient>
+                  </defs>
+                  <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill={`url(#half-${i})`} />
+                </svg>
+              )}
+            </div>
             <div
               style={{
                 fontFamily: theme.fonts.serif,
@@ -77,7 +101,7 @@ export default function TestimonialsSection() {
 
       <div style={{ marginTop: 20, marginInline: 'auto', maxWidth: 560, background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 8, padding: '14px 18px', textAlign: 'center' }}>
         <p style={{ fontSize: 13, color: '#374151', fontStyle: 'italic', margin: 0 }}>
-          Founding-partner GMs asked us to withhold their names until Q2 2026. Ask us for a direct reference call on your demo.
+          Ask us for a direct reference call with a founding-partner GM on your walkthrough.
         </p>
       </div>
 
@@ -91,7 +115,7 @@ export default function TestimonialsSection() {
           style={{
             display: 'inline-block',
             background: theme.colors.accent,
-            color: '#fff',
+            color: '#1B1814',
             fontWeight: 700,
             fontSize: 16,
             padding: '14px 32px',
@@ -102,7 +126,7 @@ export default function TestimonialsSection() {
           Book a 30-Minute Walkthrough →
         </a>
         <p style={{ marginTop: 12, fontSize: 13, color: theme.colors.textMuted }}>
-          Or <a href="#/contact" style={{ color: theme.colors.accent }}>request a reference call with a founding-partner GM →</a>
+          Or <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{ color: '#B8600E' }}>request a reference call with a founding-partner GM →</a>
         </p>
       </div>
     </SectionShell>

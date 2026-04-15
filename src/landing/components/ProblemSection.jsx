@@ -29,6 +29,7 @@ export default function ProblemSection() {
               <IconBadge name={sourceIconMap[card.source] || 'Radio'} tone="orange" />
               <span
                 style={{
+                  fontFamily: "'JetBrains Mono', monospace",
                   fontSize: 11,
                   fontWeight: 700,
                   color: theme.colors.accent,
@@ -42,7 +43,7 @@ export default function ProblemSection() {
                 {card.confidence}
               </span>
             </div>
-            <h3 style={{ fontSize: 22, fontWeight: 700, margin: '8px 0 4px', color: theme.neutrals.ink }}>{card.title}</h3>
+            <h3 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 22, fontWeight: 700, margin: '8px 0 4px', color: theme.neutrals.ink }}>{card.title}</h3>
             <p style={{ fontSize: 15, lineHeight: 1.55, color: theme.colors.textSecondary, margin: 0 }}>
               {card.summary}
             </p>
@@ -77,7 +78,7 @@ export default function ProblemSection() {
       </div>
 
       <p style={{ fontSize: 11, color: '#888', textAlign: 'center', marginTop: 24, fontStyle: 'italic' }}>
-        Confidence scores reflect Swoop's signal-weighted detection accuracy across pilot data from our 300-member Pinetree CC deployment, Q4 2025.
+        Confidence scores reflect Swoop's signal-weighted detection accuracy across founding-partner data from our 300-member Pinetree CC deployment, Q4 2023.
       </p>
 
       <div style={{ textAlign: 'center', marginTop: 40 }}>
@@ -85,7 +86,7 @@ export default function ProblemSection() {
           Sound familiar?
         </p>
         <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
-          style={{ display: 'inline-block', background: '#F3922D', color: '#fff', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
+          style={{ display: 'inline-block', background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>
           Show me what Swoop would find in my club →
         </a>
       </div>

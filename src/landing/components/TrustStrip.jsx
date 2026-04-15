@@ -27,14 +27,13 @@ const stats = [
 export default function TrustStrip() {
   return (
     <>
-      <div className="bg-[#1A2E25] py-8 border-b border-white/10">
-        <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-6">Trusted by Forward-Thinking GMs At</p>
-        <div className="flex justify-center gap-12 opacity-60 grayscale flex-wrap">
-          <img src="/logos/club1.svg" alt="Club 1" className="h-8" />
-          <img src="/logos/club2.svg" alt="Club 2" className="h-8" />
-          <img src="/logos/club3.svg" alt="Club 3" className="h-8" />
-          <img src="/logos/club4.svg" alt="Club 4" className="h-8" />
-        </div>
+      <div style={{ background: '#1A2E25', padding: '32px 0', borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
+        <p style={{ textAlign: 'center', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.72)', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 16px' }}>
+          Trusted by Forward-Thinking Private Clubs
+        </p>
+        <p style={{ textAlign: 'center', fontSize: 14, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
+          Founding-partner club logos coming Q3 2025 · Reference calls available on request
+        </p>
       </div>
       <section className="landing-section-sm" style={{ paddingTop: 56, paddingBottom: 16 }}>
         <div className="landing-container">

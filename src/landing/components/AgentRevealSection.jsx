@@ -45,6 +45,7 @@ const narrativeBlocks = [
       { label: 'Outcome', text: '3 VIP tables covered without service drop-off.' }
     ],
     callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 VIP tables covered.',
+    execution: 'Automatically drafts an SMS to your F&B Director with the recommended shift swap to approve in one tap. AI never sends without your sign-off.',
   },
 ];
 
@@ -67,27 +68,42 @@ export default function AgentRevealSection() {
         {narrativeBlocks.map((block) => (
           <div
             key={block.time}
-            className="bg-[#1e1e1e] border border-gray-700 p-6 rounded-lg flex flex-col gap-4"
+            style={{
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.10)',
+              padding: 24,
+              borderRadius: 12,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+            }}
           >
             <div>
-              <h4 className="text-amber-500 text-xs font-mono mb-2 uppercase tracking-wide">
+              <p style={{ fontFamily: theme.fonts.mono, fontSize: 11, color: theme.colors.accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px' }}>
                 {block.time}
-              </h4>
-              <p className="text-xs text-white/40 m-0 tracking-wide">
+              </p>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', margin: 0, letterSpacing: '0.04em' }}>
                 {block.agents}
               </p>
             </div>
-            <h5 className="text-white text-lg font-semibold m-0">
+            <h5 style={{ fontFamily: theme.fonts.serif, fontSize: 18, fontWeight: 700, color: '#FFFFFF', margin: 0, lineHeight: 1.35 }}>
               {block.headline}
             </h5>
-            <ul className="space-y-3 text-gray-300 text-sm m-0 p-0" style={{ listStyle: 'none' }}>
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
               {block.points.map((pt, i) => (
-                <li key={i}><strong className="text-white">{pt.label}:</strong> {pt.text}</li>
+                <li key={i} style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55 }}>
+                  <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>{pt.label}:</strong> {pt.text}
+                </li>
               ))}
             </ul>
-            <div className="mt-auto bg-black p-3 rounded font-mono text-xs text-green-400">
+            <div style={{ marginTop: 'auto', background: 'rgba(0,0,0,0.50)', padding: '10px 14px', borderRadius: 8, fontFamily: theme.fonts.mono, fontSize: 12, color: '#F3922D', lineHeight: 1.5 }}>
               {block.callout}
             </div>
+            {block.execution && (
+              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: '10px 14px', fontSize: 12, color: 'rgba(255,255,255,0.72)', lineHeight: 1.6 }}>
+                <span style={{ color: 'rgba(255,255,255,0.80)', fontWeight: 600 }}>Execution: </span>{block.execution}
+              </div>
+            )}
           </div>
         ))}
       </div>

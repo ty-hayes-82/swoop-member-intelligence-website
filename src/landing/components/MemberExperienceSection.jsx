@@ -115,8 +115,7 @@ export default function MemberExperienceSection() {
         <a
           href="#/contact"
           onClick={() => { window.location.hash = '#/contact'; }}
-          className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-md transition-colors"
-          style={{ textDecoration: 'none', minHeight: 44, minWidth: 44 }}
+          style={{ display: 'inline-block', textDecoration: 'none', minHeight: 44, minWidth: 44, background: '#F3922D', color: '#1B1814', fontWeight: 700, padding: '13px 32px', borderRadius: 8, fontSize: 15 }}
         >
           Book a Walkthrough
         </a>
