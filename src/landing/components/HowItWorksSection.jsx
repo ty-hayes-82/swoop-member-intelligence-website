@@ -92,7 +92,7 @@ function MorningBriefCard() {
       >
         <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12 }}>assembled from 4 systems · gm@yourclub.com</span>
         <span style={{ color: theme.colors.accent, fontSize: 13, fontWeight: 700, fontFamily: theme.fonts.sans }}>
-          $8,400 protected
+          $8,400 protected <span style={{ fontWeight: 400, fontSize: 10, color: 'rgba(255,255,255,0.3)' }}>(example)</span>
         </span>
       </div>
     </div>
@@ -103,7 +103,7 @@ function OneBriefPanel() {
   return (
     <div>
       <p style={{ color: theme.colors.textMuted, fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', margin: '0 0 12px' }}>
-        This morning's brief · $42.4K across 6 actions
+        This morning's brief · $42.4K across 6 actions <span style={{ fontSize: 10, textTransform: 'none', letterSpacing: 0, fontWeight: 400, fontStyle: 'italic' }}>(illustrative)</span>
       </p>
       <div style={{ display: 'grid', gap: 10 }}>
         {briefRows.map(row => (

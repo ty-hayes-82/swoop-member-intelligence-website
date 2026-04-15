@@ -41,7 +41,7 @@ function MorningBriefingPanel() {
           $42.2K
         </div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>
-          protected across 8 actions · delivered 06:14
+          protected across 8 actions · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative</em>
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '8px 0' }}>
@@ -86,6 +86,9 @@ function ActionCard() {
       </p>
       <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 12, margin: 0 }}>
         ✓ GM approved · $8,400 dues protected · 1 tap · 0 spreadsheets
+      </p>
+      <p style={{ color: 'rgba(255,255,255,0.30)', fontSize: 10, margin: '6px 0 0', fontStyle: 'italic' }}>
+        Illustrative example based on founding-partner club data
       </p>
     </div>
   );

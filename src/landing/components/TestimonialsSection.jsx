@@ -30,6 +30,7 @@ export default function TestimonialsSection() {
       band="cream"
       eyebrow="What GMs are saying"
       title="From founding-partner GMs."
+      subtitle="Early clubs in our founding cohort. Names withheld at their request — ask us for a reference call on your walkthrough."
     >
       <div
         style={{
@@ -101,7 +102,7 @@ export default function TestimonialsSection() {
 
       <div style={{ marginTop: 20, marginInline: 'auto', maxWidth: 560, background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 8, padding: '14px 18px', textAlign: 'center' }}>
         <p style={{ fontSize: 13, color: '#374151', fontStyle: 'italic', margin: 0 }}>
-          Ask us for a direct reference call with a founding-partner GM on your walkthrough.
+          Want to speak with a real GM who uses Swoop? We'll connect you directly — no sales involvement, no NDA required.
         </p>
       </div>
 

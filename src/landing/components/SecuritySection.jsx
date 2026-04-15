@@ -70,10 +70,10 @@ export default function SecuritySection() {
               {item.icon}
             </div>
             <div>
-              <p style={{ fontSize: 14, fontWeight: 700, color: theme.neutrals.ink, margin: '0 0 6px' }}>
+              <p style={{ fontSize: 15, fontWeight: 700, color: theme.neutrals.ink, margin: '0 0 6px' }}>
                 {item.title}
               </p>
-              <p style={{ fontSize: 13, color: theme.colors.textSecondary, lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.6, margin: 0 }}>
                 {item.description}
               </p>
             </div>
@@ -82,11 +82,16 @@ export default function SecuritySection() {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: 28 }}>
-        <p style={{ fontSize: 13, color: theme.colors.textMuted, margin: 0 }}>
+        <p style={{ fontSize: 13, color: theme.colors.textMuted, margin: '0 0 8px' }}>
           Questions about data handling?{' '}
           <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{ color: '#B8600E', fontWeight: 600, textDecoration: 'none' }}>
             Request our security overview →
           </a>
+        </p>
+        <p style={{ fontSize: 12, color: theme.colors.textMuted, margin: 0 }}>
+          <a href="#/privacy" onClick={() => { window.location.hash = '#/privacy'; }} style={{ color: theme.colors.textMuted, textDecoration: 'underline' }}>Privacy Policy</a>
+          {' · '}
+          <a href="#/terms" onClick={() => { window.location.hash = '#/terms'; }} style={{ color: theme.colors.textMuted, textDecoration: 'underline' }}>Terms of Service</a>
         </p>
       </div>
     </SectionShell>

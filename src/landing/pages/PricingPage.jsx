@@ -46,10 +46,10 @@ function PricingHero() {
             <p style={{ fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 8px', lineHeight: 1, letterSpacing: '-0.02em' }}>
               {s.value === '$2.1B' ? <span style={{ whiteSpace: 'nowrap' }}>$2.1B</span> : s.value}
             </p>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.78)', margin: '0 0 6px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.82)', margin: '0 0 6px', lineHeight: 1.5 }}>
               {s.label}
             </p>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
               Source: {s.source}
             </p>
           </div>

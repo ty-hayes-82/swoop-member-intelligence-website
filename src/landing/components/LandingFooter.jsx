@@ -64,7 +64,7 @@ export default function LandingFooter() {
             Member retention software for private clubs.
           </p>
           <p style={{ color: theme.colors.textMuted, fontSize: 12, margin: '0 0 4px' }}>
-            1240 Broad Street, Suite 300, Charleston, SC 29401
+            Scottsdale, AZ · Founded 2023
           </p>
           <a href="mailto:gm-support@swoopgolf.com" style={{ color: theme.colors.textMuted, fontSize: 12, textDecoration: 'none' }}>
             gm-support@swoopgolf.com

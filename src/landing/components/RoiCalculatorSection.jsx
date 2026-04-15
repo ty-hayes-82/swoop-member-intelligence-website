@@ -119,7 +119,7 @@ export default function RoiCalculatorSection() {
   return (
     <SectionShell
       id="roi-calculator"
-      band="paper"
+      band="cream"
       eyebrow="ROI Calculator"
       title="Find out exactly how much dues revenue is walking out your door."
       subtitle="Adjust the sliders to see your club's exposure — and what Swoop recovers."
@@ -199,7 +199,7 @@ export default function RoiCalculatorSection() {
             <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: theme.colors.accent, margin: '0 0 6px' }}>
               With Swoop
             </p>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', margin: '0 0 12px' }}>
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', margin: '0 0 12px', lineHeight: 1.6 }}>
               65% early-intervention retention rate — from Pinetree CC founding-partner data (10 of 15 at-risk members retained in 90-day window).
             </p>
             <p style={{ fontSize: 52, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: 0, lineHeight: 1, letterSpacing: '-0.02em' }}>
@@ -222,22 +222,22 @@ export default function RoiCalculatorSection() {
               marginTop: 'auto',
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
-              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>Signals + Actions annual cost</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+              <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)' }}>Signals + Actions annual cost</span>
               <span style={{ fontFamily: theme.fonts.mono, fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>{fmt(swoopProCost)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 6 }}>
-              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)' }}>Net revenue gain</span>
-              <span style={{ fontFamily: theme.fonts.mono, fontSize: 22, color: theme.colors.accent, fontWeight: 800 }}>{fmt(netGain)}</span>
+              <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)' }}>Net revenue gain</span>
+              <span style={{ fontFamily: theme.fonts.mono, fontSize: 24, color: theme.colors.accent, fontWeight: 800 }}>{fmt(netGain)}</span>
             </div>
-            <p style={{ fontSize: 13, color: theme.colors.accent, fontWeight: 700, margin: '8px 0 0' }}>
+            <p style={{ fontSize: 14, color: theme.colors.accent, fontWeight: 700, margin: '8px 0 0' }}>
               {roiMultiple}× return on investment
             </p>
           </div>
         </div>
       </div>
 
-      <p style={{ fontSize: 12, color: '#888', maxWidth: 480, margin: '16px auto 0', textAlign: 'center', fontStyle: 'italic' }}>
+      <p style={{ fontSize: 13, color: '#777', maxWidth: 480, margin: '16px auto 0', textAlign: 'center', fontStyle: 'italic', lineHeight: 1.6 }}>
         How this is calculated: At-risk revenue × 65% early-intervention retention rate (Pinetree CC founding-partner data, Q4 2023) − Swoop annual cost = net dues recovered.
       </p>
 

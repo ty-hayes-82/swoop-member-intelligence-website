@@ -118,7 +118,14 @@ export default function CoreCapabilitiesSection() {
           );
         })}
       </div>
-      <p style={{ fontSize: 12, color: '#666', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginTop: 24, maxWidth: 560, marginInline: 'auto' }}>
+      {/* Mechanism transparency */}
+      <div style={{ maxWidth: 680, margin: '32px auto 0', padding: '20px 24px', background: 'rgba(17,17,17,0.04)', borderRadius: 12, border: '1px solid rgba(17,17,17,0.07)' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#B8600E', margin: '0 0 8px' }}>How the detection works</p>
+        <p style={{ fontSize: 14, color: theme.colors.textSecondary, lineHeight: 1.65, margin: 0 }}>
+          Swoop reads read-only API feeds from your tee sheet, POS, and CRM nightly. It tracks behavioral deltas across four dimensions — visit frequency, F&B spend, complaint recency, and engagement signals — and compares each member to their own 12-month baseline. When multiple signals diverge simultaneously, the risk score spikes and the morning brief flags the member with a recommended action. The model was trained on 12 months of founding-partner behavioral data from clubs ranging from 200 to 600 members.
+        </p>
+      </div>
+      <p style={{ fontSize: 12, color: '#666', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginTop: 16, maxWidth: 560, marginInline: 'auto' }}>
         * Metrics represent average impact observed at a 500-member club over a trailing 90-day period.
       </p>
 

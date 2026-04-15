@@ -30,9 +30,14 @@ export default function PlatformPage() {
           eyebrow="Platform"
           subtitle="One dashboard shows which members are drifting, why, and what to do next — assembled from your existing systems overnight."
           headerSlot={
-            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#111111', margin: '0 0 4px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              Stop guessing who's drifting.<br /> Start protecting your dues.
-            </h2>
+            <>
+              <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#111111', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+                Stop guessing who's drifting.<br /> Start protecting your dues.
+              </h2>
+              <p style={{ fontSize: 16, color: '#555', margin: '0 0 4px' }}>
+                Swoop catches at-risk members <strong style={{ color: '#111' }}>6.4 weeks earlier</strong> than traditional methods — on average, across founding-partner clubs.
+              </p>
+            </>
           }
         >
           <div style={{ textAlign: 'center', marginTop: 8 }}>
@@ -49,10 +54,11 @@ export default function PlatformPage() {
       {/* Sticky pill sub-nav */}
       <div style={{
         position: 'sticky', top: 64, zIndex: 150,
-        display: 'flex', gap: 8, overflowX: 'auto',
+        display: 'flex', alignItems: 'center', gap: 8, overflowX: 'auto',
         padding: '10px 16px', background: 'rgba(250,247,242,0.96)',
         borderBottom: '1px solid rgba(17,17,17,0.06)',
       }}>
+        <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(17,17,17,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', whiteSpace: 'nowrap', flexShrink: 0 }}>Jump to:</span>
         {subNavItems.map(({ label, anchor }) => (
           <a key={anchor} href={`#${anchor}`} style={{
             whiteSpace: 'nowrap', padding: '6px 14px',

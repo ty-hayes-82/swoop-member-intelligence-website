@@ -276,7 +276,7 @@ export const pricingTiers = [
     name: 'Signals',
     price: '$0/mo',
     description:
-      'Read-only alerts. Swoop reads your systems and surfaces member-risk, complaint, and demand signals daily.',
+      'Swoop reads your systems and tells you who\'s at risk. You decide what to do.',
     features: [
       'Daily member health scores',
       'Risk + complaint + demand alerts',
@@ -292,7 +292,7 @@ export const pricingTiers = [
     badge: 'Founding-Partner Pick',
     badgeFootnote: 'Most popular for private clubs with 200–500 members.',
     description:
-      'Everything in Signals, plus Swoop drafts the callback, comp offer, and staffing shift in plain English — so your team acts instead of sorting spreadsheets.',
+      'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
     features: [
       'Everything in Signals',
       'Intelligence drafts the response',

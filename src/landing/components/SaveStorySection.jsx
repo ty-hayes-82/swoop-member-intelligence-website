@@ -108,6 +108,9 @@ function FixItPanel() {
         <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 12, margin: 0 }}>
           ✓ GM approved · $8,400 dues protected · 1 tap · 0 spreadsheets
         </p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: 10, margin: '4px 0 0', fontStyle: 'italic' }}>
+          Illustrative example based on founding-partner club data
+        </p>
       </div>
     </div>
   );

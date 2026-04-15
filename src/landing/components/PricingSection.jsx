@@ -61,7 +61,7 @@ function PricingCard({ tier, onCtaClick }) {
       <p style={{ fontSize: 42, margin: '4px 0 0', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", color: theme.neutrals.ink, letterSpacing: '-0.02em', lineHeight: 1 }}>
         {tier.price}
       </p>
-      <p style={{ color: theme.colors.textSecondary, fontSize: 15, lineHeight: 1.55, margin: '0 0 8px' }}>
+      <p style={{ color: theme.colors.textSecondary, fontSize: 16, lineHeight: 1.6, margin: '0 0 8px' }}>
         {tier.description}
         {tier.price === '$499/mo' && (
           <> <strong>Stop sorting spreadsheets. Start saving dues.</strong></>
@@ -75,9 +75,9 @@ function PricingCard({ tier, onCtaClick }) {
               display: 'flex',
               alignItems: 'flex-start',
               gap: 10,
-              fontSize: 14,
+              fontSize: 15,
               color: theme.neutrals.ink,
-              lineHeight: 1.5,
+              lineHeight: 1.55,
             }}
           >
             <Icon name="Check" size={18} color={theme.colors.accent} strokeWidth={3} style={{ flexShrink: 0, marginTop: 2 }} />
@@ -101,12 +101,14 @@ function PricingCard({ tier, onCtaClick }) {
             onClick={handleCta}
             style={{
               width: '100%', marginTop: 8, padding: '13px 20px', borderRadius: 8,
-              border: '2px solid #1B1814', background: 'transparent',
-              color: '#1B1814', fontWeight: 700, fontSize: 15,
+              border: '1px solid #d1d5db', background: 'transparent',
+              color: '#555', fontWeight: 600, fontSize: 15,
               cursor: 'pointer', fontFamily: theme.fonts.sans,
             }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1B1814'; e.currentTarget.style.color = '#1B1814'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.color = '#555'; }}
           >
-            Book a Setup Call →
+            Book a Walkthrough →
           </button>
           <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
             Instant access — connects to your systems in minutes.
@@ -130,7 +132,7 @@ function PricingCard({ tier, onCtaClick }) {
               boxShadow: '0 4px 14px rgba(243,146,45,0.35)',
             }}
           >
-            Book a 30-Min Walkthrough →
+            Book a Walkthrough →
           </button>
           <p style={{ fontSize: 12, textAlign: 'center', color: theme.colors.textMuted, marginTop: 10, fontWeight: 500 }}>
             Your systems connect in minutes. Your first brief arrives in 10 days.
@@ -142,15 +144,15 @@ function PricingCard({ tier, onCtaClick }) {
           onClick={handleCta}
           style={{
             width: '100%', marginTop: 24, padding: '13px 20px', borderRadius: 8,
-            border: '1px solid #d1d5db', background: 'transparent',
+            border: '2px solid #1B1814', background: 'transparent',
             color: '#1B1814', fontWeight: 700, fontSize: 15,
             cursor: 'pointer', fontFamily: theme.fonts.sans,
-            transition: 'border-color 150ms',
+            transition: 'all 150ms',
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1B1814'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#1B1814'; e.currentTarget.style.color = '#fff'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1B1814'; }}
         >
-          Book a Premium Walkthrough →
+          Book a Walkthrough →
         </button>
       )}
     </Card>
@@ -162,7 +164,7 @@ export default function PricingSection({ onCtaClick }) {
     <SectionShell
       id="pricing"
       band="paper"
-      eyebrow="THE TERMS"
+      eyebrow="PLANS"
       title="Start at zero. Upgrade when the math shows up."
       subtitle="No long-term contract. Cancel at the end of any month."
     >
@@ -190,17 +192,28 @@ export default function PricingSection({ onCtaClick }) {
         ))}
       </div>
 
-      {/* Zero Implementation Fees callout */}
-      <div style={{ maxWidth: 640, margin: '40px auto 0', textAlign: 'center', padding: '20px 24px', background: 'rgba(17,17,17,0.03)', borderRadius: 10, border: '1px solid rgba(17,17,17,0.08)' }}>
-        <p style={{ margin: 0, fontSize: 15, color: theme.neutrals.ink, lineHeight: 1.6 }}>
-          <strong>Zero Implementation Fees.</strong> Swoop's onboarding team maps your read-only APIs (yes, even legacy Jonas servers) at no extra cost. No hidden IT invoices.
-        </p>
+      {/* Inline reassurance — objection handling at the decision point */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 24px', marginTop: 28 }}>
+        {[
+          '✓ Integrates with Jonas, ForeUP, Toast & 35+ more — no rip and replace',
+          '✓ No long-term contracts — cancel at the end of any month',
+          '✓ Zero implementation fees — our team maps your APIs at no extra cost',
+          '✓ Live in under 2 weeks — no IT team required',
+        ].map((item) => (
+          <span key={item} style={{ fontSize: 13, color: '#555', display: 'flex', alignItems: 'center', gap: 0 }}>
+            {item}
+          </span>
+        ))}
       </div>
 
       {/* Reassurance strip */}
-      <div style={{ textAlign: 'center', marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(17,17,17,0.07)' }}>
+      <div style={{ textAlign: 'center', marginTop: 24, paddingTop: 24, borderTop: '1px solid rgba(17,17,17,0.07)' }}>
         <p style={{ fontSize: 14, color: theme.colors.textMuted, margin: 0 }}>
-          Most clubs are live in under 2 weeks · No IT team required · Month-to-month, cancel any time
+          Questions? Email{' '}
+          <a href="mailto:gm-support@swoopgolf.com" style={{ color: '#B8600E', textDecoration: 'none', fontWeight: 600 }}>
+            gm-support@swoopgolf.com
+          </a>
+          {' '}· We respond within 4 business hours.
         </p>
       </div>
     </SectionShell>

@@ -253,7 +253,7 @@ export default function HeroSection({ onDemoClick }) {
               "Recovered $74K in dues in our first 90 days."
             </p>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', margin: 0 }}>
-              — Mark Sullivan, GM · Lakewood Hills CC · 450-member private club
+              — Founding-partner GM · 450-member private club · 90-day window
             </p>
           </div>
         </div>

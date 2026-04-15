@@ -31,7 +31,7 @@ export default function TeamSection() {
       band="paper"
       eyebrow="Who you'll work with"
       title="An extension of your team, not a disruption to it."
-      subtitle="6 founding-partner clubs — for six months we sit in your systems, on your calls, and in your board deck."
+      subtitle="Every founding-partner club gets a dedicated point of contact — reachable by call, text, or email — from onboarding through your first board review. You're not a ticket number."
     >
       <div
         style={{
