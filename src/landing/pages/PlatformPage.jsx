@@ -26,33 +26,34 @@ export default function PlatformPage() {
     <LandingShell>
       <div id="problem">
         <SectionShell
-          band="cream"
+          band="dark"
           eyebrow="Platform"
           subtitle="One dashboard shows which members are drifting, why, and what to do next — assembled from your existing systems overnight."
           headerSlot={
             <>
-              <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#111111', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-                Stop guessing who's drifting.<br /> Start protecting your dues.
+              <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+                Stop guessing who's drifting.<br />
+                <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
               </h2>
-              <p style={{ fontSize: 16, color: '#555', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#111' }}>6.4 weeks earlier</strong> than traditional methods — on average, across founding-partner clubs.
+              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
+                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional methods — on average, across founding-partner clubs.
               </p>
-              <p style={{ fontSize: 15, color: '#B8600E', fontWeight: 600, margin: '8px 0 0', fontStyle: 'italic' }}>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.60)', fontWeight: 500, margin: '8px 0 0', fontStyle: 'italic' }}>
                 70% of GMs learn about member dissatisfaction only after a complaint arrives. Swoop flips that ratio.
               </p>
             </>
           }
         >
           <div style={{ textAlign: 'center', marginTop: 8 }}>
-            <Button size="lg" onClick={toDemoPage}>
+            <Button size="lg" onClick={toDemoPage} style={{ background: '#F3922D', color: '#0A0F0D', border: 'none' }}>
               Book a 30-Min Walkthrough →
             </Button>
-            <p style={{ fontSize: 13, color: theme.colors.textMuted, marginTop: 10 }}>
-              Plans scale seamlessly. <strong style={{ color: theme.neutrals.ink, fontWeight: 600 }}>Starting at $499/mo.</strong>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 10 }}>
+              Plans scale seamlessly. <strong style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>Starting at $499/mo.</strong>
             </p>
-            <p style={{ fontSize: 13, color: theme.colors.textMuted, marginTop: 6 }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 6 }}>
               Not ready to book?{' '}
-              <a href="#/contact" onClick={toDemoPage} style={{ color: '#B8600E', fontWeight: 600, textDecoration: 'none' }}>
+              <a href="#/contact" onClick={toDemoPage} style={{ color: '#F3922D', fontWeight: 600, textDecoration: 'none' }}>
                 Request a sample morning brief for your club type →
               </a>
             </p>

@@ -4,11 +4,11 @@ import { SectionShell, ComparisonTable, Card } from '@/landing/ui';
 
 const mobileComparisonStyles = `
   @media (max-width: 768px) {
-    .comparison-table { display: none; }
-    .comparison-mobile { display: block; }
+    .comparison-table { display: none !important; }
+    .comparison-mobile { display: block !important; }
   }
   @media (min-width: 769px) {
-    .comparison-mobile { display: none; }
+    .comparison-mobile { display: none !important; }
   }
 `;
 
@@ -32,15 +32,29 @@ export default function ComparisonSection() {
         <ComparisonTable features={comparisonFeatures} columns={columns} />
       </div>
       <div className="comparison-mobile">
-        <p style={{ fontWeight: 700, fontSize: 18, marginBottom: 16 }}>What Swoop does that nothing else can:</p>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {['Predicts at-risk members before they resign', 'Connects tee sheet + POS + CRM signals', 'Automates the 6:15 AM GM briefing', 'Closes the loop from alert to outcome', 'Board-ready attribution in one click'].map(item => (
-            <li key={item} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 }}>
-              <span style={{ color: '#F3922D', fontWeight: 700, fontSize: 18, lineHeight: 1 }}>✓</span>
-              <span style={{ fontSize: 16 }}>{item}</span>
-            </li>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {comparisonFeatures.map((feature) => (
+            <div key={feature.feature} style={{ background: '#111A16', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: '16px 20px' }}>
+              <h4 style={{ fontWeight: 700, fontSize: 15, color: '#FFFFFF', margin: '0 0 12px' }}>{feature.feature}</h4>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 8 }}>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Swoop</span>
+                <span style={{ fontSize: 16 }}>{feature.swoop ? '✅' : '❌'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 8 }}>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Jonas + Spreadsheets</span>
+                <span style={{ fontSize: 16 }}>{feature.waitlistTools === true ? '✅' : feature.waitlistTools === 'partial' ? '⚠️' : '❌'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 8 }}>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Your CRM</span>
+                <span style={{ fontSize: 16 }}>{feature.crm === true ? '✅' : feature.crm === 'partial' ? '⚠️' : '❌'}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>Spreadsheets</span>
+                <span style={{ fontSize: 16 }}>{feature.sheets ? '✅' : '❌'}</span>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <p
         className="landing-scroll-hint"

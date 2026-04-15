@@ -103,14 +103,15 @@ function PricingCard({ tier, onCtaClick }) {
             onClick={handleCta}
             style={{
               width: '100%', marginTop: 8, padding: '13px 20px', borderRadius: 8,
-              border: '1px solid #d1d5db', background: 'transparent',
-              color: '#555', fontWeight: 600, fontSize: 15,
+              border: '1px solid #F3922D', background: '#F3922D',
+              color: '#1B1814', fontWeight: 700, fontSize: 15,
               cursor: 'pointer', fontFamily: theme.fonts.sans,
+              transition: 'all 150ms',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1B1814'; e.currentTarget.style.color = '#1B1814'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.color = '#555'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#e07f20'; e.currentTarget.style.borderColor = '#e07f20'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#F3922D'; e.currentTarget.style.borderColor = '#F3922D'; }}
           >
-            Book a Walkthrough →
+            Get Started Free →
           </button>
           <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
             Instant access — connects to your systems in minutes.
@@ -167,8 +168,8 @@ export default function PricingSection({ onCtaClick }) {
       id="pricing"
       band="paper"
       eyebrow="PLANS"
-      title="Start at zero. Upgrade when the math shows up."
-      subtitle="No long-term contract. Cancel at the end of any month."
+      title="Pricing that pays for itself."
+      subtitle="Choose the plan that fits your team's bandwidth."
     >
       <style>{pricingMobileStyles}</style>
 

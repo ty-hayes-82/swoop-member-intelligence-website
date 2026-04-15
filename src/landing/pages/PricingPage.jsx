@@ -92,7 +92,7 @@ function PricingFaqSection() {
             key={item.question}
             question={item.question}
             answer={item.answer}
-            defaultOpen={idx === 0 || item.question === "Is my members' data secure?"}
+            defaultOpen={idx < 2}
           />
         ))}
       </div>
@@ -129,17 +129,6 @@ export default function PricingPage() {
     <LandingShell>
       <PricingHero />
       <RoiCalculatorSection />
-      {/* Bridge: connect the ROI the visitor just calculated to the plan that recovers it */}
-      <div style={{ background: 'rgba(243,146,45,0.06)', borderTop: '1px solid rgba(243,146,45,0.15)', borderBottom: '1px solid rgba(243,146,45,0.15)', padding: '20px 24px', textAlign: 'center' }}>
-        <div className="landing-container">
-          <p style={{ fontSize: 16, fontWeight: 700, color: '#1B1814', margin: '0 0 4px' }}>
-            The <strong>Signals + Actions</strong> plan ($499/mo) is where most clubs recover 5× ROI in the first 60 days.
-          </p>
-          <p style={{ fontSize: 14, color: '#666', margin: 0 }}>
-            Start free with Signals. Upgrade only when your own numbers say so.
-          </p>
-        </div>
-      </div>
       <PricingSection onCtaClick={toDemoPage} />
       <PricingFaqSection />
       <PricingCtaClose />

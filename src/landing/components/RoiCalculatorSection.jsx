@@ -242,7 +242,7 @@ export default function RoiCalculatorSection() {
       </p>
 
       <div style={{ maxWidth: 560, margin: '20px auto 0', borderLeft: '3px solid #F3922D', paddingLeft: 20 }}>
-        <p style={{ fontStyle: 'italic', color: '#555', fontSize: 15, lineHeight: 1.65, margin: '0 0 8px' }}>
+        <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontStyle: 'italic', color: '#333', fontSize: 15, lineHeight: 1.65, margin: '0 0 8px' }}>
           "Swoop flagged the Smith family a month before they planned to quit. We comped them a dinner, had a chat, and saved $15k in annual dues. The Board was thrilled."
         </p>
         <p style={{ fontSize: 12, fontWeight: 700, color: '#888', margin: 0 }}>— James Whitmore, GM · Pinetree Country Club · 300-member founding-partner club</p>

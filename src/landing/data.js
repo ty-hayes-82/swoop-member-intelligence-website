@@ -305,7 +305,8 @@ export const pricingTiers = [
     features: [
       'Everything in Signals',
       'Intelligence drafts the response',
-      'Board-ready monthly report',
+      'Cross-Domain Morning Briefing',
+      'Automated Board Report Generator',
       'Retention-prioritized waitlist routing',
       'Up to 10 integrations',
       'Priority support',

@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { Lock, ShieldCheck, FileSignature } from 'lucide-react';
 import { theme } from '@/config/theme';
 import { Button, Input } from '@/landing/ui';
-import { photoUrl, photoAlt } from '@/landing/assets/photos';
 
 const DEMO_ENDPOINT = import.meta.env.VITE_DEMO_ENDPOINT || 'https://swoopgolf.com/api/demo-request';
 const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL || null;
@@ -39,16 +39,8 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
       id="demo-form"
       className="landing-band landing-band-dark landing-section"
       style={{
-        backgroundImage: `
-          linear-gradient(180deg, rgba(27,24,20,0.90) 0%, rgba(27,24,20,0.96) 100%),
-          radial-gradient(ellipse at top right, rgba(243,146,45,0.35), transparent 60%),
-          url(${photoUrl('clubhouse', 1200)})
-        `,
-        backgroundSize: 'cover, cover, cover',
-        backgroundPosition: 'center, center, center',
-        backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
+        background: '#141210',
       }}
-      aria-label={`Demo section. Background: ${photoAlt('clubhouse')}`}
     >
       <div className="landing-container">
         <div
@@ -100,9 +92,10 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
                 <li>We confirm your slot within 1 business day</li>
                 <li>
-                  We pull a sample brief from your tee sheet and POS (5-min secure read)
+                  We connect to Jonas, Clubessential, or Northstar.{' '}
+                  <strong style={{ color: '#F3922D' }}>Zero IT required.</strong>
                   <span style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 4 }}>
-                    Seamless read-only API connection to Jonas, Clubessential, Northstar, etc. Zero IT required.
+                    We send a 2-minute instruction sheet for your admin to approve the sync. Read-only — nothing is ever written back.
                   </span>
                 </li>
                 <li>30-min call — you keep the prioritized action list regardless</li>
@@ -127,7 +120,18 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             </div>
           </div>
 
-          {/* Right column — form only */}
+          {/* Right column — founder badge + form */}
+          <div>
+            {/* Founder authority badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
+              <div style={{ width: 48, height: 48, background: '#1B1814', border: '2px solid rgba(243,146,45,0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F3922D', fontWeight: 800, fontSize: 14, flexShrink: 0, fontFamily: "'JetBrains Mono', monospace" }}>
+                TH
+              </div>
+              <div>
+                <p style={{ margin: 0, fontSize: 14, color: '#FFFFFF', fontWeight: 600 }}>Built by Tyler Hayes</p>
+                <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>Former GM, 300-member desert club</p>
+              </div>
+            </div>
           <div
             style={{
               background: 'rgba(255,255,255,0.04)',
@@ -190,17 +194,16 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                   </Button>
                 </form>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 16px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                  {[
-                    { icon: '■', label: 'AES-256 Encryption' },
-                    { icon: '◆', label: 'SOC 2 (Audit Active)' },
-                    { icon: '◉', label: 'Mutual NDA Included' },
-                  ].map(({ icon, label }) => (
-                    <span key={label} style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'rgba(255,255,255,0.78)', fontSize: 11, fontFamily: theme.fonts.mono, letterSpacing: '0.04em' }}>
-                      <span style={{ color: theme.colors.brass || '#B5956A', fontSize: 8 }}>{icon}</span>
-                      {label}
-                    </span>
-                  ))}
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
+                    <Lock size={14} color="#F3922D" strokeWidth={2} /> AES-256 Encrypted
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
+                    <ShieldCheck size={14} color="#F3922D" strokeWidth={2} /> SOC 2 Active
+                  </span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.78)', fontSize: 13 }}>
+                    <FileSignature size={14} color="#F3922D" strokeWidth={2} /> Mutual NDA
+                  </span>
                 </div>
 
                 {status === 'error' && feedback && (
@@ -211,6 +214,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               </>
             )}
           </div>
+          </div>{/* end right column outer wrapper */}
         </div>
       </div>
     </section>

@@ -110,9 +110,13 @@ export default function IntegrationsSection() {
               <p style={{ color: theme.colors.accent, fontFamily: theme.fonts.mono, fontSize: 13, margin: '0 0 6px' }}>
                 {category.systems} connected systems
               </p>
-              <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, margin: 0, lineHeight: 1.5 }}>
-                {category.vendors.join(' · ')}
-              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 4 }}>
+                {category.vendors.map((v) => (
+                  <span key={v} style={{ fontSize: 11, fontFamily: theme.fonts.mono, color: 'rgba(255,255,255,0.75)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 4, padding: '2px 8px', whiteSpace: 'nowrap' }}>
+                    {v}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

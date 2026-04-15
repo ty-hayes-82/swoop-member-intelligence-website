@@ -23,7 +23,7 @@ export default function FaqSection() {
             key={item.question}
             question={item.question}
             answer={item.answer}
-            defaultOpen={idx === 0 || item.question === "Is my members' data secure?"}
+            defaultOpen={idx < 2}
           />
         ))}
       </div>

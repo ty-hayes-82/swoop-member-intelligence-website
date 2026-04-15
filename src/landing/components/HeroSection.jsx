@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          AI-Powered Operating Intelligence for Private Clubs
+          The AI Chief of Staff for Golf &amp; Country Clubs
         </p>
 
         {/* Headline */}
@@ -280,19 +280,19 @@ export default function HeroSection({ onDemoClick }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            borderRadius: 20,
-            overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,0.10)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: 16,
+            marginTop: 8,
           }}
         >
-          {proofColumns.map((col, idx) => (
+          {proofColumns.map((col) => (
             <div
               key={col.eyebrow}
               style={{
                 background: 'rgba(255,255,255,0.05)',
-                borderRight: idx < proofColumns.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                padding: 'clamp(24px, 3vw, 36px)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 14,
+                padding: 'clamp(20px, 2.5vw, 32px)',
               }}
             >
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: theme.colors.brass || '#B5956A', margin: '0 0 12px' }}>

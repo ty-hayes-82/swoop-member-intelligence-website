@@ -9,7 +9,7 @@ const narrativeBlocks = [
     points: [
       { label: 'Pattern Identified', text: 'Overnight review of all systems and signals.' },
       { label: 'Action Taken', text: 'Assembled prioritized action plan ranked by dollars at risk.' },
-      { label: 'Outcome', text: 'Entire morning triaged in 90 seconds. Three decisions.' }
+      { label: 'Outcome', text: '6 hours of multi-system spreadsheet assembly → instant 4-tab briefing. Three decisions before 7 AM.' }
     ],
     callout: '> $18K dues at risk. Call James Whitfield before 10:15 AM.',
   },
@@ -25,15 +25,15 @@ const narrativeBlocks = [
     callout: '> Complaint aging 6 days · dining visits ↓40% · tee time 9:20 AM today.',
   },
   {
-    time: 'The Revenue',
-    agents: 'Revenue Analyst · Demand Optimizer',
-    headline: 'Tuesday twilight slots were 42% empty. Now they\'re 68% full.',
+    time: 'The Pace',
+    agents: 'Revenue Analyst · Labor Optimizer',
+    headline: 'Hole 12 backup is cutting post-round dining by 19 points.',
     points: [
-      { label: 'Pattern Identified', text: 'Tuesday PM fill rates lagging.' },
-      { label: 'Action Taken', text: 'Drafted & targeted F&B offer to waitlist members.' },
-      { label: 'Outcome', text: '+$780 incremental revenue booked.' }
+      { label: 'Pattern Identified', text: '14-minute backup on Hole 12 directly correlates to canceled post-round dining reservations — dining conversion dropped from 41% to 22%.' },
+      { label: 'Action Taken', text: 'Alerted Ranger to Hole 12 bottleneck. Notified F&B to hold tables 15 extra minutes on Saturday rounds.' },
+      { label: 'Outcome', text: '$31 per round recovered in F&B revenue.' }
     ],
-    callout: '> +$780 this week · 4 at-risk members converted · F&B prep adjusted.',
+    callout: '> $31/round recovered · dining conversion restored · F&B notified.',
   },
   {
     time: 'The Floor',

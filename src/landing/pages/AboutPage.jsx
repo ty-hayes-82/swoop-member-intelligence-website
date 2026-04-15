@@ -93,7 +93,7 @@ export default function AboutPage() {
                 TL;DR: 4 years as a club GM. Lost a 12-year member I didn't have to lose. Built the tool I wish I had.
               </p>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 16, color: theme.colors.textSecondary, lineHeight: 1.7 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 16, color: theme.colors.textSecondary, lineHeight: 1.7, maxWidth: '68ch' }}>
               <p style={{ margin: 0 }}>
                 For four years, Tyler ran member operations at a 300-member desert club. Every Monday morning started the same way: pulling actives from Jonas, cross-referencing against the tee sheet in a separate tab, manually flagging members who hadn't visited. By the time the brief was assembled, it was 10 AM and two of the members on the list had already played.
               </p>
@@ -118,7 +118,21 @@ export default function AboutPage() {
               </blockquote>
 
               <p style={{ margin: 0 }}>
-                That resignation cost the club $14,400 in annual dues. It didn't have to happen. We built Swoop to be the analyst most clubs can't afford to hire: one system that reads your tee sheet, your POS, and your CRM before you open your laptop — and tells you exactly who needs a call, what to say, and what it's worth.
+                That resignation cost the club $14,400 in annual dues. It didn't have to happen.
+              </p>
+
+              {/* Happy Ending narrative */}
+              <div style={{ background: 'rgba(243,146,45,0.06)', border: '1px solid rgba(184,96,14,0.18)', borderRadius: 10, padding: '16px 20px' }}>
+                <p style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: 15, color: theme.neutrals.ink }}>
+                  Swoop changes the ending.
+                </p>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.65 }}>
+                  With Swoop, that same member surfaces on a Tuesday — 6 weeks before she makes the call. Her rounds are down 40%, her dining visits stopped two months ago, her complaint from March was never followed up. The agent drafts a callback script and flags it for GM approval in 90 seconds. Tyler calls. She mentions the complaint, he addresses it, and offers a complimentary guest pass for her and her daughter. She renews. That's a <strong style={{ color: '#B8600E' }}>$14,400 save</strong> — from one tap.
+                </p>
+              </div>
+
+              <p style={{ margin: 0 }}>
+                We built Swoop to be the analyst most clubs can't afford to hire: one system that reads your tee sheet, your POS, and your CRM before you open your laptop — and tells you exactly who needs a call, what to say, and what it's worth.
               </p>
               <p style={{ margin: 0, fontWeight: 600, color: theme.neutrals.ink }}>
                 Founded 2023 · Scottsdale, AZ · Backed by former club GMs and hospitality tech operators.
