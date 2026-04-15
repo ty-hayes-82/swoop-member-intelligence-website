@@ -111,9 +111,9 @@ Score ONLY what is within the control of the development team: layout, typograph
 `;
 
 // ---------------------------------------------------------------------------
-// 7 Agent Critique Lenses — The Seven Lenses evaluation system
+// 10 Agent Critique Lenses — The Ten Lenses evaluation system
 // Each agent has a distinct professional identity and scores out of 100.
-// Combined they produce a 700-point composite evaluation.
+// Combined they produce a 1000-point composite evaluation.
 // ---------------------------------------------------------------------------
 
 const AGENT_LENSES = [
@@ -1347,9 +1347,9 @@ URL: ${BASE_URL}/${page.hash}
 ## React Files for This Page
 ${componentList}
 
-## Current Critique Scores (The Seven Lenses)
+## Current Critique Scores (The Ten Lenses)
 
-The page was evaluated by 9 specialist agents (The Nine Lenses system, max composite 900/900). Here are all their findings:
+The page was evaluated by 10 specialist agents (The Ten Lenses system, max composite 1000/1000). Here are all their findings:
 
 ---
 
@@ -1359,7 +1359,7 @@ ${critiquesBlock}
 
 ## Your Task
 
-The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 9 agent lenses** (855/900 composite target).
+The current scores are too low. Produce a complete, implementable set of website updates that would bring this page to **95/100 across every one of the 10 agent lenses** (950/1000 composite target).
 
 Structure your output EXACTLY as follows:
 
@@ -1380,7 +1380,8 @@ Structure your output EXACTLY as follows:
 | The First-Timer (Clarity) | X/100 | 95/100 | ... |
 | The Brand Guardian (Brand) | X/100 | 95/100 | ... |
 | The Mobile Inspector (Mobile UX) | X/100 | 95/100 | ... |
-| **Composite** | X/900 | 855/900 | ... |
+| The Alignment Inspector (Storyboard) | X/100 | 95/100 | ... |
+| **Composite** | X/1000 | 950/1000 | ... |
 
 ---
 
@@ -1440,7 +1441,8 @@ For each change below, provide:
 | The First-Timer (Clarity) | X/100 | X/100 | 95+/100 |
 | The Brand Guardian (Brand) | X/100 | X/100 | 95+/100 |
 | The Mobile Inspector (Mobile UX) | X/100 | X/100 | 95+/100 |
-| **Composite** | X/900 | X/900 | 855+/900 |
+| The Alignment Inspector (Storyboard) | X/100 | X/100 | 95+/100 |
+| **Composite** | X/1000 | X/1000 | 950+/1000 |
 
 ---
 
@@ -1534,14 +1536,14 @@ async function consolidate(genAI, anthropic, allCritiques, screenshotResults, ou
 
   const model = CRITIQUE_PROVIDER === 'claude' ? null : genAI.getGenerativeModel({ model: PRO_MODEL, generationConfig: { maxOutputTokens: 65536 } });
 
-  const prompt = `You are a senior UX strategist and product consultant. You have received 40 structured critiques of a SaaS marketing website — 8 specialist agents (The Eight Lenses) applied to each of 5 pages. Each agent scores out of 100 for a maximum composite of 800/800.
+  const prompt = `You are a senior UX strategist and product consultant. You have received 50 structured critiques of a SaaS marketing website — 10 specialist agents (The Ten Lenses) applied to each of 5 pages. Each agent scores out of 100 for a maximum composite of 1000/1000.
 
 The website is for **Swoop Club Intelligence**, an AI-powered member intelligence platform for private golf and country clubs. Target customer: Club GM / COO. Primary conversion goal: book a demo call.
 
 Pages reviewed:
 ${pageList}
 
-The 8 critique agents are:
+The 10 critique agents are:
 1. The Architect — UI Design & Visual Craft (typography, color, layout, responsiveness, components, motion) — /100
 2. The GM — Private Club General Manager buyer persona (first impression, proof, operational clarity, risk reduction, next step) — /100
 3. The Closer — Sales Conversion & Persuasion (value prop clarity, persuasion architecture, CTA strategy, friction/objections, conversion mechanics) — /100
@@ -1550,8 +1552,10 @@ The 8 critique agents are:
 6. The Storyteller — Messaging, Copy & Narrative (headline/value prop, narrative flow, voice/tone, copy craft, emotional resonance) — /100
 7. The First-Timer — First-Visit Experience & Clarity (instant clarity, progressive understanding, self-service info, emotional response, action readiness) — /100
 8. The Brand Guardian — Brand Consistency & Identity Fidelity (color fidelity, typography fidelity, voice consistency, component patterns, brand differentiation) — /100
+9. The Mobile Inspector — Mobile UX on 390×844 iPhone (layout integrity, touch targets, readability, mobile-specific flows) — /100
+10. The Alignment Inspector — Storyboard narrative & demo alignment (message consistency, demo readiness, narrative coherence) — /100
 
-Here are all 45 critiques:
+Here are all 50 critiques:
 
 ---
 
@@ -1715,7 +1719,7 @@ function extractScores(pageCritiques) {
     if (m) scores[field] = parseInt(m[1], 10);
   }
 
-  // Composite /700
+  // Composite /1000
   const vals = Object.values(LENS_FIELD_MAP).map((f) => scores[f]).filter((v) => v !== null);
   scores.composite = vals.length ? vals.reduce((a, b) => a + b, 0) : null;
 
@@ -1817,12 +1821,12 @@ async function main() {
     scores[page.slug] = extractScores(pageCritiques);
   }
 
-  console.log('\n📊  Scores (The Nine Lenses — /100 each, /900 composite):');
-  console.log(`  ${'Page'.padEnd(12)} Arch  GM   Closr Spd  Skpt  Story 1stT  Brand Mobil Composite`);
+  console.log('\n📊  Scores (The Ten Lenses — /100 each, /1000 composite):');
+  console.log(`  ${'Page'.padEnd(12)} Arch  GM   Closr Spd  Skpt  Story 1stT  Brand Mobil Align Composite`);
   for (const [slug, s] of Object.entries(scores)) {
     const fmt = (v) => String(v ?? '?').padStart(4);
-    const comp = s.composite !== null ? `${s.composite}/900` : '?/900';
-    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)} ${fmt(s.skeptic)} ${fmt(s.storyteller)} ${fmt(s.firstTimer)} ${fmt(s.brandGuardian)} ${fmt(s.mobileInspector)}  ${comp}`);
+    const comp = s.composite !== null ? `${s.composite}/1000` : '?/1000';
+    console.log(`  ${slug.padEnd(12)}${fmt(s.architect)} ${fmt(s.gm)} ${fmt(s.closer)} ${fmt(s.speedster)} ${fmt(s.skeptic)} ${fmt(s.storyteller)} ${fmt(s.firstTimer)} ${fmt(s.brandGuardian)} ${fmt(s.mobileInspector)} ${fmt(s.alignmentInspector)}  ${comp}`);
   }
 
   writeFile(path.join(outputDir, 'scores.json'), JSON.stringify({ run, scores }, null, 2));

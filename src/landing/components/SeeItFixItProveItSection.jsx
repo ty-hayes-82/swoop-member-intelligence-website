@@ -155,21 +155,21 @@ function ProveStats() {
 const blocks = [
   {
     eyebrow: 'SEE IT',
-    headline: 'One screen. Every signal. Before the first tee time.',
-    copy: 'Your tee sheet knows rounds. Your POS knows spend. Your CRM knows complaints. None of them know that James Whitfield has an unresolved complaint, a tee time in 90 minutes, and his dining visits dropped 40% this month. This is the disengagement arc: email engagement fades first, golf frequency follows, dining stops last. Swoop reads all three simultaneously — and every slow round that skips post-round dining costs the club $31. One screen. Four systems. Zero Saturday morning tab-switching.',
+    headline: 'Every signal. One screen. Before the first tee time.',
+    copy: 'Your tee sheet, POS, and CRM each see part of the picture. None of them know James Whitfield has an unresolved complaint and a tee time in 90 minutes. Swoop reads all three overnight and flags it at 6 AM.',
     memberDisclaimer: true,
     visual: <MorningBriefingPanel />,
   },
   {
     eyebrow: 'FIX IT',
-    headline: 'The right action. The right person. Before the problem compounds.',
-    copy: "Dashboards don't save memberships. Actions do. Swoop doesn't just flag the at-risk member — it drafts the exact callback script, comp offer, or staffing shift required. You review, click send, and the member gets saved. AI never talks directly to your members. One phone call from the GM. $32K in dues protected. That's not a dashboard. That's an operating system.",
+    headline: 'The right action. The right person. Right now.',
+    copy: "Swoop doesn't just flag the at-risk member — it drafts the callback script, the comp offer, or the staffing shift. You review and approve. AI never contacts your members directly.",
     visual: <ActionCard />,
   },
   {
     eyebrow: 'PROVE IT',
     headline: 'Take a dollar number to the board. Not a feeling.',
-    copy: 'Every intervention is tracked. Every outcome is measured. Swoop generates a board-ready report that shows exactly how many members were protected, how much revenue was recovered, and what the retention rate looks like. One click generates a 4-tab board report: Summary, Member Saves, Operational Saves, and What We Learned — sourced, attributed, and forwarded without rewriting.',
+    copy: 'Every intervention tracked. Every outcome measured. One click generates a 4-tab board report — members protected, revenue recovered, retention rate — sourced and attributed, no rewriting required.',
     visual: <ProveStats />,
   },
 ];

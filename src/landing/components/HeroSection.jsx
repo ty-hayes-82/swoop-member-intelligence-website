@@ -123,23 +123,6 @@ function SampleBriefModal({ onClose }) {
   );
 }
 
-const proofColumns = [
-  {
-    eyebrow: 'SEE IT',
-    headline: 'Know who\'s drifting — six days early.',
-    body: 'Swoop connects your tee sheet, POS, and CRM into a single member health score. At-risk members surface automatically.',
-  },
-  {
-    eyebrow: 'FIX IT',
-    headline: 'One-tap intervention before the problem compounds.',
-    body: 'Swoop drafts the callback script, the comp offer, and the staffing shift. Your team acts instead of sorting spreadsheets.',
-  },
-  {
-    eyebrow: 'PROVE IT',
-    headline: 'Board-ready attribution. Not a feeling.',
-    body: 'Active members, at-risk count, dues protected this month — auto-written narrative, one click. The report your board wants to see.',
-  },
-];
 
 export default function HeroSection({ onDemoClick }) {
   const [briefModalOpen, setBriefModalOpen] = useState(false);
@@ -247,10 +230,6 @@ export default function HeroSection({ onDemoClick }) {
         <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', marginBottom: 8 }}>
           No credit card · No IT lift · Live in 2 weeks · Zero member data sold or shared.
         </p>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.60)', textAlign: 'center', marginBottom: 24 }}>
-          Every recommended action requires your approval before anything is sent. Start manual — unlock more as you see it working.
-        </p>
-
         {/* Social proof quote */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 40 }}>
           <div style={{ borderLeft: '3px solid #F3922D', paddingLeft: 16, maxWidth: 480 }}>
@@ -276,37 +255,6 @@ export default function HeroSection({ onDemoClick }) {
           ))}
         </div>
 
-        {/* Proof columns */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: 16,
-            marginTop: 8,
-          }}
-        >
-          {proofColumns.map((col) => (
-            <div
-              key={col.eyebrow}
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 14,
-                padding: 'clamp(20px, 2.5vw, 32px)',
-              }}
-            >
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: theme.colors.brass || '#B5956A', margin: '0 0 12px' }}>
-                {col.eyebrow}
-              </p>
-              <h3 style={{ fontFamily: theme.fonts.serif, fontSize: 17, fontWeight: 700, color: '#FFFFFF', margin: '0 0 10px', lineHeight: 1.3 }}>
-                {col.headline}
-              </h3>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, margin: 0 }}>
-                {col.body}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
 
