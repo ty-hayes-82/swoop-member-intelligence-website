@@ -4,48 +4,48 @@ import { Icon } from '@/landing/ui';
 
 const scenarios = [
   {
+    agent: 'Labor Optimizer',
+    iconName: 'UsersRound',
+    signalLabel: 'Signal',
+    signal: 'Sat lunch forecast · 95 covers vs 6 staff scheduled · 48hr window',
+    action: 'Add 2 FOH shifts + alert chef to bump prep — GM approval required',
+    impact: '$3,200',
+    impactLabel: 'service failure avoided',
+    confidence: 94,
+    tone: 'labor',
+  },
+  {
+    agent: 'Service Recovery',
+    iconName: 'ChefHat',
+    signalLabel: 'Signal',
+    signal: 'Complaint aging 31d · no callback recorded · 30-day window breached',
+    action: 'Draft GM callback script · flag for immediate follow-up',
+    impact: '$22K',
+    impactLabel: 'dues protected',
+    confidence: 89,
+    tone: 'service',
+  },
+  {
     agent: 'Member Pulse',
     iconName: 'UserRound',
     signalLabel: 'Signal',
     signal: 'Mark Henderson · rounds ↓42% · complaint unresolved 4d',
-    action: 'Draft GM callback + 2-guest pass offer',
+    action: 'Draft GM callback + 2-guest pass offer — one tap to approve',
     impact: '$8,400',
     impactLabel: 'dues protected',
     confidence: 92,
     tone: 'member',
   },
   {
-    agent: 'Demand Optimizer',
-    iconName: 'Radar',
+    agent: 'New Member Advisor',
+    iconName: 'UserRound',
     signalLabel: 'Signal',
-    signal: 'Saturday 8am block · 3 cancellations predicted · wind advisory',
-    action: 'Pre-route openings to top 5 retention-priority members',
-    impact: '91% fill',
-    impactLabel: '+$1,560 recovered',
-    confidence: 87,
-    tone: 'demand',
-  },
-  {
-    agent: 'Service Recovery',
-    iconName: 'ChefHat',
-    signalLabel: 'Signal',
-    signal: 'Grill Room · 42min wait · satisfaction trending −28%',
-    action: 'Trigger captain callback + meal-comp playbook',
-    impact: 'NPS +14',
-    impactLabel: 'member retained',
-    confidence: 89,
-    tone: 'service',
-  },
-  {
-    agent: 'Labor Optimizer',
-    iconName: 'UsersRound',
-    signalLabel: 'Signal',
-    signal: 'Sat lunch forecast · 95 covers vs 6 staff scheduled',
-    action: 'Add 2 FOH shifts + alert chef to bump prep',
-    impact: '$3,200',
-    impactLabel: 'service failure avoided',
-    confidence: 94,
-    tone: 'labor',
+    signal: 'Kevin Harrington · Day 47 · 0 events · 1 round total · habit pattern: at risk',
+    action: 'Draft welcome call + event invite before 90-day window closes',
+    impact: '90-day',
+    impactLabel: 'window still open',
+    confidence: 93,
+    tone: 'member',
   },
   {
     agent: 'Revenue Analyst',
@@ -59,11 +59,11 @@ const scenarios = [
     tone: 'revenue',
   },
   {
-    agent: 'Engagement Autopilot',
+    agent: 'Engagement Advisor',
     iconName: 'RefreshCw',
     signalLabel: 'Signal',
     signal: '18 members · declining participation · 0 events attended YTD',
-    action: 'Launch targeted outreach · 3-touch sequence',
+    action: 'Draft personal invite per member — GM reviews before anything sends',
     impact: '11 re-engaged',
     impactLabel: 'of 18 flagged',
     confidence: 86,
@@ -164,7 +164,7 @@ export default function AgentsLiveDemo() {
             }}
           />
           <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.04em' }}>
-            LIVE · 6 AGENTS ONLINE
+            LIVE · 6 INTELLIGENCE STREAMS
           </span>
         </div>
         <span

@@ -2,6 +2,19 @@ import { theme } from '@/config/theme';
 
 export const problemCards = [
   {
+    title: 'Complaint falls through the cracks',
+    summary: 'Acknowledged ≠ resolved. Your complaint inbox tracks tickets, not saves.',
+    highlights: [
+      'James Whitfield waited 42 minutes, filed a complaint, and sat in “Acknowledged” for 6 days.',
+      'No alert fired because the CRM saw a reply, not the absence of a callback.',
+    ],
+    source: 'Member CRM + Service Desk',
+    freshness: 'Complaint aging: 6 days',
+    why: 'No callback recorded · 30-day window closing · satisfaction trending negative',
+    confidence: '88% confidence',
+    metric: { value: '$22K', label: 'annual dues at risk' },
+  },
+  {
     title: 'Member risk blind spot',
     summary: 'Your systems see pieces. None of them see the resignation forming.',
     highlights: [
@@ -15,30 +28,17 @@ export const problemCards = [
     metric: { value: '1-day', label: 'warning missed' },
   },
   {
-    title: 'Complaint follow-up gap',
-    summary: 'Acknowledged ≠ resolved. Your complaint inbox tracks tickets, not saves.',
+    title: 'New member habits never form',
+    summary: 'The 90-day window is when members decide whether the club is worth it.',
     highlights: [
-      'James Whitfield waited 42 minutes, filed a complaint, and sat in “Acknowledged” for 6 days.',
-      'No alert fired because the CRM saw a reply, not the absence of action.',
+      '3 members are at Day 45 with zero event visits and one round total.',
+      'By the time the pattern shows up in renewals, the decision was made months ago.',
     ],
-    source: 'Member CRM + Service Desk',
-    freshness: 'Complaint aging: 6 days',
-    why: 'No callback recorded · satisfaction trending negative',
-    confidence: '88% confidence',
-    metric: { value: '$22K', label: 'annual dues at risk' },
-  },
-  {
-    title: 'Demand vs. experience disconnect',
-    summary: 'Tee sheet tools optimize fill rate, not retention outcomes.',
-    highlights: [
-      'FIFO waitlists keep healthy members happy while at-risk members walk away.',
-      'Wind advisory shifts bookings indoors, but staffing and F&B prep stay blind.',
-    ],
-    source: 'Tee Sheet + Weather + POS',
-    freshness: 'Wind advisory confirmed 45 min ago',
-    why: '91% fill rate but 3 resignations tied to poor experience',
-    confidence: '84% confidence',
-    metric: { value: '$36K', label: 'dues + F&B leakage' },
+    source: 'Tee Sheet + Events + POS',
+    freshness: 'Cohort updated this morning',
+    why: '4/4 GMs flagged this as their #1 blind spot',
+    confidence: '93% confidence',
+    metric: { value: '90 days', label: 'window to build loyalty' },
   },
 ];
 
@@ -79,31 +79,31 @@ export const coreCapabilities = [
   },
   {
     icon: 'Utensils',
-    title: 'Stop leaving covers on the table.',
+    title: 'Dining frequency is the earliest churn signal.',
     category: 'F&B Operations',
     color: theme.colors.lensFbOperations,
-    summary: 'Tie culinary prep to what golf & weather already know.',
+    summary: 'F&B data tells you which members are happy — and which are leaving.',
     bullets: [
-      'Forecast post-round dining conversion by tee block.',
-      'Flag pace-of-play issues before they crush the Grill Room.',
+      'Members who stop dining stop renewing. Swoop surfaces the pattern 6 weeks early.',
+      'Flags understaffed Saturday lunch before the service failure happens.',
     ],
     source: 'POS + Tee Sheet + Weather',
     dataSources: 'POS + TEE SHEET + WEATHER',
     freshness: 'Prep forecast updated 7 min ago',
     confidence: '86% confidence',
-    why: 'Rounds running 4:45 · patio demand spiking',
-    description: 'When tee-sheet traffic is light and weather is pushing members indoors, Swoop tells the kitchen before the shift starts — so F&B is staffed and prepped for the covers that are actually coming.',
-    metric: { value: '$5.7K', label: 'monthly F&B upside' },
+    why: 'F&B frequency drop preceded 3 of last 4 resignations',
+    description: 'When a member stops coming to dinner, they\'re telling you something — weeks before they submit a resignation. Swoop connects dining patterns to member health scores so the signal doesn\'t get lost.',
+    metric: { value: '$5.7K', label: 'monthly recovery per alert' },
   },
   {
     icon: 'UsersRound',
-    title: 'Staff for what\'s actually happening.',
+    title: 'Catch the Saturday lunch gap before your kitchen does.',
     category: 'Staffing & Labor',
     color: theme.colors.lensStaffingLabor,
-    summary: 'Staff to predicted demand, not static templates.',
+    summary: 'Staff to predicted demand, not last week\'s template.',
     bullets: [
-      'Coverage gap alerts 48 hours before service windows.',
-      'Overtime + labor cost per dollar tracked in real time.',
+      'Saturday lunch: 95 covers forecast, 6 staff scheduled — Swoop flags it 48 hours early.',
+      'Coverage gap alerts before the service failure, not after the complaint.',
     ],
     source: 'Scheduling + Tee Sheet',
     dataSources: 'SCHEDULING + TEE SHEET',
@@ -115,12 +115,12 @@ export const coreCapabilities = [
   {
     icon: 'DollarSign',
     title: 'Prove the save to your board.',
-    category: 'Revenue & Pipeline',
+    category: 'Board Report',
     color: theme.colors.lensRevenuePipeline,
-    summary: 'Show the board which actions protected revenue.',
+    summary: 'Auto-generated board narrative. Every save attributed, every dollar sourced.',
     bullets: [
-      'Attribution from alert → action → dues protected.',
-      'Pipeline insights tie guest play to future memberships.',
+      'One click generates the report: active members, at-risk count, dues protected this month.',
+      'Attribution from alert → action → dues recovered — so the board sees the ROI, not a feeling.',
     ],
     source: 'Revenue + CRM + POS',
     dataSources: 'REVENUE + CRM + POS',
@@ -169,7 +169,7 @@ export const comparisonFeatures = [
     sheets: false,
   },
   {
-    feature: 'AI agent automation',
+    feature: 'AI-drafted action recommendations (GM-approved)',
     swoop: true,
     waitlistTools: false,
     crm: false,
@@ -219,8 +219,8 @@ export const agents = [
   },
   {
     icon: 'RefreshCw',
-    name: 'Engagement Autopilot',
-    description: "Spots members who haven't visited in 30 days and drafts a personal invite to get them back.",
+    name: 'Engagement Advisor',
+    description: "Spots members who haven't visited in 30 days and drafts a personal, GM-approved invite to get them back.",
   },
 ];
 
@@ -280,6 +280,7 @@ export const pricingTiers = [
     features: [
       'Daily member health scores',
       'Risk + complaint + demand alerts',
+      '90-day new member cohort alerts',
       'Up to 3 system integrations',
       'Email support',
     ],
@@ -304,19 +305,19 @@ export const pricingTiers = [
     technical: '4 integrations, hourly refresh, 12-month retention, 5 seats, CSV export',
   },
   {
-    name: 'Signals + Actions + Member App',
+    name: 'Signals + Actions + Enterprise',
     price: '$1,499/mo',
     description:
-      'Adds the Swoop member app — GPS + what members actually do on property, plus push notifications and attribution from signal to save.',
+      'For multi-property clubs and boards that need full attribution, unlimited integrations, and a dedicated success partner.',
     features: [
       'Everything in Signals + Actions',
-      'Swoop member app included',
-      'GPS + on-property member behavior',
-      'Push notification channel',
-      'Save-attribution tracking',
+      'Unlimited system integrations',
+      'Custom board report templates',
       'Dedicated success manager',
+      'SSO + SAML single sign-on',
+      '99.9% uptime SLA',
     ],
-    cta: 'Talk to us about Club',
+    cta: 'Talk to us about Enterprise',
     technical: 'Unlimited integrations, 15-min refresh, 36-month retention, SSO+SAML, 99.9% SLA',
   },
 ];
@@ -335,12 +336,12 @@ export const faqItems = [
   {
     question: 'Does this work with Jonas / ClubEssentials?',
     answer:
-      '28 integrations across 10 categories. Tee Sheet: ForeUP, Jonas Club, Club Prophet, Lightspeed Golf. CRM: Jonas, ClubEssential, Northstar. POS: Toast, Square, Lightspeed Restaurant, POSitouch. Ask us if you do not see your stack listed.',
+      'Yes — and all four of our founding-partner clubs run on Jonas. Today, Swoop connects via CSV export from Jonas (standard reports, no IT required). Your data is in Swoop in under 10 minutes. Native Jonas API sync is on our near-term roadmap. If you\'re on ClubEssential, ForeUP, or another system, ask us — we support 28 platforms across 10 categories.',
   },
   {
     question: 'My club is on a 3-year Jonas contract — can I still use Swoop?',
     answer:
-      'Yes. Swoop reads from Jonas via API and doesn\'t require any contract changes with Jonas. You can run both simultaneously.',
+      'Yes. Swoop connects to Jonas via CSV export — no API contract changes, no IT involvement, no renegotiation with Jonas. You export a standard Jonas report and we ingest it. Both run simultaneously, unchanged.',
   },
   {
     question: 'Does this need board approval?',

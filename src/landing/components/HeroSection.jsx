@@ -3,8 +3,9 @@ import { theme } from '@/config/theme';
 
 const BRIEF_ITEMS = [
   { time: '06:14', label: 'Member Pulse', detail: 'James Whitfield · rounds ↓42% · complaint aging 4d · tee time 9:20 AM today', value: '$18K at risk' },
-  { time: '06:14', label: 'Revenue Gap', detail: 'Tuesday twilight: 42% empty · waitlist 12 members · F&B upside $780', value: '+$780 this week' },
-  { time: '06:14', label: 'Service Recovery', detail: 'Dining complaint aging 6d · window breached · recovery action drafted', value: '$11K protected' },
+  { time: '06:14', label: 'New Member Alert', detail: 'Kevin Harrington · Day 47 · 0 events attended · 1 round total · pattern matches early churn', value: '90-day window' },
+  { time: '06:14', label: 'Service Recovery', detail: 'Dining complaint aging 6d · 30-day window breached · callback drafted', value: '$11K protected' },
+  { time: '06:14', label: 'Staffing Gap', detail: 'Saturday lunch: 95 covers forecast · 6 staff scheduled · add 2 FOH shifts', value: 'Service risk' },
 ];
 
 function SampleBriefModal({ onClose }) {
@@ -136,7 +137,7 @@ const proofColumns = [
   {
     eyebrow: 'PROVE IT',
     headline: 'Board-ready attribution. Not a feeling.',
-    body: 'Every save is tracked. Every dollar is sourced. One click generates the report your board wants to see.',
+    body: 'Active members, at-risk count, dues protected this month — auto-written narrative, one click. The report your board wants to see.',
   },
 ];
 
@@ -243,8 +244,11 @@ export default function HeroSection({ onDemoClick }) {
           </button>
         </div>
 
-        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', marginBottom: 24 }}>
+        <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, textAlign: 'center', marginBottom: 8 }}>
           No credit card · No IT lift · Live in 2 weeks · Zero member data sold or shared.
+        </p>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.60)', textAlign: 'center', marginBottom: 24 }}>
+          Every recommended action requires your approval before anything is sent. Start manual — unlock more as you see it working.
         </p>
 
         {/* Social proof quote */}
