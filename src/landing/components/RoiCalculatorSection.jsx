@@ -66,7 +66,7 @@ function Slider({ label, value, onChange, min, max, step = 1, displayValue }) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'baseline',
-          fontSize: 13,
+          fontSize: 14,
           fontWeight: 600,
           color: theme.colors.textSecondary,
           textTransform: 'uppercase',
@@ -169,7 +169,7 @@ export default function RoiCalculatorSection() {
           }}
         >
           <div>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', margin: '0 0 6px' }}>
+            <p style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', margin: '0 0 6px' }}>
               Exposure
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
@@ -177,13 +177,13 @@ export default function RoiCalculatorSection() {
                 <p style={{ fontSize: 36, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 2px', lineHeight: 1 }}>
                   {atRisk}
                 </p>
-                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', margin: 0 }}>Members at risk</p>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', margin: 0 }}>Members at risk</p>
               </div>
               <div>
                 <p style={{ fontSize: 36, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: '0 0 2px', lineHeight: 1 }}>
                   {fmt(annualLoss)}
                 </p>
-                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', margin: 0 }}>Annual revenue at risk</p>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', margin: 0 }}>Annual revenue at risk</p>
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function RoiCalculatorSection() {
           />
 
           <div>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: theme.colors.accent, margin: '0 0 6px' }}>
+            <p style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: theme.colors.accent, margin: '0 0 6px' }}>
               With Swoop
             </p>
             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', margin: '0 0 12px', lineHeight: 1.6 }}>
@@ -205,10 +205,10 @@ export default function RoiCalculatorSection() {
             <p style={{ fontSize: 52, fontWeight: 800, fontFamily: theme.fonts.mono, color: theme.colors.accent, margin: 0, lineHeight: 1, letterSpacing: '-0.02em' }}>
               {fmt(recovered)}
             </p>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', margin: '6px 0 0' }}>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', margin: '6px 0 0' }}>
               Revenue recovered ({swoopSaves} members saved)
             </p>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.72)', marginTop: 8, fontStyle: 'italic' }}>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 8, fontStyle: 'italic' }}>
               Calculated from your inputs: avg dues × estimated lapse rate × 12. Not a projection — math you can verify.
             </p>
           </div>

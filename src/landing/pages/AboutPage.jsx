@@ -2,10 +2,38 @@ import LandingShell from '@/landing/LandingShell';
 import TeamSection from '@/landing/components/TeamSection';
 import TestimonialsSection from '@/landing/components/TestimonialsSection';
 import SocialProofSection from '@/landing/components/SocialProofSection';
-import FaqSection from '@/landing/components/FaqSection';
 import DemoCtaSection from '@/landing/components/DemoCtaSection';
-import { SectionShell } from '@/landing/ui';
+import { SectionShell, FaqItem } from '@/landing/ui';
+import { faqItems } from '@/landing/data';
 import { theme } from '@/config/theme';
+
+const ABOUT_FAQ_QUESTIONS = new Set([
+  'Does this work with Jonas / ClubEssentials?',
+  "Is my members' data secure?",
+  'How long until we\'re live?',
+  'Can we cancel and keep our data?',
+  'Can I try it before committing?',
+  'What does Swoop cost?',
+]);
+const aboutFaqItems = faqItems.filter(item => ABOUT_FAQ_QUESTIONS.has(item.question));
+
+function AboutFaqSection() {
+  return (
+    <SectionShell band="paper" container="narrow" eyebrow="FAQ" title="Common questions from GMs.">
+      <div style={{ background: theme.neutrals.paper, borderRadius: 20, padding: 'clamp(12px, 3vw, 32px)', border: '1px solid rgba(17,17,17,0.08)' }}>
+        {aboutFaqItems.map((item, idx) => (
+          <FaqItem key={item.question} question={item.question} answer={item.answer} defaultOpen={idx === 0} />
+        ))}
+      </div>
+      <p style={{ textAlign: 'center', marginTop: 20, fontSize: 14, color: theme.colors.textMuted }}>
+        More questions?{' '}
+        <a href="mailto:gm-support@swoopgolf.com" style={{ color: '#B8600E', textDecoration: 'none', fontWeight: 600 }}>
+          Email us directly →
+        </a>
+      </p>
+    </SectionShell>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -123,7 +151,7 @@ export default function AboutPage() {
 
         <SocialProofSection />
         <TestimonialsSection />
-        <FaqSection />
+        <AboutFaqSection />
 
         <DemoCtaSection />
       </LandingShell>
