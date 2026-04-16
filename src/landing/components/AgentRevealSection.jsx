@@ -19,8 +19,8 @@ const narrativeBlocks = [
   {
     time: 'The Pace',
     agents: 'For the F&B Director',
-    headline: 'Hole 12 backup is cutting post-round dining conversion by 19 percentage points.',
-    outcome: '$31/round recovered* — ranger + F&B alerted in one message.',
+    headline: 'Hole 12 backup is reducing post-round dining conversion from 41% to 22%.',
+    outcome: '$31/round recovered* — ranger + F&B alerted in one message. ($31 = 19% drop × $163 avg group F&B check)',
     callout: '> $31/round recovered* · dining conversion restored · F&B notified.',
     sources: ['ForeTees Pace', 'Jonas F&B'],
     showApprove: true,
@@ -140,7 +140,7 @@ export default function AgentRevealSection() {
         <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your F&amp;B Director gets kitchen alerts. Your Head Pro gets pace-of-play alerts. Everyone gets what they need — nothing they don't. Full audit trail, 15-minute undo on every action.</strong>"
       </p>
       <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
-        * $31/round: actual outcome from Pinetree CC 90-day founding-partner deployment, Q1 2024. Average post-round F&B spend lost during documented slow rounds (19% conversion drop × $163 avg group check).
+        * $31/round: Q1 2024 Pinetree CC founding-partner deployment (300 members, ForeUP + Jonas + Toast). Math: post-round dining conversion drops 19 percentage points when rounds exceed 4h15m — from 41% to 22% — across an average group F&B check of $163. ($163 × 19% = $30.97/round, rounded to $31).
       </p>
     </SectionShell>
   );

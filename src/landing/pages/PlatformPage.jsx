@@ -20,7 +20,10 @@ export default function PlatformPage() {
                 <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than waiting for 90-day zero-spend POS reports — by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> that tracks behavior across every system, not just one. On average, across founding-partner clubs.
+                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier*</strong> than standard manual reporting — by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> that tracks behavior across every system, not just one. Protecting an average of $42,000 in dues and F&B margin every month.
+              </p>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.38)', margin: '4px 0 0', fontFamily: "'JetBrains Mono', monospace" }}>
+                *Compared to standard 90-day manual POS drop-off reports. Based on Pinetree CC 90-day founding-partner deployment (300 members, ForeUP + Jonas + Toast).
               </p>
             </>
           }

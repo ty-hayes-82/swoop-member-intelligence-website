@@ -84,7 +84,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a corporate member&rsquo;s drop in POS dining spend following 3 slow rounds. One dinner comp and a follow-up call saved $32K in member lifetime value <span style={{ opacity: 0.65, fontSize: 16 }}>(calculated as 4-year LTV — preventing a 14-year family from churning)</span>.&rdquo;
+                &ldquo;Swoop flagged a key member we were about to lose. One dinner comp and a follow-up call saved a 4-member family group worth $32K in annual dues <span style={{ opacity: 0.65, fontSize: 16 }}>(retaining a 14-year family — 4-year household LTV)</span>.&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club

@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
-      title="A real-time cockpit for every department."
-      subtitle="Swoop is a Layer 3 intelligence engine — sitting above your entire stack to instantly cross-reference signals from your POS, tee sheet, CRM, and billing system. Tee sheets can't see your POS. POS vendors can't see your CRM. Swoop sees all three — spotting the correlations that single-system vendors structurally can't detect. Watch it catch what they miss:"
+      title="Guarantee service consistency and protect F&B margins."
+      subtitle="Swoop continuously cross-references signals from your POS, tee sheet, CRM, and billing system to spot the patterns human operators miss. Your Jonas sees dining. Your ForeTees sees golf. Neither talks to the other. Swoop sits above both — and when a risk or F&B revenue leak is detected, it drafts a specific, human-reviewable action. Watch it work:"
     >
       <AgentsLiveDemo />
 
@@ -23,7 +23,7 @@ export default function AgentsSection() {
         }}>
           <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🛡️</span>
           <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>GM Approval Required.</strong> Intelligence streams analyze and draft — they never act without your explicit sign-off. One tap to approve syncs directly to the right department head or drafts the intervention into your outbox. Full audit logs and a <strong>15-minute undo window</strong> keep you in total command.
+            <strong>GM Approval Required.</strong> Intelligence streams analyze and draft — they never act without your explicit sign-off. One tap to approve syncs directly to the right department head or drafts the intervention into your outbox. <strong>Made a mistake?</strong> Every action sits in a 5-minute undo buffer and is securely logged in your full audit trail.
           </p>
         </div>
         <div style={{

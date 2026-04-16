@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  { label: 'Your Member Health Score setup', text: 'A ranked list of your top 5 retention gaps — with the decay sequence already mapped (who stopped dining, then stopped playing, then went quiet).' },
-  { label: 'A unified Daily Cockpit preview', text: 'See how replacing 4 separate system logins with one 60-second morning briefing works — where Swoop recommends and the GM always approves.' },
-  { label: 'A Board-ready Revenue Leakage Report', text: 'Revealing operational blind spots like the $31 in lost dining revenue per slow round — and the cross-domain correlations your POS and tee sheet can\'t see alone.' },
-  { label: 'Benchmarks vs. 7 founding clubs', text: 'Anonymized, under mutual NDA — your club is never identified. See where your F&B conversion and member retention rank against peers.' },
+  { label: 'Your daily Real-Time Cockpit', text: 'A preview of how Swoop replaces 4 separate system logins with one 60-second morning briefing — ranked by revenue impact, delivered at 6 AM.' },
+  { label: 'Actionable Service Consistency', text: 'A ranked list of your top 5 at-risk members with exact dollar estimates of your revenue leakage — and the cross-domain signals your POS and tee sheet miss alone.' },
+  { label: 'A Board-ready Revenue Leakage Report', text: 'Revealing hidden cross-domain gaps, like losing $31 in dining revenue for every slow round. Every dollar traced, every save attributed.' },
+  { label: '100% Manual Control', text: 'You stay in command. Swoop recommends the action, but nothing happens without your 2-tap approval. Every action is logged and reversible.' },
 ];
 
 function ContactHeroPanel() {
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          Stop checking 4 separate systems to piece together your morning briefing. We give you a real-time cockpit — connecting your tee sheet and POS to reveal the hidden correlations that siloed systems structurally miss. We catch the first domino of member disengagement (email opens drop, then tee times slip, then dining stops) before anyone resigns. In 30 minutes, we show you exactly who is quietly disengaging using your club's real data — not a generic demo. You leave with a prioritized action list (who to call today, which tee times to adjust), not a pitch deck.
+          Because your POS and tee sheet don't talk to each other, traditional systems miss the patterns. We cross-reference their data to generate a daily Member Health Score — showing you exactly who's quietly disengaging before anyone resigns. In 30 minutes, we show you exactly who is at risk using your club's real data — not a generic demo. You leave with a prioritized action list (who to call today, what's costing you revenue right now), not a pitch deck.
         </p>
         <p
           style={{

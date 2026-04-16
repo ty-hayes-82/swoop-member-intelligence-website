@@ -14,7 +14,7 @@ const team = [
     title: 'Co-founder & CTO',
     priorRole: 'Former Hospitality Data Lead, tech operations (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
-    bio: 'Eight years turning complex hospitality data into operational playbooks. I built the correlation engine on 12 months of club-specific behavioral data — connecting the dots between tee times, dining spend, and member lifetime value. That\'s what powers your morning briefing.',
+    bio: 'Eight years turning complex data into daily operational playbooks. I mapped Swoop\'s logic to 12 months of actual club behavior — so it thinks like a GM, not a software program. That\'s the engine under the briefing.',
   },
   {
     name: 'Alex Chen',
@@ -149,9 +149,9 @@ export default function TeamSection() {
         </div>
         <div style={{ display: 'grid', gap: 14 }}>
           {[
-            { stat: '03', label: 'operational domains correlated (Golf, F&B, CRM)' },
-            { stat: '2M+', label: 'cross-system signals correlated per month across Jonas, ForeTees, and Toast' },
-            { stat: '✓', label: 'Read-only. Zero write access. 1-click 4-tab Board Report. Cancel any time.' },
+            { stat: '46', label: 'daily operational workflows mapped across Golf, F&B, and CRM' },
+            { stat: '12mo', label: 'of behavioral patterns analyzed — so it thinks like a GM, not a spreadsheet' },
+            { stat: '1', label: 'click to auto-generate your 4-tab board report (dues saved, F&B uplift, staffing efficiency)' },
           ].map(s => (
             <div
               key={s.stat}

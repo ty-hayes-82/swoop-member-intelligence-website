@@ -59,6 +59,12 @@ function PricingCard({ tier, onCtaClick }) {
           {tier.badgeFootnote}
         </p>
       )}
+      {tier.price === '$0/mo' && (
+        <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6b7280', margin: '0 0 4px' }}>Phase 1: See It</p>
+      )}
+      {tier.price === '$499/mo' && (
+        <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', margin: '0 0 4px' }}>Phase 2: Fix It &amp; Prove It</p>
+      )}
       <h3 style={{ fontSize: 19, fontWeight: 700, margin: 0, color: theme.neutrals.ink }}>{tier.name}</h3>
       <p style={{ fontSize: 42, margin: '4px 0 0', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", color: theme.neutrals.ink, letterSpacing: '-0.02em', lineHeight: 1 }}>
         {tier.price}
