@@ -12,7 +12,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Unify Jonas, ForeTees, and your CRM overnight. A daily Member Health Score showing exactly who's drifting, why, and the exact move to make — without replacing a single system you already run."
+          subtitle="Swoop sits on top of Jonas, ForeTees, and Northstar — unifying your systems overnight with zero replacement. We generate a Daily Member Health Score by catching at-risk members 6.4 weeks earlier than waiting for 90-day POS inactivity reports, by spotting the first domino: when tee times drop, followed by slow play frustration, before dining spend ever falls."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>

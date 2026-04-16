@@ -147,8 +147,8 @@ export default function TeamSection() {
         <div style={{ display: 'grid', gap: 14 }}>
           {[
             { stat: '03', label: 'operational domains correlated (Golf, F&B, CRM)' },
-            { stat: '2M+', label: 'club-specific member interactions synthesized' },
-            { stat: '✓', label: 'Read-only integration — zero write access to your core systems; 1-click 4-tab Board Report included' },
+            { stat: '2M+', label: 'cross-system signals correlated per month across Jonas, ForeTees, and Toast' },
+            { stat: '✓', label: 'Read-only. Zero write access. 1-click 4-tab Board Report. Cancel any time.' },
           ].map(s => (
             <div
               key={s.stat}

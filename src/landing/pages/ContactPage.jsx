@@ -41,7 +41,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          Your POS and tee sheet don't talk to each other — masking the real reasons members leave. We connect data across your existing systems to spot the quiet decay sequence: from skipped golf to abandoned dining reservations. In 30 minutes, we show you exactly who's disengaging weeks before anyone resigns — using your club's real data, not a generic demo. You leave with a prioritized daily action list, not a pitch deck.
+          <strong style={{ color: theme.neutrals.ink }}>Keep Jonas. Keep your tee sheet. No rip-and-replace, no IT lift.</strong> Swoop connects on top of your existing systems to spot the quiet decay sequence: from skipped golf rounds to abandoned dining reservations. In 30 minutes, we show you exactly who's disengaging weeks before anyone resigns — using your club's real data, not a generic demo.
         </p>
         <p
           style={{

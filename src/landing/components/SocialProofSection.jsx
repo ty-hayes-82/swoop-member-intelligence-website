@@ -86,7 +86,7 @@ export default function SocialProofSection({ onCtaClick }) {
         ))}
       </div>
       <p style={{ fontSize: 12, color: theme.colors.textMuted, textAlign: 'center', margin: '0 0 64px', fontStyle: 'italic' }}>
-        Source: Pinetree CC founding-partner data · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period
+        Source: Pinetree CC founding-partner data · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period (Q4 2023)
       </p>
 
       <div

@@ -111,10 +111,10 @@ function PricingCard({ tier, onCtaClick }) {
             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.15)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.08)'; }}
           >
-            Start Surfacing Data →
+            Get Your Free Member Health Report →
           </button>
           <p style={{ fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '8px 0 0' }}>
-            We'll activate your free instance on a 15-min setup call.
+            Keep Jonas. Keep your tee sheet. We connect on top — no IT required.
           </p>
         </>
       )}

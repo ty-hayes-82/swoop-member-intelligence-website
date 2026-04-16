@@ -286,6 +286,7 @@ export const pricingTiers = [
     description:
       'Swoop reads your systems and tells you who\'s at risk. You decide what to do.',
     features: [
+      'Unified member health dashboard — replaces manual checks across 4 separate system logins',
       'Daily member health scores',
       'Risk + complaint + demand alerts',
       '90-day new member cohort alerts',
@@ -293,7 +294,7 @@ export const pricingTiers = [
       'Email support',
     ],
     cta: 'Start on Signals (free)',
-    technical: '1 integration, daily refresh, 30-day data lookback, 1 seat',
+    technical: 'Up to 3 integrations, daily refresh, 30-day data lookback, 1 seat',
   },
   {
     name: 'Signals + Actions',
@@ -304,7 +305,7 @@ export const pricingTiers = [
       'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
     features: [
       'Everything in Signals',
-      'Real-Time Operational Cockpit: Cross-Domain Morning Briefing (delivered to your inbox at 6 AM — replaces 4 daily system logins)',
+      'Real-Time Operational Cockpit: Cross-Domain Morning Briefing (delivered to your inbox at 6 AM — replaces 4 daily system logins, read in under 60s)',
       'Intelligence drafts the response (1-click manual approval via email/text — you stay in total control)',
       'Automated staffing & weather correlation alerts',
       '1-Click Board Report Generator',

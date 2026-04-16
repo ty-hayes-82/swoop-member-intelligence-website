@@ -106,9 +106,9 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                     Safe pilot — zero write-access to financial records. Reversible and secure.
                   </span>
                 </li>
+                <li style={{ color: '#FFFFFF', fontWeight: 600 }}>You stay in control. Every system action is logged, reversible, and requires your explicit GM approval before anything touches a member.</li>
                 <li>30-min call — you leave with a prioritized Revenue Leakage report and a board-ready ROI preview.</li>
                 <li>Go Live — your Morning Briefing arrives daily at 6 AM. Review 3 curated member and service alerts, approve actions with two taps. Average GM time: 4 minutes.</li>
-                <li style={{ color: '#FFFFFF', fontWeight: 600 }}>You stay in control. Every future system action is logged, reversible, and requires GM approval.</li>
               </ol>
             </div>
 

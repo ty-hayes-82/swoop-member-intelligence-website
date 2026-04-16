@@ -55,7 +55,7 @@ export default function AboutPage() {
               Your members are telling you they're leaving. Swoop makes sure you hear it — 6 weeks early.
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, margin: '0 0 0', maxWidth: '65ch', marginInline: 'auto' }}>
-              Built by a former GM who lost a 12-year member he didn't have to lose. Every morning, Swoop connects your tee sheet, POS, and CRM and delivers a curated daily mobile brief — telling you exactly who needs a call before you open your laptop.
+              Built by a former GM who lost a 12-year member he didn't have to lose. Every morning at 7 AM, Swoop connects your tee sheet, POS, and CRM and routes a curated email brief to your phone — flagging dues-at-risk to you, dining gaps to your F&B Director, and tee-sheet anomalies to your Head Pro. Every recommendation requires your explicit 1-tap approval before anything happens.
             </p>
             <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{
               display: 'inline-block', background: '#F3922D', color: '#0F0F0F',
