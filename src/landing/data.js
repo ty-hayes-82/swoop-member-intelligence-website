@@ -203,32 +203,32 @@ export const agents = [
   {
     icon: 'UserRound',
     name: 'Member Health Score',
-    description: 'Detects the quiet resignation sequence — email opens drop, then golf frequency dips, then dining goes silent — weeks before any single system notices. Drafts GM-approved interventions before members resign.',
+    description: 'Detects the quiet resignation sequence — email, then rounds, then dining — weeks before any single system notices.',
   },
   {
     icon: 'Radar',
     name: 'Demand Optimizer',
-    description: 'Balances waitlists and tee sheet gaps to recover lost yield — e.g., re-booking 3 cancelled tee times recovers $450 in F&B spend that would have walked out the door.',
+    description: 'Balances waitlists and tee sheet gaps to recover lost yield from cancelled and unfilled slots.',
   },
   {
     icon: 'ChefHat',
     name: 'Service Recovery',
-    description: 'Drafts personalized recovery actions for unresolved complaints — e.g., comping a $14 round of drinks to save a $12K/yr membership before the 30-day window closes.',
+    description: 'Flags unresolved complaints before the 30-day window closes and drafts the recovery action for your approval.',
   },
   {
     icon: 'UsersRound',
     name: 'Labor Optimizer',
-    description: 'Forecasts staffing gaps and recommends coverage shifts to protect service quality and margin.',
+    description: 'Reads Saturday tee times and weather to forecast covers — and routes staffing recommendations to your F&B Director.',
   },
   {
     icon: 'LineChart',
     name: 'Revenue Analyst',
-    description: 'Flags cross-domain leakage incumbents miss — like the $31 per round lost in F&B dining conversions directly linked to Hole 12 pace-of-play bottlenecks. Recommends high-confidence margin actions.',
+    description: 'Flags cross-domain leakage — like $31/round lost when pace-of-play kills post-round dining conversion.',
   },
   {
     icon: 'RefreshCw',
     name: 'Engagement Advisor',
-    description: "Spots members who haven't visited in 30 days and drafts a personal, GM-approved invite to get them back.",
+    description: "Spots members 30+ days inactive and drafts a personal, GM-approved invite to get them back.",
   },
 ];
 

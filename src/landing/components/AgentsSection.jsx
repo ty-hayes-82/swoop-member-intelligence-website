@@ -11,34 +11,9 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
       title="A real-time cockpit for your entire operation."
-      subtitle="Your Jonas POS can't see your ForeTees tee sheet, and your Northstar CRM can't see your dining room. Swoop connects your existing silos to find the revenue leaks hidden between your systems — drafting exact service moves for your approval. Watch it work:"
+      subtitle="Swoop connects your existing systems to surface revenue leaks and draft exact actions for your approval. Watch it work:"
     >
       <AgentsLiveDemo />
-
-      <div style={{ marginTop: 32, maxWidth: 600, marginInline: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <div style={{
-          background: 'rgba(243,146,45,0.08)',
-          border: '1px solid rgba(243,146,45,0.25)',
-          borderRadius: 10, padding: '14px 20px',
-          display: 'flex', alignItems: 'flex-start', gap: 12,
-        }}>
-          <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🛡️</span>
-          <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>GM Approval Required.</strong> Intelligence streams analyze and draft — they never act without your explicit sign-off. One tap to approve syncs directly to the right department head or drafts the intervention into your outbox. <strong>Made a mistake?</strong> Every action sits in a 5-minute undo buffer and is securely logged in your full audit trail.
-          </p>
-        </div>
-        <div style={{
-          background: 'rgba(17,17,17,0.04)',
-          border: '1px solid rgba(17,17,17,0.08)',
-          borderRadius: 10, padding: '14px 20px',
-          display: 'flex', alignItems: 'flex-start', gap: 12,
-        }}>
-          <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>⚡</span>
-          <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>Instant Execution.</strong> Once you tap approve, Swoop automatically routes the action to the right department head — or drafts the intervention email directly into your outbox. Zero back-and-forth. Invisible to your members.
-          </p>
-        </div>
-      </div>
 
       <div
         style={{
@@ -89,7 +64,7 @@ export default function AgentsSection() {
             One-Click Board Reports
           </h3>
           <p style={{ fontSize: 14, color: theme.colors.textSecondary, margin: 0, lineHeight: 1.55 }}>
-            Stop managing spreadsheets before committee meetings. Generate a pre-structured, 4-tab ROI report — dues protected, F&B margin recaptured, service failures avoided, and what you learned. Give your finance committee the exact numbers they demand. <strong style={{ color: '#B8600E' }}>Proves the value of every action Swoop recommended.</strong>
+            Generate a 4-tab ROI report — dues protected, F&B recovered, labor saved — in one click. Every action Swoop recommended, with outcomes your board can read.
           </p>
         </div>
       </div>

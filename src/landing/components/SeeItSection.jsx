@@ -26,7 +26,7 @@ export default function SeeItSection() {
           Four systems. One Member Health Score.<br />Every member, ranked by risk.
         </h2>
         <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.65)', fontSize: 16, maxWidth: '58ch', marginInline: 'auto', marginBottom: 48, lineHeight: 1.6 }}>
-          Jonas sees transactions. ForeTees sees tee times. Your email tool sees opens. No single vendor sees the connection — and that connection is where resignation hides.
+          Each system sees one slice. Only Swoop connects all four — where resignation hides.
         </p>
 
         {/* Architecture — 4 sources converging */}
@@ -82,22 +82,14 @@ export default function SeeItSection() {
             </div>
 
             <p style={{ margin: '14px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.55, fontStyle: 'italic' }}>
-              No single system saw this. Jonas saw normal billing. ForeTees saw fewer rounds. Only Swoop connected all four signals — before the resignation letter.
+              No single system saw this. Only Swoop connected all four signals — before the resignation letter.
             </p>
           </div>
         </div>
 
-        {/* Why no vendor can replicate */}
-        <div style={{ background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 12, padding: '18px 24px' }}>
-          <p style={{ margin: '0 0 6px', fontSize: 13, fontWeight: 700, color: '#F3922D' }}>Why your existing vendors can't do this</p>
-          <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,0.70)', lineHeight: 1.6 }}>
-            Jonas doesn't have tee sheet data. ForeTees doesn't have POS data. Neither has email engagement. Swoop reads all four — without replacing any of them — and that cross-domain view is the only way to catch the decay pattern before it becomes a resignation letter.
-          </p>
-        </div>
-
         {/* Attribution */}
         <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.25)', marginTop: 20, lineHeight: 1.5, fontStyle: 'italic' }}>
-          Member Health Score: weighted composite of visit frequency (tee sheet), spend velocity (POS), communication engagement (email), and event participation (CRM) over trailing 90 days. Illustrative example — your club's scores generated from your own system data during onboarding.
+          Illustrative — scores generated from your club's own data at onboarding.
         </p>
       </div>
     </section>

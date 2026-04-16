@@ -13,7 +13,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Your POS sees dining. Your tee sheet sees golf. Your CRM sees complaints in isolation. No single vendor sees the member quitting all three. Swoop sits above Jonas, ForeTees, and Northstar — correlating cross-domain behavior to catch revenue leaks and quiet resignations that single systems structurally can't detect. Zero replacement required."
+          subtitle="Swoop sits above Jonas, ForeTees, and Northstar — correlating cross-domain behavior to catch revenue leaks and quiet resignations. Zero replacement required."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
@@ -211,10 +211,7 @@ export default function PlatformPage() {
                 </div>
               </div>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.80)', lineHeight: 1.6, margin: '0 0 16px' }}>
-                Every interaction — every booking, complaint, preference, and milestone — appends to a single durable log. Three years from now, the concierge can instantly surface everything it knows about James: "prefers back nine first," "wife Margaret doesn't drink red wine," "son Jake plays from the blues."
-              </p>
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: '0 0 16px', fontStyle: 'italic' }}>
-                "By year 2, your concierge knows your members better than any staffer who has ever worked here."
+                Every booking, complaint, and preference appends to one durable log. Three years from now: "prefers back nine first," "wife Margaret doesn't drink red wine," "son Jake plays from the blues."
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {[
@@ -242,12 +239,12 @@ export default function PlatformPage() {
                 </div>
               </div>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.80)', lineHeight: 1.6, margin: '0 0 16px' }}>
-                The GM concierge doesn't do the work — it routes. "What should I handle first today?" triggers Member Pulse, Revenue Analyst, and Labor Optimizer and returns a triaged briefing. "Draft a note to James" calls the Draft Communicator with your tone profile from session history. Every decision you make is logged, so the concierge learns your real approval threshold, your voice, your priorities — without a settings tab.
+                Routes to 7 specialist agents. "What should I handle first today?" triggers Member Pulse, Revenue Analyst, and Labor Optimizer. Every approval, override, and rewrite is logged — so the concierge learns your real threshold, your voice, your priorities, without a settings tab.
               </p>
               <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 10, padding: '14px 16px', marginBottom: 16 }}>
                 <p style={{ margin: '0 0 4px', fontSize: 12, fontWeight: 700, color: '#F3922D', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Morning briefing, built from session memory:</p>
                 <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55, fontStyle: 'italic' }}>
-                  "While you were out Friday, Service Recovery closed two complaints autonomously within your approved thresholds, Revenue Analyst flagged a Tuesday pattern for your review, and three members changed tiers — two down, one up."
+                  "While you were out Friday, Service Recovery closed two complaints within your approved thresholds, Revenue Analyst flagged a Tuesday pattern, and three members changed tiers."
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
