@@ -152,6 +152,39 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* Approval & control philosophy — dedicated strip for OpUsr D3/D4 */}
+      <section style={{ background: '#FFFFFF', padding: 'clamp(40px, 5vw, 64px) clamp(20px, 4vw, 40px)', borderTop: '1px solid rgba(17,17,17,0.06)', borderBottom: '1px solid rgba(17,17,17,0.06)' }}>
+        <div className="landing-container" style={{ maxWidth: 900 }}>
+          <div style={{ textAlign: 'center', marginBottom: 28 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B8600E', margin: '0 0 8px' }}>
+              HUMAN IN THE LOOP — ALWAYS
+            </p>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: '#1B1814', margin: '0 0 10px', lineHeight: 1.2 }}>
+              You approve. You can always undo.
+            </h2>
+            <p style={{ fontSize: 16, color: '#6b7280', maxWidth: '58ch', marginInline: 'auto', lineHeight: 1.6, margin: '0 auto' }}>
+              Every Swoop recommendation lands in your queue as a suggestion — never auto-executed. Approve with one tap. Change your mind? Reverse any action within 24 hours. Every approval is logged in a 90-day audit trail — visible to you and your board.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 16 }}>
+            {[
+              { icon: '✓', title: 'Tap to approve', desc: 'Every staffing change, member outreach, and tee-time flag goes through your 2-tap approval queue. Nothing fires without you.' },
+              { icon: '↩', title: 'Undo in one click', desc: 'Changed your mind? Reverse any approved action within 24 hours. Swoop logs what happened so you always know the state of play.' },
+              { icon: '📋', title: '90-day audit trail', desc: 'Every approval, dismissal, and override is timestamped and searchable. Board members can see exactly what was approved and when.' },
+            ].map(item => (
+              <div key={item.title} style={{ background: '#FAF7F2', border: '1px solid rgba(17,17,17,0.08)', borderRadius: 14, padding: '20px 22px', textAlign: 'center' }}>
+                <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
+                <h3 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700, color: '#1B1814', margin: '0 0 8px' }}>{item.title}</h3>
+                <p style={{ fontSize: 13, color: '#6b7280', margin: 0, lineHeight: 1.55 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', fontSize: 13, color: '#9CA3AF', marginTop: 16, lineHeight: 1.5 }}>
+            Pilot mode available: 30 days of read-only recommendations before any actions fire. See everything Swoop would do — without committing to a single action.
+          </p>
+        </div>
+      </section>
+
       <div id="howitworks">
         <HowItWorksSection />
       </div>

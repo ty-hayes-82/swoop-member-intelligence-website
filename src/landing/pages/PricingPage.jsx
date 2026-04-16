@@ -29,9 +29,14 @@ function PricingHero() {
         <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.82)', maxWidth: 580, margin: '0 auto 28px', lineHeight: 1.65 }}>
           5 of 7 founding-partner clubs recovered Swoop's annual cost within 60 days of their first intervention (2024 cohort). Start free. Upgrade when the ROI shows up in your own numbers.
         </p>
-        <Button size="lg" onClick={scrollToRoi} style={{ background: theme.colors.accent, color: '#1B1814', border: 'none' }}>
-          Calculate your ROI →
-        </Button>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Button size="lg" onClick={scrollToRoi} style={{ background: theme.colors.accent, color: '#1B1814', border: 'none' }}>
+            Calculate your ROI →
+          </Button>
+          <Button size="lg" onClick={() => document.getElementById('pricing-tiers')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} style={{ background: 'transparent', color: '#FFFFFF', border: '1px solid rgba(255,255,255,0.30)' }}>
+            Jump to pricing ↓
+          </Button>
+        </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
         {pricingStats.map((s) => (
@@ -134,7 +139,9 @@ export default function PricingPage() {
       <CrossDomainSection />
       <RoiCalculatorSection />
       <MorningWorkflowSection />
-      <PricingSection onCtaClick={toDemoPage} />
+      <div id="pricing-tiers">
+        <PricingSection onCtaClick={toDemoPage} />
+      </div>
       <PricingFaqSection />
       <PricingCtaClose />
     </LandingShell>
