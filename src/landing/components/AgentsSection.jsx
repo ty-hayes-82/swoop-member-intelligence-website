@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="FIX IT · THE SATURDAY BRIEFING"
-      title="Your cross-domain intelligence layer. Always running."
-      subtitle="Why your current systems miss the full picture: your POS only sees dining, and your tee sheet only sees golf. Because Swoop sits above them all, it spots the cross-domain patterns single systems are structurally blind to — and drafts specific, human-reviewable actions. Watch it work:"
+      title="Layer 3 Cross-Domain Intelligence."
+      subtitle="Swoop crosses the operational domains your single-system vendors can't. By correlating live signals across Jonas, ForeTees, Northstar, and your CRM, Swoop spots the hidden patterns causing revenue leakage — then drafts specific, human-reviewable actions. Watch it work:"
     >
       <AgentsLiveDemo />
 
@@ -23,7 +23,7 @@ export default function AgentsSection() {
         }}>
           <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🛡️</span>
           <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>GM Approval Required.</strong> Agents analyze and draft—they never act without your explicit sign-off. Every action requires one tap to approve or dismiss, backed by full audit logs and a 5-minute undo window.
+            <strong>GM Approval Required.</strong> Agents analyze and draft — they never act without your explicit sign-off. One tap to approve, and Swoop automatically routes the action to the right department head or drafts the intervention into your outbox. Full audit logs and a 5-minute undo window keep you in total command.
           </p>
         </div>
         <div style={{

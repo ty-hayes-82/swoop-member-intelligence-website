@@ -105,10 +105,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             </div>
 
             <p style={{ marginTop: 16, color: 'rgba(255,255,255,0.75)', fontSize: 13 }}>
-              No credit card · 30 minutes · Your club's own data
-            </p>
-            <p style={{ marginTop: 8, color: 'rgba(255,255,255,0.75)', fontSize: 13 }}>
-              Or email us at{' '}
+              Prefer email?{' '}
               <a href="mailto:founders@swoopgolf.com" style={{ color: theme.colors.accent, textDecoration: 'underline' }}>
                 founders@swoopgolf.com
               </a>

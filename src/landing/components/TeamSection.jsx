@@ -14,7 +14,7 @@ const team = [
     title: 'Co-founder & CTO',
     priorRole: 'Former Senior ML Engineer, hospitality tech (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
-    bio: 'Eight years building predictive models in hospitality tech. I retrained the models on 12 months of club-specific behavioral data — that\'s the engine under the briefing.',
+    bio: 'Eight years building data systems for hospitality operations. I mapped 12 months of club-specific behavioral patterns to build the cross-domain intelligence engine behind your daily briefing.',
   },
   {
     name: 'Alex Chen',
@@ -141,15 +141,15 @@ export default function TeamSection() {
             Why this is hard to copy.
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            46 daily club workflows already mapped and automated. Swoop isn't just an integration — it's cross-domain synthesis that connects the dots between your Jonas tee sheet, F&B POS, and CRM so you don't have to.{' '}
+            46 daily club workflows already mapped and automated. Legacy POS and tee sheets are built to process transactions — Swoop is purpose-built to surface the cross-domain behavioral patterns they miss. We connect the dots between your Jonas tee sheet, F&B POS, and CRM so you don't have to.{' '}
             <strong style={{ color: '#FFFFFF' }}>Preferred Jonas Club integration partner.</strong>{' '}
-            Trained on 12 months of founding-partner data. No competitor has this depth of club-specific behavioral connections.
+            No competitor has this depth of club-specific behavioral connections.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>
           {[
-            { stat: '46', label: 'production tools in orchestration' },
-            { stat: '12 mo', label: 'of founding-partner data + model training' },
+            { stat: '46', label: 'daily club workflows mapped and automated' },
+            { stat: '12 mo', label: 'of operational pattern recognition & cross-domain correlation' },
             { stat: '✓', label: 'Preferred Jonas Club integration partner' },
           ].map(s => (
             <div

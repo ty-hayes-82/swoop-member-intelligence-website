@@ -45,7 +45,7 @@ function MorningBriefCard() {
       >
         <span style={{ width: 8, height: 8, borderRadius: '50%', background: theme.colors.accent, display: 'inline-block', animation: 'landing-pulse 2s infinite' }} />
         <span style={{ color: theme.colors.accent, fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          BRIEF · 06:14 · MEMBER PULSE
+          BRIEF · 06:14 · MEMBER HEALTH SCORE
         </span>
       </div>
 

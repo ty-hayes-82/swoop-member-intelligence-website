@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A preview of your new Daily Cockpit — see how to replace 4 software logins with a single 5-minute morning briefing.',
-  'Your Daily Member Health Score — a ranked list of your top 5 member retention priorities.',
-  'A Board-ready Revenue Leakage Report — exact service consistency blind spots, like the $31/round lost in F&B during 5-hour rounds.',
-  'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\'t move forward.',
+  'A preview of your new Daily Cockpit — see how to replace 4 software logins with a single 5-minute morning briefing (and identify up to $9,500/mo in hidden F&B leakage).',
+  'Your Daily Member Health Score — a ranked list of your top 5 member retention priorities, scored across tee sheet, POS, and CRM.',
+  'A Board-ready Revenue Leakage Report — exposing hidden service inconsistencies, like the $31 you lose in dining per slow golf round.',
+  'Your data under mutual NDA. Swoop sits on top of your existing stack — no need to replace your POS or tee sheet. Deleted within 30 days if you don\'t move forward.',
 ];
 
 function ContactHeroPanel() {
@@ -26,12 +26,21 @@ function ContactHeroPanel() {
             fontSize: 'clamp(17px, 1.6vw, 20px)',
             lineHeight: 1.6,
             color: theme.colors.textSecondary,
-            margin: '0 0 28px',
+            margin: '0 0 20px',
           }}
         >
           The first time you realize a 10-year member is unhappy shouldn't be the day their resignation
-          letter lands on your desk. Because your POS, tee sheet, and CRM don't talk to each other,
-          they miss the compound patterns of quiet resignation — email drops before golf drops before dining drops.
+          letter lands on your desk.
+        </p>
+        <p
+          style={{
+            fontSize: 'clamp(17px, 1.6vw, 20px)',
+            lineHeight: 1.6,
+            color: theme.colors.textSecondary,
+            margin: '0 0 20px',
+          }}
+        >
+          <strong style={{ color: theme.neutrals.ink }}>Your POS only sees dining. Your tee sheet only sees golf.</strong> Swoop automatically connects them both — and your CRM — to find the cross-domain patterns that single systems miss: the member whose email opens dropped, then their rounds, then their dining spend.
         </p>
         <p
           style={{
@@ -41,10 +50,7 @@ function ContactHeroPanel() {
             margin: '0 0 28px',
           }}
         >
-          We cross-reference your tee sheet, POS, and member communications to spot who is quietly
-          disengaging before anyone resigns. In 30 minutes, we generate a unified Member Health Score
-          for your club. Once live, Swoop replaces four clunky software logins with a single 60-second
-          morning briefing. You leave with a prioritized action list, not a pitch deck.
+          In 30 minutes, Swoop generates a unified Member Health Score for your club. Once live, it replaces four system logins with a 60-second morning cockpit. You leave with a prioritized action list, not a pitch deck. <strong style={{ color: theme.neutrals.ink }}>See it. Fix it. Prove it.</strong>
         </p>
         <p
           style={{
