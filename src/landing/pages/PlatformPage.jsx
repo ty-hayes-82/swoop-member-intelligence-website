@@ -12,7 +12,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Swoop sits on top of Jonas, ForeTees, and Northstar — unifying your systems overnight with zero replacement. We generate a Daily Member Health Score by catching at-risk members 6.4 weeks earlier than waiting for 90-day POS inactivity reports, by spotting the first domino: when tee times drop, followed by slow play frustration, before dining spend ever falls."
+          subtitle="Your existing systems — Jonas, ForeTees, Northstar — unified in 10 days, with zero replacement. No single vendor sees the whole member: your POS sees dining, your tee sheet sees golf, your CRM sees complaints in isolation. Swoop correlates all three to catch revenue leaks and quiet resignations that single systems structurally can't detect."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
@@ -32,10 +32,7 @@ export default function PlatformPage() {
               </Button>
               <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>Takes 2 minutes. No credit card required.</span>
             </div>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 16 }}>
-              Plans scale seamlessly. <strong style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>Starting at $499/mo.</strong>
-            </p>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.40)', marginTop: 4 }}>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.40)', marginTop: 4, fontFamily: "'JetBrains Mono', monospace" }}>
               At a $32K average member LTV, one retention saves more than 5 years of Swoop.
             </p>
           </div>

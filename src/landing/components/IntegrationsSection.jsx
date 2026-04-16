@@ -8,8 +8,8 @@ export default function IntegrationsSection() {
     <SectionShell
       band="dark"
       eyebrow="Integrations"
-      title="Every system your club runs. Connected by a club-wide intelligence layer."
-      subtitle="Legacy POS analytics are walled gardens — blind to your tee sheet and CRM. Swoop sits safely above your foundational systems to reveal cross-domain correlations they can't. System-agnostic: even matches 'James Smith' in ForeTees to 'J. Smith' in Jonas. No IT lift on your end."
+      title="Every system your club runs. Connected in 10 days."
+      subtitle="Why not just use your POS vendor's built-in reporting? Because it only sees 33% of the member journey. Swoop sits safely above your foundational systems — Jonas, ForeTees, Northstar — to reveal cross-domain correlations they can't. System-agnostic: even matches 'James Smith' in ForeTees to 'J. Smith' in Jonas. No IT lift on your end."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }

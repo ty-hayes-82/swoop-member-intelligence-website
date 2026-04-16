@@ -99,7 +99,8 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
 
             {/* What happens next */}
             <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>
-              <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 10 }}>What happens next:</strong>
+              <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 6 }}>How the 30-minute pilot works:</strong>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: '0 0 10px', lineHeight: 1.5 }}>We don't replace your systems; we sit on top of them to connect the dots.</p>
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
                 <li>We confirm your slot within 1 business day</li>
                 <li>

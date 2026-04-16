@@ -140,8 +140,11 @@ export default function TeamSection() {
           >
             Why single-system vendors miss the full picture.
           </h3>
+          <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
+            Layer 1 is your POS. Layer 2 is your Tee Sheet. Layer 3 is Swoop — the intelligence layer that sits on top, seeing the patterns the others miss.
+          </p>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            A POS vendor only sees transactions; a tee sheet only sees bookings. Only a Layer 3 platform sees the complete member. Swoop isn't just an integration — it's a cross-domain intelligence layer that correlates signals Jonas, ForeTees, and Northstar were never built to connect.
+            Single-system vendors like Jonas and ForeTees only see a fraction of the member journey. Because Swoop maps signals across your entire fragmented stack, we catch the correlations they structurally can't.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>

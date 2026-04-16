@@ -5,8 +5,8 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 member retention gaps — replacing 4 disconnected system views with one prioritized action list.',
-  'A Board-ready Revenue Leakage Report — revealing cross-domain blind spots, including the exact $31/round dining revenue lost to slow pace-of-play.',
+  'A ranked list of your top 5 member retention gaps — typically identifying $9,500+ in monthly F&B leakage missed by single-system POS reports.',
+  'A Board-ready Revenue Leakage Report — revealing cross-domain blind spots, including exactly how pace-of-play delays drive $31/round F&B leakages across your membership.',
   'Immediate service signals — e.g., "Add a patio server Saturday based on tee-sheet pace bottlenecks" to maintain daily service consistency.',
   'Benchmarks vs. 7 founding-partner clubs (anonymized, your club not identified).',
 ];
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          Because your POS doesn't talk to your tee sheet, you're missing the complete picture of every member. Swoop connects them — and your CRM — to catch the quiet signs of disengagement before anyone resigns. <strong style={{ color: theme.neutrals.ink }}>Turn 4 daily system logins into a single 60-second morning briefing.</strong> In 30 minutes, you see exactly who's at risk — using your club's real data, not a generic demo.
+          Because your POS doesn't talk to your tee sheet, you're missing the complete picture of every member. Swoop uses <strong style={{ color: theme.neutrals.ink }}>Layer 3 cross-domain intelligence</strong> to connect them — and your CRM — generating a daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> that catches the quiet signs of disengagement before anyone resigns. In 30 minutes, you see exactly who's at risk — using your club's real data, not a generic demo.
         </p>
         <p
           style={{

@@ -305,16 +305,17 @@ export const pricingTiers = [
       'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
     features: [
       'Everything in Signals',
-      'Real-Time Operational Cockpit: Cross-Domain Morning Briefing (delivered to your inbox at 6 AM — replaces 4 daily system logins, read in under 60s)',
-      'Intelligence drafts the response (1-click manual approval via email/text — you stay in total control)',
-      'Automated staffing & weather correlation alerts',
+      'Real-Time Operational Cockpit (see today\'s tee sheet, staffing, and pace live — replaces 4 daily system logins)',
+      'Cross-Domain Morning Briefing (mobile-ready, delivered to inbox at 6 AM, read in under 60s)',
+      '1-click action approval (human in the loop — you stay in total control)',
+      'Pace-of-play to dining conversion alerts',
+      'Flawless service consistency execution',
       '1-Click Board Report Generator',
-      'Retention-prioritized waitlist routing',
       'Up to 10 integrations',
       'Priority support',
     ],
     cta: 'Book the 30-minute walkthrough',
-    technical: '4 integrations (POS + Tee Sheet + Email + CRM), hourly refresh, 12-month data lookback, 5 seats, CSV export',
+    technical: 'Up to 10 integrations, hourly refresh, 12-month data history, 5 seats, CSV export',
   },
   {
     name: 'Signals + Actions + Enterprise',
@@ -369,6 +370,11 @@ export const faqItems = [
     question: 'Do I need to replace my current software?',
     answer:
       'No. Swoop sits on top of your existing systems to find the blind spots they miss — like how a slow round on ForeTees causes lost dining revenue in Jonas. We connect via API and support 35+ integrations across 8 categories.',
+  },
+  {
+    question: 'What does my morning routine look like with Swoop?',
+    answer:
+      'At 7:00 AM, you receive a mobile-friendly Cross-Domain Morning Briefing. It highlights the 1–3 members who need attention today and suggests the exact staffing adjustments needed for today\'s F&B volume — based on your real tee sheet and POS data. Review in 60 seconds, approve actions with one tap, and start your day.',
   },
   {
     question: "Why can't my existing Jonas or Northstar system do this?",
