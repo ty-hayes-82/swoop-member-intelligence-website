@@ -4,7 +4,7 @@ import { SectionShell } from '@/landing/ui';
 const briefRows = [
   { label: 'James Whitfield', detail: 'complaint · rounds ↓42% · tee time 9:20am', value: '$8.4K', rank: 1 },
   { label: 'Grill Room staffing gap', detail: 'Sat lunch · 95 covers · 6 scheduled', value: '$3.2K', rank: 2 },
-  { label: 'Kevin Harrington · Day 47', detail: 'new member · 0 events · 1 round · 90-day window closing', value: 'At risk', rank: 3 },
+  { label: 'Saturday Service Consistency Alert', detail: '148 tee times + 78°F forecast → 4 servers scheduled vs 7 needed · service failure risk', value: '$3.8K', rank: 3 },
   { label: 'Hole 12 Bottleneck · Pace > 4.5hrs', detail: '$31/round dining leakage · 200 slow rounds/mo · 19% dining conversion drop (see math)', value: '$6.2K', rank: 4 },
 ];
 

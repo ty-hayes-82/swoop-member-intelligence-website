@@ -339,6 +339,11 @@ export const pricingTiers = [
 
 export const faqItems = [
   {
+    question: "Why can't my POS or tee sheet build this?",
+    answer:
+      "Your POS sees dining. Your tee sheet sees golf. Neither talks to the other. Single-system vendors are structurally blind to cross-domain correlations — like how a 24-minute pace-of-play delay on Hole 12 impacts post-round dining conversions. Swoop is the only Layer 3 intelligence platform that normalizes data across all your siloed legacy systems to give you a single, unified Member Health Score. Your existing vendors can't do this without access to each other's data — which they don't have and won't share.",
+  },
+  {
     question: 'Can we cancel and keep our data?',
     answer:
       'You do, always. Data export is provided within 5 business days. All club data is deleted within 30 days of cancellation on request. No lock-in, no data hostage, no penalty.',

@@ -10,7 +10,7 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
       title="A real-time cockpit for every department."
-      subtitle="Legacy systems are siloed by design. Jonas sees dining transactions. ForeTees sees golf rounds. Northstar sees complaints — but none of them talk to each other. Swoop sits above your entire stack, connecting the cross-domain signals that single-system vendors structurally can't correlate. Watch it catch what they miss:"
+      subtitle="Swoop is a Layer 3 intelligence engine — sitting above your entire stack to instantly cross-reference signals from your POS, tee sheet, CRM, and billing system. Tee sheets can't see your POS. POS vendors can't see your CRM. Swoop sees all three — spotting the correlations that single-system vendors structurally can't detect. Watch it catch what they miss:"
     >
       <AgentsLiveDemo />
 

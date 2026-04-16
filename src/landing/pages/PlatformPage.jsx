@@ -121,10 +121,10 @@ export default function PlatformPage() {
         <SectionShell band="dark" size="sm" eyebrow="PROVE IT · THE MONTHLY BOARD REPORT">
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.15 }}>
-              Stop managing spreadsheets. Start protecting your dues.
+              Stop managing spreadsheets. <span style={{ color: '#F3922D' }}>Generate your Board Report with one click.</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, margin: '0 auto 24px', maxWidth: 480 }}>
-              Give us 30 minutes. We'll show you how Swoop pays for itself — and automatically writes your 4-tab monthly board ROI report — before the end of the quarter.
+              Swoop automatically tracks every dollar saved and margin gained. Generate a 4-tab Board Report that justifies your subscription before your first quarterly meeting.
             </p>
             <Button size="lg" onClick={toDemoPage}>
               Book the walkthrough →

@@ -142,8 +142,19 @@ export default function AboutPage() {
                 <strong style={{ color: theme.neutrals.ink }}>Swoop recommends. You decide.</strong> The system drafts the playbook and formats the Board Report automatically — but no action is taken without your explicit GM approval. Every action is logged and reversible.
               </p>
 
+              <div style={{ background: 'rgba(17,17,17,0.03)', border: '1px solid rgba(17,17,17,0.10)', borderRadius: 10, padding: '18px 20px' }}>
+                <p style={{ margin: '0 0 12px', fontWeight: 700, fontSize: 15, color: theme.neutrals.ink }}>
+                  What the 8:00 AM routine looks like:
+                </p>
+                <ol style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15, color: theme.colors.textSecondary, lineHeight: 1.65 }}>
+                  <li><strong style={{ color: theme.neutrals.ink }}>See the Cockpit:</strong> Replace 4 system logins with 1 single "Today" view — member health scores, service flags, and staffing gaps before you open your laptop.</li>
+                  <li><strong style={{ color: theme.neutrals.ink }}>Review the Plan:</strong> Read Swoop's cross-referenced context and auto-drafted outreach script for curated at-risk members. See the Saturday staffing call — 148 tee times + 78°F forecast → 6 servers needed, 4 scheduled.</li>
+                  <li><strong style={{ color: theme.neutrals.ink }}>Tap to Execute:</strong> Approve actions with one tap. Swoop routes the message to the right department head. Your POS and tee sheet remain strictly read-only — untouched.</li>
+                </ol>
+              </div>
+
               <p style={{ margin: 0 }}>
-                We built Swoop to be the analyst most clubs can't afford to hire: one system that reads your tee sheet, your POS, and your CRM before you open your laptop — and tells you exactly who needs a call, what to say, and what it's worth.
+                We built Swoop to be the analyst most clubs can't afford to hire: one system that reads your tee sheet, your POS, and your CRM before you open your laptop — and tells you exactly who needs a call, where your service is slipping today, and what it's worth.
               </p>
               <p style={{ margin: 0, fontWeight: 600, color: theme.neutrals.ink }}>
                 Founded 2023 · Scottsdale, AZ · Backed by former club GMs and hospitality tech operators.

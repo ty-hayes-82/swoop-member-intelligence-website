@@ -5,9 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  { label: 'See It', text: 'A ranked list of your top 5 member retention risks and a preview of your real-time action queue — where Swoop recommends, but the GM always approves.' },
-  { label: 'Fix It', text: 'Benchmarks vs. the 7 founding-partner clubs (anonymized, under mutual NDA — your club not identified).' },
-  { label: 'Prove It', text: 'A Board-ready Revenue Leakage Report — discover where F&B margin is hiding, including the $31 lost in dining per slow round of slow pace-of-play.' },
+  { label: 'Your Member Health Score setup', text: 'A ranked list of your top 5 retention gaps — with the decay sequence already mapped (who stopped dining, then stopped playing, then went quiet).' },
+  { label: 'A unified Daily Cockpit preview', text: 'See how replacing 4 separate system logins with one 60-second morning briefing works — where Swoop recommends and the GM always approves.' },
+  { label: 'A Board-ready Revenue Leakage Report', text: 'Revealing operational blind spots like the $31 in lost dining revenue per slow round — and the cross-domain correlations your POS and tee sheet can\'t see alone.' },
+  { label: 'Benchmarks vs. 7 founding clubs', text: 'Anonymized, under mutual NDA — your club is never identified. See where your F&B conversion and member retention rank against peers.' },
 ];
 
 function ContactHeroPanel() {
