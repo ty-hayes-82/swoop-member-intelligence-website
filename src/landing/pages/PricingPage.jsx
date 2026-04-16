@@ -60,9 +60,10 @@ function PricingHero() {
 }
 
 const PRICING_FAQ_QUESTIONS = new Set([
+  "Why can't my POS or tee sheet build this?",
   'Do I need to replace my current software?',
-  "Why can't my existing Jonas or Northstar system do this?",
-  "Is my members' data secure?",
+  'How is this different from what Jonas or ForeTees analytics shows me?',
+  "Is our club's data secure?",
   'What does the founding-partner program actually look like?',
   'What happens if we cancel?',
 ]);

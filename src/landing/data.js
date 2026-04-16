@@ -302,19 +302,17 @@ export const pricingTiers = [
     badge: 'Founding-Partner Pick',
     badgeFootnote: 'Most popular for private clubs with 200–500 members.',
     description:
-      'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
+      'Signals tells you who\'s at-risk. Actions recommends exactly what to do — callback script, comp offer, staffing shift — and you approve with two taps. Nothing happens without your say-so.',
     features: [
-      'Everything in Signals',
-      'Replaces 4 morning system logins with 1 ranked daily action list',
-      'Real-Time GM Cockpit — see tee sheet, staffing, and pace live',
-      'Cross-Domain Morning Briefing (mobile-ready, 6 AM, read in under 60s)',
-      '1-click action approval — human in the loop, you stay in total control',
-      'Pace-of-play to dining conversion alerts',
-      'Service consistency execution across F&B and Golf',
-      'Action History Log — full audit trail of every approved action',
-      '1-Click Board Report Generator',
-      'Up to 10 integrations',
-      'Priority support',
+      'Morning briefing: 3 priority actions ranked by dollar impact, delivered at 6 AM',
+      'Two-tap approval queue — Swoop recommends, you decide; nothing fires without explicit GM approval',
+      'Connects to Jonas, ForeTees, Northstar, Club Prophet, and 30+ more — no rip-and-replace',
+      'Real-Time GM Cockpit — replaces 4 separate system logins with 1 screen',
+      'Pace-of-play to dining conversion alerts — catches the $31/round F&B leak before it compounds',
+      'Action History Log — every action logged with approver, timestamp, and 1-click undo',
+      '1-Click Board Report Generator (PDF): dues protected, F&B recovered, staffing ROI',
+      'Service consistency tracking across F&B and Golf ops',
+      'Up to 10 integrations · Priority support',
     ],
     cta: 'Book the 30-minute walkthrough',
     technical: 'Up to 10 integrations, hourly refresh, 12-month data history, 5 seats, CSV export',
@@ -371,7 +369,12 @@ export const faqItems = [
   {
     question: 'Do I need to replace my current software?',
     answer:
-      'No. Swoop sits on top of your existing systems to find the blind spots they miss — like how a slow round on ForeTees causes lost dining revenue in Jonas. We connect via API and support 35+ integrations across 8 categories.',
+      'No. Swoop reads your Jonas POS data, your ForeTees tee sheet, your Northstar CRM, and your other systems via read-only connections — adding a cross-domain intelligence layer on top. Nothing changes about your current workflow. Jonas keeps running. ForeTees keeps running. Swoop connects them overnight and surfaces patterns none of them can see alone.',
+  },
+  {
+    question: 'How is this different from what Jonas or ForeTees analytics shows me?',
+    answer:
+      'Jonas reports your POS data. ForeTees reports your tee sheet data. Neither can see both — so when a pace-of-play delay on Hole 12 suppresses post-round dining by 19 percentage points, no single system connects those dots. That correlation costs you $31 per slow round in lost F&B revenue, and it\'s invisible in any vendor\'s analytics because it lives between systems. Swoop sits above Jonas, ForeTees, Northstar, and your other platforms as a read-only intelligence layer — finding the cross-domain patterns your vendors structurally cannot see alone.',
   },
   {
     question: 'What does my morning routine look like with Swoop?',

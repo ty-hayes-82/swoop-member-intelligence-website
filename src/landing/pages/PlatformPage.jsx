@@ -56,6 +56,99 @@ export default function PlatformPage() {
         </div>
       </div>
 
+      {/* Cross-domain moat — why no single vendor can do this */}
+      <section style={{ background: '#FAF7F2', padding: 'clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)', borderBottom: '1px solid rgba(17,17,17,0.06)' }}>
+        <div className="landing-container" style={{ maxWidth: 960 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B8600E', textAlign: 'center', margin: '0 0 10px' }}>
+            The Intelligence Layer
+          </p>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(24px, 3.5vw, 40px)', fontWeight: 800, color: '#1B1814', textAlign: 'center', margin: '0 0 14px', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+            Your tee sheet knows rounds.<br />Your POS knows spend.<br />Neither knows both.
+          </h2>
+          <p style={{ textAlign: 'center', color: '#6b7280', fontSize: 16, maxWidth: '58ch', marginInline: 'auto', marginBottom: 40, lineHeight: 1.6 }}>
+            Swoop is the intelligence layer that sits above all four systems — connecting signals no single vendor can see. You keep Jonas. You keep ForeTees. Swoop reads them all.
+          </p>
+
+          {/* Architecture visual */}
+          <div style={{ maxWidth: 760, margin: '0 auto 36px' }}>
+            {/* Swoop layer */}
+            <div style={{ background: '#1B1814', borderRadius: '14px 14px 0 0', padding: '18px 24px', display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: 'rgba(243,146,45,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontSize: 16 }}>⚡</span>
+              </div>
+              <div>
+                <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#FFFFFF' }}>Swoop — Cross-Domain Intelligence Layer</p>
+                <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.4 }}>Reads all four systems overnight · Finds patterns that live between them · Delivers ranked, dollar-quantified actions by morning</p>
+              </div>
+              <span style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 700, color: '#F3922D', background: 'rgba(243,146,45,0.12)', padding: '4px 10px', borderRadius: 999, flexShrink: 0, whiteSpace: 'nowrap' }}>
+                Read-only
+              </span>
+            </div>
+            {/* Connector lines */}
+            <div style={{ background: '#1B1814', padding: '0 24px 4px', display: 'flex', gap: 0 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
+                {[0,1,2,3].map(i => (
+                  <div key={i} style={{ width: 1, height: 16, background: 'rgba(243,146,45,0.4)' }} />
+                ))}
+              </div>
+            </div>
+            {/* System cards */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
+              {[
+                { name: 'Tee Sheet', sees: 'Rounds, pace, no-shows', vendors: 'ForeTees · Chelsea · Club Prophet' },
+                { name: 'POS / F&B', sees: 'Dining spend, covers, conversion', vendors: 'Jonas · Northstar · Toast' },
+                { name: 'CRM / Email', sees: 'Engagement, complaints, email opens', vendors: 'ClubEssential · Mailchimp' },
+                { name: 'Billing', sees: 'Dues status, payment history', vendors: 'Jonas · Northstar · ClubPoint' },
+              ].map((sys, i) => (
+                <div key={sys.name} style={{
+                  background: '#FFFFFF', padding: '14px 12px',
+                  borderRadius: i === 0 ? '0 0 0 14px' : i === 3 ? '0 0 14px 0' : 0,
+                  border: '1px solid rgba(17,17,17,0.08)',
+                  borderTop: 'none', borderLeft: i > 0 ? 'none' : '1px solid rgba(17,17,17,0.08)',
+                }}>
+                  <p style={{ margin: '0 0 4px', fontSize: 12, fontWeight: 700, color: '#1B1814' }}>{sys.name}</p>
+                  <p style={{ margin: '0 0 4px', fontSize: 11, color: '#6b7280', lineHeight: 1.4 }}>Sees: {sys.sees}</p>
+                  <p style={{ margin: 0, fontSize: 10, color: '#9CA3AF', lineHeight: 1.3 }}>{sys.vendors}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Correlation examples */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 16 }}>
+            {[
+              {
+                insight: 'Slow rounds kill dining revenue',
+                chain: 'ForeTees → Jonas POS',
+                detail: 'Rounds over 4:20 drop dining conversion from 41% to 22% — $31/round invisible to any single system. Swoop sees the connection because it reads both.',
+              },
+              {
+                insight: 'Quiet resignations start in email',
+                chain: 'CRM → Tee Sheet → POS',
+                detail: 'Email opens fall, then rounds decline, then dining stops. No single system tracks all three. Swoop catches the first domino 6+ weeks early.',
+              },
+              {
+                insight: 'Staffing gaps cause member churn',
+                chain: 'Tee Sheet → POS → CRM',
+                detail: "Saturday's tee sheet predicts Saturday's dining demand. When staffing doesn't match, service complaints spike 72 hours later. Three systems, one insight.",
+              },
+            ].map(corr => (
+              <div key={corr.insight} style={{ background: '#FFFFFF', border: '1px solid rgba(17,17,17,0.08)', borderRadius: 12, padding: '18px 20px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: '#1B1814', margin: 0 }}>{corr.insight}</p>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: '#B8600E', background: 'rgba(184,96,14,0.08)', padding: '2px 8px', borderRadius: 4, flexShrink: 0 }}>{corr.chain}</span>
+                </div>
+                <p style={{ fontSize: 13, color: '#6b7280', margin: 0, lineHeight: 1.55 }}>{corr.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ textAlign: 'center', fontSize: 13, color: '#9CA3AF', marginTop: 20, lineHeight: 1.5 }}>
+            Swoop connects to Jonas, Northstar, Club Prophet, ForeTees, Chelsea, and ClubPoint — reading your data without changing your workflows. No system replacement. No member-facing changes.
+          </p>
+        </div>
+      </section>
+
       <div id="howitworks">
         <HowItWorksSection />
       </div>
@@ -93,19 +186,21 @@ export default function PlatformPage() {
             {/* KPI grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
               {[
-                { label: 'At-Risk Dues Protected', value: '$33,600', sub: '4 members · Q3' },
-                { label: 'F&B Leakage Recovered', value: '$9,580 / mo', sub: 'pace-of-play correlation' },
-                { label: 'Service Failures Avoided', value: '14 Shifts', sub: 'Labor Optimizer · 90 days' },
+                { label: 'At-Risk Dues Protected', value: '$33,600', sub: '4 members · Q3', source: '[CRM + Tee Sheet]', note: '4 members × avg $8,400 annual dues.' },
+                { label: 'F&B Leakage Recovered', value: '$9,580 / mo', sub: 'pace-of-play correlation', source: '[Tee Sheet + POS]', note: '$31/round × ~309 slow rounds/month. $31 = 19% conversion drop × $163 avg F&B check.' },
+                { label: 'Service Failures Avoided', value: '14 Shifts', sub: 'Labor Optimizer · 90 days', source: '[Tee Sheet + Scheduling]', note: 'Proactive staffing adjustments before service gaps occurred.' },
               ].map(kpi => (
                 <div key={kpi.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '18px 20px' }}>
                   <p style={{ margin: '0 0 6px', fontSize: 11, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{kpi.label}</p>
-                  <p style={{ margin: '0 0 4px', fontSize: 26, fontWeight: 800, color: '#F3922D', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1 }}>{kpi.value}</p>
-                  <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>{kpi.sub}</p>
+                  <p style={{ margin: '0 0 2px', fontSize: 26, fontWeight: 800, color: '#F3922D', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1 }}>{kpi.value}</p>
+                  <p style={{ margin: '0 0 4px', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>{kpi.sub}</p>
+                  <p style={{ margin: 0, fontSize: 10, fontFamily: "'JetBrains Mono', monospace", color: 'rgba(255,255,255,0.25)' }}>{kpi.source}</p>
+                  <p style={{ margin: '2px 0 0', fontSize: 10, color: 'rgba(255,255,255,0.22)', fontStyle: 'italic', lineHeight: 1.4 }}>{kpi.note}</p>
                 </div>
               ))}
             </div>
             <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.3)', textAlign: 'center', fontStyle: 'italic' }}>
-              Illustrative example based on Pinetree CC 90-day founding-partner deployment · 300 active members
+              Illustrative example based on Pinetree CC 90-day founding-partner deployment · 300 active members · Q3 2024.
             </p>
           </div>
           <div style={{ textAlign: 'center', marginTop: 32 }}>

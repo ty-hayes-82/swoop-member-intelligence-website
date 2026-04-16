@@ -204,9 +204,30 @@ export default function PricingSection({ onCtaClick }) {
       </p>
 
       {/* Trust bar — IT objection handled before buyer sees pricing */}
-      <div style={{ maxWidth: 600, margin: '0 auto 32px', background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(243,146,45,0.25)', borderRadius: 10, padding: '14px 20px', textAlign: 'center' }}>
+      <div style={{ maxWidth: 600, margin: '0 auto 24px', background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(243,146,45,0.25)', borderRadius: 10, padding: '14px 20px', textAlign: 'center' }}>
         <p style={{ margin: 0, fontWeight: 700, color: '#1B1814', fontSize: 15 }}>
           Live in 14 days · Zero IT required · Cancel any time
+        </p>
+      </div>
+
+      {/* Cross-domain moat block — why your POS can't do this */}
+      <div style={{ maxWidth: 760, margin: '0 auto 36px', background: '#1B1814', borderRadius: 16, padding: 'clamp(20px, 3vw, 32px)', color: '#FFFFFF' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', margin: '0 0 10px' }}>
+          Why Your POS Can't Show You This
+        </p>
+        <h3 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 700, color: '#FFFFFF', margin: '0 0 12px', lineHeight: 1.2 }}>
+          Your tee sheet sees golf. Your POS sees dining. Neither sees the $31 you lose per slow round — because they've never been introduced.
+        </h3>
+        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.70)', margin: '0 0 16px', lineHeight: 1.6 }}>
+          When pace of play at Hole 12 exceeds 4:20, post-round dining conversion drops from 41% to 22%. That's $31 in lost F&B revenue per round — invisible in Jonas, invisible in ForeTees, invisible in Northstar, because it lives in the space <em>between</em> those systems. Swoop connects them overnight.
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 16px' }}>
+          {['Jonas', 'ForeTees', 'Northstar', 'Club Prophet', 'Chelsea', 'ClubPoint', '30+ more'].map(v => (
+            <span key={v} style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 999, padding: '3px 10px', fontWeight: 500 }}>{v}</span>
+          ))}
+        </div>
+        <p style={{ margin: '12px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.30)', fontStyle: 'italic' }}>
+          Illustrative: based on 300-member club, 200 Saturday rounds/month. $31 = 19% dining-conversion drop × $163 avg F&B check. Source: Pinetree CC founding-partner deployment, Q1 2024.
         </p>
       </div>
 

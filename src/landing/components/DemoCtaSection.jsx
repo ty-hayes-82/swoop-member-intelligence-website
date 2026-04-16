@@ -123,6 +123,33 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               </div>
             </div>
 
+            {/* Your Saturday morning micro-section */}
+            <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.04)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', marginBottom: 16 }}>
+              <strong style={{ fontSize: 10, color: '#F3922D', display: 'block', marginBottom: 10, letterSpacing: '0.06em', textTransform: 'uppercase' }}>What Your Saturday Morning Looks Like</strong>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {[
+                  { icon: '⚠️', text: "Jim Harlan's family hasn't dined in 9 weeks — Health Score dropped to 34. Suggested: personal call + dinner comp.", action: 'Approve' },
+                  { icon: '🍽️', text: 'Weather + tee sheet: 140 covers for lunch, staffed for 95. Approve extra server?', action: 'Approve' },
+                  { icon: '🏌️', text: 'Hole 12 pace at 4:38 avg — 22% of those groups skip the grill room. Ranger alert queued.', action: 'Skip' },
+                ].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                    <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>{item.icon}</span>
+                    <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.70)', margin: 0, lineHeight: 1.5, flex: 1 }}>{item.text}</p>
+                    <span style={{
+                      fontSize: 10, fontWeight: 700, flexShrink: 0,
+                      color: item.action === 'Approve' ? '#4ade80' : 'rgba(255,255,255,0.35)',
+                      background: item.action === 'Approve' ? 'rgba(34,197,94,0.10)' : 'rgba(255,255,255,0.04)',
+                      border: `1px solid ${item.action === 'Approve' ? 'rgba(34,197,94,0.25)' : 'rgba(255,255,255,0.08)'}`,
+                      padding: '2px 8px', borderRadius: 4, marginTop: 2,
+                    }}>
+                      {item.action}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ margin: '10px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>Done before your coffee's cold. Two taps. Nothing fires without your explicit say-so.</p>
+            </div>
+
             {/* What happens next */}
             <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>
               <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 6 }}>What happens next:</strong>
@@ -220,6 +247,11 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                   <p style={{ textAlign: 'center', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>
                     Keep your POS. Keep your tee sheet. Swoop simply adds intelligence on top.
                   </p>
+                  <div style={{ marginTop: 10, padding: '10px 14px', background: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.18)', borderRadius: 8, textAlign: 'center' }}>
+                    <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.70)', lineHeight: 1.5 }}>
+                      <strong style={{ color: '#4ade80' }}>You approve every action.</strong> Every action is logged, timestamped, and reversible. Nothing runs without your say-so.
+                    </p>
+                  </div>
                 </form>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>

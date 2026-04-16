@@ -41,10 +41,10 @@ function MorningBriefingPanel() {
           $42.2K
         </div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>
-          protected across 6 agents · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative*</em>
+          protected across 6 agents · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative example*</em>
         </div>
-        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.28)', marginTop: 6, fontStyle: 'italic', lineHeight: 1.4 }}>
-          *Member Pulse = 4-yr LTV at risk. Revenue Analyst = $31/round F&B leakage × documented slow rounds. Demand Optimizer = foregone revenue from discounted slots. Pinetree CC 90-day Q1 2024 deployment.
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.32)', marginTop: 8, fontStyle: 'italic', lineHeight: 1.55, borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 8 }}>
+          *Illustrative example based on a 300-member club. Member Pulse = 4-yr LTV at risk ($32K avg). Revenue Analyst = $31/round F&B leakage × documented slow rounds ($31 = 19% dining-conversion drop × $163 avg F&B check). Demand Optimizer = foregone revenue from discounted slots. Source: Pinetree CC founding-partner deployment, 90 days, Q1 2024. Your club's figures generated from your own system data during onboarding.
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '8px 0' }}>
@@ -114,14 +114,15 @@ function ProveStats() {
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid rgba(243,146,45,0.1)' }}>
         {[
-          { val: '$67K', sub: 'dues protected', sub2: '9 of 14 saves closed', highlight: true },
-          { val: '$9.6K', sub: 'F&B leakage', sub2: 'identified per month' },
-          { val: '$32K', sub: 'recovered', sub2: 'single intervention' },
-        ].map(({ val, sub, sub2, highlight }, i) => (
+          { val: '$67K', sub: 'dues protected', sub2: '9 of 14 saves closed', highlight: true, source: '[CRM + Tee Sheet]' },
+          { val: '$9.6K', sub: 'F&B leakage/mo', sub2: '$31/round × slow rounds', source: '[Tee Sheet + POS]' },
+          { val: '$32K', sub: 'recovered', sub2: 'single intervention', source: '[CRM + POS + Tee Sheet]' },
+        ].map(({ val, sub, sub2, highlight, source }, i) => (
           <div key={val} style={{ padding: '20px 16px', borderRight: i < 2 ? '1px solid rgba(243,146,45,0.1)' : 'none' }}>
             <div style={{ fontSize: 28, fontWeight: 800, color: highlight ? '#F3922D' : 'rgba(255,255,255,0.9)', lineHeight: 1, fontFamily: theme.fonts.mono }}>{val}</div>
             <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 4, lineHeight: 1.3 }}>{sub}<br />{sub2}</div>
-            <div style={{ marginTop: 8, fontSize: 10, color: 'rgba(243,146,45,0.6)', fontFamily: theme.fonts.mono }}>✓ attributed</div>
+            <div style={{ marginTop: 6, fontSize: 9, color: 'rgba(243,146,45,0.45)', fontFamily: theme.fonts.mono }}>{source}</div>
+            <div style={{ marginTop: 4, fontSize: 10, color: 'rgba(243,146,45,0.6)', fontFamily: theme.fonts.mono }}>✓ attributed</div>
           </div>
         ))}
       </div>

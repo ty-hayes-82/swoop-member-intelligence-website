@@ -67,6 +67,19 @@ export default function AboutPage() {
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 10 }}>
               No contracts · No credit card · 30 minutes
             </p>
+
+            {/* Approval control callout — prominent, above the fold */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 20, paddingTop: 18, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ color: '#F3922D' }}>✓</span> Swoop recommends. You approve. Nothing fires without your say-so.
+              </span>
+              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ color: '#F3922D' }}>✓</span> Every action logged and reversible with 1-click undo
+              </span>
+              <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span style={{ color: '#F3922D' }}>✓</span> 2-tap approval queue — 60 seconds each morning
+              </span>
+            </div>
           </div>
         </SectionShell>
 

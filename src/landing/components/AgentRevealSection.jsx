@@ -1,147 +1,237 @@
 import { theme } from '@/config/theme';
-import { SectionShell, Card } from '@/landing/ui';
 
-const narrativeBlocks = [
+const queueItems = [
   {
-    time: 'The First Domino',
-    agents: 'For the General Manager',
-    headline: 'We catch the quiet resignation sequence.',
-    outcome: 'A $32K LTV member stops opening emails, skips golf, then skips dining. Flagged 6 weeks before the resignation letter arrives — when there\'s still time to intervene.',
-    callout: '> $32K member at risk. Email drop + 18 days POS silent. Call James Whitfield today.',
-  },
-  {
-    time: 'The Member',
-    agents: 'For the Membership Director',
-    headline: 'Health score dropped Tuesday. Caught before the Thursday tee time.',
-    outcome: 'Email opens dropped. Golf frequency dipped. Dining went silent — caught before any single system noticed the full sequence.',
-    callout: '> CRM active. POS 18 days silent. Golf ↓42%. Intervention triggered.',
-  },
-  {
-    time: 'The Pace',
-    agents: 'For the F&B Director',
-    headline: 'Hole 12 backup is reducing post-round dining conversion from 41% to 22%.',
-    outcome: '$31/round recovered* — ranger + F&B alerted in one message. ($31 = 19% drop × $163 avg group F&B check)',
-    callout: '> $31/round recovered* · dining conversion restored · F&B notified.',
-    sources: ['ForeTees Pace', 'Jonas F&B'],
+    type: 'member-risk',
+    badge: 'MEMBER RISK',
+    badgeColor: '#ef4444',
+    badgeBg: 'rgba(239,68,68,0.12)',
+    title: 'Henderson family — Health Score dropped from 84 to 41',
+    subtitle: 'Email engagement down 44% · Golf rounds: 1 this month (was 4) · Dining: 22 days silent · Household value: $8,400/yr',
+    recommendation: 'Recommended: personal call from Membership Director + guest pass for their daughter',
+    dollarImpact: '$42K lifetime value at risk',
+    impactColor: '#ef4444',
+    sources: ['CRM', 'Tee Sheet', 'POS'],
     showApprove: true,
   },
   {
-    time: 'The Floor',
-    agents: 'For the GM & F&B Director',
-    headline: 'Two servers called out. Shift covered before the lunch rush.',
-    outcome: '3 Board members seated without service drop-off.',
-    callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 Board members seated.',
+    type: 'staffing',
+    badge: 'STAFFING GAP',
+    badgeColor: '#F3922D',
+    badgeBg: 'rgba(243,146,45,0.12)',
+    title: 'Saturday lunch: 142 covers forecast — staffed for 6, need 8',
+    subtitle: 'Forecast: 78°F · tournament finish 11:45 AM · historical Saturday avg: 95 covers. Today\'s demand 49% above baseline.',
+    recommendation: 'Recommended: notify F&B Manager to approve 2 extra shifts before 3 PM today',
+    dollarImpact: '+$2,100 projected cover revenue protected',
+    impactColor: '#22c55e',
+    sources: ['Tee Sheet', 'Weather', 'POS'],
+    showApprove: true,
+  },
+  {
+    type: 'pace',
+    badge: 'PACE ALERT',
+    badgeColor: '#F3922D',
+    badgeBg: 'rgba(243,146,45,0.12)',
+    title: 'Hole 12 pace at 4:38 avg — dining conversion dropping to 22%',
+    subtitle: 'Baseline: 41% of members dine post-round. Today\'s projection: 22% for 2:00+ tee times. $31 at risk per slow round.',
+    recommendation: 'Recommended: alert starter to enforce pace protocol after 1:30 PM',
+    dollarImpact: '$31/round dining revenue at risk',
+    impactColor: '#F3922D',
+    sources: ['ForeTees', 'Jonas F&B'],
+    showApprove: true,
+  },
+];
+
+const trustPillars = [
+  {
+    icon: '🛡',
+    title: 'Human-in-the-loop. Always.',
+    body: 'Swoop suggests. You decide. Auto-execution is off by default. Nothing reaches a member without your explicit approval.',
+  },
+  {
+    icon: '↩',
+    title: 'Every action is reversible.',
+    body: 'Every approval is logged, timestamped, and undoable. Full audit trail for your board and your peace of mind.',
+  },
+  {
+    icon: '🎯',
+    title: 'Signal, not noise.',
+    body: 'Actions are ranked by dollar impact. Your 6 AM briefing shows only what needs attention today — 3 items, not 30 dashboards.',
   },
 ];
 
 export default function AgentRevealSection() {
   return (
-    <SectionShell
-      band="dark"
-      eyebrow="YOU HAVE A 300-MEMBER CLUB AND A 12-PERSON STAFF."
-      title="Now you have a team that never sleeps."
-      subtitle="Swoop monitors your operations 24/7. It proposes. You approve. Outcomes tracked."
+    <section
+      style={{ background: '#141210', padding: 'clamp(56px, 7vw, 96px) clamp(20px, 4vw, 40px)' }}
     >
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 460px), 1fr))',
-          gap: 24,
-          marginBottom: 56,
-        }}
-      >
-        {narrativeBlocks.map((block) => (
-          <div
-            key={block.time}
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.10)',
-              padding: 24,
-              borderRadius: 12,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 16,
-            }}
-          >
-            <div>
-              <p style={{ fontFamily: theme.fonts.mono, fontSize: 11, color: theme.colors.accent, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px' }}>
-                {block.time}
-              </p>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', margin: 0, letterSpacing: '0.04em' }}>
-                {block.agents}
-              </p>
-            </div>
-            {block.sources && (
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {block.sources.map(src => (
-                  <span key={src} style={{ fontSize: 11, padding: '3px 8px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 4, color: 'rgba(255,255,255,0.55)' }}>
-                    Source: {src}
+      <div className="landing-container" style={{ maxWidth: 960 }}>
+        {/* Eyebrow + Headline */}
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', textAlign: 'center', margin: '0 0 12px' }}>
+          YOUR MORNING QUEUE
+        </p>
+        <h2
+          style={{
+            fontFamily: "'Fraunces', Georgia, serif",
+            fontSize: 'clamp(28px, 3.5vw, 44px)',
+            fontWeight: 700,
+            color: '#FFFFFF',
+            textAlign: 'center',
+            margin: '0 0 12px',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+          }}
+        >
+          The briefing is ready before you are.
+        </h2>
+        <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.65)', fontSize: 17, maxWidth: 560, margin: '0 auto 8px', lineHeight: 1.55 }}>
+          Every morning, Swoop surfaces 3 prioritized actions ranked by dollar impact. Two taps: approve or skip. Nothing happens without your say-so.
+        </p>
+        <p style={{ textAlign: 'center', margin: '0 0 40px' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#F3922D', fontWeight: 600 }}>
+            <span>⏱</span> Most mornings: a 90-second scan and a few taps.
+          </span>
+        </p>
+
+        {/* Queue Items */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 48 }}>
+          {queueItems.map((item) => (
+            <div
+              key={item.type}
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.10)',
+                borderRadius: 14,
+                padding: '20px 24px',
+              }}
+            >
+              {/* Source tags */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+                <span style={{ fontSize: 10, fontWeight: 800, padding: '3px 8px', borderRadius: 4, background: item.badgeBg, color: item.badgeColor, letterSpacing: '0.08em' }}>
+                  {item.badge}
+                </span>
+                {item.sources.map(src => (
+                  <span key={src} style={{ fontSize: 10, padding: '2px 7px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 4, color: 'rgba(255,255,255,0.45)', fontFamily: "'JetBrains Mono', monospace" }}>
+                    {src}
                   </span>
                 ))}
               </div>
-            )}
-            <h5 style={{ fontFamily: theme.fonts.serif, fontSize: 18, fontWeight: 700, color: '#FFFFFF', margin: 0, lineHeight: 1.35 }}>
-              {block.headline}
-            </h5>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, margin: 0 }}>
-              {block.outcome}
-            </p>
-            <div style={{ marginTop: 'auto', background: 'rgba(0,0,0,0.50)', padding: '10px 14px', borderRadius: 8, fontFamily: theme.fonts.mono, fontSize: 12, color: '#F3922D', lineHeight: 1.5 }}>
-              {block.callout}
-            </div>
-            {block.showApprove && (
-              <div style={{ display: 'flex', gap: 12, alignItems: 'center', paddingTop: 12, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <button style={{ background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 12, padding: '6px 14px', borderRadius: 6, border: 'none', cursor: 'pointer' }}>
-                  Approve &amp; Dispatch ✓
-                </button>
-                <button style={{ background: 'transparent', color: 'rgba(255,255,255,0.45)', fontSize: 12, border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}>
-                  Dismiss
-                </button>
-                <span style={{ marginLeft: 'auto', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontFamily: theme.fonts.mono }}>Impact: +$31/round</span>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'minmax(0,1fr) auto',
+                  gap: 20,
+                  alignItems: 'flex-start',
+                }}
+                className="landing-queue-item"
+              >
+                <div>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: '#FFFFFF', margin: '0 0 6px', lineHeight: 1.35 }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.60)', margin: '0 0 8px', lineHeight: 1.5 }}>
+                    {item.subtitle}
+                  </p>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.5 }}>
+                    <span style={{ color: '#F3922D', marginRight: 4 }}>›</span>
+                    {item.recommendation}
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 10, flexShrink: 0 }}>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 700, color: item.impactColor, whiteSpace: 'nowrap' }}>
+                    {item.dollarImpact}
+                  </span>
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button style={{
+                      display: 'flex', alignItems: 'center', gap: 5,
+                      background: 'rgba(34,197,94,0.12)', color: '#4ade80',
+                      border: '1px solid rgba(34,197,94,0.25)', borderRadius: 6,
+                      padding: '6px 14px', fontSize: 12, fontWeight: 700, cursor: 'default',
+                      fontFamily: 'inherit',
+                    }}>
+                      ✓ Approve
+                    </button>
+                    <button style={{
+                      display: 'flex', alignItems: 'center', gap: 5,
+                      background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.40)',
+                      border: '1px solid rgba(255,255,255,0.10)', borderRadius: 6,
+                      padding: '6px 14px', fontSize: 12, fontWeight: 600, cursor: 'default',
+                      fontFamily: 'inherit',
+                    }}>
+                      Skip
+                    </button>
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
-        <button
-          onClick={() => { window.location.hash = '#/contact'; }}
+        {/* Trust Bar */}
+        <div
           style={{
-            background: 'transparent',
-            border: '1px solid #F3922D',
-            color: '#F3922D',
-            padding: '13px 32px',
-            borderRadius: 8,
-            fontWeight: 700,
-            fontSize: 15,
-            cursor: 'pointer',
-            fontFamily: 'inherit',
-            transition: 'background 150ms',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: 24,
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            paddingTop: 36,
+            marginBottom: 36,
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.1)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
         >
-          Book a Walkthrough →
-        </button>
+          {trustPillars.map((pillar) => (
+            <div key={pillar.title} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+              <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{pillar.icon}</span>
+              <div>
+                <p style={{ fontSize: 14, fontWeight: 700, color: '#FFFFFF', margin: '0 0 4px' }}>
+                  {pillar.title}
+                </p>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: 0, lineHeight: 1.55 }}>
+                  {pillar.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div style={{ textAlign: 'center' }}>
+          <button
+            onClick={() => { window.location.hash = '#/contact'; }}
+            style={{
+              background: 'transparent',
+              border: '1px solid #F3922D',
+              color: '#F3922D',
+              padding: '13px 32px',
+              borderRadius: 8,
+              fontWeight: 700,
+              fontSize: 15,
+              cursor: 'pointer',
+              fontFamily: 'inherit',
+              transition: 'background 150ms',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.1)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+          >
+            See Your Club's Morning Queue →
+          </button>
+          <p style={{ marginTop: 12, color: 'rgba(255,255,255,0.35)', fontSize: 11, fontStyle: 'italic' }}>
+            * $31/round: Q1 2024 Pinetree CC founding-partner deployment (300 members, ForeTees + Jonas + Toast). Math: post-round dining conversion drops 19 percentage points when rounds exceed 4h15m — from 41% to 22% — across an avg group F&B check of $163. ($163 × 19% = $30.97/round, rounded to $31).
+          </p>
+        </div>
       </div>
 
-      <p
-        style={{
-          textAlign: 'center',
-          fontSize: 18,
-          fontStyle: 'italic',
-          color: 'rgba(255,255,255,0.70)',
-          margin: '32px 0 8px',
-          lineHeight: 1.5,
-        }}
-      >
-        "The system proposes. You decide. The outcome is tracked.{' '}
-        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your F&amp;B Director gets kitchen alerts. Your Head Pro gets pace-of-play alerts. Everyone gets what they need — nothing they don't. Full audit trail, 15-minute undo on every action.</strong>"
-      </p>
-      <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
-        * $31/round: Q1 2024 Pinetree CC founding-partner deployment (300 members, ForeUP + Jonas + Toast). Math: post-round dining conversion drops 19 percentage points when rounds exceed 4h15m — from 41% to 22% — across an average group F&B check of $163. ($163 × 19% = $30.97/round, rounded to $31).
-      </p>
-    </SectionShell>
+      <style>{`
+        @media (max-width: 560px) {
+          .landing-queue-item {
+            grid-template-columns: 1fr !important;
+          }
+          .landing-queue-item > div:last-child {
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
+    </section>
   );
 }
