@@ -255,8 +255,11 @@ function GmBridgePanel({ persona, visible }) {
         <p style={{ margin: '0 0 4px', fontSize: 13, color: '#1B1814', fontWeight: 600 }}>
           {persona.gmNote}
         </p>
-        <p style={{ margin: 0, fontSize: 11, color: '#9CA3AF', fontFamily: theme.fonts.mono }}>
+        <p style={{ margin: '0 0 2px', fontSize: 11, color: '#9CA3AF', fontFamily: theme.fonts.mono }}>
           Swoop drafted &rsaquo; GM reviewed &rsaquo; Sent to {persona.first}
+        </p>
+        <p style={{ margin: 0, fontSize: 11, color: '#B8600E', lineHeight: 1.4 }}>
+          Every preference, complaint, and booking appended to {persona.first}'s session — the concierge remembers everything, from day one through year ten.
         </p>
       </div>
     </div>

@@ -185,6 +185,96 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      {/* Relationship Memory — per-member and GM concierge */}
+      <section style={{ background: '#1B1814', padding: 'clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)' }}>
+        <div className="landing-container" style={{ maxWidth: 960 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', textAlign: 'center', margin: '0 0 10px' }}>
+            RELATIONSHIP MEMORY
+          </p>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, color: '#FFFFFF', textAlign: 'center', margin: '0 0 12px', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+            Your members feel known.<br />Your club learns over time.
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.65)', fontSize: 16, maxWidth: '58ch', marginInline: 'auto', marginBottom: 40, lineHeight: 1.6 }}>
+            Most tools give you a database. Swoop builds a genuine relationship with every member — and with you. One session per member, from onboarding through year 10. One session per GM, that learns how you run your club.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: 20, marginBottom: 28 }}>
+            {/* Per-member concierge */}
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 16, padding: '24px 28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(243,146,45,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ fontSize: 17 }}>👤</span>
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: '#F3922D', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Per-Member Concierge</p>
+                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>One session, from day one through year ten</p>
+                </div>
+              </div>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.80)', lineHeight: 1.6, margin: '0 0 16px' }}>
+                Every interaction — every booking, complaint, preference, and milestone — appends to a single durable log. Three years from now, the concierge can instantly surface everything it knows about James: "prefers back nine first," "wife Margaret doesn't drink red wine," "son Jake plays from the blues."
+              </p>
+              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: '0 0 16px', fontStyle: 'italic' }}>
+                "By year 2, your concierge knows your members better than any staffer who has ever worked here."
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {[
+                  { label: 'Arrival Anticipation', desc: "Bag drop prepped from booking, weather, and preference history before a member parks." },
+                  { label: 'Milestone Concierge', desc: "10-year anniversary dinner with the GM — surfaced automatically from tenure events." },
+                  { label: 'Playing Partner Matchmaker', desc: "Compatible pairings found by reading social patterns across member sessions." },
+                ].map(f => (
+                  <div key={f.label} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 8, padding: '10px 14px' }}>
+                    <p style={{ margin: '0 0 2px', fontSize: 13, fontWeight: 700, color: '#FFFFFF' }}>{f.label}</p>
+                    <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.50)', lineHeight: 1.4 }}>{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* GM concierge */}
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 16, padding: '24px 28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(243,146,45,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ fontSize: 17 }}>⚡</span>
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: '#F3922D', letterSpacing: '0.06em', textTransform: 'uppercase' }}>GM Concierge</p>
+                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>Routes to 7 specialist agents. Learns how you run your club.</p>
+                </div>
+              </div>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.80)', lineHeight: 1.6, margin: '0 0 16px' }}>
+                The GM concierge doesn't do the work — it routes. "What should I handle first today?" triggers Member Pulse, Revenue Analyst, and Labor Optimizer and returns a triaged briefing. "Draft a note to James" calls the Draft Communicator with your tone profile from session history. Every decision you make is logged, so the concierge learns your real approval threshold, your voice, your priorities — without a settings tab.
+              </p>
+              <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 10, padding: '14px 16px', marginBottom: 16 }}>
+                <p style={{ margin: '0 0 4px', fontSize: 12, fontWeight: 700, color: '#F3922D', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Morning briefing, built from session memory:</p>
+                <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55, fontStyle: 'italic' }}>
+                  "While you were out Friday, Service Recovery closed two complaints autonomously within your approved thresholds, Revenue Analyst flagged a Tuesday pattern for your review, and three members changed tiers — two down, one up."
+                </p>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {[
+                  { label: 'Learns your real threshold', desc: "Consistently approves at $750 despite a $500 default? The concierge adapts — no settings edit required." },
+                  { label: 'Learns your voice', desc: "Rewrites every draft to remove exclamation points? The concierge absorbs the pattern and writes in your style from day one." },
+                  { label: 'Survives GM turnover', desc: "When you move on, your successor is briefed on 18 months of operational DNA: recurring patterns, members you rescued, decisions you made differently." },
+                ].map(f => (
+                  <div key={f.label} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 8, padding: '10px 14px' }}>
+                    <p style={{ margin: '0 0 2px', fontSize: 13, fontWeight: 700, color: '#FFFFFF' }}>{f.label}</p>
+                    <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.50)', lineHeight: 1.4 }}>{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Moat callout */}
+          <div style={{ background: 'rgba(243,146,45,0.06)', border: '1px solid rgba(243,146,45,0.18)', borderRadius: 14, padding: '20px 24px', textAlign: 'center' }}>
+            <p style={{ margin: '0 0 6px', fontSize: 12, fontWeight: 700, color: '#F3922D', letterSpacing: '0.10em', textTransform: 'uppercase' }}>The Compounding Moat</p>
+            <p style={{ margin: 0, fontSize: 16, color: 'rgba(255,255,255,0.85)', lineHeight: 1.65, maxWidth: '62ch', marginInline: 'auto' }}>
+              A club that leaves Swoop doesn't just lose the configuration — it loses <strong style={{ color: '#FFFFFF' }}>400 individual relationship histories</strong> that took years to accumulate. No competitor can reconstruct those from a data export, because the value is in the sequence and reasoning, not just the facts.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div id="howitworks">
         <HowItWorksSection />
       </div>

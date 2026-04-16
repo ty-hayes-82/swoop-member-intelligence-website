@@ -232,6 +232,51 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Institutional memory — board selling point */}
+        <section style={{ background: '#1B1814', padding: 'clamp(40px, 5vw, 64px) clamp(20px, 4vw, 40px)' }}>
+          <div className="landing-container" style={{ maxWidth: 860 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', textAlign: 'center', marginBottom: 10 }}>
+              INSTITUTIONAL MEMORY
+            </p>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 800, color: '#FFFFFF', textAlign: 'center', margin: '0 0 12px', lineHeight: 1.2 }}>
+              Swoop survives GM turnover.<br />Your members never notice.
+            </h2>
+            <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.65)', fontSize: 16, maxWidth: '56ch', marginInline: 'auto', marginBottom: 32, lineHeight: 1.65 }}>
+              Country clubs lose institutional knowledge every time a GM changes. Swoop changes that equation — every decision, every rescued member, every pattern becomes a durable record your next GM inherits on day one.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: 16, marginBottom: 28 }}>
+              {[
+                {
+                  icon: '📋',
+                  title: 'Every decision is logged',
+                  desc: 'Every approved recovery, every flagged member, every override — timestamped, searchable, and reconstructable with full reasoning context.',
+                },
+                {
+                  icon: '🤝',
+                  title: 'Incoming GMs get a real briefing',
+                  desc: '"Your predecessor rescued 20 members personally, identified 6 recurring patterns, and consistently escalated at $750 — not the $500 default."',
+                },
+                {
+                  icon: '🏛',
+                  title: 'Boards see continuity, not chaos',
+                  desc: 'When a board member asks why $4K in F&B was comped last quarter, the answer is a query — not a spreadsheet exercise. Complete audit trail, one click.',
+                },
+              ].map(item => (
+                <div key={item.title} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: '20px 22px' }}>
+                  <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
+                  <h3 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 15, fontWeight: 700, color: '#FFFFFF', margin: '0 0 8px' }}>{item.title}</h3>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: 0, lineHeight: 1.55 }}>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 12, padding: '16px 20px', textAlign: 'center' }}>
+              <p style={{ margin: 0, fontSize: 15, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65 }}>
+                <strong style={{ color: '#FFFFFF' }}>For club boards:</strong> the operational memory you've always wanted, finally persistent. Swoop knows how this club runs — and that knowledge compounds with every passing month.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <MorningBriefingSection />
 
         {/* Mid-page CTA — inserted right after the founder story for visitors sold by the narrative */}
