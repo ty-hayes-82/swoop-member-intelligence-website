@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  { label: 'A preview of your new 60-second morning routine', text: 'Replace 4 manual logins with a daily cockpit tracking your true Member Health Score — ranked by revenue impact, delivered at 6 AM.' },
+  { label: 'A Member Health Score for every active member', text: 'Computed across golf, dining, email, and event data — ranked by retention urgency. Your top 5 at-risk members surfaced before your first meeting of the day.' },
   { label: "A ranked list of your top 5 'Quiet Resignation' risks", text: 'Catching the first domino when a member stops opening emails, cancels tee times, and drops dining spend — weeks before any single system flags it.' },
-  { label: 'A Board-ready Revenue Leakage Report (generated in 1-click)', text: 'Surfacing exact blind spots — like the $31 in lost dining revenue per slow round — calculated by matching your tee sheet to same-day POS data.' },
-  { label: 'Your data under mutual NDA', text: 'We never share club data across engagements. Deleted within 30 days if you don\'t move forward.' },
+  { label: 'A Board-ready Revenue Leakage Report (generated in 1-click)', text: 'Surfacing exact blind spots — like the $31 in lost dining revenue per slow round — calculated by matching your tee sheet to same-day POS data. Average founding-partner club: $9,580/month in recoverable F&B.' },
+  { label: 'Your data under mutual NDA', text: 'We never share club data across engagements. Data deleted within 30 days if you don\'t move forward — no request required.' },
 ];
 
 function ContactHeroPanel() {
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          We use Layer 3 intelligence to securely connect your tee sheet, POS, and CRM — finding the patterns no single system can see alone. In 30 minutes, we show you exactly who is at risk using your club's real data, and demo a daily cockpit that replaces 4 manual logins with a single 60-second morning briefing. You leave with a prioritized action list, not a pitch deck.
+          Swoop connects your tee sheet, POS, email, and event data — four systems that have never talked to each other — and shows you exactly who's quietly disengaging <strong>before</strong> anyone resigns. In 30 minutes, you'll see your own club's numbers — not a generic demo. You leave with a prioritized action list, not a pitch deck.
         </p>
         <p
           style={{
@@ -65,8 +65,27 @@ function ContactHeroPanel() {
             </li>
           ))}
         </ul>
+        {/* Dollar stat callouts */}
+        <div style={{ marginTop: 20, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, maxWidth: 480 }}>
+          {[
+            { val: '$31', label: 'lost dining revenue per slow round', sup: '1' },
+            { val: '$9,580/mo', label: 'avg. recoverable F&B leakage', sup: '2' },
+            { val: '$47K+', label: 'avg. revenue identified per walkthrough', sup: '3' },
+          ].map(s => (
+            <div key={s.val} style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(184,96,14,0.18)', borderRadius: 8, padding: '10px 8px', textAlign: 'center' }}>
+              <p style={{ margin: 0, fontFamily: "'JetBrains Mono', monospace", fontSize: 17, fontWeight: 800, color: theme.neutrals.ink, lineHeight: 1.1 }}>{s.val}</p>
+              <p style={{ margin: '4px 0 0', fontSize: 10, color: theme.colors.textMuted, lineHeight: 1.4 }}>{s.label}<sup style={{ color: '#B8600E' }}>{s.sup}</sup></p>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: 10, color: theme.colors.textMuted, maxWidth: 480, lineHeight: 1.6, margin: '6px 0 0' }}>
+          <sup>1</sup> Pace-of-play × dining conversion, 7 founding-partner clubs. Fast round: 41% conversion, slow round: 22%. Delta × $163 avg check = $31.{' '}
+          <sup>2</sup> Mean F&B leakage from pace-of-play + staffing misalignment, n=7 clubs, Q4 2024–Q1 2025.{' '}
+          <sup>3</sup> Combined member-attrition and F&B leakage identified. Range: $28K–$71K. Individual results vary.
+        </p>
+
         {/* Anchor CTA — scroll to form */}
-        <div style={{ marginTop: 28, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+        <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <a
             href="#demo-form"
             onClick={(e) => {

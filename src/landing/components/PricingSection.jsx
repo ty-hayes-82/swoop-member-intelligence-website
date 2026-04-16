@@ -140,6 +140,9 @@ function PricingCard({ tier, onCtaClick }) {
               "Alert: Saturday pace of play is 4h45m. Suggested action: Shift 1 extra server to the turn grill to prevent service bottlenecks and protect $31/round in dining conversion."
             </p>
           </div>
+          <p style={{ fontSize: 11, color: '#6b7280', lineHeight: 1.55, margin: '6px 0 0' }}>
+            Full approval history · 24-hour undo window · Every action logged and reversible · Jonas + ForeTees + Northstar correlated — no single system required
+          </p>
         </div>
       )}
       {tier.price === '$499/mo' && (

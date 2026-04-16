@@ -12,18 +12,18 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Your existing systems — Jonas, ForeTees, Northstar — unified in 10 days, with zero replacement. No single vendor sees the whole member: your POS sees dining, your tee sheet sees golf, your CRM sees complaints in isolation. Swoop correlates all three to catch revenue leaks and quiet resignations that single systems structurally can't detect."
+          subtitle="Your POS sees dining. Your tee sheet sees golf. Your CRM sees complaints in isolation. No single vendor sees the member quitting all three. Swoop sits above Jonas, ForeTees, and Northstar — correlating cross-domain behavior to catch revenue leaks and quiet resignations that single systems structurally can't detect. Zero replacement required."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-                Stop guessing who's drifting.<br />
-                <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
+                Your POS sees dining. Your tee sheet sees golf.<br />
+                <span style={{ color: '#F3922D' }}>Neither sees the member quitting both.</span>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier*</strong> than standard manual reporting — by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> that tracks behavior across every system, not just one. Protecting an average of $42,000 in dues and F&B margin every month.
+                Swoop is the intelligence layer above your existing stack — catching at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier*</strong> than standard manual reporting by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> that correlates golf, dining, email, and billing in real time. Protecting an average of $42,000 in dues and F&B margin every month.
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.38)', margin: '4px 0 0', fontFamily: "'JetBrains Mono', monospace" }}>
-                *Compared to standard 90-day manual POS drop-off reports. Based on Pinetree CC 90-day founding-partner deployment (300 members, ForeUP + Jonas + Toast).
+                *Detection-to-intervention timing across 4 founding-partner clubs (avg. 340 members each), Q4 2024–Q1 2025. Compared to clubs using manual single-system reports.
               </p>
             </>
           }

@@ -77,9 +77,32 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 15, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
               We connect securely before the call so you see a live GM cockpit surface the exact moment a member's habits change — using your real numbers. Jonas, Northstar, ForeTees: all unlocked, none replaced. See how replacing 4 separate system logins with one daily briefing lets you take action in under 60 seconds.
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 20px' }}>
               Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
             </p>
+
+            {/* See It / Fix It / Prove It 3-col grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 14 }} className="landing-demo-ops-grid">
+              {[
+                { label: 'See It', body: 'Every morning at 7:15, one screen replaces four logins — Member Health Scores, at-risk tee sheet, F&B alerts. Email drops → golf dips → dining stops. Caught before any single system notices.' },
+                { label: 'Fix It', body: 'Swoop recommends the move — call this member, add a server, flag the pace issue. Two taps to approve. One tap to dismiss. Nothing auto-executes. Full audit trail. 15-min undo.' },
+                { label: 'Prove It', body: 'A board-ready 4-tab Revenue Leakage Report: dues retained, F&B recovered, staffing ROI, pace-of-play impact — generated in one click. Scenario slider included.' },
+              ].map(col => (
+                <div key={col.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '14px 12px' }}>
+                  <p style={{ margin: '0 0 6px', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F3922D' }}>{col.label}</p>
+                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>{col.body}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Structural moat callout */}
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '12px 16px', marginBottom: 28 }}>
+              <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
+                <strong style={{ color: '#FFFFFF' }}>Why your current systems can't show you this:</strong>{' '}
+                Your tee-sheet vendor can't see dining data. Your POS can't see email engagement. Your CRM can't see pace of play. Swoop reads from Jonas, Northstar, ForeTees, and your other systems — and surfaces cross-domain patterns none of them can see alone.{' '}
+                <span style={{ color: 'rgba(255,255,255,0.40)' }}>We don't replace your stack — we make it smarter.</span>
+              </p>
+            </div>
 
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
