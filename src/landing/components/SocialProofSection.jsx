@@ -7,13 +7,13 @@ const metricCards = [
     title: 'Early Warning System',
     metric: '42 days',
     subtitle: 'Average advance notice on at-risk members',
-    description: 'Detected James Whitfield resignation risk 42 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.',
+    description: 'Detected James Whitfield resignation risk 42 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes. (Email unsubscribe → Golf rounds drop 20% → Dining spend stops)',
   },
   {
-    title: 'F&B Margin Control',
-    metric: 'Staffing Playbook',
-    subtitle: 'Correlates Saturday tee-sheet + weather demand',
-    description: 'Recommends exact F&B staffing levels based on predictive demand — eliminating overstaffing and protecting margin on high-cover days like Saturday lunch.',
+    title: 'Real-Time Cockpit',
+    metric: '100%',
+    subtitle: 'staffing alignment on F&B surges',
+    description: 'Predicted Saturday F&B rushes by analyzing morning tee sheet density and weather patterns, eliminating intraday service bottlenecks.',
   },
   {
     title: 'Revenue Per Slot',
@@ -25,7 +25,7 @@ const metricCards = [
     title: 'Dues at Risk Visibility',
     metric: '$1.38M',
     subtitle: 'at-risk member lifetime value (LTV) — 23 flagged members',
-    description: '23 members flagged across health score decline, declining visits, and unresolved complaints — analyzing behavioral pattern changes at Pinetree CC (300 members).',
+    description: '23 members flagged across health score decline, declining visits, and unresolved complaints — annualized at full dues + F&B minimums at Pinetree CC (300 members).',
   },
 ];
 

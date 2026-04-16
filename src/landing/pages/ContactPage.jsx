@@ -5,9 +5,9 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 member retention gaps — identifying specific members risking $100k+ in collective annual dues, plus a preview of your new 60-second Daily Cockpit replacing 4 software logins.',
-  'A Board-ready Revenue Leakage Report — turning 6 hours of manual spreadsheet prep into a 4-tab export that quantifies exact dollar blind spots, like the $31/round F&B loss caused by pace-of-play delays.',
-  'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified).',
+  'A 60-second daily morning briefing replacing 4 logins, featuring a daily Member Health Score ranking your top 5 at-risk members — identifying $100k+ in collective dues at risk.',
+  'A Board-ready Revenue Leakage Report — proving cross-domain blind spots like the $31 in lost F&B revenue for every slow round on your course.',
+  'Benchmarks vs. our 2025 cohort of 7 founding-partner clubs (anonymized, your club not identified).',
   'Intelligence you control. You leave with a prioritized action list featuring zero automated execution. Never share club data without mutual NDA.',
 ];
 
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> And because no single software vendor runs your entire club, they structurally miss the warning signs. In <strong>30</strong> minutes, we cross-reference your tee sheet, dining POS, and CRM to track the exact decay sequence — email skips → missed tee times → dining drop-offs — before anyone resigns. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> catches that sequence weeks before any single system notices.
+          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> Single-system vendors like Jonas or ForeTees only see half the picture — they miss the compound patterns causing revenue leakage. In <strong>30</strong> minutes, we cross-reference your tee sheet, dining POS, and CRM to catch the first domino: they stop opening emails, then skip Saturday golf, then cancel dining reservations. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> catches that decay sequence weeks before any single system notices.
         </p>
         <p
           style={{

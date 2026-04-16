@@ -2,12 +2,12 @@ import { theme } from '@/config/theme';
 import { SectionShell, Card } from '@/landing/ui';
 
 const agentRows = [
-  { label: 'Member Pulse',         detail: 'Callback queued · Mark Henderson',      value: '$8.4K',  positive: true },
-  { label: 'Service Recovery',     detail: 'Mid-comp drafted · Golf Room',           value: '$3.1K',  positive: true },
+  { label: 'Member Pulse',         detail: 'Callback queued · Mark Henderson',      value: '$9.4K',  positive: true },
+  { label: 'Service Recovery',     detail: 'Mid-comp drafted · Golf Room',           value: '$11K',   positive: true },
   { label: 'Demand Optimizer',     detail: 'Full-fare slots routed to 5 members',    value: '-$1.5K', positive: false },
   { label: 'Labor Optimizer',      detail: '2 FOH shifts added · Grill lunch',       value: '$3.2K',  positive: true },
-  { label: 'Engagement Advisor',   detail: '18 member outreach sequences',           value: '$4.4K',  positive: true },
-  { label: 'Revenue Analyst',      detail: 'Waitlist + pace-of-play leakage',        value: '$24.6K', positive: true },
+  { label: 'Engagement Advisor',   detail: '18 member outreach sequences',           value: '$8.1K',  positive: true },
+  { label: 'Revenue Analyst',      detail: 'Waitlist + pace-of-play leakage',        value: '$12K',   positive: true },
 ];
 
 function MorningBriefingPanel() {

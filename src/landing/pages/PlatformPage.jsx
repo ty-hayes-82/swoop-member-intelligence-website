@@ -12,7 +12,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Replace 4 daily system logins with one 90-second morning briefing. Swoop unifies your tee sheet, POS, and CRM overnight to show exactly who's drifting, why, and the precise move to make."
+          subtitle="Keep your POS and tee sheet. Add an intelligence layer that connects them overnight. Replace 4 daily system logins with one dashboard showing exactly who's drifting, why, and the exact move to make."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>

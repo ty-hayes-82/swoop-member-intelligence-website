@@ -72,7 +72,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               See what Swoop would find at your club — in 30 minutes.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
-              Stop cross-referencing Jonas and your tee sheet by hand. We securely connect your data before the call so you can see the real-time GM cockpit surface the exact moment a member's habits change — using your real numbers as your single daily pane of glass.
+              Stop cross-referencing Jonas and your tee sheet by hand. We securely connect your data before the call so you can see the real-time GM cockpit surface the exact moment a member's habits change — using your real numbers as your single daily pane of glass. <strong style={{ color: '#FFFFFF' }}>We'll walk through a live scenario: See It (early warnings), Fix It (one-tap actions), Prove It (automated board report).</strong>
             </p>
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
               Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
@@ -81,7 +81,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a corporate member&rsquo;s drop in POS dining spend following 3 slow rounds. One dinner comp and a follow-up call saved $32K in annual member dues <span style={{ opacity: 0.65, fontSize: 16 }}>[preventing a 14-year family member from churning]</span>.&rdquo;
+                &ldquo;Swoop flagged a corporate member&rsquo;s drop in POS dining spend following 3 slow rounds. One dinner comp and a follow-up call saved $32K in member lifetime value <span style={{ opacity: 0.65, fontSize: 16 }}>(calculated as 4-year LTV — preventing a 14-year family from churning)</span>.&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club

@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="FIX IT · LAYER 3 INTELLIGENCE"
-      title="Zero blind spots across your entire operation."
-      subtitle="Incumbent systems are siloed — your POS doesn't talk to your tee sheet, and your tee sheet doesn't know what members order in the dining room. Swoop sits above them. It correlates historical habits with real-time signals from your existing stack — whether you use Jonas, ForeTees, Northstar, or Club Prophet — to find the cross-domain patterns single-system vendors physically cannot see. Watch it draft a specific, human-reviewable playbook:"
+      title="Your real-time cockpit. Catch service gaps before they happen."
+      subtitle="Swoop continuously cross-references signals from your POS, tee sheet, CRM, and billing system — whether you use Jonas, ForeTees, Northstar, or a mix — to spot cross-domain patterns no human could catch in real time. Your POS doesn't talk to your tee sheet; Swoop connects them and drafts specific, human-reviewable actions. Watch it work:"
     >
       <AgentsLiveDemo />
 
