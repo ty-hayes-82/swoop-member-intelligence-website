@@ -266,6 +266,52 @@ export default function AboutPage() {
         <TestimonialsSection />
         <AboutFaqSection />
 
+        {/* Cross-domain intelligence section */}
+        <section style={{ padding: 'clamp(40px, 5vw, 72px) clamp(20px, 4vw, 40px)', background: '#FAF7F2', borderTop: '1px solid rgba(17,17,17,0.07)' }}>
+          <div className="landing-container" style={{ maxWidth: 920 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B8600E', textAlign: 'center', marginBottom: 8 }}>
+              Why This Works
+            </p>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 800, color: '#1B1814', textAlign: 'center', margin: '0 0 10px', lineHeight: 1.2 }}>
+              Your data already has the answers.<br />It just lives in four different systems.
+            </h2>
+            <p style={{ textAlign: 'center', color: '#6b7280', fontSize: 15, maxWidth: '60ch', marginInline: 'auto', marginBottom: 22 }}>
+              Swoop connects your golf system, POS, email platform, and event system into a single intelligence layer — finding the patterns hidden between them.
+            </p>
+            <div style={{ background: '#1B1814', borderRadius: 16, padding: 'clamp(20px, 3vw, 32px)', color: '#FFFFFF' }}>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', marginBottom: 8 }}>
+                Cross-Domain Correlation — Live Example
+              </p>
+              <h3 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(17px, 2.5vw, 22px)', fontWeight: 700, margin: '0 0 18px', lineHeight: 1.2 }}>
+                How a slow hole costs you $9,580 a month in F&B revenue.
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: 16, marginBottom: 18 }}>
+                {[
+                  { step: '1', system: 'Tee Sheet', signal: 'Rounds slow 8+ min at Hole 12', vendor: 'ForeTees / Chelsea' },
+                  { step: '2', system: 'POS', signal: 'Dining conversion drops from 41% to 22%', vendor: 'Jonas / Northstar' },
+                  { step: '3', system: 'Staffing', signal: '2 servers short for the demand spike that follows', vendor: 'Scheduling data' },
+                  { step: '4', system: 'Revenue Impact', signal: '$31 lost/round — $9,580/mo recoverable F&B', vendor: 'Swoop cross-domain model' },
+                ].map(item => (
+                  <div key={item.step}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                      <span style={{ width: 22, height: 22, borderRadius: '50%', background: '#F3922D', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 800, color: '#1B1814', flexShrink: 0 }}>{item.step}</span>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: '#FFFFFF' }}>{item.system}</span>
+                    </div>
+                    <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.70)', lineHeight: 1.5, margin: '0 0 4px' }}>{item.signal}</p>
+                    <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.38)', fontFamily: "'JetBrains Mono', monospace", margin: 0 }}>{item.vendor}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 14 }}>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: 0 }}>
+                  Your tee sheet can't see this. Your POS can't see this. <strong style={{ color: '#FFFFFF' }}>Swoop is the only platform that correlates pace of play with dining conversion, staffing gaps, and email engagement decay</strong> — because it sits above all three systems as a cross-domain intelligence layer.{' '}
+                  <span style={{ color: 'rgba(255,255,255,0.30)', fontSize: 11 }}>Source: Swoop founding-partner pilot, Q1 2025. 7 clubs, avg. 350 members.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <DemoCtaSection />
       </LandingShell>
     </div>

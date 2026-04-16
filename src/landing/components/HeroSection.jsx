@@ -215,6 +215,19 @@ export default function HeroSection({ onDemoClick }) {
           No credit card · No IT lift · Live in 2 weeks · Zero member data sold or shared.
         </p>
 
+        {/* Approval control callout — visible above fold */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginBottom: 20, paddingBottom: 18, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+          {[
+            'Swoop recommends. You approve. Nothing fires without your say-so.',
+            'Every action logged and reversible — 1-tap undo',
+            '2-tap approval queue — 90 seconds each morning',
+          ].map(item => (
+            <span key={item} style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#F3922D' }}>✓</span> {item}
+            </span>
+          ))}
+        </div>
+
         {/* Trust bullets */}
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 48 }}>
           {['4 systems, 1 screen, zero Saturday morning tab-switching', 'Members flagged before they churn', 'Board-ready report generated automatically each month', 'Live in under 2 weeks'].map((item) => (
