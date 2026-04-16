@@ -72,7 +72,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               See what Swoop would find at your club — in 30 minutes.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
-              Stop cross-referencing Jonas and your tee sheet by hand. We securely connect your data before the call so you can see the real-time GM cockpit surface the exact moment a member's habits change — using your real numbers as your single daily pane of glass. <strong style={{ color: '#FFFFFF' }}>We'll walk through a live scenario: See It (early warnings), Fix It (one-tap actions), Prove It (automated board report).</strong>
+              <strong style={{ color: '#FFFFFF' }}>Swoop doesn't replace Jonas or Northstar — it unlocks the data trapped inside them.</strong> Because no single vendor owns all your data, they miss the full picture. We connect securely before the call so you see a live GM cockpit surface the exact moment a member's habits change — using your real numbers. <strong style={{ color: '#FFFFFF' }}>See It (early warnings), Fix It (one-tap actions), Prove It (automated board report).</strong>
             </p>
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
               Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.

@@ -8,9 +8,9 @@ export default function AgentsSection() {
     <SectionShell
       id="agents"
       band="cream"
-      eyebrow="FIX IT · ONE-TAP ACTIONS"
-      title="A real-time cockpit for your entire operation."
-      subtitle="These aren't static alerts. Swoop constantly cross-references live signals from Jonas, ForeTees, Northstar, and your CRM to spot operational gaps no single platform can see natively — then drafts a specific, human-reviewable action. Watch it work:"
+      eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
+      title="A real-time cockpit for every department."
+      subtitle="Stop trying to rip-and-replace your legacy software. Swoop sits directly on top of your existing stack — continuously correlating Jonas, Northstar, ForeTees, and your CRM — to catch bottlenecks no single platform can see. Watch it work:"
     >
       <AgentsLiveDemo />
 

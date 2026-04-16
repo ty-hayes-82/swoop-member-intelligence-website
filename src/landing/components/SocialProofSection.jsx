@@ -10,10 +10,10 @@ const metricCards = [
     description: 'Detected James Whitfield resignation risk 42 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes. (Email unsubscribe → Golf rounds drop 20% → Dining spend stops)',
   },
   {
-    title: 'Real-Time Cockpit',
-    metric: '100%',
-    subtitle: 'staffing alignment on F&B surges',
-    description: 'Predicted Saturday F&B rushes by analyzing morning tee sheet density and weather patterns, eliminating intraday service bottlenecks.',
+    title: 'Pace-to-Dining Link',
+    metric: '$31',
+    subtitle: 'dining revenue gap per slow round of golf',
+    description: 'Identified the correlation between Hole 12 pace delays (>4.5hrs) and zero post-round F&B spend — surfaced by cross-referencing tee sheet and POS data that each system keeps in a separate silo.',
   },
   {
     title: 'Revenue Per Slot',

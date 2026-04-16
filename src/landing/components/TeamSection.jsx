@@ -14,7 +14,7 @@ const team = [
     title: 'Co-founder & CTO',
     priorRole: 'Former Hospitality Data Lead, tech operations (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
-    bio: 'Eight years building data intelligence in hospitality tech. I mapped 12 months of club-specific behavioral patterns to build the engine that spots your at-risk members before they leave.',
+    bio: 'Eight years building cross-domain intelligence in hospitality tech. I mapped 12 months of club-specific behavioral data to connect the dots between your tee sheet and dining room — that\'s the engine under the daily brief.',
   },
   {
     name: 'Alex Chen',
@@ -148,7 +148,7 @@ export default function TeamSection() {
           {[
             { stat: '03', label: 'operational domains correlated (Golf, F&B, CRM)' },
             { stat: '2M+', label: 'club-specific member interactions synthesized' },
-            { stat: '✓', label: 'Compatible with Jonas, ClubEssentials, Northstar, and more' },
+            { stat: '✓', label: 'Read-only integration — zero write access to your core systems; 1-click 4-tab Board Report included' },
           ].map(s => (
             <div
               key={s.stat}

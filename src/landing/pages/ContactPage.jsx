@@ -5,10 +5,11 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of at-risk members driven by our cross-domain Member Health Score.',
-  'A Board-ready Revenue Leakage Report — revealing hidden blind spots, like the $31 lost in F&B dining conversions for every slow round of golf.',
-  'A custom Saturday Morning Briefing — see how Swoop replaces 4 separate software logins with a single real-time operational cockpit.',
+  'Your daily Member Health Score: a ranked list of your top 5 at-risk members — and exactly what to do about each one.',
+  'A preview of your new 60-second morning routine: see how one unified cockpit replaces 4 separate vendor logins.',
+  'A Board-ready Revenue Leakage Report — revealing hidden blind spots, like the $31 in dining revenue lost for every slow round of golf.',
   'Benchmarks vs. 7 top-tier founding-partner clubs (anonymized, your club not identified).',
+  'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\'t move forward.',
 ];
 
 function ContactHeroPanel() {

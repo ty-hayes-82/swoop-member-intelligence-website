@@ -385,6 +385,11 @@ export const faqItems = [
       'Yes. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never commingled with other clubs, used to train external systems, or shared with any third party.',
   },
   {
+    question: 'Will this spam my staff with too many alerts?',
+    answer:
+      'No. Swoop is an intelligence filter, not a dashboard. It surfaces 1–3 high-confidence interventions per day per department, ranked strictly by revenue impact. We eliminate noise; we don\'t add to it.',
+  },
+  {
     question: 'Can I try it before committing?',
     answer:
       'Absolutely. Our Free tier gives you health scores with no credit card required. Pro includes a 14-day trial.',

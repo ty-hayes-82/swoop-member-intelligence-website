@@ -5,7 +5,7 @@ const briefRows = [
   { label: 'James Whitfield', detail: 'complaint · rounds ↓42% · tee time 9:20am', value: '$8.4K', rank: 1 },
   { label: 'Grill Room staffing gap', detail: 'Sat lunch · 95 covers · 6 scheduled', value: '$3.2K', rank: 2 },
   { label: 'Kevin Harrington · Day 47', detail: 'new member · 0 events · 1 round · 90-day window closing', value: 'At risk', rank: 3 },
-  { label: 'Pace-of-Play Bottleneck', detail: 'Hole 12 delays · $31 lost dining conversion per slow round', value: '$6.2K', rank: 4 },
+  { label: 'Hole 12 Bottleneck · Pace > 4.5hrs', detail: '$31/round dining leakage · 200 slow rounds/mo · 19% dining conversion drop (see math)', value: '$6.2K', rank: 4 },
 ];
 
 function MorningBriefCard() {
@@ -159,9 +159,9 @@ export default function HowItWorksSection() {
   return (
     <SectionShell
       band="paper"
-      eyebrow="FIX IT · THE SATURDAY BRIEFING"
-      title="Your daily Member Health Score — written overnight."
-      subtitle="Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — connecting cross-domain signals overnight to calculate a daily Member Health Score for every member. Catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
+      eyebrow="SEE IT · THE MORNING BRIEFING"
+      title="The daily brief, written overnight."
+      subtitle="Every morning, Swoop hands you a ranked list of members to call, slots to backfill, and service moves to make — with the math behind each recommendation. Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — catching the quiet resignation sequence weeks before any single system notices."
     >
       <div
         style={{
