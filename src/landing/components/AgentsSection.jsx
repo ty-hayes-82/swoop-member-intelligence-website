@@ -8,9 +8,9 @@ export default function AgentsSection() {
     <SectionShell
       id="agents"
       band="cream"
-      eyebrow="FIX IT · THE OPERATIONAL COCKPIT"
-      title="Your real-time operational cockpit."
-      subtitle="Why aren't your current dashboards enough? Because Jonas can't see golf habits, and ForeTees can't see dining spend. Swoop sits above your fragmented systems, correlating data no single vendor can see to draft specific, dollar-quantified operational moves. Zero migration. Zero downtime."
+      eyebrow="FIX IT · THE SATURDAY BRIEFING"
+      title="Your cross-domain intelligence layer. Always running."
+      subtitle="Your POS doesn't talk to your tee sheet. Your tee sheet doesn't read member emails. Swoop is the only platform that explicitly cross-references Jonas, ForeTees, Northstar, and your existing CRM to spot blind spots and draft specific, human-reviewable actions. Watch it work:"
     >
       <AgentsLiveDemo />
 
@@ -23,7 +23,7 @@ export default function AgentsSection() {
         }}>
           <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🛡️</span>
           <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>GM Approval Required.</strong> Agents analyze and draft—they never act without your explicit sign-off. Approved actions instantly draft an email from your Outlook, or notify department heads via SMS. Includes full audit trail and 5-minute delay for easy undo.
+            <strong>GM Approval Required.</strong> Agents analyze and draft—they never act without your explicit sign-off. Every action requires one tap to approve or dismiss, backed by full audit logs and a 5-minute undo window.
           </p>
         </div>
         <div style={{
@@ -32,9 +32,9 @@ export default function AgentsSection() {
           borderRadius: 10, padding: '14px 20px',
           display: 'flex', alignItems: 'flex-start', gap: 12,
         }}>
-          <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>👤</span>
+          <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>⚡</span>
           <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>Invisible to your members.</strong> Swoop works entirely behind the scenes — no member-facing app, no member logins, no changes to how members interact with your club. Your members never know it's running.
+            <strong>Instant Execution.</strong> Once you tap approve, Swoop automatically routes the action to the right department head — or drafts the intervention email directly into your outbox. Zero back-and-forth. Invisible to your members.
           </p>
         </div>
       </div>

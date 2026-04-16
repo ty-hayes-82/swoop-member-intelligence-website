@@ -47,6 +47,62 @@ export default function PlatformPage() {
         <AgentsSection />
       </div>
 
+      <div id="proveit">
+        <SectionShell
+          band="paper"
+          eyebrow="PROVE IT · THE QUARTERLY REVIEW"
+          title="A 4-tab board report that writes itself."
+          subtitle="Stop spending days building spreadsheets for your board meeting. Swoop generates a dollar-quantified ROI report — every at-risk membership saved and staffing gap closed — in one click."
+        >
+          <div style={{
+            background: '#1B1814',
+            borderRadius: 20,
+            padding: 'clamp(24px, 3vw, 40px)',
+            maxWidth: 860,
+            marginInline: 'auto',
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: '0 24px 60px rgba(15,15,15,0.3)',
+          }}>
+            {/* Report header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, paddingBottom: 18, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+              <div>
+                <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.4)', fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.1em' }}>swoop.os / board</p>
+                <p style={{ margin: '4px 0 0', fontSize: 17, fontWeight: 700, color: '#FFFFFF' }}>Q3 Board Impact Report</p>
+              </div>
+              <div style={{ background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 13, padding: '8px 18px', borderRadius: 8, cursor: 'default' }}>
+                Export to PDF
+              </div>
+            </div>
+            {/* KPI grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+              {[
+                { label: 'At-Risk Dues Protected', value: '$33,600', sub: '4 members · Q3' },
+                { label: 'F&B Leakage Recovered', value: '$9,580 / mo', sub: 'pace-of-play correlation' },
+                { label: 'Service Failures Avoided', value: '14 Shifts', sub: 'Labor Optimizer · 90 days' },
+              ].map(kpi => (
+                <div key={kpi.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '18px 20px' }}>
+                  <p style={{ margin: '0 0 6px', fontSize: 11, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{kpi.label}</p>
+                  <p style={{ margin: '0 0 4px', fontSize: 26, fontWeight: 800, color: '#F3922D', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1 }}>{kpi.value}</p>
+                  <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>{kpi.sub}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.3)', textAlign: 'center', fontStyle: 'italic' }}>
+              Illustrative example based on Pinetree CC 90-day founding-partner deployment · 300 active members
+            </p>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 32 }}>
+            <p style={{ fontSize: 16, color: '#6b7280', marginBottom: 16 }}>Ready to see what Swoop would find at your club?</p>
+            <button
+              onClick={toDemoPage}
+              style={{ background: '#F3922D', color: '#0A0F0D', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, border: 'none', cursor: 'pointer' }}
+            >
+              Book a 30-Min Walkthrough →
+            </button>
+          </div>
+        </SectionShell>
+      </div>
+
       <div id="pricing">
         <SectionShell band="dark" size="sm">
           <div style={{ textAlign: 'center' }}>

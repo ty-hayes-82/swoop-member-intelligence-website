@@ -464,7 +464,7 @@ export default function AgentsLiveDemo() {
     </div>
 
     <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', textAlign: 'center', marginTop: 24, fontStyle: 'italic', background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: '8px 16px', display: 'inline-block', margin: '24px auto 0', width: 'fit-content' }}>
-      Dollar values reflect actual outcomes from the Pinetree CC 90-day founding-partner deployment
+      Dollar values reflect actual outcomes from the Pinetree CC 90-day founding-partner deployment. Labor Optimizer impact calculated from average comped F&B costs and service-failure recovery during understaffed shifts.
     </p>
     <div style={{ textAlign: 'center', marginTop: 16 }}>
       <p style={{ fontSize: 17, color: theme.colors.textSecondary, margin: '0 0 16px' }}>

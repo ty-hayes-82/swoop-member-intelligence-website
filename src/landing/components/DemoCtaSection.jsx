@@ -55,7 +55,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
           {/* Left column — value prop + social proof + next steps */}
           <div>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', margin: '0 0 12px' }}>
-              PROVE IT · THE BOARD REPORT
+              SEE IT &rarr; FIX IT &rarr; PROVE IT
             </p>
             <h2
               style={{
@@ -81,7 +81,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a member we were about to lose. One dinner comp and a follow-up call saved a corporate membership worth $32K in annual dues.&rdquo;
+                &ldquo;Swoop flagged a high-value corporate account we were about to lose. One dinner comp and a follow-up call saved $32K in lifetime dues.&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club
@@ -94,10 +94,10 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
                 <li>We confirm your slot within 1 business day</li>
                 <li>
-                  We connect to Jonas, Clubessential, or Northstar (read-only — zero write access).{' '}
+                  Keep your Jonas or Northstar. We safely sit on top to find the revenue they miss.{' '}
                   <strong style={{ color: '#F3922D' }}>Zero IT required.</strong>
                   <span style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 4 }}>
-                    We send a 2-minute instruction sheet to approve the sync. Swoop recommends. You decide. Full manual control over every action.
+                    Safe pilot — zero write-access to financial records. Reversible and secure.
                   </span>
                 </li>
                 <li>30-min call — you keep the prioritized action list regardless</li>

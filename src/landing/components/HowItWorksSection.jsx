@@ -93,7 +93,7 @@ function MorningBriefCard() {
       >
         <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12 }}>assembled from 4 systems · gm@yourclub.com</span>
         <span style={{ color: theme.colors.accent, fontSize: 13, fontWeight: 700, fontFamily: theme.fonts.sans }}>
-          $8,400 protected <span style={{ fontWeight: 400, fontSize: 10, color: 'rgba(255,255,255,0.3)' }}>(example)</span>
+          $8,400 annual dues protected <span style={{ fontWeight: 400, fontSize: 10, color: 'rgba(255,255,255,0.3)' }}>(example)</span>
         </span>
       </div>
     </div>

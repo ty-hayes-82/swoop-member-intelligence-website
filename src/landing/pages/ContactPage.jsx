@@ -6,8 +6,8 @@ import '@/landing/landing.css';
 
 const leaveWithItems = [
   'A ranked list of your top 5 at-risk members based on their Swoop Member Health Score.',
-  'A Board-ready Revenue Leakage Report — identifying exact blind spots (e.g., the $31 in lost dining revenue for every 15 minutes of slow play) to ensure flawless service consistency.',
-  'A preview of your new Daily Morning Cockpit — replacing 4 fragmented systems so you can catch F&B leakage and guarantee service consistency in under 60 seconds.',
+  'A Board-ready Revenue Leakage Report — identifying exact blind spots, like the $31 in lost dining revenue for every slow-play round, to ensure flawless service consistency.',
+  'A "Saturday Briefing" preview — see how consolidating 4 logins into a daily action queue needs only a 1-tap GM approval to protect dues and close F&B leakage before Monday.',
   'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified).',
 ];
 
@@ -110,7 +110,7 @@ function TechDisclosurePanel() {
             <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe.</p>
             <p><strong>Write-back scope:</strong> <em>None during your 30-day walkthrough phase.</em> Upon full deployment, Swoop only writes back tee-sheet notes, CRM tasks, and GM-approved messages — nothing without a GM tap. We never modify financial records.</p>
             <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active).</p>
-            <p><strong>AI Privacy:</strong> Enterprise-grade AI with a strict zero-retention agreement. Member PII is never used to train any models. Every action is logged and reversible.</p>
+            <p><strong>Private Intelligence:</strong> Your member data is strictly ring-fenced. We operate under strict zero-retention agreements, meaning your club's data is never used to teach outside systems. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>
           </div>
         </details>
