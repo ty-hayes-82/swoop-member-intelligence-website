@@ -223,7 +223,7 @@ export const agents = [
   {
     icon: 'LineChart',
     name: 'Revenue Analyst',
-    description: 'Flags preventable revenue leakage and recommends high-confidence margin actions.',
+    description: 'Flags cross-domain leakage incumbents miss — like the $31 per round lost in F&B dining conversions directly linked to Hole 12 pace-of-play bottlenecks. Recommends high-confidence margin actions.',
   },
   {
     icon: 'RefreshCw',
@@ -369,6 +369,11 @@ export const faqItems = [
       'No. Swoop sits on top of your existing systems and connects via API. We support 28 integrations across 10 categories.',
   },
   {
+    question: "Why can't my existing Jonas or Northstar system do this?",
+    answer:
+      'POS systems only see transactions; tee sheets only see golf. By themselves, they can\'t spot the correlation between a slow 5-hour round on Tuesday and a canceled dining reservation on Saturday. Swoop connects these siloed systems via API to catch "quiet resignation" and pace-of-play F&B leakage that single-vendor reports structurally miss.',
+  },
+  {
     question: "What if I don't have a tee sheet system?",
     answer:
       "You can still use Swoop's member intelligence, F&B, and staffing capabilities with manual data entry or CSV import. Tee sheet analytics activate when you connect a supported booking system.",
@@ -376,7 +381,7 @@ export const faqItems = [
   {
     question: "Is my members' data secure?",
     answer:
-      'Yes. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never used for cross-club model training or shared with any third party.',
+      'Yes. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never commingled with other clubs or shared with any third party.',
   },
   {
     question: 'Can I try it before committing?',
@@ -406,7 +411,7 @@ export const faqItems = [
   {
     question: 'Who owns our member data?',
     answer:
-      'You do, always. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never used for cross-club model training or shared with any third party.',
+      'You do, always. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never commingled with other clubs or shared with any third party.',
   },
   {
     question: 'What is the cancellation policy?',

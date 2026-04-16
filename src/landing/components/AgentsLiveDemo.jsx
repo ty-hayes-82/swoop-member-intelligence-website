@@ -473,7 +473,7 @@ export default function AgentsLiveDemo() {
     </div>
 
     <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.55)', textAlign: 'center', marginTop: 24, fontStyle: 'italic', background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: '8px 16px', display: 'inline-block', margin: '24px auto 0', width: 'fit-content' }}>
-      Dollar values reflect actual outcomes from the Pinetree CC 90-day founding-partner deployment. Labor Optimizer $3,200 impact: historical 18% walkout rate when cover-to-staff ratio exceeds 12:1. Pace of Play $31/round: average post-round F&B spend lost during slow rounds.
+      Dollar values reflect actual outcomes from the Pinetree CC Q3 2023 founding-partner deployment (300-member club, 90 days). "Service failure avoided" values calculated via historical comped meal data and estimated single-member churn risk (18% walkout rate at 12:1 cover-to-staff ratio). Pace of Play $31/round: average post-round F&B spend lost during documented slow rounds (19% conversion drop × $163 avg group check).
     </p>
     <div style={{ textAlign: 'center', marginTop: 16 }}>
       <p style={{ fontSize: 17, color: theme.colors.textSecondary, margin: '0 0 16px' }}>

@@ -5,11 +5,9 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 member retention and revenue leakage gaps — including service bottlenecks like the $31/round in F&B conversion lost every time Hole 12 backs up (multiply by your weekly rounds: that\'s $9,500/mo in recoverable leakage).',
-  'Your Daily Member Health Score — a ranked list of your top 5 member retention priorities, scored across tee sheet, POS, and CRM.',
-  'A Board-ready Revenue Leakage Report — exposing hidden service inconsistencies with dollar-quantified ROI your board can act on.',
-  'A preview of your daily real-time cockpit — replace 4 different software logins with a single morning briefing where nothing happens without your 2-tap approval.',
-  'Your data under mutual NDA. Swoop sits on top of your existing stack — no need to replace your POS or tee sheet. Deleted within 30 days if you don\'t move forward.',
+  'See It: A ranked list of your top 5 retention and revenue leakage gaps — uncovering hidden leaks like the $31/round lost to slow play on Hole 12 ($9,500/mo in recoverable F&B leakage).',
+  'Fix It: A preview of your daily GM Cockpit — replace 4 manual system logins with a single morning briefing where nothing reaches a member without your 2-tap approval.',
+  'Prove It: A Board-ready Revenue Leakage Report — quantifying blind spots like F&B staffing pressure (Saturday lunch demand vs. weather forecasts) with dollar-quantified ROI your board can act on.',
 ];
 
 function ContactHeroPanel() {
@@ -41,7 +39,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Your POS only sees dining. Your tee sheet only sees golf.</strong> Swoop automatically connects them both — and your CRM — to find the cross-domain patterns that single systems miss: the member whose email opens dropped, then their rounds, then their dining spend.
+          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> Swoop connects them both — and your CRM — to generate a daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> that catches the quiet resignation sequence weeks before any single system notices.
         </p>
         <p
           style={{
@@ -115,7 +113,7 @@ function TechDisclosurePanel() {
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe. Because no single vendor owns all your data, Swoop reads across all of them to find the compound leakage that siloed systems miss.</p>
-            <p><strong>Write-back scope:</strong> <em>None during your 30-day walkthrough phase.</em> Upon full deployment, Swoop only writes back tee-sheet notes, CRM tasks, and GM-approved messages — nothing without a GM tap. We never modify financial records.</p>
+            <p><strong>Full deployment write-back scope:</strong> Only tee-sheet notes, CRM tasks, and GM-approved messages — approved in one click from your daily queue. Nothing without a GM tap. We never modify financial records. <em>Walkthrough engagements remain strictly read-only.</em></p>
             <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active).</p>
             <p><strong>Private Intelligence:</strong> Your member data is strictly ring-fenced. We operate under strict zero-retention agreements, meaning your club's data is never used to teach outside systems. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>

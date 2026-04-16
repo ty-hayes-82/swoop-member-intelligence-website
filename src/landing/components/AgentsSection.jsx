@@ -10,7 +10,7 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="FIX IT · LAYER 3 INTELLIGENCE"
       title="Layer 3 Cross-Domain Intelligence."
-      subtitle="Swoop crosses the operational domains your single-system vendors can't. By correlating live signals across Jonas, ForeTees, Northstar, and your CRM, Swoop spots the hidden patterns causing revenue leakage — then drafts specific, human-reviewable actions. Watch it work:"
+      subtitle="A tee sheet can't see your dining room. Swoop securely reads fragmented data from Jonas, ForeTees, Northstar, and your CRM to combine signals into actionable intelligence — catching the revenue leakage and member risks that single-system vendors structurally miss. Then it drafts a specific, human-reviewable action. Watch it work:"
     >
       <AgentsLiveDemo />
 
