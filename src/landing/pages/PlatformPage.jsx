@@ -35,6 +35,9 @@ export default function PlatformPage() {
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 16 }}>
               Plans scale seamlessly. <strong style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 600 }}>Starting at $499/mo.</strong>
             </p>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.40)', marginTop: 4 }}>
+              At a $32K average member LTV, one retention saves more than 5 years of Swoop.
+            </p>
           </div>
         </SectionShell>
       </div>

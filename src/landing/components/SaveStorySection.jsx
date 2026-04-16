@@ -4,7 +4,7 @@ import { SectionShell, Card } from '@/landing/ui';
 const proveStats = [
   { value: '$32K', label: 'one save · one call' },
   { value: '9 / 14', label: 'members retained' },
-  { value: '$67K', label: 'dues protected' },
+  { value: '$67K', label: 'annual dues protected' },
 ];
 
 function FixItPanel() {
@@ -208,7 +208,7 @@ function ProveItPanel() {
         Stats: Pinetree CC founding-partner data · 300 active members · 90-day deployment window
       </p>
       <p style={{ fontSize: 11, color: theme.colors.textMuted, marginTop: 8, lineHeight: 1.6 }}>
-        *Methodology: F&B leakage calculated by correlating POS average ticket ($31) against anomalous 30-day dining absence flagged via tee-sheet/CRM cross-reference. Dues protected calculates at-risk member LTV based on remaining contract value. Baseline: 450-member club, $12K average annual dues.
+        *Methodology: Annual dues math: 9 members retained × avg $7,400 trailing 12-month dues = $66,600 (rounded to $67K). F&B leakage: $31/round × 190 affected rounds in 90-day pilot. Dues protected reflects trailing 12-month annual dues only — no inflated lifetime-value math. Pinetree CC founding-partner data · 300 active members · 90-day deployment window.
       </p>
     </div>
   );

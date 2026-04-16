@@ -161,7 +161,7 @@ export default function HowItWorksSection() {
       band="paper"
       eyebrow="SEE IT · THE SATURDAY MORNING BRIEFING"
       title="Your daily Member Health Score — written overnight."
-      subtitle="Swoop reads your tee sheet, POS, and CRM overnight. By 6 AM, it calculates a daily Member Health Score for every member — catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
+      subtitle="Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — connecting cross-domain signals overnight to calculate a daily Member Health Score for every member. Catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
     >
       <div
         style={{

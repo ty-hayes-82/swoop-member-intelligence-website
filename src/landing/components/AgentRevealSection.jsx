@@ -115,7 +115,7 @@ export default function AgentRevealSection() {
         }}
       >
         "Every agent proposes. You decide. The outcome is tracked.{' '}
-        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your operations get sharper.</strong>"
+        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Swoop adapts to your club — and a full audit trail means you can undo any action with one tap.</strong>"
       </p>
       <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
         * $31/round: actual outcome from Pinetree CC 90-day founding-partner deployment, Q1 2024. Average post-round F&B spend lost during documented slow rounds (19% conversion drop × $163 avg group check).
