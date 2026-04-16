@@ -10,7 +10,7 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
       title="A real-time cockpit for every department."
-      subtitle="Stop trying to rip-and-replace your legacy software. Swoop sits directly on top of your existing stack — continuously correlating Jonas, Northstar, ForeTees, and your CRM — to catch bottlenecks no single platform can see. Watch it work:"
+      subtitle="Legacy systems are siloed by design. Jonas sees dining transactions. ForeTees sees golf rounds. Northstar sees complaints — but none of them talk to each other. Swoop sits above your entire stack, connecting the cross-domain signals that single-system vendors structurally can't correlate. Watch it catch what they miss:"
     >
       <AgentsLiveDemo />
 

@@ -208,12 +208,12 @@ export const agents = [
   {
     icon: 'Radar',
     name: 'Demand Optimizer',
-    description: 'Balances waitlist demand, cancellation prediction, and tee sheet fill optimization.',
+    description: 'Balances waitlists and tee sheet gaps to recover lost yield — e.g., re-booking 3 cancelled tee times recovers $450 in F&B spend that would have walked out the door.',
   },
   {
     icon: 'ChefHat',
     name: 'Service Recovery',
-    description: 'Surfaces unresolved complaints and drafts recovery actions before resignation windows close.',
+    description: 'Drafts personalized recovery actions for unresolved complaints — e.g., comping a $14 round of drinks to save a $12K/yr membership before the 30-day window closes.',
   },
   {
     icon: 'UsersRound',
@@ -305,11 +305,13 @@ export const pricingTiers = [
       'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
     features: [
       'Everything in Signals',
-      'Real-Time Operational Cockpit (see today\'s tee sheet, staffing, and pace live — replaces 4 daily system logins)',
-      'Cross-Domain Morning Briefing (mobile-ready, delivered to inbox at 6 AM, read in under 60s)',
-      '1-click action approval (human in the loop — you stay in total control)',
+      'Replaces 4 morning system logins with 1 ranked daily action list',
+      'Real-Time GM Cockpit — see tee sheet, staffing, and pace live',
+      'Cross-Domain Morning Briefing (mobile-ready, 6 AM, read in under 60s)',
+      '1-click action approval — human in the loop, you stay in total control',
       'Pace-of-play to dining conversion alerts',
-      'Flawless service consistency execution',
+      'Service consistency execution across F&B and Golf',
+      'Action History Log — full audit trail of every approved action',
       '1-Click Board Report Generator',
       'Up to 10 integrations',
       'Priority support',
@@ -377,9 +379,9 @@ export const faqItems = [
       'At 7:00 AM, you receive a mobile-friendly Cross-Domain Morning Briefing. It highlights the 1–3 members who need attention today and suggests the exact staffing adjustments needed for today\'s F&B volume — based on your real tee sheet and POS data. Review in 60 seconds, approve actions with one tap, and start your day.',
   },
   {
-    question: "Why can't my existing Jonas or Northstar system do this?",
+    question: "Why can't my existing POS or tee sheet give me these insights?",
     answer:
-      'POS systems only see transactions; tee sheets only see golf. By themselves, they can\'t spot the correlation between a slow 5-hour round on Tuesday and a canceled dining reservation on Saturday. Swoop connects these siloed systems via API to catch "quiet resignation" and pace-of-play F&B leakage that single-vendor reports structurally miss.',
+      "Because they don't talk to each other. Jonas knows what members eat. ForeTees knows when they play. Northstar knows who complained. But none of them share a timeline — so when a member's rounds drop, then dining stops, then they go quiet, no single system sees the full decay sequence. Swoop is the only platform that correlates cross-domain data in real time to spot hidden churn and F&B leakage before it happens.",
   },
   {
     question: "What if I don't have a tee sheet system?",

@@ -5,10 +5,9 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  { label: 'See It', text: 'A preview of your daily Morning Briefing — replacing 4 system logins with one clear list of who to call today and what to do.' },
-  { label: 'Fix It', text: 'A ranked list of your top 5 revenue leakage gaps — including the $31/round lost when pace-of-play bottlenecks cut dining conversions.' },
-  { label: 'Prove It', text: 'A Board-ready Revenue Leakage Report — exact operational blind spots, F&B staffing vs. pace-of-play correlations, formatted for your finance committee.' },
-  { label: null, text: 'Benchmarks vs. our 7 founding-partner clubs (under mutual NDA — your club not identified).' },
+  { label: 'See It', text: 'A ranked list of your top 5 member retention risks and a preview of your real-time action queue — where Swoop recommends, but the GM always approves.' },
+  { label: 'Fix It', text: 'Benchmarks vs. the 7 founding-partner clubs (anonymized, under mutual NDA — your club not identified).' },
+  { label: 'Prove It', text: 'A Board-ready Revenue Leakage Report — discover where F&B margin is hiding, including the $31 lost in dining per slow round of slow pace-of-play.' },
 ];
 
 function ContactHeroPanel() {
@@ -40,7 +39,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          Because no single software vendor sees the whole picture, the quiet resignation goes undetected: tee times start dropping, then dining stops, then the renewal doesn't come. Swoop connects the data between your tee sheet, POS, and CRM to track this full decay sequence. In 30 minutes, we show you exactly who is quietly disengaging — using your club's real data, not a generic demo. You leave with a prioritized action list, not a pitch deck.
+          Stop checking 4 separate systems to piece together your morning briefing. We give you a real-time cockpit — connecting your tee sheet and POS to reveal the hidden correlations that siloed systems structurally miss. We catch the first domino of member disengagement (email opens drop, then tee times slip, then dining stops) before anyone resigns. In 30 minutes, we show you exactly who is quietly disengaging using your club's real data — not a generic demo. You leave with a prioritized action list (who to call today, which tee times to adjust), not a pitch deck.
         </p>
         <p
           style={{

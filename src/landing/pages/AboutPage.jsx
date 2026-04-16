@@ -138,6 +138,9 @@ export default function AboutPage() {
                   With Swoop, that same member surfaces on a Tuesday — 6 weeks before she makes the call. Her rounds are down 40%, her dining visits stopped two months ago, her complaint from March was never followed up. The agent drafts a callback script and <strong style={{ color: theme.neutrals.ink }}>texts it to the GM for approval in 90 seconds — Tyler taps approve from the golf course.</strong> He calls. She mentions the complaint, he addresses it, and offers a complimentary guest pass for her and her daughter. She renews. That's a <strong style={{ color: '#B8600E' }}>$14,400 save</strong> — from one tap.
                 </p>
               </div>
+              <p style={{ margin: 0, fontSize: 14, color: theme.colors.textSecondary, borderLeft: '3px solid #F3922D', paddingLeft: 14, lineHeight: 1.65 }}>
+                <strong style={{ color: theme.neutrals.ink }}>Swoop recommends. You decide.</strong> The system drafts the playbook and formats the Board Report automatically — but no action is taken without your explicit GM approval. Every action is logged and reversible.
+              </p>
 
               <p style={{ margin: 0 }}>
                 We built Swoop to be the analyst most clubs can't afford to hire: one system that reads your tee sheet, your POS, and your CRM before you open your laptop — and tells you exactly who needs a call, what to say, and what it's worth.

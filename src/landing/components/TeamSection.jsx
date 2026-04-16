@@ -14,7 +14,7 @@ const team = [
     title: 'Co-founder & CTO',
     priorRole: 'Former Hospitality Data Lead, tech operations (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
-    bio: 'Eight years building cross-domain intelligence in hospitality tech. I translated 12 months of club-specific behavioral baselines into the predictive engine that powers your morning briefing — connecting the dots between tee times, dining spend, and member lifetime value.',
+    bio: 'Eight years turning complex hospitality data into operational playbooks. I built the correlation engine on 12 months of club-specific behavioral data — connecting the dots between tee times, dining spend, and member lifetime value. That\'s what powers your morning briefing.',
   },
   {
     name: 'Alex Chen',

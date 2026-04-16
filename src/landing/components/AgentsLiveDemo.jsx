@@ -473,7 +473,7 @@ export default function AgentsLiveDemo() {
     </div>
 
     <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.70)', textAlign: 'center', marginTop: 24, fontStyle: 'italic', background: 'rgba(255,255,255,0.06)', borderRadius: 8, padding: '10px 20px', display: 'inline-block', margin: '24px auto 0', width: 'fit-content', border: '1px solid rgba(255,255,255,0.08)' }}>
-      Dollar values reflect actual outcomes from the Pinetree CC Q3 2023 founding-partner deployment (300-member club, 90 days). Service failure formula: 30 at-risk covers × $106 avg dining ticket = $3,180 (rounded to $3.2K); based on 18% walkout rate at 12:1 cover-to-staff ratio. Pace of Play $31/round: 19% dining conversion drop × $163 avg F&B check for a 4-player group = $30.97. Member Health Score values reflect average annual dues at a 300-member equity club.
+      Dollar values reflect actual outcomes from the Pinetree CC Q3 2023 founding-partner deployment (300-member club, 90 days). Service failure formula: 30 at-risk covers × $106 avg dining ticket = $3,180 (rounded to $3.2K); based on 18% walkout rate at 12:1 cover-to-staff ratio. Pace of Play $31/round: 19% dining conversion drop × $163 avg F&B check for a 4-player group = $30.97. 6.4-week early warning: measured against prior manual churn reporting cycle (quarterly 90-day zero-spend POS report), not against the resignation date. Member Health Score values reflect average annual dues at a 300-member equity club.
     </p>
     <div style={{ textAlign: 'center', marginTop: 16 }}>
       <p style={{ fontSize: 17, color: theme.colors.textSecondary, margin: '0 0 16px' }}>
