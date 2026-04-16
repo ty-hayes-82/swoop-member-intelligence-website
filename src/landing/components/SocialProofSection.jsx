@@ -16,10 +16,10 @@ const metricCards = [
     description: 'Identified the correlation between Hole 12 pace delays (>4.5hrs) and zero post-round F&B spend — surfaced by cross-referencing tee sheet and POS data that each system keeps in a separate silo.',
   },
   {
-    title: 'Staffing & Margin Lift',
-    metric: '$312',
-    subtitle: 'Avg revenue per slot with demand intelligence',
-    description: 'Increased from $187 reactive average. Also surfaced: correlating Saturday weather forecasts with historical tee sheet demand — automatically recommending one extra F&B server before the lunch rush, protecting margin on high-volume days.',
+    title: 'Saturday Staffing Playbook',
+    metric: '$9,580',
+    subtitle: 'avg monthly F&B leakage recovered via dynamic staffing',
+    description: 'Swoop cross-referenced Saturday tee sheet demand + weather forecasts against F&B capacity — flagging the 42-minute Hole 12 bottleneck that suppressed dining conversion from 41% to 22%. One extra server deployed before the lunch rush protected full-margin covers.',
   },
   {
     title: 'Dues at Risk Visibility',

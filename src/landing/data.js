@@ -356,7 +356,7 @@ export const faqItems = [
   {
     question: 'Does this work with Jonas / ClubEssentials?',
     answer:
-      'Yes — and all four of our founding-partner clubs run on Jonas. Today, Swoop connects via CSV export from Jonas (standard reports, no IT required). Your data is in Swoop in under 10 minutes. Native Jonas API sync is on our near-term roadmap. If you\'re on ClubEssential, ForeUP, or another system, ask us — we support 28 platforms across 10 categories.',
+      'Yes. Swoop does not replace your POS or tee sheet — it acts as an intelligence layer on top of them. We use a 100% read-only connection — Swoop never overwrites your data or modifies your database. All four of our founding-partner clubs run on Jonas. We connect via CSV export today (no IT required, live in under 10 minutes). If you\'re on ClubEssential, ForeUP, Northstar, or another system, ask us — we support 28 platforms across 10 categories.',
   },
   {
     question: 'My club is on a 3-year Jonas contract — can I still use Swoop?',
@@ -369,11 +369,6 @@ export const faqItems = [
       'Most GMs start on the free tier and get board buy-in using the first Saturday brief. The data speaks for itself.',
   },
   {
-    question: 'Who owns the data if we leave?',
-    answer:
-      'You do, always. Data export provided within 5 business days. All club data deleted within 30 days of cancellation on request.',
-  },
-  {
     question: 'Do I need to replace my current software?',
     answer:
       'No. Swoop sits on top of your existing systems to find the blind spots they miss — like how a slow round on ForeTees causes lost dining revenue in Jonas. We connect via API and support 35+ integrations across 8 categories.',
@@ -382,11 +377,6 @@ export const faqItems = [
     question: 'What does my morning routine look like with Swoop?',
     answer:
       'At 7:00 AM, you receive a mobile-friendly Cross-Domain Morning Briefing. It highlights the 1–3 members who need attention today and suggests the exact staffing adjustments needed for today\'s F&B volume — based on your real tee sheet and POS data. Review in 60 seconds, approve actions with one tap, and start your day.',
-  },
-  {
-    question: "Why can't my existing POS or tee sheet give me these insights?",
-    answer:
-      "Because they don't talk to each other. Jonas knows what members eat. ForeTees knows when they play. Northstar knows who complained. But none of them share a timeline — so when a member's rounds drop, then dining stops, then they go quiet, no single system sees the full decay sequence. Swoop is the only platform that correlates cross-domain data in real time to spot hidden churn and F&B leakage before it happens.",
   },
   {
     question: "What if I don't have a tee sheet system?",

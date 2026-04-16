@@ -125,21 +125,15 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
 
             {/* What happens next */}
             <div style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.05)', borderRadius: 16, border: '1px solid rgba(255,255,255,0.08)', fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>
-              <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 6 }}>How the 30-minute pilot works:</strong>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: '0 0 10px', lineHeight: 1.5 }}>We don't replace your systems; we sit on top of them to connect the dots.</p>
-              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2 }}>
-                <li>We confirm your slot within 1 business day</li>
+              <strong style={{ fontSize: 14, color: '#FFFFFF', display: 'block', marginBottom: 6 }}>What happens next:</strong>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: '0 0 10px', lineHeight: 1.5 }}>We don't replace your systems — Swoop adds intelligence on top. Keep Jonas. Keep your tee sheet.</p>
+              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2.1 }}>
+                <li>We confirm your slot within 1 business day.</li>
                 <li>
-                  Keep your Jonas or Northstar. We safely sit on top to find the revenue they miss.{' '}
-                  <strong style={{ color: '#F3922D' }}>Zero IT required.</strong>
-                  <span style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 4 }}>
-                    Safe pilot — zero write-access to financial records. Reversible and secure.
-                  </span>
+                  We connect to your POS/tee sheet. <strong style={{ color: '#F3922D' }}>Zero IT required.</strong> Read-only access, approved by your admin in 2 minutes. Swoop never replaces your stack.
                 </li>
-                <li style={{ color: '#FFFFFF', fontWeight: 600 }}>You stay in control. Every system action is logged, reversible, and requires your explicit GM approval before anything touches a member.</li>
-                <li>30-min call — you leave with a prioritized Revenue Leakage report and a board-ready ROI preview.</li>
-                <li>Go Live — your Morning Briefing arrives daily at 6 AM. Review 3 curated member and service alerts, approve actions with two taps. Average GM time: 4 minutes.</li>
-                <li style={{ color: '#F3922D', fontWeight: 600 }}><strong style={{ color: '#FFFFFF' }}>Daily Cockpit Execution</strong> — Keep insights flowing in one unified morning view. <strong style={{ color: '#FFFFFF' }}>100% GM Control:</strong> Swoop recommends actions, but only executes with your 2-tap approval. Snooze alerts, edit scripts, or dismiss flags instantly.</li>
+                <li style={{ color: '#FFFFFF', fontWeight: 600 }}>30-min walkthrough — you keep the prioritized Revenue Leakage report regardless of what you decide.</li>
+                <li><strong style={{ color: '#F3922D' }}>Daily Execution:</strong> Your Morning Briefing arrives at 6 AM. Review flagged actions in under 60 seconds with 2-tap GM approval. Full audit trail and 1-click undo on every action.</li>
               </ol>
             </div>
 

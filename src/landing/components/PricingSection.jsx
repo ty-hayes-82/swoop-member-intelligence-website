@@ -136,8 +136,11 @@ function PricingCard({ tier, onCtaClick }) {
             </div>
           </div>
           <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px' }}>
+            <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: '0 0 8px' }}>
+              "Alert: 42-min backup at Hole 12 · Sat lunch rush incoming. Dining conversion dropping to 22% vs 41% baseline — $31/round at risk for 200+ rounds today."
+            </p>
             <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: 0 }}>
-              "Alert: Saturday pace of play is 4h45m. Suggested action: Shift 1 extra server to the turn grill to prevent service bottlenecks and protect $31/round in dining conversion."
+              Suggested action: Deploy beverage cart to Hole 13 tee box + alert F&B to hold 6 tables for post-round wave.
             </p>
           </div>
           <p style={{ fontSize: 11, color: '#6b7280', lineHeight: 1.55, margin: '6px 0 0' }}>
@@ -194,6 +197,11 @@ export default function PricingSection({ onCtaClick }) {
       subtitle="Choose the plan that fits your team's bandwidth."
     >
       <style>{pricingMobileStyles}</style>
+
+      {/* ROI anchor — context before pricing cards */}
+      <p style={{ textAlign: 'center', fontSize: 16, color: theme.colors.textSecondary, margin: '0 0 10px', maxWidth: 560, marginInline: 'auto' }}>
+        Pays for itself the day you save a single $32K LTV member — or plug one Saturday lunch leak.
+      </p>
 
       {/* Trust bar — IT objection handled before buyer sees pricing */}
       <div style={{ maxWidth: 600, margin: '0 auto 32px', background: 'rgba(243,146,45,0.08)', border: '1px solid rgba(243,146,45,0.25)', borderRadius: 10, padding: '14px 20px', textAlign: 'center' }}>

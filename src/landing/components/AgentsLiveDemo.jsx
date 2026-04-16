@@ -422,20 +422,27 @@ export default function AgentsLiveDemo() {
                 {current.impactLabel}
               </div>
             </div>
-            <div
-              title={current.impactNote}
-              style={{
-                fontSize: 32,
-                fontWeight: 800,
-                fontFamily: theme.fonts.mono,
-                color: theme.colors.accent,
-                letterSpacing: '-0.02em',
-                lineHeight: 1,
-                cursor: current.impactNote ? 'help' : 'default',
-                borderBottom: current.impactNote ? '1px dashed rgba(243,146,45,0.5)' : 'none',
-              }}
-            >
-              {current.impact}
+            <div style={{ textAlign: 'right' }}>
+              <div
+                title={current.impactNote}
+                style={{
+                  fontSize: 32,
+                  fontWeight: 800,
+                  fontFamily: theme.fonts.mono,
+                  color: theme.colors.accent,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1,
+                  cursor: current.impactNote ? 'help' : 'default',
+                  borderBottom: current.impactNote ? '1px dashed rgba(243,146,45,0.5)' : 'none',
+                }}
+              >
+                {current.impact}
+              </div>
+              {current.impactNote && (
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.40)', marginTop: 4, fontFamily: theme.fonts.mono, textDecoration: 'underline', textDecorationStyle: 'dotted', cursor: 'help' }} title={current.impactNote}>
+                  view calculation ↗
+                </div>
+              )}
             </div>
           </div>
         </div>

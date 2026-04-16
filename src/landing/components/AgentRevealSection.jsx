@@ -3,11 +3,11 @@ import { SectionShell, Card } from '@/landing/ui';
 
 const narrativeBlocks = [
   {
-    time: 'The Morning',
+    time: 'The First Domino',
     agents: 'For the General Manager',
-    headline: 'Before you open your laptop, your brief is ready.',
-    outcome: '6 hrs of spreadsheet work → three decisions before 7 AM.',
-    callout: '> $18K dues at risk. Call James Whitfield before 10:15 AM.',
+    headline: 'We catch the quiet resignation sequence.',
+    outcome: 'A $32K LTV member stops opening emails, skips golf, then skips dining. Flagged 6 weeks before the resignation letter arrives — when there\'s still time to intervene.',
+    callout: '> $32K member at risk. Email drop + 18 days POS silent. Call James Whitfield today.',
   },
   {
     time: 'The Member',

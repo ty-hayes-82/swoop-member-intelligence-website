@@ -1,3 +1,4 @@
+import { FileBarChart } from 'lucide-react';
 import { theme } from '@/config/theme';
 import { agents } from '@/landing/data';
 import { SectionShell, Card, IconBadge } from '@/landing/ui';
@@ -60,6 +61,37 @@ export default function AgentsSection() {
             </div>
           </Card>
         ))}
+      </div>
+
+      {/* Board Report — "Prove It" climax */}
+      <div style={{
+        marginTop: 16,
+        background: '#FFFFFF',
+        border: '2px solid rgba(243,146,45,0.35)',
+        borderRadius: 16,
+        padding: '20px 24px',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 20,
+        boxShadow: '0 4px 20px rgba(243,146,45,0.1)',
+      }}>
+        <div style={{
+          flexShrink: 0, width: 48, height: 48,
+          background: 'rgba(243,146,45,0.12)',
+          borderRadius: 12,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <FileBarChart size={24} color={theme.colors.accent} />
+        </div>
+        <div style={{ flex: 1 }}>
+          <h3 style={{ fontSize: 17, fontWeight: 700, color: theme.neutrals.ink, margin: '0 0 4px' }}>
+            One-Click Board Reports
+          </h3>
+          <p style={{ fontSize: 14, color: theme.colors.textSecondary, margin: 0, lineHeight: 1.55 }}>
+            Stop managing spreadsheets before committee meetings. Generate a pre-structured, 4-tab ROI report — dues protected, F&B margin recaptured, service failures avoided, and what you learned. Give your finance committee the exact numbers they demand. <strong style={{ color: '#B8600E' }}>Proves the value of every action Swoop recommended.</strong>
+          </p>
+        </div>
       </div>
     </SectionShell>
   );

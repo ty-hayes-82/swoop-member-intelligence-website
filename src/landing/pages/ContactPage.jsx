@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  { label: 'A Member Health Score for every active member', text: 'Computed across golf, dining, email, and event data — ranked by retention urgency. Your top 5 at-risk members surfaced before your first meeting of the day.' },
-  { label: "A ranked list of your top 5 'Quiet Resignation' risks", text: 'Catching the first domino when a member stops opening emails, cancels tee times, and drops dining spend — weeks before any single system flags it.' },
-  { label: 'A Board-ready Revenue Leakage Report (generated in 1-click)', text: 'Surfacing exact blind spots — like the $31 in lost dining revenue per slow round — calculated by matching your tee sheet to same-day POS data. Average founding-partner club: $9,580/month in recoverable F&B.' },
-  { label: 'Your data under mutual NDA', text: 'We never share club data across engagements. Data deleted within 30 days if you don\'t move forward — no request required.' },
+  { label: 'A ranked list of your top 5 member retention and revenue leakage gaps', text: 'Computed across golf, dining, email, and event data — ranked by dollar impact. Your highest-risk members surfaced before your first meeting of the day.' },
+  { label: 'Benchmarks vs. 7 founding-partner clubs (anonymized)', text: 'F&B utilization vs. rounds played, dining conversion rates, and pace-of-play impact — compared to clubs your size so you know exactly where you stand.' },
+  { label: 'A Board-ready Revenue Leakage Report', text: 'Exact operational blind spots — like the $31 in lost dining revenue per slow round — calculated by cross-referencing your tee sheet against same-day POS data. Average founding-partner club: $9,580/month in recoverable F&B.' },
+  { label: 'A preview of your new daily cockpit', text: 'See how you\'ll replace 4 separate system logins with a single 60-second morning briefing — Member Health Scores, F&B alerts, and staffing flags, all in one ranked view.' },
 ];
 
 function ContactHeroPanel() {
