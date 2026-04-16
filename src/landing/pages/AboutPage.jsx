@@ -9,7 +9,7 @@ import { theme } from '@/config/theme';
 
 const ABOUT_FAQ_QUESTIONS = new Set([
   'Does this work with Jonas / ClubEssentials?',
-  "Is my members' data secure?",
+  "Is our club's data secure?",
   'How long until we\'re live?',
   'Can we cancel and keep our data?',
   'Can I try it before committing?',

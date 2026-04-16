@@ -156,7 +156,7 @@ export default function HeroSection({ onDemoClick }) {
           }}
         >
           Your tee sheet, POS, and CRM don't talk to each other. <br />
-          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Swoop does — and briefs you every morning at 6 AM.</em>
+          <em style={{ color: theme.colors.accent, fontStyle: 'italic' }}>Swoop correlates them — revealing your complete Member Health Score every morning at 6:15 AM.</em>
         </h1>
 
         {/* Subheadline */}
@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          Total visibility into your member experience and daily operations. Every signal filtered down to the <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>3 decisions that matter</strong>, delivered securely to your phone at 6:00 AM — before the first tee time.
+          Total visibility into your member experience and daily operations. Every signal filtered down to the <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>3 decisions that matter</strong>, delivered securely to your inbox at 6:15 AM — before the first tee time. One-click undo on every action keeps you in total control.
         </p>
 
         {/* CTAs */}

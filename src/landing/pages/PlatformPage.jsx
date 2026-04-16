@@ -12,7 +12,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Keep your POS and tee sheet. Add an intelligence layer that connects them overnight. Replace 4 daily system logins with one dashboard showing exactly who's drifting, why, and the exact move to make."
+          subtitle="Keep your POS and tee sheet. Add an intelligence layer that connects them overnight. A daily Member Health Score showing exactly who's drifting, why, and the exact move to make."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
@@ -20,7 +20,7 @@ export default function PlatformPage() {
                 <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional 90-day trailing non-usage reports by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> — on average, across founding-partner clubs.
+                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than waiting for 90-day zero-spend POS reports — by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> that tracks behavior across every system, not just one. On average, across founding-partner clubs.
               </p>
             </>
           }
@@ -121,13 +121,13 @@ export default function PlatformPage() {
       </div>
 
       <div id="pricing">
-        <SectionShell band="dark" size="sm">
+        <SectionShell band="dark" size="sm" eyebrow="PROVE IT · THE MONTHLY BOARD REPORT">
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.15 }}>
               Stop managing spreadsheets. Start protecting your dues.
             </div>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, margin: '0 auto 24px', maxWidth: 480 }}>
-              Give us 30 minutes. We'll show you how Swoop generates a 4-tab, board-ready ROI report in one click — paying for itself before your first board meeting of the quarter.
+              Give us 30 minutes. We'll show you how Swoop pays for itself — and automatically writes your 4-tab monthly board ROI report — before the end of the quarter.
             </p>
             <Button size="lg" onClick={toDemoPage}>
               Book the walkthrough →

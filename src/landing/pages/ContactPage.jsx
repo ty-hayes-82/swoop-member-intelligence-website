@@ -5,10 +5,11 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A 60-second daily morning briefing replacing 4 logins, featuring a daily Member Health Score ranking your top 5 at-risk members — identifying $100k+ in collective dues at risk.',
-  'A Board-ready Revenue Leakage Report — proving cross-domain blind spots like the $31 in lost F&B revenue for every slow round on your course.',
+  'A 60-second daily morning briefing replacing 4 logins — a daily Member Health Score ranking your top 5 at-risk members and identifying $100k+ in collective dues at risk.',
+  'A Board-ready Revenue Leakage Report — quantifying exactly how pace-of-play and weather demand cost you F&B conversions (e.g., $31 lost in dining revenue per slow round).',
+  'A preview of your Saturday Morning Briefing — replacing 4 system logins with a single 60-second view of your top operational gaps, delivered to your inbox at 6:15 AM.',
   'Benchmarks vs. our 2025 cohort of 7 founding-partner clubs (anonymized, your club not identified).',
-  'Intelligence you control. You leave with a prioritized action list featuring zero automated execution. Never share club data without mutual NDA.',
+  'Intelligence you control. You leave with a prioritized action list featuring zero automated execution. Club data never shared without mutual NDA.',
 ];
 
 function ContactHeroPanel() {

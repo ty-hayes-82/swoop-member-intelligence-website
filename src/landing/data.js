@@ -293,7 +293,7 @@ export const pricingTiers = [
       'Email support',
     ],
     cta: 'Start on Signals (free)',
-    technical: '1 integration, daily refresh, 30-day retention, 1 seat',
+    technical: '1 integration, daily refresh, 30-day data lookback, 1 seat',
   },
   {
     name: 'Signals + Actions',
@@ -304,15 +304,16 @@ export const pricingTiers = [
       'Signals tells you who\'s at risk. Actions tells you exactly what to do: the callback script, comp offer, and staffing shift — in plain English. Your team acts, not sorts.',
     features: [
       'Everything in Signals',
-      'Intelligence drafts the response',
-      'Cross-Domain Morning Briefing',
-      'Automated Board Report Generator',
+      'Real-Time Operational Cockpit: Cross-Domain Morning Briefing (delivered to your inbox at 6 AM — replaces 4 daily system logins)',
+      'Intelligence drafts the response (1-click manual approval via email/text — you stay in total control)',
+      'Automated staffing & weather correlation alerts',
+      '1-Click Board Report Generator',
       'Retention-prioritized waitlist routing',
       'Up to 10 integrations',
       'Priority support',
     ],
     cta: 'Book the 30-minute walkthrough',
-    technical: '4 integrations, hourly refresh, 12-month retention, 5 seats, CSV export',
+    technical: '4 integrations (POS + Tee Sheet + Email + CRM), hourly refresh, 12-month data lookback, 5 seats, CSV export',
   },
   {
     name: 'Signals + Actions + Enterprise',
@@ -366,7 +367,7 @@ export const faqItems = [
   {
     question: 'Do I need to replace my current software?',
     answer:
-      'No. Swoop sits on top of your existing systems and connects via API. We support 28 integrations across 10 categories.',
+      'No. Swoop sits on top of your existing systems to find the blind spots they miss — like how a slow round on ForeTees causes lost dining revenue in Jonas. We connect via API and support 35+ integrations across 8 categories.',
   },
   {
     question: "Why can't my existing Jonas or Northstar system do this?",
@@ -379,9 +380,9 @@ export const faqItems = [
       "You can still use Swoop's member intelligence, F&B, and staffing capabilities with manual data entry or CSV import. Tee sheet analytics activate when you connect a supported booking system.",
   },
   {
-    question: "Is my members' data secure?",
+    question: "Is our club's data secure?",
     answer:
-      'Yes. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never commingled with other clubs or shared with any third party.',
+      'Yes. Swoop operates on read-only API access. Your data is isolated per club, encrypted at rest (AES-256) and in transit (TLS 1.3). It is never commingled with other clubs, used to train external systems, or shared with any third party.',
   },
   {
     question: 'Can I try it before committing?',

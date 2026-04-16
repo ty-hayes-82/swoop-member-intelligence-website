@@ -14,7 +14,7 @@ const team = [
     title: 'Co-founder & CTO',
     priorRole: 'Former Hospitality Data Lead, tech operations (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
-    bio: 'Eight years turning complex hospitality data into clear operational signals. I mapped the 12 months of club-specific behavioral playbooks that power the Swoop daily briefing.',
+    bio: 'Eight years building data intelligence in hospitality tech. I mapped 12 months of club-specific behavioral patterns to build the engine that spots your at-risk members before they leave.',
   },
   {
     name: 'Alex Chen',

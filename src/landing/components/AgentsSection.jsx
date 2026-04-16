@@ -8,9 +8,9 @@ export default function AgentsSection() {
     <SectionShell
       id="agents"
       band="cream"
-      eyebrow="FIX IT · LAYER 3 INTELLIGENCE"
-      title="Your real-time cockpit. Catch service gaps before they happen."
-      subtitle="Swoop continuously cross-references signals from your POS, tee sheet, CRM, and billing system — whether you use Jonas, ForeTees, Northstar, or a mix — to spot cross-domain patterns no human could catch in real time. Your POS doesn't talk to your tee sheet; Swoop connects them and drafts specific, human-reviewable actions. Watch it work:"
+      eyebrow="FIX IT · ONE-TAP ACTIONS"
+      title="A real-time cockpit for your entire operation."
+      subtitle="These aren't static alerts. Swoop constantly cross-references live signals from Jonas, ForeTees, Northstar, and your CRM to spot operational gaps no single platform can see natively — then drafts a specific, human-reviewable action. Watch it work:"
     >
       <AgentsLiveDemo />
 

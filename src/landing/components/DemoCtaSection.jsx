@@ -106,7 +106,8 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                     Safe pilot — zero write-access to financial records. Reversible and secure.
                   </span>
                 </li>
-                <li>30-min call — you keep the prioritized action list and a board-ready ROI preview regardless. Post-pilot, your Top 5 actions arrive daily in your Morning Cockpit for two-tap approval.</li>
+                <li>30-min call — you leave with a prioritized Revenue Leakage report and a board-ready ROI preview.</li>
+                <li>Go Live — your Morning Briefing arrives daily at 6:15 AM. Review 3 curated member and service alerts, approve actions with two taps. Average GM time: 4 minutes.</li>
               </ol>
             </div>
 
