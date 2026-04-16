@@ -17,8 +17,8 @@ const touchpoints = [
     systems: 'Round end · dining trigger · 0 staff keystrokes',
     headline: 'Round ends. Dining fills. Zero effort.',
     story:
-      'James finishes his round. His phone buzzes: "Great round. Booth 12 is open and Chef\'s doing the ribeye special. Want me to hold it for twenty minutes?" He taps "Hold it." The reservation is made.',
-    how: 'Swoop detected the round ending, checked dining history, confirmed availability, and sent a personalized nudge — zero staff input.',
+      'James finishes his round. The F&B Director taps \'Approve\' on Swoop\'s pre-drafted text. James\'s phone buzzes: "Great round, James. Booth 12 is open and Chef\'s doing the ribeye special. Want me to hold it?" He taps "Hold it." The reservation is made.',
+    how: 'Swoop detected the round ending, checked dining history, drafted the message — and sent it only after the F&B Director\'s one-tap approval.',
   },
   {
     num: '03',

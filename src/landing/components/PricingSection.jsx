@@ -125,13 +125,20 @@ function PricingCard({ tier, onCtaClick }) {
         </>
       )}
       {tier.price === '$499/mo' && (
-        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16 }}>
-          <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: '0 0 10px' }}>
-            "Alert: The Smith family played 3 rounds but skipped post-round dining due to 5-hour pace. Suggested action: Offer complimentary appetizers on next visit."
-          </p>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(243,146,45,0.15)', paddingTop: 10 }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: '#B8600E' }}>Impact: $8,000 dues at risk</span>
-            <span style={{ fontSize: 11, fontWeight: 700, color: '#F3922D', background: 'rgba(243,146,45,0.15)', padding: '3px 10px', borderRadius: 4 }}>✓ Approve &amp; Send Draft</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
+          <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px' }}>
+            <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: '0 0 10px' }}>
+              "Alert: The Smith family played 3 rounds but skipped post-round dining due to 5-hour pace. Suggested action: Offer complimentary appetizers on next visit."
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(243,146,45,0.15)', paddingTop: 10 }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: '#B8600E' }}>Impact: $8,000 dues at risk</span>
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#F3922D', background: 'rgba(243,146,45,0.15)', padding: '3px 10px', borderRadius: 4 }}>✓ Approve &amp; Send Draft</span>
+            </div>
+          </div>
+          <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px' }}>
+            <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: 0 }}>
+              "Alert: Saturday pace of play is 4h45m. Suggested action: Shift 1 extra server to the turn grill to prevent service bottlenecks and protect $31/round in dining conversion."
+            </p>
           </div>
         </div>
       )}

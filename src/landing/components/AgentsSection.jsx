@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="FIX IT · CROSS-DOMAIN INTELLIGENCE"
-      title="Guarantee service consistency and protect F&B margins."
-      subtitle="Swoop continuously cross-references signals from your POS, tee sheet, CRM, and billing system to spot the patterns human operators miss. Your Jonas sees dining. Your ForeTees sees golf. Neither talks to the other. Swoop sits above both — and when a risk or F&B revenue leak is detected, it drafts a specific, human-reviewable action. Watch it work:"
+      title="A real-time cockpit for your entire operation."
+      subtitle="Your Jonas POS can't see your ForeTees tee sheet, and your Northstar CRM can't see your dining room. Swoop connects your existing silos to find the revenue leaks hidden between your systems — drafting exact service moves for your approval. Watch it work:"
     >
       <AgentsLiveDemo />
 

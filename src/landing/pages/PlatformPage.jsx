@@ -33,7 +33,7 @@ export default function PlatformPage() {
               <Button size="lg" onClick={toDemoPage} style={{ background: '#F3922D', color: '#0A0F0D', border: 'none' }}>
                 Book a 30-Min Walkthrough →
               </Button>
-              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>Takes 2 minutes. No credit card required.</span>
+              <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>Takes 2 minutes. No credit card required. Adds to your existing software — <strong style={{ color: 'rgba(255,255,255,0.65)' }}>no rip-and-replace required.</strong></span>
             </div>
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.40)', marginTop: 4, fontFamily: "'JetBrains Mono', monospace" }}>
               At a $32K average member LTV, one retention saves more than 5 years of Swoop.

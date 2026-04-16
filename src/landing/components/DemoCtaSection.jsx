@@ -89,6 +89,9 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club
               </p>
+              <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 4, fontStyle: 'italic' }}>
+                $32K reflects primary dues, spousal add-ons, and annual F&amp;B minimums for a 4-member household.
+              </p>
               <div style={{ marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.10)', display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                 <span style={{ color: '#F3922D', fontSize: 16, flexShrink: 0, marginTop: 1 }}>🛡</span>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.5 }}>

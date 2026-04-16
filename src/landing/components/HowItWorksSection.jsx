@@ -161,7 +161,7 @@ export default function HowItWorksSection() {
       band="paper"
       eyebrow="SEE IT · THE SATURDAY BRIEFING"
       title="The daily brief, written overnight."
-      subtitle="Every morning at 6:00 AM, Swoop delivers a ranked list of members to call, slots to backfill, and service moves to make — securely to your inbox or phone, with the math behind each recommendation. Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — catching the quiet resignation sequence weeks before any single system notices."
+      subtitle="Every morning at 6:00 AM, Swoop sends a ranked list of members to call, slots to backfill, and service moves to make — directly to your inbox or phone. Clear your brief in 90 seconds before you even reach your office. Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — catching the quiet resignation sequence weeks before any single system notices."
     >
       <div
         style={{

@@ -341,7 +341,7 @@ export const faqItems = [
   {
     question: "Why can't my POS or tee sheet build this?",
     answer:
-      "Your POS sees dining. Your tee sheet sees golf. Neither talks to the other. Single-system vendors are structurally blind to cross-domain correlations — like how a 24-minute pace-of-play delay on Hole 12 impacts post-round dining conversions. Swoop is the only Layer 3 intelligence platform that normalizes data across all your siloed legacy systems to give you a single, unified Member Health Score. Your existing vendors can't do this without access to each other's data — which they don't have and won't share.",
+      "Your POS only sees dining. Your tee sheet only sees golf. Single-system vendors are structurally blind to cross-domain correlations — like calculating exactly how a pace-of-play delay on Hole 12 costs you $31 per round in lost F&B dining conversion (math: 19-point conversion drop × $163 avg F&B check). Swoop connects your existing silos to find the revenue leaks hidden between your systems — giving you a single, unified Member Health Score your vendors can't build without access to each other's data.",
   },
   {
     question: 'Can we cancel and keep our data?',

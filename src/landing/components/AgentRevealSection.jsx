@@ -12,9 +12,9 @@ const narrativeBlocks = [
   {
     time: 'The Member',
     agents: 'For the Membership Director',
-    headline: 'Caught the invisible resignation sequence.',
-    outcome: 'Email opens dropped. Then golf frequency dipped. Caught before the dining room noticed.',
-    callout: '> CRM active. POS 18 days silent. Intervention triggered.',
+    headline: 'Health score dropped Tuesday. Caught before the Thursday tee time.',
+    outcome: 'Email opens dropped. Golf frequency dipped. Dining went silent — caught before any single system noticed the full sequence.',
+    callout: '> CRM active. POS 18 days silent. Golf ↓42%. Intervention triggered.',
   },
   {
     time: 'The Pace',
