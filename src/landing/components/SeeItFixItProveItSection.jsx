@@ -155,7 +155,14 @@ const blocks = [
     headline: 'Every signal. One screen. Before the first tee time.',
     copy: 'Swoop reads your tee sheet, POS, and CRM overnight. By 6 AM, at-risk members are flagged with context — so you act before they churn, not after.',
     memberDisclaimer: true,
-    visual: <MorningBriefingPanel />,
+    visual: (
+      <>
+        <MorningBriefingPanel />
+        <p style={{ fontSize: 11, color: '#888', fontStyle: 'italic', marginTop: 8, lineHeight: 1.5 }}>
+          <strong>$42.2K figure:</strong> Sum of at-risk LTV across 6 agents for a 300-member illustrative club. Member Pulse = 4-yr LTV × churn probability. Revenue Analyst = $31/round × documented slow rounds. Source: Pinetree CC founding-partner deployment, Q1 2024.
+        </p>
+      </>
+    ),
   },
   {
     eyebrow: 'FIX IT',
@@ -219,6 +226,37 @@ export default function SeeItFixItProveItSection() {
                   <p style={{ fontSize: 11, color: '#888', fontStyle: 'italic', marginTop: 8 }}>
                     Composite example based on real Swoop deployments. Member name changed.
                   </p>
+                )}
+                {/* SEE IT: Time-savings callout */}
+                {block.eyebrow === 'SEE IT' && (
+                  <div style={{ marginTop: 16, display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+                    <div style={{ borderLeft: `3px solid ${theme.colors.accent}`, paddingLeft: 12 }}>
+                      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#888', marginBottom: 2 }}>Before Swoop</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: theme.neutrals.ink }}>4 logins · 40 minutes · no answers</div>
+                    </div>
+                    <div style={{ borderLeft: `3px solid ${theme.colors.accent}`, paddingLeft: 12 }}>
+                      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#888', marginBottom: 2 }}>With Swoop</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: theme.neutrals.ink }}>1 briefing · 90 seconds · full clarity</div>
+                    </div>
+                  </div>
+                )}
+                {/* FIX IT: Human-in-the-loop callout */}
+                {block.eyebrow === 'FIX IT' && (
+                  <div style={{ marginTop: 16, background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.25)', borderRadius: 10, padding: '14px 16px' }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: theme.colors.accent, marginBottom: 8 }}>
+                      HUMAN IN THE LOOP — ALWAYS
+                    </div>
+                    <p style={{ margin: '0 0 8px', fontSize: 14, color: theme.neutrals.ink, lineHeight: 1.5, fontWeight: 600 }}>
+                      Swoop recommends. You decide. Nothing fires without your explicit approval.
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      {['Nothing fires without your tap', 'Edit or undo any action in one click', '90-day audit trail — every action logged'].map(item => (
+                        <span key={item} style={{ fontSize: 13, color: theme.colors.textSecondary, display: 'flex', alignItems: 'center', gap: 6 }}>
+                          <span style={{ color: theme.colors.accent, fontWeight: 700 }}>✓</span> {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
               {/* Visual */}

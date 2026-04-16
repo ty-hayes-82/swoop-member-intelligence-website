@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          Most tools show you what happened. Swoop reveals your real-time <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>Member Health Score</strong>, catches the quiet resignation sequence early (email → golf → dining), and tells you exactly what to do — delivered to your inbox at 6 AM.
+          Most tools show you what happened. Swoop reveals your real-time <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>Member Health Score</strong>, catches the quiet resignation sequence early (email → golf → dining → resignation letter), tells you exactly who to call — and drafts the script. You approve in two taps. Board-ready report writes itself.
         </p>
 
         {/* CTAs */}
@@ -217,7 +217,7 @@ export default function HeroSection({ onDemoClick }) {
 
         {/* Trust bullets */}
         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 48 }}>
-          {['4 systems, 1 screen, zero Saturday morning tab-switching', 'Members flagged before they churn', 'Live in under 2 weeks'].map((item) => (
+          {['4 systems, 1 screen, zero Saturday morning tab-switching', 'Members flagged before they churn', 'Board-ready report generated automatically each month', 'Live in under 2 weeks'].map((item) => (
             <span
               key={item}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(255,255,255,0.78)', fontWeight: 500 }}

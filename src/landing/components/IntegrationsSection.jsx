@@ -15,6 +15,31 @@ export default function IntegrationsSection() {
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
         @media (min-width: 640px) { .integrations-list { display: none; } }
       `}</style>
+      {/* Vendor counter-positioning — Layer 3 moat explanation */}
+      <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 14, padding: '20px 24px', marginBottom: 36 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: theme.colors.accent, marginBottom: 10 }}>
+          WHY YOUR CURRENT VENDORS CAN'T DO THIS
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12, marginBottom: 14 }}>
+          {[
+            { vendor: 'Jonas / Club Prophet', sees: 'Tee sheet & dues', blind: 'Dining, email, events' },
+            { vendor: 'Lightspeed / Toast', sees: 'POS & dining', blind: 'Rounds, pace, email' },
+            { vendor: 'Mailchimp / CC', sees: 'Email opens', blind: 'Golf, dining, complaints' },
+          ].map(v => (
+            <div key={v.vendor} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 8, padding: '10px 12px' }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#FFFFFF', marginBottom: 4 }}>{v.vendor}</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', lineHeight: 1.4 }}>
+                <span style={{ color: 'rgba(255,255,255,0.75)' }}>Sees:</span> {v.sees}<br />
+                <span style={{ color: 'rgba(255,255,255,0.45)' }}>Blind to:</span> {v.blind}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55 }}>
+          <strong style={{ color: '#FFFFFF' }}>Swoop reads. Never replaces.</strong> Your Jonas, ForeTees, and Northstar installations stay fully intact. Swoop sits above them as a cross-domain intelligence layer — finding patterns no single vendor can see because each only holds one piece of the picture.
+        </p>
+      </div>
+
       <div style={{ width: '100%', margin: '0 auto 48px' }}>
         <div className="integrations-ring">
           <IntegrationsIllustration />
