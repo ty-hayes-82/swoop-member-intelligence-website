@@ -9,7 +9,7 @@ export default function IntegrationsSection() {
       band="dark"
       eyebrow="Integrations"
       title="Every system your club runs. Connected overnight."
-      subtitle="Cloud or legacy Jonas — our team handles the API mapping. No IT lift on your end."
+      subtitle="We don't replace your systems. We unlock the data trapped inside them. Cloud or legacy Jonas — our team handles the Layer 3 API mapping. No IT lift on your end."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
@@ -53,7 +53,7 @@ export default function IntegrationsSection() {
             margin: '0 0 24px',
           }}
         >
-          28 Integrations Across 10 Categories
+          28 Integrations Across 8 Categories
         </p>
         <div
           style={{

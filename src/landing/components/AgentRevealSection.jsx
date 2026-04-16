@@ -20,8 +20,8 @@ const narrativeBlocks = [
     time: 'The Pace',
     agents: 'For the F&B Director',
     headline: 'Hole 12 backup is cutting post-round dining by 19 points.',
-    outcome: '$31/round recovered. Ranger + F&B alerted in one message.',
-    callout: '> $31/round recovered · dining conversion restored · F&B notified.',
+    outcome: '$31/round recovered* — ranger + F&B alerted in one message.',
+    callout: '> $31/round recovered* · dining conversion restored · F&B notified.',
   },
   {
     time: 'The Floor',
@@ -110,12 +110,15 @@ export default function AgentRevealSection() {
           fontSize: 18,
           fontStyle: 'italic',
           color: 'rgba(255,255,255,0.70)',
-          margin: '32px 0 0',
+          margin: '32px 0 8px',
           lineHeight: 1.5,
         }}
       >
         "Every agent proposes. You decide. The outcome is tracked.{' '}
         <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your operations get sharper.</strong>"
+      </p>
+      <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
+        * $31/round calculated based on average post-round F&B spend converted from at-risk slow rounds. Illustrative pilot data.
       </p>
     </SectionShell>
   );

@@ -201,8 +201,8 @@ function ProveItPanel() {
       </Card>
 
       <p style={{ fontSize: 14, color: theme.colors.textSecondary, marginTop: 20, lineHeight: 1.65 }}>
-        Every signal sourced. Every action approved. Every outcome attributed — and a board-ready
-        deck you forward without rewriting.
+        Every signal sourced. Every action approved. Every outcome attributed — and a 4-tab board-ready
+        deck (Summary, Member Saves, Ops Saves, Insights) you forward without rewriting.
       </p>
       <p style={{ fontSize: 12, color: theme.colors.textMuted, marginTop: 12, fontStyle: 'italic' }}>
         Stats: Pinetree CC founding-partner data · 300 active members · 90-day deployment window

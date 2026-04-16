@@ -54,6 +54,9 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
         >
           {/* Left column — value prop + social proof + next steps */}
           <div>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F3922D', margin: '0 0 12px' }}>
+              PROVE IT · THE BOARD REPORT
+            </p>
             <h2
               style={{
                 fontFamily: "'Fraunces', Georgia, serif",
@@ -69,7 +72,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               See what Swoop would find at your club — in 30 minutes.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
-              Your POS only sees dining. Your tee sheet only sees golf. Swoop connects them to find the $9,580/month leakage hiding in the gaps. Book a live walkthrough using your own data to expose at-risk members and F&amp;B blind spots.
+              Your POS only sees dining. Your tee sheet only sees golf. Swoop connects them to find the $9,580/month leakage hiding in the gaps. Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
               We connect to your tee sheet before the call so you see exactly what Swoop surfaces for a club like yours.

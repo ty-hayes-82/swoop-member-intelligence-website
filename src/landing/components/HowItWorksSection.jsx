@@ -159,7 +159,7 @@ export default function HowItWorksSection() {
   return (
     <SectionShell
       band="paper"
-      eyebrow="THE DAILY BRIEF"
+      eyebrow="SEE IT · THE DAILY MEMBER HEALTH SCORE"
       title="Your morning briefing, written overnight."
       subtitle="Every morning, Swoop hands you a ranked list of members to call, slots to backfill, and service moves to make. A 90-second read that replaces four different software logins."
     >

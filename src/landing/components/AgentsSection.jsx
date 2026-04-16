@@ -8,9 +8,9 @@ export default function AgentsSection() {
     <SectionShell
       id="agents"
       band="cream"
-      eyebrow="Agents"
-      title="Your real-time operations cockpit, crossing all data domains."
-      subtitle="Swoop is the only platform that connects the dots between isolated systems. It securely sits on top of your existing software—continuously correlating live signals across Jonas, Northstar, ForeTees, and your CRM to find the margin leakage single-vendor systems miss. Zero migration. Zero downtime."
+      eyebrow="FIX IT · THE OPERATIONAL COCKPIT"
+      title="Your real-time operational cockpit."
+      subtitle="Why aren't your current dashboards enough? Because Jonas can't see golf habits, and ForeTees can't see dining spend. Swoop sits above your fragmented systems, correlating data no single vendor can see to draft specific, dollar-quantified operational moves. Zero migration. Zero downtime."
     >
       <AgentsLiveDemo />
 
