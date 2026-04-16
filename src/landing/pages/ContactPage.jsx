@@ -1,5 +1,6 @@
 import { theme } from '@/config/theme';
 import DemoCtaSection from '@/landing/components/DemoCtaSection';
+import MorningWorkflowSection from '@/landing/components/MorningWorkflowSection';
 import MobileStickyCta from '@/landing/components/MobileStickyCta';
 import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
@@ -186,6 +187,7 @@ export default function ContactPage() {
       <main>
         <ErrorBoundary>
           <ContactHeroPanel />
+          <MorningWorkflowSection />
           <DemoCtaSection ctaLabel="Request My 30-Min Walkthrough →" />
           <TechDisclosurePanel />
         </ErrorBoundary>

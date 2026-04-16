@@ -2,6 +2,8 @@ import { theme } from '@/config/theme';
 import LandingShell from '@/landing/LandingShell';
 import RoiCalculatorSection from '@/landing/components/RoiCalculatorSection';
 import PricingSection from '@/landing/components/PricingSection';
+import CrossDomainSection from '@/landing/components/CrossDomainSection';
+import MorningWorkflowSection from '@/landing/components/MorningWorkflowSection';
 import { faqItems } from '@/landing/data';
 import { SectionShell, FaqItem, Button } from '@/landing/ui';
 
@@ -129,7 +131,9 @@ export default function PricingPage() {
   return (
     <LandingShell>
       <PricingHero />
+      <CrossDomainSection />
       <RoiCalculatorSection />
+      <MorningWorkflowSection />
       <PricingSection onCtaClick={toDemoPage} />
       <PricingFaqSection />
       <PricingCtaClose />

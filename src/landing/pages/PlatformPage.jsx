@@ -1,6 +1,7 @@
 import LandingShell from '@/landing/LandingShell';
 import HowItWorksSection from '@/landing/components/HowItWorksSection';
 import AgentsSection from '@/landing/components/AgentsSection';
+import SeeItSection from '@/landing/components/SeeItSection';
 import { SectionShell, Button } from '@/landing/ui';
 
 const toDemoPage = () => { window.location.hash = '#/contact'; };
@@ -55,6 +56,8 @@ export default function PlatformPage() {
           </p>
         </div>
       </div>
+
+      <SeeItSection />
 
       {/* Cross-domain moat — why no single vendor can do this */}
       <section style={{ background: '#FAF7F2', padding: 'clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px)', borderBottom: '1px solid rgba(17,17,17,0.06)' }}>

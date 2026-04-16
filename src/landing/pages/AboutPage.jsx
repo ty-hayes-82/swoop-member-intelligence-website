@@ -3,6 +3,7 @@ import TeamSection from '@/landing/components/TeamSection';
 import TestimonialsSection from '@/landing/components/TestimonialsSection';
 import SocialProofSection from '@/landing/components/SocialProofSection';
 import DemoCtaSection from '@/landing/components/DemoCtaSection';
+import MorningBriefingSection from '@/landing/components/MorningBriefingSection';
 import { SectionShell, FaqItem } from '@/landing/ui';
 import { faqItems } from '@/landing/data';
 import { theme } from '@/config/theme';
@@ -230,6 +231,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <MorningBriefingSection />
 
         {/* Mid-page CTA — inserted right after the founder story for visitors sold by the narrative */}
         <div style={{ background: 'rgba(243,146,45,0.06)', borderTop: '1px solid rgba(243,146,45,0.15)', borderBottom: '1px solid rgba(243,146,45,0.15)', padding: '20px 24px', textAlign: 'center' }}>
