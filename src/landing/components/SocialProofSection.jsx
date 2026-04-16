@@ -16,10 +16,10 @@ const metricCards = [
     description: 'Identified the correlation between Hole 12 pace delays (>4.5hrs) and zero post-round F&B spend — surfaced by cross-referencing tee sheet and POS data that each system keeps in a separate silo.',
   },
   {
-    title: 'Revenue Per Slot',
+    title: 'Staffing & Margin Lift',
     metric: '$312',
-    subtitle: 'Average revenue per slot with intelligence',
-    description: 'Increased from $187 reactive average by correlating tee sheet gaps with POS dining history — automatically surfacing high-spend members to fill prime-time slots first.',
+    subtitle: 'Avg revenue per slot with demand intelligence',
+    description: 'Increased from $187 reactive average. Also surfaced: correlating Saturday weather forecasts with historical tee sheet demand — automatically recommending one extra F&B server before the lunch rush, protecting margin on high-volume days.',
   },
   {
     title: 'Dues at Risk Visibility',
@@ -86,7 +86,8 @@ export default function SocialProofSection({ onCtaClick }) {
         ))}
       </div>
       <p style={{ fontSize: 12, color: theme.colors.textMuted, textAlign: 'center', margin: '0 0 64px', fontStyle: 'italic' }}>
-        Source: Pinetree CC founding-partner data · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period (Q4 2023)
+        Source: Pinetree CC founding-partner data · 300 active members · real system data (ForeUP + Jonas + Toast) · 90-day analysis period (Q4 2023).<br />
+        *42-day figure based on back-testing 45 member resignations against signal history. $1.38M includes base annual dues, F&B minimums, and amortized capital assessments.
       </p>
 
       <div

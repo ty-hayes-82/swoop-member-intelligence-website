@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          Your tee sheet, POS, and CRM don't talk to each other — Swoop connects them overnight and delivers a <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>daily Member Health Score</strong> to your inbox at 6 AM. Every signal filtered to the 3 decisions that matter. One-click undo on every action keeps you in total control.
+          Most tools show you what happened. Swoop reveals your real-time <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>Member Health Score</strong>, catches the quiet resignation sequence early (email → golf → dining), and tells you exactly what to do — delivered to your inbox at 6 AM.
         </p>
 
         {/* CTAs */}

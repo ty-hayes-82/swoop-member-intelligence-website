@@ -141,10 +141,10 @@ export default function TeamSection() {
             Why single-system vendors miss the full picture.
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, lineHeight: 1.65, margin: '0 0 12px' }}>
-            Layer 1 is your POS. Layer 2 is your Tee Sheet. Layer 3 is Swoop — the intelligence layer that sits on top, seeing the patterns the others miss.
+            Layer 1 is your POS. Layer 2 is your tee sheet. Layer 3 is Swoop — the intelligence layer that sits on top, connecting the dots the others miss.
           </p>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            Single-system vendors like Jonas and ForeTees only see a fraction of the member journey. Because Swoop maps signals across your entire fragmented stack, we catch the correlations they structurally can't.
+            Single-system vendors like Jonas and ForeTees each see one slice of the member journey. Swoop correlates across all of them to catch the quiet resignation sequence weeks before any single system notices.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>

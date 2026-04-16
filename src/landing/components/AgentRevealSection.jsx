@@ -114,8 +114,8 @@ export default function AgentRevealSection() {
           lineHeight: 1.5,
         }}
       >
-        "Every intelligence stream proposes. You decide. The outcome is tracked.{' '}
-        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your F&amp;B Director gets kitchen alerts. Your Head Pro gets pace-of-play alerts. Everyone gets what they need — and nothing they don't.</strong>"
+        "The system proposes. You decide. The outcome is tracked.{' '}
+        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your F&amp;B Director gets kitchen alerts. Your Head Pro gets pace-of-play alerts. Everyone gets what they need — nothing they don't. Full audit trail, 15-minute undo on every action.</strong>"
       </p>
       <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
         * $31/round: actual outcome from Pinetree CC 90-day founding-partner deployment, Q1 2024. Average post-round F&B spend lost during documented slow rounds (19% conversion drop × $163 avg group check).

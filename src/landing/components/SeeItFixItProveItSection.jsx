@@ -159,7 +159,7 @@ const blocks = [
   {
     eyebrow: 'FIX IT',
     headline: 'The right action. The right person. Right now.',
-    copy: 'Callback script, comp offer, staffing shift — drafted. You approve. AI never contacts members directly. Full history logged with 1-click undo if you change your mind.',
+    copy: 'Callback script, comp offer, staffing shift — drafted. You approve. AI never contacts members directly. Change your mind? Edit or undo any action with one tap — full history logged.',
     visual: <ActionCard />,
   },
   {

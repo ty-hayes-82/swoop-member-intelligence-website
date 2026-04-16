@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 member retention gaps — typically identifying $9,500+ in monthly F&B leakage missed by single-system POS reports.',
-  'A Board-ready Revenue Leakage Report — revealing cross-domain blind spots, including exactly how pace-of-play delays drive $31/round F&B leakages across your membership.',
-  'Immediate service signals — e.g., "Add a patio server Saturday based on tee-sheet pace bottlenecks" to maintain daily service consistency.',
-  'Benchmarks vs. 7 founding-partner clubs (anonymized, your club not identified).',
+  { label: 'See It', text: 'A preview of your daily Morning Briefing — replacing 4 system logins with one clear list of who to call today and what to do.' },
+  { label: 'Fix It', text: 'A ranked list of your top 5 revenue leakage gaps — including the $31/round lost when pace-of-play bottlenecks cut dining conversions.' },
+  { label: 'Prove It', text: 'A Board-ready Revenue Leakage Report — exact operational blind spots, F&B staffing vs. pace-of-play correlations, formatted for your finance committee.' },
+  { label: null, text: 'Benchmarks vs. our 7 founding-partner clubs (under mutual NDA — your club not identified).' },
 ];
 
 function ContactHeroPanel() {
@@ -40,17 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          Because your POS doesn't talk to your tee sheet, you're missing the complete picture of every member. Swoop uses <strong style={{ color: theme.neutrals.ink }}>Layer 3 cross-domain intelligence</strong> to connect them — and your CRM — generating a daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> that catches the quiet signs of disengagement before anyone resigns. In 30 minutes, you see exactly who's at risk — using your club's real data, not a generic demo.
-        </p>
-        <p
-          style={{
-            fontSize: 'clamp(17px, 1.6vw, 20px)',
-            lineHeight: 1.6,
-            color: theme.colors.textSecondary,
-            margin: '0 0 28px',
-          }}
-        >
-          In 30 minutes, Swoop generates a unified Member Health Score for your club. Once live, your morning starts with a single briefing — not four system logins. Every recommended action requires a 2-tap approval from your phone; nothing ever reaches a member without your explicit sign-off. You leave with a prioritized action list, not a pitch deck. <strong style={{ color: theme.neutrals.ink }}>See it. Fix it. Prove it.</strong>
+          Because no single software vendor sees the whole picture, the quiet resignation goes undetected: tee times start dropping, then dining stops, then the renewal doesn't come. Swoop connects the data between your tee sheet, POS, and CRM to track this full decay sequence. In 30 minutes, we show you exactly who is quietly disengaging — using your club's real data, not a generic demo. You leave with a prioritized action list, not a pitch deck.
         </p>
         <p
           style={{
@@ -67,11 +57,11 @@ function ContactHeroPanel() {
         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
           {leaveWithItems.map((item) => (
             <li
-              key={item}
+              key={item.text}
               style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 16, color: theme.neutrals.ink, lineHeight: 1.5 }}
             >
               <span style={{ color: '#B8600E', fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
-              {item}
+              <span>{item.label && <strong style={{ color: '#B8600E' }}>{item.label}:</strong>} {item.text}</span>
             </li>
           ))}
         </ul>
@@ -114,9 +104,9 @@ function TechDisclosurePanel() {
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Clubessential, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe. Because no single vendor owns all your data, Swoop reads across all of them to find the compound leakage that siloed systems miss.</p>
-            <p><strong>Write-back scope (walkthrough/trial):</strong> None — strictly read-only during pilot. Full production deployments strictly limit write-back to CRM tasks and GM-approved messages (approved with two taps from your phone). We never modify financial records.</p>
+            <p><strong>Write-back scope (Post-Pilot):</strong> Your 30-minute pilot is strictly read-only — we access nothing and touch nothing. Full production deployments limit write-back to CRM tasks and messages requiring explicit 2-tap GM approval. We never modify financial records.</p>
             <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active — Targeting Q4 2026).</p>
-            <p><strong>AI Privacy:</strong> Zero-retention architecture. Your club's member data is never used to improve insights for other clubs or shared with any third party. Every action is logged and reversible.</p>
+            <p><strong>AI Data Privacy:</strong> Enterprise-grade AI with a zero-retention agreement. Member PII never trains any model. 100% human-in-the-loop manual approval — Swoop never acts on its own. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>
           </div>
         </details>
