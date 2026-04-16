@@ -5,11 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'Your daily Member Health Score: a ranked list of your top 5 at-risk members — and exactly what to do about each one.',
-  'A preview of your new 60-second morning routine: see how one unified cockpit replaces 4 separate vendor logins.',
-  'A Board-ready Revenue Leakage Report — revealing hidden blind spots, like the $31 in dining revenue lost for every slow round of golf.',
-  'Benchmarks vs. 7 top-tier founding-partner clubs (anonymized, your club not identified).',
-  'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\'t move forward.',
+  'A ranked list of your top 5 member retention gaps — replacing 4 disconnected system views with one prioritized action list.',
+  'A Board-ready Revenue Leakage Report — revealing cross-domain blind spots, including the exact $31/round dining revenue lost to slow pace-of-play.',
+  'Immediate service signals — e.g., "Add a patio server Saturday based on tee-sheet pace bottlenecks" to maintain daily service consistency.',
+  'Benchmarks vs. 7 founding-partner clubs (anonymized, your club not identified).',
 ];
 
 function ContactHeroPanel() {
@@ -41,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Keep Jonas. Keep your tee sheet. No rip-and-replace, no IT lift.</strong> Swoop connects on top of your existing systems to spot the quiet decay sequence: from skipped golf rounds to abandoned dining reservations. In 30 minutes, we show you exactly who's disengaging weeks before anyone resigns — using your club's real data, not a generic demo.
+          Because your POS doesn't talk to your tee sheet, you're missing the complete picture of every member. Swoop connects them — and your CRM — to catch the quiet signs of disengagement before anyone resigns. <strong style={{ color: theme.neutrals.ink }}>Turn 4 daily system logins into a single 60-second morning briefing.</strong> In 30 minutes, you see exactly who's at risk — using your club's real data, not a generic demo.
         </p>
         <p
           style={{
@@ -115,9 +114,9 @@ function TechDisclosurePanel() {
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Clubessential, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe. Because no single vendor owns all your data, Swoop reads across all of them to find the compound leakage that siloed systems miss.</p>
-            <p><strong>Write-back scope:</strong> None during the pilot phase (read-only). Future production deployments strictly limit write-back to CRM tasks and GM-approved messages (approved with two taps right from your phone). We never modify financial records.</p>
-            <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit in Progress — Targeting Q4 2026).</p>
-            <p><strong>Private Intelligence:</strong> Your member data is strictly ring-fenced. We operate under strict zero-retention agreements, meaning your club's data is never used to teach outside systems. Every action is logged and reversible.</p>
+            <p><strong>Write-back scope (walkthrough/trial):</strong> None — strictly read-only during pilot. Full production deployments strictly limit write-back to CRM tasks and GM-approved messages (approved with two taps from your phone). We never modify financial records.</p>
+            <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active — Targeting Q4 2026).</p>
+            <p><strong>AI Privacy:</strong> Zero-retention architecture. Your club's member data is never used to improve insights for other clubs or shared with any third party. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>
           </div>
         </details>

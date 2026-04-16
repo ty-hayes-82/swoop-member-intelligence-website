@@ -19,8 +19,8 @@ const narrativeBlocks = [
   {
     time: 'The Pace',
     agents: 'For the F&B Director',
-    headline: 'Hole 12 backup is cutting post-round dining by 19 points.',
-    outcome: '$31/round recovered* — ranger + F&B alerted in one message.',
+    headline: 'Hole 12 backup is cutting post-round dining conversion by 19 percentage points.',
+    outcome: '$31/round recovered* — ranger + F&B alerted in one message. [ForeTees Pace + Toast POS]',
     callout: '> $31/round recovered* · dining conversion restored · F&B notified.',
   },
   {

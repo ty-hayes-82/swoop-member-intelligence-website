@@ -477,7 +477,7 @@ export default function AgentsLiveDemo() {
     </p>
     <div style={{ textAlign: 'center', marginTop: 16 }}>
       <p style={{ fontSize: 17, color: theme.colors.textSecondary, margin: '0 0 16px' }}>
-        These six agents run 24/7 for every member. Want to see them working for your club?
+        These six intelligence streams run 24/7 for every member. Want to see them working for your club?
       </p>
       <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }}
         style={{ display: 'inline-block', background: '#F3922D', color: '#1B1814', fontWeight: 700, fontSize: 16, padding: '14px 32px', borderRadius: 8, textDecoration: 'none' }}>

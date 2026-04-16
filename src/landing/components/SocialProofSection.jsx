@@ -19,7 +19,7 @@ const metricCards = [
     title: 'Revenue Per Slot',
     metric: '$312',
     subtitle: 'Average revenue per slot with intelligence',
-    description: 'Increased from $187 reactive average by backfilling cancellations with high-engagement, high food-and-beverage spend members first.',
+    description: 'Increased from $187 reactive average by correlating tee sheet gaps with POS dining history — automatically surfacing high-spend members to fill prime-time slots first.',
   },
   {
     title: 'Dues at Risk Visibility',

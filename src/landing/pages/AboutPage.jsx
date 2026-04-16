@@ -135,7 +135,7 @@ export default function AboutPage() {
                   Swoop changes the ending.
                 </p>
                 <p style={{ margin: 0, fontSize: 15, lineHeight: 1.65 }}>
-                  With Swoop, that same member surfaces on a Tuesday — 6 weeks before she makes the call. Her rounds are down 40%, her dining visits stopped two months ago, her complaint from March was never followed up. The agent drafts a callback script and flags it for GM approval in 90 seconds. Tyler calls. She mentions the complaint, he addresses it, and offers a complimentary guest pass for her and her daughter. She renews. That's a <strong style={{ color: '#B8600E' }}>$14,400 save</strong> — from one tap.
+                  With Swoop, that same member surfaces on a Tuesday — 6 weeks before she makes the call. Her rounds are down 40%, her dining visits stopped two months ago, her complaint from March was never followed up. The agent drafts a callback script and <strong style={{ color: theme.neutrals.ink }}>texts it to the GM for approval in 90 seconds — Tyler taps approve from the golf course.</strong> He calls. She mentions the complaint, he addresses it, and offers a complimentary guest pass for her and her daughter. She renews. That's a <strong style={{ color: '#B8600E' }}>$14,400 save</strong> — from one tap.
                 </p>
               </div>
 

@@ -71,8 +71,11 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             >
               See what Swoop would find at your club — in 30 minutes.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
-              <strong style={{ color: '#FFFFFF' }}>Swoop doesn't replace Jonas or Northstar — it unlocks the data trapped inside them.</strong> Because no single vendor owns all your data, they miss the full picture. We connect securely before the call so you see a live GM cockpit surface the exact moment a member's habits change — using your real numbers. <strong style={{ color: '#FFFFFF' }}>See It (early warnings), Fix It (one-tap actions), Prove It (automated board report).</strong>
+            <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 8px', maxWidth: 520 }}>
+              <strong style={{ color: '#FFFFFF' }}>See It. Fix It. Prove It.</strong> Swoop sits on top of your existing stack — no ripping and replacing required, no disruption to your staff.
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 15, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
+              We connect securely before the call so you see a live GM cockpit surface the exact moment a member's habits change — using your real numbers. Jonas, Northstar, ForeTees: all unlocked, none replaced.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
               Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
