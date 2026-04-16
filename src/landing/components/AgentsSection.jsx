@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="FIX IT · LAYER 3 INTELLIGENCE"
-      title="Layer 3 Cross-Domain Intelligence."
-      subtitle="Swoop sits quietly on top of Jonas, ForeTees, and Northstar, connecting the dots they can't see on their own. A tee sheet knows golf, and a POS knows dining — but only Swoop knows when a slow round causes a skipped lunch. Then it drafts a specific, human-reviewable action. Watch it work:"
+      title="Zero blind spots across your entire operation."
+      subtitle="Incumbent systems are siloed — your POS doesn't talk to your tee sheet, and your tee sheet doesn't know what members order in the dining room. Swoop sits above them. It correlates historical habits with real-time signals from your existing stack — whether you use Jonas, ForeTees, Northstar, or Club Prophet — to find the cross-domain patterns single-system vendors physically cannot see. Watch it draft a specific, human-reviewable playbook:"
     >
       <AgentsLiveDemo />
 

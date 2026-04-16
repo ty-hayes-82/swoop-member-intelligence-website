@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'See It: A ranked, dollar-quantified list of your top 5 member retention risks and F&B leakage gaps — typically identifying $8,000+ in monthly blind spots.',
-  'Fix It: A preview of your Today View — replacing 4 system logins with a 60-second morning briefing, including the $31/round F&B leakage when pace-of-play slows dining conversions.',
-  'Prove It: A Board-ready Revenue Leakage Report — pre-structured into Member Saves, Operational Saves, and F&B Recovery with dollar-quantified ROI your board can act on.',
-  'Compare: Trailing 12-month benchmarks vs. the 7 founding-partner clubs — anonymized and ring-fenced, your club not identified.',
+  'A ranked list of your top 5 member retention gaps — identifying specific members risking $100k+ in collective annual dues, plus a preview of your new 60-second Daily Cockpit replacing 4 software logins.',
+  'A Board-ready Revenue Leakage Report — turning 6 hours of manual spreadsheet prep into a 4-tab export that quantifies exact dollar blind spots, like the $31/round F&B loss caused by pace-of-play delays.',
+  'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified).',
+  'Intelligence you control. You leave with a prioritized action list featuring zero automated execution. Never share club data without mutual NDA.',
 ];
 
 function ContactHeroPanel() {
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> And because no single software vendor runs your entire club, they structurally miss the warning signs. In 30 minutes, we'll show you how Swoop uses Layer 3 cross-domain intelligence to correlate your tee sheet, dining POS, and CRM — finding the patterns single-system vendors cannot see. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> will catch the decay sequence early: an unread email, then missed tee times, then zero dining spend.
+          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> And because no single software vendor runs your entire club, they structurally miss the warning signs. In <strong>30</strong> minutes, we cross-reference your tee sheet, dining POS, and CRM to track the exact decay sequence — email skips → missed tee times → dining drop-offs — before anyone resigns. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> catches that sequence weeks before any single system notices.
         </p>
         <p
           style={{
@@ -114,7 +114,7 @@ function TechDisclosurePanel() {
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
             <p><strong>Systems we read from:</strong> Jonas, Clubessential, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe. Because no single vendor owns all your data, Swoop reads across all of them to find the compound leakage that siloed systems miss.</p>
-            <p><strong>Full deployment write-back scope:</strong> Only tee-sheet notes, CRM tasks, and GM-approved messages — approved in one click from your daily queue. Nothing without a GM tap. We never modify financial records. <em>Walkthrough engagements remain strictly read-only.</em></p>
+            <p><strong>Write-back scope:</strong> None during the pilot phase (read-only). Future production deployments strictly limit write-back to CRM tasks and GM-approved messages (approved with two taps right from your phone). We never modify financial records.</p>
             <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit in Progress — Targeting Q4 2026).</p>
             <p><strong>Private Intelligence:</strong> Your member data is strictly ring-fenced. We operate under strict zero-retention agreements, meaning your club's data is never used to teach outside systems. Every action is logged and reversible.</p>
             <p><strong>Cancellation:</strong> Data export within 5 business days. All club data deleted within 30 days on request.</p>

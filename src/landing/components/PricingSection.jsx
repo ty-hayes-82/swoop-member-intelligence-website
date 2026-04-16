@@ -120,7 +120,7 @@ function PricingCard({ tier, onCtaClick }) {
       )}
       {tier.price === '$499/mo' && (
         <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16, fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6 }}>
-          "Alert: The Smith family hasn't visited in 21 days. Suggested action: Call James Smith to offer a complimentary tee time. Confidence: 91%."
+          "Alert: The Smith family played 3 slow rounds last month and their dining spend dropped 40%. Suggested action: Call James to offer a complimentary tee time." <span style={{ color: '#F3922D', fontWeight: 700 }}>Status: 1-Tap Approval</span>
         </div>
       )}
       {tier.price === '$499/mo' && (

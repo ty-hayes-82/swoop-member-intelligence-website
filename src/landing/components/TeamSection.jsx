@@ -138,19 +138,17 @@ export default function TeamSection() {
               letterSpacing: '-0.02em',
             }}
           >
-            Why this is hard to copy.
+            Why single-system vendors miss the full picture.
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 1.65, margin: 0 }}>
-            46 daily club workflows already mapped and automated. Legacy POS and tee sheets are built to process transactions — Swoop is purpose-built to surface the cross-domain behavioral patterns they miss. We connect the dots between your Jonas tee sheet, F&B POS, and CRM so you don't have to.{' '}
-            <strong style={{ color: '#FFFFFF' }}>Preferred Jonas Club integration partner.</strong>{' '}
-            No competitor has this depth of club-specific behavioral connections.
+            A POS vendor only sees transactions; a tee sheet only sees bookings. Only a Layer 3 platform sees the complete member. Swoop isn't just an integration — it's a cross-domain intelligence layer that correlates signals Jonas, ForeTees, and Northstar were never built to connect.
           </p>
         </div>
         <div style={{ display: 'grid', gap: 14 }}>
           {[
-            { stat: '46', label: 'daily club workflows mapped and automated' },
-            { stat: '12 mo', label: 'of operational pattern recognition & cross-domain correlation' },
-            { stat: '✓', label: 'Preferred Jonas Club integration partner' },
+            { stat: '03', label: 'operational domains correlated (Golf, F&B, CRM)' },
+            { stat: '2M+', label: 'club-specific member interactions synthesized' },
+            { stat: '✓', label: 'Compatible with Jonas, ClubEssentials, Northstar, and more' },
           ].map(s => (
             <div
               key={s.stat}
