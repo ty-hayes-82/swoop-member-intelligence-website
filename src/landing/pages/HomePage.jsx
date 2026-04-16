@@ -3,6 +3,7 @@ import HeroSection from '@/landing/components/HeroSection';
 import SeeItFixItProveItSection from '@/landing/components/SeeItFixItProveItSection';
 import AgentRevealSection from '@/landing/components/AgentRevealSection';
 import MemberExperienceSection from '@/landing/components/MemberExperienceSection';
+import ConciergeDemoSection from '@/landing/components/ConciergeDemoSection';
 import IntegrationsSection from '@/landing/components/IntegrationsSection';
 import PricingSection from '@/landing/components/PricingSection';
 import AgentsLiveDemo from '@/landing/components/AgentsLiveDemo';
@@ -89,6 +90,7 @@ export default function HomePage() {
       <MorningBriefingSection />
       <InlineCta text="Book a walkthrough — see your morning brief →" href="#/contact" />
       <div className="hidden-mobile-section"><MemberExperienceSection /></div>
+      <ConciergeDemoSection />
       <IntegrationsSection />
       <PricingSection onCtaClick={toDemoPage} />
       <HomeCtaStrip />
