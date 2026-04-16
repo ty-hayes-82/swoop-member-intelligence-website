@@ -104,7 +104,7 @@ function OneBriefPanel() {
   return (
     <div>
       <p style={{ color: theme.colors.textMuted, fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', margin: '0 0 12px' }}>
-        This morning's brief · $42.4K across 6 actions <span style={{ fontSize: 10, textTransform: 'none', letterSpacing: 0, fontWeight: 400, fontStyle: 'italic' }}>(illustrative)</span>
+        This morning's brief · $18K across 4 key priorities <span style={{ fontSize: 10, textTransform: 'none', letterSpacing: 0, fontWeight: 400, fontStyle: 'italic' }}>(illustrative)</span>
       </p>
       <div style={{ display: 'grid', gap: 10 }}>
         {briefRows.map(row => (
@@ -159,7 +159,7 @@ export default function HowItWorksSection() {
   return (
     <SectionShell
       band="paper"
-      eyebrow="FIX IT · THE SATURDAY BRIEFING"
+      eyebrow="SEE IT · THE SATURDAY BRIEFING"
       title="Your daily Member Health Score — written overnight."
       subtitle="Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — connecting cross-domain signals overnight to calculate a daily Member Health Score for every member. Catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
     >

@@ -10,10 +10,10 @@ const metricCards = [
     description: 'Detected James Whitfield resignation risk 42 days before it happened by connecting POS spend decline, CRM complaint, and tee sheet pattern changes.',
   },
   {
-    title: 'Waitlist Performance',
-    metric: '91%',
-    subtitle: 'Fill rate with retention-prioritized queue',
-    description: 'Improved from 67% reactive fill rate by ranking waitlist members by retention value and match-fit, not just timestamp.',
+    title: 'F&B Margin Control',
+    metric: 'Staffing Playbook',
+    subtitle: 'Correlates Saturday tee-sheet + weather demand',
+    description: 'Recommends exact F&B staffing levels based on predictive demand — eliminating overstaffing and protecting margin on high-cover days like Saturday lunch.',
   },
   {
     title: 'Revenue Per Slot',
@@ -23,9 +23,9 @@ const metricCards = [
   },
   {
     title: 'Dues at Risk Visibility',
-    metric: '$1.38M',
-    subtitle: 'at-risk dues — 23 flagged members, 300-member Pinetree CC, annualized at full dues rates.',
-    description: '23 members flagged across health score decline, declining visits, unresolved complaints, and behavioral pattern changes.',
+    metric: '$331K',
+    subtitle: 'at-risk dues — 23 flagged members, 300-member Pinetree CC',
+    description: '23 members flagged across health score decline, declining visits, and unresolved complaints — annualized at $14,400 avg annual dues (23 × $14,400 = $331,200).',
   },
 ];
 

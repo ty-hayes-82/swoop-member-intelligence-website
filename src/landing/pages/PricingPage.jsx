@@ -8,7 +8,7 @@ import { SectionShell, FaqItem, Button } from '@/landing/ui';
 const pricingStats = [
   { value: '65%', label: 'Avg. at-risk member retention rate', source: 'Swoop 2024 Cohort' },
   { value: '$74K', label: 'Avg. dues recovered per club in first 90 days', source: 'Swoop 2024 Cohort' },
-  { value: '$9,580', label: 'Avg monthly F&B leakage surfaced — pace of play, staffing, weather', source: 'Swoop Founding-Partner Data' },
+  { value: '$9,580', label: 'Avg monthly F&B leakage surfaced — catching the $31 lost per slow round in post-round dining conversion', source: 'Swoop Founding-Partner Data' },
 ];
 
 function PricingHero() {
@@ -61,7 +61,7 @@ function PricingHero() {
 
 const PRICING_FAQ_QUESTIONS = new Set([
   'Do I need to replace my current software?',
-  'How long does setup take?',
+  "Why can't my existing Jonas or Northstar system do this?",
   "Is my members' data secure?",
   'What does the founding-partner program actually look like?',
   'What happens if we cancel?',

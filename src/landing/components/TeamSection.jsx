@@ -12,7 +12,7 @@ const team = [
   {
     name: 'Jordan Mitchell',
     title: 'Co-founder & CTO',
-    priorRole: 'Former Senior ML Engineer, hospitality tech (2015–2023)',
+    priorRole: 'Former Senior Data Systems Engineer, hospitality tech (2015–2023)',
     linkedinUrl: 'https://linkedin.com/in/jordanmitchell',
     bio: 'Eight years building data systems for hospitality operations. I mapped 12 months of club-specific behavioral patterns to build the cross-domain intelligence engine behind your daily briefing.',
   },

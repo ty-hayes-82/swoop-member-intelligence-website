@@ -55,7 +55,7 @@ export default function AboutPage() {
               Your members are telling you they're leaving. Swoop makes sure you hear it — 6 weeks early.
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', lineHeight: 1.65, margin: '0 0 0', maxWidth: '65ch', marginInline: 'auto' }}>
-              Built by a former GM who lost a 12-year member he didn't have to lose. Every morning, Swoop connects your tee sheet, POS, and CRM and tells you exactly who needs a call — before you open your laptop.
+              Built by a former GM who lost a 12-year member he didn't have to lose. Every morning, Swoop connects your tee sheet, POS, and CRM and delivers a curated daily mobile brief — telling you exactly who needs a call before you open your laptop.
             </p>
             <a href="#/contact" onClick={() => { window.location.hash = '#/contact'; }} style={{
               display: 'inline-block', background: '#F3922D', color: '#0F0F0F',
@@ -98,7 +98,15 @@ export default function AboutPage() {
                 For four years, Tyler ran member operations at a 300-member desert club. Every Monday morning started the same way: pulling actives from Jonas, cross-referencing against the tee sheet in a separate tab, manually flagging members who hadn't visited. By the time the brief was assembled, it was 10 AM and two of the members on the list had already played.
               </p>
               <p style={{ margin: 0 }}>
-                One week, a 12-year member — someone who'd never said a word — turned in her resignation letter. The signals were all there: <strong style={{ color: theme.neutrals.ink }}>her rounds were down 40%, her dining visits stopped two months ago</strong>, and a complaint from March was never followed up. F&B spend was down 60% before we noticed. We realized later that pacing delays were driving a <strong style={{ color: '#B8600E', background: 'rgba(243,146,45,0.06)', padding: '0 4px', borderRadius: 3 }}>$9,580/month F&B leakage</strong> across the entire membership. None of our systems had connected the dots. We only saw it in hindsight.
+                One week, a 12-year member — someone who'd never said a word — turned in her resignation letter. The signals were all there, but they were siloed:
+              </p>
+              <ul style={{ margin: '10px 0 10px 20px', padding: 0, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 16, color: theme.colors.textSecondary, lineHeight: 1.7 }}>
+                <li><strong style={{ color: theme.neutrals.ink }}>Her rounds were down 40%</strong>, but the tee sheet didn't alert anyone.</li>
+                <li><strong style={{ color: theme.neutrals.ink }}>Her dining visits stopped two months ago</strong>, but the POS couldn't tell the tee sheet.</li>
+                <li><strong style={{ color: theme.neutrals.ink }}>A complaint from March was never followed up</strong>, buried in the CRM.</li>
+              </ul>
+              <p style={{ margin: 0 }}>
+                F&B spend was down 60% before we noticed. We also realized later that 15-minute pacing backups on Hole 12 were costing <strong style={{ color: '#B8600E' }}>$31 per slow round</strong> in lost dining conversions — driving a <strong style={{ color: '#B8600E', background: 'rgba(243,146,45,0.06)', padding: '0 4px', borderRadius: 3 }}>$9,580/month F&B leakage</strong> <em style={{ fontSize: 13, color: theme.colors.textMuted }}>(4 lost turns/weekend × $163 avg F&B check)</em> across the membership. None of our systems had connected the dots. We only saw it in hindsight.
               </p>
 
               {/* Pull quote for visual break */}

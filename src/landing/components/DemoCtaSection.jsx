@@ -81,7 +81,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a member&rsquo;s drop in POS dining spend following 3 slow rounds. One dinner comp and a follow-up call saved $32K in annual member value <span style={{ opacity: 0.65, fontSize: 16 }}>[preventing a 14-year family member from churning]</span>.&rdquo;
+                &ldquo;Swoop flagged a corporate member&rsquo;s drop in POS dining spend following 3 slow rounds. One dinner comp and a follow-up call saved $32K in annual member dues <span style={{ opacity: 0.65, fontSize: 16 }}>[preventing a 14-year family member from churning]</span>.&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club
@@ -106,7 +106,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                     Safe pilot — zero write-access to financial records. Reversible and secure.
                   </span>
                 </li>
-                <li>30-min call — you keep the prioritized action list and a board-ready ROI preview regardless</li>
+                <li>30-min call — you keep the prioritized action list and a board-ready ROI preview regardless. Post-pilot, your Top 5 actions arrive daily in your Morning Cockpit for two-tap approval.</li>
               </ol>
             </div>
 

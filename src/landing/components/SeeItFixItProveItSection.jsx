@@ -6,8 +6,7 @@ const agentRows = [
   { label: 'Service Recovery',     detail: 'Mid-comp drafted · Golf Room',           value: '$11K',   positive: true },
   { label: 'Demand Optimizer',     detail: 'Full-fare slots routed to 5 members',    value: '-$1.5K', positive: false },
   { label: 'Labor Optimizer',      detail: '2 FOH shifts added · Grill lunch',       value: '$3.2K',  positive: true },
-  { label: 'Engagement Advisor',   detail: '18 member outreach sequences',           value: '$42.4K', positive: true },
-  { label: 'Revenue Analyst',      detail: 'Board revenue report ready',             value: '$12K',   positive: true },
+  { label: 'Engagement Advisor',   detail: '18 member outreach sequences',           value: '$20.1K', positive: true },
 ];
 
 function MorningBriefingPanel() {
@@ -41,7 +40,7 @@ function MorningBriefingPanel() {
           $42.2K
         </div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>
-          protected across 8 actions · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative</em>
+          protected across 6 actions · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative</em>
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '8px 0' }}>
