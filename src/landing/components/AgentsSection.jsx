@@ -8,7 +8,7 @@ export default function AgentsSection() {
     <SectionShell
       id="agents"
       band="cream"
-      eyebrow="FIX IT · THE SATURDAY BRIEFING"
+      eyebrow="FIX IT · LAYER 3 INTELLIGENCE"
       title="Layer 3 Cross-Domain Intelligence."
       subtitle="Swoop crosses the operational domains your single-system vendors can't. By correlating live signals across Jonas, ForeTees, Northstar, and your CRM, Swoop spots the hidden patterns causing revenue leakage — then drafts specific, human-reviewable actions. Watch it work:"
     >

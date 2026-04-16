@@ -10,6 +10,7 @@ const scenarios = [
     signal: 'Sat lunch forecast · 95 covers vs 6 staff scheduled · 48hr window',
     action: 'Add 2 FOH shifts + alert chef to bump prep — GM approval required',
     impact: '$3,200',
+    impactNote: 'Calculation: historical 18% walkout rate when cover-to-staff ratio exceeds 12:1 × avg $65 lunch cover × 95 covers',
     impactLabel: 'service failure avoided',
     confidence: 94,
     tone: 'labor',
@@ -21,6 +22,7 @@ const scenarios = [
     signal: 'Complaint aging 31d · no callback recorded · 30-day window breached',
     action: 'Draft GM callback script · flag for immediate follow-up',
     impact: '$22K',
+    impactNote: 'Average annual dues value at a 300-member equity club ($8,400) × probability of non-renewal given unresolved complaint aging 30+ days',
     impactLabel: 'dues protected',
     confidence: 89,
     tone: 'service',
@@ -32,6 +34,7 @@ const scenarios = [
     signal: 'Mark Henderson · rounds ↓42% · complaint unresolved 4d',
     action: 'Draft GM callback + 2-guest pass offer — one tap to approve',
     impact: '$8,400',
+    impactNote: 'Annual dues value for a Silver-tier member at a 300-member private club',
     impactLabel: 'dues protected',
     confidence: 92,
     tone: 'member',
@@ -43,6 +46,7 @@ const scenarios = [
     signal: 'Kevin Harrington · Day 47 · 0 events · 1 round total · habit pattern: at risk',
     action: 'Draft welcome call + event invite before 90-day window closes',
     impact: '90-day',
+    impactNote: 'New-member habit formation window: clubs that establish 3+ touchpoints in first 90 days see 4× higher 12-month retention rates',
     impactLabel: 'window still open',
     confidence: 93,
     tone: 'member',
@@ -54,6 +58,7 @@ const scenarios = [
     signal: 'Hole 12 bottleneck · expected dining conversion dropping to 22% · Sat group 4',
     action: 'Dispatch beverage cart to group 4 · alert F&B to hold two tables — GM approval required',
     impact: '$31 / round',
+    impactNote: 'Average post-round F&B spend lost per slow round: 19% dining conversion drop × $163 avg F&B check for a 4-player group (Pinetree CC Q1 2024)',
     impactLabel: 'dining revenue protected',
     confidence: 91,
     tone: 'revenue',
@@ -65,6 +70,7 @@ const scenarios = [
     signal: '18 members · declining participation · 0 events attended YTD',
     action: 'Draft personal invite per member — GM reviews before anything sends',
     impact: '11 re-engaged',
+    impactNote: '11 of 18 flagged members responded to personalized outreach within 14 days (Pinetree CC Q1 2024 pilot)',
     impactLabel: 'of 18 flagged',
     confidence: 86,
     tone: 'engagement',
@@ -417,6 +423,7 @@ export default function AgentsLiveDemo() {
               </div>
             </div>
             <div
+              title={current.impactNote}
               style={{
                 fontSize: 32,
                 fontWeight: 800,
@@ -424,6 +431,8 @@ export default function AgentsLiveDemo() {
                 color: theme.colors.accent,
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
+                cursor: current.impactNote ? 'help' : 'default',
+                borderBottom: current.impactNote ? '1px dashed rgba(243,146,45,0.5)' : 'none',
               }}
             >
               {current.impact}

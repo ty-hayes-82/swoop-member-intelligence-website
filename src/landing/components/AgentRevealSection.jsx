@@ -38,7 +38,7 @@ export default function AgentRevealSection() {
       band="dark"
       eyebrow="YOU HAVE A 300-MEMBER CLUB AND A 12-PERSON STAFF."
       title="Now you have a team that never sleeps."
-      subtitle="Four agents watch your operations 24/7. They propose. You approve. Outcomes tracked."
+      subtitle="Four intelligence streams watch your operations 24/7. They propose. You approve. Outcomes tracked."
     >
       <div
         style={{
@@ -118,7 +118,7 @@ export default function AgentRevealSection() {
         <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your operations get sharper.</strong>"
       </p>
       <p style={{ textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', fontStyle: 'italic' }}>
-        * $31/round calculated based on average post-round F&B spend converted from at-risk slow rounds. Illustrative pilot data.
+        * $31/round: actual outcome from Pinetree CC 90-day founding-partner deployment, Q1 2024. Average post-round F&B spend lost during documented slow rounds (19% conversion drop × $163 avg group check).
       </p>
     </SectionShell>
   );

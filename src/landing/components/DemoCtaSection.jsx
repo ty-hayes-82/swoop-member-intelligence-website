@@ -100,7 +100,7 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                     Safe pilot — zero write-access to financial records. Reversible and secure.
                   </span>
                 </li>
-                <li>30-min call — you keep the prioritized action list regardless</li>
+                <li>30-min call — you keep the prioritized action list and a board-ready ROI preview regardless</li>
               </ol>
             </div>
 
@@ -184,6 +184,9 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
                   >
                     {status === 'submitting' ? 'Submitting…' : ctaLabel}
                   </Button>
+                  <p style={{ textAlign: 'center', fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>
+                    Keep your POS. Keep your tee sheet. Swoop simply adds intelligence on top.
+                  </p>
                 </form>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px 20px', marginTop: 16, paddingTop: 14, borderTop: '1px solid rgba(255,255,255,0.1)' }}>

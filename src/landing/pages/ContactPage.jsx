@@ -5,9 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A preview of your new Daily Cockpit — see how to replace 4 software logins with a single 5-minute morning briefing (and identify up to $9,500/mo in hidden F&B leakage).',
+  'A ranked list of your top 5 member retention and revenue leakage gaps — including service bottlenecks like the $31/round in F&B conversion lost every time Hole 12 backs up (multiply by your weekly rounds: that\'s $9,500/mo in recoverable leakage).',
   'Your Daily Member Health Score — a ranked list of your top 5 member retention priorities, scored across tee sheet, POS, and CRM.',
-  'A Board-ready Revenue Leakage Report — exposing hidden service inconsistencies, like the $31 you lose in dining per slow golf round.',
+  'A Board-ready Revenue Leakage Report — exposing hidden service inconsistencies with dollar-quantified ROI your board can act on.',
+  'A preview of your daily real-time cockpit — replace 4 different software logins with a single morning briefing where nothing happens without your 2-tap approval.',
   'Your data under mutual NDA. Swoop sits on top of your existing stack — no need to replace your POS or tee sheet. Deleted within 30 days if you don\'t move forward.',
 ];
 
@@ -50,7 +51,7 @@ function ContactHeroPanel() {
             margin: '0 0 28px',
           }}
         >
-          In 30 minutes, Swoop generates a unified Member Health Score for your club. Once live, it replaces four system logins with a 60-second morning cockpit. You leave with a prioritized action list, not a pitch deck. <strong style={{ color: theme.neutrals.ink }}>See it. Fix it. Prove it.</strong>
+          In 30 minutes, Swoop generates a unified Member Health Score for your club. Once live, your morning starts with a single briefing — not four system logins. Every recommended action requires a 2-tap approval from your phone; nothing ever reaches a member without your explicit sign-off. You leave with a prioritized action list, not a pitch deck. <strong style={{ color: theme.neutrals.ink }}>See it. Fix it. Prove it.</strong>
         </p>
         <p
           style={{

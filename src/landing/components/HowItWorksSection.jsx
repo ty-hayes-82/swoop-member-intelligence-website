@@ -161,7 +161,7 @@ export default function HowItWorksSection() {
       band="paper"
       eyebrow="SEE IT · THE SATURDAY MORNING BRIEFING"
       title="Your morning briefing, written overnight."
-      subtitle="Every morning, Swoop hands you a ranked list of members to call, slots to backfill, and service moves to make. A 90-second read that replaces four different software logins."
+      subtitle="Swoop reads your tee sheet, POS, and CRM overnight. By 6 AM, it calculates a daily Member Health Score for every member — catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
     >
       <div
         style={{

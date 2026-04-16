@@ -11,7 +11,7 @@ export default function PlatformPage() {
       <div id="problem">
         <SectionShell
           band="dark"
-          eyebrow="Platform"
+          eyebrow="SEE IT · PLATFORM"
           subtitle="Replace 4 daily system logins with one 90-second morning briefing. Swoop unifies your tee sheet, POS, and CRM overnight to show exactly who's drifting, why, and the precise move to make."
           headerSlot={
             <>
@@ -20,7 +20,7 @@ export default function PlatformPage() {
                 <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional 90-day trailing non-usage reports — on average, across founding-partner clubs.
+                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional 90-day trailing non-usage reports by assigning a dynamic <strong style={{ color: '#FFFFFF' }}>Member Health Score</strong> — on average, across founding-partner clubs.
               </p>
             </>
           }
@@ -124,7 +124,7 @@ export default function PlatformPage() {
               Stop managing spreadsheets. Start protecting your dues.
             </div>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, margin: '0 auto 24px', maxWidth: 480 }}>
-              Give us 30 minutes. We'll show you how Swoop pays for itself before your first board meeting of the quarter.
+              Give us 30 minutes. We'll show you how Swoop generates a 4-tab, board-ready ROI report in one click — paying for itself before your first board meeting of the quarter.
             </p>
             <Button size="lg" onClick={toDemoPage}>
               Book the walkthrough →
