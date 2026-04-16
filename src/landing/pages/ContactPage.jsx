@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'See It: A ranked list of your top 5 retention and revenue leakage gaps — uncovering hidden leaks like the $31/round lost to slow play on Hole 12 ($9,500/mo in recoverable F&B leakage).',
-  'Fix It: A preview of your daily GM Cockpit — replace 4 manual system logins with a 60-second morning briefing where nothing reaches a member without your 2-tap approval.',
-  'Prove It: A Board-ready Revenue Leakage Report — quantifying blind spots like F&B staffing pressure (Saturday lunch demand vs. weather forecasts) with dollar-quantified ROI your board can act on.',
-  'Compare: 2024 benchmarks vs. the 7 founding-partner clubs — anonymized and ring-fenced, your club not identified.',
+  'See It: A ranked, dollar-quantified list of your top 5 member retention risks and F&B leakage gaps — typically identifying $8,000+ in monthly blind spots.',
+  'Fix It: A preview of your Today View — replacing 4 system logins with a 60-second morning briefing, including the $31/round F&B leakage when pace-of-play slows dining conversions.',
+  'Prove It: A Board-ready Revenue Leakage Report — pre-structured into Member Saves, Operational Saves, and F&B Recovery with dollar-quantified ROI your board can act on.',
+  'Compare: Trailing 12-month benchmarks vs. the 7 founding-partner clubs — anonymized and ring-fenced, your club not identified.',
 ];
 
 function ContactHeroPanel() {
@@ -40,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> And because no single software vendor runs your entire club, they structurally miss the warning signs. In 30 minutes, we'll show you how Swoop connects them both — plus your CRM — to generate a daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> that catches the decay sequence early: an unread email, then missed tee times, then zero dining spend.
+          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> And because no single software vendor runs your entire club, they structurally miss the warning signs. In 30 minutes, we'll show you how Swoop uses Layer 3 cross-domain intelligence to correlate your tee sheet, dining POS, and CRM — finding the patterns single-system vendors cannot see. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> will catch the decay sequence early: an unread email, then missed tee times, then zero dining spend.
         </p>
         <p
           style={{
@@ -141,7 +141,13 @@ function MinimalHeader() {
       >
         swoop<span style={{ color: theme.colors.accent }}>.</span>
       </span>
-      {/* Nav hidden on /contact to maintain 1:1 attention ratio on this BOFU page */}
+      <a
+        href="#/landing"
+        onClick={() => { window.location.hash = '#/landing'; }}
+        style={{ fontSize: 13, color: theme.colors.textMuted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}
+      >
+        ← Back to Home
+      </a>
     </header>
   );
 }

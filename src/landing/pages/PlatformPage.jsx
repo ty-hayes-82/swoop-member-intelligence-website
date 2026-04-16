@@ -11,7 +11,7 @@ export default function PlatformPage() {
       <div id="problem">
         <SectionShell
           band="dark"
-          eyebrow="SEE IT · PLATFORM"
+          eyebrow="SEE IT · THE VISIBILITY GAP"
           subtitle="Replace 4 daily system logins with one 90-second morning briefing. Swoop unifies your tee sheet, POS, and CRM overnight to show exactly who's drifting, why, and the precise move to make."
           headerSlot={
             <>

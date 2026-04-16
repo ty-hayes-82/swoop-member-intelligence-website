@@ -156,13 +156,13 @@ const blocks = [
   {
     eyebrow: 'FIX IT',
     headline: 'The right action. The right person. Right now.',
-    copy: 'Callback script, comp offer, staffing shift — drafted. You approve. AI never contacts members directly.',
+    copy: 'Callback script, comp offer, staffing shift — drafted. You approve. AI never contacts members directly. Full history logged with 1-click undo if you change your mind.',
     visual: <ActionCard />,
   },
   {
     eyebrow: 'PROVE IT',
     headline: 'Take a dollar number to the board. Not a feeling.',
-    copy: 'Every save tracked. Every dollar attributed. One click generates a board-ready report.',
+    copy: 'Every save tracked. Every dollar attributed. One click generates a board-ready report — pre-structured into Member Saves, Operational Saves, and What We Learned. ROI uses your club\'s actual annual dues — no inflated metrics.',
     visual: <ProveStats />,
   },
 ];

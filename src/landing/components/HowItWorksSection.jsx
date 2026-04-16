@@ -149,7 +149,7 @@ function OneBriefPanel() {
         ))}
       </div>
       <p style={{ color: theme.colors.textMuted, fontSize: 13, marginTop: 14, textAlign: 'center' }}>
-        assembled from 4 systems · delivered to gm@yourclub.com · 90-second read
+        Approve from your inbox or mobile over morning coffee · 90-second workflow · assembled from 4 systems
       </p>
     </div>
   );
@@ -159,7 +159,7 @@ export default function HowItWorksSection() {
   return (
     <SectionShell
       band="paper"
-      eyebrow="SEE IT · THE SATURDAY MORNING BRIEFING"
+      eyebrow="FIX IT · THE SATURDAY BRIEFING"
       title="Your daily Member Health Score — written overnight."
       subtitle="Your tee sheet only knows golf. Your POS only knows dining. Swoop sits on top of Jonas, Northstar, and ForeTees to close the blindspot — connecting cross-domain signals overnight to calculate a daily Member Health Score for every member. Catching the quiet resignation sequence weeks before any single system notices. A 90-second read that replaces four software logins."
     >
