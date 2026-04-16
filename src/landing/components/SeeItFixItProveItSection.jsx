@@ -41,7 +41,10 @@ function MorningBriefingPanel() {
           $42.2K
         </div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.65)', marginTop: 4 }}>
-          protected across 6 agents · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative</em>
+          protected across 6 agents · delivered 06:14 · <em style={{ color: 'rgba(255,255,255,0.35)' }}>illustrative*</em>
+        </div>
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.28)', marginTop: 6, fontStyle: 'italic', lineHeight: 1.4 }}>
+          *Member Pulse = 4-yr LTV at risk. Revenue Analyst = $31/round F&B leakage × documented slow rounds. Demand Optimizer = foregone revenue from discounted slots. Pinetree CC 90-day Q1 2024 deployment.
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '8px 0' }}>

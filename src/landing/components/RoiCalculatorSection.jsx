@@ -209,7 +209,7 @@ export default function RoiCalculatorSection() {
               Revenue recovered ({swoopSaves} members saved)
             </p>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.72)', marginTop: 8, fontStyle: 'italic' }}>
-              Calculated from your inputs: avg dues × estimated lapse rate × 12. Not a projection — math you can verify.
+              Calculated from your inputs: (members × annual turnover rate × 65% recovery rate) × avg annual dues. Not a projection — math you can verify.
             </p>
           </div>
 

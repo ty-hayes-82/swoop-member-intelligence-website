@@ -24,8 +24,8 @@ const metricCards = [
   {
     title: 'Dues at Risk Visibility',
     metric: '$1.38M',
-    subtitle: 'at-risk member lifetime value (LTV) — 23 flagged members',
-    description: '23 members flagged across health score decline, declining visits, and unresolved complaints — annualized at full dues + F&B minimums at Pinetree CC (300 members).',
+    subtitle: 'in protected member lifetime value — 23 flagged members',
+    description: '23 members × $15K avg annual dues × 4-yr LTV = $1.38M protected. Flagged by cross-referencing health score decline, visit frequency, and unresolved service complaints at Pinetree CC.',
   },
 ];
 

@@ -12,7 +12,7 @@ export default function PlatformPage() {
         <SectionShell
           band="dark"
           eyebrow="SEE IT · THE VISIBILITY GAP"
-          subtitle="Keep your POS and tee sheet. Add an intelligence layer that connects them overnight. A daily Member Health Score showing exactly who's drifting, why, and the exact move to make."
+          subtitle="Unify Jonas, ForeTees, and your CRM overnight. A daily Member Health Score showing exactly who's drifting, why, and the exact move to make — without replacing a single system you already run."
           headerSlot={
             <>
               <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 8px', lineHeight: 1.1, letterSpacing: '-0.02em' }}>

@@ -119,8 +119,14 @@ function PricingCard({ tier, onCtaClick }) {
         </>
       )}
       {tier.price === '$499/mo' && (
-        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16, fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6 }}>
-          "Alert: The Smith family played 3 slow rounds last month and their dining spend dropped 40%. Suggested action: Call James to offer a complimentary tee time." <span style={{ color: '#F3922D', fontWeight: 700 }}>Status: 1-Tap Approval</span>
+        <div style={{ background: 'rgba(243,146,45,0.07)', border: '1px solid rgba(243,146,45,0.20)', borderRadius: 8, padding: '12px 14px', marginBottom: 16 }}>
+          <p style={{ fontSize: 12, color: '#555', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: '0 0 10px' }}>
+            "Alert: The Smith family played 3 rounds but skipped post-round dining due to 5-hour pace. Suggested action: Offer complimentary appetizers on next visit."
+          </p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(243,146,45,0.15)', paddingTop: 10 }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: '#B8600E' }}>Impact: $8,000 dues at risk</span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: '#F3922D', background: 'rgba(243,146,45,0.15)', padding: '3px 10px', borderRadius: 4 }}>✓ Approve &amp; Send Draft</span>
+          </div>
         </div>
       )}
       {tier.price === '$499/mo' && (
@@ -195,8 +201,16 @@ export default function PricingSection({ onCtaClick }) {
         ))}
       </div>
 
+      {/* Layer 3 moat statement */}
+      <div style={{ maxWidth: 560, margin: '28px auto 0', textAlign: 'center' }}>
+        <p style={{ fontSize: 17, fontWeight: 600, color: theme.neutrals.ink, lineHeight: 1.4, margin: 0 }}>
+          Your POS sees dining. Your tee sheet sees golf.{' '}
+          <span style={{ color: '#B8600E' }}>Swoop sees how they connect to save at-risk dues.</span>
+        </p>
+      </div>
+
       {/* Inline reassurance — objection handling at the decision point */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 24px', marginTop: 28 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 24px', marginTop: 20 }}>
         {[
           '✓ Integrates with Jonas, ForeUP, Toast & 35+ more — no rip and replace',
           '✓ No long-term contracts — cancel at the end of any month',

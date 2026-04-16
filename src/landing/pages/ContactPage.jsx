@@ -5,11 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A 60-second daily morning briefing replacing 4 logins — a daily Member Health Score ranking your top 5 at-risk members and identifying $100k+ in collective dues at risk.',
-  'A Board-ready Revenue Leakage Report — quantifying exactly how pace-of-play and weather demand cost you F&B conversions (e.g., $31 lost in dining revenue per slow round).',
-  'A preview of your Saturday Morning Briefing — replacing 4 system logins with a single 60-second view of your top operational gaps, delivered to your inbox at 6:15 AM.',
-  'Benchmarks vs. our 2025 cohort of 7 founding-partner clubs (anonymized, your club not identified).',
-  'Intelligence you control. You leave with a prioritized action list featuring zero automated execution. Club data never shared without mutual NDA.',
+  'A ranked list of at-risk members driven by our cross-domain Member Health Score.',
+  'A Board-ready Revenue Leakage Report — revealing hidden blind spots, like the $31 lost in F&B dining conversions for every slow round of golf.',
+  'A custom Saturday Morning Briefing — see how Swoop replaces 4 separate software logins with a single real-time operational cockpit.',
+  'Benchmarks vs. 7 top-tier founding-partner clubs (anonymized, your club not identified).',
 ];
 
 function ContactHeroPanel() {
@@ -41,7 +40,7 @@ function ContactHeroPanel() {
             margin: '0 0 20px',
           }}
         >
-          <strong style={{ color: theme.neutrals.ink }}>Your tee sheet doesn't talk to your POS.</strong> Single-system vendors like Jonas or ForeTees only see half the picture — they miss the compound patterns causing revenue leakage. In <strong>30</strong> minutes, we cross-reference your tee sheet, dining POS, and CRM to catch the first domino: they stop opening emails, then skip Saturday golf, then cancel dining reservations. Your first daily <strong style={{ color: theme.neutrals.ink }}>Member Health Score</strong> catches that decay sequence weeks before any single system notices.
+          Your POS and tee sheet don't talk to each other — masking the real reasons members leave. We connect data across your existing systems to spot the quiet decay sequence: from skipped golf to abandoned dining reservations. In 30 minutes, we show you exactly who's disengaging weeks before anyone resigns — using your club's real data, not a generic demo. You leave with a prioritized daily action list, not a pitch deck.
         </p>
         <p
           style={{
