@@ -72,16 +72,16 @@ export default function DemoCtaSection({ ctaLabel = 'Book a Walkthrough' }) {
               See what Swoop would find at your club — in 30 minutes.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 18, lineHeight: 1.55, margin: '0 0 16px', maxWidth: 520 }}>
-              Your POS only sees dining. Your tee sheet only sees golf. Swoop connects them to find the $9,580/month leakage hiding in the gaps. Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
+              Stop cross-referencing Jonas and your tee sheet by hand. We securely connect your data before the call so you can see Swoop flag the exact moment a member's habits change — using your real numbers, right in your new morning briefing cockpit.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, margin: '0 0 32px' }}>
-              We connect to your tee sheet before the call so you see exactly what Swoop surfaces for a club like yours.
+              Go from 6 hours pulling reports to a 20-minute board meeting — generate a 4-tab, dollar-quantified ROI report in one click.
             </p>
 
             {/* Testimonial */}
             <div style={{ marginBottom: 32, borderLeft: '2px solid #F3922D', paddingLeft: 20 }}>
               <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontStyle: 'italic', lineHeight: 1.65, margin: 0, color: '#FFFFFF' }}>
-                &ldquo;Swoop flagged a high-value corporate account we were about to lose. One dinner comp and a follow-up call saved $32K in lifetime dues.&rdquo;
+                &ldquo;Swoop flagged a high-value corporate account we were about to lose. One dinner comp and a follow-up call saved $32K in annual dues [corporate membership].&rdquo;
               </p>
               <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.60)', marginTop: 10 }}>
                 — Robert Torres, GM &middot; Meridian Hills CC &middot; 340-member equity private club

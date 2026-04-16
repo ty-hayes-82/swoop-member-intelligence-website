@@ -5,10 +5,10 @@ import ErrorBoundary from '@/landing/components/ErrorBoundary';
 import '@/landing/landing.css';
 
 const leaveWithItems = [
-  'A ranked list of your top 5 at-risk members based on their Swoop Member Health Score.',
-  'A Board-ready Revenue Leakage Report — identifying exact blind spots, like the $31 in lost dining revenue for every slow-play round, to ensure flawless service consistency.',
-  'A "Saturday Briefing" preview — see how consolidating 4 logins into a daily action queue needs only a 1-tap GM approval to protect dues and close F&B leakage before Monday.',
-  'Benchmarks vs. the 7 founding-partner clubs (anonymized, your club not identified).',
+  'A preview of your new Daily Cockpit — see how to replace 4 software logins with a single 5-minute morning briefing.',
+  'Your Daily Member Health Score — a ranked list of your top 5 member retention priorities.',
+  'A Board-ready Revenue Leakage Report — exact service consistency blind spots, like the $31/round lost in F&B during 5-hour rounds.',
+  'Your data under mutual NDA. We never share club data across engagements. Deleted within 30 days if you don\'t move forward.',
 ];
 
 function ContactHeroPanel() {
@@ -41,10 +41,10 @@ function ContactHeroPanel() {
             margin: '0 0 28px',
           }}
         >
-          In 30 minutes, we cross-reference those systems to generate a unified Member Health Score —
-          showing you exactly who's quietly disengaging before they resign. Once live, Swoop replaces
-          four clunky software logins with a single 60-second morning briefing. You leave with a
-          prioritized action list, not a pitch deck.
+          We cross-reference your tee sheet, POS, and member communications to spot who is quietly
+          disengaging before anyone resigns. In 30 minutes, we generate a unified Member Health Score
+          for your club. Once live, Swoop replaces four clunky software logins with a single 60-second
+          morning briefing. You leave with a prioritized action list, not a pitch deck.
         </p>
         <p
           style={{
@@ -107,7 +107,7 @@ function TechDisclosurePanel() {
           </summary>
           <div style={{ marginTop: 16, fontSize: 14, lineHeight: 1.8 }}>
             <p><strong>Your data stays yours.</strong> Mutual NDA on every engagement. We are a data processor, not a controller.</p>
-            <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe.</p>
+            <p><strong>Systems we read from:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe. Because no single vendor owns all your data, Swoop reads across all of them to find the compound leakage that siloed systems miss.</p>
             <p><strong>Write-back scope:</strong> <em>None during your 30-day walkthrough phase.</em> Upon full deployment, Swoop only writes back tee-sheet notes, CRM tasks, and GM-approved messages — nothing without a GM tap. We never modify financial records.</p>
             <p><strong>Security:</strong> AES-256 at rest, TLS 1.3 in transit, RBAC, 90-day audit log. SOC 2 Type II (Audit Active).</p>
             <p><strong>Private Intelligence:</strong> Your member data is strictly ring-fenced. We operate under strict zero-retention agreements, meaning your club's data is never used to teach outside systems. Every action is logged and reversible.</p>

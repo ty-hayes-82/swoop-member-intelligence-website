@@ -27,8 +27,8 @@ const narrativeBlocks = [
     time: 'The Floor',
     agents: 'For the GM & F&B Director',
     headline: 'Two servers called out. Shift covered before the lunch rush.',
-    outcome: '3 VIP tables covered without service drop-off.',
-    callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 VIP tables covered.',
+    outcome: '3 Board members seated without service drop-off.',
+    callout: '> Grill Room short 2 servers · banquet floater redeployed · 3 Board members seated.',
   },
 ];
 

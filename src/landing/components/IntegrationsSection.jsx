@@ -9,7 +9,7 @@ export default function IntegrationsSection() {
       band="dark"
       eyebrow="Integrations"
       title="Every system your club runs. Connected overnight."
-      subtitle="We don't replace your systems. We unlock the data trapped inside them. Cloud or legacy Jonas — our team handles the Layer 3 API mapping. No IT lift on your end."
+      subtitle="Single-vendor systems are blind to data outside their ecosystem. Swoop is system-agnostic — correlating insights across every vendor you use, even intelligently matching 'James Smith' in ForeTees to 'J. Smith' in Jonas. No IT lift on your end."
     >
       <style>{`
         @media (max-width: 639px) { .integrations-ring { display: none; } .integrations-list { display: block !important; } }
@@ -164,7 +164,7 @@ export default function IntegrationsSection() {
           <p><strong style={{ color: '#FFFFFF' }}>Systems we connect to:</strong> Jonas, Club Essentials, Northstar, ClubReady, Lightspeed, foreUP, Club Prophet, Stripe, Toast, Square</p>
           <p><strong style={{ color: '#FFFFFF' }}>How data moves:</strong> Read via API or nightly SFTP. Write-back only for tee-sheet notes, CRM tasks, GM-approved messages.</p>
           <p><strong style={{ color: '#FFFFFF' }}>Security:</strong> AES-256 at rest, TLS 1.3, SSO, RBAC, 90-day audit log.</p>
-          <p><strong style={{ color: '#FFFFFF' }}>AI transparency:</strong> Anthropic Claude API, zero-retention agreement, PII never trains models, every action logged and reversible.</p>
+          <p><strong style={{ color: '#FFFFFF' }}>AI transparency:</strong> Enterprise-grade AI with a strict zero-retention agreement. Your member data is never used to train outside systems. Every action is logged and reversible.</p>
         </div>
       </details>
     </SectionShell>
