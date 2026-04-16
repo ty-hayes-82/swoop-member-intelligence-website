@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          Most tools show you what happened. Swoop tells you what to do next.
+          Total visibility into your member experience and daily operations. Every signal filtered down to the <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>3 decisions that matter</strong>, delivered securely to your phone before the first tee time.
         </p>
 
         {/* CTAs */}

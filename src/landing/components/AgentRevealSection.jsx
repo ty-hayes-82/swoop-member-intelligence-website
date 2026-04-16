@@ -100,7 +100,7 @@ export default function AgentRevealSection() {
           onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(243,146,45,0.1)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
         >
-          Show My Board — Book a Demo →
+          Book a Walkthrough →
         </button>
       </div>
 
@@ -115,7 +115,7 @@ export default function AgentRevealSection() {
         }}
       >
         "Every agent proposes. You decide. The outcome is tracked.{' '}
-        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>The model gets smarter.</strong>"
+        <strong style={{ color: '#FFFFFF', fontStyle: 'normal' }}>Your operations get sharper.</strong>"
       </p>
     </SectionShell>
   );

@@ -9,8 +9,8 @@ export default function AgentsSection() {
       id="agents"
       band="cream"
       eyebrow="Agents"
-      title="Six AI agents working your club — live."
-      subtitle="These aren't if/then rules. Each agent is trained on 12 months of club behavioral data and cross-references signals from your POS, tee sheet, CRM, and billing system — then drafts a specific, human-reviewable action. Watch it work:"
+      title="Your real-time operations cockpit, crossing all data domains."
+      subtitle="Swoop is the only platform that connects the dots between isolated systems. It securely sits on top of your existing software—continuously correlating live signals across Jonas, Northstar, ForeTees, and your CRM to find the margin leakage single-vendor systems miss. Zero migration. Zero downtime."
     >
       <AgentsLiveDemo />
 
@@ -23,7 +23,7 @@ export default function AgentsSection() {
         }}>
           <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🛡️</span>
           <p style={{ fontSize: 15, color: theme.neutrals.ink, margin: 0, lineHeight: 1.55 }}>
-            <strong>GM Approval Required.</strong> Agents analyze and draft — they never text or email a member without your explicit sign-off. Every recommended action requires one tap to approve or dismiss.
+            <strong>GM Approval Required.</strong> Agents analyze and draft—they never act without your explicit sign-off. Approved actions instantly draft an email from your Outlook, or notify department heads via SMS. Includes full audit trail and 5-minute delay for easy undo.
           </p>
         </div>
         <div style={{

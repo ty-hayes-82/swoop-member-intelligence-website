@@ -5,7 +5,7 @@ const briefRows = [
   { label: 'James Whitfield', detail: 'complaint · rounds ↓42% · tee time 9:20am', value: '$8.4K', rank: 1 },
   { label: 'Grill Room staffing gap', detail: 'Sat lunch · 95 covers · 6 scheduled', value: '$3.2K', rank: 2 },
   { label: 'Kevin Harrington · Day 47', detail: 'new member · 0 events · 1 round · 90-day window closing', value: 'At risk', rank: 3 },
-  { label: 'Revenue leak · F&B mix', detail: 'beverage ratio ↓ 3 weeks', value: '$22K', rank: 4 },
+  { label: 'Pace-of-Play Bottleneck', detail: 'Hole 12 delays · $31 lost dining conversion per slow round', value: '$6.2K', rank: 4 },
 ];
 
 function MorningBriefCard() {
@@ -159,9 +159,9 @@ export default function HowItWorksSection() {
   return (
     <SectionShell
       band="paper"
-      eyebrow="FIX IT · THE MONDAY"
-      title="The daily brief, written overnight."
-      subtitle="Every morning, Swoop hands your GM a ranked list of members to call, slots to backfill, and service moves to make — with the math behind each recommendation."
+      eyebrow="THE DAILY BRIEF"
+      title="Your morning briefing, written overnight."
+      subtitle="Every morning, Swoop hands you a ranked list of members to call, slots to backfill, and service moves to make. A 90-second read that replaces four different software logins."
     >
       <div
         style={{
