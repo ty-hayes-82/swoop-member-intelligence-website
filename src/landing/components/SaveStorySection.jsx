@@ -207,6 +207,9 @@ function ProveItPanel() {
       <p style={{ fontSize: 12, color: theme.colors.textMuted, marginTop: 12, fontStyle: 'italic' }}>
         Stats: Pinetree CC founding-partner data · 300 active members · 90-day deployment window
       </p>
+      <p style={{ fontSize: 11, color: theme.colors.textMuted, marginTop: 8, lineHeight: 1.6 }}>
+        *Methodology: F&B leakage calculated by correlating POS average ticket ($31) against anomalous 30-day dining absence flagged via tee-sheet/CRM cross-reference. Dues protected calculates at-risk member LTV based on remaining contract value. Baseline: 450-member club, $12K average annual dues.
+      </p>
     </div>
   );
 }

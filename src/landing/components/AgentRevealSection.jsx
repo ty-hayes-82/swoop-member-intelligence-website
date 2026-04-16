@@ -10,11 +10,11 @@ const narrativeBlocks = [
     callout: '> $18K dues at risk. Call James Whitfield before 10:15 AM.',
   },
   {
-    time: 'The Watch',
-    agents: 'For the Director of Golf',
-    headline: 'Complaint filed Tuesday. Caught before the Thursday tee time.',
-    outcome: 'Service window surfaced before staff noticed.',
-    callout: '> Complaint aging 6 days · dining visits ↓40% · tee time 9:20 AM today.',
+    time: 'The Member',
+    agents: 'For the Membership Director',
+    headline: 'Caught the invisible resignation sequence.',
+    outcome: 'Email opens dropped. Then golf frequency dipped. Caught before the dining room noticed.',
+    callout: '> CRM active. POS 18 days silent. Intervention triggered.',
   },
   {
     time: 'The Pace',

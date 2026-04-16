@@ -20,7 +20,7 @@ export default function PlatformPage() {
                 <span style={{ color: 'rgba(255,255,255,0.72)' }}>Start protecting your dues.</span>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.82)', margin: '0 0 4px' }}>
-                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional methods — on average, across founding-partner clubs.
+                Swoop catches at-risk members <strong style={{ color: '#F3922D' }}>6.4 weeks earlier</strong> than traditional 90-day trailing non-usage reports — on average, across founding-partner clubs.
               </p>
             </>
           }
@@ -37,6 +37,20 @@ export default function PlatformPage() {
             </p>
           </div>
         </SectionShell>
+      </div>
+
+      {/* Integration banner — names the Layer 3 data sources explicitly */}
+      <div style={{ width: '100%', borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)', background: '#1A1A1A', padding: '12px 0' }}>
+        <div className="landing-container" style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace", color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0 }}>
+            Reading real-time signals directly from{' '}
+            <span style={{ color: '#FFFFFF' }}>Jonas</span>,{' '}
+            <span style={{ color: '#FFFFFF' }}>Northstar</span>,{' '}
+            <span style={{ color: '#FFFFFF' }}>ForeTees</span>,{' '}
+            <span style={{ color: '#FFFFFF' }}>Club Prophet</span>,{' '}
+            and your existing stack
+          </p>
+        </div>
       </div>
 
       <div id="howitworks">

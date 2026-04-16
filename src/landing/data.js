@@ -202,8 +202,8 @@ export const comparisonFeatures = [
 export const agents = [
   {
     icon: 'UserRound',
-    name: 'Member Pulse',
-    description: 'Detects early disengagement signals — including new members who haven\'t built habits in their first 90 days — and drafts GM-approved interventions before members resign.',
+    name: 'Member Health Score',
+    description: 'Detects the quiet resignation sequence — email opens drop, then golf frequency dips, then dining goes silent — weeks before any single system notices. Drafts GM-approved interventions before members resign.',
   },
   {
     icon: 'Radar',

@@ -10,7 +10,7 @@ export default function AgentsSection() {
       band="cream"
       eyebrow="FIX IT · THE SATURDAY BRIEFING"
       title="Your cross-domain intelligence layer. Always running."
-      subtitle="Your POS doesn't talk to your tee sheet. Your tee sheet doesn't read member emails. Swoop is the only platform that explicitly cross-references Jonas, ForeTees, Northstar, and your existing CRM to spot blind spots and draft specific, human-reviewable actions. Watch it work:"
+      subtitle="Why your current systems miss the full picture: your POS only sees dining, and your tee sheet only sees golf. Because Swoop sits above them all, it spots the cross-domain patterns single systems are structurally blind to — and drafts specific, human-reviewable actions. Watch it work:"
     >
       <AgentsLiveDemo />
 

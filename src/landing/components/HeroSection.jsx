@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { theme } from '@/config/theme';
 
 const BRIEF_ITEMS = [
-  { time: '06:14', label: 'Member Pulse', detail: 'James Whitfield · rounds ↓42% · complaint aging 4d · tee time 9:20 AM today', value: '$18K at risk' },
+  { time: '06:14', label: 'Member Health Score', detail: 'James Whitfield · rounds ↓42% · complaint aging 4d · tee time 9:20 AM today', value: '$18K at risk' },
   { time: '06:14', label: 'New Member Alert', detail: 'Kevin Harrington · Day 47 · 0 events attended · 1 round total · pattern matches early churn', value: '90-day window' },
   { time: '06:14', label: 'Service Recovery', detail: 'Dining complaint aging 6d · 30-day window breached · callback drafted', value: '$11K protected' },
   { time: '06:14', label: 'Staffing Gap', detail: 'Saturday lunch: 95 covers forecast · 6 staff scheduled · add 2 FOH shifts', value: 'Service risk' },
@@ -170,7 +170,7 @@ export default function HeroSection({ onDemoClick }) {
             textAlign: 'center',
           }}
         >
-          Total visibility into your member experience and daily operations. Every signal filtered down to the <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>3 decisions that matter</strong>, delivered securely to your phone before the first tee time.
+          Total visibility into your member experience and daily operations. Every signal filtered down to the <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>3 decisions that matter</strong>, delivered securely to your phone at 6:00 AM — before the first tee time.
         </p>
 
         {/* CTAs */}
