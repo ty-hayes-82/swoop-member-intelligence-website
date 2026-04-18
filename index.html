@@ -1093,7 +1093,7 @@
   }
 
   /* ===== MORNING BRIEF ===== */
-  .brief-section { background: var(--ivory); }
+  .brief-section { background: var(--forest); }
 
   .brief-panel {
     margin-top: 16px;
@@ -1424,6 +1424,115 @@
     margin-top: 14px;
     line-height: 1.5;
   }
+
+  /* ===== DARK BRIEF SECTION ===== */
+  .brief-section {
+    background: var(--forest);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .brief-section .section-eyebrow { color: var(--brass-soft); }
+  .brief-section .section-eyebrow::before { color: var(--brass-soft); }
+  .brief-section .section-title { color: var(--ivory); }
+  .brief-section .section-title em { color: var(--brass-soft); font-style: italic; }
+  .brief-section .section-lede { color: rgba(244, 240, 232, 0.7); }
+  .brief-section .source-note { color: rgba(244, 240, 232, 0.35); }
+
+  .brief-section .brief-panel {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(244, 240, 232, 0.15);
+  }
+
+  .brief-section .brief-panel::before {
+    background: linear-gradient(90deg, var(--brass) 0%, var(--brass-soft) 100%);
+  }
+
+  .brief-section .brief-header { border-bottom-color: rgba(244, 240, 232, 0.15); }
+  .brief-section .brief-meta { color: var(--brass-soft); }
+  .brief-section .brief-title { color: var(--ivory); }
+
+  .brief-section .brief-total {
+    background: var(--brass);
+    color: var(--ink);
+    border-color: var(--brass);
+  }
+
+  .brief-section .brief-total-num {
+    font-size: 52px;
+    letter-spacing: -0.03em;
+  }
+
+  .brief-section .brief-total-label { color: rgba(26, 31, 27, 0.65); }
+
+  .brief-section .brief-grid {
+    background: rgba(244, 240, 232, 0.08);
+    border-color: rgba(244, 240, 232, 0.08);
+  }
+
+  .brief-section .brief-row {
+    background: rgba(15, 30, 20, 0.55);
+    gap: 12px;
+    padding: 28px 24px;
+  }
+
+  .brief-section .brief-row-agent { color: rgba(244, 240, 232, 0.45); }
+  .brief-section .brief-row-amount { color: var(--brass-soft); }
+  .brief-section .brief-row-amount.neg { color: rgba(196, 165, 115, 0.75); }
+  .brief-section .brief-row-action { color: rgba(244, 240, 232, 0.8); }
+  .brief-section .brief-row-member { color: var(--brass-soft); }
+  .brief-section .brief-footer { border-top-color: rgba(244, 240, 232, 0.15); }
+  .brief-section .brief-delivery { color: rgba(244, 240, 232, 0.45); }
+  .brief-section .brief-delivery strong { color: var(--brass-soft); }
+
+  /* ===== DARK ARCHITECTURE SECTION ===== */
+  .architecture {
+    background: var(--forest);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .architecture .section-eyebrow { color: var(--brass-soft); }
+  .architecture .section-eyebrow::before { color: var(--brass-soft); }
+  .architecture .arch-title { color: var(--ivory); }
+  .architecture .arch-title em { color: var(--brass-soft); }
+  .architecture .arch-body { color: rgba(244, 240, 232, 0.7); }
+  .architecture .arch-body strong { color: var(--ivory); }
+
+  .architecture .arch-specs {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(244, 240, 232, 0.15);
+  }
+
+  .architecture .arch-specs-title { color: var(--brass-soft); }
+  .architecture .spec-label { color: rgba(244, 240, 232, 0.5); }
+  .architecture .spec-value { color: var(--ivory); }
+  .architecture .arch-specs-list li { border-bottom-color: rgba(244, 240, 232, 0.1); }
+
+  /* ===== VENDOR LENS — SEES vs BLIND TO ===== */
+  .lens-row--blind .lens-row-label {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .lens-row--blind .lens-row-text {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* ===== FAQ — Q italic forest, A more space ===== */
+  .faq-q {
+    font-style: italic;
+    color: var(--forest);
+    font-weight: 400;
+  }
+
+  .faq-a { margin-top: 14px; }
+  .faq-item { padding: 28px 0; }
 </style>
 </head>
 <body>
@@ -1753,8 +1862,8 @@
           <div class="lens-row-label"><em>Sees</em></div>
           <div class="lens-row-text">Rounds played, pace of play, dues status, no-shows.</div>
         </div>
-        <div class="lens-row">
-          <div class="lens-row-label"><em>Blind to</em></div>
+        <div class="lens-row lens-row--blind">
+          <div class="lens-row-label">Blind to</div>
           <div class="lens-row-text"><strong>Dining spend, complaints aging, email engagement, events skipped.</strong></div>
         </div>
       </div>
@@ -1768,8 +1877,8 @@
           <div class="lens-row-label"><em>Sees</em></div>
           <div class="lens-row-text">Covers, check averages, menu mix, staffing on the floor.</div>
         </div>
-        <div class="lens-row">
-          <div class="lens-row-label"><em>Blind to</em></div>
+        <div class="lens-row lens-row--blind">
+          <div class="lens-row-label">Blind to</div>
           <div class="lens-row-text"><strong>Pace-of-play upstream, tee-sheet demand, member tenure, CRM flags.</strong></div>
         </div>
       </div>
@@ -1783,8 +1892,8 @@
           <div class="lens-row-label"><em>Sees</em></div>
           <div class="lens-row-text">Email opens, event RSVPs, survey responses, complaint records.</div>
         </div>
-        <div class="lens-row">
-          <div class="lens-row-label"><em>Blind to</em></div>
+        <div class="lens-row lens-row--blind">
+          <div class="lens-row-label">Blind to</div>
           <div class="lens-row-text"><strong>Whether the member is actually playing, spending, or quietly disengaging on property.</strong></div>
         </div>
       </div>
@@ -1959,5 +2068,31 @@
   </div>
 </footer>
 
+<script>
+(function() {
+  var rows = document.querySelectorAll('.brief-row');
+  var grid = document.querySelector('.brief-grid');
+  if (!grid || !rows.length) return;
+  rows.forEach(function(r) {
+    r.style.opacity = '0';
+    r.style.transform = 'translateY(8px)';
+    r.style.transition = 'opacity 0.45s ease-out, transform 0.45s ease-out';
+  });
+  var fired = false;
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !fired) {
+      fired = true;
+      rows.forEach(function(r, i) {
+        setTimeout(function() {
+          r.style.opacity = '1';
+          r.style.transform = 'translateY(0)';
+        }, i * 160);
+      });
+      observer.disconnect();
+    }
+  }, { threshold: 0.25 });
+  observer.observe(grid);
+})();
+</script>
 </body>
 </html>
