@@ -123,7 +123,7 @@
   /* ===== HERO ===== */
   .hero {
     position: relative;
-    padding: 180px 48px 120px;
+    padding: 120px 48px 64px;
     max-width: 1400px;
     margin: 0 auto;
     z-index: 1;
@@ -136,7 +136,7 @@
     text-transform: uppercase;
     color: var(--brass);
     font-weight: 500;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -157,7 +157,7 @@
     letter-spacing: -0.02em;
     color: var(--ink);
     max-width: 1100px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 
   .hero h1 em {
@@ -172,7 +172,7 @@
     color: var(--ink-soft);
     max-width: 620px;
     font-weight: 300;
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 
   .hero-cta-row {
@@ -266,7 +266,7 @@
 
   .proof-stats {
     display: flex;
-    gap: 56px;
+    gap: 40px;
     flex-wrap: wrap;
   }
 
@@ -300,11 +300,11 @@
   .section-inner {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 140px 48px;
+    padding: 72px 48px;
   }
 
   .section-header {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     max-width: 900px;
   }
 
@@ -366,7 +366,7 @@
   }
 
   .verb-card {
-    padding: 64px 48px 72px;
+    padding: 40px 48px;
     border-right: 1px solid var(--rule-soft);
     position: relative;
   }
@@ -378,7 +378,7 @@
     font-size: 14px;
     font-style: italic;
     color: var(--brass);
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     letter-spacing: 0.05em;
   }
 
@@ -406,7 +406,9 @@
 
   /* ===== TWO RELATIONSHIPS ===== */
   .relationships {
-    background: var(--ivory);
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
 
   .relationships-grid {
@@ -672,19 +674,21 @@
 
   /* ===== PROOF ===== */
   .proof {
-    background: var(--ivory);
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
 
   .proof-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    margin-top: 40px;
+    margin-top: 24px;
   }
 
   .case-card {
-    padding: 48px 40px;
-    background: var(--paper);
+    padding: 40px;
+    background: var(--ivory);
     border: 1px solid var(--rule);
     position: relative;
   }
@@ -829,7 +833,8 @@
 
   /* ===== FAQ ===== */
   .faq {
-    background: var(--ivory);
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--rule);
   }
 
   .faq-list {
@@ -838,7 +843,7 @@
 
   .faq-item {
     border-top: 1px solid var(--rule);
-    padding: 36px 0;
+    padding: 24px 0;
   }
 
   .faq-item:last-child {
@@ -867,7 +872,7 @@
   .cta-footer {
     background: var(--forest);
     color: var(--ivory);
-    padding: 140px 48px;
+    padding: 80px 48px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1069,8 +1074,8 @@
     nav { padding: 16px 24px; }
     .nav-links { gap: 16px; }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 140px 24px 80px; }
-    .section-inner { padding: 80px 24px; }
+    .hero { padding: 100px 24px 56px; }
+    .section-inner { padding: 56px 24px; }
     .proof-bar { padding: 32px 24px; }
     .proof-stats { gap: 32px; }
     .cta-footer { padding: 80px 24px; }
@@ -1088,7 +1093,7 @@
   }
 
   /* ===== MORNING BRIEF ===== */
-  .brief-section { background: var(--paper); }
+  .brief-section { background: var(--ivory); }
 
   .brief-panel {
     margin-top: 24px;
@@ -1265,7 +1270,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
-    margin-bottom: 56px;
+    margin-bottom: 32px;
   }
 
   .lens-card {
@@ -1487,7 +1492,7 @@
 
 <!-- ===== THREE VERB FRAME ===== -->
 <section class="verbs">
-  <div class="section-inner" style="padding-bottom: 0;">
+  <div class="section-inner" style="padding-bottom: 24px;">
     <div class="section-header">
       <div class="section-eyebrow">What it does</div>
       <h2 class="section-title">See it. Fix it. <em>Prove it.</em></h2>
@@ -1658,7 +1663,7 @@
       </div>
     </div>
 
-    <div class="flow-label-row" style="margin-top: 72px;">
+    <div class="flow-label-row" style="margin-top: 48px;">
       <div class="flow-label-marker">II.</div>
       <div class="flow-label-text">A member request, routed cleanly</div>
     </div>
